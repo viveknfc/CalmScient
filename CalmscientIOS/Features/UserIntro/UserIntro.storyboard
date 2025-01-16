@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_72" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--User Intro Day Feedback View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="UserIntroDayFeedbackViewController" id="Y6W-OH-hqX" customClass="UserIntroDayFeedbackViewController" customModule="CalmscientIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Good Morning" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UWF-cs-ji2">
+                                <rect key="frame" x="151" y="75" width="128.33333333333337" height="24"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="18R-VC-pOn">
+                                <rect key="frame" x="0.0" y="123" width="430" height="619"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EGU-tb-4dU" customClass="LinearGradientButton" customModule="CalmscientIOS" customModuleProvider="target">
+                                <rect key="frame" x="32.333333333333343" y="774" width="365.33333333333326" height="45"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="topGradientColor">
+                                        <color key="value" name="GradientButtonColor1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomGradientColor">
+                                        <color key="value" name="GradientButtonColor2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="22"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="didClickOnSaveButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="3Bc-QT-E6H"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tUs-RJ-yyx" customClass="BorderShadowButton" customModule="CalmscientIOS" customModuleProvider="target">
+                                <rect key="frame" x="32.333333333333343" y="835" width="365.33333333333326" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="WvC-6x-5P3"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Skip"/>
+                                <connections>
+                                    <action selector="didClickOnSkipButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="dtq-Z9-Xg1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="EGU-tb-4dU" firstAttribute="top" secondItem="18R-VC-pOn" secondAttribute="bottom" constant="32" id="1JO-gA-6IZ"/>
+                            <constraint firstItem="EGU-tb-4dU" firstAttribute="leading" secondItem="tUs-RJ-yyx" secondAttribute="leading" id="EFh-B6-mgV"/>
+                            <constraint firstItem="tUs-RJ-yyx" firstAttribute="top" secondItem="EGU-tb-4dU" secondAttribute="bottom" constant="16" id="FHD-ct-3L8"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="tUs-RJ-yyx" secondAttribute="bottom" constant="18" id="Gc5-Fq-uPc"/>
+                            <constraint firstItem="UWF-cs-ji2" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="JiQ-bF-b6b"/>
+                            <constraint firstItem="EGU-tb-4dU" firstAttribute="trailing" secondItem="tUs-RJ-yyx" secondAttribute="trailing" id="OaU-sW-aAR"/>
+                            <constraint firstItem="EGU-tb-4dU" firstAttribute="height" secondItem="tUs-RJ-yyx" secondAttribute="height" id="Too-Vk-mkK"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="18R-VC-pOn" secondAttribute="trailing" id="WR1-Oh-Knc"/>
+                            <constraint firstItem="18R-VC-pOn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Yk6-cc-RbC"/>
+                            <constraint firstItem="tUs-RJ-yyx" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="bAF-UX-gfc"/>
+                            <constraint firstItem="UWF-cs-ji2" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="niA-1A-eau"/>
+                            <constraint firstItem="18R-VC-pOn" firstAttribute="top" secondItem="UWF-cs-ji2" secondAttribute="bottom" constant="24" id="q9H-hW-J9W"/>
+                            <constraint firstItem="tUs-RJ-yyx" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.85" id="xUJ-n8-67O"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="feedbackTableView" destination="18R-VC-pOn" id="3V4-NU-5AQ"/>
+                        <outlet property="savebutton" destination="EGU-tb-4dU" id="tMf-7I-9fu"/>
+                        <outlet property="screenTitleLabel" destination="UWF-cs-ji2" id="9Ff-ve-pgq"/>
+                        <outlet property="skipButton" destination="tUs-RJ-yyx" id="gVp-ef-4RG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-51.627906976744185" y="3.8626609442060089"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="EGU-tb-4dU">
+            <size key="intrinsicContentSize" width="61" height="34.333333333333336"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="GradientButtonColor1">
+            <color red="0.42745098039215684" green="0.41960784313725491" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GradientButtonColor2">
+            <color red="0.17254901960784313" green="0.20000000000000001" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

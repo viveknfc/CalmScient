@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="UserEntrySleepCell" id="gTV-IL-0wX" customClass="UserEntrySleepCell" customModule="HealthApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="109"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="109"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4UO-7O-ape">
+                        <rect key="frame" x="0.0" y="59" width="50" height="50"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SleepHours_Normal" translatesAutoresizingMaskIntoConstraints="NO" id="Z7D-GG-7st">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Less" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyU-2d-jBt">
+                                <rect key="frame" x="15.666666666666666" y="20.333333333333329" width="18.666666666666671" height="9.6666666666666643"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="8"/>
+                                <color key="textColor" systemColor="systemGrayColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qyU-2d-jBt" firstAttribute="centerX" secondItem="4UO-7O-ape" secondAttribute="centerX" id="EAS-Ih-FMf"/>
+                            <constraint firstItem="qyU-2d-jBt" firstAttribute="centerY" secondItem="4UO-7O-ape" secondAttribute="centerY" id="Nhl-8j-yrN"/>
+                            <constraint firstAttribute="trailing" secondItem="Z7D-GG-7st" secondAttribute="trailing" id="R9p-A7-pBf"/>
+                            <constraint firstAttribute="bottom" secondItem="Z7D-GG-7st" secondAttribute="bottom" id="Y1u-1i-RmQ"/>
+                            <constraint firstItem="Z7D-GG-7st" firstAttribute="top" secondItem="4UO-7O-ape" secondAttribute="top" id="hWC-Mu-iMe"/>
+                            <constraint firstItem="Z7D-GG-7st" firstAttribute="leading" secondItem="4UO-7O-ape" secondAttribute="leading" id="nWg-US-mpQ"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="4UO-7O-ape" secondAttribute="top" id="LsI-xk-cve"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="bottom" secondItem="4UO-7O-ape" secondAttribute="bottom" id="PD4-gW-oaV"/>
+                <constraint firstItem="4UO-7O-ape" firstAttribute="trailing" secondItem="ZTg-uK-7eu" secondAttribute="trailing" id="bf3-z0-Slb"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="leading" secondItem="4UO-7O-ape" secondAttribute="leading" id="x7I-g7-8Qx"/>
+            </constraints>
+            <connections>
+                <outlet property="backgroundImageView" destination="Z7D-GG-7st" id="lc3-MG-LOA"/>
+                <outlet property="textLabel" destination="qyU-2d-jBt" id="ArF-95-ihy"/>
+            </connections>
+            <point key="canvasLocation" x="44" y="20"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="SleepHours_Normal" width="42" height="40"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGrayColor">
+            <color red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

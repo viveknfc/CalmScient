@@ -1,0 +1,1133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lexendregular.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Months View Controller-->
+        <scene sceneID="whf-K4-7CA">
+            <objects>
+                <viewController storyboardIdentifier="MonthsViewController" id="9Xe-ID-4Ga" customClass="MonthsViewController" customModule="CalmscientIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aa9-fs-XdJ">
+                        <rect key="frame" x="0.0" y="0.0" width="430" height="932"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dtA-MN-ddc">
+                                <rect key="frame" x="0.0" y="59" width="430" height="717"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GHy-gd-Cc5">
+                                        <rect key="frame" x="0.0" y="0.0" width="430" height="939"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tbn-8a-zGq">
+                                                <rect key="frame" x="20" y="0.0" width="390" height="127"/>
+                                                <subviews>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1Z-sK-ypQ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="382" height="64"/>
+                                                        <color key="backgroundColor" name="AppBackGroundColor"/>
+                                                        <string key="text">Good job!
+This is the monthly drink counts we suggest.</string>
+                                                        <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9db-Cr-HqY">
+                                                        <rect key="frame" x="336" y="72" width="46" height="46"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" image="spotlight"/>
+                                                        <connections>
+                                                            <action selector="bulbButtonAction:" destination="9Xe-ID-4Ga" eventType="touchUpInside" id="chi-Df-RfW"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <color key="backgroundColor" name="AppBackGroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="127" id="0Oe-zk-jLT"/>
+                                                    <constraint firstAttribute="width" constant="390" id="4ee-QE-L4l"/>
+                                                    <constraint firstAttribute="bottom" secondItem="9db-Cr-HqY" secondAttribute="bottom" constant="9" id="I7P-Ao-1kM"/>
+                                                    <constraint firstItem="9db-Cr-HqY" firstAttribute="trailing" secondItem="Tbn-8a-zGq" secondAttribute="trailingMargin" id="Nc8-VJ-gy6"/>
+                                                    <constraint firstItem="F1Z-sK-ypQ" firstAttribute="top" secondItem="Tbn-8a-zGq" secondAttribute="top" id="SmC-kV-RDW"/>
+                                                    <constraint firstItem="F1Z-sK-ypQ" firstAttribute="leading" secondItem="Tbn-8a-zGq" secondAttribute="leadingMargin" constant="-8" id="hkg-Da-PA3"/>
+                                                    <constraint firstItem="9db-Cr-HqY" firstAttribute="top" secondItem="F1Z-sK-ypQ" secondAttribute="bottom" constant="8" symbolic="YES" id="qse-rL-611"/>
+                                                    <constraint firstAttribute="trailing" secondItem="F1Z-sK-ypQ" secondAttribute="trailing" constant="8" id="wnR-A0-2hh"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FKO-KK-3wc">
+                                                <rect key="frame" x="20" y="325" width="390" height="332"/>
+                                                <color key="backgroundColor" red="0.94521468880000004" green="0.94082504509999998" blue="0.96470898390000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="332" id="1Tz-pD-bFO"/>
+                                                    <constraint firstAttribute="width" constant="390" id="usd-lu-s6e"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SQQ-KY-smC">
+                                                <rect key="frame" x="20" y="135" width="390" height="150"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="afD-xf-eKR">
+                                                        <rect key="frame" x="0.0" y="2" width="180" height="138"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MzE-cc-yBX">
+                                                                <rect key="frame" x="8" y="8" width="164" height="33"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="164" id="Mee-Ou-zBF"/>
+                                                                    <constraint firstAttribute="height" constant="33" id="k8n-q3-YSd"/>
+                                                                </constraints>
+                                                                <string key="text">Your suggested monthly 
+Drinks count</string>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o16-JQ-Mwj">
+                                                                <rect key="frame" x="44" y="47" width="95" height="55"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="height" constant="55" id="2fI-Sn-RFX"/>
+                                                                    <constraint firstAttribute="width" constant="95" id="NNB-ED-6BU"/>
+                                                                </constraints>
+                                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="39"/>
+                                                                <color key="textColor" name="CalenderDefaultTextColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstItem="o16-JQ-Mwj" firstAttribute="top" secondItem="MzE-cc-yBX" secondAttribute="bottom" constant="6" id="0dN-x5-U3y"/>
+                                                            <constraint firstItem="o16-JQ-Mwj" firstAttribute="leading" secondItem="afD-xf-eKR" secondAttribute="leading" constant="44" id="4Wd-jT-CdJ"/>
+                                                            <constraint firstAttribute="trailing" secondItem="o16-JQ-Mwj" secondAttribute="trailing" constant="41" id="I6v-bN-RNE"/>
+                                                            <constraint firstItem="MzE-cc-yBX" firstAttribute="leading" secondItem="afD-xf-eKR" secondAttribute="leading" constant="8" id="PaB-xL-3Al"/>
+                                                            <constraint firstAttribute="width" secondItem="afD-xf-eKR" secondAttribute="height" multiplier="169:122" constant="-11.163934426229531" id="fUb-gP-7JR"/>
+                                                            <constraint firstItem="MzE-cc-yBX" firstAttribute="top" secondItem="afD-xf-eKR" secondAttribute="top" constant="8" id="inL-Os-xNd"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V6R-W4-aqT">
+                                                        <rect key="frame" x="209" y="2" width="180" height="138"/>
+                                                        <subviews>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CQH-Np-Ki8">
+                                                                <rect key="frame" x="8" y="52" width="164" height="55"/>
+                                                                <state key="normal" title="Button"/>
+                                                                <buttonConfiguration key="configuration" style="plain">
+                                                                    <attributedString key="attributedTitle">
+                                                                        <fragment content="XX">
+                                                                            <attributes>
+                                                                                <color key="NSColor" red="0.65739724049092119" green="0.24676183018563602" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                                <font key="NSFont" size="39" name="Helvetica-Bold"/>
+                                                                                <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                            </attributes>
+                                                                        </fragment>
+                                                                    </attributedString>
+                                                                </buttonConfiguration>
+                                                                <connections>
+                                                                    <action selector="monthlyDrinksButtonAction:" destination="9Xe-ID-4Ga" eventType="touchUpInside" id="2vC-K0-esB"/>
+                                                                </connections>
+                                                            </button>
+                                                        </subviews>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="CQH-Np-Ki8" secondAttribute="bottom" constant="31" id="jJC-Zq-PFw"/>
+                                                            <constraint firstItem="CQH-Np-Ki8" firstAttribute="leading" secondItem="V6R-W4-aqT" secondAttribute="leading" constant="8" id="lhy-kK-CsW"/>
+                                                            <constraint firstAttribute="width" secondItem="V6R-W4-aqT" secondAttribute="height" multiplier="169:122" constant="-11.163934426229531" id="nLb-s7-a04"/>
+                                                            <constraint firstAttribute="trailing" secondItem="CQH-Np-Ki8" secondAttribute="trailing" constant="8" id="wKM-C7-aVi"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your monthly Drinks count" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cTn-bi-i6S">
+                                                        <rect key="frame" x="216" y="11" width="153" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="Awl-N9-Dbe"/>
+                                                            <constraint firstAttribute="width" constant="153" id="LEX-aE-nfG"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" name="AppBackGroundColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="cTn-bi-i6S" firstAttribute="top" secondItem="SQQ-KY-smC" secondAttribute="top" constant="11" id="0GS-rZ-UJA"/>
+                                                    <constraint firstItem="V6R-W4-aqT" firstAttribute="top" secondItem="SQQ-KY-smC" secondAttribute="top" constant="2" id="1tC-wS-9Ww"/>
+                                                    <constraint firstItem="afD-xf-eKR" firstAttribute="leading" secondItem="SQQ-KY-smC" secondAttribute="leading" id="7DM-dd-sBT"/>
+                                                    <constraint firstItem="V6R-W4-aqT" firstAttribute="leading" secondItem="afD-xf-eKR" secondAttribute="trailing" constant="29" id="AUm-oe-aBZ"/>
+                                                    <constraint firstItem="afD-xf-eKR" firstAttribute="top" secondItem="SQQ-KY-smC" secondAttribute="top" constant="2" id="B2H-bm-rYF"/>
+                                                    <constraint firstItem="cTn-bi-i6S" firstAttribute="leading" secondItem="afD-xf-eKR" secondAttribute="trailing" constant="36" id="UZm-iJ-hea"/>
+                                                    <constraint firstAttribute="height" constant="150" id="XwI-VF-YZ1"/>
+                                                    <constraint firstAttribute="width" constant="390" id="dK9-Gu-cwj"/>
+                                                    <constraint firstItem="V6R-W4-aqT" firstAttribute="width" secondItem="afD-xf-eKR" secondAttribute="width" id="dLf-V7-5XK"/>
+                                                    <constraint firstAttribute="trailing" secondItem="V6R-W4-aqT" secondAttribute="trailing" constant="1" id="gmk-yO-kdb"/>
+                                                    <constraint firstItem="CQH-Np-Ki8" firstAttribute="top" secondItem="cTn-bi-i6S" secondAttribute="bottom" constant="23" id="ul3-as-gKe"/>
+                                                    <constraint firstItem="V6R-W4-aqT" firstAttribute="leading" secondItem="afD-xf-eKR" secondAttribute="trailing" constant="29" id="xIp-aN-HEL"/>
+                                                    <constraint firstItem="V6R-W4-aqT" firstAttribute="height" secondItem="afD-xf-eKR" secondAttribute="height" id="zJN-60-cI2"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now, lets's decide how much you drink" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mDO-LG-xCY">
+                                                <rect key="frame" x="20" y="288" width="237" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="Pzg-Bs-IkZ"/>
+                                                    <constraint firstAttribute="width" constant="237" id="d9J-QX-aOc"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" name="AppBackGroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="FKO-KK-3wc" firstAttribute="top" secondItem="mDO-LG-xCY" secondAttribute="bottom" constant="13" id="BBf-pT-Lgn"/>
+                                            <constraint firstAttribute="height" constant="939" id="Bjv-ol-Tgq"/>
+                                            <constraint firstItem="SQQ-KY-smC" firstAttribute="top" secondItem="Tbn-8a-zGq" secondAttribute="bottom" constant="8" symbolic="YES" id="Cq7-yO-Dl2"/>
+                                            <constraint firstAttribute="trailing" secondItem="Tbn-8a-zGq" secondAttribute="trailing" constant="20" symbolic="YES" id="Uar-7u-ibA"/>
+                                            <constraint firstItem="FKO-KK-3wc" firstAttribute="leading" secondItem="GHy-gd-Cc5" secondAttribute="leading" constant="20" symbolic="YES" id="XAp-Zs-ree"/>
+                                            <constraint firstAttribute="trailing" secondItem="SQQ-KY-smC" secondAttribute="trailing" constant="20" symbolic="YES" id="chI-Ch-Eiz"/>
+                                            <constraint firstItem="Tbn-8a-zGq" firstAttribute="leading" secondItem="GHy-gd-Cc5" secondAttribute="leading" constant="20" symbolic="YES" id="cyx-uh-m8N"/>
+                                            <constraint firstAttribute="trailing" secondItem="FKO-KK-3wc" secondAttribute="trailing" constant="20" symbolic="YES" id="fbv-bQ-K1b"/>
+                                            <constraint firstItem="mDO-LG-xCY" firstAttribute="top" secondItem="SQQ-KY-smC" secondAttribute="bottom" constant="3" id="hu4-u9-LeT"/>
+                                            <constraint firstItem="SQQ-KY-smC" firstAttribute="leading" secondItem="GHy-gd-Cc5" secondAttribute="leading" constant="20" symbolic="YES" id="oZi-lO-FoM"/>
+                                            <constraint firstItem="Tbn-8a-zGq" firstAttribute="top" secondItem="GHy-gd-Cc5" secondAttribute="top" id="ptf-Xl-lYH"/>
+                                            <constraint firstItem="mDO-LG-xCY" firstAttribute="leading" secondItem="GHy-gd-Cc5" secondAttribute="leading" constant="20" symbolic="YES" id="u0V-U9-hON"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" name="AppBackGroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="GHy-gd-Cc5" firstAttribute="leading" secondItem="dtA-MN-ddc" secondAttribute="leading" id="4HP-l9-QDC"/>
+                                    <constraint firstItem="GHy-gd-Cc5" firstAttribute="top" secondItem="dtA-MN-ddc" secondAttribute="top" id="Q03-g4-KA0"/>
+                                    <constraint firstAttribute="bottom" secondItem="GHy-gd-Cc5" secondAttribute="bottom" constant="-222" id="RLa-sS-OrD"/>
+                                    <constraint firstAttribute="trailing" secondItem="GHy-gd-Cc5" secondAttribute="trailing" id="Yw2-rl-Sk2"/>
+                                    <constraint firstItem="GHy-gd-Cc5" firstAttribute="width" secondItem="dtA-MN-ddc" secondAttribute="width" id="cDS-tr-2Td"/>
+                                </constraints>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TgQ-82-lm4">
+                                <rect key="frame" x="20" y="784" width="390" height="114"/>
+                                <subviews>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYG-Ij-VWb">
+                                        <rect key="frame" x="325" y="36" width="41" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="41" id="C5B-RC-nR4"/>
+                                            <constraint firstAttribute="height" constant="41" id="avn-l9-PFc"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="forwardArrow"/>
+                                        <connections>
+                                            <action selector="forwardButtonAction:" destination="9Xe-ID-4Ga" eventType="touchUpInside" id="mKc-yf-HYZ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tlA-jW-jof">
+                                        <rect key="frame" x="10" y="36" width="41" height="41"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="41" id="PSn-1i-NEY"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="41" id="dRp-wH-8hy"/>
+                                            <constraint firstAttribute="height" constant="41" id="myM-6G-5F9"/>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="41" id="wAb-3O-GeL"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="backward"/>
+                                        <connections>
+                                            <action selector="backwardButtonAction:" destination="9Xe-ID-4Ga" eventType="touchUpInside" id="MdN-iR-ZeY"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="41c-fC-z3X" customClass="LinearGradientButton" customModule="CalmscientIOS" customModuleProvider="target">
+                                        <rect key="frame" x="107" y="26.666666666666629" width="176" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="176" id="11T-7d-9Js"/>
+                                            <constraint firstAttribute="height" constant="60" id="3vX-oy-9o0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Set">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="topGradientColor">
+                                                <color key="value" name="circleCellSelectedColor"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="bottomGradientColor">
+                                                <color key="value" name="GradientButtonColor2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="30"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="setButtonAction:" destination="9Xe-ID-4Ga" eventType="touchUpInside" id="n09-rf-vJh"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="AppBackGroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="41c-fC-z3X" firstAttribute="centerY" secondItem="tlA-jW-jof" secondAttribute="centerY" id="1Wb-fG-OnY"/>
+                                    <constraint firstItem="41c-fC-z3X" firstAttribute="centerY" secondItem="RYG-Ij-VWb" secondAttribute="centerY" id="7BG-o6-yWG"/>
+                                    <constraint firstItem="tlA-jW-jof" firstAttribute="leading" secondItem="TgQ-82-lm4" secondAttribute="leading" constant="10" id="FTF-eL-dG7"/>
+                                    <constraint firstAttribute="bottom" secondItem="tlA-jW-jof" secondAttribute="bottom" constant="37" id="GxT-NA-b7v"/>
+                                    <constraint firstAttribute="height" constant="114" id="K0Q-fu-NuI"/>
+                                    <constraint firstItem="RYG-Ij-VWb" firstAttribute="leading" secondItem="41c-fC-z3X" secondAttribute="trailing" constant="42" id="O5m-87-s5i"/>
+                                    <constraint firstItem="41c-fC-z3X" firstAttribute="leading" secondItem="tlA-jW-jof" secondAttribute="trailing" constant="56" id="ORU-NB-feE"/>
+                                    <constraint firstItem="tlA-jW-jof" firstAttribute="top" secondItem="TgQ-82-lm4" secondAttribute="top" constant="36" id="ifD-rx-RTw"/>
+                                    <constraint firstAttribute="width" constant="390" id="sNf-GT-8kH"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="3xl-4h-yYZ"/>
+                        <color key="backgroundColor" name="AppBackGroundColor"/>
+                        <constraints>
+                            <constraint firstItem="TgQ-82-lm4" firstAttribute="top" secondItem="dtA-MN-ddc" secondAttribute="bottom" constant="8" id="1TB-HC-jHP"/>
+                            <constraint firstItem="dtA-MN-ddc" firstAttribute="top" secondItem="3xl-4h-yYZ" secondAttribute="top" id="6fN-66-JM9"/>
+                            <constraint firstItem="TgQ-82-lm4" firstAttribute="bottom" secondItem="3xl-4h-yYZ" secondAttribute="bottom" id="XeF-ci-DVX"/>
+                            <constraint firstItem="dtA-MN-ddc" firstAttribute="trailing" secondItem="3xl-4h-yYZ" secondAttribute="trailing" id="jx3-Pc-PuS"/>
+                            <constraint firstItem="dtA-MN-ddc" firstAttribute="leading" secondItem="3xl-4h-yYZ" secondAttribute="leading" id="pAP-ub-U7G"/>
+                            <constraint firstItem="3xl-4h-yYZ" firstAttribute="trailing" secondItem="TgQ-82-lm4" secondAttribute="trailing" constant="20" id="qWh-gd-EgF"/>
+                            <constraint firstItem="TgQ-82-lm4" firstAttribute="leading" secondItem="3xl-4h-yYZ" secondAttribute="leading" constant="20" id="qns-RD-bCt"/>
+                        </constraints>
+                    </view>
+                    <size key="freeformSize" width="430" height="932"/>
+                    <connections>
+                        <outlet property="actualDrinksCountLabel" destination="cTn-bi-i6S" id="xOs-7n-wmA"/>
+                        <outlet property="bulbPopUpMainView" destination="Fa2-bg-F5m" id="ln3-J4-Xqe"/>
+                        <outlet property="bulbPopUpSubView" destination="ji7-rK-p3E" id="Wbu-e8-DjB"/>
+                        <outlet property="calenderView" destination="FKO-KK-3wc" id="bW3-AH-Wl5"/>
+                        <outlet property="congratulationLabel" destination="40T-Ed-HEM" id="3mm-Bl-TcI"/>
+                        <outlet property="congratulationSubView" destination="QO0-Tb-C7m" id="qro-Ot-W08"/>
+                        <outlet property="congratulationView" destination="TLI-ag-sSt" id="Uaf-1d-vZn"/>
+                        <outlet property="congratulationsDescriptionLabel" destination="USy-pg-Eu0" id="t1U-j3-HHe"/>
+                        <outlet property="congratulationsSeeIntoButton" destination="dIP-FE-5kq" id="PS3-dT-Dfp"/>
+                        <outlet property="contentView" destination="GHy-gd-Cc5" id="96g-G6-6Jf"/>
+                        <outlet property="errorALertMainView" destination="Tas-NF-GJN" id="Atj-Kf-vAT"/>
+                        <outlet property="errorChangeGoalButton" destination="lNK-I2-1wi" id="EEk-bd-szD"/>
+                        <outlet property="errorCloseButton" destination="LaM-9E-VRC" id="iLW-Fx-BWV"/>
+                        <outlet property="errorDismissButton" destination="hCY-29-Phh" id="WDF-cy-EJs"/>
+                        <outlet property="errorLabel" destination="K7A-iw-51k" id="tai-iB-HZT"/>
+                        <outlet property="errorSubView" destination="GPt-8D-izu" id="O38-Bw-IcS"/>
+                        <outlet property="goodJobLabel" destination="F1Z-sK-ypQ" id="QQ1-ct-nHE"/>
+                        <outlet property="howMuchLabel" destination="mDO-LG-xCY" id="avG-Yu-8kd"/>
+                        <outlet property="monthlyCountLabel" destination="MzE-cc-yBX" id="JDK-pT-x15"/>
+                        <outlet property="monthlyDrinkCounButton" destination="CQH-Np-Ki8" id="gBG-it-vhG"/>
+                        <outlet property="monthsScrollview" destination="dtA-MN-ddc" id="xyd-tW-JF2"/>
+                        <outlet property="numberView" destination="bJV-MR-htX" id="5pE-hm-0bP"/>
+                        <outlet property="numbersPickeView" destination="XDf-pM-kZD" id="9eF-sl-Teu"/>
+                        <outlet property="selectedCountView" destination="V6R-W4-aqT" id="hJe-4B-GrT"/>
+                        <outlet property="suggestedCountLable" destination="o16-JQ-Mwj" id="2zb-nf-pwl"/>
+                        <outlet property="suggestedCountView" destination="afD-xf-eKR" id="Hef-yk-hOg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vPH-hr-FXT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="bJV-MR-htX">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E1W-ga-UTo">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="40"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YWg-Ff-5ds">
+                                    <rect key="frame" x="318" y="8" width="67" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="P5v-sW-dge"/>
+                                        <constraint firstAttribute="width" constant="67" id="oWR-cI-UPG"/>
+                                    </constraints>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Close"/>
+                                    <connections>
+                                        <action selector="closeClicked:" destination="9Xe-ID-4Ga" eventType="touchUpInside" id="b6Z-jG-vy0"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="km3-wN-gfp">
+                                    <rect key="frame" x="19" y="8" width="67" height="20"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="20" id="Ymj-p9-OM2"/>
+                                        <constraint firstAttribute="width" constant="67" id="eaT-0W-mBR"/>
+                                    </constraints>
+                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Done"/>
+                                    <connections>
+                                        <action selector="doneClicked:" destination="9Xe-ID-4Ga" eventType="touchUpInside" id="H9L-4u-j0X"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.96487838029999995" green="0.96024924519999999" blue="0.98823899029999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstItem="km3-wN-gfp" firstAttribute="leading" secondItem="E1W-ga-UTo" secondAttribute="leading" constant="19" id="Dps-O7-zVP"/>
+                                <constraint firstAttribute="height" constant="40" id="Jot-ad-Rc5"/>
+                                <constraint firstItem="km3-wN-gfp" firstAttribute="top" secondItem="E1W-ga-UTo" secondAttribute="top" constant="8" id="OSy-IY-90r"/>
+                                <constraint firstAttribute="width" constant="393" id="VVn-jI-974"/>
+                                <constraint firstAttribute="trailing" secondItem="YWg-Ff-5ds" secondAttribute="trailing" constant="8" id="jj2-kN-pcY"/>
+                                <constraint firstItem="YWg-Ff-5ds" firstAttribute="top" secondItem="E1W-ga-UTo" secondAttribute="top" constant="8" id="sw8-cd-CeL"/>
+                            </constraints>
+                        </view>
+                        <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XDf-pM-kZD">
+                            <rect key="frame" x="5" y="43" width="382" height="151"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="151" id="Vcf-C0-VOm"/>
+                                <constraint firstAttribute="width" constant="382" id="yBF-if-Wek"/>
+                            </constraints>
+                        </pickerView>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="qbD-Kq-F9v"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="XDf-pM-kZD" firstAttribute="leading" secondItem="qbD-Kq-F9v" secondAttribute="leading" constant="5" id="0zR-DD-7c6"/>
+                        <constraint firstItem="XDf-pM-kZD" firstAttribute="top" secondItem="E1W-ga-UTo" secondAttribute="bottom" constant="3" id="2rm-5U-e5I"/>
+                        <constraint firstItem="qbD-Kq-F9v" firstAttribute="trailing" secondItem="XDf-pM-kZD" secondAttribute="trailing" constant="6" id="8Ev-Ll-466"/>
+                        <constraint firstItem="E1W-ga-UTo" firstAttribute="top" secondItem="bJV-MR-htX" secondAttribute="top" id="CSg-fS-vND"/>
+                        <constraint firstItem="E1W-ga-UTo" firstAttribute="leading" secondItem="bJV-MR-htX" secondAttribute="leading" id="aX9-is-dxp"/>
+                        <constraint firstAttribute="bottom" secondItem="XDf-pM-kZD" secondAttribute="bottom" constant="6" id="iDv-OS-RKX"/>
+                        <constraint firstAttribute="trailing" secondItem="E1W-ga-UTo" secondAttribute="trailing" id="zT8-0z-1vX"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" id="Tas-NF-GJN">
+                    <rect key="frame" x="0.0" y="0.0" width="430" height="931"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle_backGround" translatesAutoresizingMaskIntoConstraints="NO" id="lIo-ug-lEx">
+                            <rect key="frame" x="0.0" y="0.0" width="430" height="931"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="931" id="olC-hp-XzV"/>
+                                <constraint firstAttribute="width" constant="430" id="pvT-Ke-Qne"/>
+                            </constraints>
+                        </imageView>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GPt-8D-izu">
+                            <rect key="frame" x="17" y="339" width="366" height="253"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="exclamationmark.triangle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="cNf-PH-9PZ">
+                                    <rect key="frame" x="155" y="12.333333333333336" width="81" height="79.666666666666657"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="tintColor" systemColor="systemRedColor"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="You selected more than what is suggested" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K7A-iw-51k">
+                                    <rect key="frame" x="71" y="100" width="248.66666666666663" height="52"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="18"/>
+                                    <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaM-9E-VRC">
+                                    <rect key="frame" x="328" y="8" width="30" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="closeIcon">
+                                        <color key="titleColor" red="0.43137254899999999" green="0.41960784309999999" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="errorCloseButtonAction:" destination="9Xe-ID-4Ga" eventType="touchUpInside" id="ulE-mj-3V8"/>
+                                        <action selector="errorDismissButtonAction:" destination="9Xe-ID-4Ga" eventType="touchUpInside" id="r3w-Zb-abd"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lNK-I2-1wi" customClass="LinearGradientButton" customModule="CalmscientIOS" customModuleProvider="target">
+                                    <rect key="frame" x="200" y="173" width="130" height="45"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="tintColor" red="0.96487838029999995" green="0.96024924519999999" blue="0.98823899029999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Change goal"/>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="topGradientColor">
+                                            <color key="value" name="GradientButtonColor1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="bottomGradientColor">
+                                            <color key="value" name="GradientButtonColor2"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                            <real key="value" value="24"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="errorChangeGoalButtonAction:" destination="9Xe-ID-4Ga" eventType="touchUpInside" id="fWx-3N-zXI"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hCY-29-Phh">
+                                    <rect key="frame" x="45" y="173" width="130" height="45"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="16"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="Dismiss">
+                                        <color key="titleColor" red="0.43137254899999999" green="0.41960784309999999" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="errorDismissButtonAction:" destination="9Xe-ID-4Ga" eventType="touchUpInside" id="wJO-J0-8Ge"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" name="Color"/>
+                        </view>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="a5K-Eb-lVB"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="lIo-ug-lEx" firstAttribute="trailing" secondItem="a5K-Eb-lVB" secondAttribute="trailing" id="QOo-Sp-GT5"/>
+                        <constraint firstItem="lIo-ug-lEx" firstAttribute="top" secondItem="Tas-NF-GJN" secondAttribute="top" id="ZM9-rH-xea"/>
+                        <constraint firstAttribute="bottom" secondItem="lIo-ug-lEx" secondAttribute="bottom" id="b2B-ln-42s"/>
+                        <constraint firstItem="lIo-ug-lEx" firstAttribute="leading" secondItem="a5K-Eb-lVB" secondAttribute="leading" id="fll-wM-yhZ"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" id="TLI-ag-sSt">
+                    <rect key="frame" x="0.0" y="0.0" width="430" height="931"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle_backGround" translatesAutoresizingMaskIntoConstraints="NO" id="ehJ-oo-zmT">
+                            <rect key="frame" x="0.0" y="0.0" width="430" height="931"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="430" id="A71-As-XdS"/>
+                                <constraint firstAttribute="height" constant="931" id="raM-XN-qH3"/>
+                            </constraints>
+                        </imageView>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QO0-Tb-C7m">
+                            <rect key="frame" x="17" y="311" width="366" height="364"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uHk-Wt-kpc">
+                                    <rect key="frame" x="321" y="8" width="30" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="closeIcon">
+                                        <color key="titleColor" red="0.43137254899999999" green="0.41960784309999999" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="congratulationCloseButtonAction:" destination="9Xe-ID-4Ga" eventType="touchUpInside" id="6SX-qi-2AA"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="USy-pg-Eu0">
+                                    <rect key="frame" x="20" y="55" width="331" height="189"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <attributedString key="attributedText">
+                                        <fragment>
+                                            <string key="content">Now you need to control your drink 
+
+habit by taking a count not only monthly 
+
+goal, but also daily limit according to
+
+the guideline about moderate drinking
+
+
+</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="19" name="HelveticaNeue-Light"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="0.59999999999999998" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="36">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="72">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="108">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="144">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="180">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="216">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="252">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="288">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="324">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="360">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="396">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="432">
+                                                            <options/>
+                                                        </textTab>
+                                                    </tabStops>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">Let's get to know the drink coach 
+
+features</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <font key="NSFont" size="19" name="HelveticaNeue-Light"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="0.59999999999999998" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Congratulations!" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="40T-Ed-HEM">
+                                    <rect key="frame" x="20" y="8" width="237" height="39"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="21"/>
+                                    <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dIP-FE-5kq">
+                                    <rect key="frame" x="18" y="283" width="331" height="45"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="19"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" title="See the introduction">
+                                        <color key="titleColor" red="0.43137254899999999" green="0.41960784309999999" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="congratulationSeeIntroButtonAction:" destination="9Xe-ID-4Ga" eventType="touchUpInside" id="g9i-xy-sxW"/>
+                                        <action selector="errorDismissButtonAction:" destination="9Xe-ID-4Ga" eventType="touchUpInside" id="ksb-v3-YaT"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" name="Color"/>
+                        </view>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="CIb-4t-YUy"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="ehJ-oo-zmT" secondAttribute="bottom" id="2RY-jV-HMx"/>
+                        <constraint firstItem="ehJ-oo-zmT" firstAttribute="leading" secondItem="CIb-4t-YUy" secondAttribute="leading" id="NmQ-YJ-txh"/>
+                        <constraint firstItem="ehJ-oo-zmT" firstAttribute="trailing" secondItem="CIb-4t-YUy" secondAttribute="trailing" id="ea6-hr-V6E"/>
+                        <constraint firstItem="ehJ-oo-zmT" firstAttribute="top" secondItem="TLI-ag-sSt" secondAttribute="top" id="w8V-NB-4bd"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" id="Fa2-bg-F5m">
+                    <rect key="frame" x="0.0" y="0.0" width="430" height="931"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle_backGround" translatesAutoresizingMaskIntoConstraints="NO" id="QI3-K1-7GI">
+                            <rect key="frame" x="0.0" y="0.0" width="430" height="931"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="430" id="c7v-x3-2jC"/>
+                                <constraint firstAttribute="height" constant="931" id="tLd-zz-9Qk"/>
+                            </constraints>
+                        </imageView>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ji7-rK-p3E">
+                            <rect key="frame" x="17" y="311" width="366" height="364"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="evw-Lc-mt4">
+                                    <rect key="frame" x="321" y="8" width="30" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="closeIcon">
+                                        <color key="titleColor" red="0.43137254899999999" green="0.41960784309999999" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="bulbPopupcloseButtonAction:" destination="9Xe-ID-4Ga" eventType="touchUpInside" id="MJg-5H-Ch8"/>
+                                    </connections>
+                                </button>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q27-vl-uUP">
+                                    <rect key="frame" x="17" y="16" width="286" height="62"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <string key="text">Remember, the US guideline of
+moderate drinking is:</string>
+                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="17"/>
+                                    <color key="textColor" name="profileTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jsc-CA-Axe">
+                                    <rect key="frame" x="23" y="72" width="321" height="68"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <attributedString key="attributedText">
+                                        <fragment content="•">
+                                            <attributes>
+                                                <color key="NSColor" red="0.5152708292" green="0.50981312990000005" blue="0.72159177060000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <font key="NSFont" size="17" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" headIndent="72" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="47">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="72">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="108">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="144">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="180">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="216">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="252">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="288">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="324">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="360">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="396">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="432">
+                                                            <options/>
+                                                        </textTab>
+                                                    </tabStops>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">   2 drinks or less in a day for men
+</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.5152708292" green="0.50981312990000005" blue="0.72159177060000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <font key="NSFont" size="18" name="Helvetica-Light"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" headIndent="72" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="47">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="72">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="108">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="144">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="180">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="216">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="252">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="288">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="324">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="360">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="396">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="432">
+                                                            <options/>
+                                                        </textTab>
+                                                    </tabStops>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="•">
+                                            <attributes>
+                                                <color key="NSColor" red="0.5152708292" green="0.50981312990000005" blue="0.72159177060000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <font key="NSFont" size="17" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" headIndent="72" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="47">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="72">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="108">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="144">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="180">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="216">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="252">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="288">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="324">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="360">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="396">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="432">
+                                                            <options/>
+                                                        </textTab>
+                                                    </tabStops>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="   1 drink or less in a day for women">
+                                            <attributes>
+                                                <color key="NSColor" red="0.5152708292" green="0.50981312990000005" blue="0.72159177060000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <font key="NSFont" size="18" name="Helvetica-Light"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" headIndent="72" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="47">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="72">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="108">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="144">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="180">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="216">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="252">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="288">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="324">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="360">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="396">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="432">
+                                                            <options/>
+                                                        </textTab>
+                                                    </tabStops>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Also NIAAA defines heavy drinking as:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="stT-uk-BlW">
+                                    <rect key="frame" x="17" y="141" width="321" height="46"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
+                                    <color key="textColor" name="profileTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1DK-Vt-lYA">
+                                    <rect key="frame" x="23" y="181" width="321" height="157"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <attributedString key="attributedText">
+                                        <fragment content="•">
+                                            <attributes>
+                                                <color key="NSColor" red="0.5152708292" green="0.50981312990000005" blue="0.72159177060000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <font key="NSFont" size="17" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" headIndent="72" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="47">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="72">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="108">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="144">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="180">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="216">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="252">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="288">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="324">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="360">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="396">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="432">
+                                                            <options/>
+                                                        </textTab>
+                                                    </tabStops>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">  5 or more drinks on any day or 15 
+</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.5152708292" green="0.50981312990000005" blue="0.72159177060000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <font key="NSFont" size="18" name="Helvetica-Light"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" headIndent="72" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="47">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="72">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="108">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="144">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="180">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="216">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="252">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="288">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="324">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="360">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="396">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="432">
+                                                            <options/>
+                                                        </textTab>
+                                                    </tabStops>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">    or more per week drink or less in a 
+    day for women
+</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.5152708292" green="0.50981312990000005" blue="0.72159177060000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <font key="NSFont" size="18" name="Helvetica-Light"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" headIndent="72" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="47">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="natural" location="72">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="108">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="144">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="180">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="216">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="252">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="288">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="324">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="360">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="396">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="432">
+                                                            <options/>
+                                                        </textTab>
+                                                    </tabStops>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment content="•">
+                                            <attributes>
+                                                <color key="NSColor" red="0.5152708292" green="0.50981312990000005" blue="0.72159177060000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <font key="NSFont" size="17" name="Helvetica"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" headIndent="72" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="47">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="72">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="108">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="144">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="180">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="216">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="252">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="288">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="324">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="360">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="396">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="432">
+                                                            <options/>
+                                                        </textTab>
+                                                    </tabStops>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                        <fragment>
+                                            <string key="content">  4 or more drinks on any day or 8 
+    or more per week for men</string>
+                                            <attributes>
+                                                <color key="NSColor" red="0.5152708292" green="0.50981312990000005" blue="0.72159177060000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <font key="NSFont" size="18" name="Helvetica-Light"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" headIndent="72" lineHeightMultiple="1.5" tighteningFactorForTruncation="0.0" allowsDefaultTighteningForTruncation="NO">
+                                                    <tabStops>
+                                                        <textTab alignment="left" location="47">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="72">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="108">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="144">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="180">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="216">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="252">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="288">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="324">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="360">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="396">
+                                                            <options/>
+                                                        </textTab>
+                                                        <textTab alignment="left" location="432">
+                                                            <options/>
+                                                        </textTab>
+                                                    </tabStops>
+                                                </paragraphStyle>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" name="Color"/>
+                        </view>
+                    </subviews>
+                    <viewLayoutGuide key="safeArea" id="gaz-ME-NJ7"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="QI3-K1-7GI" firstAttribute="top" secondItem="Fa2-bg-F5m" secondAttribute="top" id="3s2-6s-UNp"/>
+                        <constraint firstItem="QI3-K1-7GI" firstAttribute="trailing" secondItem="gaz-ME-NJ7" secondAttribute="trailing" id="g5Z-ZT-3wd"/>
+                        <constraint firstItem="QI3-K1-7GI" firstAttribute="leading" secondItem="gaz-ME-NJ7" secondAttribute="leading" id="lUj-um-XAe"/>
+                        <constraint firstAttribute="bottom" secondItem="QI3-K1-7GI" secondAttribute="bottom" id="w9T-8K-CD0"/>
+                    </constraints>
+                </view>
+            </objects>
+            <point key="canvasLocation" x="-18.320610687022899" y="-131.69014084507043"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Rectangle_backGround" width="420" height="1042"/>
+        <image name="backward" width="41" height="41"/>
+        <image name="closeIcon" width="32.333332061767578" height="33"/>
+        <image name="exclamationmark.triangle.fill" catalog="system" width="128" height="109"/>
+        <image name="forwardArrow" width="41" height="41"/>
+        <image name="spotlight" width="46" height="46"/>
+        <namedColor name="AppBackGroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CalenderDefaultTextColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Color">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GradientButtonColor1">
+            <color red="0.42745098039215684" green="0.41960784313725491" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GradientButtonColor2">
+            <color red="0.17254901960784313" green="0.20000000000000001" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="circleCellSelectedColor">
+            <color red="0.25490196078431371" green="0.24705882352941178" blue="0.4823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="profileTextColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>

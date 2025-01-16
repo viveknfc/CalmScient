@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="quizTableViewCell" rowHeight="149" id="KGk-i7-Jjw" customClass="quizTableViewCell" customModule="CalmscientIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="384" height="149"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="384" height="149"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4X3-53-MvO">
+                        <rect key="frame" x="11" y="7" width="212" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="212" id="4Qo-xw-dZn"/>
+                            <constraint firstAttribute="height" constant="18" id="EK8-Bv-vrk"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="15"/>
+                        <color key="textColor" name="AppLightTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8VA-L4-gNK">
+                        <rect key="frame" x="10" y="32" width="369" height="111"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vKq-Oe-qn0">
+                                <rect key="frame" x="8" y="13" width="196" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="196" id="BAk-I8-QKk"/>
+                                    <constraint firstAttribute="height" constant="21" id="guE-mD-5wM"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                <color key="textColor" name="AppLightTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jVg-Fq-gze">
+                                <rect key="frame" x="8" y="79.666666666666671" width="196" height="14.333333333333329"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="196" id="026-fB-XWV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                <color key="textColor" name="AppLightTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="h3n-p0-M8b">
+                                <rect key="frame" x="8" y="57" width="325" height="4"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="325" id="COq-cK-3zw"/>
+                                    <constraint firstAttribute="height" constant="4" id="QXJ-hz-aeD"/>
+                                </constraints>
+                            </progressView>
+                        </subviews>
+                        <color key="backgroundColor" name="AppBackGroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vKq-Oe-qn0" firstAttribute="top" secondItem="8VA-L4-gNK" secondAttribute="top" constant="13" id="7SV-Gx-dPv"/>
+                            <constraint firstItem="h3n-p0-M8b" firstAttribute="leading" secondItem="8VA-L4-gNK" secondAttribute="leading" constant="8" id="8Pu-Od-eHd"/>
+                            <constraint firstAttribute="height" constant="111" id="DsO-Ba-PVN"/>
+                            <constraint firstItem="h3n-p0-M8b" firstAttribute="top" secondItem="vKq-Oe-qn0" secondAttribute="bottom" constant="23" id="OZk-LW-beS"/>
+                            <constraint firstAttribute="width" constant="369" id="Pv3-xP-Fsm"/>
+                            <constraint firstItem="jVg-Fq-gze" firstAttribute="leading" secondItem="8VA-L4-gNK" secondAttribute="leading" constant="8" id="TBG-OH-Vrr"/>
+                            <constraint firstAttribute="trailing" secondItem="h3n-p0-M8b" secondAttribute="trailing" constant="36" id="ZJa-fm-GX0"/>
+                            <constraint firstItem="vKq-Oe-qn0" firstAttribute="leading" secondItem="8VA-L4-gNK" secondAttribute="leading" constant="8" id="brQ-u8-HS8"/>
+                            <constraint firstItem="jVg-Fq-gze" firstAttribute="top" secondItem="h3n-p0-M8b" secondAttribute="bottom" constant="18.666666666666657" id="eFE-3B-t5X"/>
+                            <constraint firstAttribute="bottom" secondItem="jVg-Fq-gze" secondAttribute="bottom" constant="17.000000000000014" id="mZK-1J-0fM"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" name="AppBackGroundColor"/>
+                <constraints>
+                    <constraint firstItem="4X3-53-MvO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="JxE-p7-KOI"/>
+                    <constraint firstItem="4X3-53-MvO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="11" id="Nsy-bO-Lpe"/>
+                    <constraint firstItem="8VA-L4-gNK" firstAttribute="top" secondItem="4X3-53-MvO" secondAttribute="bottom" constant="7" id="Uy2-Pq-ECW"/>
+                    <constraint firstAttribute="trailing" secondItem="8VA-L4-gNK" secondAttribute="trailing" constant="5" id="XJM-Bg-UGN"/>
+                    <constraint firstItem="8VA-L4-gNK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="YfU-ib-3E3"/>
+                    <constraint firstAttribute="bottom" secondItem="8VA-L4-gNK" secondAttribute="bottom" constant="6" id="hAi-Ts-Z7W"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="countLabel" destination="jVg-Fq-gze" id="iHW-vD-Rh0"/>
+                <outlet property="dateandTimeLabel" destination="vKq-Oe-qn0" id="tz1-32-dH7"/>
+                <outlet property="quizProgressBar" destination="h3n-p0-M8b" id="5SG-md-Cne"/>
+                <outlet property="quizView" destination="8VA-L4-gNK" id="Hfp-MT-sZR"/>
+                <outlet property="titleLabel" destination="4X3-53-MvO" id="6oQ-8U-ouA"/>
+            </connections>
+            <point key="canvasLocation" x="143.5114503816794" y="19.366197183098592"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="AppBackGroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppLightTextColor">
+            <color red="0.40799999237060547" green="0.40400001406669617" blue="0.45899999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

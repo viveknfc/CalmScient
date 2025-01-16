@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lexendregular.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KGk-i7-Jjw" customClass="JournalEntryCollapsedTableCell" customModule="CalmscientIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="67"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iep-Tt-WCf">
+                        <rect key="frame" x="16" y="8" width="288" height="51"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tor-FS-fGP">
+                                <rect key="frame" x="0.0" y="0.0" width="288" height="51"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cET-LJ-2Kx">
+                                        <rect key="frame" x="8" y="16" width="40.333333333333336" height="19"/>
+                                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
+                                        <color key="textColor" name="424242Color"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnQ-z5-3K4">
+                                        <rect key="frame" x="258.33333333333331" y="14.666666666666668" width="21.666666666666686" height="22.000000000000004"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="cellExpansion"/>
+                                        <connections>
+                                            <action selector="didClickOnExpandOrCollapseButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="sYw-hR-tg5"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="AppViewContentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="cET-LJ-2Kx" secondAttribute="bottom" constant="16" id="HMI-dp-dhq"/>
+                                    <constraint firstAttribute="trailing" secondItem="wnQ-z5-3K4" secondAttribute="trailing" constant="8" id="Knw-4X-ecy"/>
+                                    <constraint firstItem="cET-LJ-2Kx" firstAttribute="top" secondItem="Tor-FS-fGP" secondAttribute="top" constant="16" id="Ocd-me-q0A"/>
+                                    <constraint firstItem="cET-LJ-2Kx" firstAttribute="leading" secondItem="Tor-FS-fGP" secondAttribute="leading" constant="8" id="W78-2h-wqS"/>
+                                    <constraint firstItem="wnQ-z5-3K4" firstAttribute="centerY" secondItem="cET-LJ-2Kx" secondAttribute="centerY" id="Yxc-4r-wca"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Tor-FS-fGP" firstAttribute="top" secondItem="Iep-Tt-WCf" secondAttribute="top" id="AfZ-Wx-c6c"/>
+                            <constraint firstItem="Tor-FS-fGP" firstAttribute="leading" secondItem="Iep-Tt-WCf" secondAttribute="leading" id="Pqb-R0-ynw"/>
+                            <constraint firstAttribute="trailing" secondItem="Tor-FS-fGP" secondAttribute="trailing" id="TLX-Fv-TdU"/>
+                            <constraint firstAttribute="bottom" secondItem="Tor-FS-fGP" secondAttribute="bottom" id="TsT-z5-p7a"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Iep-Tt-WCf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="9xS-Lq-JT8"/>
+                    <constraint firstAttribute="bottom" secondItem="Iep-Tt-WCf" secondAttribute="bottom" constant="8" id="aMi-IL-w9f"/>
+                    <constraint firstItem="Iep-Tt-WCf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="dL9-He-uNf"/>
+                    <constraint firstAttribute="trailing" secondItem="Iep-Tt-WCf" secondAttribute="trailing" constant="16" id="eoZ-Ka-aKs"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="borderView" destination="Tor-FS-fGP" id="X0N-ma-Gtl"/>
+                <outlet property="shadowView" destination="Iep-Tt-WCf" id="Qoj-3U-Zev"/>
+                <outlet property="titleLabel" destination="cET-LJ-2Kx" id="vMa-2b-om9"/>
+            </connections>
+            <point key="canvasLocation" x="85" y="20"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="cellExpansion" width="21.666666030883789" height="21.666666030883789"/>
+        <namedColor name="424242Color">
+            <color red="0.25900000333786011" green="0.25900000333786011" blue="0.25900000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppViewContentColor">
+            <color red="0.98431372549019602" green="0.98431372549019602" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

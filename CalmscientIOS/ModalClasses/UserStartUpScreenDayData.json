@@ -1,0 +1,63 @@
+{
+    "wish": "Good evening!",
+    "moodData": {
+        "moodQuestion": "How was your day ?",
+        "options": [
+            {
+                "optionType": "BAD",
+                "optionTypeID": 1,
+                "image": "Angry"
+            },
+            {
+                "optionType": "COULD BE BETTER",
+                "optionTypeID": 2,
+                "image": "SMILE"
+            },
+            {
+                "optionType": "FAIR",
+                "optionTypeID": 3,
+                "image": "LAUGH"
+            },
+            {
+                "optionType": "GOOD",
+                "optionTypeID": 4,
+                "image": "LAUGH"
+            },
+            {
+                "optionType": "EXCELLENT",
+                "optionTypeID": 5,
+                "image": "LAUGH"
+            }
+        ]
+    },
+    "sleepData": {
+        "sleepQuestion": "How many hours did you sleep last night?",
+        "option1": "Less",
+        "option2": "4",
+        "option3": "5",
+        "option4": "6",
+        "option5": "7",
+        "option6": "8",
+        "option7": "9",
+        "option8": "10",
+        "option9": "More"
+    },
+    "timeSpendData": {
+        "timeSpendQuestion": "Who did you spend time with?",
+        "option1": "FAMILY",
+        "option2": "FRIENDS",
+        "option3": "WORKMATES",
+        "option4": "OTHERS",
+        "option5": "ALONE"
+    },
+    "medicineData": {
+        "medicineQuestion": "Did you take your meds this morning?",
+        "option1": "Yes",
+        "option2": "No"
+    },
+    "journalData": {
+        "journalKey": "Journal entry",
+        "optionType": "TextArea"
+    }
+}
+

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lexendmedium.ttf">
+            <string>Lexend-Medium</string>
+        </array>
+        <array key="lexendregular.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+        <array key="lexendsemibold.ttf">
+            <string>Lexend-SemiBold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Add Appoinements View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="AddAppoinementsViewController" id="Y6W-OH-hqX" customClass="AddAppoinementsViewController" customModule="MainTabBarApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Odt-XD-xRX">
+                                <rect key="frame" x="0.0" y="59" width="393" height="90"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eclipse_CreatemedicalAppointment" translatesAutoresizingMaskIntoConstraints="NO" id="M1b-Dc-iKC">
+                                        <rect key="frame" x="24" y="15" width="60" height="60"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="UpcomingMedicalAppointmentsDoctor" translatesAutoresizingMaskIntoConstraints="NO" id="7CS-71-meI">
+                                        <rect key="frame" x="41.333333333333336" y="24" width="25.666666666666664" height="42"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr Samuel Parker" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HpD-ZV-ziV">
+                                        <rect key="frame" x="100.00000000000001" y="18" width="174.33333333333337" height="25"/>
+                                        <fontDescription key="fontDescription" name="Lexend-Medium" family="Lexend" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Central Park Hospital" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZF-Um-pp0">
+                                        <rect key="frame" x="100.00000000000001" y="47" width="165.33333333333337" height="20"/>
+                                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="16"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="AppViewBorderColor"/>
+                                <constraints>
+                                    <constraint firstItem="LZF-Um-pp0" firstAttribute="leading" secondItem="HpD-ZV-ziV" secondAttribute="leading" id="6OX-wL-dwK"/>
+                                    <constraint firstItem="7CS-71-meI" firstAttribute="centerX" secondItem="M1b-Dc-iKC" secondAttribute="centerX" id="9hu-r4-EpV"/>
+                                    <constraint firstItem="HpD-ZV-ziV" firstAttribute="leading" secondItem="M1b-Dc-iKC" secondAttribute="trailing" constant="16" id="E9g-vV-XKz"/>
+                                    <constraint firstAttribute="height" constant="90" id="T9N-2j-0bF"/>
+                                    <constraint firstItem="LZF-Um-pp0" firstAttribute="top" secondItem="HpD-ZV-ziV" secondAttribute="bottom" constant="4" id="W2g-Xa-UcI"/>
+                                    <constraint firstItem="M1b-Dc-iKC" firstAttribute="leading" secondItem="Odt-XD-xRX" secondAttribute="leading" constant="24" id="Z4l-Lj-D32"/>
+                                    <constraint firstItem="7CS-71-meI" firstAttribute="centerY" secondItem="M1b-Dc-iKC" secondAttribute="centerY" id="j9a-j9-zkp"/>
+                                    <constraint firstItem="HpD-ZV-ziV" firstAttribute="bottom" secondItem="M1b-Dc-iKC" secondAttribute="centerY" constant="-2" id="mh4-cV-3IY"/>
+                                    <constraint firstItem="M1b-Dc-iKC" firstAttribute="centerY" secondItem="Odt-XD-xRX" secondAttribute="centerY" id="rmr-50-ubK"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Choose Date and Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZxU-8o-2bf">
+                                <rect key="frame" x="16.000000000000014" y="165" width="227.33333333333337" height="25"/>
+                                <fontDescription key="fontDescription" name="Lexend-SemiBold" family="Lexend" pointSize="20"/>
+                                <color key="textColor" name="424242Color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RYY-KN-AvJ">
+                                <rect key="frame" x="0.0" y="198" width="393" height="1"/>
+                                <color key="backgroundColor" name="seperatorLineColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="fM4-bY-pCF"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kde-vs-gVI" customClass="CustomCalender" customModule="MainTabBarApp" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="199" width="393" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="6kn-Xs-i77"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="W2v-l8-2Hd">
+                                <rect key="frame" x="0.0" y="515" width="393" height="303"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ssx-i6-Fg3">
+                                <rect key="frame" x="80" y="736" width="233" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wbx-ii-va8" customClass="BorderShadowButton" customModule="MainTabBarApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="112.66666666666667" height="50"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                <color key="value" name="424242Color"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="customBorderWidth">
+                                                <real key="value" value="2"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nB4-aG-L58" customClass="LinearGradientButton" customModule="MainTabBarApp" customModuleProvider="target">
+                                        <rect key="frame" x="120.66666666666666" y="0.0" width="112.33333333333334" height="50"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="topGradientColor">
+                                                <color key="value" name="GradientButtonColor1"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="bottomGradientColor">
+                                                <color key="value" name="GradientButtonColor2"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="25"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="348-DW-ktO"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="W2v-l8-2Hd" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="0Rh-eI-0GO"/>
+                            <constraint firstItem="W2v-l8-2Hd" firstAttribute="top" secondItem="kde-vs-gVI" secondAttribute="bottom" constant="16" id="7c2-7o-ywc"/>
+                            <constraint firstItem="kde-vs-gVI" firstAttribute="top" secondItem="RYY-KN-AvJ" secondAttribute="bottom" id="IQX-3D-mCp"/>
+                            <constraint firstItem="ssx-i6-Fg3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="80" id="Ibs-1p-rkj"/>
+                            <constraint firstItem="RYY-KN-AvJ" firstAttribute="top" secondItem="ZxU-8o-2bf" secondAttribute="bottom" constant="8" id="KDA-qe-qqH"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="ssx-i6-Fg3" secondAttribute="bottom" constant="32" id="OfN-8h-X8A"/>
+                            <constraint firstItem="RYY-KN-AvJ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Tus-aP-WLs"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ssx-i6-Fg3" secondAttribute="trailing" constant="80" id="V3j-hH-uFL"/>
+                            <constraint firstItem="kde-vs-gVI" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="XYo-Ne-BvR"/>
+                            <constraint firstItem="ZxU-8o-2bf" firstAttribute="top" secondItem="Odt-XD-xRX" secondAttribute="bottom" constant="16" id="ZBg-7C-LbC"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="W2v-l8-2Hd" secondAttribute="trailing" id="a2v-UG-SiK"/>
+                            <constraint firstItem="ZxU-8o-2bf" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="g94-WR-Fna"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="leading" secondItem="Odt-XD-xRX" secondAttribute="leading" id="jcU-rr-Me5"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="RYY-KN-AvJ" secondAttribute="trailing" id="pOF-7d-5Hv"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Odt-XD-xRX" secondAttribute="trailing" id="pQm-m5-Vav"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="kde-vs-gVI" secondAttribute="trailing" id="tEO-1a-W9h"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="W2v-l8-2Hd" secondAttribute="bottom" id="xGf-0H-18J"/>
+                            <constraint firstItem="Odt-XD-xRX" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="zfg-sr-VEB"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addAppointmentsTableView" destination="W2v-l8-2Hd" id="MVW-Go-AaJ"/>
+                        <outlet property="calenderHeightConstraint" destination="6kn-Xs-i77" id="1bZ-RH-TqG"/>
+                        <outlet property="calenderView" destination="kde-vs-gVI" id="0ZI-Hu-cTp"/>
+                        <outlet property="cancelButton" destination="wbx-ii-va8" id="qen-GV-RAr"/>
+                        <outlet property="saveButton" destination="nB4-aG-L58" id="vfn-ZG-7uA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-21" y="4"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="nB4-aG-L58">
+            <size key="intrinsicContentSize" width="75" height="34.333333333333336"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="UpcomingMedicalAppointmentsDoctor" width="25.666666030883789" height="42"/>
+        <image name="eclipse_CreatemedicalAppointment" width="60" height="60"/>
+        <namedColor name="424242Color">
+            <color red="0.25882352941176473" green="0.25882352941176473" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppViewBorderColor">
+            <color red="0.90980392156862744" green="0.90588235294117647" blue="0.95686274509803926" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GradientButtonColor1">
+            <color red="0.4309999942779541" green="0.41999998688697815" blue="0.70200002193450928" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GradientButtonColor2">
+            <color red="0.17599999904632568" green="0.20000000298023224" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="seperatorLineColor">
+            <color red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

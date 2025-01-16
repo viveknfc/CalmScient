@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Check MailVC-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="CheckMailVC" id="Y6W-OH-hqX" customClass="CheckMailVC" customModule="CalmscientIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check your email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDj-E2-pow">
+                                <rect key="frame" x="40" y="139" width="313" height="42"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="42" id="r9v-21-mtC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="20"/>
+                                <color key="textColor" name="MainTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter the 4-digit code that we have sent via email xxxxxxxxxx@gmail.com" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kfu-dl-UN7">
+                                <rect key="frame" x="40" y="197" width="313" height="38.333333333333343"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <color key="textColor" name="MainTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBG-WR-Qc6" customClass="CapsuleButton" customModule="CalmscientIOS" customModuleProvider="target">
+                                <rect key="frame" x="30" y="371.33333333333331" width="333" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="oI3-Qp-9tb"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Verify Code">
+                                    <color key="baseBackgroundColor" name="AppThemeColor"/>
+                                </buttonConfiguration>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="topGradientColor">
+                                        <color key="value" name="AppThemeColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomGradientColor">
+                                        <color key="value" name="AppThemeColor"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="verifyCodeAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="jNh-vz-N67"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Haven’t got the email yet? Resend email" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kth-lk-KDW">
+                                <rect key="frame" x="30" y="446.33333333333331" width="333" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="IPu-94-wSc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Rko-WC-uqu">
+                                <rect key="frame" x="48" y="283.33333333333331" width="297" height="40"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" background="RectangleText" translatesAutoresizingMaskIntoConstraints="NO" id="a5v-Hm-NfQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="6nc-PB-6mz"/>
+                                            <constraint firstAttribute="height" constant="40" id="v7r-q1-aYB"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="G8w-ao-axQ"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" background="RectangleText" translatesAutoresizingMaskIntoConstraints="NO" id="C0G-7j-bHZ">
+                                        <rect key="frame" x="85.666666666666657" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="ffX-dn-rTN"/>
+                                            <constraint firstAttribute="height" constant="40" id="n22-BC-hsa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="plw-sY-LwH"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" background="RectangleText" translatesAutoresizingMaskIntoConstraints="NO" id="4PH-lw-s49">
+                                        <rect key="frame" x="171.33333333333334" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="Y0E-Cc-rcI"/>
+                                            <constraint firstAttribute="height" constant="40" id="sWs-Cd-7a6"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="lMT-NB-Vgh"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" background="RectangleText" translatesAutoresizingMaskIntoConstraints="NO" id="wfF-Ng-6oJ">
+                                        <rect key="frame" x="257" y="0.0" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="oqX-dc-Jzj"/>
+                                            <constraint firstAttribute="height" constant="40" id="pfw-df-efx"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="12o-wo-CTu"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="waveBackground" translatesAutoresizingMaskIntoConstraints="NO" id="gUk-3U-gu9">
+                                <rect key="frame" x="0.0" y="656" width="393" height="196"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="196" id="L32-W5-vaG"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="gUk-3U-gu9" secondAttribute="bottom" id="0wW-cQ-oDl"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="kth-lk-KDW" secondAttribute="trailing" constant="30" id="4iE-sb-PQH"/>
+                            <constraint firstItem="kfu-dl-UN7" firstAttribute="top" secondItem="oDj-E2-pow" secondAttribute="bottom" constant="16" id="8sO-LM-FUz"/>
+                            <constraint firstItem="oDj-E2-pow" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="DjZ-Tq-mnB"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="tBG-WR-Qc6" secondAttribute="trailing" constant="30" id="E2L-L0-99v"/>
+                            <constraint firstItem="gUk-3U-gu9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="JKO-dV-qKG"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="kfu-dl-UN7" secondAttribute="trailing" constant="40" id="QNO-D8-5zm"/>
+                            <constraint firstItem="Rko-WC-uqu" firstAttribute="top" secondItem="kfu-dl-UN7" secondAttribute="bottom" constant="48" id="SPe-z5-6v9"/>
+                            <constraint firstItem="kfu-dl-UN7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="Unx-iV-qmM"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oDj-E2-pow" secondAttribute="trailing" constant="40" id="V3q-fF-gdJ"/>
+                            <constraint firstItem="Rko-WC-uqu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="48" id="WX7-z8-mK8"/>
+                            <constraint firstItem="tBG-WR-Qc6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="Yiw-0d-Yy0"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Rko-WC-uqu" secondAttribute="trailing" constant="48" id="du5-mN-wDN"/>
+                            <constraint firstItem="tBG-WR-Qc6" firstAttribute="top" secondItem="Rko-WC-uqu" secondAttribute="bottom" constant="48" id="ehu-0U-icF"/>
+                            <constraint firstItem="gUk-3U-gu9" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="kRL-u0-Xpt"/>
+                            <constraint firstItem="kth-lk-KDW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="lBM-9g-DiB"/>
+                            <constraint firstItem="kth-lk-KDW" firstAttribute="top" secondItem="tBG-WR-Qc6" secondAttribute="bottom" constant="30" id="yHd-bb-fx2"/>
+                            <constraint firstItem="oDj-E2-pow" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="80" id="zfP-tk-OMh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="checkMailLbl" destination="oDj-E2-pow" id="tDF-r3-LS9"/>
+                        <outlet property="instructionLbl" destination="kfu-dl-UN7" id="iag-kw-GEH"/>
+                        <outlet property="resendMailLbl" destination="kth-lk-KDW" id="OwK-8d-jqb"/>
+                        <outlet property="verifyCodeButton" destination="tBG-WR-Qc6" id="hof-Zb-1sC"/>
+                        <outletCollection property="digitFields" destination="a5v-Hm-NfQ" collectionClass="NSMutableArray" id="LVs-Sb-caO"/>
+                        <outletCollection property="digitFields" destination="C0G-7j-bHZ" collectionClass="NSMutableArray" id="M50-ux-Rip"/>
+                        <outletCollection property="digitFields" destination="4PH-lw-s49" collectionClass="NSMutableArray" id="KsT-Uc-aVe"/>
+                        <outletCollection property="digitFields" destination="wfF-Ng-6oJ" collectionClass="NSMutableArray" id="R9g-Jm-L5r"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="55.38461538461538" y="-2.1327014218009479"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="tBG-WR-Qc6">
+            <size key="intrinsicContentSize" width="113" height="34.333333333333336"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="RectangleText" width="58" height="58"/>
+        <image name="waveBackground" width="420" height="207"/>
+        <namedColor name="AppThemeColor">
+            <color red="0.43137254901960786" green="0.41960784313725491" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MainTextColor">
+            <color red="0.25882352941176473" green="0.25882352941176473" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,78 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "CnC-MK-iTS.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"My Favorites\"; ObjectID = \"CnC-MK-iTS\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "My Favorites"
+          }
+        }
+      }
+    },
+    "Ekd-WP-f8V.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"Ekd-WP-f8V\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      }
+    },
+    "eNR-KX-bUB.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"No favorites found for this patient\"; ObjectID = \"eNR-KX-bUB\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No favorites found for this patient"
+          }
+        }
+      }
+    },
+    "L2I-Zi-qG9.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Button\"; ObjectID = \"L2I-Zi-qG9\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      }
+    },
+    "L2I-Zi-qG9.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"L2I-Zi-qG9\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      }
+    },
+    "SCO-9y-hWC.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Hello Kevin\"; ObjectID = \"SCO-9y-hWC\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hello Kevin"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

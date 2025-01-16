@@ -1,0 +1,15 @@
+
+/* Class = "UILabel"; text = "Password"; ObjectID = "AlQ-kq-Lq2"; */
+"AlQ-kq-Lq2.text" = "Password";
+
+/* Class = "UILabel"; text = "Create an New account"; ObjectID = "LKc-Ue-D8k"; */
+"LKc-Ue-D8k.text" = "Create an New account";
+
+/* Class = "UILabel"; text = "Forgot Password?"; ObjectID = "aUn-1C-xU1"; */
+"aUn-1C-xU1.text" = "Forgot Password?";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "nrj-Is-1fd"; */
+"nrj-Is-1fd.normalTitle" = "Login";
+
+/* Class = "UILabel"; text = "Username"; ObjectID = "wK1-PD-6px"; */
+"wK1-PD-6px.text" = "Username";

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lexendbold.ttf">
+            <string>Lexend-Bold</string>
+        </array>
+        <array key="lexendregular.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Drinking Habbit Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="DrinkingHabbitController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="DrinkingHabbitController" customModule="CalmscientIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How many days a week do you drink?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bie-5k-ADa">
+                                <rect key="frame" x="0.0" y="79" width="393" height="19"/>
+                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
+                                <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1. Now let’s see what drinking habits do you have" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBI-EN-vN1">
+                                <rect key="frame" x="27" y="118" width="350" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="diz-vy-wia"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lexend-Bold" family="Lexend" pointSize="20"/>
+                                <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Hf-Vb-71I">
+                                <rect key="frame" x="0.0" y="198" width="393" height="190"/>
+                                <subviews>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ygy-cr-iLN">
+                                        <rect key="frame" x="20" y="20" width="160" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="5aC-mK-ttl"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="14"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="None">
+                                            <color key="titleColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didClickOnAnswer:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ncV-c3-Z4B"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EBZ-Cx-Cjx">
+                                        <rect key="frame" x="203" y="20" width="164" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="x5y-bh-XrJ"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="14"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Less than 2 days">
+                                            <color key="titleColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didClickOnAnswer:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="AOB-ew-ndn"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yRh-xT-vQA">
+                                        <rect key="frame" x="20" y="75" width="160" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="KE8-hh-36b"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="14"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="3-5 days">
+                                            <color key="titleColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didClickOnAnswer:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="osO-wH-zcv"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N4m-OY-NKN">
+                                        <rect key="frame" x="20" y="130" width="160" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="sc6-qC-HDI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="14"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Everyday">
+                                            <color key="titleColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didClickOnAnswer:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="zmw-rM-dZw"/>
+                                        </connections>
+                                    </button>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHD-iW-ZYk">
+                                        <rect key="frame" x="203" y="75" width="164" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="1cr-rG-NjS"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="14"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Almost everyday">
+                                            <color key="titleColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didClickOnAnswer:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="5SI-MS-gQs"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="yRh-xT-vQA" firstAttribute="leading" secondItem="5Hf-Vb-71I" secondAttribute="leading" constant="20" id="4Ox-y2-Y0t"/>
+                                    <constraint firstItem="N4m-OY-NKN" firstAttribute="width" secondItem="yRh-xT-vQA" secondAttribute="width" id="5gD-yt-oqp"/>
+                                    <constraint firstAttribute="trailing" secondItem="dHD-iW-ZYk" secondAttribute="trailing" constant="20" id="80O-uW-MbZ"/>
+                                    <constraint firstItem="ygy-cr-iLN" firstAttribute="leading" secondItem="5Hf-Vb-71I" secondAttribute="leading" constant="20" id="Cr7-LO-k2U"/>
+                                    <constraint firstAttribute="trailing" secondItem="EBZ-Cx-Cjx" secondAttribute="trailing" constant="20" id="GVR-h7-yrK"/>
+                                    <constraint firstItem="dHD-iW-ZYk" firstAttribute="leading" secondItem="yRh-xT-vQA" secondAttribute="trailing" constant="23" id="Guc-MA-uu2"/>
+                                    <constraint firstItem="yRh-xT-vQA" firstAttribute="top" secondItem="ygy-cr-iLN" secondAttribute="bottom" constant="15" id="L2f-Tg-OQX"/>
+                                    <constraint firstAttribute="bottom" secondItem="N4m-OY-NKN" secondAttribute="bottom" constant="20" id="Nqs-bg-kvM"/>
+                                    <constraint firstItem="ygy-cr-iLN" firstAttribute="top" secondItem="5Hf-Vb-71I" secondAttribute="top" constant="20" id="O4F-bP-6YR"/>
+                                    <constraint firstItem="dHD-iW-ZYk" firstAttribute="centerY" secondItem="yRh-xT-vQA" secondAttribute="centerY" id="R0c-mm-rXq"/>
+                                    <constraint firstItem="N4m-OY-NKN" firstAttribute="top" secondItem="yRh-xT-vQA" secondAttribute="bottom" constant="15" id="RLC-c4-dfm"/>
+                                    <constraint firstItem="EBZ-Cx-Cjx" firstAttribute="leading" secondItem="ygy-cr-iLN" secondAttribute="trailing" constant="23" id="WdC-Bd-NEn"/>
+                                    <constraint firstItem="yRh-xT-vQA" firstAttribute="width" secondItem="dHD-iW-ZYk" secondAttribute="width" multiplier="8.10811" constant="-1169.7297297297298" id="bX6-Ih-bE5"/>
+                                    <constraint firstItem="N4m-OY-NKN" firstAttribute="leading" secondItem="5Hf-Vb-71I" secondAttribute="leading" constant="20" id="fcl-ti-hNo"/>
+                                    <constraint firstItem="EBZ-Cx-Cjx" firstAttribute="top" secondItem="5Hf-Vb-71I" secondAttribute="top" constant="20" id="pMc-Lw-g4w"/>
+                                    <constraint firstItem="ygy-cr-iLN" firstAttribute="width" secondItem="EBZ-Cx-Cjx" secondAttribute="width" multiplier="8.10811" constant="-1169.7297297297298" id="tTV-jp-po0"/>
+                                </constraints>
+                            </view>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5vx-gv-YSP">
+                                <rect key="frame" x="33" y="726" width="41" height="41"/>
+                                <color key="backgroundColor" name="AppBackGroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="41" id="aas-cu-fIb"/>
+                                    <constraint firstAttribute="height" constant="41" id="oy6-QC-Mhq"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="backward"/>
+                                <connections>
+                                    <action selector="backward_action:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="jfQ-Zf-Aao"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="azE-jG-6ng">
+                                <rect key="frame" x="336" y="726" width="41" height="41"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="41" id="ZpT-kH-ei2"/>
+                                    <constraint firstAttribute="width" constant="41" id="nI3-gy-Atr"/>
+                                </constraints>
+                                <color key="tintColor" name="AppBackGroundColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="forwardArrow"/>
+                                <connections>
+                                    <action selector="forward_action:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="sxe-11-bA9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="5Hf-Vb-71I" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="0qt-aX-F9E"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="leading" secondItem="EBI-EN-vN1" secondAttribute="leading" constant="-27" id="1XV-6s-QGq"/>
+                            <constraint firstItem="5Hf-Vb-71I" firstAttribute="top" secondItem="EBI-EN-vN1" secondAttribute="bottom" constant="15" id="6qw-Lm-z53"/>
+                            <constraint firstItem="bie-5k-ADa" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="9NZ-Uw-QWB"/>
+                            <constraint firstAttribute="trailing" secondItem="5Hf-Vb-71I" secondAttribute="trailing" id="GLd-fK-4a6"/>
+                            <constraint firstItem="bie-5k-ADa" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="IvA-hg-Qva"/>
+                            <constraint firstItem="5vx-gv-YSP" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="33" id="Pb2-O3-gfz"/>
+                            <constraint firstItem="EBI-EN-vN1" firstAttribute="top" secondItem="bie-5k-ADa" secondAttribute="bottom" constant="20" id="SEH-p9-Jd6"/>
+                            <constraint firstAttribute="bottom" secondItem="azE-jG-6ng" secondAttribute="bottom" constant="85" id="cAg-Sm-xSl"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="EBI-EN-vN1" secondAttribute="trailing" constant="16" id="eHu-Uv-Sjm"/>
+                            <constraint firstAttribute="bottom" secondItem="5vx-gv-YSP" secondAttribute="bottom" constant="85" id="nP4-Ig-Plx"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="azE-jG-6ng" secondAttribute="trailing" constant="16" id="rvP-Iq-IfI"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bie-5k-ADa" secondAttribute="trailing" id="tkC-kU-e06"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="None_button" destination="ygy-cr-iLN" id="QGq-ua-iZc"/>
+                        <outlet property="almost_button" destination="dHD-iW-ZYk" id="DcC-6q-CjR"/>
+                        <outlet property="evryday_button" destination="N4m-OY-NKN" id="Rra-tn-8w4"/>
+                        <outlet property="headerLabel" destination="bie-5k-ADa" id="mSg-HB-ecn"/>
+                        <outlet property="lessthan2_button" destination="EBZ-Cx-Cjx" id="ap8-S3-MlC"/>
+                        <outlet property="questionLabel" destination="EBI-EN-vN1" id="nrN-kr-Rhy"/>
+                        <outlet property="threetofive_button" destination="yRh-xT-vQA" id="brF-SW-Dza"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="46.564885496183201" y="-2.1126760563380285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="backward" width="41" height="41"/>
+        <image name="forwardArrow" width="41" height="41"/>
+        <namedColor name="AppBackGroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

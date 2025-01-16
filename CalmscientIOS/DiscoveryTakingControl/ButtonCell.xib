@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lexendregular.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ButtonCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ButtonCell" rowHeight="90" id="CeW-o3-Tnm" customClass="ButtonCell" customModule="CalmscientIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="90"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="CeW-o3-Tnm" id="nwT-Sw-PZp">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="90"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQW-Kf-x0z">
+                        <rect key="frame" x="20" y="10" width="305" height="70"/>
+                        <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="18"/>
+                        <color key="textColor" red="0.43137254899999999" green="0.41960784309999999" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kl8-VW-agt">
+                        <rect key="frame" x="352" y="27" width="33" height="37"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="33" id="CMj-IY-1Hn"/>
+                            <constraint firstAttribute="height" constant="37" id="Vmh-7m-CRz"/>
+                        </constraints>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="uncheck_circle"/>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="kl8-VW-agt" firstAttribute="leading" secondItem="bQW-Kf-x0z" secondAttribute="trailing" constant="8" symbolic="YES" id="Fpp-aU-m3B"/>
+                    <constraint firstItem="kl8-VW-agt" firstAttribute="top" secondItem="nwT-Sw-PZp" secondAttribute="top" constant="27" id="WCe-yK-CLb"/>
+                    <constraint firstItem="bQW-Kf-x0z" firstAttribute="leading" secondItem="nwT-Sw-PZp" secondAttribute="leading" constant="20" id="dq9-Ah-DHq"/>
+                    <constraint firstAttribute="trailing" secondItem="kl8-VW-agt" secondAttribute="trailing" constant="8" id="hh7-j9-VBb"/>
+                    <constraint firstAttribute="bottom" secondItem="kl8-VW-agt" secondAttribute="bottom" constant="26" id="iWj-OY-srl"/>
+                    <constraint firstItem="bQW-Kf-x0z" firstAttribute="top" secondItem="nwT-Sw-PZp" secondAttribute="top" constant="10" id="wz4-Ee-khJ"/>
+                    <constraint firstAttribute="bottom" secondItem="bQW-Kf-x0z" secondAttribute="bottom" constant="10" id="xkU-Yc-Uhr"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="buttons" destination="bQW-Kf-x0z" id="ThV-A8-eXX"/>
+                <outlet property="tickMarkButton" destination="kl8-VW-agt" id="zSv-rs-U5b"/>
+            </connections>
+            <point key="canvasLocation" x="174.80916030534351" y="26.760563380281692"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="uncheck_circle" width="30" height="30"/>
+    </resources>
+</document>

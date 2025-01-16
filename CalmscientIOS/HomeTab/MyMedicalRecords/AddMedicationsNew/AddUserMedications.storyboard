@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Add User Medications View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="AddUserMedicationsViewController" id="Y6W-OH-hqX" customClass="AddUserMedicationsViewController" customModule="CalmscientIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xlL-aE-D91">
+                                <rect key="frame" x="0.0" y="67" width="393" height="751"/>
+                                <color key="backgroundColor" name="AppBackGroundColor"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="DdS-JQ-5gi">
+                                    <rect key="frame" x="0.0" y="0.0" width="393" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rmT-SK-XLg">
+                                            <rect key="frame" x="80" y="-3" width="233" height="50"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="REP-vz-dFI" customClass="BorderShadowButton" customModule="CalmscientIOS" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="112.66666666666667" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="112.67" id="ixb-U2-3ub"/>
+                                                        <constraint firstAttribute="height" constant="50" id="vts-JJ-8qs"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="shadowColor">
+                                                            <color key="value" name="424242Color"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="25"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="customBorderWidth">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="didClickOnCancelButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="5AO-H5-c46"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r3Y-I1-fLi" customClass="LinearGradientButton" customModule="CalmscientIOS" customModuleProvider="target">
+                                                    <rect key="frame" x="120.66666666666666" y="0.0" width="112.33333333333334" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="8YD-36-AxX"/>
+                                                        <constraint firstAttribute="width" constant="112.67" id="b6Y-d9-Lyb"/>
+                                                    </constraints>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Save">
+                                                        <color key="baseForegroundColor" red="0.90222209689999999" green="0.89732134340000003" blue="0.9451041818" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </buttonConfiguration>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="topGradientColor">
+                                                            <color key="value" name="GradientButtonColor1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="bottomGradientColor">
+                                                            <color key="value" name="GradientButtonColor2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="25"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <action selector="DidClickOnSaveButton:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="slE-k8-QoU"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="r3Y-I1-fLi" secondAttribute="trailing" id="5wO-6c-394"/>
+                                                <constraint firstItem="REP-vz-dFI" firstAttribute="leading" secondItem="rmT-SK-XLg" secondAttribute="leading" id="Fg2-JV-1YX"/>
+                                                <constraint firstAttribute="height" constant="50" id="sOo-zF-9tK"/>
+                                            </constraints>
+                                        </stackView>
+                                    </subviews>
+                                    <color key="backgroundColor" name="AppBackGroundColor"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="rmT-SK-XLg" secondAttribute="trailing" constant="80" id="1e0-1J-iy2"/>
+                                        <constraint firstItem="rmT-SK-XLg" firstAttribute="leading" secondItem="DdS-JQ-5gi" secondAttribute="leading" constant="80" id="5CD-L8-EKw"/>
+                                        <constraint firstItem="rmT-SK-XLg" firstAttribute="centerY" secondItem="DdS-JQ-5gi" secondAttribute="centerY" id="6Rq-vq-Zk6"/>
+                                        <constraint firstItem="rmT-SK-XLg" firstAttribute="centerX" secondItem="DdS-JQ-5gi" secondAttribute="centerX" id="ToX-ny-QCa"/>
+                                    </constraints>
+                                </view>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="AppBackGroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xlL-aE-D91" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="8" id="IFr-8O-IyJ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="xlL-aE-D91" secondAttribute="trailing" id="KgA-5K-5jv"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="xlL-aE-D91" secondAttribute="bottom" id="bdl-QI-Kig"/>
+                            <constraint firstItem="xlL-aE-D91" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="kGA-FU-M5J"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelButton" destination="REP-vz-dFI" id="vKp-Xt-t4l"/>
+                        <outlet property="saveButton" destination="r3Y-I1-fLi" id="evT-K2-EnJ"/>
+                        <outlet property="tableFooter" destination="DdS-JQ-5gi" id="jPD-HG-jFs"/>
+                        <outlet property="userAddMedicationsTableView" destination="xlL-aE-D91" id="myv-l8-Xvu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-21" y="4"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="r3Y-I1-fLi">
+            <size key="intrinsicContentSize" width="61" height="34.333333333333336"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="424242Color">
+            <color red="0.25900000333786011" green="0.25900000333786011" blue="0.25900000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppBackGroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GradientButtonColor1">
+            <color red="0.42745098039215684" green="0.41960784313725491" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GradientButtonColor2">
+            <color red="0.17254901960784313" green="0.20000000000000001" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

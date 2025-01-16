@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lexendregular.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DrinikingCell" customModule="CalmscientIOS" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="DrinikingCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DrinikingCell" rowHeight="185" id="Jbj-Lm-rQI" customClass="DrinikingCell" customModule="CalmscientIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="185"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Jbj-Lm-rQI" id="D8d-Ke-QgJ">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="185"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qIz-Pd-AIx">
+                        <rect key="frame" x="23" y="12" width="160" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="3zq-9e-xgo"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="14"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="None">
+                            <color key="titleColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="didClickOnAnswer:" destination="-1" eventType="touchUpInside" id="FUZ-0L-bYN"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="1001" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ta-Ul-bm1">
+                        <rect key="frame" x="206" y="12" width="164" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="vqJ-Sw-d87"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="14"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="Less than 2 days">
+                            <color key="titleColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="didClickOnAnswer:" destination="-1" eventType="touchUpInside" id="vAM-ZW-ttr"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="olc-fM-DBj">
+                        <rect key="frame" x="23" y="67" width="160" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="cOX-h0-QBP"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="14"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="3-5 days">
+                            <color key="titleColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GLO-Li-i2S">
+                        <rect key="frame" x="23" y="122" width="160" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="aQh-db-ex0"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="14"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="Everyday">
+                            <color key="titleColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
+                    <button opaque="NO" tag="1004" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="802-19-v9D">
+                        <rect key="frame" x="206" y="67" width="164" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="czB-aK-mfY"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="14"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="Almost everyday">
+                            <color key="titleColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="GLO-Li-i2S" firstAttribute="width" secondItem="olc-fM-DBj" secondAttribute="width" id="1zs-Eg-EMM"/>
+                    <constraint firstItem="GLO-Li-i2S" firstAttribute="top" secondItem="olc-fM-DBj" secondAttribute="bottom" constant="15" id="9Lf-ks-TKI"/>
+                    <constraint firstItem="olc-fM-DBj" firstAttribute="leading" secondItem="D8d-Ke-QgJ" secondAttribute="leading" constant="23" id="IMq-4u-kAY"/>
+                    <constraint firstItem="GLO-Li-i2S" firstAttribute="leading" secondItem="D8d-Ke-QgJ" secondAttribute="leading" constant="23" id="MKL-36-Jxg"/>
+                    <constraint firstItem="qIz-Pd-AIx" firstAttribute="top" secondItem="D8d-Ke-QgJ" secondAttribute="top" constant="12" id="U8J-Q6-jpH"/>
+                    <constraint firstItem="3ta-Ul-bm1" firstAttribute="leading" secondItem="qIz-Pd-AIx" secondAttribute="trailing" constant="23" id="VPc-Dd-BDM"/>
+                    <constraint firstItem="qIz-Pd-AIx" firstAttribute="leading" secondItem="D8d-Ke-QgJ" secondAttribute="leading" constant="23" id="W5H-nm-L88"/>
+                    <constraint firstItem="3ta-Ul-bm1" firstAttribute="top" secondItem="D8d-Ke-QgJ" secondAttribute="top" constant="12" id="dmo-ti-Rab"/>
+                    <constraint firstItem="802-19-v9D" firstAttribute="leading" secondItem="olc-fM-DBj" secondAttribute="trailing" constant="23" id="k8L-b1-lQU"/>
+                    <constraint firstItem="qIz-Pd-AIx" firstAttribute="width" secondItem="3ta-Ul-bm1" secondAttribute="width" multiplier="8.10811" constant="-1169.7297297297298" id="ltb-Ey-doI"/>
+                    <constraint firstItem="olc-fM-DBj" firstAttribute="width" secondItem="802-19-v9D" secondAttribute="width" multiplier="8.10811" constant="-1169.7297297297298" id="mBU-dB-ugq"/>
+                    <constraint firstItem="olc-fM-DBj" firstAttribute="top" secondItem="qIz-Pd-AIx" secondAttribute="bottom" constant="15" id="o7y-bu-SF3"/>
+                    <constraint firstAttribute="bottom" secondItem="GLO-Li-i2S" secondAttribute="bottom" constant="23" id="ozC-2m-P2E"/>
+                    <constraint firstAttribute="trailing" secondItem="802-19-v9D" secondAttribute="trailing" constant="23" id="tKE-Hh-Th6"/>
+                    <constraint firstItem="802-19-v9D" firstAttribute="centerY" secondItem="olc-fM-DBj" secondAttribute="centerY" id="uLS-gM-LI0"/>
+                    <constraint firstAttribute="trailing" secondItem="3ta-Ul-bm1" secondAttribute="trailing" constant="23" id="z0q-bM-XhK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="None_button" destination="qIz-Pd-AIx" id="gHA-1x-vSz"/>
+                <outlet property="almost_button" destination="802-19-v9D" id="1ji-qH-HWM"/>
+                <outlet property="evryday_button" destination="GLO-Li-i2S" id="VVF-Ke-JpZ"/>
+                <outlet property="lessthan2_button" destination="3ta-Ul-bm1" id="iix-c6-c9v"/>
+                <outlet property="threetofive_button" destination="olc-fM-DBj" id="OEq-La-Fsr"/>
+            </connections>
+            <point key="canvasLocation" x="125.95419847328243" y="16.549295774647888"/>
+        </tableViewCell>
+    </objects>
+</document>

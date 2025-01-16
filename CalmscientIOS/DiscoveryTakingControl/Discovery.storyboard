@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Discovery-->
+        <scene sceneID="zVA-5n-gtW">
+            <objects>
+                <viewController storyboardIdentifier="Discovery" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rcQ-AY-0qi" customClass="Discovery" customModule="CalmscientIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VG3-Zq-i3T">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gH0-KV-qyp">
+                                <rect key="frame" x="0.0" y="115" width="393" height="703"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6WV-IT-d57" customClass="CustomSegmentedControl" customModule="CalmscientIOS" customModuleProvider="target">
+                                <rect key="frame" x="10" y="59" width="373" height="40"/>
+                                <color key="backgroundColor" name="AppBackGroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="XCa-Xx-0Rg"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="40" id="oBR-rW-Tn7"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4k4-Cv-C88"/>
+                        <color key="backgroundColor" name="AppBackGroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4k4-Cv-C88" firstAttribute="trailing" secondItem="6WV-IT-d57" secondAttribute="trailing" constant="10" id="A6O-rC-DvN"/>
+                            <constraint firstItem="4k4-Cv-C88" firstAttribute="bottom" secondItem="gH0-KV-qyp" secondAttribute="bottom" id="EwY-qV-vWS"/>
+                            <constraint firstItem="gH0-KV-qyp" firstAttribute="leading" secondItem="4k4-Cv-C88" secondAttribute="leading" id="cwe-1W-grM"/>
+                            <constraint firstItem="6WV-IT-d57" firstAttribute="top" secondItem="4k4-Cv-C88" secondAttribute="top" id="d5c-gM-K5J"/>
+                            <constraint firstItem="6WV-IT-d57" firstAttribute="leading" secondItem="4k4-Cv-C88" secondAttribute="leading" constant="10" id="dQ2-RU-HPY"/>
+                            <constraint firstItem="4k4-Cv-C88" firstAttribute="trailing" secondItem="gH0-KV-qyp" secondAttribute="trailing" id="ew3-1T-4db"/>
+                            <constraint firstItem="gH0-KV-qyp" firstAttribute="top" secondItem="6WV-IT-d57" secondAttribute="bottom" constant="16" id="vn3-Ga-G83"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="customSegmentedControl" destination="6WV-IT-d57" id="KLy-9C-Ni3"/>
+                        <outlet property="tableView" destination="gH0-KV-qyp" id="xSo-n2-Yfw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="amK-A0-Esg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1121.3740458015266" y="-28.169014084507044"/>
+        </scene>
+    </scenes>
+    <resources>
+        <namedColor name="AppBackGroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

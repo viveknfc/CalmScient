@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Journal Entry Main View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="JournalEntryMainViewController" id="Y6W-OH-hqX" customClass="JournalEntryMainViewController" customModule="CalmscientIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="quS-xW-6D3" customClass="CustomCalender" customModule="CalmscientIOS" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="59" width="393" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="0mg-Bk-O0D"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="dLC-ee-OSS">
+                                <rect key="frame" x="0.0" y="367" width="393" height="366"/>
+                                <color key="backgroundColor" name="AppBackGroundColor"/>
+                            </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RaL-Cd-Vj4" customClass="LinearGradientButton" customModule="CalmscientIOS" customModuleProvider="target">
+                                <rect key="frame" x="39.333333333333343" y="749" width="314.33333333333326" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="1dl-An-MWc"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="topGradientColor">
+                                        <color key="value" name="GradientButtonColor1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomGradientColor">
+                                        <color key="value" name="GradientButtonColor2"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="AppBackGroundColor"/>
+                        <constraints>
+                            <constraint firstItem="dLC-ee-OSS" firstAttribute="top" secondItem="quS-xW-6D3" secondAttribute="bottom" constant="8" id="1u2-6B-bFJ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="top" secondItem="quS-xW-6D3" secondAttribute="top" id="36e-l8-a6G"/>
+                            <constraint firstItem="dLC-ee-OSS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Cj8-XF-S3w"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="quS-xW-6D3" secondAttribute="trailing" id="ULv-ax-YWf"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="RaL-Cd-Vj4" secondAttribute="bottom" constant="24" id="Uae-MC-u5h"/>
+                            <constraint firstItem="RaL-Cd-Vj4" firstAttribute="width" secondItem="vDu-zF-Fre" secondAttribute="width" multiplier="0.8" id="Xv8-rd-xj8"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="dLC-ee-OSS" secondAttribute="trailing" id="d3g-9n-CDk"/>
+                            <constraint firstItem="quS-xW-6D3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="i20-q1-oVN"/>
+                            <constraint firstItem="RaL-Cd-Vj4" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="nyn-yK-oBQ"/>
+                            <constraint firstItem="RaL-Cd-Vj4" firstAttribute="top" secondItem="dLC-ee-OSS" secondAttribute="bottom" constant="16" id="sSF-DL-I3I"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="calendar" destination="quS-xW-6D3" id="KP8-Oz-TPa"/>
+                        <outlet property="calenderHeight" destination="0mg-Bk-O0D" id="fT0-US-q9V"/>
+                        <outlet property="needToTalkSomeOneButton" destination="RaL-Cd-Vj4" id="G5B-q3-0Rm"/>
+                        <outlet property="tableView" destination="dLC-ee-OSS" id="XVB-oM-5Fb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="85" y="4"/>
+        </scene>
+    </scenes>
+    <designables>
+        <designable name="RaL-Cd-Vj4">
+            <size key="intrinsicContentSize" width="75" height="34.333333333333336"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="AppBackGroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GradientButtonColor1">
+            <color red="0.42745098039215684" green="0.41960784313725491" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GradientButtonColor2">
+            <color red="0.17254901960784313" green="0.20000000000000001" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

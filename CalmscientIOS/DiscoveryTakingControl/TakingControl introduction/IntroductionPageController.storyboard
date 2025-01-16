@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lexendregular.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Introduction Page Controller-->
+        <scene sceneID="QaR-2P-2Th">
+            <objects>
+                <viewController storyboardIdentifier="IntroductionPageController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ldp-Op-zrs" customClass="IntroductionPageController" customModule="CalmscientIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0lB-We-rrY">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do not show this tutorial from the next time" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="czV-NN-M2W">
+                                <rect key="frame" x="53" y="118" width="324" height="19"/>
+                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hda-9w-e9q">
+                                <rect key="frame" x="16" y="378" width="361" height="56.333333333333314"/>
+                                <string key="text">Remember, you can always take the AUDIT, DUST-10 and CAGE test, in the My medical
+records section</string>
+                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
+                                <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="irm-YJ-2Wp">
+                                <rect key="frame" x="16" y="198" width="361" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="eMW-cQ-9XJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Drink coach">
+                                    <color key="titleColor" red="0.43137254899999999" green="0.41960784309999999" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="drinkCoachTapped:" destination="ldp-Op-zrs" eventType="touchUpInside" id="QCK-WO-oLZ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V68-3s-500">
+                                <rect key="frame" x="16" y="286" width="361" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="We0-Qh-HIT"/>
+                                    <constraint firstAttribute="height" constant="70" id="qnr-dl-VfH"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Substance coach">
+                                    <color key="titleColor" red="0.43137254899999999" green="0.41960784309999999" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hs2-NY-D9h">
+                                <rect key="frame" x="16" y="115" width="25" height="25"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="25" id="7Ld-HP-saI"/>
+                                    <constraint firstAttribute="height" constant="25" id="qfM-eX-cFN"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="uncheck"/>
+                                <connections>
+                                    <action selector="checkTapped:" destination="ldp-Op-zrs" eventType="touchUpInside" id="hdI-5L-D2g"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="4g6-dp-rwR"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4g6-dp-rwR" firstAttribute="trailing" secondItem="czV-NN-M2W" secondAttribute="trailing" constant="16" id="6dr-an-eha"/>
+                            <constraint firstItem="irm-YJ-2Wp" firstAttribute="top" secondItem="hs2-NY-D9h" secondAttribute="bottom" constant="58" id="Bro-AH-5iH"/>
+                            <constraint firstItem="4g6-dp-rwR" firstAttribute="trailing" secondItem="irm-YJ-2Wp" secondAttribute="trailing" constant="16" id="DDq-Uk-MvG"/>
+                            <constraint firstItem="czV-NN-M2W" firstAttribute="leading" secondItem="hs2-NY-D9h" secondAttribute="trailing" constant="12" id="IlU-tN-0ro"/>
+                            <constraint firstItem="4g6-dp-rwR" firstAttribute="trailing" secondItem="V68-3s-500" secondAttribute="trailing" constant="16" id="TPP-iK-Gr9"/>
+                            <constraint firstItem="hs2-NY-D9h" firstAttribute="centerY" secondItem="czV-NN-M2W" secondAttribute="centerY" id="VuM-sf-IJu"/>
+                            <constraint firstItem="V68-3s-500" firstAttribute="top" secondItem="irm-YJ-2Wp" secondAttribute="bottom" constant="18" id="aaO-Gw-JR5"/>
+                            <constraint firstItem="czV-NN-M2W" firstAttribute="top" secondItem="4g6-dp-rwR" secondAttribute="top" constant="59" id="bNb-20-deA"/>
+                            <constraint firstItem="Hda-9w-e9q" firstAttribute="leading" secondItem="4g6-dp-rwR" secondAttribute="leading" constant="16" id="epq-sA-3kg"/>
+                            <constraint firstItem="hs2-NY-D9h" firstAttribute="leading" secondItem="4g6-dp-rwR" secondAttribute="leading" constant="16" id="gwJ-Cw-AEq"/>
+                            <constraint firstItem="Hda-9w-e9q" firstAttribute="top" secondItem="V68-3s-500" secondAttribute="bottom" constant="22" id="iGO-bI-SOf"/>
+                            <constraint firstItem="V68-3s-500" firstAttribute="leading" secondItem="4g6-dp-rwR" secondAttribute="leading" constant="16" id="l9p-5j-hfi"/>
+                            <constraint firstItem="4g6-dp-rwR" firstAttribute="trailing" secondItem="Hda-9w-e9q" secondAttribute="trailing" constant="16" id="m1D-F3-q3F"/>
+                            <constraint firstItem="irm-YJ-2Wp" firstAttribute="leading" secondItem="4g6-dp-rwR" secondAttribute="leading" constant="16" id="tys-C0-bR5"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="checkBoxLabel" destination="czV-NN-M2W" id="J42-s4-C8G"/>
+                        <outlet property="checkbox" destination="hs2-NY-D9h" id="wyQ-xV-mZJ"/>
+                        <outlet property="drinkcoach" destination="irm-YJ-2Wp" id="Ufb-yg-V9n"/>
+                        <outlet property="messageLabel" destination="Hda-9w-e9q" id="Ake-ti-QcP"/>
+                        <outlet property="substainCoach" destination="V68-3s-500" id="j99-CW-Vlr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0ze-db-WuH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="864.8854961832061" y="-28.169014084507044"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="uncheck" width="85.333335876464844" height="85.333335876464844"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

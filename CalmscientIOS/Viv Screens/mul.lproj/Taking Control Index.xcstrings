@@ -1,0 +1,2520 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "0H7-09-fBf.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Personalized action plan to control\\nyour drinking and smoking habit\"; ObjectID = \"0H7-09-fBf\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Personalized action plan to control\nyour drinking and smoking habit"
+          }
+        }
+      }
+    },
+    "0Hw-LN-Rkp.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"My drinking habit\"; ObjectID = \"0Hw-LN-Rkp\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "My drinking habit"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volver"
+          }
+        }
+      }
+    },
+    "0T3-T0-2Ph.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"“I’m thinking about quitting”\"; ObjectID = \"0T3-T0-2Ph\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "“I’m thinking about quitting”"
+          }
+        }
+      }
+    },
+    "0tf-nh-vg2.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Up to 5 or more drinks on\"; ObjectID = \"0tf-nh-vg2\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Up to 5 or more drinks on"
+          }
+        }
+      }
+    },
+    "0tG-c6-W9Q.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"0tG-c6-W9Q\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•"
+          }
+        }
+      }
+    },
+    "1nh-jK-EeZ.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"1nh-jK-EeZ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "1q0-M6-edK.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Monthly Goal\"; ObjectID = \"1q0-M6-edK\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Monthly Goal"
+          }
+        }
+      }
+    },
+    "1R7-De-7Ni.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Alcohol is a factor in: \"; ObjectID = \"1R7-De-7Ni\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Alcohol is a factor in: "
+          }
+        }
+      }
+    },
+    "1rt-mv-gOS.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Did you know?\"; ObjectID = \"1rt-mv-gOS\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Did you know?"
+          }
+        }
+      }
+    },
+    "1sO-I9-zU1.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"For some people who drink, it takes quite a few drinks to “get a buzz” or feel relaxed, and they may be less likely to show signs of intoxication compared to others. This is sometimes called being able to “hold your liquor” or “drink someone under the table.”\"; ObjectID = \"1sO-I9-zU1\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "For some people who drink, it takes quite a few drinks to “get a buzz” or feel relaxed, and they may be less likely to show signs of intoxication compared to others. This is sometimes called being able to “hold your liquor” or “drink someone under the table.”"
+          }
+        }
+      }
+    },
+    "1vl-It-iCq.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"1vl-It-iCq\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•"
+          }
+        }
+      }
+    },
+    "2EI-SM-XZg.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Total\"; ObjectID = \"2EI-SM-XZg\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Total"
+          }
+        }
+      }
+    },
+    "2hl-Gh-PV5.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Alcohol-related blackouts\"; ObjectID = \"2hl-Gh-PV5\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Alcohol-related blackouts"
+          }
+        }
+      }
+    },
+    "2YV-2M-XfC.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"2YV-2M-XfC\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "3Bw-fV-7cK.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"3Bw-fV-7cK\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "3KT-P5-Ju5.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"alcohol misuse?\"; ObjectID = \"3KT-P5-Ju5\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "alcohol misuse?"
+          }
+        }
+      }
+    },
+    "3Lw-2m-ewO.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Up to 2 drinks/day\"; ObjectID = \"3Lw-2m-ewO\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Up to 2 drinks/day"
+          }
+        }
+      }
+    },
+    "3ny-ew-IV2.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"What is\"; ObjectID = \"3ny-ew-IV2\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "What is"
+          }
+        }
+      }
+    },
+    "3sA-7r-1R4.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"When you're trying to quit smoking, pretty much everyone feels the urge to smoke from time to time. It can be a small feeling or sometimes really strong. But guess what?\\n\\nDealing with these cravings is a big deal for staying smoke-free.\\n\\nHere are some ways to handle it:\"; ObjectID = \"3sA-7r-1R4\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "When you're trying to quit smoking, pretty much everyone feels the urge to smoke from time to time. It can be a small feeling or sometimes really strong. But guess what?\n\nDealing with these cravings is a big deal for staying smoke-free.\n\nHere are some ways to handle it:"
+          }
+        }
+      }
+    },
+    "4Fx-r1-w6I.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"https://www.cdc.gov/tobacco/basic_information/e-cigarettes/pdfs/Electronic-Cigarettes-Infographic-p.pdf\"; ObjectID = \"4Fx-r1-w6I\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "https://www.cdc.gov/tobacco/basic_information/e-cigarettes/pdfs/Electronic-Cigarettes-Infographic-p.pdf"
+          }
+        }
+      }
+    },
+    "4HF-zm-719.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Alcohol-related deaths are increasing in the United States. \"; ObjectID = \"4HF-zm-719\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Alcohol-related deaths are increasing in the United States. "
+          }
+        }
+      }
+    },
+    "4Lm-Vd-SuD.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"within about 2 hours\"; ObjectID = \"4Lm-Vd-SuD\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "within about 2 hours"
+          }
+        }
+      }
+    },
+    "5EI-LO-2nE.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Daily drink counts\"; ObjectID = \"5EI-LO-2nE\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Daily drink counts"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Límite de bebidas"
+          }
+        }
+      }
+    },
+    "5jA-Mo-oCb.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Save it to weekly summary journal entry\"; ObjectID = \"5jA-Mo-oCb\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Save it to weekly summary journal entry"
+          }
+        }
+      }
+    },
+    "6Bp-dc-Fln.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"6Bp-dc-Fln\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "6dN-QE-p4F.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Drink tracker\"; ObjectID = \"6dN-QE-p4F\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Drink tracker"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Medidor de bebidas"
+          }
+        }
+      }
+    },
+    "6ec-zN-Qzh.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Upcoming alcohol-free day\"; ObjectID = \"6ec-zN-Qzh\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Upcoming alcohol-free day"
+          }
+        }
+      }
+    },
+    "6sN-zr-MXh.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"There is a wide range of short- and long-term consequences associated with alcohol misuse.\\nFor some individuals, any amount of drinking\\ncould be potentially harmful\"; ObjectID = \"6sN-zr-MXh\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "There is a wide range of short- and long-term consequences associated with alcohol misuse.\nFor some individuals, any amount of drinking\ncould be potentially harmful"
+          }
+        }
+      }
+    },
+    "6Zx-9i-0VD.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Up to 4 or more drinks\"; ObjectID = \"6Zx-9i-0VD\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Up to 4 or more drinks"
+          }
+        }
+      }
+    },
+    "8kS-7r-b6Y.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"You're doing a fantastic job maintaining moderation with your drinking!    As you continue this healthy habit, remember to build other wellness practices like regular exercise, a balanced diet, and enough sleep.\"; ObjectID = \"8kS-7r-b6Y\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "You're doing a fantastic job maintaining moderation with your drinking!    As you continue this healthy habit, remember to build other wellness practices like regular exercise, a balanced diet, and enough sleep."
+          }
+        }
+      }
+    },
+    "8nm-2v-avJ.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Screenings\"; ObjectID = \"8nm-2v-avJ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Screenings"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Evaluaciones"
+          }
+        }
+      }
+    },
+    "8R7-dT-B0b.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Events tracker\"; ObjectID = \"8R7-dT-B0b\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Events tracker"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Medidor de eventos"
+          }
+        }
+      }
+    },
+    "8sG-dX-uZZ.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Close\"; ObjectID = \"8sG-dX-uZZ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Close"
+          }
+        }
+      }
+    },
+    "9M6-5e-9bk.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"binge drinking?\"; ObjectID = \"9M6-5e-9bk\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "binge drinking?"
+          }
+        }
+      }
+    },
+    "9Ti-Yg-mwU.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Now let’s see what drinking habits \\ndo you have\"; ObjectID = \"9Ti-Yg-mwU\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Now let’s see what drinking habits \ndo you have"
+          }
+        }
+      }
+    },
+    "09y-3g-ktp.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"09y-3g-ktp\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "95S-X3-XV2.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"95S-X3-XV2\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "A2h-us-13o.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Research has shown an important association between alcohol consumption and breast cancer—for each 10 grams of alcohol consumed (less than 1 standard drink) on an average daily basis, a woman’s chance of developing postmenopausal breast cancer increases by around 9 percent. \"; ObjectID = \"A2h-us-13o\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Research has shown an important association between alcohol consumption and breast cancer—for each 10 grams of alcohol consumed (less than 1 standard drink) on an average daily basis, a woman’s chance of developing postmenopausal breast cancer increases by around 9 percent. "
+          }
+        }
+      }
+    },
+    "AcY-vP-VZQ.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•    30% of suicides. \"; ObjectID = \"AcY-vP-VZQ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•    30% of suicides. "
+          }
+        }
+      }
+    },
+    "AK8-gQ-50t.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Up to 1 drink/day\"; ObjectID = \"AK8-gQ-50t\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Up to 1 drink/day"
+          }
+        }
+      }
+    },
+    "APl-5y-UxN.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"“I’m trying to quit”\"; ObjectID = \"APl-5y-UxN\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "“I’m trying to quit”"
+          }
+        }
+      }
+    },
+    "Au4-ed-cD2.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Hangover, argument, accident\"; ObjectID = \"Au4-ed-cD2\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Hangover, argument, accident"
+          }
+        }
+      }
+    },
+    "aWb-Uq-N7p.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Let’s use breathing exercises to support your journey. They help reduce stress and cravings, and provide a calming distraction..\"; ObjectID = \"aWb-Uq-N7p\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Let’s use breathing exercises to support your journey. They help reduce stress and cravings, and provide a calming distraction.."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usemos ejercicios de respiración para apoyar tu viaje. Ayudan a reducir el estrés, los antojos, y proporcionan calma."
+          }
+        }
+      }
+    },
+    "aYo-Tt-lxa.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Memory problem; alcohol can impair both short-term and long-term memory. I can lead to blackouts(Can’t recall events that occurred while one is intoxicated).\"; ObjectID = \"aYo-Tt-lxa\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Memory problem; alcohol can impair both short-term and long-term memory. I can lead to blackouts(Can’t recall events that occurred while one is intoxicated)."
+          }
+        }
+      }
+    },
+    "b3Y-cA-pO7.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Resources\"; ObjectID = \"b3Y-cA-pO7\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Resources"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recursos"
+          }
+        }
+      }
+    },
+    "B4g-hn-woU.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Research has also shown that alcohol misuse increases the risk of liver disease, cardiovascular  diseases, depression, and stomach bleeding, as well as cancers of the oral cavity, esophagus, larynx, pharynx, liver, colon, and rectum. \"; ObjectID = \"B4g-hn-woU\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Research has also shown that alcohol misuse increases the risk of liver disease, cardiovascular  diseases, depression, and stomach bleeding, as well as cancers of the oral cavity, esophagus, larynx, pharynx, liver, colon, and rectum. "
+          }
+        }
+      }
+    },
+    "BcZ-fs-hOz.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Do something you're good at to build self-confidence, then tackle a tougher task.\"; ObjectID = \"BcZ-fs-hOz\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Do something you're good at to build self-confidence, then tackle a tougher task."
+          }
+        }
+      }
+    },
+    "bJf-QB-Tik.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"E-cigarettes go by many names like \\\"e-cigs,” vapes,\\\" and \\\"vape pens.\\\" They can look like regular cigarettes or even things like USB flash drives and pens.\\n\\nThese devices run on batteries and let people inhale something called aerosol. Vaping became popular because some thought it might be a less harmful choice compared to regular smoking.\\n\\nInside that aerosol, there's usually nicotine (though not always), flavors, and some other chemicals. The devices can be rechargeable, disposable, or come with tanks and mods.\\n\\nIs it safer than tobacco?\\nE-cigarette aerosol generally contains fewer toxic chemicals than the deadly mix of 7,000 chemicals in smoke from regular cigarettes. However, e-cigarette aerosol is not harmless. It can contain harmful and potentially harmful substances, including nicotine, heavy metals like lead, volatile organic compounds and cancer-causing agents.\"; ObjectID = \"bJf-QB-Tik\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "E-cigarettes go by many names like \"e-cigs,” vapes,\" and \"vape pens.\" They can look like regular cigarettes or even things like USB flash drives and pens.\n\nThese devices run on batteries and let people inhale something called aerosol. Vaping became popular because some thought it might be a less harmful choice compared to regular smoking.\n\nInside that aerosol, there's usually nicotine (though not always), flavors, and some other chemicals. The devices can be rechargeable, disposable, or come with tanks and mods.\n\nIs it safer than tobacco?\nE-cigarette aerosol generally contains fewer toxic chemicals than the deadly mix of 7,000 chemicals in smoke from regular cigarettes. However, e-cigarette aerosol is not harmless. It can contain harmful and potentially harmful substances, including nicotine, heavy metals like lead, volatile organic compounds and cancer-causing agents."
+          }
+        }
+      }
+    },
+    "bWr-pE-dhB.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"any day or 15 drinks or more per week\"; ObjectID = \"bWr-pE-dhB\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "any day or 15 drinks or more per week"
+          }
+        }
+      }
+    },
+    "BXm-aH-LaX.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"within about 2 hours\"; ObjectID = \"BXm-aH-LaX\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "within about 2 hours"
+          }
+        }
+      }
+    },
+    "cJp-Lf-yHt.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"NIAAA defines heavy drinking as follows:\"; ObjectID = \"cJp-Lf-yHt\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "NIAAA defines heavy drinking as follows:"
+          }
+        }
+      }
+    },
+    "Coa-cY-FsM.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"24\"; ObjectID = \"Coa-cY-FsM\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "24"
+          }
+        }
+      }
+    },
+    "cwo-30-SDY.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"cwo-30-SDY\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "cZ6-xa-GM8.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"What new habits are helping you keep going?\"; ObjectID = \"cZ6-xa-GM8\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "What new habits are helping you keep going?"
+          }
+        }
+      }
+    },
+    "d2B-AU-1Gk.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Tobacco comes from the leaves of the Nicotiana plant and is used in things like cigarettes, cigars, and chewing tobacco. The main thing in tobacco is nicotine, a natural substance that can be addictive and affect your brain\\n\\nWhen people smoke cigarettes, they inhale over 7,000 chemicals, and nicotine is the one that makes smoking addictive. There are also other chemicals added to make the smoke taste better and for the nicotine to be absorbed more easily.\\n\\nEach time someone smokes a cigarette, they get about 1-2 milligrams of nicotine, which quickly goes to their brain and makes their heart beat faster, raises their blood pressure, and increases their breathing. It's kind of like a quick energy boost, but it can become a habit.\\n\\nCigarettes are designed so that someone who smokes regularly gets around 200 \\\"hits\\\" of nicotine to their brain every day. Other tobacco products, like chewing tobacco, also have nicotine. Some people use e-cigarettes to get nicotine without all the extra chemicals in tobacco smoke.\\n\\nNicotine works on the brain in a way that makes it feel good and can become a habit because it gives a sense of pleasure. That's why it's important to understand what's in tobacco and the effects it can have on your body and brain.\\n\"; ObjectID = \"d2B-AU-1Gk\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Tobacco comes from the leaves of the Nicotiana plant and is used in things like cigarettes, cigars, and chewing tobacco. The main thing in tobacco is nicotine, a natural substance that can be addictive and affect your brain\n\nWhen people smoke cigarettes, they inhale over 7,000 chemicals, and nicotine is the one that makes smoking addictive. There are also other chemicals added to make the smoke taste better and for the nicotine to be absorbed more easily.\n\nEach time someone smokes a cigarette, they get about 1-2 milligrams of nicotine, which quickly goes to their brain and makes their heart beat faster, raises their blood pressure, and increases their breathing. It's kind of like a quick energy boost, but it can become a habit.\n\nCigarettes are designed so that someone who smokes regularly gets around 200 \"hits\" of nicotine to their brain every day. Other tobacco products, like chewing tobacco, also have nicotine. Some people use e-cigarettes to get nicotine without all the extra chemicals in tobacco smoke.\n\nNicotine works on the brain in a way that makes it feel good and can become a habit because it gives a sense of pleasure. That's why it's important to understand what's in tobacco and the effects it can have on your body and brain.\n"
+          }
+        }
+      }
+    },
+    "Dgl-B7-KEZ.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"What features can you use\\nin full version?\"; ObjectID = \"Dgl-B7-KEZ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "What features can you use\nin full version?"
+          }
+        }
+      }
+    },
+    "dGN-r7-SxM.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Remember, moderate drinking is defined as:\"; ObjectID = \"dGN-r7-SxM\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Remember, moderate drinking is defined as:"
+          }
+        }
+      }
+    },
+    "Dmd-up-8tM.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"2.\"; ObjectID = \"Dmd-up-8tM\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "2."
+          }
+        }
+      }
+    },
+    "dpI-9v-w09.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Drink more than moderation\"; ObjectID = \"dpI-9v-w09\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Drink more than moderation"
+          }
+        }
+      }
+    },
+    "dQH-41-aLm.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"dQH-41-aLm\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Label"
+          }
+        }
+      }
+    },
+    "dsN-Mb-XrA.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"dsN-Mb-XrA\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•"
+          }
+        }
+      }
+    },
+    "e5K-t6-sko.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Birth defects. Prenatal alcohol exposure can result in brain damage and other serious problems in babies. The effects are known as fetal alcohol spectrum disorders, or FASD, and can result in lifelong physical, cognitive, and behavioral problems. Because there is no known safe level of alcohol for a developing baby, women who are pregnant or might be pregnant should not drink.\"; ObjectID = \"e5K-t6-sko\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Birth defects. Prenatal alcohol exposure can result in brain damage and other serious problems in babies. The effects are known as fetal alcohol spectrum disorders, or FASD, and can result in lifelong physical, cognitive, and behavioral problems. Because there is no known safe level of alcohol for a developing baby, women who are pregnant or might be pregnant should not drink."
+          }
+        }
+      }
+    },
+    "e07-B4-4gB.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Social / weekend binge drinking\"; ObjectID = \"e07-B4-4gB\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Social / weekend binge drinking"
+          }
+        }
+      }
+    },
+    "e7r-XJ-KWX.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Why is it challenging to quit?\"; ObjectID = \"e7r-XJ-KWX\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Why is it challenging to quit?"
+          }
+        }
+      }
+    },
+    "ECr-wF-Z7J.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"count\"; ObjectID = \"ECr-wF-Z7J\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "count"
+          }
+        }
+      }
+    },
+    "Eiv-5H-Zk1.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Save\"; ObjectID = \"Eiv-5H-Zk1\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Save"
+          }
+        }
+      }
+    },
+    "En4-Z9-xJo.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Stay focused\"; ObjectID = \"En4-Z9-xJo\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Stay focused"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mantente enfocado"
+          }
+        }
+      }
+    },
+    "ew3-gy-EBe.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"ew3-gy-EBe\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•"
+          }
+        }
+      }
+    },
+    "FB4-N7-Gbx.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Need to talk with someone?\"; ObjectID = \"FB4-N7-Gbx\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Need to talk with someone?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Necesitas hablar con alguien?"
+          }
+        }
+      }
+    },
+    "FB4-N7-Gbx.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Button\"; ObjectID = \"FB4-N7-Gbx\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Button"
+          }
+        }
+      }
+    },
+    "fqr-h2-E3e.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"counts\"; ObjectID = \"fqr-h2-E3e\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "counts"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "bebidas"
+          }
+        }
+      }
+    },
+    "FRu-W3-8Nq.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Fatalities and injuries\"; ObjectID = \"FRu-W3-8Nq\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Fatalities and injuries"
+          }
+        }
+      }
+    },
+    "FwL-or-CkV.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Up to 1 drink per day\"; ObjectID = \"FwL-or-CkV\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Up to 1 drink per day"
+          }
+        }
+      }
+    },
+    "fWT-vs-0uD.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Why does smoking seem to relax me?\"; ObjectID = \"fWT-vs-0uD\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Why does smoking seem to relax me?"
+          }
+        }
+      }
+    },
+    "G2g-L6-k7N.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"What are the U.S. guidelines for drinking?\"; ObjectID = \"G2g-L6-k7N\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "What are the U.S. guidelines for drinking?"
+          }
+        }
+      }
+    },
+    "GE4-d8-TZV.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"I’m proud of you for recognizing the need to address your heavy drinking! Acknowledging that your drinking patterns may be problematic is a crucial first step toward a healthier life.\"; ObjectID = \"GE4-d8-TZV\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "I’m proud of you for recognizing the need to address your heavy drinking! Acknowledging that your drinking patterns may be problematic is a crucial first step toward a healthier life."
+          }
+        }
+      }
+    },
+    "gkL-QT-cgz.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Work your strengths\"; ObjectID = \"gkL-QT-cgz\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Work your strengths"
+          }
+        }
+      }
+    },
+    "gMh-rh-XzI.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"I’m proud of you setting a limit to alcohol consumption! You’re taking a really important first step by recognizing your daily reliance on alcohol, and that’s something to be proud of.\"; ObjectID = \"gMh-rh-XzI\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "I’m proud of you setting a limit to alcohol consumption! You’re taking a really important first step by recognizing your daily reliance on alcohol, and that’s something to be proud of."
+          }
+        }
+      }
+    },
+    "Grl-Tz-eeK.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"It's essential to reflect on how your alcohol consumption impacts your well-being and relationships. By committing to change and taking small steps to reduce your drinking, you can begin to experience the benefits of a more balanced lifestyle.\"; ObjectID = \"Grl-Tz-eeK\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "It's essential to reflect on how your alcohol consumption impacts your well-being and relationships. By committing to change and taking small steps to reduce your drinking, you can begin to experience the benefits of a more balanced lifestyle."
+          }
+        }
+      }
+    },
+    "grQ-rb-i1S.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"grQ-rb-i1S\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "gXJ-Rs-KRf.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"And people who misuse alcohol are more likely to engage in unsafe sexual behavior, putting themselves and others at risk for sexually transmitted infections and unintentional pregnancies.\"; ObjectID = \"gXJ-Rs-KRf\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "And people who misuse alcohol are more likely to engage in unsafe sexual behavior, putting themselves and others at risk for sexually transmitted infections and unintentional pregnancies."
+          }
+        }
+      }
+    },
+    "h0P-jA-aNo.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"h0P-jA-aNo\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•"
+          }
+        }
+      }
+    },
+    "h2C-Yi-vR2.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"h2C-Yi-vR2\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Label"
+          }
+        }
+      }
+    },
+    "H8B-Am-7hR.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Women\"; ObjectID = \"H8B-Am-7hR\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Women"
+          }
+        }
+      }
+    },
+    "HIv-ug-ISO.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"HIv-ug-ISO\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "hIz-Vz-0qf.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Now you are a non-smoker and are trying to stay that way. When we make changes, it’s critical to meditate on how important this change is to you and how confident you are in making this change. You want to pay attention to how your mind, body, and emotional regulation feel differently, how your attitude changed, and what you have started doing instead for better self-care.\\n\\nThinking about it helps you to not go back to your old relationship with smoking.\\n\\nNow you know what to expect on this ride. It won’t hit you as a surprise when you expect ups and downs of this journey! Remember it’s all about coming up with a strategy that works for you, it’s not about your will power.\\n\\nAre you out of the woods? Many people want to know how long it takes before the chance of going back to tobacco is no longer a concern. Relapse most commonly happens in the first one to three months after quitting.\\n\\nHowever, it’s always wise to be on guard\"; ObjectID = \"hIz-Vz-0qf\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Now you are a non-smoker and are trying to stay that way. When we make changes, it’s critical to meditate on how important this change is to you and how confident you are in making this change. You want to pay attention to how your mind, body, and emotional regulation feel differently, how your attitude changed, and what you have started doing instead for better self-care.\n\nThinking about it helps you to not go back to your old relationship with smoking.\n\nNow you know what to expect on this ride. It won’t hit you as a surprise when you expect ups and downs of this journey! Remember it’s all about coming up with a strategy that works for you, it’s not about your will power.\n\nAre you out of the woods? Many people want to know how long it takes before the chance of going back to tobacco is no longer a concern. Relapse most commonly happens in the first one to three months after quitting.\n\nHowever, it’s always wise to be on guard"
+          }
+        }
+      }
+    },
+    "hkP-mg-6Dx.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"192\"; ObjectID = \"hkP-mg-6Dx\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "192"
+          }
+        }
+      }
+    },
+    "hmL-VL-efn.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Celebrate being tobacco-free for:\\n\\n•  3 days\\n•  7 days\\n•  2 weeks\\n•  1 month\\n•  3 months\\n•  6 months\\n•  1 year\"; ObjectID = \"hmL-VL-efn\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Celebrate being tobacco-free for:\n\n•  3 days\n•  7 days\n•  2 weeks\n•  1 month\n•  3 months\n•  6 months\n•  1 year"
+          }
+        }
+      }
+    },
+    "Hq7-SS-5r6.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Alcohol-related mental dysfunction\"; ObjectID = \"Hq7-SS-5r6\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Alcohol-related mental dysfunction"
+          }
+        }
+      }
+    },
+    "hY2-Po-UnD.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"hY2-Po-UnD\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "hyh-Ta-PEL.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Alcohol-related blackouts\"; ObjectID = \"hyh-Ta-PEL\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Alcohol-related blackouts"
+          }
+        }
+      }
+    },
+    "I0E-jG-CNU.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"10 days\"; ObjectID = \"I0E-jG-CNU\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "10 days"
+          }
+        }
+      }
+    },
+    "ifl-Bb-V3v.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"ifl-Bb-V3v\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "Imf-Ss-LtA.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Make a plan\"; ObjectID = \"Imf-Ss-LtA\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Make a plan"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haz un plan"
+          }
+        }
+      }
+    },
+    "IN1-cW-QpP.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Up to 5 or more drinks\"; ObjectID = \"IN1-cW-QpP\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Up to 5 or more drinks"
+          }
+        }
+      }
+    },
+    "iNq-vk-Qqv.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Men\"; ObjectID = \"iNq-vk-Qqv\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Men"
+          }
+        }
+      }
+    },
+    "Iou-hM-Ebl.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Excessive alcohol consumption can have a significant negative impact on mental capacity.\"; ObjectID = \"Iou-hM-Ebl\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Excessive alcohol consumption can have a significant negative impact on mental capacity."
+          }
+        }
+      }
+    },
+    "Ip0-sN-kYF.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"My progress\"; ObjectID = \"Ip0-sN-kYF\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "My progress"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mi progreso"
+          }
+        }
+      }
+    },
+    "Iza-SP-szp.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"Iza-SP-szp\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "J8T-Qe-lvy.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Cancel\"; ObjectID = \"J8T-Qe-lvy\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Cancel"
+          }
+        }
+      }
+    },
+    "jBU-r2-D9q.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Women:\"; ObjectID = \"jBU-r2-D9q\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Women:"
+          }
+        }
+      }
+    },
+    "JKh-eQ-Ihg.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Alcohol-free day\"; ObjectID = \"JKh-eQ-Ihg\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Alcohol-free day"
+          }
+        }
+      }
+    },
+    "JM4-ag-xLa.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"What are the consequences?\"; ObjectID = \"JM4-ag-xLa\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "What are the consequences?"
+          }
+        }
+      }
+    },
+    "jmi-g8-vE8.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Drink counts\"; ObjectID = \"jmi-g8-vE8\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Drink counts"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contador de"
+          }
+        }
+      }
+    },
+    "jum-xd-DsJ.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"jum-xd-DsJ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "K9n-lI-mpZ.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Fatalities and injuries\"; ObjectID = \"K9n-lI-mpZ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Fatalities and injuries"
+          }
+        }
+      }
+    },
+    "Kfc-Sa-1e2.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Saving\"; ObjectID = \"Kfc-Sa-1e2\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Saving"
+          }
+        }
+      }
+    },
+    "kkp-gI-PXO.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"What is\"; ObjectID = \"kkp-gI-PXO\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "What is"
+          }
+        }
+      }
+    },
+    "kwQ-zn-kcy.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•    40% of fatal burn injuries.\"; ObjectID = \"kwQ-zn-kcy\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•    40% of fatal burn injuries."
+          }
+        }
+      }
+    },
+    "l5p-g0-6Xv.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"calculator\"; ObjectID = \"l5p-g0-6Xv\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "calculator"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "bebidas"
+          }
+        }
+      }
+    },
+    "LAu-rm-KDv.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"It's important to reflect on your drinking habits, especially during social events, and consider how you can enjoy those moments without going overboard. By taking small steps to reduce your consumption, you’ll start to see the benefits for both your health and your relationships.\"; ObjectID = \"LAu-rm-KDv\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "It's important to reflect on your drinking habits, especially during social events, and consider how you can enjoy those moments without going overboard. By taking small steps to reduce your consumption, you’ll start to see the benefits for both your health and your relationships."
+          }
+        }
+      }
+    },
+    "LnT-YJ-LAa.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Drinking is associated with a number of health problems and can make certain chronic health problems worse. \"; ObjectID = \"LnT-YJ-LAa\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Drinking is associated with a number of health problems and can make certain chronic health problems worse. "
+          }
+        }
+      }
+    },
+    "Lrj-VK-ABb.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Nicotine cravings\"; ObjectID = \"Lrj-VK-ABb\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Nicotine cravings"
+          }
+        }
+      }
+    },
+    "lrX-wy-dUk.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Please select a date\"; ObjectID = \"lrX-wy-dUk\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Please select a date"
+          }
+        }
+      }
+    },
+    "LXh-Bz-n9U.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"LXh-Bz-n9U\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "lXp-ee-5mp.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"USD($)\"; ObjectID = \"lXp-ee-5mp\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "USD($)"
+          }
+        }
+      }
+    },
+    "mGu-XJ-5gp.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"How much money have you saved by quitting tobacco?How are you rewarding yourself?\"; ObjectID = \"mGu-XJ-5gp\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "How much money have you saved by quitting tobacco?How are you rewarding yourself?"
+          }
+        }
+      }
+    },
+    "Mhx-hP-MpI.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"Mhx-hP-MpI\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "MOy-cQ-XNZ.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Coming Soon!\"; ObjectID = \"MOy-cQ-XNZ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Coming Soon!"
+          }
+        }
+      }
+    },
+    "n3s-Vv-UxV.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"n3s-Vv-UxV\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "NCM-4s-eAi.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"How is vaping (E-cigarettes) safer than tobacco?\"; ObjectID = \"NCM-4s-eAi\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "How is vaping (E-cigarettes) safer than tobacco?"
+          }
+        }
+      }
+    },
+    "Ngd-6u-Bee.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Approximately 75% of smokers want to quit, but 25% are not interested. Perhaps you are thinking about it, but not quite ready to act. Although, cigarettes are expensive, you might still like the sensations of smoking. You may also feel pressured to quit because people smoke on the break or you live with someone who also smokes.\\n\\nBut just so you know, thinking about quitting is already a first big step forward toward change! It’s normal to feel intimidated by taking action. No one wants to fail.. But think about this.. If it’s going to be a challenge now and it’s going to be a challenge in 5 years, why not do it now without spending more money on cigarettes?\"; ObjectID = \"Ngd-6u-Bee\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Approximately 75% of smokers want to quit, but 25% are not interested. Perhaps you are thinking about it, but not quite ready to act. Although, cigarettes are expensive, you might still like the sensations of smoking. You may also feel pressured to quit because people smoke on the break or you live with someone who also smokes.\n\nBut just so you know, thinking about quitting is already a first big step forward toward change! It’s normal to feel intimidated by taking action. No one wants to fail.. But think about this.. If it’s going to be a challenge now and it’s going to be a challenge in 5 years, why not do it now without spending more money on cigarettes?"
+          }
+        }
+      }
+    },
+    "nls-iu-O3L.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Drink in moderation\"; ObjectID = \"nls-iu-O3L\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Drink in moderation"
+          }
+        }
+      }
+    },
+    "nNP-ry-ls4.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"3.\"; ObjectID = \"nNP-ry-ls4\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "3."
+          }
+        }
+      }
+    },
+    "NtS-zn-YJB.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"1.6\"; ObjectID = \"NtS-zn-YJB\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "1.6"
+          }
+        }
+      }
+    },
+    "NuI-qg-DrV.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"limit\"; ObjectID = \"NuI-qg-DrV\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "limit"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "al día"
+          }
+        }
+      }
+    },
+    "o2h-on-b78.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•    50% of fatal drownings and of homicides, and\"; ObjectID = \"o2h-on-b78\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•    50% of fatal drownings and of homicides, and"
+          }
+        }
+      }
+    },
+    "OAj-0l-5wm.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Men\"; ObjectID = \"OAj-0l-5wm\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Men"
+          }
+        }
+      }
+    },
+    "OHd-Ha-HDa.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"What is tobacco?\"; ObjectID = \"OHd-Ha-HDa\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "What is tobacco?"
+          }
+        }
+      }
+    },
+    "Oqd-Yf-OJe.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"People who misuse alcohol may also have problems managing conditions such as diabetes, high blood pressure, pain, and sleep disorders.\"; ObjectID = \"Oqd-Yf-OJe\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "People who misuse alcohol may also have problems managing conditions such as diabetes, high blood pressure, pain, and sleep disorders."
+          }
+        }
+      }
+    },
+    "oQg-Wx-L1Z.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Use this calculator to plan to control your drinking habit.\"; ObjectID = \"oQg-Wx-L1Z\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Use this calculator to plan to control your drinking habit."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usa este contador para planificar el control sobre tus hábitos de consumo"
+          }
+        }
+      }
+    },
+    "oW0-AX-Pqd.segmentTitles[0]" : {
+      "comment" : "Class = \"UISegmentedControl\"; oW0-AX-Pqd.segmentTitles[0] = \"Drinking\"; ObjectID = \"oW0-AX-Pqd\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Drinking"
+          }
+        }
+      }
+    },
+    "oW0-AX-Pqd.segmentTitles[1]" : {
+      "comment" : "Class = \"UISegmentedControl\"; oW0-AX-Pqd.segmentTitles[1] = \"Smoking\"; ObjectID = \"oW0-AX-Pqd\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Smoking"
+          }
+        }
+      }
+    },
+    "pcg-PZ-mJH.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Your daily drink\"; ObjectID = \"pcg-PZ-mJH\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Your daily drink"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conteo diario de"
+          }
+        }
+      }
+    },
+    "pHS-92-IHt.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Resources and tools to support\\nyour journey\"; ObjectID = \"pHS-92-IHt\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Resources and tools to support\nyour journey"
+          }
+        }
+      }
+    },
+    "PTj-Mm-KtG.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Basic knowledge\"; ObjectID = \"PTj-Mm-KtG\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Basic knowledge"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conocimiento básico"
+          }
+        }
+      }
+    },
+    "pZw-b2-aPT.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Resources\"; ObjectID = \"pZw-b2-aPT\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Resources"
+          }
+        }
+      }
+    },
+    "q20-nb-yiP.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Smoking free time\"; ObjectID = \"q20-nb-yiP\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Smoking free time"
+          }
+        }
+      }
+    },
+    "QCG-ss-dGs.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Health problems\"; ObjectID = \"QCG-ss-dGs\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Health problems"
+          }
+        }
+      }
+    },
+    "QDY-t7-KI1.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"The 2020–2025 Dietary Guidelines recommend:\"; ObjectID = \"QDY-t7-KI1\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The 2020–2025 Dietary Guidelines recommend:"
+          }
+        }
+      }
+    },
+    "qhZ-Y1-tWE.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"qhZ-Y1-tWE\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "qO9-3T-NfG.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Drink counts calculator\"; ObjectID = \"qO9-3T-NfG\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Drink counts calculator"
+          }
+        }
+      }
+    },
+    "qUC-T1-qYB.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"“I’m ready to quit”\"; ObjectID = \"qUC-T1-qYB\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "“I’m ready to quit”"
+          }
+        }
+      }
+    },
+    "QuK-sR-YTh.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"QuK-sR-YTh\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "qWm-fW-TIh.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"NIAAA defines it as follows\"; ObjectID = \"qWm-fW-TIh\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "NIAAA defines it as follows"
+          }
+        }
+      }
+    },
+    "r1p-7f-5jb.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Done\"; ObjectID = \"r1p-7f-5jb\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Done"
+          }
+        }
+      }
+    },
+    "R2j-6x-9yC.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•    A significant number of sexual assaults.\"; ObjectID = \"R2j-6x-9yC\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•    A significant number of sexual assaults."
+          }
+        }
+      }
+    },
+    "RgN-pS-F7Y.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"If you have even tried to quit once in the past, you have some idea how it feels, the challenges you experienced, and what caused you to start smoking again. That means you’ve already tasted this journey and know how tricky it can be. There are small steps you can take now to help you quit for good and increase your chances of success. Learn the skills that will help you permanently achieve a tobacco-free life.\\n\\nIn the following sections, you can learn about recommended strategies for overcoming potential challenges you may encounter!\"; ObjectID = \"RgN-pS-F7Y\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "If you have even tried to quit once in the past, you have some idea how it feels, the challenges you experienced, and what caused you to start smoking again. That means you’ve already tasted this journey and know how tricky it can be. There are small steps you can take now to help you quit for good and increase your chances of success. Learn the skills that will help you permanently achieve a tobacco-free life.\n\nIn the following sections, you can learn about recommended strategies for overcoming potential challenges you may encounter!"
+          }
+        }
+      }
+    },
+    "RrI-kC-KYs.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Keep up the great work—you're laying the groundwork for a healthier, happier life!\"; ObjectID = \"RrI-kC-KYs\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Keep up the great work—you're laying the groundwork for a healthier, happier life!"
+          }
+        }
+      }
+    },
+    "rtI-UP-JY5.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Alcohol-related mental dysfunction\"; ObjectID = \"rtI-UP-JY5\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Alcohol-related mental dysfunction"
+          }
+        }
+      }
+    },
+    "RxC-P7-fa6.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"These individuals tend to drink more, socialize with people who drink a lot, and develop a tolerance to alcohol (i.e., it takes more and more alcohol to feel or act intoxicated). As a result, they have an increased risk for developing AUD. Someone who misuses alcohol, especially over the long-term, can experience permanent liver, heart, or brain damage. And all people who drink, regardless of the amount, need to be aware that critical decision-making abilities and driving- related skills are already diminished long before a person shows physical signs of intoxication.\\n\"; ObjectID = \"RxC-P7-fa6\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "These individuals tend to drink more, socialize with people who drink a lot, and develop a tolerance to alcohol (i.e., it takes more and more alcohol to feel or act intoxicated). As a result, they have an increased risk for developing AUD. Someone who misuses alcohol, especially over the long-term, can experience permanent liver, heart, or brain damage. And all people who drink, regardless of the amount, need to be aware that critical decision-making abilities and driving- related skills are already diminished long before a person shows physical signs of intoxication.\n"
+          }
+        }
+      }
+    },
+    "S7V-PM-qM3.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Women\"; ObjectID = \"S7V-PM-qM3\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Women"
+          }
+        }
+      }
+    },
+    "Sg1-gQ-aN3.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Most teens who smoke think they will quit in their 20s and actually don't until their 40s. Stopping smoking is about making a change and that is something we're not too good at, in fact smoking cessation can be a long journey of trying and relapsing, just like a long ride on a roller coaster. There is no magic solution or medication to transform one to a non-smoker overnight, though some people have the gene to be able to quit smoking or drinking without any struggles.\\n\\n\\nSo what does this ride of change look like? There are 4 steps and helpful strategies you can take!\"; ObjectID = \"Sg1-gQ-aN3\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Most teens who smoke think they will quit in their 20s and actually don't until their 40s. Stopping smoking is about making a change and that is something we're not too good at, in fact smoking cessation can be a long journey of trying and relapsing, just like a long ride on a roller coaster. There is no magic solution or medication to transform one to a non-smoker overnight, though some people have the gene to be able to quit smoking or drinking without any struggles.\n\n\nSo what does this ride of change look like? There are 4 steps and helpful strategies you can take!"
+          }
+        }
+      }
+    },
+    "sjN-BT-7Kd.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Reduced cognitive function; negatively affects one’s attention, concentration, and processing speed, makes and perform tasks that require mental clarity and concentration.\"; ObjectID = \"sjN-BT-7Kd\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Reduced cognitive function; negatively affects one’s attention, concentration, and processing speed, makes and perform tasks that require mental clarity and concentration."
+          }
+        }
+      }
+    },
+    "skJ-s6-3fg.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Select the drink and quantity.\"; ObjectID = \"skJ-s6-3fg\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Select the drink and quantity."
+          }
+        }
+      }
+    },
+    "sY2-IH-kqh.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Breathing exercises\"; ObjectID = \"sY2-IH-kqh\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Breathing exercises"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ejercicios de respiración"
+          }
+        }
+      }
+    },
+    "szw-q9-pvg.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Focus on managing stress without turning to alcohol or quick fixes. Taking care of your body and mind will help you stay on track and reduce the urge to drink as a stress reliever.\"; ObjectID = \"szw-q9-pvg\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Focus on managing stress without turning to alcohol or quick fixes. Taking care of your body and mind will help you stay on track and reduce the urge to drink as a stress reliever."
+          }
+        }
+      }
+    },
+    "T2h-EY-YEN.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Some signs of AUD are continuing to drink even though it is causing trouble with your family or at work, drinking more than you intended, having to drink more than before to get a desired effect, being unable to stop drinking after repeated attempts, or continuing to drink despite negative consequences. Signs of AUD may also include drinking to alleviate negative emotions such as feeling ”low” anxious, uneasy, unhappy, unwell, dissatisfied with life, or other negative emotions that were caused or worsened by alcohol misuse. Beyond these physical and mental health risks, frequent alcohol misuse also is linked with personal problems, such as losing one’s driver’s license or having relationship troubles.\"; ObjectID = \"T2h-EY-YEN\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Some signs of AUD are continuing to drink even though it is causing trouble with your family or at work, drinking more than you intended, having to drink more than before to get a desired effect, being unable to stop drinking after repeated attempts, or continuing to drink despite negative consequences. Signs of AUD may also include drinking to alleviate negative emotions such as feeling ”low” anxious, uneasy, unhappy, unwell, dissatisfied with life, or other negative emotions that were caused or worsened by alcohol misuse. Beyond these physical and mental health risks, frequent alcohol misuse also is linked with personal problems, such as losing one’s driver’s license or having relationship troubles."
+          }
+        }
+      }
+    },
+    "TEA-zK-dhb.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"about 65 percent of fatal falls.\"; ObjectID = \"TEA-zK-dhb\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "about 65 percent of fatal falls."
+          }
+        }
+      }
+    },
+    "tG6-HI-Yp2.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Health problems\"; ObjectID = \"tG6-HI-Yp2\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Health problems"
+          }
+        }
+      }
+    },
+    "Ton-bC-Ji6.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Moderate everyday drinking\"; ObjectID = \"Ton-bC-Ji6\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Moderate everyday drinking"
+          }
+        }
+      }
+    },
+    "tvY-rL-Zad.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Let’s set a goal to screen for depression, anxiety, and alcohol and smoking regularly, as these can support your success\"; ObjectID = \"tvY-rL-Zad\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Let’s set a goal to screen for depression, anxiety, and alcohol and smoking regularly, as these can support your success"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Establezcamos metas para analizar la depresión, ansiedad, alcohol y tabaco de forma regular, esto puede apoyar tu éxito."
+          }
+        }
+      }
+    },
+    "TY6-eT-UO4.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Often these individuals are unaware that their body’s lower response to the intoxicating effects of alcohol isn’t protection from alcohol problems but instead is a reason for caution.\\n\"; ObjectID = \"TY6-eT-UO4\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Often these individuals are unaware that their body’s lower response to the intoxicating effects of alcohol isn’t protection from alcohol problems but instead is a reason for caution.\n"
+          }
+        }
+      }
+    },
+    "u70-3k-3cv.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Tracking your smoking and drinking\\nhabit\"; ObjectID = \"u70-3k-3cv\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Tracking your smoking and drinking\nhabit"
+          }
+        }
+      }
+    },
+    "uBz-gc-B5m.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"uBz-gc-B5m\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•"
+          }
+        }
+      }
+    },
+    "ueQ-KJ-ver.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Up to 2 drinks per day\"; ObjectID = \"ueQ-KJ-ver\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Up to 2 drinks per day"
+          }
+        }
+      }
+    },
+    "UF0-VA-JpO.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Why is being able to \\\"hold your liquor\\\" \\na concern?\"; ObjectID = \"UF0-VA-JpO\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Why is being able to \"hold your liquor\" \na concern?"
+          }
+        }
+      }
+    },
+    "ufl-i3-Y28.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Moderate drinking\"; ObjectID = \"ufl-i3-Y28\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Moderate drinking"
+          }
+        }
+      }
+    },
+    "ugw-41-hOz.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"2.0\"; ObjectID = \"ugw-41-hOz\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "2.0"
+          }
+        }
+      }
+    },
+    "UHU-KI-ESo.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Managing anxiety\"; ObjectID = \"UHU-KI-ESo\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Managing anxiety"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Curso de manejo de"
+          }
+        }
+      }
+    },
+    "uM4-m4-vem.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"uM4-m4-vem\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "uRP-s2-G2o.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Alcohol use disorder (AUD)\"; ObjectID = \"uRP-s2-G2o\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Alcohol use disorder (AUD)"
+          }
+        }
+      }
+    },
+    "uxo-Hg-sa8.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Half of liver disease deaths in the United States are caused by alcohol, and alcohol-associated liver disease is increasing, particularly among women and young people. \"; ObjectID = \"uxo-Hg-sa8\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Half of liver disease deaths in the United States are caused by alcohol, and alcohol-associated liver disease is increasing, particularly among women and young people. "
+          }
+        }
+      }
+    },
+    "Uyh-Li-P94.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"I’m proud of you for recognizing the need to control your drinking pattern! Acknowledging your drinking patterns is a crucial first step toward healthier habits.\"; ObjectID = \"Uyh-Li-P94\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "I’m proud of you for recognizing the need to control your drinking pattern! Acknowledging your drinking patterns is a crucial first step toward healthier habits."
+          }
+        }
+      }
+    },
+    "uZ0-km-mYD.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•    31% of all fatal crashes in 2021.\"; ObjectID = \"uZ0-km-mYD\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•    31% of all fatal crashes in 2021."
+          }
+        }
+      }
+    },
+    "V8S-0X-F7E.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Yes\"; ObjectID = \"V8S-0X-F7E\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Yes"
+          }
+        }
+      }
+    },
+    "V9s-MJ-zOg.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"“I’m tobacco free”\"; ObjectID = \"V9s-MJ-zOg\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "“I’m tobacco free”"
+          }
+        }
+      }
+    },
+    "V79-Dz-miI.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"course\"; ObjectID = \"V79-Dz-miI\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "course"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "la ansiedad"
+          }
+        }
+      }
+    },
+    "vA9-EV-zbU.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Mood swings and anxiety; alcohol is a “depressant” that leads to mood swings, irritability, and increased risk of developing depression and anxiety.\"; ObjectID = \"vA9-EV-zbU\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Mood swings and anxiety; alcohol is a “depressant” that leads to mood swings, irritability, and increased risk of developing depression and anxiety."
+          }
+        }
+      }
+    },
+    "VAU-JK-JDQ.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Let's see some of them.\"; ObjectID = \"VAU-JK-JDQ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Let's see some of them."
+          }
+        }
+      }
+    },
+    "VC5-py-w02.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Anxiety can trigger drinking and smoking, but healthy coping strategies help you to stay strong\"; ObjectID = \"VC5-py-w02\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Anxiety can trigger drinking and smoking, but healthy coping strategies help you to stay strong"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La ansiedad puede desencadenar el consumo de alcohol y tabaco, pero hay estrategias saludables que pueden ayuda"
+          }
+        }
+      }
+    },
+    "vQY-YG-tI9.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Days\"; ObjectID = \"vQY-YG-tI9\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Days"
+          }
+        }
+      }
+    },
+    "VV2-8U-Ddg.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"VV2-8U-Ddg\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "w7e-B9-Y9Y.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Nicotine does things in your brain that make you feel good and more awake. It releases chemicals like dopamine, norepinephrine, and serotonin, which are responsible for those \\\"feeling good\\\" and \\\"being awake\\\" vibes. Nicotine also gives you a quick boost of endorphins, which can help you relax and ease any pains.\\n\\nThat's why some people, both adults and teens, use smoking to kind of \\\"reset\\\" their mood, emotions, and attention. Especially for those who struggle with anxiety or feeling down, smoking might be a way they try to make themselves feel better. But it's important to know that there are healthier ways to deal with these feelings.\"; ObjectID = \"w7e-B9-Y9Y\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Nicotine does things in your brain that make you feel good and more awake. It releases chemicals like dopamine, norepinephrine, and serotonin, which are responsible for those \"feeling good\" and \"being awake\" vibes. Nicotine also gives you a quick boost of endorphins, which can help you relax and ease any pains.\n\nThat's why some people, both adults and teens, use smoking to kind of \"reset\" their mood, emotions, and attention. Especially for those who struggle with anxiety or feeling down, smoking might be a way they try to make themselves feel better. But it's important to know that there are healthier ways to deal with these feelings."
+          }
+        }
+      }
+    },
+    "WAU-78-GDx.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Blackouts are gaps in a person’s memory for events that occurred while they were intoxicated. These gaps happen when a person drinks enough alcohol to temporarily block the transfer of memories from short- to long-term storage—known as memory consolidation—in a brain area called the hippocampus.\"; ObjectID = \"WAU-78-GDx\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Blackouts are gaps in a person’s memory for events that occurred while they were intoxicated. These gaps happen when a person drinks enough alcohol to temporarily block the transfer of memories from short- to long-term storage—known as memory consolidation—in a brain area called the hippocampus."
+          }
+        }
+      }
+    },
+    "WGN-KJ-8FW.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Would you like to know your drink counts?\"; ObjectID = \"WGN-KJ-8FW\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Would you like to know your drink counts?"
+          }
+        }
+      }
+    },
+    "WYf-lw-dFE.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Full version will be available soon!\"; ObjectID = \"WYf-lw-dFE\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Full version will be available soon!"
+          }
+        }
+      }
+    },
+    "x8t-uZ-Rh9.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Men:\"; ObjectID = \"x8t-uZ-Rh9\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Men:"
+          }
+        }
+      }
+    },
+    "XC7-Hs-Y92.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Men\"; ObjectID = \"XC7-Hs-Y92\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Men"
+          }
+        }
+      }
+    },
+    "XHf-QN-Eio.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Problematic drinking\"; ObjectID = \"XHf-QN-Eio\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Problematic drinking"
+          }
+        }
+      }
+    },
+    "XLJ-dh-SZG.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"XLJ-dh-SZG\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Label"
+          }
+        }
+      }
+    },
+    "XTy-if-6SL.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"1.\"; ObjectID = \"XTy-if-6SL\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "1."
+          }
+        }
+      }
+    },
+    "Yjx-ZK-Im2.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Need to talk with someone?\"; ObjectID = \"Yjx-ZK-Im2\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Need to talk with someone?"
+          }
+        }
+      }
+    },
+    "Yli-uO-Qeh.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"After learning about drinking, which drinking habit applies to you?\"; ObjectID = \"Yli-uO-Qeh\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "After learning about drinking, which drinking habit applies to you?"
+          }
+        }
+      }
+    },
+    "zax-Dh-qFG.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Alcohol use disorder (AUD)\"; ObjectID = \"zax-Dh-qFG\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Alcohol use disorder (AUD)"
+          }
+        }
+      }
+    },
+    "ZmH-uX-iMq.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"You’ve reached your quit date and committed yourself to a tobacco-free life.\\n\\nBe proud! Quit smoking is like a relationship breakup and going through some losses.. You might have to break up your routine a little bit to avoid certain places, friends, and start a new routine to distract yourself. The plan requires you to think about more than just quitting smoking, but changes to your lifestyle.\\n\\nThere are some keys to achieve a permanent tobacco-free life.\\n\\nWhat can you do?\"; ObjectID = \"ZmH-uX-iMq\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "You’ve reached your quit date and committed yourself to a tobacco-free life.\n\nBe proud! Quit smoking is like a relationship breakup and going through some losses.. You might have to break up your routine a little bit to avoid certain places, friends, and start a new routine to distract yourself. The plan requires you to think about more than just quitting smoking, but changes to your lifestyle.\n\nThere are some keys to achieve a permanent tobacco-free life.\n\nWhat can you do?"
+          }
+        }
+      }
+    },
+    "ZPi-vP-cGF.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"ZPi-vP-cGF\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "ZY5-lM-L4v.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•  Do something to stay active at home\\n•  Call or visit a friend or family member\\n•  Brush your teeth\\n•  Play with a pet\\n•  Update your contact list on your cell phone\\n•  Try a new hobby\\n•  Switch to coffee with less caffeine or \\n   decaf products\"; ObjectID = \"ZY5-lM-L4v\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•  Do something to stay active at home\n•  Call or visit a friend or family member\n•  Brush your teeth\n•  Play with a pet\n•  Update your contact list on your cell phone\n•  Try a new hobby\n•  Switch to coffee with less caffeine or \n   decaf products"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

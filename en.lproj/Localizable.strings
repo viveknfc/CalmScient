@@ -1,0 +1,599 @@
+/*
+  Localizable.strings
+  CalmscientIOS
+
+  Created by BVK on 16/07/24.
+  
+*/
+
+"Profile" = "Profile";
+"Version 1.0.0" = "Version 1.0.0";
+"Username" = "Username";
+"Password" = "Password";
+"Forgot Password?" = "Forgot Password?";
+"Create an New account" = "Create an New account";
+
+//create account
+"First Name" = "First Name";
+"Last Name" = "Last Name";
+"Email" = "Email";
+"Phone Number" = "Phone Number";
+"Password" = "Password";
+"Confirm Password" = "Confirm Password";
+"Submit" = "Submit";
+
+//basic standard drink
+"Basic Knowledge" = "Basic Knowledge";
+"What’s a standard drink" = "What’s a standard drink";
+"standard drink description" = "In the United States, a “standard drink” (also known as an alcoholic drink equivalent) is defined as any drink that contains about 0.6 fluid ounces or 14 grams of pure alcohol. Although the drinks pictured here are different sizes, each contains approximately the same amount of alcohol and counts as one U.S. standard drink or one alcoholic drink equivalent.";
+
+"standard drink description2" = "Each beverage portrayed above represents one standard drink (or one alcoholic drink equivalent), defined in the United States as any beverage containing 0.6 oz or 14 grams of pure alcohol. The percentage of pure alcohol, expressed here as alcohol by volume (alc/vol), varies within and across beverage types. Although the standard drink amounts are helpful for following health guidelines, they may not reflect customary serving sizes";
+
+
+//us guide lines
+"What are the U.S. guidelines for drinking?" = "What are the U.S. guidelines for drinking?";
+
+"US guidelines part1" = "The 2020–2025 Dietary Guidelines for Americans states that adults of legal drinking age can choose not to drink or to drink in moderation by limiting intake to 2 drinks or less in a day for men and 1 drink or less in a day for women when alcohol is consumed. Drinking less is better for health than drinking more.";
+
+"US guidelines part2" = "There are some adults who should not drink alcohol, such as women who are pregnant.  Adults who choose to drink, and are not among the individuals listed below who should not drink, are encouraged to limit daily consumption of alcohol to align with the Dietary Guidelines.People who do not drink should not start drinking for any reason.";
+
+
+//moderation
+"When is drinking in moderation still too much?" = "When is drinking in moderation still too much?";
+
+"According to the 2020-2025 Dietary Guidelines for Americans, certain individuals should not consume alcohol. It’s safest to void alcohol altogether if you are: Taking medications that interact with alcohol Managing a medical condition that can be made Worse by drinking Under the age of 21, the minimum legal drinking age in the United States Recovering from alcohol use disorder (AUD) or unable to control the amount you drink Pregnant or might be pregnant In addition, certain individuals, particularly older adults, who are planning to drive a vehicle or operate machinery-or who are participating in activities that require skill, coordination, and alertness-should avoid alcohol completely." = "According to the 2020-2025 Dietary Guidelines for Americans, certain individuals should not consume alcohol. It’s safest to void alcohol altogether if you are: Taking medications that interact with alcohol Managing a medical condition that can be made Worse by drinking Under the age of 21, the minimum legal drinking age in the United States Recovering from alcohol use disorder (AUD) or unable to control the amount you drink Pregnant or might be pregnant In addition, certain individuals, particularly older adults, who are planning to drive a vehicle or operate machinery-or who are participating in activities that require skill, coordination, and alertness-should avoid alcohol completely.";
+
+"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda." = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
+
+//basic knowledge video
+"What’s a standard drink" = "What’s a standard drink";
+"Let’s watch the videos " = "Let’s watch the videos ";
+"This video explains the impact of alcohol on the brain and its subsequent effects. Having this knowledge will help you consider your drinking habits." = "This video explains the impact of alcohol on the brain and its subsequent effects. Having this knowledge will help you consider your drinking habits.";
+
+//consequences
+"What are the consequence?" = "What are the consequence?";
+
+"typesOfconsequence" = "There is a wide range of short- and long-term consequences associated with alcohol misuse.
+For some individuals, any amount of drinking could be potentially harmful.
+
+Let's see some of them.";
+
+"consequences2" = "Alcohol-related deaths are increasing in the United States.
+
+Alcohol is a factor in:
+30% of suicides.
+40% of fatal burn injuries.
+50% of fatal drownings and of homicides, and about 65 percent of fatal falls.
+31% of all fatal crashes in 2021.
+A significant number of sexual assaults.";
+
+//consequences 3
+
+"Alcohol-related blackouts" = "Alcohol-related blackouts";
+
+"consequences3" = "Blackouts are gaps in a person’s memory for events that occurred while they were intoxicated. These gaps happen when a person drinks enough alcohol to temporarily block the transfer of memories from short- to long-term storage—known as memory consolidation—in a brain area called the hippocampus.";
+
+//consequences 4
+"Health problems" = "Health problems";
+"consequences4" = "Drinking is associated with a number of health problems and can make certain chronic health
+problems worse.
+
+Half of liver disease deaths in the United States are caused by alcohol, and alcohol-associated liver disease is increasing, particularly among women and young people.
+
+Research has shown an important association between alcohol consumption and breast cancer—for each 10 grams of alcohol consumed (less than 1 standard drink) on an average daily basis, a woman’s chance of developing postmenopausal breast cancer increases by around 9 percent.
+
+Research has also shown that alcohol misuse increases the risk of liver disease, cardiovascular  diseases, depression, and stomach bleeding, as well as cancers of the oral cavity, esophagus, larynx, pharynx, liver, colon, and rectum.
+
+People who misuse alcohol may also have problems managing conditions such as diabetes, high blood pressure, pain, and sleep disorders.
+ 
+And people who misuse alcohol are more likely to engage in unsafe sexual behavior, putting themselves and others at risk for sexually transmitted infections and unintentional pregnancies.
+
+Birth defects. Prenatal alcohol exposure can result in brain damage and other serious problems in babies. The effects are known as fetal alcohol spectrum disorders, or FASD, and can result in lifelong physical, cognitive, and behavioral problems. Because there is no known safe level of alcohol for a developing baby, women who are pregnant or might be pregnant should not drink.";
+//consequences 5
+"Alcohol use disorder (AUD)" = "Alcohol use disorder (AUD)";
+
+"consequences5" = "Some signs of AUD are continuing to drink even though it is causing trouble with your family or at work, drinking more than you intended, having to drink more than before to get a desired effect, being unable to stop drinking after repeated attempts, or continuing to drink despite negative consequences. Signs of AUD may also include drinking to alleviate negative emotions such as feeling ”low” anxious, uneasy, unhappy, unwell, dissatisfied with life, or other negative emotions that were caused or worsened by alcohol misuse.Beyond these physical and mental health risks, frequent alcohol misuse also is linked with personal problems, such as losing one’s driver’s license or having relationship troubles.";
+
+//consequences 6
+"Why is being able to “hold your liquor” a concern?" = "Why is being able to “hold your liquor” a concern?";
+"consequences6"= "For some people who drink, it take quite a few drinks to “get a buzz” or feel relaxed, and they may be less likely to show signs of intoxication compared to others. This is sometimes called being able to “hold your liquor’ or “’drink someone under the table”. Often these individuals are unaware that their body’s lower response to the intoxicating effects of alcohol isn’t protection from alcohol problems but instead is a reason for caution.
+
+These individual tend to drink more, socialize with people who drink a lot, and develop a tolerance to alcohol(i.e., it takes more and more alcohol to feel or act intoxicated). As a result , they have an increased risk for developing AUD. Someone who misuses alcohol, especially over the long=term, can experience permanent liver, heart, or brain damage. And all people who drink, regardless of thr amount, need to be aware that critical decision-making abilities and driving-related skills are already diminished long before a person shows physical signs of intoxication.";
+
+//drinking habbit controller
+"How many days a week do you drink?" = "How many days a week do you drink?";
+"1. Now let’s see what drinking habits do you have" = "1. Now let’s see what drinking habits do you have";
+"None" = "None";
+"Less than 2 days" = "Less than 2 days";
+"3-5 days" = "3-5 days";
+"Almost everyday" = "Almost everyday";
+"Everyday" = "Everyday";
+"1. How many days a week do you drink?" = "1. How many days a week do you drink?";
+"Now let's see what drinking habits do you have" = "Now let's see what drinking habits do you have";
+
+//Drinking habbit
+"Now let’s see what drinking habits do you have" = "Now let’s see what drinking habits do you have";
+"What kind of alcohol do you drink each time? and how much?" = "What kind of alcohol do you drink each time? and how much?";
+
+//feel drink controller
+"4. What is the reason behind?" = "4. What is the reason behind?";
+"Quitting is strongly advised if you:" = "Quitting is strongly advised if you:";
+
+//feel drink habbit
+"3. What do you feel about your drinking habit?" = "3. What do you feel about your drinking habit?";
+"Please select any option" = "Please select any option";
+
+//taking control intro
+"Thank you for being willing to talk about alcohol and drugs. Now let’s begin with a brief assessment." = "Thank you for being willing to talk about alcohol and drugs. Now let’s begin with a brief assessment.";
+"Doesn't apply to me" = "Doesn't apply to me";
+"Doesn't apply to me" = "No se aplica a mí";
+
+
+"Monthly goal" = "Monthly goal";
+"Now" = "Now";
+
+
+//check mail vc
+"Check your email" = "Check your email";
+"Enter the 4-digit code that we have sent via email xxxxxxxxxx@gmail.com" = "Enter the 4-digit code that we have sent via email xxxxxxxxxx@gmail.com";
+"Verify Code" = "Verify Code";
+
+//forgot passowrd
+"Forgot password" = "Forgot password";
+"Your email/Phone number " = "Your email/Phone number ";
+"Please enter your email to reset the password" = "Please enter your email to reset the password";
+"Reset Password" = "Reset Password";
+
+//update password
+"Set a new password" = "Set a new password" ;
+"Create a new password. Ensure it differs from previous ones for security" = "Create a new password. Ensure it differs from previous ones for security";
+"Password" = "Password";
+"Confirm Password" = "Confirm Password";
+"Update Password" = "Update Password";
+
+//user intro screen
+ "Good morning!"=  "Good morning!";
+"Good afternoon!" = "Good afternoon!";
+"Good evening!" = "Good evening!";
+"Save" = "Save";
+"Skip" = "Skip";
+
+
+//discovery main view controller
+"Managing Anxiety" = "Managing Anxiety";
+"Managing Stress" = "Managing Stress";
+"Taking Control" = "Taking Control";
+
+//custom alert view
+"Your License key has
+been verified." = "Your License key has
+been verified.";
+
+"Please complete your profile to start using Calmscient." = "Please complete your profile to start using Calmscient.";
+"Continue" = "Continue";
+
+//selection button
+"I agree to share my info with medical provider" = "I agree to share my info with medical provider";
+"Remember me" = "Remember me";
+
+//landing vc
+"Hello " = "Hello ";
+"We are happy to see you" = "We are happy to see you";
+"Need to talk with someone?" = "Need to talk with someone?";
+
+//monthly drinks count vc
+"Congratulations text" = "Congratulations on making a firm decision on changing your drink consumption!
+
+First, Let’s set up a goal of changing your monthly drink counts.
+
+To do this, pick the date(s) on the calendar below on which you plan to have a alcohol free day.
+";
+"   Your total alcohol free days are" = "   Your total alcohol free days are";
+"days" = "days";
+
+//months view controller
+"Good job!" = "Good job!
+This is the monthly drink counts we suggest.";
+
+"Your suggested" = "Your suggested monthly
+Drinks count";
+
+"Your monthly Drinks count" = "Your monthly Drinks count";
+"Now, lets's decide how much you drink" = "Now, lets's decide how much you drink";
+"Set" = "Set";
+
+
+//custom alert view 1
+
+"You selected more than what is suggested" = "You selected more than what is suggested";
+
+"Dismiss" = "Descartar";
+
+"Change goal" = "Cambiar objetivo";
+
+
+//define cell
+"Save it to weekly summary journal entry" = "Save it to weekly summary journal entry";
+
+"Tell us what you would like to do." = "Tell us what you would like to do.";
+
+"Have had alcohol use disorder (AUD) or now have any symptoms." = "Have had alcohol use disorder (AUD) or now have any symptoms.";
+
+
+"Have a physical or mental health condition that is caused or being worsened by drinking." = "Have a physical or mental health condition that is caused or being worsened by drinking.";
+"Are taking medication that interacts with alcohol." = "Are taking medication that interacts with alcohol.";
+"Are or might be pregnant." = "Are or might be pregnant.";
+
+
+//tellus cell
+"Yes" = "Yes";
+"Just track the alcohol consumption" = "Just track the alcohol consumption";
+"Quit or cut down drinking" = "Quit or cut down drinking";
+
+//quitViewController
+"congralatuateDecision" = "Congratulations on your decision to quit drinking!
+Remember, you are not alone. The Calmscient app can help you track your progress.
+
+Here are resources that can assist you in achieving your goal?";
+
+"Talk to your primary care doctor" = "Talk to your primary care doctor";
+"Consider medication management" = "Consider medication management";
+"Look for alcohol treatment program" = "Look for alcohol treatment program";
+
+"Now, let's get to know the drink coach features."  = "Now, let's get to know the drink coach features.";
+
+"See the introduction" = "See the introduction";
+
+
+"Summary" = "Summary";
+"Drink tracker" = "Drink tracker";
+"Taking control introduction" = "Taking control introduction";
+"Make a plan" = "Make a plan";
+"How to use" = "How to use";
+"Events tracker" = "Events tracker";
+//make a plan
+"Alcohol free days" = "Alcohol free days";
+"Pros" = "Pros";
+"Cons" = "Cons";
+"Make a plan" = "Make a plan";
+
+
+//mind cell
+"With this in mind, tell us what you would like to do." = "With this in mind, tell us what you would like to do.";
+"Quit" = "Quit";
+"Cut down" = "Cut down" ;
+
+
+//journal entry view controller
+"Quiz" = "Quiz";
+"Daily jouneral" = "Daily journal";
+"Discovery Excercise" = "Discovery Excercise";
+
+//ProgressOnCourseWorkHeaderView
+"Course" = "Course";
+"Completed" = "Completed";
+
+
+//home tab dashboard
+"No favorites found for this patient" = "No favorites found for this patient";
+"My Favorites" = "My favorites";
+
+//login vc
+"Accept Terms & Conditions" = "Accept Terms & Conditions";
+
+//add user medications view controller
+"Save" = "Save";
+"Cancel" = "Cancel";
+"Add Medications" = "Add medications";
+"Are you sure you want to cancel?" = "Are you sure you want to cancel?";
+"Medications" = "Medications";
+"YES" = "YES";
+"NO" = "NO";
+"An Unknown error occured. Please check with Admin" = "An Unknown error occured. Please check with Admin";
+"Add Medication" = "Add Medication";
+"OK" = "OK";
+"Add Time & Alarm" = "Add Time & Alarm";
+"Name" = "Name";
+"Provider" = "Provider";
+"Dosage" = "Dosage";
+"Direction" =  "Direction";
+"Add Time & Alarm" = "Add Time & Alarm";
+
+
+//add medication vc
+"Add Medications" = "Add medications";
+"With Meal" = "With Meal";
+"Morning" = "Morning";
+"08:00AM" = "08:00AM";
+"07:50AM"  = "07:50AM";
+"Afternoon" = "Afternoon";
+"Night" = "Night";
+"Schedule Time & Alarm" = "Schedule Time & Alarm";
+
+//medication details view controller
+"Medications detail" = "Medications detail";
+
+
+//add appointments view controller
+"Choose Date and Time" = "Choose Date and Time";
+
+//appointmenr details vc
+"Date and Time" = "Date and Time";
+"Invalid Date" = "Invalid Date";
+"Appointment Details" = "Appointment Details";
+"Contact" = "Contact";
+"Appointment Detail" = "Appointment Detail";
+"Address" = "Address";
+
+
+//screening result vc
+"Need to talk with someone?"  = "Need to talk with someone?";
+"Score\nmarked" = "Score\nmarked";
+"Total score" = "Total score";
+"Remind me" = "Remind me";
+
+//questioner vc
+"Over the last 2 weeks, how often have you been bothered by the following problems?" = "Over the last 2 weeks, how often have you been bothered by the following problems?";
+"1. Feeling nervous, anxious or on edge" = "1. Feeling nervous, anxious or on edge";
+
+
+//profile privacy vc
+"Data from Calmscient can be transmitted to your doctor for clinical review purposes. Please indicate which data you allow to be shared with your doctor by selecting either Yes or No next to each data element below" = "Data from Calmscient can be transmitted to your doctor for clinical review purposes. Please indicate which data you allow to be shared with your doctor by selecting either Yes or No next to each data element below";
+"Privacy" = "Privacy";
+
+"Glossary" = "Glossary";
+//user entry yes or no cell
+"Did you take your meds this evening?" = "Did you take your meds this evening?";
+
+
+//Breathing technique
+"Breathing technique" = "Breathing technique";
+"Breathing exercises" = "Breathing exercises";
+"4-7-8 Breathing exercise" = "4-7-8 Breathing exercise";
+"Mindful breathing exercise" = "Mindful breathing exercise";
+"Diaphragmatic breathing exercise" = "Diaphragmatic breathing exercise";
+
+//Exercises
+"Exercises" = "Exercises";
+
+
+//mindfulness
+
+"Have you ever caught your mind wandering or daydreaming while you are in the middle of a familiar or repetitive task? You could be walking, working or even driving your car, and your mind is miles away, perhaps fantasizing about going on vacation, thinking about your to-do list, or worrying about some upcoming event." = "Have you ever caught your mind wandering or daydreaming while you are in the middle of a familiar or repetitive task? You could be walking, working or even driving your car, and your mind is miles away, perhaps fantasizing about going on vacation, thinking about your to-do list, or worrying about some upcoming event.";
+                     
+                     "Mindfulness is the opposite of automatic pilot. It is about experiencing the world that is firmly in the ‘here and now’. This is referred to as the being mode. It liberates you from automatic and unhelpful thoughts and responses." = "Mindfulness is the opposite of automatic pilot. It is about experiencing the world that is firmly in the ‘here and now’. This is referred to as the being mode. It liberates you from automatic and unhelpful thoughts and responses.";
+                     
+                     "How does mindfulness help with anxiety?" = "How does mindfulness help with anxiety?";
+                     
+    "Mindfulness reminds us that we don’t have to take immediate control of, remove or fix unpleasant experiences. Instead, we can identify and actively engage in something that will give us a sense of safety and connection." = "Mindfulness reminds us that we don’t have to take immediate control of, remove or fix unpleasant experiences. Instead, we can identify and actively engage in something that will give us a sense of safety and connection.";
+                     
+                     "As a simple example: Instead of focusing on how many miles you walked in the morning, can you be mindfully aware of the birds singing, actively feel the fresh air, and sense the changing of the season? When you connect your senses to nature, animals, people and your own body, you capture the attention of your nervous system, which in turn soothes your anxiety. When you return home, you will be in a better frame of mind and more prepared to face your day." = "As a simple example: Instead of focusing on how many miles you walked in the morning, can you be mindfully aware of the birds singing, actively feel the fresh air, and sense the changing of the season? When you connect your senses to nature, animals, people and your own body, you capture the attention of your nervous system, which in turn soothes your anxiety. When you return home, you will be in a better frame of mind and more prepared to face your day.";
+                     
+                     "Which mindfulness exercises would you like to make part of your daily routine? Calmscient can remind you of some easy mindfulness routines that will help you stay in a healthy, being mode." = "Which mindfulness exercises would you like to make part of your daily routine? Calmscient can remind you of some easy mindfulness routines that will help you stay in a healthy, being mode.";
+
+"Progressive muscle relaxation" = "Progressive muscle relaxation";
+
+"Touch and the butterfly hug" = "Touch and the butterfly hug";
+
+"Humans respond powerfully to touch. Gentle, affectionate touch helps calm the nervous system and can trigger the release of oxytocin, the attachment hormone. Interestingly, when it comes to releasing oxytocin, our bodies don’t differentiate between the touch of a loved one or our own touch as we hold ourselves.\nWhen you are feeling upset, ungrounded, agitated or irritable, try giving yourself a hug or a gentle stroke on the cheek and see how it impacts the way you feel." = "Humans respond powerfully to touch. Gentle, affectionate touch helps calm the nervous system and can trigger the release of oxytocin, the attachment hormone. Interestingly, when it comes to releasing oxytocin, our bodies don’t differentiate between the touch of a loved one or our own touch as we hold ourselves.
+
+When you are feeling upset, ungrounded, agitated or irritable, try giving yourself a hug or a gentle stroke on the cheek and see how it impacts the way you feel.";
+
+"HOW TO DO IT" = "HOW TO DO IT";
+
+"Interlock your thumbs to form a butterfly shape" = "Interlock your thumbs to form a butterfly shape";
+
+"Place both hands over your chest, and alternate tapping your middle finger just below your collarbone" = "Place both hands over your chest, and alternate tapping your middle finger just below your collarbone";
+
+"Breathe slowly and deeply (abdominal breathing) while you mentally observe what is going through your mind and body thoughts, images, sounds, odors, feelings, and physical sensation." = "Breathe slowly and deeply (abdominal breathing) while you mentally observe what is going through your mind and body thoughts, images, sounds, odors, feelings, and physical sensation.";
+
+"Hand over your heart" = "Hand over your heart";
+
+"Movement: running" = "Movement: running";
+
+"It’s not easy to move when you have a shutdown or are feeling numb. Running can quickly shift you out of the shutdown state and re-energize you." = "It’s not easy to move when you have a shutdown or are feeling numb. Running can quickly shift you out of the shutdown state and re-energize you.";
+
+"Mindful body movement" = "Mindful body movement";
+
+"There are many movement routines that invite you to reconnect with your body. Pilates, yoga and other similar stretching exercises incorporate mindful awareness of movements and postures. Additionally, coordinating body movement and breath further potentiates your ability to shift your state." = "There are many movement routines that invite you to reconnect with your body. Pilates, yoga and other similar stretching exercises incorporate mindful awareness of movements and postures. Additionally, coordinating body movement and breath further potentiates your ability to shift your state.";
+
+"Movement: dance" = "Movement: dance";
+
+"Moving your body to music can be a fun and fast way to shift your state and reconnect with your body, rhythm and expression." = "Moving your body to music can be a fun and fast way to shift your state and reconnect with your body, rhythm and expression.";
+
+//Mindful walking
+"Mindful walking" = "Mindful walking";
+
+"What are the benefits of mindful walking?" = "What are the benefits of mindful walking?";
+
+"Emotional Regulation: Engaging in mindful walking can help regulate your emotions. By observing your thoughts and emotions as they arise during the practice, you develop a non-judgmental and accepting attitude towards them. This can enhance emotional resilience and provide you with a greater sense of control over your reactions to challenging situations." = "Emotional Regulation: Engaging in mindful walking can help regulate your emotions. By observing your thoughts and emotions as they arise during the practice, you develop a non-judgmental and accepting attitude towards them. This can enhance emotional resilience and provide you with a greater sense of control over your reactions to challenging situations.";
+
+
+//4-7-8 breating
+
+"4-7-8 Breathing excercise" = "4-7-8 Breathing excercise";
+"Preparation" = "Preparation";
+"First find a comfortable seated position. Ensure that you are at ease before beginning the rhythmic breathing pattern.\n\nPlace the tip of your tongue gently against the tissue just behind your top front teeth" = "First find a comfortable seated position. Ensure that you are at ease before beginning the rhythmic breathing pattern.\n\nPlace the tip of your tongue gently against the tissue just behind your top front teeth";
+
+"Let’s learn how to do the 4-7-8 breathing exercise." = "Let’s learn how to do the 4-7-8 breathing exercise.";
+
+"Step 1: Emptying the lungs" = "Step 1: Emptying the lungs";
+"Begin by completely emptying your lungs of air. Allow yourself a moment to release any tension." = "Begin by completely emptying your lungs of air. Allow yourself a moment to release any tension.";
+"Step 2: Inhaling quietly" = "Step 2: Inhaling quietly";
+"Inhale quietly through your nose, counting to 4 seconds. Fell the breath entering your body, bringing calmness." = "Inhale quietly through your nose, counting to 4 seconds. Fell the breath entering your body, bringing calmness.";
+
+"Step 3: Hold the breath" = "Step 3: Hold the breath";
+"Hold your breath for  a steady count of 7 seconds. Embrace the stillness within, allowing the breath to settle." = "Hold your breath for  a steady count of 7 seconds. Embrace the stillness within, allowing the breath to settle.";
+
+"Step 4: Force exhalation" = "Step 4: Force exhalation";
+
+"Exhale forcefully through your mouth, pursing your lips, and create a distinct “whoosh” sound for 8 seconds. Feel the release of tension as you expel the breath." = "Exhale forcefully through your mouth, pursing your lips, and create a distinct “whoosh” sound for 8 seconds. Feel the release of tension as you expel the breath.";
+
+"Step 5: Repeat the process" = "Step 5: Repeat the process";
+"Repeat this entire cycle up to 4 times. Each repetition contributes to a deepening sense of relaxation." = "Repeat this entire cycle up to 4 times. Each repetition contributes to a deepening sense of relaxation.";
+
+"Step 5: Repeat the process" = "Step 5: Repeat the process";
+
+"Repeat this entire cycle up to 4 times. Each repetition contributes to a deepening sense of relaxation." = "Repeat this entire cycle up to 4 times. Each repetition contributes to a deepening sense of relaxation.";
+"Now, let’s dive into it.\nPay careful attention to the following video." = "Now, let’s dive into it.\nPay careful attention to the following video.";
+"Engage in this practice regularly, allowing the 4-7-8 technique to guide you towards a state of tranquility and mindful breathing." = "Engage in this practice regularly, allowing the 4-7-8 technique to guide you towards a state of tranquility and mindful breathing.";
+
+// mindful breathing exercise
+
+"Mindful breathing exercise" = "Mindful breathing exercise";
+"Preparation" = "Preparation";
+"First find a comfortable to either sit down or lay down. You can close your eyes if you want to." = "First find a comfortable to either sit down or lay down. You can close your eyes if you want to.";
+"Let’s learn how to do the mindful breathing exercise." = "Let’s learn how to do the mindful breathing exercise.";
+
+"Step 1: Inhale" = "Step 1: Inhale";
+
+"Inhale through your nose until the tummy expands." = "Inhale through your nose until the tummy expands.";
+
+"Step 2: Exhale slowly and repeat it" = "Step 2: Exhale slowly and repeat it";
+
+
+"Step 3: Focus on the breath" = "Step 3: Focus on the breath";
+
+"Once settled into the pattern, focus on the breath coming in through the nose and out through the mouth" = "Once settled into the pattern, focus on the breath coming in through the nose and out through the mouth";
+
+"Step 4: Focus on the tummy" = "Step 4: Focus on the tummy";
+
+"Notice the rise and fall of the tummy as the breath come in and out" = "Notice the rise and fall of the tummy as the breath come in and out";
+
+"Step 5: Focus on the mind" = "Step 5: Focus on the mind";
+"As thoughts come into the head, notice that they are there without judgment, then let them go and bring the attention back to the breathing." = "As thoughts come into the head, notice that they are there without judgment, then let them go and bring the attention back to the breathing.";
+
+"Step 6: Focus on the connection between mind and body." = "Step 6: Focus on the connection between mind and body.";
+
+"Carry on until feeling calm, then start to be aware of how the body and mind feel." = "Carry on until feeling calm, then start to be aware of how the body and mind feel.";
+
+"Now, let’s dive into it.
+Pay careful attention to the following video." = "Now, let’s dive into it. \nPay careful attention to the following video.";
+"Now, let’s dive into it.
+Pay careful attention to the following video." = "Now, let’s dive into it.
+Pay careful attention to the following video.";
+
+"Engage in this practice regularly, allowing the diaphragmatic breathing technique to guide you towards a state of tranquility and mindful breathing." = "Engage in this practice regularly, allowing the diaphragmatic breathing technique to guide you towards a state of tranquility and mindful breathing.";
+
+
+
+//diagraphic
+"Doctors usually recommend diaphragmatic breathing to people with a lung condition called chronic obstructive pulmonary disease. A 2017 study found that it could also help reduce anxiety." = "Doctors usually recommend diaphragmatic breathing to people with a lung condition called chronic obstructive pulmonary disease. A 2017 study found that it could also help reduce anxiety.";
+
+"Let’s learn how to do the diaphragmatic breathing exercise." = "Let’s learn how to do the diaphragmatic breathing exercise.";
+
+"First find a comfortable to either sit down or
+lay down." = "First find a comfortable to either sit down or
+lay down.";
+
+"Step 1: Place your hands"  =  "Step 1: Place your hands";
+
+"Place your hand on the tummy and other on the upper chest." = "Place your hand on the tummy and other on the upper chest.";
+
+"Step 2: Inhale" = "Step 2: Inhale";
+"Inhale through your nose about 4 seconds,\nFocusing on the tummy rising." = "Inhale through your nose about 4 seconds,\nFocusing on the tummy rising.";
+"Step 3: Hold" = "Step 3: Hold";
+
+"Hold your breath for 2 seconds." = "Hold your breath for 2 seconds.";
+"Step 4: Exhale" = "Step 4: Exhale";
+"Exhale slowly and steadily through you mouth for about 6 seconds." = "Exhale slowly and steadily through you mouth for about 6 seconds.";
+
+"Step 5: Repeat the process" = "Step 5: Repeat the process";
+"Repeat the cycle for 5 to 10 minutes about 3 to 5 times a day" = "Repeat the cycle for 5 to 10 minutes about 3 to 5 times a day";
+"Now, let’s dive into it.\nPay careful attention to the following video." = "Now, let’s dive into it.\nPay careful attention to the following video.";
+"Engage in this practice regularly, allowing the diaphragmatic breathing technique to guide you towards a state of tranquility and mindful breathing." = "Engage in this practice regularly, allowing the diaphragmatic breathing technique to guide you towards a state of tranquility and mindful breathing.";
+
+"Next appointments" = "Next appointments";
+"No appointments" = "No appointments";
+"Screenings" = "Screenings";
+
+"Good morning!" = "Good morning!";
+"Good afternoon!" = "Good afternoon!";
+"Good evening!" = "Good evening!";
+"Time" = "Time";
+"Information" = "Information";
+"Screening" = "Screening";
+
+//Mangingscreen
+" So be determined to dedicate time to following along and completing the exercises. Each section has interesting and informative content that is designed to keep you actively thinking about your specific challenges. But, like taking a road trip to an unknown destination, you’ll need to be committed to following the map! It may be a little more work than you’re used to, but it will absolutely pay off in the end." = "So be determined to dedicate time to following along and completing the exercises. Each section has interesting and informative content that is designed to keep you actively thinking about your specific challenges. But, like taking a road trip to an unknown destination, you’ll need to be committed to following the map! It may be a little more work than you’re used to, but it will absolutely pay off in the end.";
+
+
+"The Calmscient discovery will only be as effective as you make it." = "The Calmscient discovery will only be as effective as you make it.";
+
+// WeeklySummaryInner
+"Days at each Mood" = "Days at each Mood";
+
+
+"Summary Of Mood" = "Summary Of Mood";
+"Summary of sleep" = "Summary of sleep";
+"Summary Of PHQ9" = "Summary Of PHQ9";
+"Summary Of GAD" = "Summary Of GAD";
+"Summary Of Audit" = "Summary Of Audit";
+"Summary Of Dast" = "Summary Of Dast";
+"Progress On Course Work" = "Progress On Course Work";
+"Journal Entry" = "Journal Entry";
+"DISCOVERY" = "DISCOVERY";
+
+"Fatalities and injuries" = "Fatalities and injuries";
+
+"Alcohol-related deaths are increasing in the United States.\n\nAlcohol is a factor in:" = "Alcohol-related deaths are increasing in the United States.
+
+Alcohol is a factor in:
+";
+
+//MARK: SMOKING CONTROL
+
+/*  Introduction  */
+"DRINKING_CONTROL_Intro" = "Let’s talk about alcohol and drug. It won’t take much of your time. promise!
+
+Why dive into this topic?
+
+Well, being able to openly discuss your
+alcohol or drug use is crucial for your health,
+mental well-being, and relationships with
+family and the community.
+But , you have full control over the decision
+regarding your habit.
+Ready?";
+"DRINKING_CONTROL_Drink_Coach" = "Drink Coach";
+"DRINKING_CONTROL_Substance_Coach" = "Substance Coach";
+"DRINKING_CONTROL_Do_Not_Show_Checkbox_text" = "Do not show this tutorial from the next time";
+"DRINKING_CONTROL_Intro_Message" = "Remember, you can always take the AUDIT, DUST-10 and CAGE test, in the My medical records section";
+"DRINKING_CONTROL_Thirty_percent_Of_Suicides" = "30% of suicides.";
+"DRINKING_CONTROL_Forty_Of_Fatal_Burn_Injuries" = "40% of fatal burn injuries.";
+"DRINKING_CONTROL_Fifty_Of_Fatal_Drownings_And_Of_Homicides_And_About_Message" = "50% of fatal drownings and of homicides, and about 65 percent of fatal falls.";
+"DRINKING_CONTROL_Thirtyone_Percent_Fatal_Crashes" = "31% of all fatal crashes in 2021.";
+"DRINKING_CONTROL_Significant_Number_Of_Sexual_Assaults" = "A significant number of sexual assaults.";
+"DRINKING_CONTROL_Total_Course_Work_Completed" = "Total Course Work Completed";
+"DRINKING_CONTROL_Consequence_Four_Message_One" = "Half of liver disease deaths in the United States are caused by alcohol, and alcohol-associated liver disease is increasing, particularly among women and young people.";
+"DRINKING_CONTROL_Consequence_Four_Message_Two" = "Research has shown an important association between alcohol consumption and breast cancer—for each 10 grams of alcohol consumed (less than 1 standard drink) on an average daily basis, a woman’s chance of developing postmenopausal breast cancer increases by around 9 percent.";
+"DRINKING_CONTROL_Consequence_Four_Message_Three" = "Research has also shown that alcohol misuse increases the risk of liver disease, cardiovascular  diseases, depression, and stomach bleeding, as well as cancers of the oral cavity, esophagus, larynx, pharynx, liver, colon, and rectum.";
+"DRINKING_CONTROL_Consequence_Four_Message_Four" = "People who misuse alcohol may also have problems managing conditions such as diabetes, high blood pressure, pain, and sleep disorders.";
+"DRINKING_CONTROL_Consequence_Four_Message_Five" = "And people who misuse alcohol are more likely to engage in unsafe sexual behavior, putting themselves and others at risk for sexually transmitted infections and unintentional pregnancies.";
+"DRINKING_CONTROL_Consequence_Four_Message_Six" = "Birth defects. Prenatal alcohol exposure can result in brain damage and other serious problems in babies. The effects are known as fetal alcohol spectrum disorders, or FASD, and can result in lifelong physical, cognitive, and behavioral problems. Because there is no known safe level of alcohol for a developing baby, women who are pregnant or might be pregnant should not drink.";
+"DRINKING_CONTROL_Consequence_What_Happens_To_Your_Brain_When_You_Drink" = "What happens to your brain when you drink?";
+"DRINKING_CONTROL_Total" = "Total";
+"DRINKING_CONTROL_Count" = "Count";
+"DRINKING_CONTROL_Video_Message" = "This video highlights the positive transformations that occur when quitting alcohol, such as improved well-being, hydration, weight loss, and overall health. It also explains potential withdrawal symptoms and offers practical tips for navigating this period.";
+"DRINKING_CONTROL_Video_Header" = "What to expect when you quit drinking?";
+"DRINKING_CONTROL_Video_Sub_Header" = "Let’s watch the videos";
+
+"Mood_by_date_range" = "Mood by date range";
+"Sleep_by_date_range" = "Sleep by date range";
+"PHQ-9_by_date_range" = "PHQ-9 by date range";
+"GAD_by_date_range" = "GAD-7 by date range";
+"Audit_by_date_range" = "AUDIT by date range";
+"Dast_by_date_range" = "DAST by date range";
+"More_sleep_needed" = "More sleep needed";
+"Average_sleep_score" = "Average sleep score";
+"Most_hours_slept" = "Most hours slept";
+"Average_hours_slept" = "Average hours slept";
+"Least_hours_slept" = "Least hours slept";
+"How_is_your_mood_right_now" = "How is your mood right now?";
+"How's_your_mood_so_far" = "How's your mood so far?";
+"How_was_your_day" = "How was your mood today?"; //viv changed
+"Close" = "Close";
+"Done" = "Done";
+"Benefits_of_mindful_walking" = "What are the benefits of mindful walking?";
+"Did_you_take_your_meds_this_morning" = "Did you take your meds this morning?";
+"Did_you_take_your_meds" = "Did you take your meds?";

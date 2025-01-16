@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="glossyTableCellTableViewCell" rowHeight="193" id="KGk-i7-Jjw" customClass="glossyTableCellTableViewCell" customModule="CalmscientIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="365" height="91"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="365" height="91"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="De9-ry-LZh">
+                        <rect key="frame" x="10" y="5" width="344" height="55"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mvf-og-wl3">
+                                <rect key="frame" x="0.0" y="10" width="42" height="42"/>
+                                <color key="backgroundColor" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="42" id="Kbo-WV-q6x"/>
+                                    <constraint firstAttribute="height" constant="42" id="WtJ-q9-FhJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                <color key="textColor" name="barColor5"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" tag="9001" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bfV-zC-f8O">
+                                <rect key="frame" x="322.33333333333331" y="19" width="21.666666666666686" height="22.666666666666671"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="22.670000000000002" id="f7c-nT-Egr"/>
+                                    <constraint firstAttribute="width" constant="21.670000000000002" id="gAg-KD-nsw"/>
+                                </constraints>
+                                <color key="tintColor" name="6E6BB3ColorOnly"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="cellExpansion"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L80-LL-93t">
+                                <rect key="frame" x="57" y="15.999999999999998" width="259" height="28.333333333333329"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="259" id="TOa-Dq-hVJ"/>
+                                    <constraint firstAttribute="height" constant="28.329999999999998" id="vNs-FO-Gfh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <color key="textColor" name="medicationscelldefaulttextcolor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="55" id="67b-Ud-Jkp"/>
+                            <constraint firstAttribute="width" constant="344" id="6t2-VN-YdF"/>
+                            <constraint firstItem="L80-LL-93t" firstAttribute="leading" secondItem="mvf-og-wl3" secondAttribute="trailing" constant="15" id="OGe-FE-eIp"/>
+                            <constraint firstItem="mvf-og-wl3" firstAttribute="top" secondItem="De9-ry-LZh" secondAttribute="top" constant="10" id="Pcx-h8-6ID"/>
+                            <constraint firstItem="bfV-zC-f8O" firstAttribute="top" secondItem="De9-ry-LZh" secondAttribute="top" constant="19" id="ZCB-dn-5Ji"/>
+                            <constraint firstAttribute="trailing" secondItem="bfV-zC-f8O" secondAttribute="trailing" id="eQt-AV-koT"/>
+                            <constraint firstItem="L80-LL-93t" firstAttribute="top" secondItem="De9-ry-LZh" secondAttribute="top" constant="16" id="fUY-RB-cJs"/>
+                            <constraint firstItem="mvf-og-wl3" firstAttribute="leading" secondItem="De9-ry-LZh" secondAttribute="leading" id="olo-yG-yhz"/>
+                        </constraints>
+                    </view>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yUP-dk-LdZ">
+                        <rect key="frame" x="10" y="60" width="344" height="94"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="94" id="Ofw-CY-sCN"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="yUP-dk-LdZ" secondAttribute="bottom" constant="5" id="0aD-fa-Y3y"/>
+                    <constraint firstItem="yUP-dk-LdZ" firstAttribute="leading" secondItem="De9-ry-LZh" secondAttribute="leading" id="PdA-XT-eHp"/>
+                    <constraint firstItem="yUP-dk-LdZ" firstAttribute="trailing" secondItem="De9-ry-LZh" secondAttribute="trailing" id="caI-Qs-Fzo"/>
+                    <constraint firstItem="yUP-dk-LdZ" firstAttribute="top" secondItem="De9-ry-LZh" secondAttribute="bottom" id="ixR-KH-HAj"/>
+                    <constraint firstItem="De9-ry-LZh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="pL2-MV-sle"/>
+                    <constraint firstItem="De9-ry-LZh" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="qbW-yO-Fpz"/>
+                    <constraint firstAttribute="trailing" secondItem="De9-ry-LZh" secondAttribute="trailing" constant="11" id="vU0-zS-31C"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <connections>
+                <outlet property="backGroundView" destination="De9-ry-LZh" id="LhZ-ZV-8Pi"/>
+                <outlet property="plusButton" destination="bfV-zC-f8O" id="0zR-gN-6fv"/>
+                <outlet property="roundLabel" destination="mvf-og-wl3" id="CAt-lU-ibj"/>
+                <outlet property="summaryLabel" destination="yUP-dk-LdZ" id="62Q-Rm-kmC"/>
+                <outlet property="titleLabel" destination="L80-LL-93t" id="tfg-kN-OBc"/>
+            </connections>
+            <point key="canvasLocation" x="127.48091603053435" y="108.09859154929578"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="cellExpansion" width="21.666666030883789" height="21.666666030883789"/>
+        <namedColor name="6E6BB3ColorOnly">
+            <color red="0.43137254901960786" green="0.41960784313725491" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="barColor5">
+            <color red="0.93725490196078431" green="0.42745098039215684" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="medicationscelldefaulttextcolor">
+            <color red="0.43137254901960786" green="0.41960784313725491" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

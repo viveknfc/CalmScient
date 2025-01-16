@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lexendmedium.ttf">
+            <string>Lexend-Medium</string>
+        </array>
+        <array key="lexendregular.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Bottom Sheet Time And AlarmVC-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="BottomSheetTimeAndAlarmVC" id="Y6W-OH-hqX" customClass="BottomSheetTimeAndAlarmVC" customModule="CalmscientIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kjC-8G-APb">
+                                <rect key="frame" x="0.0" y="74" width="390" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lns-Ik-BvO">
+                                        <rect key="frame" x="347" y="17.666666666666671" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="35" id="aFl-Br-inc"/>
+                                            <constraint firstAttribute="height" constant="35" id="wUt-lm-LNh"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" backgroundImage="saveRightMark">
+                                            <color key="titleColor" name="Color"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="2El-B2-Q2w"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Time &amp; Alarm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9Y-tM-PkC">
+                                        <rect key="frame" x="88.333333333333329" y="23" width="213.33333333333337" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="Jr4-Sf-7hG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lexend-Medium" family="Lexend" pointSize="20"/>
+                                        <color key="textColor" name="MainTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" name="AppBackGroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="G9Y-tM-PkC" firstAttribute="centerY" secondItem="kjC-8G-APb" secondAttribute="centerY" id="6KO-ih-mb3"/>
+                                    <constraint firstItem="G9Y-tM-PkC" firstAttribute="centerX" secondItem="kjC-8G-APb" secondAttribute="centerX" id="DgM-tN-0Pj"/>
+                                    <constraint firstAttribute="height" constant="70" id="guR-K9-fIw"/>
+                                    <constraint firstItem="lns-Ik-BvO" firstAttribute="centerY" secondItem="G9Y-tM-PkC" secondAttribute="centerY" id="y7K-I2-Qki"/>
+                                    <constraint firstAttribute="trailing" secondItem="lns-Ik-BvO" secondAttribute="trailing" constant="8" id="yiY-z4-Hc6"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVc-JN-chQ">
+                                <rect key="frame" x="16" y="152" width="358" height="19"/>
+                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
+                                <color key="textColor" name="MainTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="DgT-x2-3wV">
+                                <rect key="frame" x="16" y="179" width="358" height="150"/>
+                                <color key="backgroundColor" name="MainViewBackground"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="X7p-R5-FVw"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="onDateValueChanged:" destination="Y6W-OH-hqX" eventType="valueChanged" id="Uhl-Hh-Bpq"/>
+                                </connections>
+                            </datePicker>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2Fo-qK-kE6">
+                                <rect key="frame" x="0.0" y="337" width="390" height="473"/>
+                                <color key="backgroundColor" name="AppBackGroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="AppBackGroundColor"/>
+                        <constraints>
+                            <constraint firstItem="2Fo-qK-kE6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="6Kz-up-5gO"/>
+                            <constraint firstItem="kjC-8G-APb" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="AvA-dT-AE3"/>
+                            <constraint firstItem="ZVc-JN-chQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="B2z-tU-bT3"/>
+                            <constraint firstItem="kjC-8G-APb" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="27" id="FZe-4B-Cmn"/>
+                            <constraint firstItem="2Fo-qK-kE6" firstAttribute="top" secondItem="DgT-x2-3wV" secondAttribute="bottom" constant="8" id="G5y-HK-cUX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="ZVc-JN-chQ" secondAttribute="trailing" constant="16" id="Mws-8y-xXQ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="2Fo-qK-kE6" secondAttribute="bottom" id="W7F-wH-CwY"/>
+                            <constraint firstItem="kjC-8G-APb" firstAttribute="centerX" secondItem="ZVc-JN-chQ" secondAttribute="centerX" id="Xfe-EL-g5w"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="2Fo-qK-kE6" secondAttribute="trailing" id="a8X-kv-0iv"/>
+                            <constraint firstItem="DgT-x2-3wV" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="abf-U4-jFP"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="DgT-x2-3wV" secondAttribute="trailing" constant="16" id="giN-eH-Afy"/>
+                            <constraint firstItem="ZVc-JN-chQ" firstAttribute="top" secondItem="kjC-8G-APb" secondAttribute="bottom" constant="8" id="lr1-LW-aCB"/>
+                            <constraint firstItem="DgT-x2-3wV" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="t3F-Ed-GM4"/>
+                            <constraint firstItem="DgT-x2-3wV" firstAttribute="top" secondItem="ZVc-JN-chQ" secondAttribute="bottom" constant="8" id="vlG-nl-o9w"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="headingLabel" destination="G9Y-tM-PkC" id="0j7-eG-2pK"/>
+                        <outlet property="saveButton" destination="lns-Ik-BvO" id="LQ4-s5-f9m"/>
+                        <outlet property="tableView" destination="2Fo-qK-kE6" id="ZiL-OI-uXq"/>
+                        <outlet property="timeLbl" destination="ZVc-JN-chQ" id="bUv-zj-Nk9"/>
+                        <outlet property="timePicker" destination="DgT-x2-3wV" id="bR7-wr-CLC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="13.846153846153845" y="3.5545023696682461"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="saveRightMark" width="41.666667938232422" height="41"/>
+        <namedColor name="AppBackGroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="Color">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MainTextColor">
+            <color red="0.25882352941176473" green="0.25882352941176473" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MainViewBackground">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

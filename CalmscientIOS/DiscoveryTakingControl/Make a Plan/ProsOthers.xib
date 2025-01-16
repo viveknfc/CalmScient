@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lexendregular.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ProsOthers" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ProsOthers" rowHeight="126" id="gNN-0q-RLL" customClass="ProsOthers" customModule="CalmscientIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="126"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gNN-0q-RLL" id="fmH-fp-XH6">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="126"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TWs-6V-18m">
+                        <rect key="frame" x="22" y="5" width="349" height="116"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Others" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="muo-QR-dRF">
+                                <rect key="frame" x="8" y="5" width="49" height="19"/>
+                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
+                                <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="aWK-RA-UEh">
+                                <rect key="frame" x="15" y="32" width="319" height="74"/>
+                                <color key="backgroundColor" red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="0.79924852020886483" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="muo-QR-dRF" firstAttribute="top" secondItem="TWs-6V-18m" secondAttribute="top" constant="5" id="Qau-0C-viK"/>
+                            <constraint firstItem="muo-QR-dRF" firstAttribute="leading" secondItem="TWs-6V-18m" secondAttribute="leading" constant="8" id="geX-YT-0dh"/>
+                            <constraint firstAttribute="bottom" secondItem="aWK-RA-UEh" secondAttribute="bottom" constant="10" id="kTG-D1-1QN"/>
+                            <constraint firstAttribute="trailing" secondItem="aWK-RA-UEh" secondAttribute="trailing" constant="15" id="t30-MD-3b6"/>
+                            <constraint firstItem="aWK-RA-UEh" firstAttribute="leading" secondItem="TWs-6V-18m" secondAttribute="leading" constant="15" id="toc-qq-JOR"/>
+                            <constraint firstItem="aWK-RA-UEh" firstAttribute="top" secondItem="muo-QR-dRF" secondAttribute="bottom" constant="8" symbolic="YES" id="x7C-kO-1Qc"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="TWs-6V-18m" firstAttribute="leading" secondItem="fmH-fp-XH6" secondAttribute="leading" constant="22" id="SnJ-yy-RhC"/>
+                    <constraint firstItem="TWs-6V-18m" firstAttribute="top" secondItem="fmH-fp-XH6" secondAttribute="top" constant="5" id="VRa-es-SXD"/>
+                    <constraint firstAttribute="bottom" secondItem="TWs-6V-18m" secondAttribute="bottom" constant="5" id="cqf-kX-HrN"/>
+                    <constraint firstAttribute="trailing" secondItem="TWs-6V-18m" secondAttribute="trailing" constant="22" id="kXs-8e-zvp"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="label" destination="aWK-RA-UEh" id="jnv-Sf-nnB"/>
+                <outlet property="main_view" destination="TWs-6V-18m" id="Hlo-st-t6p"/>
+                <outlet property="otherLabel" destination="muo-QR-dRF" id="PYF-aS-EwI"/>
+            </connections>
+            <point key="canvasLocation" x="-5.343511450381679" y="-71.83098591549296"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

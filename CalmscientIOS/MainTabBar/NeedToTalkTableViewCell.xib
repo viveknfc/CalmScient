@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="176" id="KGk-i7-Jjw" customClass="NeedToTalkTableViewCell" customModule="CalmscientIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="200"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BuN-go-dFf">
+                        <rect key="frame" x="16" y="7" width="244" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="77I-hH-yMs"/>
+                            <constraint firstAttribute="width" constant="244" id="ZwD-r7-2gF"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDN-7r-Sok">
+                        <rect key="frame" x="16" y="30" width="296" height="18"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="296" id="Mlq-I7-ZDI"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjn-wb-ztz">
+                        <rect key="frame" x="174" y="48" width="138" height="33"/>
+                        <color key="backgroundColor" name="blueAndDarkBule"/>
+                        <constraints>
+                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="123" id="LyJ-7N-h41"/>
+                            <constraint firstAttribute="width" constant="138" id="Xkw-WE-Sab"/>
+                            <constraint firstAttribute="height" constant="33" id="wGE-x6-XO5"/>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="33" id="wRE-44-7fl"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <inset key="titleEdgeInsets" minX="-28" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="imageEdgeInsets" minX="114" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" title="Learn more " image="MedicationsCellArrow">
+                            <color key="titleColor" name="blueAndPink"/>
+                        </state>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fjn-wb-ztz" secondAttribute="bottom" constant="10" id="0u5-Us-dc6"/>
+                    <constraint firstAttribute="trailing" secondItem="fjn-wb-ztz" secondAttribute="trailing" constant="8" id="EUO-CI-WEi"/>
+                    <constraint firstItem="ZDN-7r-Sok" firstAttribute="top" secondItem="BuN-go-dFf" secondAttribute="bottom" constant="2" id="Gis-D4-lgr"/>
+                    <constraint firstItem="BuN-go-dFf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="OQM-SB-w2O"/>
+                    <constraint firstItem="ZDN-7r-Sok" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="OeW-q5-Ifv"/>
+                    <constraint firstItem="fjn-wb-ztz" firstAttribute="top" secondItem="ZDN-7r-Sok" secondAttribute="bottom" id="Ti8-lJ-PgA"/>
+                    <constraint firstItem="BuN-go-dFf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="bw4-XZ-Lki"/>
+                    <constraint firstAttribute="trailing" secondItem="fjn-wb-ztz" secondAttribute="trailing" constant="8" id="c4M-yi-hPu"/>
+                    <constraint firstAttribute="trailing" secondItem="ZDN-7r-Sok" secondAttribute="trailing" constant="8" id="uZD-we-SAT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="descriptionLabel" destination="ZDN-7r-Sok" id="TGm-br-NUW"/>
+                <outlet property="learnMoreButton" destination="fjn-wb-ztz" id="F8z-lL-E67"/>
+                <outlet property="titleLabel" destination="BuN-go-dFf" id="5bL-cZ-74e"/>
+            </connections>
+            <point key="canvasLocation" x="88.549618320610676" y="33.802816901408455"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="MedicationsCellArrow" width="8.3333330154418945" height="13.666666984558105"/>
+        <namedColor name="blueAndDarkBule">
+            <color red="0.80500000715255737" green="0.81499999761581421" blue="0.93599998950958252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <namedColor name="blueAndPink">
+            <color red="0.43000000715255737" green="0.41800001263618469" blue="0.68199998140335083" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

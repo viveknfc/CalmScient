@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lexendmedium.ttf">
+            <string>Lexend-Medium</string>
+        </array>
+        <array key="lexendregular.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProgressOnCourseWorkHeaderView" customModule="CalmscientIOS" customModuleProvider="target">
+            <connections>
+                <outlet property="borderView" destination="vli-TF-zEC" id="9Pa-3U-aUq"/>
+                <outlet property="cellTitleLabel" destination="19t-Cs-2Sl" id="rsm-2L-rrv"/>
+                <outlet property="completedLabel" destination="gdn-xy-dgw" id="pHU-kG-QEe"/>
+                <outlet property="courseLabel" destination="iYH-P4-Z0f" id="csQ-bj-K39"/>
+                <outlet property="mainView" destination="1JV-T3-Gta" id="XP2-h6-8lO"/>
+                <outlet property="percentageLabel" destination="kdF-wZ-5uk" id="Kvw-ly-13z"/>
+                <outlet property="progressView" destination="46Q-mR-OYd" id="k5M-hr-7b6"/>
+                <outlet property="shadowView" destination="Igy-UK-Z3l" id="feh-Fi-rvC"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1JV-T3-Gta">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="205"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYH-P4-Z0f">
+                    <rect key="frame" x="23.999999999999996" y="183" width="50.666666666666657" height="19"/>
+                    <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
+                    <color key="textColor" name="424242Color"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Igy-UK-Z3l">
+                    <rect key="frame" x="16" y="75" width="361" height="90"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vli-TF-zEC">
+                            <rect key="frame" x="0.0" y="0.0" width="361" height="90"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Course Work Complete" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19t-Cs-2Sl">
+                                    <rect key="frame" x="14" y="12" width="206.66666666666666" height="19"/>
+                                    <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
+                                    <color key="textColor" name="424242Color"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="46Q-mR-OYd">
+                                    <rect key="frame" x="14" y="43" width="333" height="12"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="12" id="9iD-kx-igQ"/>
+                                    </constraints>
+                                    <color key="progressTintColor" red="0.43137254901960786" green="0.41960784313725491" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </progressView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kdF-wZ-5uk">
+                                    <rect key="frame" x="14.000000000000002" y="57" width="29.666666666666671" height="19"/>
+                                    <fontDescription key="fontDescription" name="Lexend-Medium" family="Lexend" pointSize="15"/>
+                                    <color key="textColor" name="blueAndWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100%" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2YF-W2-C9e">
+                                    <rect key="frame" x="306.66666666666669" y="57" width="40.333333333333314" height="19"/>
+                                    <fontDescription key="fontDescription" name="Lexend-Medium" family="Lexend" pointSize="15"/>
+                                    <color key="textColor" name="424242Color"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" name="AppViewContentColor"/>
+                            <constraints>
+                                <constraint firstItem="kdF-wZ-5uk" firstAttribute="top" secondItem="46Q-mR-OYd" secondAttribute="bottom" constant="2" id="7si-dL-cTX"/>
+                                <constraint firstItem="2YF-W2-C9e" firstAttribute="trailing" secondItem="46Q-mR-OYd" secondAttribute="trailing" id="BTs-hj-QdZ"/>
+                                <constraint firstItem="2YF-W2-C9e" firstAttribute="centerY" secondItem="kdF-wZ-5uk" secondAttribute="centerY" id="EwL-gq-jTW"/>
+                                <constraint firstAttribute="trailing" secondItem="46Q-mR-OYd" secondAttribute="trailing" constant="14" id="St7-AQ-aqS"/>
+                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="19t-Cs-2Sl" secondAttribute="trailing" constant="8" id="Wg1-xX-sKg"/>
+                                <constraint firstItem="46Q-mR-OYd" firstAttribute="leading" secondItem="19t-Cs-2Sl" secondAttribute="leading" id="XvE-i9-Yka"/>
+                                <constraint firstItem="19t-Cs-2Sl" firstAttribute="top" secondItem="vli-TF-zEC" secondAttribute="top" constant="12" id="cds-Mi-uxg"/>
+                                <constraint firstItem="kdF-wZ-5uk" firstAttribute="leading" secondItem="19t-Cs-2Sl" secondAttribute="leading" id="hLd-0L-gXo"/>
+                                <constraint firstItem="46Q-mR-OYd" firstAttribute="top" secondItem="19t-Cs-2Sl" secondAttribute="bottom" constant="12" id="rVA-oJ-cXM"/>
+                                <constraint firstItem="19t-Cs-2Sl" firstAttribute="leading" secondItem="vli-TF-zEC" secondAttribute="leading" constant="14" id="t3K-1N-FF2"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="vli-TF-zEC" firstAttribute="leading" secondItem="Igy-UK-Z3l" secondAttribute="leading" id="7lr-Ae-KEH"/>
+                        <constraint firstAttribute="height" constant="90" id="DL5-mK-NA1"/>
+                        <constraint firstItem="vli-TF-zEC" firstAttribute="top" secondItem="Igy-UK-Z3l" secondAttribute="top" id="O8o-QE-L0b"/>
+                        <constraint firstAttribute="bottom" secondItem="vli-TF-zEC" secondAttribute="bottom" id="f17-ag-AnQ"/>
+                        <constraint firstAttribute="trailing" secondItem="vli-TF-zEC" secondAttribute="trailing" id="sAo-0B-PkS"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="% Completed" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gdn-xy-dgw">
+                    <rect key="frame" x="273" y="183" width="96" height="19"/>
+                    <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
+                    <color key="textColor" name="424242Color"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="iAl-Tw-PSD"/>
+            <color key="backgroundColor" name="AppBackGroundColor"/>
+            <constraints>
+                <constraint firstItem="iAl-Tw-PSD" firstAttribute="trailing" secondItem="Igy-UK-Z3l" secondAttribute="trailing" constant="16" id="9mf-r0-RDp"/>
+                <constraint firstItem="Igy-UK-Z3l" firstAttribute="top" secondItem="iAl-Tw-PSD" secondAttribute="top" constant="16" id="AFh-Ju-ass"/>
+                <constraint firstItem="Igy-UK-Z3l" firstAttribute="leading" secondItem="iAl-Tw-PSD" secondAttribute="leading" constant="16" id="UkW-ta-CMx"/>
+                <constraint firstItem="iYH-P4-Z0f" firstAttribute="leading" secondItem="iAl-Tw-PSD" secondAttribute="leading" constant="24" id="aO7-wS-5ZE"/>
+                <constraint firstItem="gdn-xy-dgw" firstAttribute="centerY" secondItem="iYH-P4-Z0f" secondAttribute="centerY" id="dWZ-kF-5BB"/>
+                <constraint firstItem="iAl-Tw-PSD" firstAttribute="trailing" secondItem="gdn-xy-dgw" secondAttribute="trailing" constant="24" id="flF-kl-on4"/>
+                <constraint firstItem="iYH-P4-Z0f" firstAttribute="top" secondItem="Igy-UK-Z3l" secondAttribute="bottom" constant="18" id="tIM-Mo-GvK"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="84.732824427480907" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="424242Color">
+            <color red="0.25900000333786011" green="0.25900000333786011" blue="0.25900000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppBackGroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppViewContentColor">
+            <color red="0.98431372549019602" green="0.98431372549019602" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="blueAndWhite">
+            <color red="0.42599999904632568" green="0.41800001263618469" blue="0.68599998950958252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lexendlight.ttf">
+            <string>Lexend-Light</string>
+        </array>
+        <array key="lexendmedium.ttf">
+            <string>Lexend-Medium</string>
+        </array>
+        <array key="lexendregular.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Appointment DetailsVC-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="AppointmentDetailsVC" id="Y6W-OH-hqX" customClass="AppointmentDetailsVC" customModule="CalmscientIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aer-Nr-KnD">
+                                <rect key="frame" x="0.0" y="47" width="390" height="455"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kGN-iB-UbT">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="90"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7c8-Ed-sSV">
+                                                <rect key="frame" x="110" y="0.0" width="276" height="90"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dr. Samuel Parker" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tqf-Td-sdi">
+                                                        <rect key="frame" x="0.0" y="22" width="276" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="21" id="twW-o6-aml"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Lexend-Medium" family="Lexend" pointSize="18"/>
+                                                        <color key="textColor" name="MainTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Central Park Hospital" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSq-yo-IiX">
+                                                        <rect key="frame" x="0.0" y="45" width="276" height="21"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="21" id="Bnn-tF-8I8"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="14"/>
+                                                        <color key="textColor" name="MainTextColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" name="AppViewContentColor"/>
+                                                <constraints>
+                                                    <constraint firstItem="Tqf-Td-sdi" firstAttribute="leading" secondItem="7c8-Ed-sSV" secondAttribute="leading" id="3gg-nv-P2E"/>
+                                                    <constraint firstAttribute="height" constant="90" id="Ou8-b9-4FJ"/>
+                                                    <constraint firstItem="FSq-yo-IiX" firstAttribute="top" secondItem="Tqf-Td-sdi" secondAttribute="bottom" constant="2" id="Zin-aR-LO5"/>
+                                                    <constraint firstAttribute="trailing" secondItem="FSq-yo-IiX" secondAttribute="trailing" id="f4a-oR-jTy"/>
+                                                    <constraint firstItem="FSq-yo-IiX" firstAttribute="leading" secondItem="7c8-Ed-sSV" secondAttribute="leading" id="mR7-06-ptV"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Tqf-Td-sdi" secondAttribute="trailing" id="tXf-26-sRh"/>
+                                                    <constraint firstItem="Tqf-Td-sdi" firstAttribute="top" secondItem="7c8-Ed-sSV" secondAttribute="top" constant="22" id="uHr-z7-45h"/>
+                                                </constraints>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Xtx-z3-ZKy">
+                                                <rect key="frame" x="34" y="15" width="60" height="60"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctorWithSteth" translatesAutoresizingMaskIntoConstraints="NO" id="U5O-gk-XUB">
+                                                        <rect key="frame" x="18" y="0.0" width="25" height="60"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="25" id="1yn-fc-Da4"/>
+                                                            <constraint firstAttribute="height" constant="60" id="Xi7-Bc-5Hv"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" name="appointmentBackgroundcolor"/>
+                                                <constraints>
+                                                    <constraint firstItem="U5O-gk-XUB" firstAttribute="centerX" secondItem="Xtx-z3-ZKy" secondAttribute="centerX" constant="0.5" id="0Re-ZU-MSE"/>
+                                                    <constraint firstAttribute="height" constant="60" id="Nk3-gC-Bfk"/>
+                                                    <constraint firstItem="U5O-gk-XUB" firstAttribute="centerY" secondItem="Xtx-z3-ZKy" secondAttribute="centerY" id="Z5r-vM-1NV"/>
+                                                    <constraint firstAttribute="width" constant="60" id="tu9-nt-teH"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" name="AppViewContentColor"/>
+                                        <constraints>
+                                            <constraint firstItem="7c8-Ed-sSV" firstAttribute="top" secondItem="kGN-iB-UbT" secondAttribute="top" id="0FO-kw-GVa"/>
+                                            <constraint firstAttribute="height" constant="90" id="6hU-9X-W0v"/>
+                                            <constraint firstItem="Xtx-z3-ZKy" firstAttribute="leading" secondItem="kGN-iB-UbT" secondAttribute="leading" constant="34" id="DVV-tW-HrK"/>
+                                            <constraint firstItem="7c8-Ed-sSV" firstAttribute="leading" secondItem="Xtx-z3-ZKy" secondAttribute="trailing" constant="16" id="Knn-xr-q97"/>
+                                            <constraint firstAttribute="trailing" secondItem="7c8-Ed-sSV" secondAttribute="trailing" constant="8" id="P44-qF-wBn"/>
+                                            <constraint firstItem="Xtx-z3-ZKy" firstAttribute="centerY" secondItem="kGN-iB-UbT" secondAttribute="centerY" id="nxD-Yf-mXf"/>
+                                            <constraint firstItem="Xtx-z3-ZKy" firstAttribute="top" secondItem="kGN-iB-UbT" secondAttribute="top" constant="15" id="uUj-hI-cB1"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TF7-nV-oLi">
+                                        <rect key="frame" x="0.0" y="91" width="394" height="90"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date and Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zs8-ub-PBW">
+                                                <rect key="frame" x="16" y="22" width="362" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="0XQ-sR-6ZQ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Lexend-Light" family="Lexend" pointSize="15"/>
+                                                <color key="textColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="08/15/2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lOZ-IL-mxq">
+                                                <rect key="frame" x="16" y="45" width="362" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="gVV-D0-FkP"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="lOZ-IL-mxq" firstAttribute="top" secondItem="Zs8-ub-PBW" secondAttribute="bottom" constant="2" id="JUn-oa-QjU"/>
+                                            <constraint firstItem="Zs8-ub-PBW" firstAttribute="leading" secondItem="TF7-nV-oLi" secondAttribute="leading" constant="16" id="XrD-zC-3rJ"/>
+                                            <constraint firstItem="Zs8-ub-PBW" firstAttribute="top" secondItem="TF7-nV-oLi" secondAttribute="top" constant="22" id="ZmL-LP-4CG"/>
+                                            <constraint firstItem="lOZ-IL-mxq" firstAttribute="leading" secondItem="TF7-nV-oLi" secondAttribute="leading" constant="16" id="gEd-Xj-T5m"/>
+                                            <constraint firstAttribute="height" constant="90" id="ne0-tD-KxM"/>
+                                            <constraint firstAttribute="trailing" secondItem="Zs8-ub-PBW" secondAttribute="trailing" constant="16" id="qV1-a8-a5t"/>
+                                            <constraint firstAttribute="trailing" secondItem="lOZ-IL-mxq" secondAttribute="trailing" constant="16" id="xe4-92-2Tv"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9TJ-HU-ouo">
+                                        <rect key="frame" x="0.0" y="182" width="394" height="90"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Contact" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="po9-dm-yBa">
+                                                <rect key="frame" x="16" y="22" width="370" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="b2T-o3-2yg"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Lexend-Light" family="Lexend" pointSize="15"/>
+                                                <color key="textColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(804) 093 8172" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eqs-ac-SwJ">
+                                                <rect key="frame" x="16" y="45" width="370" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="r1p-lT-XMq"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                <color key="textColor" name="appointmentTextcolor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="po9-dm-yBa" firstAttribute="top" secondItem="9TJ-HU-ouo" secondAttribute="top" constant="22" id="5Uf-dK-pdZ"/>
+                                            <constraint firstItem="po9-dm-yBa" firstAttribute="trailing" secondItem="9TJ-HU-ouo" secondAttribute="trailingMargin" id="A9O-f3-Mtd"/>
+                                            <constraint firstItem="po9-dm-yBa" firstAttribute="leading" secondItem="9TJ-HU-ouo" secondAttribute="leading" constant="16" id="Yni-Wz-meQ"/>
+                                            <constraint firstItem="po9-dm-yBa" firstAttribute="leading" secondItem="eqs-ac-SwJ" secondAttribute="leading" id="gYo-Dl-41B"/>
+                                            <constraint firstItem="eqs-ac-SwJ" firstAttribute="top" secondItem="po9-dm-yBa" secondAttribute="bottom" constant="2" id="jh6-95-oai"/>
+                                            <constraint firstAttribute="trailing" secondItem="eqs-ac-SwJ" secondAttribute="trailing" constant="8" id="tPa-YE-7GB"/>
+                                            <constraint firstAttribute="height" constant="90" id="wEx-ju-vs3"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ySm-zd-7JE">
+                                        <rect key="frame" x="0.0" y="273" width="394" height="90"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zMK-5H-0yh">
+                                                <rect key="frame" x="16" y="22" width="370" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="oWw-oF-ONb"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Lexend-Light" family="Lexend" pointSize="15"/>
+                                                <color key="textColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="South Frederic Av 489" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tvh-dv-qXI">
+                                                <rect key="frame" x="16" y="45" width="370" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="5TI-eo-gI0"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="18"/>
+                                                <color key="textColor" name="MainTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="zMK-5H-0yh" firstAttribute="leading" secondItem="ySm-zd-7JE" secondAttribute="leading" constant="16" id="0p6-nw-gO9"/>
+                                            <constraint firstItem="zMK-5H-0yh" firstAttribute="top" secondItem="ySm-zd-7JE" secondAttribute="top" constant="22" id="4aT-tL-EJI"/>
+                                            <constraint firstItem="Tvh-dv-qXI" firstAttribute="top" secondItem="zMK-5H-0yh" secondAttribute="bottom" constant="2" id="5nC-OM-wn4"/>
+                                            <constraint firstAttribute="trailing" secondItem="zMK-5H-0yh" secondAttribute="trailing" constant="8" id="6Rz-LK-6OO"/>
+                                            <constraint firstAttribute="trailing" secondItem="Tvh-dv-qXI" secondAttribute="trailing" constant="8" id="C9j-64-RjN"/>
+                                            <constraint firstItem="Tvh-dv-qXI" firstAttribute="leading" secondItem="ySm-zd-7JE" secondAttribute="leading" constant="16" id="oH4-sM-x9l"/>
+                                            <constraint firstAttribute="height" constant="90" id="vkL-gr-KER"/>
+                                        </constraints>
+                                    </view>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kJV-qr-8rb">
+                                        <rect key="frame" x="0.0" y="364" width="394" height="90"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appointment Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgn-A2-FYr">
+                                                <rect key="frame" x="16" y="22" width="370" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="hFL-Ds-ANF"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Lexend-Light" family="Lexend" pointSize="15"/>
+                                                <color key="textColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="General Check" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAk-G7-jem">
+                                                <rect key="frame" x="16" y="45" width="370" height="21"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="21" id="rnr-7H-yLy"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="18"/>
+                                                <color key="textColor" name="MainTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Jgn-A2-FYr" firstAttribute="leading" secondItem="kJV-qr-8rb" secondAttribute="leading" constant="16" id="5MK-BR-Xnw"/>
+                                            <constraint firstItem="uAk-G7-jem" firstAttribute="leading" secondItem="kJV-qr-8rb" secondAttribute="leading" constant="16" id="B78-tv-JyR"/>
+                                            <constraint firstAttribute="trailing" secondItem="uAk-G7-jem" secondAttribute="trailing" constant="8" id="W1S-Ap-DfQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="Jgn-A2-FYr" secondAttribute="trailing" constant="8" id="aXf-hC-MaX"/>
+                                            <constraint firstItem="Jgn-A2-FYr" firstAttribute="top" secondItem="kJV-qr-8rb" secondAttribute="top" constant="22" id="edl-tM-daj"/>
+                                            <constraint firstItem="uAk-G7-jem" firstAttribute="top" secondItem="Jgn-A2-FYr" secondAttribute="bottom" constant="2" id="pkF-F0-IrV"/>
+                                            <constraint firstAttribute="height" constant="90" id="sEe-qE-18T"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" name="ApptLineColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="kJV-qr-8rb" secondAttribute="bottom" constant="1" id="00w-37-eDj"/>
+                                    <constraint firstAttribute="trailing" secondItem="ySm-zd-7JE" secondAttribute="trailing" constant="-4" id="1NT-kP-1V5"/>
+                                    <constraint firstItem="TF7-nV-oLi" firstAttribute="leading" secondItem="aer-Nr-KnD" secondAttribute="leading" id="1kt-ib-wK8"/>
+                                    <constraint firstItem="ySm-zd-7JE" firstAttribute="centerX" secondItem="aer-Nr-KnD" secondAttribute="centerX" constant="2" id="70c-WV-4zf"/>
+                                    <constraint firstItem="kGN-iB-UbT" firstAttribute="leading" secondItem="aer-Nr-KnD" secondAttribute="leading" id="AVQ-hN-S39"/>
+                                    <constraint firstItem="TF7-nV-oLi" firstAttribute="top" secondItem="kGN-iB-UbT" secondAttribute="bottom" constant="1" id="ERI-hN-NWC"/>
+                                    <constraint firstItem="kGN-iB-UbT" firstAttribute="top" secondItem="aer-Nr-KnD" secondAttribute="top" id="JTn-o6-ACN"/>
+                                    <constraint firstItem="kJV-qr-8rb" firstAttribute="centerX" secondItem="aer-Nr-KnD" secondAttribute="centerX" constant="2" id="Jku-2R-q5S"/>
+                                    <constraint firstItem="kJV-qr-8rb" firstAttribute="top" secondItem="ySm-zd-7JE" secondAttribute="bottom" constant="1" id="QUv-y6-8ol"/>
+                                    <constraint firstAttribute="trailing" secondItem="kJV-qr-8rb" secondAttribute="trailing" constant="-4" id="SiL-Ay-RQO"/>
+                                    <constraint firstItem="9TJ-HU-ouo" firstAttribute="top" secondItem="TF7-nV-oLi" secondAttribute="bottom" constant="1" id="Soh-3P-zwI"/>
+                                    <constraint firstAttribute="trailing" secondItem="TF7-nV-oLi" secondAttribute="trailing" constant="-4" id="VTS-KM-9MZ"/>
+                                    <constraint firstItem="9TJ-HU-ouo" firstAttribute="leading" secondItem="aer-Nr-KnD" secondAttribute="leading" id="ZCm-Tf-ZQt"/>
+                                    <constraint firstItem="ySm-zd-7JE" firstAttribute="top" secondItem="9TJ-HU-ouo" secondAttribute="bottom" constant="1" id="b6o-ks-r1s"/>
+                                    <constraint firstAttribute="trailing" secondItem="kGN-iB-UbT" secondAttribute="trailing" constant="-4" id="bmc-Ci-lo4"/>
+                                    <constraint firstAttribute="trailing" secondItem="9TJ-HU-ouo" secondAttribute="trailing" constant="-4" id="qoM-AT-Nh2"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="AppBackGroundColor"/>
+                        <constraints>
+                            <constraint firstItem="aer-Nr-KnD" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Jn6-Pp-8dI"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="aer-Nr-KnD" secondAttribute="trailing" id="aSd-hN-diT"/>
+                            <constraint firstItem="aer-Nr-KnD" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="qkr-jb-ewK"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="addressLabel" destination="zMK-5H-0yh" id="EXa-rf-JS5"/>
+                        <outlet property="addressValue" destination="Tvh-dv-qXI" id="nEq-hM-sBR"/>
+                        <outlet property="appointmentDetailValue" destination="uAk-G7-jem" id="MW0-Vk-CA7"/>
+                        <outlet property="appointmentDetalLabel" destination="Jgn-A2-FYr" id="IIh-if-OZn"/>
+                        <outlet property="contactLabel" destination="po9-dm-yBa" id="o6G-2P-S4Q"/>
+                        <outlet property="contactValue" destination="eqs-ac-SwJ" id="2Zs-xW-ayP"/>
+                        <outlet property="dataAndTimeLabel" destination="Zs8-ub-PBW" id="G3r-VD-EUP"/>
+                        <outlet property="dateAndTimeValue" destination="lOZ-IL-mxq" id="Gge-uk-gDT"/>
+                        <outlet property="doctorIconView" destination="Xtx-z3-ZKy" id="lbO-qq-CVD"/>
+                        <outlet property="doctorLabel" destination="Tqf-Td-sdi" id="mLz-OH-at1"/>
+                        <outlet property="hospitalName" destination="FSq-yo-IiX" id="uQn-l9-xEb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="104.61538461538461" y="-2.1327014218009479"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="doctorWithSteth" width="17.333333969116211" height="28"/>
+        <namedColor name="AppBackGroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppViewContentColor">
+            <color red="0.98431372549019602" green="0.98431372549019602" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="ApptLineColor">
+            <color red="0.8784313725490196" green="0.8784313725490196" blue="0.8784313725490196" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MainTextColor">
+            <color red="0.25882352941176473" green="0.25882352941176473" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="appointmentBackgroundcolor">
+            <color red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="appointmentTextcolor">
+            <color red="0.43137254901960786" green="0.41960784313725491" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

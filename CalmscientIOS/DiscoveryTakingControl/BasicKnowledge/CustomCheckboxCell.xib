@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lexend-Regular.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CustomCheckboxCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CustomCheckboxCell" rowHeight="102" id="mX9-5c-G2n" customClass="CustomCheckboxCell" customModule="CalmscientIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="102"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mX9-5c-G2n" id="73u-HU-6Ks">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="102"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PhR-4W-Fee">
+                        <rect key="frame" x="20" y="10" width="353" height="82"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dHK-vf-RYS">
+                                <rect key="frame" x="20" y="15" width="280" height="52"/>
+                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="18"/>
+                                <color key="textColor" red="0.43137254899999999" green="0.41960784309999999" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6BZ-ae-1bx">
+                                <rect key="frame" x="300" y="22.666666666666664" width="33" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="33" id="Rfh-0j-7K1"/>
+                                    <constraint firstAttribute="height" constant="37" id="u1z-Pc-cyb"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="check"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="6BZ-ae-1bx" secondAttribute="trailing" constant="20" symbolic="YES" id="2B0-wK-ehN"/>
+                            <constraint firstItem="dHK-vf-RYS" firstAttribute="leading" secondItem="PhR-4W-Fee" secondAttribute="leading" constant="20" id="3OB-0J-uD9"/>
+                            <constraint firstAttribute="bottom" secondItem="dHK-vf-RYS" secondAttribute="bottom" constant="15" id="5oM-m9-XSJ"/>
+                            <constraint firstItem="dHK-vf-RYS" firstAttribute="top" secondItem="PhR-4W-Fee" secondAttribute="top" constant="15" id="HmW-Kr-QGj"/>
+                            <constraint firstItem="6BZ-ae-1bx" firstAttribute="centerY" secondItem="PhR-4W-Fee" secondAttribute="centerY" id="LAX-IJ-fQY"/>
+                            <constraint firstItem="6BZ-ae-1bx" firstAttribute="leading" secondItem="dHK-vf-RYS" secondAttribute="trailing" id="tuC-eM-RNc"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="PhR-4W-Fee" secondAttribute="trailing" constant="20" id="Ss8-D7-wSv"/>
+                    <constraint firstItem="PhR-4W-Fee" firstAttribute="leading" secondItem="73u-HU-6Ks" secondAttribute="leading" constant="20" id="YWG-Ic-H3N"/>
+                    <constraint firstAttribute="bottom" secondItem="PhR-4W-Fee" secondAttribute="bottom" constant="10" id="cqF-ew-V9K"/>
+                    <constraint firstItem="PhR-4W-Fee" firstAttribute="top" secondItem="73u-HU-6Ks" secondAttribute="top" constant="10" id="sLu-46-4Cc"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="checkBox" destination="6BZ-ae-1bx" id="gW0-BI-scm"/>
+                <outlet property="customLabel" destination="dHK-vf-RYS" id="wMv-b2-4rI"/>
+                <outlet property="main_view" destination="PhR-4W-Fee" id="ClV-Mw-VCs"/>
+            </connections>
+            <point key="canvasLocation" x="171.75572519083968" y="2.1126760563380285"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="check" width="30" height="30"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

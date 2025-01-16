@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lexendregular.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+        <array key="lexendsemibold.ttf">
+            <string>Lexend-SemiBold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="240" y="17"/>
+        </scene>
+        <!--Taking Controll Intro-->
+        <scene sceneID="dxf-Zj-Auw">
+            <objects>
+                <viewController storyboardIdentifier="TakingControllIntro" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qvr-eo-ZRA" customClass="TakingControllIntro" customModule="CalmscientIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="odf-bu-dnM">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="BCi-t1-8lL">
+                                <rect key="frame" x="0.0" y="251" width="393" height="512"/>
+                                <color key="backgroundColor" name="AppBackGroundColor"/>
+                                <color key="separatorColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to taking control!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pgo-ZJ-6GQ">
+                                <rect key="frame" x="24" y="82.666666666666671" width="353" height="25"/>
+                                <fontDescription key="fontDescription" name="Lexend-SemiBold" family="Lexend" pointSize="20"/>
+                                <color key="textColor" name="AppLightTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank you for being willing to talk about alcohol and drugs. Now let’s begin with a brief assessment." lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G0k-XC-4Wm">
+                                <rect key="frame" x="24" y="132.66666666666666" width="353" height="35"/>
+                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="14"/>
+                                <color key="textColor" name="AppLightTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GeJ-Qe-H6Y">
+                                <rect key="frame" x="330" y="196" width="38" height="38"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="38" id="arB-Ee-O24"/>
+                                    <constraint firstAttribute="width" constant="38" id="dY2-pm-v2W"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="spotlight"/>
+                                <connections>
+                                    <action selector="infoTapped:" destination="qvr-eo-ZRA" eventType="touchUpInside" id="2ww-ll-JMM"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRE-bs-l77">
+                                <rect key="frame" x="330" y="771" width="41" height="41"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="41" id="ShQ-Kx-q0C"/>
+                                    <constraint firstAttribute="height" constant="41" id="lWT-ZJ-cH4"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="forwardArrow"/>
+                                <connections>
+                                    <action selector="forwardButtonAction:" destination="qvr-eo-ZRA" eventType="touchUpInside" id="wDA-vY-BtW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Gl-N3-9dK"/>
+                        <color key="backgroundColor" name="AppBackGroundColor"/>
+                        <constraints>
+                            <constraint firstItem="6Gl-N3-9dK" firstAttribute="trailing" secondItem="Pgo-ZJ-6GQ" secondAttribute="trailing" constant="16" id="1WP-Ey-Gl0"/>
+                            <constraint firstItem="6Gl-N3-9dK" firstAttribute="trailing" secondItem="jRE-bs-l77" secondAttribute="trailing" constant="22" id="1Z1-Yd-6ha"/>
+                            <constraint firstItem="G0k-XC-4Wm" firstAttribute="leading" secondItem="6Gl-N3-9dK" secondAttribute="leading" constant="24" id="2IL-nc-o2r"/>
+                            <constraint firstItem="Pgo-ZJ-6GQ" firstAttribute="leading" secondItem="6Gl-N3-9dK" secondAttribute="leading" constant="24" id="3T0-ot-HbB"/>
+                            <constraint firstItem="BCi-t1-8lL" firstAttribute="leading" secondItem="6Gl-N3-9dK" secondAttribute="leading" id="4D2-ZI-jgv"/>
+                            <constraint firstItem="6Gl-N3-9dK" firstAttribute="bottom" secondItem="BCi-t1-8lL" secondAttribute="bottom" constant="55" id="5UO-Hw-Pwp"/>
+                            <constraint firstItem="BCi-t1-8lL" firstAttribute="top" secondItem="GeJ-Qe-H6Y" secondAttribute="bottom" constant="17" id="BrN-35-2Ip"/>
+                            <constraint firstItem="6Gl-N3-9dK" firstAttribute="trailing" secondItem="G0k-XC-4Wm" secondAttribute="trailing" constant="16" id="HES-cY-gY8"/>
+                            <constraint firstItem="Pgo-ZJ-6GQ" firstAttribute="top" secondItem="6Gl-N3-9dK" secondAttribute="top" constant="23.666666666666657" id="IGD-VU-40p"/>
+                            <constraint firstItem="G0k-XC-4Wm" firstAttribute="top" secondItem="Pgo-ZJ-6GQ" secondAttribute="bottom" constant="25" id="K7c-Ia-Gzf"/>
+                            <constraint firstItem="6Gl-N3-9dK" firstAttribute="trailing" secondItem="GeJ-Qe-H6Y" secondAttribute="trailing" constant="25" id="LgV-P1-ZTn"/>
+                            <constraint firstItem="6Gl-N3-9dK" firstAttribute="bottom" secondItem="jRE-bs-l77" secondAttribute="bottom" constant="6" id="jEj-g5-pTy"/>
+                            <constraint firstItem="6Gl-N3-9dK" firstAttribute="trailing" secondItem="BCi-t1-8lL" secondAttribute="trailing" id="kTT-ki-iq6"/>
+                            <constraint firstItem="GeJ-Qe-H6Y" firstAttribute="top" secondItem="G0k-XC-4Wm" secondAttribute="bottom" constant="28.333333333333343" id="qx9-fu-B7r"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="G0k-XC-4Wm" id="h9V-3L-10B"/>
+                        <outlet property="headerLabel" destination="Pgo-ZJ-6GQ" id="lh3-Fh-0td"/>
+                        <outlet property="infoButton" destination="GeJ-Qe-H6Y" id="ORM-Vd-dot"/>
+                        <outlet property="tableView" destination="BCi-t1-8lL" id="3ZR-hh-Sy2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QHy-PR-9sq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="903" y="-28"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="forwardArrow" width="41" height="41"/>
+        <image name="spotlight" width="46" height="46"/>
+        <namedColor name="AppBackGroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppLightTextColor">
+            <color red="0.40799999237060547" green="0.40400001406669617" blue="0.45899999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lexendsemibold.ttf">
+            <string>Lexend-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddAppointmentsTableCell" rowHeight="122" id="KGk-i7-Jjw" customClass="AddAppointmentsTableCell" customModule="MainTabBarApp" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="376" height="122"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="376" height="122"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Morning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oU4-Ns-Jzc">
+                        <rect key="frame" x="9" y="12.000000000000002" width="75" height="22.666666666666671"/>
+                        <fontDescription key="fontDescription" name="Lexend-SemiBold" family="Lexend" pointSize="18"/>
+                        <color key="textColor" name="AppointmentsTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Es8-FD-8dn">
+                        <rect key="frame" x="9" y="46.666666666666664" width="351" height="67.333333333333343"/>
+                        <color key="backgroundColor" name="AppBackGroundColor"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="red-RC-pN7">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                </subviews>
+                <color key="backgroundColor" name="AppBackGroundColor"/>
+                <constraints>
+                    <constraint firstItem="oU4-Ns-Jzc" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="9" id="PVy-EC-U8P"/>
+                    <constraint firstAttribute="trailing" secondItem="Es8-FD-8dn" secondAttribute="trailing" constant="16" id="Pkv-3W-Fsm"/>
+                    <constraint firstItem="Es8-FD-8dn" firstAttribute="top" secondItem="oU4-Ns-Jzc" secondAttribute="bottom" constant="12" id="aAw-Dx-AOP"/>
+                    <constraint firstItem="oU4-Ns-Jzc" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="aXr-Ue-MQJ"/>
+                    <constraint firstAttribute="bottom" secondItem="Es8-FD-8dn" secondAttribute="bottom" constant="8" id="rAq-K8-4vh"/>
+                    <constraint firstItem="Es8-FD-8dn" firstAttribute="leading" secondItem="oU4-Ns-Jzc" secondAttribute="leading" id="sYS-cz-yth"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="appointmentsCellCollectionView" destination="Es8-FD-8dn" id="06K-yC-gfu"/>
+                <outlet property="titleLabel" destination="oU4-Ns-Jzc" id="GBk-yq-LZJ"/>
+            </connections>
+            <point key="canvasLocation" x="21.374045801526716" y="47.183098591549296"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="AppBackGroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppointmentsTextColor">
+            <color red="0.25882352941176473" green="0.25882352941176473" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

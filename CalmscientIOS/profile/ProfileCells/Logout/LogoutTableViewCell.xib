@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lexendregular.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" restorationIdentifier="LogoutTableViewCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="LogoutTableViewCell" id="KGk-i7-Jjw" customClass="LogoutTableViewCell" customModule="CalmscientIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zaY-6H-kap">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x61-0T-2wA">
+                                <rect key="frame" x="56" y="10" width="185" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="185" id="byG-XP-yr7"/>
+                                    <constraint firstAttribute="height" constant="20" id="kJH-9I-BZ1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="16"/>
+                                <color key="textColor" name="profileTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="privacyIcon" translatesAutoresizingMaskIntoConstraints="NO" id="4Uf-gb-3FX">
+                                <rect key="frame" x="16" y="11" width="24" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="24" id="KOw-HS-aLh"/>
+                                    <constraint firstAttribute="height" constant="24" id="dq8-dN-Gjx"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="4Uf-gb-3FX" secondAttribute="bottom" constant="9" id="Dhi-mP-K9N"/>
+                            <constraint firstItem="x61-0T-2wA" firstAttribute="leading" secondItem="4Uf-gb-3FX" secondAttribute="trailing" constant="16" id="NEJ-Sb-xoB"/>
+                            <constraint firstAttribute="bottom" secondItem="x61-0T-2wA" secondAttribute="bottom" constant="14" id="Od4-Ia-IOQ"/>
+                            <constraint firstItem="4Uf-gb-3FX" firstAttribute="top" secondItem="zaY-6H-kap" secondAttribute="top" constant="11" id="Q19-ix-T8q"/>
+                            <constraint firstItem="x61-0T-2wA" firstAttribute="top" secondItem="zaY-6H-kap" secondAttribute="top" constant="10" id="cEs-mU-RxW"/>
+                            <constraint firstAttribute="height" constant="44" id="hEh-FI-yJI"/>
+                            <constraint firstItem="4Uf-gb-3FX" firstAttribute="leading" secondItem="zaY-6H-kap" secondAttribute="leading" constant="16" id="vjk-Pc-yRg"/>
+                            <constraint firstAttribute="width" constant="320" id="zto-sM-BHu"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="zaY-6H-kap" secondAttribute="bottom" id="Bwh-Mt-A07"/>
+                    <constraint firstItem="zaY-6H-kap" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="EfN-6m-wr7"/>
+                    <constraint firstAttribute="trailing" secondItem="zaY-6H-kap" secondAttribute="trailing" id="R5V-9t-02D"/>
+                    <constraint firstItem="zaY-6H-kap" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="vF0-Ni-wuJ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="cellIconView" destination="4Uf-gb-3FX" id="d0W-qo-APd"/>
+                <outlet property="cellTitleLabel" destination="x61-0T-2wA" id="hMQ-7M-iG6"/>
+            </connections>
+            <point key="canvasLocation" x="16.793893129770993" y="18.30985915492958"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="privacyIcon" width="29" height="22"/>
+        <namedColor name="profileTextColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

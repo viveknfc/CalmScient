@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lexendbold.ttf">
+            <string>Lexend-Bold</string>
+        </array>
+        <array key="lexendregular.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="FactorCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FactorCell" rowHeight="242" id="Nkl-U9-ete" customClass="FactorCell" customModule="CalmscientIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="242"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Nkl-U9-ete" id="CnD-Wb-I6e">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="242"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Also you need to consider the following factors to determine what to do." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4v-tN-jFv">
+                        <rect key="frame" x="20" y="12" width="353" height="37.666666666666664"/>
+                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
+                        <color key="textColor" name="AppLightTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="•" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fR5-eM-fCq">
+                        <rect key="frame" x="36" y="70.666666666666671" width="7" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="7" id="YT9-47-wKb"/>
+                            <constraint firstAttribute="height" constant="25" id="zD7-JO-aHI"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Lexend-Bold" family="Lexend" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A family history of alcohol problems." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pwL-fx-UgA">
+                        <rect key="frame" x="48" y="65.666666666666671" width="325" height="35"/>
+                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
+                        <color key="textColor" name="AppLightTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="•" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E3n-ea-n9M">
+                        <rect key="frame" x="36" y="110" width="7" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="25" id="e2W-UG-iGI"/>
+                            <constraint firstAttribute="width" constant="7" id="fFE-YN-3FK"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Lexend-Bold" family="Lexend" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your age." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="htx-Ke-bHe">
+                        <rect key="frame" x="48" y="113" width="323" height="19"/>
+                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
+                        <color key="textColor" name="AppLightTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="•" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gEK-WT-hdj">
+                        <rect key="frame" x="36" y="141.33333333333334" width="7" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="7" id="eSx-kq-f4a"/>
+                            <constraint firstAttribute="height" constant="25" id="jsH-5m-Fko"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Lexend-Bold" family="Lexend" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A history of drinking-related injuries." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6z7-id-zuT">
+                        <rect key="frame" x="48" y="144.33333333333334" width="323" height="19"/>
+                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
+                        <color key="textColor" name="AppLightTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="•" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bXy-Un-LXm">
+                        <rect key="frame" x="36" y="172" width="7" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="7" id="b0J-sm-oMj"/>
+                            <constraint firstAttribute="height" constant="25" id="dev-Cf-MUF"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Lexend-Bold" family="Lexend" pointSize="20"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Symptoms such as a sleep, pain, or anxiety disorder and sexual dysfunction." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4hC-9o-qhb">
+                        <rect key="frame" x="48" y="175.66666666666666" width="323" height="37.666666666666657"/>
+                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
+                        <color key="textColor" name="AppLightTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="bXy-Un-LXm" firstAttribute="centerY" secondItem="4hC-9o-qhb" secondAttribute="centerY" constant="-10" id="0IN-1u-UH3"/>
+                    <constraint firstItem="E3n-ea-n9M" firstAttribute="leading" secondItem="CnD-Wb-I6e" secondAttribute="leading" constant="36" id="4jz-nA-cjm"/>
+                    <constraint firstItem="4hC-9o-qhb" firstAttribute="leading" secondItem="bXy-Un-LXm" secondAttribute="trailing" constant="5" id="6df-TQ-hpF"/>
+                    <constraint firstAttribute="trailing" secondItem="htx-Ke-bHe" secondAttribute="trailing" constant="22" id="8fK-kp-wbA"/>
+                    <constraint firstItem="I4v-tN-jFv" firstAttribute="leading" secondItem="CnD-Wb-I6e" secondAttribute="leading" constant="20" id="8g3-Cd-I7T"/>
+                    <constraint firstItem="bXy-Un-LXm" firstAttribute="leading" secondItem="CnD-Wb-I6e" secondAttribute="leading" constant="36" id="957-m2-lAw"/>
+                    <constraint firstItem="fR5-eM-fCq" firstAttribute="centerY" secondItem="pwL-fx-UgA" secondAttribute="centerY" id="9B5-U9-ruK"/>
+                    <constraint firstItem="htx-Ke-bHe" firstAttribute="top" secondItem="pwL-fx-UgA" secondAttribute="bottom" constant="12.333333333333343" id="B1M-LU-Tt4"/>
+                    <constraint firstItem="6z7-id-zuT" firstAttribute="top" secondItem="htx-Ke-bHe" secondAttribute="bottom" constant="12.333333333333343" id="EYL-go-EQw"/>
+                    <constraint firstItem="6z7-id-zuT" firstAttribute="leading" secondItem="gEK-WT-hdj" secondAttribute="trailing" constant="5" id="IIU-qz-3a4"/>
+                    <constraint firstAttribute="trailing" secondItem="I4v-tN-jFv" secondAttribute="trailing" constant="20" id="IWF-Fb-fCG"/>
+                    <constraint firstAttribute="trailing" secondItem="4hC-9o-qhb" secondAttribute="trailing" constant="22" id="JCY-vf-4u8"/>
+                    <constraint firstItem="gEK-WT-hdj" firstAttribute="leading" secondItem="CnD-Wb-I6e" secondAttribute="leading" constant="36" id="Jcx-Hk-2AB"/>
+                    <constraint firstItem="I4v-tN-jFv" firstAttribute="top" secondItem="CnD-Wb-I6e" secondAttribute="top" constant="12" id="NFN-1X-UO3"/>
+                    <constraint firstItem="gEK-WT-hdj" firstAttribute="centerY" secondItem="6z7-id-zuT" secondAttribute="centerY" id="NFi-gh-Wvq"/>
+                    <constraint firstItem="fR5-eM-fCq" firstAttribute="top" secondItem="I4v-tN-jFv" secondAttribute="bottom" constant="21" id="S8r-jd-VA8"/>
+                    <constraint firstItem="4hC-9o-qhb" firstAttribute="leading" secondItem="bXy-Un-LXm" secondAttribute="trailing" constant="5" id="V9Y-qb-1eI"/>
+                    <constraint firstItem="pwL-fx-UgA" firstAttribute="leading" secondItem="fR5-eM-fCq" secondAttribute="trailing" constant="5" id="XK6-Ah-LDg"/>
+                    <constraint firstAttribute="trailing" secondItem="6z7-id-zuT" secondAttribute="trailing" constant="22" id="Y4J-gj-Wac"/>
+                    <constraint firstItem="htx-Ke-bHe" firstAttribute="leading" secondItem="E3n-ea-n9M" secondAttribute="trailing" constant="5" id="auE-M3-Yp1"/>
+                    <constraint firstItem="E3n-ea-n9M" firstAttribute="centerY" secondItem="htx-Ke-bHe" secondAttribute="centerY" id="e1O-Hg-7HH"/>
+                    <constraint firstAttribute="trailing" secondItem="pwL-fx-UgA" secondAttribute="trailing" constant="20" id="m0K-Bo-pgx"/>
+                    <constraint firstItem="pwL-fx-UgA" firstAttribute="top" secondItem="I4v-tN-jFv" secondAttribute="bottom" constant="16" id="p4r-EX-2cc"/>
+                    <constraint firstItem="fR5-eM-fCq" firstAttribute="leading" secondItem="CnD-Wb-I6e" secondAttribute="leading" constant="36" id="vbH-v3-pqb"/>
+                    <constraint firstItem="4hC-9o-qhb" firstAttribute="top" secondItem="6z7-id-zuT" secondAttribute="bottom" constant="12.333333333333343" id="zX0-G7-rzT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="label1" destination="I4v-tN-jFv" id="Beq-sZ-nym"/>
+                <outlet property="label2" destination="pwL-fx-UgA" id="Sm3-7P-Oc1"/>
+                <outlet property="label3" destination="htx-Ke-bHe" id="LV6-oB-R0X"/>
+                <outlet property="label4" destination="6z7-id-zuT" id="Tbl-2W-dPm"/>
+                <outlet property="label5" destination="4hC-9o-qhb" id="L5P-6V-we4"/>
+            </connections>
+            <point key="canvasLocation" x="119.84732824427481" y="-9.8591549295774659"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="AppLightTextColor">
+            <color red="0.40799999237060547" green="0.40400001406669617" blue="0.45899999141693115" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

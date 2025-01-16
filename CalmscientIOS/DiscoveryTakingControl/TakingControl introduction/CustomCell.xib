@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lexendregular.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+        <array key="lexendsemibold.ttf">
+            <string>Lexend-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CustomCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CustomCell" rowHeight="101" id="AHz-SS-WId" customClass="CustomCell" customModule="CalmscientIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="101"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AHz-SS-WId" id="m5G-2f-yKW">
+                <rect key="frame" x="0.0" y="0.0" width="393" height="101"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9TY-Vv-MRC">
+                        <rect key="frame" x="10" y="10" width="373" height="81"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcz-UL-xKB">
+                                <rect key="frame" x="20" y="0.0" width="120" height="81"/>
+                                <fontDescription key="fontDescription" name="Lexend-SemiBold" family="Lexend" pointSize="18"/>
+                                <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7b4-o7-j92" customClass="LinearGradientButton" customModule="CalmscientIOS" customModuleProvider="target">
+                                <rect key="frame" x="148" y="20.666666666666671" width="215" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="4VT-Sk-ItP"/>
+                                    <constraint firstAttribute="width" constant="215" id="8vz-lJ-BDZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="18"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Doesn't apply to me">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="topGradientColor">
+                                        <color key="value" name="GradientButtonColor2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="bottomGradientColor">
+                                        <color key="value" name="GradientButtonColor1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" name="AppBackGroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="7b4-o7-j92" secondAttribute="trailing" constant="10" id="0pe-N7-INw"/>
+                            <constraint firstAttribute="bottom" secondItem="rcz-UL-xKB" secondAttribute="bottom" id="BVK-Kx-g6c"/>
+                            <constraint firstItem="7b4-o7-j92" firstAttribute="centerY" secondItem="9TY-Vv-MRC" secondAttribute="centerY" id="K4d-o3-Dm8"/>
+                            <constraint firstItem="rcz-UL-xKB" firstAttribute="leading" secondItem="9TY-Vv-MRC" secondAttribute="leading" constant="20" symbolic="YES" id="Ug5-Ge-HS5"/>
+                            <constraint firstItem="rcz-UL-xKB" firstAttribute="top" secondItem="9TY-Vv-MRC" secondAttribute="top" id="h66-o0-KtQ"/>
+                            <constraint firstItem="7b4-o7-j92" firstAttribute="leading" secondItem="rcz-UL-xKB" secondAttribute="trailing" constant="8" symbolic="YES" id="jAW-Eo-JzC"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="9TY-Vv-MRC" secondAttribute="bottom" constant="10" id="Cjz-9G-Gxl"/>
+                    <constraint firstItem="9TY-Vv-MRC" firstAttribute="top" secondItem="m5G-2f-yKW" secondAttribute="top" constant="10" id="DTH-hU-dQD"/>
+                    <constraint firstItem="9TY-Vv-MRC" firstAttribute="leading" secondItem="m5G-2f-yKW" secondAttribute="leading" constant="10" id="KrS-1b-yon"/>
+                    <constraint firstAttribute="trailing" secondItem="9TY-Vv-MRC" secondAttribute="trailing" constant="10" id="aay-RI-Lox"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="action_button" destination="7b4-o7-j92" id="J49-qL-xSB"/>
+                <outlet property="main_view" destination="9TY-Vv-MRC" id="5gD-M4-jGL"/>
+                <outlet property="name_label" destination="rcz-UL-xKB" id="UmQ-re-Sdz"/>
+            </connections>
+            <point key="canvasLocation" x="180.91603053435114" y="4.5774647887323949"/>
+        </tableViewCell>
+    </objects>
+    <designables>
+        <designable name="7b4-o7-j92">
+            <size key="intrinsicContentSize" width="174" height="35"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="AppBackGroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GradientButtonColor1">
+            <color red="0.42745098039215684" green="0.41960784313725491" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GradientButtonColor2">
+            <color red="0.17254901960784313" green="0.20000000000000001" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

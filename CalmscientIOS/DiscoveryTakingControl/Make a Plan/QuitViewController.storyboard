@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23094" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23084"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lexendregular.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Quit View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="QuitViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="QuitViewController" customModule="CalmscientIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZP-mj-lwR">
+                                <rect key="frame" x="20" y="79.000000000000014" width="353" height="131.33333333333337"/>
+                                <string key="text">Congratulations on your decision to quit drinking!
+Remember, you are not alone. The Calmscient app can help you track your progress. 
+
+Here are resources that can assist you in achieving your goal?</string>
+                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
+                                <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Talk to your primary care doctor" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXN-HR-IoQ">
+                                <rect key="frame" x="20" y="230" width="351" height="21.333333333333343"/>
+                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="17"/>
+                                <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Consider medication management" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fd-ag-E65">
+                                <rect key="frame" x="20" y="316.33333333333331" width="353" height="21.333333333333314"/>
+                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="17"/>
+                                <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Look for alcohol treatment program" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oDT-fp-ZfO">
+                                <rect key="frame" x="20" y="402.66666666666669" width="353" height="21.333333333333314"/>
+                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="17"/>
+                                <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now, let's get to know the drink coach features." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IXT-u8-emo">
+                                <rect key="frame" x="20" y="480" width="353" height="46"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="VUd-2z-BAf"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
+                                <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMQ-aQ-Fl2">
+                                <rect key="frame" x="22" y="261.33333333333331" width="349" height="45"/>
+                                <rect key="contentStretch" x="1" y="0.0" width="1" height="1"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="byS-aw-Ub8"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="-17" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="330" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Notify to PCP" image="newCircle11">
+                                    <color key="titleColor" red="0.43137254899999999" green="0.41960784309999999" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="notifyDoctorAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="fY7-5c-L5J"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oak-TU-n2e">
+                                <rect key="frame" x="22" y="549.33333333333337" width="349" height="45"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="gyO-dX-A7P"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="17"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="See the introduction">
+                                    <color key="titleColor" name="blueAndWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TU2-Ej-gBj">
+                                <rect key="frame" x="22" y="347.66666666666669" width="349" height="45"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="v1c-F3-SQK"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="-17" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="330" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Notify to PCP" image="newCircle11">
+                                    <color key="titleColor" red="0.43137254899999999" green="0.41960784309999999" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="notifyMedicineAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="U1Q-uv-eII"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="R1K-p5-iF0">
+                                <rect key="frame" x="16" y="432" width="357" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="ELo-YW-71V"/>
+                                    <constraint firstAttribute="height" constant="25" id="NJ7-iD-Z0m"/>
+                                    <constraint firstAttribute="width" constant="357" id="xl8-zZ-Tpf"/>
+                                </constraints>
+                                <inset key="contentEdgeInsets" minX="-25" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal">
+                                    <attributedString key="attributedTitle">
+                                        <fragment content="(https://alcoholtreatment.niaaa.nih.gov/)">
+                                            <attributes>
+                                                <color key="NSColor" name="6E6BB3ColorOnly"/>
+                                                <font key="NSFont" metaFont="system" size="19"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                <integer key="NSUnderline" value="1"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                </state>
+                                <connections>
+                                    <action selector="linkButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Uwd-LL-c8X"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="qXN-HR-IoQ" secondAttribute="trailing" constant="22" id="0PC-uU-fkb"/>
+                            <constraint firstItem="TU2-Ej-gBj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="22" id="1MK-aI-gWI"/>
+                            <constraint firstItem="HZP-mj-lwR" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="35G-Uj-ava"/>
+                            <constraint firstItem="HZP-mj-lwR" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="3G4-N5-D1l"/>
+                            <constraint firstItem="R1K-p5-iF0" firstAttribute="top" secondItem="oDT-fp-ZfO" secondAttribute="bottom" constant="8" id="5JK-gY-Ukf"/>
+                            <constraint firstItem="xMQ-aQ-Fl2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="22" id="6XH-kg-gsr"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="HZP-mj-lwR" secondAttribute="trailing" constant="20" id="AfA-tz-QiM"/>
+                            <constraint firstItem="qXN-HR-IoQ" firstAttribute="top" secondItem="HZP-mj-lwR" secondAttribute="bottom" constant="19.670000000000002" id="BHI-BE-mbR"/>
+                            <constraint firstItem="xMQ-aQ-Fl2" firstAttribute="top" secondItem="qXN-HR-IoQ" secondAttribute="bottom" constant="10" id="I6A-fu-g3P"/>
+                            <constraint firstItem="oDT-fp-ZfO" firstAttribute="top" secondItem="TU2-Ej-gBj" secondAttribute="bottom" constant="10" id="Jsn-HT-qKl"/>
+                            <constraint firstItem="oDT-fp-ZfO" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="LhX-jG-iLe"/>
+                            <constraint firstItem="IXT-u8-emo" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="Nq9-VS-1CY"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="xMQ-aQ-Fl2" secondAttribute="trailing" constant="22" id="S1d-7c-zw8"/>
+                            <constraint firstItem="2Fd-ag-E65" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="ZWI-jY-g9U"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oDT-fp-ZfO" secondAttribute="trailing" constant="20" id="bHS-Az-Lyt"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="IXT-u8-emo" secondAttribute="trailing" constant="20" id="deh-ec-qdv"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Oak-TU-n2e" secondAttribute="trailing" constant="22" id="hJL-z5-l02"/>
+                            <constraint firstItem="R1K-p5-iF0" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="kJ2-eA-gs0"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="2Fd-ag-E65" secondAttribute="trailing" constant="20" id="kLs-Y6-ewo"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="R1K-p5-iF0" secondAttribute="trailing" constant="20" id="n6k-rD-xZV"/>
+                            <constraint firstItem="2Fd-ag-E65" firstAttribute="top" secondItem="xMQ-aQ-Fl2" secondAttribute="bottom" constant="10" id="nCy-to-oF4"/>
+                            <constraint firstItem="TU2-Ej-gBj" firstAttribute="top" secondItem="2Fd-ag-E65" secondAttribute="bottom" constant="10" id="pBU-4f-mHH"/>
+                            <constraint firstItem="Oak-TU-n2e" firstAttribute="top" secondItem="IXT-u8-emo" secondAttribute="bottom" constant="23.333333333333258" id="ptc-EN-43J"/>
+                            <constraint firstItem="qXN-HR-IoQ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="qG3-SC-QN8"/>
+                            <constraint firstItem="Oak-TU-n2e" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="22" id="wa9-a3-PPZ"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="TU2-Ej-gBj" secondAttribute="trailing" constant="22" id="xoe-44-4U7"/>
+                            <constraint firstItem="IXT-u8-emo" firstAttribute="top" secondItem="R1K-p5-iF0" secondAttribute="bottom" constant="23" id="y29-7h-CFP"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="HZP-mj-lwR" id="0dP-Qr-N4V"/>
+                        <outlet property="instruction_see" destination="Oak-TU-n2e" id="8Io-Tf-dRl"/>
+                        <outlet property="letsGetToKnow" destination="IXT-u8-emo" id="emN-hG-7ba"/>
+                        <outlet property="notified_mangment" destination="TU2-Ej-gBj" id="5Kj-lw-Lk5"/>
+                        <outlet property="notifiy_pcp" destination="xMQ-aQ-Fl2" id="0qd-84-0YV"/>
+                        <outlet property="talkToPrimaryDoc" destination="qXN-HR-IoQ" id="G5I-RL-NqU"/>
+                        <outlet property="talkToPrimaryDoc2" destination="2Fd-ag-E65" id="QC5-DG-Jde"/>
+                        <outlet property="talkToPrimaryDoc3" destination="oDT-fp-ZfO" id="NYD-YK-Aw4"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20.610687022900763" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="newCircle11" width="90" height="90"/>
+        <namedColor name="6E6BB3ColorOnly">
+            <color red="0.43137254901960786" green="0.41960784313725491" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="blueAndWhite">
+            <color red="0.42599999904632568" green="0.41800001263618469" blue="0.68599998950958252" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

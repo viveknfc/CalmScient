@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "step6_img.png",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

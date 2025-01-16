@@ -1,0 +1,597 @@
+/*
+  Localizable.strings
+  CalmscientIOS
+
+  Created by BVK on 16/07/24.
+  
+*/
+// Profile
+
+"Profile" = "Perfil";
+"Version 1.0.0" = "Versión 1.0.0";
+
+
+// Login
+
+"Username" = "Nombre de usuario";
+"Password" = "Contraseña";
+"Forgot Password?" = "¿Has olvidado tu contraseña?";
+"Create an New account" = "Crear una nueva cuenta";
+
+//Create Account
+"First Name" = "Nombre";
+"Last Name" = "Apellido";
+"Email" = "Correo Electrónico";
+"Phone Number" = "Número de Teléfono";
+"Password" = "Contraseña";
+"Confirm Password" = "Confirmar Contraseña";
+"Submit" = "Enviar";
+
+"Summary" = "Resumen";
+"Drink tracker" = "Rastreador de bebidas";
+"Taking control introduction" = "Introducción a tomar el control" ;
+"Make a plan" = "Haz un plan";
+"How to use" = "Cómo utilizar";
+"Events tracker" = "Rastreador de eventos";
+
+//basic standard drink
+"Basic Knowledge" = "Conocimientos básicos";
+"What’s a standard drink" = "¿Qué es una bebida estándar?";
+"standard drink description" = "En los Estados Unidos, una “bebida estándar” (también conocida como equivalente de bebida alcohólica) se define como cualquier bebida que contiene aproximadamente 0.6 onzas líquidas o 14 gramos de alcohol puro. Aunque las bebidas que se muestran aquí son de diferentes tamaños, cada una contiene aproximadamente la misma cantidad de alcohol y cuenta como una bebida estándar estadounidense o un equivalente de bebida alcohólica.";
+
+"standard drink description2" = "Cada bebida representada arriba equivale a una bebida estándar (o un equivalente de bebida alcohólica), definida en los Estados Unidos como cualquier bebida que contenga 0.6 oz o 14 gramos de alcohol puro. El porcentaje de alcohol puro, expresado aquí como alcohol por volumen (alc/vol), varía dentro y entre los tipos de bebidas. Aunque las cantidades de bebidas estándar son útiles para seguir las pautas de salud, pueden no reflejar los tamaños de porciones habituales.";
+"Glossary" = "Glosario";
+
+//US guide lines
+"What are the U.S. guidelines for drinking?" = "¿Cuáles son las pautas de EE. UU. para beber?";
+
+"US guidelines part1" = "Las Guías Alimentarias para los Estadounidenses 2020-2025 establecen que los adultos en edad legal para beber pueden optar por no beber o beber con moderación limitando el consumo a 2 bebidas o menos al día para los hombres y 1 bebida o menos al día para las mujeres cuando se consume alcohol. Beber menos es mejor para la salud que beber más.";
+
+"US guidelines part2" = "Hay algunos adultos que no deben beber alcohol, como las mujeres que están embarazadas. Los adultos que eligen beber y no se encuentran entre los individuos que no deben beber, se les recomienda limitar el consumo diario de alcohol para alinearse con las Guías Alimentarias. Las personas que no beben no deben empezar a beber por ninguna razón.";
+
+//moderation
+"When is drinking in moderation still too much?" = "¿Cuándo es beber con moderación todavía demasiado?";
+
+"According to the 2020-2025 Dietary Guidelines for Americans, certain individuals should not consume alcohol. It’s safest to void alcohol altogether if you are: Taking medications that interact with alcohol Managing a medical condition that can be made Worse by drinking Under the age of 21, the minimum legal drinking age in the United States Recovering from alcohol use disorder (AUD) or unable to control the amount you drink Pregnant or might be pregnant In addition, certain individuals, particularly older adults, who are planning to drive a vehicle or operate machinery-or who are participating in activities that require skill, coordination, and alertness-should avoid alcohol completely." = "Según las Pautas dietéticas para estadounidenses 2020-2025, determinadas personas no deben consumir alcohol. Es más seguro evitar el consumo de alcohol por completo si: Toma medicamentos que interactúan con el alcohol. Maneja una condición médica que puede empeorar al beber. Tiene menos de 21 años, la edad mínima legal para beber en los Estados Unidos. Se está recuperando de un trastorno por consumo de alcohol (AUD). o incapaz de controlar la cantidad que bebe. Embarazada o que podría estar embarazada. Además, ciertas personas, particularmente adultos mayores, que planean conducir un vehículo u operar maquinaria, o que participan en actividades que requieren habilidad, coordinación y estado de alerta, deben Evite el alcohol por completo.";
+
+"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda." = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.
+";
+
+
+//basic knowledge video
+"What’s a standard drink" = "¿Qué le sucede a tu cerebro cuando
+¿bebes?";
+
+"Let’s watch the videos " = "veamos los videos";
+"This video explains the impact of alcohol on the brain and its subsequent effects. Having this knowledge will help you consider your drinking habits." = "Este vídeo explica el impacto del alcohol en el cerebro y sus efectos posteriores. Tener este conocimiento le ayudará a considerar sus hábitos de bebida.
+";
+
+//consequences
+
+"What are the consequence?" =
+"¿Cuáles son las consecuencias?";
+
+"typesOfconsequence" = "Existe una amplia gama de consecuencias a corto y largo plazo asociadas con el abuso de alcohol.
+Para algunas personas, cualquier cantidad de bebida podría ser potencialmente dañina.
+
+Veamos algunos de ellos.";
+
+//consequences 2
+
+"consequences2" = "Las muertes relacionadas con el alcohol están aumentando en los Estados Unidos.
+
+El alcohol es un factor en:
+30% de los suicidios.
+El 40% de las quemaduras mortales.
+el 50% de los ahogamientos mortales y de los homicidios, y alrededor del 65 por ciento de las caídas mortales.
+El 31 % de todos los accidentes mortales en 2021.
+Un número importante de agresiones sexuales.";
+
+//consqquences 3
+"Alcohol-related blackouts" = "Apagones relacionados con el alcohol";
+
+"consequences3" = "Los apagones son lagunas en la memoria de una persona sobre eventos que ocurrieron mientras estaba ebria. Estas brechas ocurren cuando una persona bebe suficiente alcohol como para bloquear temporalmente la transferencia de recuerdos del almacenamiento de corto a largo plazo (lo que se conoce como consolidación de la memoria) en un área del cerebro llamada hipocampo.";
+
+//consequences 4
+"Health problems" = "Problemas de salud";
+
+"consequences4" = "Beber está asociado con una serie de problemas de salud y puede agravar ciertos problemas crónicos de salud.
+los problemas empeoran.
+
+La mitad de las muertes por enfermedades hepáticas en los Estados Unidos son causadas por el alcohol, y las enfermedades hepáticas asociadas al alcohol están aumentando, particularmente entre mujeres y jóvenes.
+
+Las investigaciones han demostrado una asociación importante entre el consumo de alcohol y el cáncer de mama: por cada 10 gramos de alcohol consumidos (menos de 1 bebida estándar) en promedio diario, la probabilidad de que una mujer desarrolle cáncer de mama posmenopáusico aumenta alrededor de un 9 por ciento.
+
+Las investigaciones también han demostrado que el abuso de alcohol aumenta el riesgo de enfermedades hepáticas, enfermedades cardiovasculares, depresión y hemorragia estomacal, así como cánceres de cavidad oral, esófago, laringe, faringe, hígado, colon y recto.
+
+Las personas que abusan del alcohol también pueden tener problemas para controlar afecciones como diabetes, presión arterial alta, dolor y trastornos del sueño.
+ 
+Y las personas que abusan del alcohol tienen más probabilidades de tener conductas sexuales inseguras, poniéndose a sí mismas y a otros en riesgo de contraer infecciones de transmisión sexual y embarazos no intencionales.
+
+Defectos de nacimiento. La exposición prenatal al alcohol puede provocar daño cerebral y otros problemas graves en los bebés. Los efectos se conocen como trastornos del espectro alcohólico fetal (FASD, por sus siglas en inglés) y pueden provocar problemas físicos, cognitivos y de conducta de por vida. Debido a que no se conoce un nivel seguro de alcohol para un bebé en desarrollo, las mujeres que están embarazadas o que podrían estarlo no deben beber";
+//consequences 5
+"Alcohol use disorder (AUD)" = "Trastorno por consumo de alcohol (AUD)";
+"consequences5" = "Algunos signos de AUD son continuar bebiendo a pesar de que está causando problemas con tu familia o en el trabajo, beber más de lo que tenías previsto, necesitar beber más que antes para obtener el efecto deseado, no poder dejar de beber después de varios intentos o continuar bebiendo a pesar de las consecuencias negativas. Los signos de AUD también pueden incluir beber para aliviar emociones negativas, como sentirse 'deprimido', ansioso, intranquilo, infeliz, mal, insatisfecho con la vida, u otras emociones negativas que fueron causadas o empeoradas por el abuso de alcohol. Más allá de estos riesgos para la salud física y mental, el abuso frecuente de alcohol también está relacionado con problemas personales, como perder la licencia de conducir o tener problemas en las relaciones.";
+
+//consequences 6
+"Why is being able to “hold your liquor” a concern?" = "¿Por qué es una preocupación poder “retener el licor”?";
+
+ "consequences6"= "Para algunas personas que beben, se necesitan bastantes tragos para “estar drogados” o sentirse relajados, y es menos probable que muestren signos de intoxicación en comparación con otros. A esto a veces se le llama poder “retener el licor” o “beberle a alguien debajo de la mesa”. A menudo, estas personas no son conscientes de que la menor respuesta de su cuerpo a los efectos intoxicantes del alcohol no es una protección contra los problemas del alcohol, sino que es un motivo de precaución.
+
+Estos individuos tienden a beber más, socializar con personas que beben mucho y desarrollar tolerancia al alcohol (es decir, se necesita cada vez más alcohol para sentirse o actuar intoxicado). Como resultado, tienen un mayor riesgo de desarrollar AUD. Alguien que abusa del alcohol, especialmente a largo plazo, puede sufrir daños permanentes en el hígado, el corazón o el cerebro. Y todas las personas que beben, independientemente de la cantidad, deben ser conscientes de que las capacidades críticas para tomar decisiones y las habilidades relacionadas con la conducción ya están disminuidas mucho antes de que una persona muestre signos físicos de intoxicación.
+";
+
+//drinkning habbit controller
+"How many days a week do you drink?" = "¿Cuántos días a la semana bebes?";
+"1. Now let’s see what drinking habits do you have" = "1. Ahora veamos qué hábitos de bebida tienes";
+
+"None" = "Ninguna";
+"Less than 2 days" = "Menos de 2 días";
+"3-5 days" = "3-5 días";
+"Almost everyday" = "Casi todos los días";
+"Everyday" = "Cada día";
+"1. How many days a week do you drink?" = "1. ¿Cuántos días a la semana bebes?";
+"Now let's see what drinking habits do you have" = "Ahora veamos qué hábitos de bebida tienes";
+
+//Drinkning habbit
+"Now let’s see what drinking habits do you have" = "Ahora veamos qué hábitos de bebida tienes";
+"What kind of alcohol do you drink each time? and how much?" = "¿Qué tipo de alcohol bebes cada vez? ¿Y cuánto?";
+
+//feel drink controller
+"4. What is the reason behind?" = "4. ¿Cuál es el motivo?";
+"Save it to weekly summary journal entry" = "Guárdelo en la entrada del diario resumido semanal";
+
+//feel drink habbit
+"3. What do you feel about your drinking habit?" = "3. ¿Qué sientes acerca de tu hábito de beber?";
+"Please select any option" = "Por favor seleccione cualquier opción";
+
+//taking control intro
+"Thank you for being willing to talk about alcohol and drugs. Now let’s begin with a brief assessment." = "Gracias por estar dispuesto a hablar sobre el alcohol y las drogas. Ahora comencemos con una breve evaluación.";
+
+"Monthly goal" = "Meta Mensual";
+"Now" = "Ahora";
+
+
+//check mail vc
+"Check your email" = "Consultar su correo electrónico";
+"Enter the 4-digit code that we have sent via email xxxxxxxxxx@gmail.com" = "Introduce el código de 4 dígitos que te hemos enviado al correo electrónico xxxxxxxxxx@gmail.com";
+"Verify Code" = "Código de verificación";
+
+
+//forgot password
+"Forgot password" = "Has olvidado tu contraseña";
+"Your email/Phone number " = "Su correo electrónico/Número de teléfono";
+"Please enter your email to reset the password" = "Por favor ingresa tu correo electrónico para restablecer la contraseña";
+"Reset Password" = "Restablecer la contraseña";
+
+//update password
+"Set a new password" = "Establecer una nueva contraseña";
+"Create a new password. Ensure it differs from previous ones for security" = "Crea una nueva contraseña. Asegúrate de que sea diferente de las anteriores por seguridad";
+"Password" = "Contraseña";
+"Confirm Password" = "Confirmar Contraseña";
+"Update Password" = "Actualiza contraseña";
+
+//user intro screen
+"Good morning!" = "¡Buenos días!";
+"Good afternoon!" = "¡Buenas tardes!";
+"Good evening!" = "¡Buenas noches!";
+"Save" = "Guardar";
+"Skip" = "Omitir";
+
+//discovery main view controller
+"Managing Anxiety" = "Manejando la ansiedad";
+"Managing Stress" = "Manejando el estrés";
+"Taking Control" = "Tomando el control";
+
+//custom alert view
+"Your License key has
+been verified." = "Tu clave de licencia ha sido verificada.";
+
+"Please complete your profile to start using Calmscient." = "Por favor completa tu perfil para empezar a usar Calmscient.";
+"Continue" = "Continuar";
+
+//selection button
+"I agree to share my info with medical provider" = "Acepto compartir mi información con el proveedor médico";
+"Remember me" = "Acuérdate de mí";
+
+//landing vc
+"Hello " = "Hola ";
+"We are happy to see you" = "Estamos felices de verte";
+"Need to talk with someone?" = "¿Necesitas hablar con alguien?";
+
+//monthly drinks count vc
+"Congratulations text" = "¡Felicitaciones por tomar la firme decisión de cambiar tu consumo de bebidas!
+
+Primero, establezcamos un objetivo para cambiar tu recuento mensual de bebidas.
+
+Para hacer esto, elige la(s) fecha(s) en el calendario a continuación en las que planeas tener un día sin alcohol.
+";
+"   Your total alcohol free days are" = "   Tus días totales sin alcohol son";
+"days" = "días";
+
+//months view controller
+"Good job!" = "¡Buen trabajo!
+Estos son los recuentos mensuales de bebidas que sugerimos.";
+
+"Your suggested" = "Tu recuento mensual
+sugerido de bebidas";
+
+"Your monthly Drinks count" = "Tu recuento mensual de bebidas";
+"Now, lets's decide how much you drink" = "Ahora, decidamos cuánto bebes";
+"Set" = "Establecer";
+
+
+//custom alert view 1
+"You selected more than what is suggested" = "Has seleccionado más de lo sugerido";
+
+"Dismiss" = "Descartar";
+
+"Change goal" = "Cambiar objetivo";
+
+
+//define cell
+"Quitting is strongly advised if you:" = "Se recomienda encarecidamente dejar de fumar si:";
+
+"Tell us what you would like to do." = "Cuéntanos qué te gustaría hacer.";
+
+"Have had alcohol use disorder (AUD) or now have any symptoms." = "Ha tenido trastorno por consumo de alcohol (AUD) o ahora tiene algún síntoma.";
+
+"Have a physical or mental health condition that is caused or being worsened by drinking." = "Tiene una condición de salud física o mental que es causada o empeorada por el consumo de alcohol.";
+"Are taking medication that interacts with alcohol." = "Está tomando medicamentos que interactúan con el alcohol.";
+"Are or might be pregnant." = "Está o podría estar embarazada.";
+
+
+//tellus cell
+"Yes" = "Sí";
+"Just track the alcohol consumption" = "Solo registrar el consumo de alcohol";
+"Quit or cut down drinking" = "Dejar o reducir el consumo de alcohol";
+
+//quitViewController
+"congralatuateDecision" = "¡Felicitaciones por su decisión de dejar de beber!
+Recuerde, no está solo. La aplicación Calmscient puede ayudarle a seguir su progreso.
+
+Aquí hay recursos que pueden ayudarle a lograr su objetivo.";
+
+"Talk to your primary care doctor" = "Hable con su médico de cabecera";
+"Consider medication management" = "Considere el manejo de medicamentos";
+"Look for alcohol treatment program" = "Busque un programa de tratamiento del alcoholismo";
+
+"Now, let's get to know the drink coach features." = "Ahora, conozcamos las funciones del entrenador de bebidas.";
+
+"See the introduction" = "Ver la introducción";
+
+//mind cell
+"With this in mind, tell us what you would like to do." = "Con esto en mente, díganos qué le gustaría hacer.";
+"Quit" = "Dejar";
+"Cut down" = "Reducir";
+
+//journal entry view controller
+"Quiz" = "Cuestionario";
+"Daily journal" = "Diario diario";
+"Discovery Exercise" = "Ejercicio de descubrimiento";
+
+//ProgressOnCourseWorkHeaderView
+"Course" = "Curso";
+"Completed" = "Completado";
+
+//home tab dashboard viewcontroller
+"No favorites found for this patient" = "No se encontraron favoritos para este paciente";
+"My Favorites" = "Mi favoritos";
+
+// add user medications view controller
+"Save" = "Guardar";
+"Cancel" = "Cancelar";
+"Add Medications" = "Agregar medicamentos";
+"Are you sure you want to cancel?" = "¿Estás seguro de que quieres cancelar?";
+"Medications" = "Medicamentos";
+"YES" = "SÍ";
+"NO" = "NO";
+"An Unknown error occured. Please check with Admin" = "Ocurrió un error desconocido. Por favor, consulta con el administrador";
+"Add Medication" = "Agregar Medicamento";
+"OK" = "OK";
+"Add Time & Alarm" = "Agregar Hora y Alarma";
+"Name" = "Nombre";
+"Provider" = "Proveedor";
+"Dosage" = "Dosis";
+"Direction" = "Instrucciones";
+"Add Time & Alarm" = "Agregar Hora y Alarma";
+
+// add medication vc
+"Add Medications" = "Agregar medicamentos";
+"With Meal" = "Con Comida";
+"Morning" = "Mañana";
+"08:00AM" = "08:00AM";
+"07:50AM" = "07:50AM";
+"Afternoon" = "Tarde";
+"Night" = "Noche";
+"Schedule Time & Alarm" = "Programar Hora y Alarma";
+
+// medication details view controller
+"Medications detail" = "Detalles de los Medicamentos";
+
+// add appointments view controller
+"Choose Date and Time" = "Elegir Fecha y Hora";
+
+// appointment details vc
+"Date and Time" = "Fecha y Hora";
+"Invalid Date" = "Fecha Inválida";
+"Appointment Details" = "Detalles de la Cita";
+"Contact" = "Contacto";
+"Appointment Detail" = "Detalle de la Cita";
+"Address" = "Dirección";
+
+// screening result vc
+"Need to talk with someone?" = "¿Necesitas hablar con alguien?";
+"Score\nmarked" = "Puntuación\nmarcada";
+"Total score" = "Puntuación";
+
+// screening result vc
+"Need to talk with someone?" = "¿Necesitas hablar con alguien?";
+"Score\nmarked" = "Puntuación\nmarcada";
+"Total score" = "Puntuación";
+"Remind me" = "Recuérdame";
+
+// questioner vc
+"Over the last 2 weeks, how often have you been bothered by the following problems?" = "En las últimas 2 semanas, ¿con qué frecuencia te han molestado los siguientes problemas?";
+"1. Feeling nervous, anxious or on edge" = "1. Sentirse nervioso, ansioso o irritable";
+
+// profile privacy vc
+"Data from Calmscient can be transmitted to your doctor for clinical review purposes. Please indicate which data you allow to be shared with your doctor by selecting either Yes or No next to each data element below" = "Los datos de Calmscient pueden ser transmitidos a su médico para fines de revisión clínica. Por favor, indique qué datos permite que se compartan con su médico seleccionando Sí o No junto a cada elemento de datos a continuación";
+"Privacy" = "Privacidad";
+
+
+//user entry yes or no cell
+"Did you take your meds this evening?" = "¿Tomaste tus medicamentos esta noche?";
+
+//Breathing Technique
+"Breathing technique" = "Técnica de respiración";
+"Breathing exercises" = "Ejercicios de respiración";
+"4-7-8 Breathing exercise" = "Ejercicio de respiración 4-7-8";
+"Mindful breathing exercise" = "Ejercicio de respiración consciente";
+"Diaphragmatic breathing exercise" = "Ejercicio de respiración diafragmática";
+
+//Excersices
+"Exercises" = "Ejercicios";
+
+
+//mindfulness
+"Have you ever caught your mind wandering or daydreaming while you are in the middle of a familiar or repetitive task? You could be walking, working or even driving your car, and your mind is miles away, perhaps fantasizing about going on vacation, thinking about your to-do list, or worrying about some upcoming event."
+=
+"¿Alguna vez has notado que tu mente se dispersa o se pone a soñar despierto mientras estás en medio de una tarea familiar o repetitiva? Podrías estar caminando, trabajando o incluso conduciendo tu coche, y tu mente está a kilómetros de distancia, tal vez fantaseando con irte de vacaciones, pensando en tu lista de tareas pendientes o preocupándote por algún evento próximo.";
+
+"Mindfulness is the opposite of automatic pilot. It is about experiencing the world that is firmly in the ‘here and now’. This is referred to as the being mode. It liberates you from automatic and unhelpful thoughts and responses."
+=
+"El mindfulness es lo opuesto al piloto automático. Se trata de experimentar el mundo firmemente en el 'aquí y ahora'. Esto se refiere al modo de ser. Te libera de pensamientos y respuestas automáticos y poco útiles.";
+
+"How does mindfulness help with anxiety?"
+=
+"¿Cómo ayuda el mindfulness con la ansiedad?";
+
+"Mindfulness reminds us that we don’t have to take immediate control of, remove or fix unpleasant experiences. Instead, we can identify and actively engage in something that will give us a sense of safety and connection."
+=
+"El mindfulness nos recuerda que no tenemos que tomar control inmediato, eliminar o arreglar experiencias desagradables. En cambio, podemos identificar y participar activamente en algo que nos brinde una sensación de seguridad y conexión.";
+
+"As a simple example: Instead of focusing on how many miles you walked in the morning, can you be mindfully aware of the birds singing, actively feel the fresh air, and sense the changing of the season? When you connect your senses to nature, animals, people and your own body, you capture the attention of your nervous system, which in turn soothes your anxiety. When you return home, you will be in a better frame of mind and more prepared to face your day."
+=
+"Como ejemplo sencillo: en lugar de centrarte en cuántas millas caminaste por la mañana, ¿puedes estar consciente del canto de los pájaros, sentir activamente el aire fresco y percibir el cambio de estación? Cuando conectas tus sentidos con la naturaleza, los animales, las personas y tu propio cuerpo, captas la atención de tu sistema nervioso, lo que a su vez calma tu ansiedad. Cuando vuelvas a casa, estarás en un mejor estado mental y más preparado para enfrentar tu día.";
+
+"Which mindfulness exercises would you like to make part of your daily routine? Calmscient can remind you of some easy mindfulness routines that will help you stay in a healthy, being mode."
+=
+"¿Qué ejercicios de mindfulness te gustaría incorporar a tu rutina diaria? Calmscient puede recordarte algunas rutinas de mindfulness fáciles que te ayudarán a mantenerte en un modo saludable de ser.";
+
+"Progressive muscle relaxation" = "Relajación muscular progresiva";
+
+"Touch and the butterfly hug" = "El tacto y el abrazo de mariposa";
+
+"Humans respond powerfully to touch. Gentle, affectionate touch helps calm the nervous system and can trigger the release of oxytocin, the attachment hormone. Interestingly, when it comes to releasing oxytocin, our bodies don’t differentiate between the touch of a loved one or our own touch as we hold ourselves.\nWhen you are feeling upset, ungrounded, agitated or irritable, try giving yourself a hug or a gentle stroke on the cheek and see how it impacts the way you feel." = "Los seres humanos responden poderosamente al tacto. El tacto suave y afectuoso ayuda a calmar el sistema nervioso y puede desencadenar la liberación de oxitocina, la hormona del apego. Curiosamente, cuando se trata de liberar oxitocina, nuestros cuerpos no diferencian entre el toque de un ser querido o nuestro propio toque al abrazarnos.
+
+Cuando te sientas molesto, descentrado, agitado o irritable, intenta darte un abrazo o una caricia suave en la mejilla y observa cómo impacta en la forma en que te sientes.
+";
+
+"HOW TO DO IT" = "CÓMO HACERLO";
+
+"Interlock your thumbs to form a butterfly shape" = "Entrecruza tus pulgares para formar una forma de mariposa";
+
+"Place both hands over your chest, and alternate tapping your middle finger just below your collarbone" = "Coloca ambas manos sobre tu pecho y alterna tocando con tu dedo medio justo debajo de la clavícula";
+
+"Breathe slowly and deeply (abdominal breathing) while you mentally observe what is going through your mind and body thoughts, images, sounds, odors, feelings, and physical sensation." = "Respira lenta y profundamente (respiración abdominal) mientras observas mentalmente lo que pasa por tu mente y cuerpo: pensamientos, imágenes, sonidos, olores, sentimientos y sensaciones físicas.";
+
+"Hand over your heart" = "Mano sobre tu corazón";
+
+"Movement: running" = "Movimiento: correr";
+
+"It’s not easy to move when you have a shutdown or are feeling numb. Running can quickly shift you out of the shutdown state and re-energize you." = "No es fácil moverse cuando tienes un colapso o te sientes entumecido. Correr puede sacarte rápidamente del estado de colapso y revitalizarte.";
+
+"Mindful body movement" = "Movimiento corporal consciente";
+
+"There are many movement routines that invite you to reconnect with your body. Pilates, yoga and other similar stretching exercises incorporate mindful awareness of movements and postures. Additionally, coordinating body movement and breath further potentiates your ability to shift your state." = "Existen muchas rutinas de movimiento que te invitan a reconectarte con tu cuerpo. El pilates, el yoga y otros ejercicios de estiramiento similares incorporan una conciencia plena de los movimientos y posturas. Además, coordinar el movimiento corporal y la respiración potencia aún más tu capacidad para cambiar tu estado.";
+
+"Movement: dance" = "Movimiento: danza";
+
+"Moving your body to music can be a fun and fast way to shift your state and reconnect with your body, rhythm and expression." = "Mover tu cuerpo al ritmo de la música puede ser una forma divertida y rápida de cambiar tu estado y reconectarte con tu cuerpo, ritmo y expresión.";
+
+"Mindful walking" = "Caminata consciente";
+
+"What are the benefits of mindful walking?" = "¿Cuáles son los beneficios de la caminata consciente?";
+
+"Emotional Regulation: Engaging in mindful walking can help regulate your emotions. By observing your thoughts and emotions as they arise during the practice, you develop a non-judgmental and accepting attitude towards them. This can enhance emotional resilience and provide you with a greater sense of control over your reactions to challenging situations." = "Regulación emocional: Participar en la caminata consciente puede ayudar a regular tus emociones. Al observar tus pensamientos y emociones a medida que surgen durante la práctica, desarrollas una actitud de no juicio y aceptación hacia ellos. Esto puede mejorar la resiliencia emocional y brindarte un mayor sentido de control sobre tus reacciones ante situaciones desafiantes.";
+
+
+//4-7-8 breathing
+"4-7-8 Breathing excercise" = "Ejercicio de respiración 4-7-8";
+"Preparation" = "Preparación";
+"First find a comfortable seated position. Ensure that you are at ease before beginning the rhythmic breathing pattern.\n\nPlace the tip of your tongue gently against the tissue just behind your top front teeth" = "Primero encuentra una posición cómoda para sentarte. Asegúrate de estar a gusto antes de comenzar el patrón de respiración rítmica.\n\nColoca la punta de tu lengua suavemente contra el tejido justo detrás de tus dientes frontales superiores";
+
+"Let’s learn how to do the 4-7-8 breathing exercise." = "Aprendamos cómo hacer el ejercicio de respiración 4-7-8.";
+
+"Step 1: Emptying the lungs" = "Paso 1: Vaciar los pulmones";
+"Begin by completely emptying your lungs of air. Allow yourself a moment to release any tension." = "Comienza vaciando completamente tus pulmones de aire. Permítete un momento para liberar cualquier tensión.";
+
+"Step 2: Inhaling quietly" = "Paso 2: Inhalar en silencio";
+"Inhale quietly through your nose, counting to 4 seconds. Fell the breath entering your body, bringing calmness." = "Inhala en silencio por la nariz, contando hasta 4 segundos. Siente el aire entrando en tu cuerpo, trayendo calma.";
+
+"Step 3: Hold the breath" = "Paso 3: Retener la respiración";
+"Hold your breath for  a steady count of 7 seconds. Embrace the stillness within, allowing the breath to settle." = "Mantén la respiración por un conteo constante de 7 segundos. Abraza la quietud interior, permitiendo que la respiración se asiente.";
+
+"Step 4: Force exhalation" = "Paso 4: Exhalación forzada";
+
+"Exhale forcefully through your mouth, pursing your lips, and create a distinct “whoosh” sound for 8 seconds. Feel the release of tension as you expel the breath." = "Exhala con fuerza por la boca, frunciendo los labios, y crea un sonido distintivo de “whoosh” durante 8 segundos. Siente la liberación de tensión al expulsar el aire.";
+
+"Step 5: Repeat the process" = "Paso 5: Repite el proceso";
+"Repeat this entire cycle up to 4 times. Each repetition contributes to a deepening sense of relaxation." = "Repite todo este ciclo hasta 4 veces. Cada repetición contribuye a un sentido más profundo de relajación.";
+
+"Now, let’s dive into it.\nPay careful attention to the following video." = "Ahora, vamos a sumergirnos en ello.\nPresta mucha atención al siguiente video.";
+"Engage in this practice regularly, allowing the 4-7-8 technique to guide you towards a state of tranquility and mindful breathing." = "Practica esto con regularidad, permitiendo que la técnica 4-7-8 te guíe hacia un estado de tranquilidad y respiración consciente.";
+
+//Mindfull breathing exercise
+"Mindful breathing exercise" = "Ejercicio de respiración consciente";
+"Preparation" = "Preparación";
+"First find a comfortable to either sit down or lay down. You can close your eyes if you want to." = "Primero, encuentra una posición cómoda para sentarte o acostarte. Puedes cerrar los ojos si lo deseas.";
+"Let’s learn how to do the mindful breathing exercise." = "Aprendamos cómo hacer el ejercicio de respiración consciente.";
+
+"Step 1: Inhale" = "Paso 1: Inhalar";
+
+"Inhale through your nose until the tummy expands." = "Inhala por la nariz hasta que el abdomen se expanda.";
+
+"Step 2: Exhale slowly and repeat it" = "Paso 2: Exhala lentamente y repite";
+
+"Step 3: Focus on the breath" = "Paso 3: Enfócate en la respiración";
+
+"Once settled into the pattern, focus on the breath coming in through the nose and out through the mouth" = "Una vez que te acomodes en el patrón, enfócate en la respiración que entra por la nariz y sale por la boca";
+
+"Step 4: Focus on the tummy" = "Paso 4: Enfócate en el abdomen";
+
+"Notice the rise and fall of the tummy as the breath come in and out" = "Observa cómo sube y baja el abdomen mientras la respiración entra y sale";
+
+"Step 5: Focus on the mind" = "Paso 5: Enfócate en la mente";
+
+"As thoughts come into the head, notice that they are there without judgment, then let them go and bring the attention back to the breathing." = "Cuando los pensamientos entren en tu mente, nota que están ahí sin juzgar, luego déjalos ir y vuelve a enfocar tu atención en la respiración.";
+
+"Step 6: Focus on the connection between mind and body." = "Paso 6: Enfócate en la conexión entre mente y cuerpo.";
+
+"Carry on until feeling calm, then start to be aware of how the body and mind feel." = "Continúa hasta sentirte calmado, luego comienza a ser consciente de cómo se siente el cuerpo y la mente.";
+
+"Now, let’s dive into it.
+Pay careful attention to the following video." = "Ahora, vamos a sumergirnos en ello. \nPresta mucha atención al siguiente video.";
+
+"Engage in this practice regularly, allowing the diaphragmatic breathing technique to guide you towards a state of tranquility and mindful breathing." = "Practica esto regularmente, permitiendo que la técnica de respiración diafragmática te guíe hacia un estado de tranquilidad y respiración consciente.";
+
+//Diagraphic breathing
+"Doctors usually recommend diaphragmatic breathing to people with a lung condition called chronic obstructive pulmonary disease. A 2017 study found that it could also help reduce anxiety." = "Los médicos suelen recomendar la respiración diafragmática a personas con una enfermedad pulmonar llamada enfermedad pulmonar obstructiva crónica. Un estudio de 2017 encontró que también podría ayudar a reducir la ansiedad.";
+
+"Let’s learn how to do the diaphragmatic breathing exercise." = "Aprendamos cómo hacer el ejercicio de respiración diafragmática.";
+
+"Inhale through your nose about 4 seconds,\nFocusing on the tummy rising." = "Inhala por la nariz durante unos 4 segundos,\nconcentrándote en la elevación del abdomen.";
+
+"First find a comfortable to either sit down or lay down." = "Primero encuentra una posición cómoda para sentarte o acostarte.";
+
+"Step 1: Place your hands" = "Paso 1: Coloca tus manos";
+
+"Place your hand on the tummy and other on the upper chest." = "Coloca una mano en el abdomen y la otra en la parte superior del pecho.";
+
+"Step 2: Inhale" = "Paso 2: Inhala";
+
+"Inhale through your nose about 4 seconds, Focusing on the tummy rising." = "Inhala por la nariz durante unos 4 segundos, enfocándote en el levantamiento del abdomen.";
+
+"Step 3: Hold" = "Paso 3: Mantén la respiración";
+
+"Hold your breath for 2 seconds." = "Mantén la respiración durante 2 segundos.";
+
+"Step 4: Exhale" = "Paso 4: Exhala";
+
+"Exhale slowly and steadily through you mouth for about 6 seconds." = "Exhala lentamente y de manera constante por la boca durante unos 6 segundos.";
+
+"Step 5: Repeat the process" = "Paso 5: Repite el proceso";
+
+"Repeat the cycle for 5 to 10 minutes about 3 to 5 times a day" = "Repite el ciclo durante 5 a 10 minutos unas 3 a 5 veces al día.";
+
+"Now, let’s dive into it.\nPay careful attention to the following video." = "Ahora, profundicemos en esto.\nPresta mucha atención al siguiente video.";
+
+"Engage in this practice regularly, allowing the diaphragmatic breathing technique to guide you towards a state of tranquility and mindful breathing." = "Practica esto regularmente, permitiendo que la técnica de respiración diafragmática te guíe hacia un estado de tranquilidad y respiración consciente.";
+
+"Next appointments" = "Próximas citas";
+"No appointments" = "Sin citas";
+"Screenings" = "Exámenes";
+"Good morning!" = "¡Buenos días!";
+"Good afternoon!" = "¡Buenas tardes!";
+"Good evening!" = "¡Buenas noches!";
+"Time" = "Hora";
+"Information" = "Información";
+"Screening" = "Cribado";
+
+//ManagingScreen
+"So be determined to dedicate time to following along and completing the exercises. Each section has interesting and informative content that is designed to keep you actively thinking about your specific challenges. But, like taking a road trip to an unknown destination, you’ll need to be committed to following the map! It may be a little more work than you’re used to, but it will absolutely pay off in the end." = " Así que esté decidido a dedicar tiempo a seguir y completar los ejercicios. Cada sección tiene contenido interesante e informativo diseñado para mantenerlo pensando activamente en sus desafíos específicos. Pero, al igual que hacer un viaje por carretera a un destino desconocido, ¡deberás comprometerte a seguir el mapa! Puede que suponga un poco más de trabajo del que estás acostumbrado, pero al final dará sus frutos.";
+
+"The Calmscient discovery will only be as effective as you make it." = "El descubrimiento de Calmscient será tan efectivo como usted lo haga.";
+
+// WeeklySummaryInner
+"Days at each Mood" = "Días en cada estado de ánimo";
+
+"Summary Of Mood" = "Resumen del estado de ánimo";
+"Summary of sleep" = "Resumen del sueño";
+"Summary Of PHQ9" = "Resumen del PHQ9";
+"Summary Of GAD" = "Resumen de TAG";
+"Summary Of Audit" = "Resumen de auditoría";
+"Summary Of Dast" = "Resumen de Dast";
+"Progress On Course Work" = "Progreso en el trabajo del curso";
+"Journal Entry" = "Entrada de diario";
+
+"DISCOVERY" = "DESCUBRIMIENTO";
+
+"Fatalities and injuries" = "Muertes y heridos";
+"Alcohol-related deaths are increasing in the United States.\n\nAlcohol is a factor in:" = "Las muertes relacionadas con el alcohol están aumentando en los Estados Unidos.
+
+El alcohol es un factor en:";
+
+//MARK: SMOKING CONTROL
+
+/*  Introduction  */
+"DRINKING_CONTROL_Intro" = "Hablemos sobre el alcohol y las drogas. No tomará mucho de tu tiempo. ¡Lo prometo!
+
+¿Por qué abordar este tema?
+
+Bueno, poder hablar abiertamente sobre tu consumo de alcohol o drogas es crucial para tu salud, bienestar mental y relaciones con tu familia y la comunidad.
+
+Pero, tienes el control total sobre la decisión respecto a tu hábito.
+
+¿Listo?";
+"DRINKING_CONTROL_Drink_Coach" = "Coach de Bebidas";
+"DRINKING_CONTROL_Substance_Coach" = "Coach de Sustancias";
+"DRINKING_CONTROL_Do_Not_Show_Checkbox_text" = "No mostrar este tutorial la próxima vez.";
+"DRINKING_CONTROL_Intro_Message" = "Recuerda, siempre puedes realizar los tests AUDIT, DUST-10 y CAGE en la sección Mis registros médicos.";
+"DRINKING_CONTROL_Thirty_percent_Of_Suicides" = "30% de los suicidios.";
+"DRINKING_CONTROL_Forty_Of_Fatal_Burn_Injuries" = "40% de las lesiones fatales por quemaduras.";
+"DRINKING_CONTROL_Fifty_Of_Fatal_Drownings_And_Of_Homicides_And_About_Message" = "50% de los ahogamientos fatales y de los homicidios, y aproximadamente el 65% de las caídas fatales.";
+"DRINKING_CONTROL_Thirtyone_Percent_Fatal_Crashes" = "31% de todos los accidentes fatales en 2021.";
+"DRINKING_CONTROL_Significant_Number_Of_Sexual_Assaults" = "Un número significativo de agresiones sexuales.";
+"DRINKING_CONTROL_Total_Course_Work_Completed" = "Trabajo del curso total completado.";
+"DRINKING_CONTROL_Consequence_Four_Message_One" = "La mitad de las muertes por enfermedades hepáticas en los Estados Unidos son causadas por el alcohol, y las enfermedades hepáticas asociadas con el alcohol están en aumento, especialmente entre las mujeres y los jóvenes.";
+"DRINKING_CONTROL_Consequence_Four_Message_Two" = "Las investigaciones han mostrado una importante asociación entre el consumo de alcohol y el cáncer de mama: por cada 10 gramos de alcohol consumidos (menos de una bebida estándar) de manera promedio diaria, la probabilidad de que una mujer desarrolle cáncer de mama posmenopáusico aumenta en aproximadamente un 9%.";
+"DRINKING_CONTROL_Consequence_Four_Message_Three" = "Las investigaciones también han demostrado que el abuso de alcohol aumenta el riesgo de enfermedades hepáticas, enfermedades cardiovasculares, depresión y sangrado estomacal, así como de cánceres de la cavidad oral, esófago, laringe, faringe, hígado, colon y recto.";
+"DRINKING_CONTROL_Consequence_Four_Message_Four" = "Las personas que abusan del alcohol también pueden tener problemas para manejar afecciones como la diabetes, la hipertensión, el dolor y los trastornos del sueño.";
+"DRINKING_CONTROL_Consequence_Four_Message_Five" = "Y las personas que abusan del alcohol tienen más probabilidades de participar en conductas sexuales inseguras, poniendo en riesgo tanto a sí mismas como a otros de contraer infecciones de transmisión sexual y de embarazos no deseados.";
+"DRINKING_CONTROL_Consequence_Four_Message_Six" = "Defectos de nacimiento. La exposición prenatal al alcohol puede resultar en daño cerebral y otros problemas graves en los bebés. Los efectos se conocen como trastornos del espectro alcohólico fetal, o FASD, y pueden resultar en problemas físicos, cognitivos y de comportamiento de por vida. Dado que no hay un nivel seguro conocido de alcohol para un bebé en desarrollo, las mujeres que están embarazadas o que podrían estarlo no deben beber.";
+"DRINKING_CONTROL_Consequence_What_Happens_To_Your_Brain_When_You_Drink" = "¿Qué le sucede a tu cerebro cuando bebes?";
+"DRINKING_CONTROL_Total" = "Total";
+"DRINKING_CONTROL_Count" = "Recuento";
+"DRINKING_CONTROL_Video_Message" = "Este video destaca las transformaciones positivas que ocurren al dejar el alcohol, como la mejora del bienestar, la hidratación, la pérdida de peso y la salud en general. También explica los posibles síntomas de abstinencia y ofrece consejos prácticos para superar este período.";
+"DRINKING_CONTROL_Video_Header" = "¿Qué esperar cuando dejas de beber?";
+"DRINKING_CONTROL_Video_Sub_Header" = "Veamos los videos.";
+
+"Mood_by_date_range" = "Estado de ánimo por rango de fechas";
+"Sleep_by_date_range" = "Sueño por rango de fechas";
+"PHQ-9_by_date_range" = "PHQ-9 por rango de fechas";
+"GAD_by_date_range" = "GAD-7 por rango de fechas";
+"Audit_by_date_range" = "AUDIT por rango de fechas";
+"Dast_by_date_range" = "DAST por rango de fechas";
+"More_sleep_needed" = "Se necesita más sueño";
+"Average_sleep_score" = "Puntuación promedio de sueño";
+"Most_hours_slept" = "Mayor número de horas dormidas";
+"Average_hours_slept" = "Promedio de horas dormidas";
+"Least_hours_slept" = "Menor número de horas dormidas";
+"How_is_your_mood_right_now" = "Cómo está tu estado de ánimo en este momento?";
+"How_was_your_day" = "Cómo fue tu día?";
+"How's_your_mood_so_far" = "¿Cómo está tu estado de ánimo hasta ahora?";
+"Close" = "Cerrar";
+"Done" = "Hecho";
+"Benefits_of_mindful_walking" = "¿Cuáles son los beneficios de caminar conscientemente?";

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lexendmedium.ttf">
+            <string>Lexend-Medium</string>
+        </array>
+        <array key="lexendregular.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CustomAlertView" customModule="HealthApp" customModuleProvider="target">
+            <connections>
+                <outlet property="contentLabel" destination="cRX-KY-6Cc" id="Xaz-gj-icV"/>
+                <outlet property="continueButton" destination="Po3-XU-sow" id="WhN-l5-r3b"/>
+                <outlet property="titleLabel" destination="kjm-Hc-szl" id="fGX-e9-tK4"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="487" height="547"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kjm-Hc-szl">
+                    <rect key="frame" x="24" y="175.66666666666666" width="439" height="60"/>
+                    <string key="text">Your License key has 
+been verified.</string>
+                    <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="24"/>
+                    <color key="textColor" name="CustomAlertTitleColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please complete your profile to start using Calmscient." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRX-KY-6Cc">
+                    <rect key="frame" x="24" y="263.66666666666669" width="439" height="45"/>
+                    <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="18"/>
+                    <color key="textColor" name="MainTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Po3-XU-sow" customClass="LinearGradientButton" customModule="HealthApp" customModuleProvider="target">
+                    <rect key="frame" x="97.333333333333343" y="348.66666666666669" width="292.33333333333326" height="45"/>
+                    <color key="backgroundColor" name="AppThemeColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="oj7-i5-QfC"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Lexend-Medium" family="Lexend" pointSize="18"/>
+                    <color key="tintColor" red="0.99215686319999996" green="0.99215686319999996" blue="0.99215686319999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" title="Continue"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="color" keyPath="topGradientColor">
+                            <color key="value" name="GradientButtonColor1"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="color" keyPath="bottomGradientColor">
+                            <color key="value" name="GradientButtonColor2"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="22.5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="didClickOnContinueButton:" destination="-1" eventType="touchUpInside" id="qkI-4k-v8p"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" name="MainViewBackground"/>
+            <constraints>
+                <constraint firstItem="kjm-Hc-szl" firstAttribute="leading" secondItem="cRX-KY-6Cc" secondAttribute="leading" id="2B5-MK-yv3"/>
+                <constraint firstItem="Po3-XU-sow" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Dbd-xl-pD5"/>
+                <constraint firstItem="cRX-KY-6Cc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="Jkw-lT-txB"/>
+                <constraint firstItem="cRX-KY-6Cc" firstAttribute="top" secondItem="kjm-Hc-szl" secondAttribute="bottom" constant="28" id="K8R-ZV-E2g"/>
+                <constraint firstItem="cRX-KY-6Cc" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="Na6-51-aff"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="cRX-KY-6Cc" secondAttribute="trailing" constant="24" id="eEx-EK-U7m"/>
+                <constraint firstItem="cRX-KY-6Cc" firstAttribute="centerY" secondItem="vUN-kp-3ea" secondAttribute="centerY" id="mqt-sT-Wpx"/>
+                <constraint firstItem="Po3-XU-sow" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.6" id="qBE-ur-fCF"/>
+                <constraint firstItem="Po3-XU-sow" firstAttribute="top" secondItem="cRX-KY-6Cc" secondAttribute="bottom" constant="40" id="uSb-2D-Xwf"/>
+                <constraint firstItem="kjm-Hc-szl" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="uiV-2e-oqE"/>
+                <constraint firstItem="kjm-Hc-szl" firstAttribute="trailing" secondItem="cRX-KY-6Cc" secondAttribute="trailing" id="zHg-Ce-wPl"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="173.2824427480916" y="-144.71830985915494"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="Po3-XU-sow">
+            <size key="intrinsicContentSize" width="80" height="35"/>
+        </designable>
+    </designables>
+    <resources>
+        <namedColor name="AppThemeColor">
+            <color red="0.43137254901960786" green="0.41960784313725491" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="CustomAlertTitleColor">
+            <color red="0.43137254901960786" green="0.41960784313725491" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GradientButtonColor1">
+            <color red="0.4309999942779541" green="0.41999998688697815" blue="0.70200002193450928" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GradientButtonColor2">
+            <color red="0.17599999904632568" green="0.20000000298023224" blue="0.28999999165534973" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MainTextColor">
+            <color red="0.25882352941176473" green="0.25882352941176473" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="MainViewBackground">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lexend-Bold.ttf">
+            <string>Lexend-Bold</string>
+        </array>
+        <array key="lexendsemibold.ttf">
+            <string>Lexend-SemiBold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Basic Standard Drink-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="BasicStandardDrink" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y6W-OH-hqX" customClass="BasicStandardDrink" customModule="CalmscientIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfn-q3-KTZ">
+                                <rect key="frame" x="0.0" y="70" width="393" height="748"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What’s a standard drink" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3FB-fJ-OYE">
+                                        <rect key="frame" x="20" y="2" width="361" height="22.666666666666668"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="22.670000000000002" id="xaQ-QX-cTG"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lexend-Bold" family="Lexend" pointSize="18"/>
+                                        <color key="textColor" name="barColor1"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bO-eD-udY">
+                                        <rect key="frame" x="20" y="39" width="361" height="180"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="180" id="M0U-zR-PQ1"/>
+                                        </constraints>
+                                        <string key="text">In the United States, a “standard drink” (also known as an alcoholic drink equivalent) is defined as any drink that contains about 0.6 fluid ounces or 14 grams of pure alcohol. Although the drinks pictured here are different sizes, each contains approximately the same amount of alcohol and counts as one U.S. standard drink or one alcoholic drink equivalent.</string>
+                                        <fontDescription key="fontDescription" name=".SFNS-Regular" family=".AppleSystemUIFont" pointSize="16"/>
+                                        <color key="textColor" name="AppointmentsTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nsI-Cm-mvi">
+                                        <rect key="frame" x="20" y="239" width="361" height="222"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6tN-lT-E8e">
+                                                <rect key="frame" x="8" y="8" width="345" height="204"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LiO-Sb-fKC">
+                                                        <rect key="frame" x="110" y="8" width="125" height="118"/>
+                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="118" id="19U-RL-bu7"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kK-ln-4s0">
+                                                        <rect key="frame" x="8" y="134" width="329" height="62"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="62" id="vkC-2H-Mfs"/>
+                                                        </constraints>
+                                                        <string key="text">Malt liquor or
+ flavored malt beverages
+ such as hard seltzer (8-10 fl oz) about 7% alcohol</string>
+                                                        <fontDescription key="fontDescription" name="Lexend-SemiBold" family="Lexend" pointSize="12"/>
+                                                        <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="204" id="7EF-OP-Viq"/>
+                                                    <constraint firstAttribute="trailing" secondItem="LiO-Sb-fKC" secondAttribute="trailing" constant="110" id="Ol1-v4-1Ae"/>
+                                                    <constraint firstItem="3kK-ln-4s0" firstAttribute="top" secondItem="LiO-Sb-fKC" secondAttribute="bottom" constant="8" id="dtr-Sm-0jR"/>
+                                                    <constraint firstItem="LiO-Sb-fKC" firstAttribute="top" secondItem="6tN-lT-E8e" secondAttribute="top" constant="8" id="efb-p2-avd"/>
+                                                    <constraint firstAttribute="trailing" secondItem="3kK-ln-4s0" secondAttribute="trailing" constant="8" id="faV-hY-DMY"/>
+                                                    <constraint firstItem="LiO-Sb-fKC" firstAttribute="leading" secondItem="6tN-lT-E8e" secondAttribute="leading" constant="110" id="u4u-21-qLD"/>
+                                                    <constraint firstItem="3kK-ln-4s0" firstAttribute="leading" secondItem="6tN-lT-E8e" secondAttribute="leading" constant="8" id="zia-k5-vyA"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="6tN-lT-E8e" firstAttribute="top" secondItem="nsI-Cm-mvi" secondAttribute="top" constant="8" id="J5j-Tb-euU"/>
+                                            <constraint firstAttribute="bottom" secondItem="6tN-lT-E8e" secondAttribute="bottom" constant="10" id="Xzw-oh-Ec8"/>
+                                            <constraint firstAttribute="trailing" secondItem="6tN-lT-E8e" secondAttribute="trailing" constant="8" id="gco-da-HvA"/>
+                                            <constraint firstItem="6tN-lT-E8e" firstAttribute="leading" secondItem="nsI-Cm-mvi" secondAttribute="leading" constant="8" id="jse-8R-FOO"/>
+                                            <constraint firstAttribute="height" constant="222" id="s3M-2b-FYI"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6a3-HU-WsO">
+                                        <rect key="frame" x="16" y="340" width="34" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="34" id="QWB-zj-lcB"/>
+                                            <constraint firstAttribute="height" constant="34" id="a6Q-OQ-cuY"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="reward"/>
+                                        <connections>
+                                            <action selector="backButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="aKn-VU-gCK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTf-I6-dGL">
+                                        <rect key="frame" x="351" y="340" width="34" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="P99-6c-Hqa"/>
+                                            <constraint firstAttribute="width" constant="34" id="uVx-dg-Sf8"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="forward"/>
+                                        <connections>
+                                            <action selector="forwardButtonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="gSS-lc-6zl"/>
+                                        </connections>
+                                    </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubw-MM-CXg">
+                                        <rect key="frame" x="20" y="479" width="361" height="248"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="248" id="YcN-sA-Ogb"/>
+                                            <constraint firstAttribute="width" constant="361" id="y2O-sK-sgg"/>
+                                        </constraints>
+                                        <string key="text">Each beverage portrayed above represents one standard drink (or one alcoholic drink equivalent), defined in the United States as any beverage containing 0.6 oz or 14 grams of pure alcohol. The percentage of pure alcohol, expressed here as alcohol by volume (alc/vol), varies within and across beverage types. Although the standard drink amounts are helpful for following health guidelines, they may not reflect customary serving sizes</string>
+                                        <color key="textColor" name="AppointmentsTextColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6W-X6-773" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
+                                        <rect key="frame" x="306" y="739" width="67" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="cNf-xr-E9c"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Complete"/>
+                                        <connections>
+                                            <action selector="completeButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Ahs-GR-N41"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" name="AppBackGroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="nsI-Cm-mvi" firstAttribute="top" secondItem="0bO-eD-udY" secondAttribute="bottom" constant="20" id="56f-uV-h1a"/>
+                                    <constraint firstItem="C0d-LD-gla" firstAttribute="trailing" secondItem="z6W-X6-773" secondAttribute="trailing" constant="20" id="7hj-Dg-aG3"/>
+                                    <constraint firstItem="3FB-fJ-OYE" firstAttribute="trailing" secondItem="ubw-MM-CXg" secondAttribute="trailing" id="9Om-lu-r24"/>
+                                    <constraint firstItem="0bO-eD-udY" firstAttribute="trailing" secondItem="3FB-fJ-OYE" secondAttribute="trailing" id="BPr-hm-XZy"/>
+                                    <constraint firstItem="3FB-fJ-OYE" firstAttribute="leading" secondItem="0bO-eD-udY" secondAttribute="leading" id="C9d-b7-EFn"/>
+                                    <constraint firstItem="z6W-X6-773" firstAttribute="top" secondItem="ubw-MM-CXg" secondAttribute="bottomMargin" constant="20" id="Gdh-d6-QJg"/>
+                                    <constraint firstItem="ubw-MM-CXg" firstAttribute="top" secondItem="nsI-Cm-mvi" secondAttribute="bottom" constant="18" id="LSl-sx-qOr"/>
+                                    <constraint firstItem="6a3-HU-WsO" firstAttribute="leading" secondItem="qfn-q3-KTZ" secondAttribute="leading" constant="16" id="OMK-pA-xky"/>
+                                    <constraint firstAttribute="trailing" secondItem="3FB-fJ-OYE" secondAttribute="trailing" constant="20" id="OMX-6d-E1u"/>
+                                    <constraint firstItem="MTf-I6-dGL" firstAttribute="top" secondItem="0bO-eD-udY" secondAttribute="bottom" constant="121" id="Pi3-nr-wZR"/>
+                                    <constraint firstItem="6a3-HU-WsO" firstAttribute="top" secondItem="0bO-eD-udY" secondAttribute="bottom" constant="121" id="T90-em-fiF"/>
+                                    <constraint firstItem="3FB-fJ-OYE" firstAttribute="leading" secondItem="ubw-MM-CXg" secondAttribute="leading" id="Y5N-E5-rE2"/>
+                                    <constraint firstItem="0bO-eD-udY" firstAttribute="top" secondItem="3FB-fJ-OYE" secondAttribute="bottom" constant="14.33" id="Y7b-NN-423"/>
+                                    <constraint firstItem="nsI-Cm-mvi" firstAttribute="leading" secondItem="3FB-fJ-OYE" secondAttribute="leading" id="cya-VO-lAp"/>
+                                    <constraint firstItem="3FB-fJ-OYE" firstAttribute="top" secondItem="qfn-q3-KTZ" secondAttribute="top" constant="2" id="d6B-h3-IEq"/>
+                                    <constraint firstItem="3FB-fJ-OYE" firstAttribute="leading" secondItem="qfn-q3-KTZ" secondAttribute="leading" constant="20" id="gvB-tL-Hem"/>
+                                    <constraint firstAttribute="bottom" secondItem="z6W-X6-773" secondAttribute="bottom" constant="20" id="m56-u9-w1Y"/>
+                                    <constraint firstItem="3FB-fJ-OYE" firstAttribute="trailing" secondItem="nsI-Cm-mvi" secondAttribute="trailing" id="qPf-pr-ats"/>
+                                    <constraint firstAttribute="trailing" secondItem="MTf-I6-dGL" secondAttribute="trailing" constant="16" id="rxq-AN-OXD"/>
+                                </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="JGp-aj-zwc"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="C0d-LD-gla"/>
+                            </scrollView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" name="AppBackGroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qfn-q3-KTZ" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="LeF-Xu-8Ra"/>
+                            <constraint firstItem="qfn-q3-KTZ" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="ReZ-d2-Pe7"/>
+                            <constraint firstItem="qfn-q3-KTZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="TrV-B7-wXa"/>
+                            <constraint firstItem="qfn-q3-KTZ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="11" id="yj3-Jx-zJ0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="6a3-HU-WsO" id="MHu-cT-Zh7"/>
+                        <outlet property="completeButton" destination="z6W-X6-773" id="KEV-wt-tzt"/>
+                        <outlet property="drinkName" destination="3kK-ln-4s0" id="H0L-8l-Y0t"/>
+                        <outlet property="drinkScrollView" destination="qfn-q3-KTZ" id="UOh-gT-MUw"/>
+                        <outlet property="forwardButton" destination="MTf-I6-dGL" id="SwN-or-MWk"/>
+                        <outlet property="headerLabel" destination="3FB-fJ-OYE" id="rWl-S7-waW"/>
+                        <outlet property="imageView" destination="LiO-Sb-fKC" id="kk4-4n-guT"/>
+                        <outlet property="image_view" destination="6tN-lT-E8e" id="xXs-0D-mhh"/>
+                        <outlet property="main_view" destination="nsI-Cm-mvi" id="jWd-OT-MTo"/>
+                        <outlet property="normalTextLabel" destination="0bO-eD-udY" id="ctX-8b-zWb"/>
+                        <outlet property="normalTextView" destination="ubw-MM-CXg" id="wIu-EV-CPF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20.610687022900763" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="forward" width="41" height="41"/>
+        <image name="reward" width="41" height="41"/>
+        <namedColor name="AppBackGroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppointmentsTextColor">
+            <color red="0.25900000333786011" green="0.25900000333786011" blue="0.25900000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="barColor1">
+            <color red="0.43137254901960786" green="0.41960784313725491" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

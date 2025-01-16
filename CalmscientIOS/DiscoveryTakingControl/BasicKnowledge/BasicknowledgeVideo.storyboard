@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lexendbold.ttf">
+            <string>Lexend-Bold</string>
+        </array>
+        <array key="lexendregular.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Basicknowledge Video-->
+        <scene sceneID="hxv-Vd-Hg2">
+            <objects>
+                <viewController storyboardIdentifier="BasicknowledgeVideo" useStoryboardIdentifierAsRestorationIdentifier="YES" id="geQ-Id-FTo" customClass="BasicknowledgeVideo" customModule="CalmscientIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="V3K-t1-jqY">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3jM-fJ-Fyl">
+                                <rect key="frame" x="0.0" y="151" width="393" height="236"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4I7-ho-zhG">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="236"/>
+                                        <color key="backgroundColor" red="0.85098039219999999" green="0.85098039219999999" blue="0.85098039219999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="4I7-ho-zhG" secondAttribute="height" multiplier="393:236" id="tj5-2Z-mZh"/>
+                                        </constraints>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cM9-va-npn">
+                                        <rect key="frame" x="176.66666666666666" y="98" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="CpS-vw-ttm"/>
+                                            <constraint firstAttribute="height" constant="40" id="eBH-aj-PpP"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="play_button"/>
+                                        <connections>
+                                            <action selector="playPauseTapped:" destination="geQ-Id-FTo" eventType="touchUpInside" id="h02-XC-mUc"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NkH-Lo-uOT">
+                                        <rect key="frame" x="350" y="8" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="pAN-0t-N4a"/>
+                                            <constraint firstAttribute="width" constant="35" id="ySM-TB-8Yh"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="favourate"/>
+                                        <connections>
+                                            <action selector="favoriteButtonTapped:" destination="geQ-Id-FTo" eventType="touchUpInside" id="ueE-Tr-qWF"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P7s-g5-Bg1">
+                                        <rect key="frame" x="355" y="183" width="24" height="24"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="24" id="0n9-8p-o0f"/>
+                                            <constraint firstAttribute="width" constant="24" id="YzT-6m-LMh"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="maximise"/>
+                                        <connections>
+                                            <action selector="maximiseButtonAction:" destination="geQ-Id-FTo" eventType="touchUpInside" id="iga-G3-hDA"/>
+                                        </connections>
+                                    </button>
+                                    <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1.5" translatesAutoresizingMaskIntoConstraints="NO" id="5cj-BF-emi">
+                                        <rect key="frame" x="-2" y="206" width="397" height="31"/>
+                                    </slider>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="NkH-Lo-uOT" secondAttribute="trailing" constant="8" id="49u-AW-8tg"/>
+                                    <constraint firstItem="4I7-ho-zhG" firstAttribute="top" secondItem="3jM-fJ-Fyl" secondAttribute="top" id="7UQ-hg-SQK"/>
+                                    <constraint firstAttribute="bottom" secondItem="4I7-ho-zhG" secondAttribute="bottom" id="A4T-SE-qCX"/>
+                                    <constraint firstAttribute="width" secondItem="3jM-fJ-Fyl" secondAttribute="height" multiplier="393:236" id="BWr-El-P0f"/>
+                                    <constraint firstItem="4I7-ho-zhG" firstAttribute="leading" secondItem="3jM-fJ-Fyl" secondAttribute="leading" id="Iec-cJ-m1g"/>
+                                    <constraint firstAttribute="trailing" secondItem="5cj-BF-emi" secondAttribute="trailing" id="JAx-7V-xnt"/>
+                                    <constraint firstItem="NkH-Lo-uOT" firstAttribute="top" secondItem="3jM-fJ-Fyl" secondAttribute="top" constant="8" id="M6d-wP-XW5"/>
+                                    <constraint firstItem="cM9-va-npn" firstAttribute="centerX" secondItem="3jM-fJ-Fyl" secondAttribute="centerX" id="YRC-vU-ugT"/>
+                                    <constraint firstItem="5cj-BF-emi" firstAttribute="leading" secondItem="3jM-fJ-Fyl" secondAttribute="leading" id="a3c-6S-zvr"/>
+                                    <constraint firstAttribute="trailing" secondItem="P7s-g5-Bg1" secondAttribute="trailing" constant="14" id="bof-tS-XI7"/>
+                                    <constraint firstItem="cM9-va-npn" firstAttribute="centerY" secondItem="3jM-fJ-Fyl" secondAttribute="centerY" id="grZ-dn-edd"/>
+                                    <constraint firstAttribute="bottom" secondItem="5cj-BF-emi" secondAttribute="bottom" id="tCh-Me-UgG"/>
+                                    <constraint firstAttribute="bottom" secondItem="P7s-g5-Bg1" secondAttribute="bottom" constant="29" id="yNn-J9-afM"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fP9-jO-VuP" customClass="FontLL15" customModule="CalmscientIOS" customModuleProvider="target">
+                                <rect key="frame" x="16" y="422" width="361" height="80"/>
+                                <string key="text">This video explains the impact of alcohol on the brain and its subsequent effects. Having this knowledge will help you consider your drinking habits.</string>
+                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="16"/>
+                                <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P4c-Eh-VSM">
+                                <rect key="frame" x="5" y="80" width="380" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sxb-c6-sqx" customClass="FontLM16" customModule="CalmscientIOS" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="0.0" width="369" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="UeY-gY-5Ja"/>
+                                            <constraint firstAttribute="width" constant="369" id="jps-lO-3E0"/>
+                                        </constraints>
+                                        <string key="text">What happens to your brain when 
+you drink?</string>
+                                        <fontDescription key="fontDescription" name="Lexend-Bold" family="Lexend" pointSize="16"/>
+                                        <color key="textColor" red="0.43137254899999999" green="0.41960784309999999" blue="0.70196078429999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let’s watch the videos " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJi-Ka-2AQ" customClass="FontLL14" customModule="CalmscientIOS" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="52" width="159" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="18" id="4hi-XP-7M5"/>
+                                            <constraint firstAttribute="width" constant="159" id="XxH-Hc-f4y"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="Sxb-c6-sqx" firstAttribute="top" secondItem="P4c-Eh-VSM" secondAttribute="top" id="SSk-gI-Xgo"/>
+                                    <constraint firstItem="PJi-Ka-2AQ" firstAttribute="leading" secondItem="P4c-Eh-VSM" secondAttribute="leading" constant="8" id="TTa-MV-1Me"/>
+                                    <constraint firstItem="Sxb-c6-sqx" firstAttribute="leading" secondItem="P4c-Eh-VSM" secondAttribute="leading" constant="8" id="U0z-g2-hBF"/>
+                                    <constraint firstItem="PJi-Ka-2AQ" firstAttribute="top" secondItem="Sxb-c6-sqx" secondAttribute="bottom" constant="2" id="cir-HC-kOQ"/>
+                                    <constraint firstAttribute="width" constant="380" id="ppP-xk-6Js"/>
+                                    <constraint firstAttribute="height" constant="60" id="yhK-C2-f5s"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBL-fR-g0b" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
+                                <rect key="frame" x="306" y="758" width="67" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="miX-LZ-FgX"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Complete"/>
+                                <connections>
+                                    <action selector="completeBUttonPressed:" destination="geQ-Id-FTo" eventType="touchUpInside" id="t55-vK-vaT"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="de1-Nh-s6I"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="de1-Nh-s6I" firstAttribute="trailing" secondItem="ZBL-fR-g0b" secondAttribute="trailing" constant="20" id="2N6-bB-hxt"/>
+                            <constraint firstItem="de1-Nh-s6I" firstAttribute="trailing" secondItem="P4c-Eh-VSM" secondAttribute="trailing" constant="8" id="9oR-5o-Qg0"/>
+                            <constraint firstItem="de1-Nh-s6I" firstAttribute="trailing" secondItem="3jM-fJ-Fyl" secondAttribute="trailing" id="AY4-Ww-4sL"/>
+                            <constraint firstItem="3jM-fJ-Fyl" firstAttribute="leading" secondItem="de1-Nh-s6I" secondAttribute="leading" id="Ban-n3-aL4"/>
+                            <constraint firstItem="fP9-jO-VuP" firstAttribute="top" secondItem="3jM-fJ-Fyl" secondAttribute="bottom" constant="35" id="Du1-7W-Fko"/>
+                            <constraint firstItem="de1-Nh-s6I" firstAttribute="trailing" secondItem="fP9-jO-VuP" secondAttribute="trailing" constant="16" id="GHR-M7-k74"/>
+                            <constraint firstItem="fP9-jO-VuP" firstAttribute="leading" secondItem="de1-Nh-s6I" secondAttribute="leading" constant="16" id="SF7-8N-zC2"/>
+                            <constraint firstItem="P4c-Eh-VSM" firstAttribute="leading" secondItem="de1-Nh-s6I" secondAttribute="leading" constant="5" id="VyJ-1j-TYd"/>
+                            <constraint firstItem="P4c-Eh-VSM" firstAttribute="top" secondItem="de1-Nh-s6I" secondAttribute="top" constant="21" id="ZIn-QZ-8HP"/>
+                            <constraint firstItem="3jM-fJ-Fyl" firstAttribute="top" secondItem="de1-Nh-s6I" secondAttribute="top" constant="92" id="gKj-xr-74V"/>
+                            <constraint firstItem="de1-Nh-s6I" firstAttribute="bottom" secondItem="ZBL-fR-g0b" secondAttribute="bottom" constant="20" id="vA8-BN-EZL"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="completeButton" destination="ZBL-fR-g0b" id="1sO-k1-rpJ"/>
+                        <outlet property="favoriteButton" destination="NkH-Lo-uOT" id="5kk-zR-2fJ"/>
+                        <outlet property="main_View" destination="3jM-fJ-Fyl" id="U9T-cB-fUj"/>
+                        <outlet property="maximizeButton" destination="P7s-g5-Bg1" id="dYI-7i-Ztz"/>
+                        <outlet property="normal_text" destination="fP9-jO-VuP" id="Dmi-ve-Ov9"/>
+                        <outlet property="playPauseButton" destination="cM9-va-npn" id="zPw-5Y-6tV"/>
+                        <outlet property="progressBar" destination="5cj-BF-emi" id="1g4-JH-BCE"/>
+                        <outlet property="questionLbl" destination="Sxb-c6-sqx" id="5uu-k5-F3k"/>
+                        <outlet property="subtitleLbl" destination="PJi-Ka-2AQ" id="c7A-FF-c4h"/>
+                        <outlet property="videoView" destination="4I7-ho-zhG" id="ZBQ-2U-h9h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dft-v2-dMb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="20.610687022900763" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="favourate" width="41" height="41"/>
+        <image name="maximise" width="24" height="24"/>
+        <image name="play_button" width="50" height="50"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

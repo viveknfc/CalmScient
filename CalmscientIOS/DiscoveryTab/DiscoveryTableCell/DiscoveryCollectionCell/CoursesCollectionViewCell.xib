@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lexendregular.ttf">
+            <string>Lexend-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CoursesCollectionViewCell" customModule="CalmscientIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="186" height="268"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="186" height="268"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="6CP-EK-qgW">
+                        <rect key="frame" x="0.0" y="59" width="186" height="175"/>
+                    </imageView>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Neuropsychology of anxiety" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGJ-ko-qdk">
+                        <rect key="frame" x="6" y="197.33333333333334" width="174" height="32.666666666666657"/>
+                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="13"/>
+                        <color key="textColor" name="AppBorderColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tickMark" translatesAutoresizingMaskIntoConstraints="NO" id="iQb-e5-CEE">
+                        <rect key="frame" x="162.33333333333334" y="71" width="17.666666666666657" height="14.666666666666671"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="top" secondItem="6CP-EK-qgW" secondAttribute="top" id="0oa-ZU-5Og"/>
+                <constraint firstItem="aGJ-ko-qdk" firstAttribute="trailing" secondItem="6CP-EK-qgW" secondAttribute="trailing" constant="-6" id="2TW-Iu-bUO"/>
+                <constraint firstItem="6CP-EK-qgW" firstAttribute="bottom" secondItem="ZTg-uK-7eu" secondAttribute="bottom" id="Bh3-qg-Xo1"/>
+                <constraint firstItem="6CP-EK-qgW" firstAttribute="trailing" secondItem="ZTg-uK-7eu" secondAttribute="trailing" id="LYg-Q4-5gU"/>
+                <constraint firstItem="iQb-e5-CEE" firstAttribute="top" secondItem="6CP-EK-qgW" secondAttribute="top" constant="12" id="PSb-w2-iwM"/>
+                <constraint firstItem="aGJ-ko-qdk" firstAttribute="leading" secondItem="6CP-EK-qgW" secondAttribute="leading" constant="6" id="e4n-Gf-wsh"/>
+                <constraint firstItem="ZTg-uK-7eu" firstAttribute="leading" secondItem="6CP-EK-qgW" secondAttribute="leading" id="fer-4I-jKD"/>
+                <constraint firstItem="aGJ-ko-qdk" firstAttribute="bottom" secondItem="6CP-EK-qgW" secondAttribute="bottom" constant="-4" id="fwJ-PK-C9P"/>
+                <constraint firstItem="iQb-e5-CEE" firstAttribute="trailing" secondItem="6CP-EK-qgW" secondAttribute="trailing" constant="-6" id="o9g-Bt-jye"/>
+            </constraints>
+            <size key="customSize" width="186" height="268"/>
+            <connections>
+                <outlet property="courseImageView" destination="6CP-EK-qgW" id="fvO-Yk-yJt"/>
+                <outlet property="tickMarkImage" destination="iQb-e5-CEE" id="MAo-Id-YWk"/>
+                <outlet property="titleLabel" destination="aGJ-ko-qdk" id="gya-28-F1c"/>
+            </connections>
+            <point key="canvasLocation" x="242.74809160305344" y="96.478873239436624"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="tickMark" width="17.666666030883789" height="14.666666984558105"/>
+        <namedColor name="AppBorderColor">
+            <color red="0.43137254901960786" green="0.41960784313725491" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lexend-Light.ttf">
+            <string>Lexend-Light</string>
+        </array>
+        <array key="lexendsemibold.ttf">
+            <string>Lexend-SemiBold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="QuestionAlert" customModule="CalmscientIOS" customModuleProvider="target">
+            <connections>
+                <outlet property="alertIconImage" destination="Dbe-hq-GgU" id="eT0-RC-ddS"/>
+                <outlet property="cancelButton" destination="12h-1b-5LQ" id="kaC-0n-934"/>
+                <outlet property="contentLabel" destination="yw0-6o-xFt" id="adj-yt-bts"/>
+                <outlet property="mainView" destination="PYn-I4-TMa" id="W3K-HQ-OdR"/>
+                <outlet property="okButton" destination="AlG-6l-syH" id="0f2-vz-jWI"/>
+                <outlet property="titleLabel" destination="a4G-i4-57b" id="4BE-7X-vkn"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="QuestionAlert" id="T3v-rW-OAB">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="450"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PYn-I4-TMa">
+                    <rect key="frame" x="0.0" y="47" width="393" height="388"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Journal entry data is updated successfully." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yw0-6o-xFt">
+                            <rect key="frame" x="16" y="215" width="361" height="45"/>
+                            <fontDescription key="fontDescription" name="Lexend-Light" family="Lexend" pointSize="18"/>
+                            <color key="textColor" name="424242Color"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <stackView opaque="NO" contentMode="scaleToFill" spacing="18" translatesAutoresizingMaskIntoConstraints="NO" id="vzG-Qh-T4W">
+                            <rect key="frame" x="78.666666666666671" y="276" width="235.66666666666663" height="48"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="12h-1b-5LQ" customClass="BorderShadowButton" customModule="CalmscientIOS" customModuleProvider="target">
+                                    <rect key="frame" x="0.0" y="0.0" width="109" height="48"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                    <connections>
+                                        <action selector="didClickOnNoButton:" destination="-1" eventType="touchUpInside" id="4oP-MI-InD"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AlG-6l-syH" customClass="LinearGradientButton" customModule="CalmscientIOS" customModuleProvider="target">
+                                    <rect key="frame" x="126.99999999999997" y="0.0" width="108.66666666666666" height="48"/>
+                                    <state key="normal" title="Button"/>
+                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                    <connections>
+                                        <action selector="didClickOnYesButton:" destination="-1" eventType="touchUpInside" id="MRE-ML-LRJ"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="48" id="izI-ks-R9S"/>
+                            </constraints>
+                        </stackView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Are you sure?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a4G-i4-57b">
+                            <rect key="frame" x="10" y="168.66666666666666" width="373" height="30"/>
+                            <fontDescription key="fontDescription" name="Lexend-SemiBold" family="Lexend" pointSize="24"/>
+                            <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="question2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Dbe-hq-GgU">
+                            <rect key="frame" x="146" y="79" width="100" height="76"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="100" id="F4L-eY-xrA"/>
+                                <constraint firstAttribute="height" constant="76" id="whg-5N-bpP"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" name="AppBackGroundColor"/>
+                    <constraints>
+                        <constraint firstItem="yw0-6o-xFt" firstAttribute="top" secondItem="a4G-i4-57b" secondAttribute="bottom" constant="16.333333333333343" id="Eab-l2-LDC"/>
+                        <constraint firstItem="a4G-i4-57b" firstAttribute="leading" secondItem="PYn-I4-TMa" secondAttribute="leading" constant="10" id="IYP-gf-Xbh"/>
+                        <constraint firstItem="a4G-i4-57b" firstAttribute="top" secondItem="Dbe-hq-GgU" secondAttribute="bottom" constant="13.666666666666657" id="OXF-ba-GXR"/>
+                        <constraint firstItem="vzG-Qh-T4W" firstAttribute="top" secondItem="yw0-6o-xFt" secondAttribute="bottom" constant="16" id="Uyn-LH-jxa"/>
+                        <constraint firstItem="yw0-6o-xFt" firstAttribute="centerX" secondItem="PYn-I4-TMa" secondAttribute="centerX" id="ZAh-Mr-1LY"/>
+                        <constraint firstItem="Dbe-hq-GgU" firstAttribute="leading" secondItem="PYn-I4-TMa" secondAttribute="leading" constant="146" id="jHF-yh-O65"/>
+                        <constraint firstAttribute="trailing" secondItem="Dbe-hq-GgU" secondAttribute="trailing" constant="147" id="k3a-Sf-Q9U"/>
+                        <constraint firstItem="vzG-Qh-T4W" firstAttribute="width" secondItem="PYn-I4-TMa" secondAttribute="width" multiplier="0.6" id="lF3-SG-BQ2"/>
+                        <constraint firstAttribute="trailing" secondItem="a4G-i4-57b" secondAttribute="trailing" constant="10" id="lsM-Yh-UA7"/>
+                        <constraint firstItem="Dbe-hq-GgU" firstAttribute="top" secondItem="PYn-I4-TMa" secondAttribute="top" constant="79" id="nox-qH-lop"/>
+                        <constraint firstAttribute="trailing" secondItem="yw0-6o-xFt" secondAttribute="trailing" constant="16" id="quu-Lr-wPy"/>
+                        <constraint firstItem="yw0-6o-xFt" firstAttribute="leading" secondItem="PYn-I4-TMa" secondAttribute="leading" constant="16" id="rk0-MN-77s"/>
+                        <constraint firstItem="vzG-Qh-T4W" firstAttribute="centerX" secondItem="PYn-I4-TMa" secondAttribute="centerX" id="rqZ-KO-Ecn"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="6MR-et-5g1"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="PYn-I4-TMa" firstAttribute="leading" secondItem="6MR-et-5g1" secondAttribute="leading" id="47w-Mh-9we"/>
+                <constraint firstItem="6MR-et-5g1" firstAttribute="trailing" secondItem="PYn-I4-TMa" secondAttribute="trailing" id="Kuf-RE-YUG"/>
+                <constraint firstItem="PYn-I4-TMa" firstAttribute="top" secondItem="6MR-et-5g1" secondAttribute="top" constant="-12" id="bo6-p5-qEm"/>
+                <constraint firstItem="6MR-et-5g1" firstAttribute="bottom" secondItem="PYn-I4-TMa" secondAttribute="bottom" constant="-19" id="eh3-BP-2NH"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="125.95419847328243" y="55.633802816901408"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="AlG-6l-syH">
+            <size key="intrinsicContentSize" width="75" height="34.333333333333336"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="question2.png" width="96" height="96"/>
+        <namedColor name="424242Color">
+            <color red="0.25900000333786011" green="0.25900000333786011" blue="0.25900000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppBackGroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

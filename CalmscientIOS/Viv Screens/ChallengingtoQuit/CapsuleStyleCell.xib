@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="CapsuleCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CapsuleCell" rowHeight="139" id="fiM-db-UXM" customClass="CapsuleTableViewCell" customModule="CalmscientIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="675" height="139"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fiM-db-UXM" id="6TE-91-SVu">
+                <rect key="frame" x="0.0" y="0.0" width="675" height="139"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GG5-Gj-ES3">
+                        <rect key="frame" x="10" y="10" width="655" height="119"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vpO-k3-QEj" customClass="FontLL14" customModule="CalmscientIOS" customModuleProvider="target">
+                                <rect key="frame" x="10" y="5" width="635" height="109"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.42882183190000001" green="0.41974490879999998" blue="0.68238306049999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="vpO-k3-QEj" secondAttribute="bottom" constant="5" id="Y1L-YL-Z9Z"/>
+                            <constraint firstItem="vpO-k3-QEj" firstAttribute="top" secondItem="GG5-Gj-ES3" secondAttribute="top" constant="5" id="cU2-Jl-J35"/>
+                            <constraint firstAttribute="trailing" secondItem="vpO-k3-QEj" secondAttribute="trailing" constant="10" id="oIK-xU-o5p"/>
+                            <constraint firstItem="vpO-k3-QEj" firstAttribute="leading" secondItem="GG5-Gj-ES3" secondAttribute="leading" constant="10" id="xXE-Rx-tYX"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="GG5-Gj-ES3" secondAttribute="trailing" constant="10" id="eMN-77-ctV"/>
+                    <constraint firstItem="GG5-Gj-ES3" firstAttribute="top" secondItem="6TE-91-SVu" secondAttribute="top" constant="10" id="mvt-Gj-n0J"/>
+                    <constraint firstAttribute="bottom" secondItem="GG5-Gj-ES3" secondAttribute="bottom" constant="10" id="xzd-FJ-f9j"/>
+                    <constraint firstItem="GG5-Gj-ES3" firstAttribute="leading" secondItem="6TE-91-SVu" secondAttribute="leading" constant="10" id="y5V-bi-gYT"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="roundedView" destination="GG5-Gj-ES3" id="ucT-gz-6UL"/>
+                <outlet property="tableText" destination="vpO-k3-QEj" id="ugP-1P-7wD"/>
+            </connections>
+            <point key="canvasLocation" x="296.94656488549617" y="-13.732394366197184"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

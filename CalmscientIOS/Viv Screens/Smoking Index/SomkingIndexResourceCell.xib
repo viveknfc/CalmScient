@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SmokingResourceCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="220" id="Sw6-Kg-0gZ" customClass="SmokingIndexResourceTableViewCell" customModule="CalmscientIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="556" height="220"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sw6-Kg-0gZ" id="tbP-u8-lIj">
+                <rect key="frame" x="0.0" y="0.0" width="556" height="220"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Oza-A2-MkO" customClass="RoundedView2" customModule="CalmscientIOS" customModuleProvider="target">
+                        <rect key="frame" x="10" y="10" width="536" height="200"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mask" translatesAutoresizingMaskIntoConstraints="NO" id="mvX-yy-EEA" customClass="RoundedImageView" customModule="CalmscientIOS" customModuleProvider="target">
+                                <rect key="frame" x="10" y="10" width="248" height="180"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9d8-VS-JuD" userLabel="headingLabel" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
+                                <rect key="frame" x="278" y="10" width="248" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="2b9-q8-rgz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.42882183190000001" green="0.41974490879999998" blue="0.68238306049999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMC-mL-xsS" customClass="FontLL12" customModule="CalmscientIOS" customModuleProvider="target">
+                                <rect key="frame" x="278" y="50" width="248" height="140"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" name="VBottomBox"/>
+                        <constraints>
+                            <constraint firstItem="HMC-mL-xsS" firstAttribute="leading" secondItem="mvX-yy-EEA" secondAttribute="trailing" constant="20" id="6p6-ZL-Z9b"/>
+                            <constraint firstItem="mvX-yy-EEA" firstAttribute="bottom" secondItem="HMC-mL-xsS" secondAttribute="bottom" id="9pW-Fx-29b"/>
+                            <constraint firstAttribute="trailing" secondItem="9d8-VS-JuD" secondAttribute="trailing" constant="10" id="CKL-lW-ugb"/>
+                            <constraint firstItem="HMC-mL-xsS" firstAttribute="top" secondItem="9d8-VS-JuD" secondAttribute="bottom" id="FDe-P2-ZwG"/>
+                            <constraint firstItem="mvX-yy-EEA" firstAttribute="leading" secondItem="Oza-A2-MkO" secondAttribute="leading" constant="10" id="I40-1p-gkQ"/>
+                            <constraint firstAttribute="bottom" secondItem="mvX-yy-EEA" secondAttribute="bottom" constant="10" id="Nap-7D-hem"/>
+                            <constraint firstItem="9d8-VS-JuD" firstAttribute="leading" secondItem="mvX-yy-EEA" secondAttribute="trailing" constant="20" id="Opg-1O-VIh"/>
+                            <constraint firstItem="9d8-VS-JuD" firstAttribute="top" secondItem="mvX-yy-EEA" secondAttribute="top" id="Wrh-55-efK"/>
+                            <constraint firstItem="mvX-yy-EEA" firstAttribute="trailing" secondItem="Oza-A2-MkO" secondAttribute="centerX" constant="-10" id="ik4-Tg-oB5"/>
+                            <constraint firstAttribute="trailing" secondItem="HMC-mL-xsS" secondAttribute="trailing" constant="10" id="pJ0-5d-X2c"/>
+                            <constraint firstItem="mvX-yy-EEA" firstAttribute="top" secondItem="Oza-A2-MkO" secondAttribute="top" constant="10" id="poc-4n-F1n"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Oza-A2-MkO" firstAttribute="leading" secondItem="tbP-u8-lIj" secondAttribute="leading" constant="10" id="8d8-Zk-BmJ"/>
+                    <constraint firstAttribute="trailing" secondItem="Oza-A2-MkO" secondAttribute="trailing" constant="10" id="Is2-YE-xuA"/>
+                    <constraint firstItem="Oza-A2-MkO" firstAttribute="top" secondItem="tbP-u8-lIj" secondAttribute="top" constant="10" id="RNV-ow-O4r"/>
+                    <constraint firstAttribute="bottom" secondItem="Oza-A2-MkO" secondAttribute="bottom" constant="10" id="fEz-PJ-qGQ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="desc" destination="HMC-mL-xsS" id="aEf-QG-Czi"/>
+                <outlet property="headLabel" destination="9d8-VS-JuD" id="9Pb-Eh-wFM"/>
+                <outlet property="rightImage" destination="mvX-yy-EEA" id="6mh-ou-yTy"/>
+            </connections>
+            <point key="canvasLocation" x="206.10687022900763" y="81.690140845070431"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Mask" width="154.66667175292969" height="120"/>
+        <namedColor name="VBottomBox">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+        </namedColor>
+    </resources>
+</document>

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lexendmedium.ttf">
+            <string>Lexend-Medium</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UpdateMedicationsTableViewCell" rowHeight="123" id="KGk-i7-Jjw" customClass="UpdateMedicationsTableViewCell" customModule="CalmscientIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="123"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="123"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hDe-OF-uel">
+                        <rect key="frame" x="19.999999999999996" y="4" width="44.666666666666657" height="19"/>
+                        <fontDescription key="fontDescription" name="Lexend-Medium" family="Lexend" pointSize="15"/>
+                        <color key="textColor" name="424242Color"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Everyday" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AqU-P6-d4P">
+                        <rect key="frame" x="19.999999999999996" y="31" width="55.666666666666657" height="15"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="Tgs-6z-wAa"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Lexend-Medium" family="Lexend" pointSize="12"/>
+                        <color key="textColor" name="424242Color"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="5VV-bk-SmB">
+                        <rect key="frame" x="20" y="54" width="280" height="40"/>
+                        <color key="backgroundColor" name="AppBackGroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="40" id="yeJ-j7-7TC"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zCt-u0-JrT">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                    </collectionView>
+                </subviews>
+                <color key="backgroundColor" name="AppBackGroundColor"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="5VV-bk-SmB" secondAttribute="trailing" constant="20" id="35V-qR-AO8"/>
+                    <constraint firstItem="AqU-P6-d4P" firstAttribute="leading" secondItem="hDe-OF-uel" secondAttribute="leading" id="5qy-wg-EFD"/>
+                    <constraint firstItem="5VV-bk-SmB" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="9hV-cZ-7EO"/>
+                    <constraint firstItem="hDe-OF-uel" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="C4r-rE-4U8"/>
+                    <constraint firstItem="hDe-OF-uel" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="Z18-1f-5s8"/>
+                    <constraint firstItem="5VV-bk-SmB" firstAttribute="top" secondItem="AqU-P6-d4P" secondAttribute="bottom" constant="8" id="cnG-Cm-7N1"/>
+                    <constraint firstItem="AqU-P6-d4P" firstAttribute="top" secondItem="hDe-OF-uel" secondAttribute="bottom" constant="8" id="kaQ-nW-7Li"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <constraints>
+                <constraint firstItem="njF-e1-oar" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="5VV-bk-SmB" secondAttribute="bottom" constant="8" id="BgL-XI-h59"/>
+            </constraints>
+            <connections>
+                <outlet property="collectionView" destination="5VV-bk-SmB" id="9WS-Hx-2eg"/>
+                <outlet property="subTitleBottompadding" destination="cnG-Cm-7N1" id="1Me-Kj-VoP"/>
+                <outlet property="subTitleHeight" destination="Tgs-6z-wAa" id="frg-Sq-6uw"/>
+                <outlet property="subTitleLabel" destination="AqU-P6-d4P" id="7kU-cy-OUy"/>
+                <outlet property="titleLabel" destination="hDe-OF-uel" id="4V4-Cm-zOz"/>
+            </connections>
+            <point key="canvasLocation" x="-21.374045801526716" y="46.83098591549296"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="424242Color">
+            <color red="0.25900000333786011" green="0.25900000333786011" blue="0.25900000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppBackGroundColor">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

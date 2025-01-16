@@ -1,0 +1,62 @@
+{
+  "wish": "¡Buenas noches!",
+  "moodData": {
+    "moodQuestion": "¿Cómo estuvo tu día?",
+    "options": [
+      {
+        "optionType": "MALO",
+        "optionTypeID": 1,
+        "image": "Enojado"
+      },
+      {
+        "optionType": "PODRÍA SER MEJOR",
+        "optionTypeID": 2,
+        "image": "Sonrisa"
+      },
+      {
+        "optionType": "REGULAR",
+        "optionTypeID": 3,
+        "image": "Risa"
+      },
+      {
+        "optionType": "BUENO",
+        "optionTypeID": 4,
+        "image": "Risa"
+      },
+      {
+        "optionType": "EXCELENTE",
+        "optionTypeID": 5,
+        "image": "Risa"
+      }
+    ]
+  },
+  "sleepData": {
+    "sleepQuestion": "¿Cuántas horas dormiste anoche?",
+    "option1": "Menos",
+    "option2": 4,
+    "option3": 5,
+    "option4": 6,
+    "option5": 7,
+    "option6": 8,
+    "option7": 9,
+    "option8": 10,
+    "option9": "Más"
+  },
+  "timeSpendData": {
+    "timeSpendQuestion": "¿Con quién pasaste tiempo?",
+    "option1": "FAMILIA",
+    "option2": "AMIGOS",
+    "option3": "COMPAÑEROS DE TRABAJO",
+    "option4": "OTROS",
+    "option5": "SOLO"
+  },
+  "medicineData": {
+    "medicineQuestion": "¿Tomaste tus medicamentos esta noche?",
+    "option1": "Sí",
+    "option2": "No"
+  },
+  "journalData": {
+    "journalKey": "Diario Diario",
+    "optionType": "Área de Texto"
+  }
+}

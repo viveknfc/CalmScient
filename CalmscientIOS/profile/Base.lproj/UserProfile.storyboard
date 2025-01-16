@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="lexendlight.ttf">
+            <string>Lexend-Light</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--User Profile View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="UserProfileViewController" id="Y6W-OH-hqX" customClass="UserProfileViewController" customModule="CalmscientIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="profileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="mcS-hT-DD0">
+                                <rect key="frame" x="130" y="71" width="130" height="130"/>
+                                <color key="tintColor" name="AppBorderColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="130" id="0jh-h1-caP"/>
+                                    <constraint firstAttribute="width" constant="130" id="ku0-mg-IjZ"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eGN-oa-T0n">
+                                <rect key="frame" x="214.66666666666666" y="167.33333333333334" width="39" height="39"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="galleryIcon" translatesAutoresizingMaskIntoConstraints="NO" id="VWB-7o-Qek">
+                                        <rect key="frame" x="6.3333333333333428" y="4.6666666666666572" width="30" height="30"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="eGN-oa-T0n" secondAttribute="height" multiplier="1:1" id="UhV-CO-Pih"/>
+                                    <constraint firstItem="VWB-7o-Qek" firstAttribute="centerY" secondItem="eGN-oa-T0n" secondAttribute="centerY" id="XRb-u4-bnf"/>
+                                    <constraint firstItem="VWB-7o-Qek" firstAttribute="centerX" secondItem="eGN-oa-T0n" secondAttribute="centerX" multiplier="1.1" id="iQf-MW-Ydc"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Version 1.0.0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P3M-le-Lhe">
+                                <rect key="frame" x="291.33333333333331" y="205" width="82.666666666666686" height="17.666666666666657"/>
+                                <fontDescription key="fontDescription" name="Lexend-Light" family="Lexend" pointSize="14"/>
+                                <color key="textColor" name="424242Color"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="JSC-SF-YaH">
+                                <rect key="frame" x="0.0" y="238.66666666666669" width="390" height="571.33333333333326"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eGN-oa-T0n" firstAttribute="width" secondItem="mcS-hT-DD0" secondAttribute="width" multiplier="0.3" id="7kg-RV-gqX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="P3M-le-Lhe" secondAttribute="trailing" constant="16" id="AO9-AH-Bny"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="JSC-SF-YaH" secondAttribute="bottom" id="LEY-pN-g4k"/>
+                            <constraint firstItem="JSC-SF-YaH" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="POQ-lq-QNa"/>
+                            <constraint firstItem="P3M-le-Lhe" firstAttribute="top" secondItem="mcS-hT-DD0" secondAttribute="bottom" constant="4" id="SxA-bc-YZv"/>
+                            <constraint firstItem="mcS-hT-DD0" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Tl0-9h-JrC"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="JSC-SF-YaH" secondAttribute="trailing" id="Uz5-rl-AF0"/>
+                            <constraint firstItem="mcS-hT-DD0" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="24" id="XMt-kA-lch"/>
+                            <constraint firstItem="eGN-oa-T0n" firstAttribute="centerY" secondItem="mcS-hT-DD0" secondAttribute="bottom" multiplier="0.93" id="Y2w-cp-jK8"/>
+                            <constraint firstItem="eGN-oa-T0n" firstAttribute="centerX" secondItem="mcS-hT-DD0" secondAttribute="trailing" multiplier="0.9" id="Zuf-SI-j3Q"/>
+                            <constraint firstItem="JSC-SF-YaH" firstAttribute="top" secondItem="P3M-le-Lhe" secondAttribute="bottom" constant="16" id="lDo-i3-maY"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="circleView" destination="eGN-oa-T0n" id="Wye-kN-D34"/>
+                        <outlet property="gallerySelectionImageView" destination="VWB-7o-Qek" id="bpK-fr-5fk"/>
+                        <outlet property="profileIcon" destination="mcS-hT-DD0" id="rpH-0B-8ii"/>
+                        <outlet property="profileTableView" destination="JSC-SF-YaH" id="hy5-k3-hhs"/>
+                        <outlet property="versionLabel" destination="P3M-le-Lhe" id="sza-IQ-3iD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="135.38461538461539" y="3.5545023696682461"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="galleryIcon" width="30" height="30"/>
+        <image name="profileIcon" width="33.333332061767578" height="33.333332061767578"/>
+        <namedColor name="424242Color">
+            <color red="0.25900000333786011" green="0.25900000333786011" blue="0.25900000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="AppBorderColor">
+            <color red="0.43137254901960786" green="0.41960784313725491" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
