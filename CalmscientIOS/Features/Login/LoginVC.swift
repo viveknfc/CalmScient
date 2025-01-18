@@ -57,12 +57,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         passwordTextField.backgroundColor = UIColor(named: "MainViewBackground")
         passwordTextField.font = UIFont(name: Fonts().lexendLight, size: 16.0)
         passwordTextField.textColor = UIColor(named: "MainTextColor")
-        
-        
-        
-        
-        
-        
+ 
         self.forgotPasswordLabel.isUserInteractionEnabled = true
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(forgotPasswordGesture(tapGestureRecognizer:)))
         tapGesture.numberOfTapsRequired = 1
@@ -78,6 +73,14 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         let termsAndConditionsAttributedText = NSMutableAttributedString(string: termsAndConditions, attributes: [.font: UIFont(name: Fonts().lexendLight, size: 14.0)!, .foregroundColor:UIColor(named: "MainTextColor") ?? UIColor.white])
         termsAndConditionsAttributedText.addAttributes([.underlineStyle : NSUnderlineStyle.single.rawValue, .underlineColor:UIColor(named: "MainTextColor") ?? UIColor.white], range: (termsAndConditions as NSString).range(of: "terms and conditions"))
         selectionButton.contentLabel.attributedText = termsAndConditionsAttributedText
+        
+        let tapGesture1 = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture1.cancelsTouchesInView = false // Allow table view cell selection
+        view.addGestureRecognizer(tapGesture1)
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     func setupLanguage() {

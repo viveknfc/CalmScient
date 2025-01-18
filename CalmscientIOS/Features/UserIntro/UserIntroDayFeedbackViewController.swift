@@ -60,12 +60,28 @@ class UserIntroDayFeedbackViewController: ViewController {
     private let userDayWiseData:UserStartupScreenDayData? = UserStartupScreenDayData.getStartUpScreenData()
     
     var object: JSON = JSON.null
-    var selectedCell: Int?
+
     var slpHours: String?
     var mediTaken: String?
     var journalText: String?
     
+    var SpendTime: Int?{
+        didSet {
+            feedbackTableView.reloadData()
+        }
+    }
     
+    var selectedCell: Int? {
+        didSet {
+            feedbackTableView.reloadData()
+        }
+    }
+    
+    var plId: Int = ApplicationSharedInfo.shared.loginResponse?.patientLocationID ?? 0
+    var clientId: Int = ApplicationSharedInfo.shared.loginResponse?.clientID ?? 0
+    var patientId: Int = ApplicationSharedInfo.shared.loginResponse?.patientID ?? 0
+    var currentTime: String?
+  
     fileprivate var cellData:[UserEntryDayFeedbackTableCell] = []
     
     override func viewDidLoad() {
@@ -104,19 +120,64 @@ class UserIntroDayFeedbackViewController: ViewController {
             refreshAPIFunc()
         }
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false // Allow table view cell selection
+        view.addGestureRecognizer(tapGesture)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
        
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" // Specify the desired format
+        currentTime = dateFormatter.string(from: Date())
         setupLanguage()
         fetchAPIFunc()
+    }
+    
+    //MARK: - For Journal Text View
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+
+    
+    @objc private func keyboardWillShow(_ notification: Notification) {
+        guard let userInfo = notification.userInfo,
+              let keyboardFrame = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect else { return }
+        
+        // Calculate the visible area
+        let keyboardHeight = keyboardFrame.height
+        let contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardHeight, right: 0)
+        feedbackTableView.contentInset = contentInset
+        feedbackTableView.scrollIndicatorInsets = contentInset
+
+        if let activeTextView = view.findFirstResponder() as? UITextView {
+              if let cell = activeTextView.findSuperview(ofType: UITableViewCell.self),
+                 let indexPath = feedbackTableView.indexPath(for: cell) {
+                  // Calculate the position to ensure the text view is just above the keyboard
+                  let rect = feedbackTableView.rectForRow(at: indexPath)
+                  let visibleHeight = feedbackTableView.frame.height - keyboardHeight
+                  let targetOffset = rect.origin.y - visibleHeight //+ rect.height + 10 // Adjust offset for padding
+                  
+                  if feedbackTableView.contentOffset.y < targetOffset {
+                      feedbackTableView.setContentOffset(CGPoint(x: 0, y: targetOffset), animated: true)
+                  }
+              }
+          }
+    }
+
+    @objc private func keyboardWillHide(_ notification: Notification) {
+        feedbackTableView.contentInset = .zero
+        feedbackTableView.scrollIndicatorInsets = .zero
     }
     
     //MARK: - Fetch Mood Screen Data from API
     
     func fetchAPIFunc() {
-        let params:[String:Any] = ["patientLocationId": 4, "clientId": 1, "patientId": 4, "time": "2025-01-17 12:02"]
+        let params:[String:Any] = ["patientLocationId": plId, "clientId": clientId, "patientId": patientId, "time": currentTime!]
         print("the input param for fetch api is", params)
         self.view.showToastActivity()
         APIService.FetchMoodScreenDataAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") {  [self] response in
@@ -139,20 +200,37 @@ class UserIntroDayFeedbackViewController: ViewController {
             do {
                 let responseData = try JSONSerialization.data(withJSONObject: responseDict, options: [])
                 let loginResponse = try JSONDecoder().decode(UserStartupScreenDayData.self, from: responseData)
-                
-                print("the fetch API response is",loginResponse.startupAnswersDtoList?[0].activityResponse ?? "")
-                selectedCell = 1
-                slpHours = loginResponse.startupAnswersDtoList?[1].activityResponse ?? "0"
-                mediTaken = loginResponse.startupAnswersDtoList?[2].activityResponse ?? "0"
-                journalText = loginResponse.startupAnswersDtoList?[3].activityResponse ?? "NA"
-                
-                feedbackTableView.reloadData()
+
+                if let answersList = loginResponse.startupAnswersDtoList, !answersList.isEmpty {
+                    print("data not empty")
+                    
+                    for answer in answersList {
+                          switch answer.activitySection {
+                          case "Mood Monitor":
+                              selectedCell = Int(answer.activityResponse)
+                          case "Sleep Hours":
+                              slpHours = answer.activityResponse 
+                          case "Medication":
+                              mediTaken = answer.activityResponse 
+                          case "Journal":
+                              journalText = answer.activityResponse
+                          case "SpendTime":
+                              SpendTime = Int(answer.activityResponse)
+                          default:
+                              break
+                          }
+                      }
+                                            
+                } else {
+                    print("data empty")
+                }
+
             }
             catch {
                print("Failed to decode UserStartupScreenDayData:", error)
            }
  
-            
+            feedbackTableView.reloadData()
         }
         else {
             print("Unsupported response type:", type(of: response))
@@ -204,16 +282,18 @@ class UserIntroDayFeedbackViewController: ViewController {
         case .Morning, .Afternoon:
             answers.moodId = userDayWiseData.moodAnswer ?? 5
             answers.sleepHours = userDayWiseData.sleepAnswer ?? 8
-            answers.medicineFlag = Int(userDayWiseData.sleepAnswer ?? 0)
+            answers.medicineFlag = Int(userDayWiseData.medicineAnswer ?? "0")!
             answers.journal = userDayWiseData.journalAnswer ?? ""
+            answers.activityDate = currentTime!
 //        case .Afternoon:
 //            answers.moodId = userDayWiseData.moodAnswer ?? 5
         case .Evening:
             answers.moodId = userDayWiseData.moodAnswer ?? 5
             answers.sleepHours = userDayWiseData.sleepAnswer ?? 8
-            answers.medicineFlag = Int(userDayWiseData.sleepAnswer ?? 0)
+            answers.medicineFlag = Int(userDayWiseData.medicineAnswer ?? "0")!
             answers.spendTime = userDayWiseData.timeSpendAnswer ?? ""
             answers.journal = userDayWiseData.journalAnswer ?? ""
+            answers.activityDate = currentTime!
         }
         
         self.view.showToastActivity()
@@ -361,23 +441,26 @@ extension UserIntroDayFeedbackViewController : UITableViewDataSource,UITableView
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellType.getCellIdentifier(), for: indexPath) as? UserIntroSelectionTableCell else {
                 return UITableViewCell()
             }
-            cell.selectedIndex = selectedCell ?? 0
+            cell.selectedIndex = ((selectedCell ?? 0)-1)
+            cell.spendIndex = ((SpendTime ?? 0))
             cell.updateUIWithCellInstance(instance: userDayWiseData, cellType: cellType)
-        
+            return cell
         case .UserIntroSleepCell:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellType.getCellIdentifier(), for: indexPath) as? UserEntrySleepHoursCell else {
                 return UITableViewCell()
             }
-            if let slpHours = slpHours, !slpHours.isEmpty {
-                cell.selectedIndex = Int(slpHours)!
-            }
-            cell.updateUIWithCellInstance(instance: userDayWiseData, cellType: cellType)
+
+            cell.updateUIWithCellInstance(instance: userDayWiseData, cellType: cellType, slpHrs: Int(slpHours ?? "") ?? 0)
+            return cell
         case .UserEntryMedicineCell, .UserEntryJournalCell:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellType.getCellIdentifier(), for: indexPath) as? UserEntryYesOrNoCell else {
                 return UITableViewCell()
             }
+            
             if let mediTaken = mediTaken, !mediTaken.isEmpty {
-                cell.toggleImageView.tag = -1
+                cell.toggleValue = mediTaken == "No" ? 0 : 1
+                cell.toggleImageView.tag = mediTaken == "No" ? -1 : 1
+                feedbackTableView.reloadRows(at: [indexPath], with: .automatic)
             }
             if let journalText = journalText, !journalText.isEmpty {
                 cell.journalTextView.text = journalText
@@ -386,7 +469,7 @@ extension UserIntroDayFeedbackViewController : UITableViewDataSource,UITableView
             cell.configureJournalView(isJournalView: cellType == .UserEntryJournalCell)
             return cell
         }
-        return UITableViewCell()
+//        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -397,3 +480,32 @@ extension UserIntroDayFeedbackViewController : UITableViewDataSource,UITableView
    
     
 }
+
+extension UIView {
+    // Find the first responder in the view hierarchy
+    func findFirstResponder() -> UIView? {
+        if isFirstResponder {
+            return self
+        }
+        for subview in subviews {
+            if let firstResponder = subview.findFirstResponder() {
+                return firstResponder
+            }
+        }
+        return nil
+    }
+
+    // Find the nearest superview of a specific type
+    func findSuperview<T: UIView>(ofType type: T.Type) -> T? {
+        var currentSuperview = self.superview
+        while let superview = currentSuperview {
+            if let matchingSuperview = superview as? T {
+                return matchingSuperview
+            }
+            currentSuperview = superview.superview
+        }
+        return nil
+    }
+}
+
+

@@ -19,6 +19,7 @@ class APIService: UIViewController {
     static var AddJournal = "patients/api/v1/patientDetails/addPatientJournalEntry"
     static var GetJournalData = "patients/api/v1/patientDetails/getPatientJournalByPatientIdForMobile"
     static var FetchMoodScreenData = "patients/api/v1/patientDetails/getPatientStartupScreen"
+    static var JournalData = "patients/api/v1/patientDetails/getPatientJournalByPatientIdForMobile"
 
 
     //MARK: - Refresh API Calling
@@ -66,6 +67,14 @@ class APIService: UIViewController {
     static func FetchMoodScreenDataAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.FetchMoodScreenData
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
+    //MARK: - Journal Data
+    
+    static func JournalDataAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.JournalData
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
     }
     

@@ -91,16 +91,16 @@ class MedicationDetailsByDate: Codable {
 }
 
 class MedicalDetails: Codable {
-    let medicationId: Int
-    let medicineName: String
-    let medicineDosage: String
-    let providerName: String?
-    let prescriptionID: Int
+    let medicationId: Int //
+    let medicineName: String //
+    let medicineDosage: String //
+    let providerName: String? //
+    let prescriptionID: Int //
     let providerId: Int?
-    let directions: String
+    let directions: String //
     var scheduledTimeList: [ScheduledTimeList]
-    var withMeal: Int
-    var endDate: String
+    var withMeal: Int //
+    var endDate: String //
 
     enum CodingKeys: String, CodingKey {
         case medicationId
@@ -165,13 +165,13 @@ class ScheduledTimeList: Codable {
 }
 
 class ScheduledTimes: Codable {
-    var medicineTime: String
-    var alarmTime: String
-    var alarmId: Int
-    var pmtId: String
-    var medicineTaken: String?
-    var alarmEnabled: String
-    var alarmInterval: String
+    var medicineTime: String //
+    var alarmTime: String //
+    var alarmId: Int //
+    var pmtId: String //
+    var medicineTaken: String? //
+    var alarmEnabled: String //
+    var alarmInterval: String //
     var repeatDay: [String] //repeatDay
 
     enum CodingKeys: String, CodingKey {
@@ -182,7 +182,7 @@ class ScheduledTimes: Codable {
         case medicineTaken
         case alarmEnabled
         case alarmInterval
-        case repeatDate = "repeat"
+        case repeatDay = "repeat"
     }
 
     required init(from decoder: Decoder) throws {
@@ -194,7 +194,7 @@ class ScheduledTimes: Codable {
         medicineTaken = try container.decode(String.self, forKey: .medicineTaken)
         alarmEnabled = try container.decode(String.self, forKey: .alarmEnabled)
         alarmInterval = try container.decode(String.self, forKey: .alarmInterval)
-        repeatDay = try container.decode([String].self, forKey: .repeatDate)
+        repeatDay = try container.decode([String].self, forKey: .repeatDay)
     }
 
     func encode(to encoder: Encoder) throws {
@@ -206,7 +206,7 @@ class ScheduledTimes: Codable {
         try container.encode(medicineTaken, forKey: .medicineTaken)
         try container.encode(alarmEnabled, forKey: .alarmEnabled)
         try container.encode(alarmInterval, forKey: .alarmInterval)
-        try container.encode(repeatDay, forKey: .repeatDate)
+        try container.encode(repeatDay, forKey: .repeatDay)
     }
 }
 

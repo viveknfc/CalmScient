@@ -39,7 +39,17 @@ class UserIntroSelectionTableCell: UITableViewCell {
          }
     }
     private var instance:UserStartupScreenDayData!
-    var selectedIndex = -1
+    var selectedIndex = -1 {
+        didSet {
+            tableCellCollectionView.reloadData()
+        }
+    }
+    
+    var spendIndex = -1 {
+        didSet {
+            tableCellCollectionView.reloadData()
+        }
+    }
     
     let dummyData:[String:[(String,String)]] = (UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 0 ? 1 : UserDefaults.standard.integer(forKey: "SelectedLanguageID")) == 1 ? ["UserMoodHoursCell":[
         ("UserIntro_Bad","BAD"),
@@ -130,7 +140,7 @@ class UserIntroSelectionTableCell: UITableViewCell {
 
 extension UserIntroSelectionTableCell : UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        self.collectionData.count
+        return self.collectionData.count
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -143,40 +153,56 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegateFlowLayout, UICo
         }
         
         let cellData = collectionData[indexPath.row]
-
-        if indexPath.row == selectedIndex {
+        
+        switch self.cellType {
+        case .UserMoodHoursCell:
+            // Use selectedIndex for UserMoodHoursCell
+            configureCell(cell, indexPath: indexPath, isSelected: indexPath.row == selectedIndex, cellData: cellData)
             
-            print("the selected index from cell for index is", selectedIndex)
-            
-            DispatchQueue.main.async {
-                cell.cellTitleLabel.textColor = self.cellType == .UserEntryTimeSpendCell ?  UIColor(named: "barColor1") :
-                                            [
-                                                 UIColor(hex: "#EF6D6D"),
-                                                 UIColor(hex: "#F28A91"),
-                                                 UIColor(hex: "#F8BEBD"),
-                                                 UIColor(hex: "#A19EBD"),
-                                                 UIColor(hex: "#6E6BB3"),
-                                            ][indexPath.row]
-                cell.cellImageView.image =  self.cellType == .UserEntryTimeSpendCell ? UIImage(named: self.selectedFamilyImages[indexPath.row]) : UIImage(named: "\(cellData.0)")  //UIImage(named: selectedSmileyImgs[indexPath.row])
-                cell.cellImageView.applyShadow()
-
-                
-                cell.cellImageView.layer.cornerRadius = cell.cellImageView.frame.height / 2
-                cell.cellImageView.clipsToBounds = false
-                cell.cellImageView.layer.borderWidth = 2
-                cell.cellImageView.layer.borderColor = UIColor.white.cgColor
-                cell.cellImageView.layer.shadowColor = UIColor.black.cgColor
-                cell.cellImageView.layer.shadowOpacity = 0.5
-                cell.cellImageView.layer.shadowOffset = CGSize(width: 0, height: 2)
-                cell.cellImageView.layer.shadowRadius = 4
-                cell.cellImageView.layer.shadowPath = UIBezierPath(ovalIn: cell.cellImageView.bounds).cgPath
-            }
-
-           
-            
+        case .UserEntryTimeSpendCell:
+            // Use spendIndex for UserEntryTimeSpendCell
+            configureCell(cell, indexPath: indexPath, isSelected: indexPath.row == spendIndex, cellData: cellData)
+        case .none:
+            break
+        case .some(.UserIntroSleepCell):
+            break
+        case .some(.UserEntryMedicineCell):
+            break
+        case .some(.UserEntryJournalCell):
+            break
         }
-
-        else {
+        
+        return cell
+    }
+    
+    //viv start
+    
+    private func configureCell(_ cell: UserIntroDayCollectionCell, indexPath: IndexPath, isSelected: Bool, cellData: (String, String)) {
+        if isSelected {
+            // Configure the selected cell appearance
+            cell.cellTitleLabel.textColor = self.cellType == .UserEntryTimeSpendCell ? UIColor(named: "barColor1") :
+                [
+                    UIColor(hex: "#EF6D6D"),
+                    UIColor(hex: "#F28A91"),
+                    UIColor(hex: "#F8BEBD"),
+                    UIColor(hex: "#A19EBD"),
+                    UIColor(hex: "#6E6BB3"),
+                ][indexPath.row]
+            
+            cell.cellImageView.image = self.cellType == .UserEntryTimeSpendCell ? UIImage(named: self.selectedFamilyImages[indexPath.row]) : UIImage(named: "\(cellData.0)")
+            cell.cellImageView.applyShadow()
+            
+            cell.cellImageView.layer.cornerRadius = cell.cellImageView.frame.height / 2
+            cell.cellImageView.clipsToBounds = false
+            cell.cellImageView.layer.borderWidth = 2
+            cell.cellImageView.layer.borderColor = UIColor.white.cgColor
+            cell.cellImageView.layer.shadowColor = UIColor.black.cgColor
+            cell.cellImageView.layer.shadowOpacity = 0.5
+            cell.cellImageView.layer.shadowOffset = CGSize(width: 0, height: 2)
+            cell.cellImageView.layer.shadowRadius = 4
+            cell.cellImageView.layer.shadowPath = UIBezierPath(ovalIn: cell.cellImageView.bounds).cgPath
+        } else {
+            // Configure the unselected cell appearance
             cell.cellTitleLabel.textColor = UIColor(named: "UserIntroCollectionCellBackgroundColor")
             cell.cellImageView.image = UIImage(named: "\(cellData.0)")
             cell.cellImageView.layer.borderWidth = 1
@@ -185,8 +211,10 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegateFlowLayout, UICo
         }
         
         cell.cellTitleLabel.text = cellData.1
-        return cell
     }
+    
+    
+    //end
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             // Return the size of each item in your collection view
@@ -213,16 +241,22 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegateFlowLayout, UICo
 
 extension UserIntroSelectionTableCell : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        selectedIndex = indexPath.row
+        
         let cellSelectedItem = collectionData[indexPath.row]
         switch cellType {
         case .UserMoodHoursCell:
+            selectedIndex = indexPath.row
+            print("Selected Index after update: \(selectedIndex)")
             self.instance.moodAnswer = self.instance.moodData?.options[selectedIndex].optionTypeID
         case .UserEntryTimeSpendCell:
-            self.instance.timeSpendAnswer = cellSelectedItem.1
+            spendIndex = indexPath.row
+            self.instance.timeSpendAnswer = String(spendIndex) //cellSelectedItem.1
+            print("Selected Index after update: \(spendIndex)")
         default:
             break
         }
         collectionView.reloadData()
+        
+        
     }
 }

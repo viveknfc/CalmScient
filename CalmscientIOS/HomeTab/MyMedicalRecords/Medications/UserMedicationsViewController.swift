@@ -287,9 +287,10 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
                     if response.response.responseCode == 200 {
                         // Update medicationData and reload the table
                         self.medicationData = response.medicineDetails.filter { obj in
-                            let dateString = self.selectedNewDate.dateToString(format: "yyyy-MM-dd")
+                            let dateString = self.selectedNewDate.dateToString(format: "MM/dd/yyyy")
                             return obj.date == dateString
                         }
+                        print("the medication data count is",self.medicationData.count)
                         self.nomedications.isHidden = true
                         self.medicationsTableView.isHidden = false
                         self.medicationsTableView.reloadData()

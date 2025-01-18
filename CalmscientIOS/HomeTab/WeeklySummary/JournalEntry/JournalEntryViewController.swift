@@ -7,7 +7,29 @@
 
 import UIKit
 
-class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEntryEditViewActions {
+class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEntryEditViewActions, NewPickerViewDelegate, UISheetPresentationControllerDelegate {
+    func didSelectDate(_ date: Date, indexPath: IndexPath?) {
+        let calendar = Calendar.current
+        let resetDate = calendar.startOfDay(for: date)
+        
+        // Format the selected date as a string
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        
+        dateFormatter.locale = Locale(identifier: "en_US")  // Set the locale
+        dateFormatter.timeZone = TimeZone.current
+
+        let formattedDate = dateFormatter.string(from: resetDate)
+        print("The formatted date is:", formattedDate)
+        print("The selected date is:", date)
+        
+        journalDataFunc(date: formattedDate)
+    }
+    
+    func didDismissPicker() {
+        removeDimmingView()
+    }
+    
     
   
     @IBOutlet weak var datePickerView: UIDatePicker!
@@ -41,6 +63,8 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
     
     var minmax = Bool()
     var expandedIndexPaths: Set<IndexPath> = []
+    
+    var dimmingView: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -411,6 +435,67 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
 
     }
     
+    //MARK: - Journal Data Entry API Call
+    
+    func journalDataFunc(date: String) {
+        self.view.showToastActivity()
+        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+            fatalError("Unable to found Application Shared Info")
+        }
+        let params:[String:Any] = ["patientLocationId": userInfo.patientLocationID, "clientId": userInfo.clientID, "patientId": userInfo.patientID, "fromDate": date, "entry":""]
+        print("the input param for fetch api is", params)
+
+        APIService.JournalDataAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") {  [self] response in
+            // Your closure code here
+            getresponseforJournalDataAPI(response: response)
+            
+        }
+    }
+    
+    //MARK: - Journal API Response
+    
+    func getresponseforJournalDataAPI(response:AnyObject)->() {
+        
+        if let responseString = response as? String {
+            print("Response received from Fetch API calling is", responseString)
+        }
+        else if let responseDict = response as? [String: Any] {
+            if let quiz1 = responseDict["quiz"] as? [[String: Any]] {
+                self.quizData = quiz1
+
+                self.filteredQuizData = self.quizData
+                if self.filteredQuizData.isEmpty {
+                    self.nomedications.isHidden = false
+                }
+                else{
+                    self.nomedications.isHidden = true
+                }
+                self.journalTableView.reloadData()
+                   }
+            
+            if let dailyJournal1 = responseDict["dailyJournal"] as? [[String: Any]] {
+                self.dailyData = dailyJournal1
+
+                self.filtereddailyData = self.dailyData
+
+                self.journalTableView.reloadData()
+            }
+            
+            if let discoveryExercises1 = responseDict["discoveryExercises"] as? [[String: Any]] {
+                self.discoverData = discoveryExercises1
+                self.filtereddiscoverData = self.discoverData
+
+                self.journalTableView.reloadData()
+            }
+            self.view.hideToastActivity()
+        }
+        else {
+            print("Unsupported response type:", type(of: response))
+        }
+    }
+    
+    //END
+    
     @IBAction func okButtomClicked(_ sender: Any) {
         pickerBackView.isHidden = true
         let selectedDate = datePickerView.date
@@ -482,11 +567,54 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
         }
     }
     @IBAction func calenderButtonTapped(_ sender: Any) {
-        datePickerView.tintColor = UIColor.green
-        self.view.bringSubviewToFront(pickerBackView)
-      //  datePickerView.maximumDate = Date()
-print("calenderButtonTapped")
-        pickerBackView.isHidden = false
+//        datePickerView.tintColor = UIColor.green
+//        self.view.bringSubviewToFront(pickerBackView)
+//        print("calenderButtonTapped")
+//        pickerBackView.isHidden = false
+        
+        let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "newPickerViewVC") as? newPickerViewVC else {
+            fatalError("Could not instantiate view controller with identifier 'newPickerViewVC'")
+        }
+        vc.delegate = self
+        
+        // Add dimming view
+        if let window = UIApplication.shared.windows.first(where: \.isKeyWindow) {
+            let dimmingView = UIView(frame: window.bounds)
+            dimmingView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+            dimmingView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            window.addSubview(dimmingView)
+            self.dimmingView = dimmingView
+        }
+        
+        // Configure bottom sheet presentation
+        if #available(iOS 15.0, *) {
+            if let sheet = vc.sheetPresentationController {
+                if #available(iOS 16.0, *) {
+                    let customDetent = UISheetPresentationController.Detent.custom { _ in
+                        return 270 // Desired height
+                    }
+                    sheet.detents = [customDetent]
+                } else {
+                    sheet.detents = [.medium()]
+                }
+                sheet.largestUndimmedDetentIdentifier = .medium
+                sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+                sheet.prefersEdgeAttachedInCompactHeight = true
+                sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+                sheet.delegate = self
+            }
+        }
+        
+        vc.isModalInPresentation = true
+
+        self.present(vc, animated: true, completion: nil)
+        
+    }
+    
+    private func removeDimmingView() {
+        dimmingView?.removeFromSuperview()
+        dimmingView = nil
     }
     
     @IBAction func quizButtonTapped(_ sender: Any) {

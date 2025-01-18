@@ -216,6 +216,7 @@ class PatientLog: Codable {
     var spendTime: String = ""
     var journal: String = ""
     var wish: String = ""
+    var activityDate: String = ""
     
     init() {
         
@@ -237,6 +238,7 @@ class PatientLog: Codable {
         try container.encode(spendTime, forKey: .spendTime)
         try container.encode(journal, forKey: .journal)
         try container.encode(wish, forKey: .wish)
+        try container.encode(activityDate, forKey: .activityDate)
     }
 
     // Decoding function
@@ -255,6 +257,7 @@ class PatientLog: Codable {
         spendTime = try container.decode(String.self, forKey: .spendTime)
         journal = try container.decode(String.self, forKey: .journal)
         wish = try container.decode(String.self, forKey: .wish)
+        activityDate = try container.decode(String.self, forKey: .activityDate)
     }
 
     // Coding keys
@@ -272,6 +275,7 @@ class PatientLog: Codable {
         case spendTime
         case journal
         case wish
+        case activityDate
     }
 }
 

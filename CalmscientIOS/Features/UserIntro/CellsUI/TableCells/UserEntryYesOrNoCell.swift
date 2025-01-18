@@ -15,6 +15,25 @@ class UserEntryYesOrNoCell: UITableViewCell, UITextViewDelegate {
     @IBOutlet weak var journalTextView: UITextView!
     @IBOutlet weak var toggleImageView: UIImageView!
     
+    var toggleValue = 1 {
+        didSet {
+            let toggleImage: UIImage
+            if toggleValue == 1 {
+                toggleImage = UIImage(named: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "ToggleSwitch_Yes" : "ToggleSwitch_Si")!
+                self.toggleImageView.tag = 1
+            } else {
+                toggleImage = UIImage(named: "ToggleSwitch_No")!
+                self.toggleImageView.tag = -1
+            }
+            UIView.transition(with: self.toggleImageView,
+                              duration: 0.2,
+                              options: .transitionCrossDissolve,
+                              animations: { self.toggleImageView.image = toggleImage },
+                              completion: nil)
+        }
+    }
+
+    
     private var cellType:UserEntryDayFeedbackTableCell! {
         didSet {
             if cellType == .UserEntryJournalCell {
@@ -57,7 +76,7 @@ class UserEntryYesOrNoCell: UITableViewCell, UITextViewDelegate {
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.toggleTheImage))
         self.toggleImageView.isUserInteractionEnabled = true
         self.toggleImageView.addGestureRecognizer(tapGestureRecognizer)
-        self.toggleImageView.tag = -1
+
         journalTextView.delegate = self
         // Initialization code
     }
@@ -72,6 +91,7 @@ class UserEntryYesOrNoCell: UITableViewCell, UITextViewDelegate {
     }
     
     @objc func toggleTheImage(){
+        print("the toggle value is",self.toggleImageView.tag)
         var toggleImage:UIImage!
         if self.toggleImageView.tag == -1 {
             instance.medicineAnswer = "1"

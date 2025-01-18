@@ -20,7 +20,13 @@ class UserEntrySleepHoursCell: UITableViewCell {
     let selectedFillColor = UIColor(named: "circleCellSelectedColor")
     let defaultFillColor = UIColor(named: "circleFillColor")
     let sleepData = ["Less","4","5","6","7","8","9","10","More"]
-    var selectedIndex = -1
+    var selectedIndex: Int = 7 {
+           didSet {
+               print("the selected index value for sleep is", selectedIndex)
+               sleepHoursCollectionView.reloadData()
+           }
+       }
+    
     
     private var cellType:UserEntryDayFeedbackTableCell!
     private var instance:UserStartupScreenDayData!
@@ -46,13 +52,13 @@ class UserEntrySleepHoursCell: UITableViewCell {
         super.layoutSubviews()
     }
     
-    func updateUIWithCellInstance(instance:UserStartupScreenDayData, cellType:UserEntryDayFeedbackTableCell) {
+    func updateUIWithCellInstance(instance:UserStartupScreenDayData, cellType:UserEntryDayFeedbackTableCell, slpHrs: Int) {
         self.instance = instance
         self.cellType = cellType
         let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
         self.titleLabel.font = UIFont(name: Fonts().lexendMedium, size: 16)
         
-        var labelText = languageId == 1 ? "How many hours did you sleep last night?" : "¿Cuántas horas dormiste anoche?"
+        let labelText = languageId == 1 ? "How many hours did you sleep last night?" : "¿Cuántas horas dormiste anoche?"
         
         let attributedText = NSMutableAttributedString(string: labelText)
         let redAsterisk = NSAttributedString(
@@ -62,11 +68,16 @@ class UserEntrySleepHoursCell: UITableViewCell {
         attributedText.append(redAsterisk)
         
         self.titleLabel.attributedText = attributedText
-        
+        selectedIndex = slpHrs
         sleepHoursCollectionView.delegate = self
         sleepHoursCollectionView.dataSource = self
         sleepHoursCollectionView.reloadData() //instance.sleepData?.sleepQuestion
     }
+    
+    func updateSelectedIndex(newIndex: Int) {
+        print("the index value is", newIndex)
+            selectedIndex = newIndex
+        }
     
     fileprivate func addShadowAndBorder() {
         shadowView.layer.backgroundColor = UIColor.clear.cgColor
@@ -107,6 +118,7 @@ extension UserEntrySleepHoursCell : UICollectionViewDelegateFlowLayout, UICollec
                 return UICollectionViewCell()
             }
             if indexPath.row == selectedIndex {
+                print("entered cell for row selected index")
                 cell.circleStrokeColor = selectedBorderColor
                 cell.circleFillColor = selectedFillColor
                 cell.contentTextColor = UIColor.white
@@ -123,9 +135,12 @@ extension UserEntrySleepHoursCell : UICollectionViewDelegateFlowLayout, UICollec
                 return UICollectionViewCell()
             }
             if indexPath.row == selectedIndex {
-                cell.circleStrokeColor = selectedBorderColor
-                cell.circleFillColor = selectedFillColor
-                cell.contentTextColor = UIColor.white
+                print("entered cell for row selected index from oval cell")
+
+                    cell.circleStrokeColor = self.selectedBorderColor
+                    cell.circleFillColor = self.selectedFillColor
+                    cell.contentTextColor = UIColor.white
+                
             } else {
                 cell.circleStrokeColor = defaultBorderColor
                 cell.circleFillColor = defaultFillColor
@@ -188,13 +203,14 @@ extension UserEntrySleepHoursCell : UICollectionViewDelegateFlowLayout, UICollec
 extension UserEntrySleepHoursCell : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
-        if selectedIndex == 0 {
-            instance.sleepAnswer = 2
-        } else if selectedIndex == sleepData.count - 1 {
-            instance.sleepAnswer = 14
-        } else {
-            instance.sleepAnswer = Int(sleepData[indexPath.row])
-        }
+        instance.sleepAnswer = selectedIndex
+//        if selectedIndex == 0 {
+//            instance.sleepAnswer = 2
+//        } else if selectedIndex == sleepData.count - 1 {
+//            instance.sleepAnswer = 14
+//        } else {
+//            instance.sleepAnswer = Int(sleepData[indexPath.row])
+//        }
         collectionView.reloadData()
     }
 }
