@@ -52,6 +52,11 @@ class UserEntrySleepHoursCell: UITableViewCell {
         super.layoutSubviews()
     }
     
+    func getUpdatedData() -> Int? {
+        return self.selectedIndex
+    }
+
+    
     func updateUIWithCellInstance(instance:UserStartupScreenDayData, cellType:UserEntryDayFeedbackTableCell, slpHrs: Int) {
         self.instance = instance
         self.cellType = cellType

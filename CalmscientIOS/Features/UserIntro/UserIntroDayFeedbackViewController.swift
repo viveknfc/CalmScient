@@ -49,6 +49,13 @@ class UserIntroDayFeedbackViewController: ViewController {
     @IBOutlet weak var screenTitleLabel: UILabel!
     @IBOutlet weak var savebutton: LinearGradientButton!
     @IBOutlet weak var skipButton: BorderShadowButton!
+    var hideSkipButton: Bool = false
+  
+    @IBOutlet weak var skipButtonHeight: NSLayoutConstraint!
+    @IBOutlet weak var saveButtonBottom: NSLayoutConstraint!
+    @IBOutlet weak var mainTableTop: NSLayoutConstraint!
+    
+    
     @IBOutlet weak var feedbackTableView: UITableView!
     var afternoonVC = false
     var titleString = UserDefaults.standard.string(forKey: "titleString") ?? "V"
@@ -56,6 +63,8 @@ class UserIntroDayFeedbackViewController: ViewController {
     private let GoodMorningTitle = "Good morning!"
     private let GoodAfternoonTitle = "Good afternoon!"
     private let GoodEveningTitle = "Good evening!"
+    
+    var GreetingTitle: String?
     
     private let userDayWiseData:UserStartupScreenDayData? = UserStartupScreenDayData.getStartUpScreenData()
     
@@ -86,6 +95,16 @@ class UserIntroDayFeedbackViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        skipButton.isHidden = hideSkipButton
+        if hideSkipButton {
+            skipButtonHeight.constant = 0
+            saveButtonBottom.constant = 0
+        } else {
+            skipButtonHeight.constant = 45
+            saveButtonBottom.constant = 16
+        }
+        
         savebutton.cornerRadius = (skipButton.frame.size.height / 2) - 1
         self.navigationController?.isNavigationBarHidden = true
         savebutton.setAttributedTitleWithGradientDefaults(title: "Save")
@@ -107,12 +126,10 @@ class UserIntroDayFeedbackViewController: ViewController {
             switch dayTimeValue {
             case .Morning, .Afternoon:
                 let morningGreet = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Hello" : "Hola"
-                self.screenTitleLabel.text = "\(morningGreet) \(titleString)!"//AppHelper.getLocalizeString(str: GoodMorningTitle)
-//            case .Afternoon:
-//                self.screenTitleLabel.text = AppHelper.getLocalizeString(str: GoodAfternoonTitle)
+                GreetingTitle = "\(morningGreet) \(titleString)!"
             case .Evening:
                 let eveGreet = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Good evening" : "¡Buenas noches"
-                self.screenTitleLabel.text = "\(eveGreet) \(titleString)!"//AppHelper.getLocalizeString(str: GoodEveningTitle)
+                GreetingTitle = "\(eveGreet) \(titleString)!"
             }
         }
         
@@ -127,6 +144,9 @@ class UserIntroDayFeedbackViewController: ViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
        
+        self.screenTitleLabel.text = GreetingTitle
+        self.screenTitleLabel.isHidden = false
+        mainTableTop.constant = 24
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -135,6 +155,36 @@ class UserIntroDayFeedbackViewController: ViewController {
         currentTime = dateFormatter.string(from: Date())
         setupLanguage()
         fetchAPIFunc()
+        
+        // Check if we are coming from the home dashboard
+          if let viewControllers = self.navigationController?.viewControllers, viewControllers.count > 1 {
+              // If we have more than one view controller in the stack, we're coming from a previous screen (likely the home screen)
+              if viewControllers[viewControllers.count - 2] is HomeTabDashboardViewController {
+                  // If the previous view controller is the HomeDashboard, show the navigation bar
+                  self.navigationController?.isNavigationBarHidden = false
+                  title = GreetingTitle
+                  self.screenTitleLabel.isHidden = true
+                  mainTableTop.constant = -18
+              } else {
+                  self.screenTitleLabel.isHidden = false
+                  self.screenTitleLabel.text = GreetingTitle
+                  mainTableTop.constant = 24
+              }
+          }
+        else {
+                // Default case: show the label and set its text
+                self.screenTitleLabel.isHidden = false
+                self.screenTitleLabel.text = GreetingTitle
+                mainTableTop.constant = 24
+            }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        // Make sure to reset the navigation bar visibility when leaving this view controller
+        // This is especially important if you want to ensure the state is consistent when navigating back
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     //MARK: - For Journal Text View
@@ -277,23 +327,62 @@ class UserIntroDayFeedbackViewController: ViewController {
         guard let userDayWiseData = self.userDayWiseData, let dayTime = userDayWiseData.dayTimeValue else {
             return
         }
+        
+        for cell in feedbackTableView.visibleCells {
+            
+            if let cell = cell as? UserIntroSelectionTableCell {
+                        userDayWiseData.moodAnswer =  cell.getUpdatedData4MoodId()
+                        userDayWiseData.timeSpendAnswer = cell.getUpdatedData4SpendHours()
+                    } else if let cell = cell as? UserEntrySleepHoursCell {
+                        let updatedSleepHours = cell.getUpdatedData()
+                        userDayWiseData.sleepAnswer = updatedSleepHours
+                    } else if let cell = cell as? UserEntryYesOrNoCell {
+                        let journalEntry = cell.getUpdatedJournalData()
+                        userDayWiseData.medicineAnswer = cell.getUpdatedToggleData()
+                        print("the medicine answer is",userDayWiseData.medicineAnswer ?? "NA")
+                        userDayWiseData.journalAnswer = journalEntry
+                    }
+        }
+        
+        print("Mood ID: \(userDayWiseData.moodAnswer ?? -1), Sleep Hours: \(userDayWiseData.sleepAnswer ?? -2), Medicine Flag: \(userDayWiseData.medicineAnswer ?? "None"), Journal: \(userDayWiseData.journalAnswer ?? "None"), Spend Hours: \(userDayWiseData.timeSpendAnswer ?? "none")")
+
+        
         let answers = PatientLog()
+        var medicineFlagString: String?
+        
         switch dayTime {
         case .Morning, .Afternoon:
-            answers.moodId = userDayWiseData.moodAnswer ?? 5
-            answers.sleepHours = userDayWiseData.sleepAnswer ?? 8
-            answers.medicineFlag = Int(userDayWiseData.medicineAnswer ?? "0")!
-            answers.journal = userDayWiseData.journalAnswer ?? ""
-            answers.activityDate = currentTime!
-//        case .Afternoon:
-//            answers.moodId = userDayWiseData.moodAnswer ?? 5
+            
+            guard let moodId = userDayWiseData.moodAnswer,
+                          let sleepHours = userDayWiseData.sleepAnswer,
+                          let journal = userDayWiseData.journalAnswer, !journal.isEmpty else {
+                self.view.makeToast("Please fill all mandatory fields.", position: .center)
+                        return
+                    }
+                    let medicineFlag = userDayWiseData.medicineAnswer
+                    medicineFlagString = userDayWiseData.medicineAnswer
+                    answers.moodId = moodId
+                    answers.sleepHours = sleepHours
+                    answers.medicineFlag = Int(medicineFlag ?? "") ?? 0
+                    answers.journal = journal
+                    answers.activityDate = currentTime!
+
         case .Evening:
-            answers.moodId = userDayWiseData.moodAnswer ?? 5
-            answers.sleepHours = userDayWiseData.sleepAnswer ?? 8
-            answers.medicineFlag = Int(userDayWiseData.medicineAnswer ?? "0")!
-            answers.spendTime = userDayWiseData.timeSpendAnswer ?? ""
-            answers.journal = userDayWiseData.journalAnswer ?? ""
-            answers.activityDate = currentTime!
+            
+            guard let moodId = userDayWiseData.moodAnswer,
+                         let spendTime = userDayWiseData.timeSpendAnswer, !spendTime.isEmpty,
+                         let journal = userDayWiseData.journalAnswer, !journal.isEmpty else {
+                self.view.makeToast("Please fill all mandatory fields.", position: .center)
+                       return
+                   }
+                    let medicineFlag = userDayWiseData.medicineAnswer
+                    medicineFlagString = userDayWiseData.medicineAnswer
+                   answers.moodId = moodId
+                   answers.medicineFlag = Int(medicineFlag ?? "") ?? 0
+                   answers.spendTime = spendTime
+                   answers.journal = journal
+                   answers.activityDate = currentTime!
+
         }
         
         self.view.showToastActivity()
@@ -321,6 +410,9 @@ class UserIntroDayFeedbackViewController: ViewController {
                                if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
                                    guard let window = sceneDelegate.window else { return }
                                    let homeController = UIStoryboard(name: "AppTabBar", bundle: nil).instantiateViewController(withIdentifier: "AppMainTabViewController") as! AppMainTabViewController
+                                   homeController.isInitalView = (medicineFlagString == "0")
+                                   print("the medicineFlagString",medicineFlagString ?? "none")
+                                   print("the initial view value is",homeController.isInitalView)
                                    window.rootViewController = homeController
                                    window.makeKeyAndVisible()
                                }
@@ -414,7 +506,7 @@ class UserIntroDayFeedbackViewController: ViewController {
             guard let window = sceneDelegate.window else { return }
             let homeController = UIStoryboard(name: "AppTabBar", bundle: nil).instantiateViewController(withIdentifier: "AppMainTabViewController") as! AppMainTabViewController
 
-            homeController.isInitalView = isFirstTime
+            homeController.isInitalView = false
             UserDefaults.standard.set(true, forKey: "hasSkippedBefore")
  
             window.rootViewController = homeController
@@ -441,8 +533,9 @@ extension UserIntroDayFeedbackViewController : UITableViewDataSource,UITableView
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellType.getCellIdentifier(), for: indexPath) as? UserIntroSelectionTableCell else {
                 return UITableViewCell()
             }
-            cell.selectedIndex = ((selectedCell ?? 0)-1)
+            cell.selectedIndex = ((selectedCell ?? 0))
             cell.spendIndex = ((SpendTime ?? 0))
+            
             cell.updateUIWithCellInstance(instance: userDayWiseData, cellType: cellType)
             return cell
         case .UserIntroSleepCell:
@@ -460,7 +553,7 @@ extension UserIntroDayFeedbackViewController : UITableViewDataSource,UITableView
             if let mediTaken = mediTaken, !mediTaken.isEmpty {
                 cell.toggleValue = mediTaken == "No" ? 0 : 1
                 cell.toggleImageView.tag = mediTaken == "No" ? -1 : 1
-                feedbackTableView.reloadRows(at: [indexPath], with: .automatic)
+//                feedbackTableView.reloadRows(at: [indexPath], with: .automatic)
             }
             if let journalText = journalText, !journalText.isEmpty {
                 cell.journalTextView.text = journalText

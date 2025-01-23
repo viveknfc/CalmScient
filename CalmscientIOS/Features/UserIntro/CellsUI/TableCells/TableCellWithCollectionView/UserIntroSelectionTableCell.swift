@@ -51,6 +51,19 @@ class UserIntroSelectionTableCell: UITableViewCell {
         }
     }
     
+    var moodIdAnswer: Int?
+    var spendHoursAnswer: String?
+    
+    func getUpdatedData4MoodId() -> (Int?) {
+        return instance.moodAnswer
+    }
+    
+    func getUpdatedData4SpendHours() -> (String?) {
+        print("spend hours inside updated data is", spendHoursAnswer ?? -4)
+        return (spendHoursAnswer)
+    }
+
+    
     let dummyData:[String:[(String,String)]] = (UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 0 ? 1 : UserDefaults.standard.integer(forKey: "SelectedLanguageID")) == 1 ? ["UserMoodHoursCell":[
         ("UserIntro_Bad","BAD"),
         ("UserIntro_Couldbe","COULD BE BETTER"),
@@ -189,6 +202,21 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegateFlowLayout, UICo
                     UIColor(hex: "#6E6BB3"),
                 ][indexPath.row]
             
+            //viv start
+            switch cellType {
+            case .UserMoodHoursCell:
+                print("the selected index value for UserMoodHoursCell is", selectedIndex,"and index path is",indexPath.row)
+                instance.moodAnswer = indexPath.row
+                
+            case .UserEntryTimeSpendCell:
+
+                spendHoursAnswer = String(indexPath.row)
+                
+            default:
+                break
+            }
+  
+            //end
             cell.cellImageView.image = self.cellType == .UserEntryTimeSpendCell ? UIImage(named: self.selectedFamilyImages[indexPath.row]) : UIImage(named: "\(cellData.0)")
             cell.cellImageView.applyShadow()
             
@@ -241,13 +269,14 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegateFlowLayout, UICo
 
 extension UserIntroSelectionTableCell : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-        let cellSelectedItem = collectionData[indexPath.row]
+
         switch cellType {
         case .UserMoodHoursCell:
             selectedIndex = indexPath.row
             print("Selected Index after update: \(selectedIndex)")
             self.instance.moodAnswer = self.instance.moodData?.options[selectedIndex].optionTypeID
+            print("Selected moodAnswer after update: \(String(describing: self.instance.moodAnswer))")
+
         case .UserEntryTimeSpendCell:
             spendIndex = indexPath.row
             self.instance.timeSpendAnswer = String(spendIndex) //cellSelectedItem.1

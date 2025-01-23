@@ -54,7 +54,7 @@ class UpdateMedicationsTableViewCell: UITableViewCell {
     
     var isNewMedicationCreation = false
 
-    weak var scheduledTime:ScheduledTimes?
+    weak var scheduledTime:MedicationAlarm?//ScheduledTimes?
     weak var medicationAlarm:MedicationAlarm?
     
     let customOrder: [String: Int] = [
@@ -114,18 +114,18 @@ class UpdateMedicationsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    public func prepareWithCellData(scheduledTime:ScheduledTimes) {
+    public func prepareWithCellData(scheduledTime:MedicationAlarm) {
         self.scheduledTime = scheduledTime
         let selectedOnes = cellType.getCellValues()
         
         if cellType == .alarmCell {
-            if let indexOfSelection = selectedOnes.firstIndex(of: scheduledTime.alarmInterval) {
+            if let indexOfSelection = selectedOnes.firstIndex(of: String(scheduledTime.alarmInterval)) {
                 selectedIndexes.removeAll()
                 selectedIndexes.append(indexOfSelection)
             }
         } else {
             selectedIndexes.removeAll()
-            for obj in scheduledTime.repeatDay {
+            for obj in scheduledTime.repeat {
                 if let indexOfSelection = selectedOnes.firstIndex(of: obj) {
                     selectedIndexes.append(indexOfSelection)
                 }
@@ -133,10 +133,10 @@ class UpdateMedicationsTableViewCell: UITableViewCell {
             guard let currentInstance = self.scheduledTime else {
                 return
             }
-            if currentInstance.repeatDay.count == 7 {
+            if currentInstance.repeat.count == 7 {
                 subTitleLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "EveryDay" : "todos los días."
             } else {
-                subTitleLabel.text = currentInstance.repeatDay.joined(separator: ",")
+                subTitleLabel.text = currentInstance.repeat.joined(separator: ",")
             }
         }
         selectedIndexes.sort()
@@ -228,7 +228,7 @@ extension UpdateMedicationsTableViewCell: UICollectionViewDelegateFlowLayout, UI
             if cellType == .alarmCell {
                 selectedIndexes.removeAll()
                 selectedIndexes.append(indexPath.row)
-                currentInstance.alarmInterval = Int(cellType.getCellData()[indexPath.row]) ?? 5
+                currentInstance.alarmInterval = cellType.getCellData()[indexPath.row]
             } else {
                 if selectedIndexes.contains(indexPath.row) {
                     let selectedIdx = selectedIndexes.firstIndex(of: indexPath.row)
@@ -259,10 +259,10 @@ extension UpdateMedicationsTableViewCell: UICollectionViewDelegateFlowLayout, UI
                guard let scheduledObj = self.scheduledTime else {
                     return
                 }
-                let alarmTime = Calendar.current.date(byAdding: .minute, value: -(Int(scheduledObj.alarmInterval) ?? 0), to: scheduledObj.medicineTime.getDate(formatString: "HH:mm:ss"))
-                guard var newAlarmDateAndTime = scheduledObj.alarmTime.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: .whitespaces).first else {
-                    fatalError("Get SPlit Date Failed")
-                }
+                let alarmTime = Calendar.current.date(byAdding: .minute, value: -(Int(scheduledObj.alarmInterval) ?? 0 ), to: scheduledObj.medicineTime.getDate(formatString: "HH:mm:ss"))
+                 var newAlarmDateAndTime = scheduledObj.alarmTime //.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: .whitespaces).first else {
+//                    fatalError("Get SPlit Date Failed")
+//                }
                 guard let newAlarmTime = alarmTime?.dateToString(format: "HH:mm:ss") else {
                     fatalError("Get alarm Date Failed")
                 }
@@ -275,11 +275,11 @@ extension UpdateMedicationsTableViewCell: UICollectionViewDelegateFlowLayout, UI
                 } else {
                     selectedIndexes.append(indexPath.row)
                 }
-                currentInstance.repeatDay = getRepeatValues()
-                if currentInstance.repeatDay.count == 7 {
+                currentInstance.repeat = getRepeatValues()
+                if currentInstance.repeat.count == 7 {
                     subTitleLabel.text =  UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "EveryDay" : "todos los días."
                 } else {
-                    subTitleLabel.text = currentInstance.repeatDay.joined(separator: ",")
+                    subTitleLabel.text = currentInstance.repeat.joined(separator: ",")
                 }
             }
             selectedIndexes.sort()

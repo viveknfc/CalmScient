@@ -64,7 +64,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule Time &amp; Alarm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSq-tX-yV3">
-                        <rect key="frame" x="16" y="153.33333333333334" width="203" height="22.666666666666657"/>
+                        <rect key="frame" x="16" y="163.33333333333334" width="203" height="22.666666666666657"/>
                         <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="18"/>
                         <color key="textColor" name="424242Color"/>
                         <nil key="highlightedColor"/>
@@ -78,7 +78,7 @@
                     <constraint firstItem="sbm-L4-ZSy" firstAttribute="top" secondItem="gic-Rs-DOZ" secondAttribute="bottom" constant="4" id="8ca-jl-KEM"/>
                     <constraint firstAttribute="trailingMargin" secondItem="gic-Rs-DOZ" secondAttribute="trailing" constant="16" id="HYv-vZ-MNF"/>
                     <constraint firstItem="xG3-EF-sz9" firstAttribute="top" secondItem="TRx-kM-JaV" secondAttribute="bottom" constant="4" id="QaM-jG-T0M"/>
-                    <constraint firstItem="RSq-tX-yV3" firstAttribute="top" secondItem="sbm-L4-ZSy" secondAttribute="bottom" constant="10" id="WYU-Lr-m8r"/>
+                    <constraint firstItem="RSq-tX-yV3" firstAttribute="top" secondItem="sbm-L4-ZSy" secondAttribute="bottom" constant="20" id="WYU-Lr-m8r"/>
                     <constraint firstItem="sbm-L4-ZSy" firstAttribute="trailing" secondItem="jKq-Qm-Uic" secondAttribute="trailing" constant="10" id="X2C-gZ-XHa"/>
                     <constraint firstItem="sbm-L4-ZSy" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="18" id="cxL-ct-Oug"/>
                     <constraint firstAttribute="trailing" secondItem="sbm-L4-ZSy" secondAttribute="trailing" constant="18" id="qMe-RB-90c"/>

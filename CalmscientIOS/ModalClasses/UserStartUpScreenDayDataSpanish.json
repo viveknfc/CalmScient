@@ -5,27 +5,27 @@
     "options": [
       {
         "optionType": "MALO",
-        "optionTypeID": 1,
+        "optionTypeID": 0,
         "image": "Enojado"
       },
       {
         "optionType": "PODRÍA SER MEJOR",
-        "optionTypeID": 2,
+        "optionTypeID": 1,
         "image": "Sonrisa"
       },
       {
         "optionType": "REGULAR",
-        "optionTypeID": 3,
+        "optionTypeID": 2,
         "image": "Risa"
       },
       {
         "optionType": "BUENO",
-        "optionTypeID": 4,
+        "optionTypeID": 3,
         "image": "Risa"
       },
       {
         "optionType": "EXCELENTE",
-        "optionTypeID": 5,
+        "optionTypeID": 4,
         "image": "Risa"
       }
     ]

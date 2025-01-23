@@ -26,6 +26,7 @@ class BottomSheetTimeAndAlarmVC: UIViewController {
     
     var selectedDays = [Int]()
     var onScheetClosed:(()->Void)?
+
     var headingLabelString : String = ""
     var medicineName : String = ""
     var medicineDose : String = ""
@@ -194,7 +195,7 @@ class BottomSheetTimeAndAlarmVC: UIViewController {
             let newDateTime = tempDateTime
             if isNewMedicationCreation {
                 newMedicationInstance?.medicineTime = newDateTime
-                newMedicationInstance?.isEnabled = 1
+                newMedicationInstance?.alarmEnabled = "1"
                 timeIdentifier = newMedicationInstance?.getAlarmTime()
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "HH:mm:ss"
@@ -217,7 +218,7 @@ class BottomSheetTimeAndAlarmVC: UIViewController {
                     return
                 }
                 scheduledObj.medicineTime = newDateTime
-                let alarmTime = Calendar.current.date(byAdding: .minute, value: -(Int(scheduledObj.alarmInterval) ?? 0), to: newDateTime.getDate(formatString: "HH:mm:ss"))
+                let alarmTime = Calendar.current.date(byAdding: .minute, value: -(Int(scheduledObj.alarmInterval) ?? 0 ), to: newDateTime.getDate(formatString: "HH:mm:ss"))
                 guard var newAlarmDateAndTime = scheduledObj.alarmTime.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: .whitespaces).first else {
                     fatalError("Get SPlit Date Failed")
                 }
@@ -241,7 +242,7 @@ class BottomSheetTimeAndAlarmVC: UIViewController {
                     print("Hour: \(hour), Minute: \(minute)")
                     hourTime = hour
                     minTime = minute
-                    repeatDays = convertDaysToNumbers(days: scheduledObj.repeatDay )
+                    repeatDays = convertDaysToNumbers(days: scheduledObj.repeat )
                 } else {
                     print("Invalid date format")
                 }

@@ -82,7 +82,7 @@ extension String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = formatString
         dateFormatter.timeZone = TimeZone(identifier: Calendar.current.timeZone.identifier)
-        return dateFormatter.date(from: self)!
+        return dateFormatter.date(from: self) ?? Date()
     }
     
     func isDayTimeAM(formatter:String = "yyyy-MM-dd HH:mm:ss") -> Bool {

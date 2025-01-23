@@ -193,7 +193,8 @@ extension MedicationsDetailViewController : UITableViewDataSource,UITableViewDel
             sheetVC.instanceObj = forInstance
             sheetVC.isNewMedicationCreation = false
             sheetVC.onScheetClosed = {
-                [weak self] in
+                [weak self]  in
+
                 self?.dimmingView?.removeFromSuperview()
                 self?.medicationsDetailsTableView.reloadData()
                 guard let scheduleAlarm = forInstance.scheduledTimes.first else {
@@ -204,6 +205,7 @@ extension MedicationsDetailViewController : UITableViewDataSource,UITableViewDel
                 }
                 let medAlarmData = OnlyMedicationAlarm()
                 medAlarmData.alarms = [updatedAlarm]
+                medAlarmData.alarms.first?.flag = "U"
                 guard let jsonData = try? JSONEncoder().encode(medAlarmData) else {
                     return
                 }

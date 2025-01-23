@@ -211,7 +211,7 @@ class MedicationsDetailTableCell: UITableViewCell {
                     let minute = calendar.component(.minute, from: date)
                     
                     print("Hour: \(hour), Minute: \(minute)")
-                    scheduleAlarmNotification(hour: hour, minute: minute, identifier: scheduledTime.alarmTime, repeatDays: convertDaysToNumbers(days: scheduledTime.repeatDay ))
+                    scheduleAlarmNotification(hour: hour, minute: minute, identifier: scheduledTime.alarmTime, repeatDays: convertDaysToNumbers(days: scheduledTime.repeat ))
                 } else {
                     print("Invalid date format")
                     
@@ -255,7 +255,7 @@ class MedicationsDetailTableCell: UITableViewCell {
     }
         
         func updateCellData(medicationAlarm:MedicationAlarm) {
-            if medicationAlarm.isEnabled == 1 {
+            if medicationAlarm.alarmEnabled == "1" {
                 buttonState = .selected
             } else {
                 buttonState = .dafault

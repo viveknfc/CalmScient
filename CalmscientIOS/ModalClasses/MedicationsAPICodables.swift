@@ -91,7 +91,7 @@ class MedicationDetailsByDate: Codable {
 }
 
 class MedicalDetails: Codable {
-    let medicationId: Int //
+    let medicationId: Int
     let medicineName: String //
     let medicineDosage: String //
     let providerName: String? //
@@ -147,7 +147,7 @@ class MedicalDetails: Codable {
 }
 
 class ScheduledTimeList: Codable {
-    var scheduledTimes: [ScheduledTimes]
+    var scheduledTimes: [MedicationAlarm]//[ScheduledTimes]
 
     enum CodingKeys: String, CodingKey {
         case scheduledTimes
@@ -155,7 +155,7 @@ class ScheduledTimeList: Codable {
 
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        scheduledTimes = try container.decode([ScheduledTimes].self, forKey: .scheduledTimes)
+        scheduledTimes = try container.decode([MedicationAlarm].self, forKey: .scheduledTimes)
     }
 
     func encode(to encoder: Encoder) throws {
@@ -164,7 +164,7 @@ class ScheduledTimeList: Codable {
     }
 }
 
-class ScheduledTimes: Codable {
+class ScheduledTimes: Codable { //consumer@care.pluxee.in
     var medicineTime: String //
     var alarmTime: String //
     var alarmId: Int //
@@ -191,7 +191,7 @@ class ScheduledTimes: Codable {
         alarmTime = try container.decode(String.self, forKey: .alarmTime)
         alarmId = try container.decode(Int.self, forKey: .alarmId)
         pmtId = try container.decode(String.self, forKey: .pmtId)
-        medicineTaken = try container.decode(String.self, forKey: .medicineTaken)
+        medicineTaken = try container.decodeIfPresent(String.self, forKey: .medicineTaken)
         alarmEnabled = try container.decode(String.self, forKey: .alarmEnabled)
         alarmInterval = try container.decode(String.self, forKey: .alarmInterval)
         repeatDay = try container.decode([String].self, forKey: .repeatDay)
@@ -214,47 +214,56 @@ class ScheduledTimes: Codable {
 //MARK: - ADD Medication
 
 class MedicationAlarm: Codable {
-    var alarmDate: String = ""
-    var alarmId: Int = 0
-    var alarmInterval: Int = 10
-    var plId: Int = 0
-    var medicationId: Int = 0
-    var flag: String = "I"
-    var isEnabled: Int = 0
     var medicineTime: String = ""
-    var `repeat`: [String] = [] // Backticks are used for the 'repeat' key since it's a reserved keyword in Swift
+    var alarmTime: String = "" //new
+    var alarmId: Int = 0
+    var pmtId: String = "0"
+    var medicineTaken: String? //new
+    var alarmEnabled: String?
+    var alarmInterval: String = ""
+    var `repeat`: [String] = []
     
-    var dayTime:DayTimeValue = .Morning
+    var alarmDate: String?
+    var isEnabled: Int?
+    var plId: Int?
+    var medicationId: Int?
+    var flag: String?
+    
+    
+    var dayTime:DayTimeValue? = .Morning
     
     
     enum CodingKeys: String, CodingKey {
-        case alarmDate, alarmId, alarmInterval, plId, medicationId, flag, isEnabled, medicineTime
+        case alarmId, alarmInterval, alarmEnabled, medicineTime, pmtId, alarmTime, medicineTaken, flag, isEnabled, alarmDate, plId, medicationId
         case `repeat` = "repeat"
     }
     
-    init?(withScheduledTime:ScheduledTimes, medicationID:Int) {
+    init?(withScheduledTime:MedicationAlarm, medicationID:Int) { // ScheduledTimes
         guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
             return nil
         }
         let alarmDate = withScheduledTime.alarmTime.getDate(formatString: "yyyy-MM-dd HH:mm:ss")
         plId = userInfo.patientLocationID
-        `repeat` = withScheduledTime.repeatDay
+        `repeat` = withScheduledTime.repeat
         self.medicationId = medicationID
         self.alarmId = withScheduledTime.alarmId
         self.medicineTime = withScheduledTime.medicineTime
-        self.isEnabled = Int(withScheduledTime.alarmEnabled) ?? 0
-        self.alarmInterval = Int(withScheduledTime.alarmInterval) ?? 10
-        self.flag = "U"
-        self.alarmDate = alarmDate.dateToString(format: "MM/dd/yyyy")
+        let isEnableInt = Int(withScheduledTime.alarmEnabled ?? "0")
+        self.isEnabled = isEnableInt
+        self.alarmInterval = withScheduledTime.alarmInterval
+//        self.flag = "I"
+        self.alarmDate = Date().dateToString(format: "MM/dd/yyyy")
+        self.pmtId = withScheduledTime.pmtId
+//        self.medicineTaken = withScheduledTime.medicineTaken
     }
     
-    init?(alarmTime:DayTimeValue) {
+    init?(alarmTime2:DayTimeValue) {
         guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
             return nil
         }
-        dayTime = alarmTime
-        alarmDate = Date().dateToString(format: "MM/dd/yyyy")
-        switch alarmTime {
+        dayTime = alarmTime2
+//        alarmTime = Date().dateToString(format: "MM/dd/yyyy")
+        switch alarmTime2 {
         case .Morning:
             medicineTime = "06:00:00"
         case .Afternoon:
@@ -263,7 +272,7 @@ class MedicationAlarm: Codable {
             medicineTime = "18:00:00"
         }
         plId = userInfo.patientLocationID
-        `repeat` = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] : ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"]
+        `repeat` = [] //UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] : ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"] // this is the default selection
     }
     
     public func getDayTime() -> DayTimeValue {
@@ -271,7 +280,7 @@ class MedicationAlarm: Codable {
     }
     
     public func getTimeRestrictionsFromDate() -> [Date] {
-        switch dayTime {
+        switch dayTime { // here it was dayTime
         case .Morning:
             let startTimeDate = "06:00:00".createDateFromTimeString()
             let endTimeDate = "11:59:00".createDateFromTimeString()
@@ -284,11 +293,13 @@ class MedicationAlarm: Codable {
             let startTimeDate = "17:00:00".createDateFromTimeString()
             let endTimeDate = "23:59:00".createDateFromTimeString()
             return [startTimeDate,endTimeDate]
+        case .none:
+            return []
         }
     }
     
     func getAlarmIntervalStringValue() -> String {
-        if alarmInterval < 10 {
+        if Int(alarmInterval) ?? 0 < 10 {
             return "0\(alarmInterval)"
         } else {
             return "\(alarmInterval)"
@@ -297,7 +308,7 @@ class MedicationAlarm: Codable {
     
     func getAlarmTime() -> String? {
         let medicineDateTime = medicineTime.getDate(formatString: "HH:mm:ss")
-        let alarmTime = Calendar.current.date(byAdding: .minute, value: -alarmInterval, to: medicineDateTime)
+        let alarmTime = Calendar.current.date(byAdding: .minute, value: -(Int(alarmInterval) ?? 0), to: medicineDateTime)
         print("Alarm Time: \(alarmTime ?? Date().getTomorrowDate())")
         return alarmTime?.dateToString(format: "HH:mm:ss") ?? nil
     }
@@ -314,15 +325,19 @@ class MedicationAlarm: Codable {
     // Custom init method to decode JSON data
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        alarmDate = try container.decode(String.self, forKey: .alarmDate)
+        alarmDate = try container.decodeIfPresent(String.self, forKey: .alarmDate)
         alarmId = try container.decode(Int.self, forKey: .alarmId)
-        alarmInterval = try container.decode(Int.self, forKey: .alarmInterval)
-        plId = try container.decode(Int.self, forKey: .plId)
-        medicationId = try container.decode(Int.self, forKey: .medicationId)
-        flag = try container.decode(String.self, forKey: .flag)
-        isEnabled = try container.decode(Int.self, forKey: .isEnabled)
+        alarmInterval = try container.decode(String.self, forKey: .alarmInterval)
+        plId = try container.decodeIfPresent(Int.self, forKey: .plId)
+        pmtId = try container.decode(String.self, forKey: .pmtId)
+        medicationId = try container.decodeIfPresent(Int.self, forKey: .medicationId)
+        flag = try container.decodeIfPresent(String.self, forKey: .flag)
+        isEnabled = try container.decodeIfPresent(Int.self, forKey: .isEnabled)
+        alarmEnabled = try container.decodeIfPresent(String.self, forKey: .alarmEnabled)
         medicineTime = try container.decode(String.self, forKey: .medicineTime)
         `repeat` = try container.decode([String].self, forKey: .repeat)
+        medicineTaken = try container.decode(String.self, forKey: .medicineTaken)
+        alarmTime = try container.decode(String.self, forKey: .alarmTime)
     }
     
     // Custom encode method to encode to JSON data
@@ -334,9 +349,13 @@ class MedicationAlarm: Codable {
         try container.encode(plId, forKey: .plId)
         try container.encode(medicationId, forKey: .medicationId)
         try container.encode(flag, forKey: .flag)
-        try container.encode(isEnabled, forKey: .isEnabled)
+        try container.encode(pmtId, forKey: .pmtId)
+//        try container.encode(alarmEnabled, forKey: .alarmEnabled)
         try container.encode(medicineTime, forKey: .medicineTime)
         try container.encode(`repeat`, forKey: .repeat)
+//        try container.encode(alarmTime, forKey: .alarmTime)
+//        try container.encode(medicineTaken, forKey: .medicineTaken)
+        try container.encode(isEnabled, forKey: .isEnabled)
     }
 }
 

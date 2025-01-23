@@ -24,7 +24,7 @@ class AppMainTabViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateTabBarItems()
+        
         // Register for language change notifications
                 NotificationCenter.default.addObserver(self, selector: #selector(languageChanged(_:)), name: .languageChanged, object: nil)
                 
@@ -39,9 +39,19 @@ class AppMainTabViewController: UITabBarController {
             UITabBar.appearance().standardAppearance = tabBarAppearance
             UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
         }
-        prepareTabs()
+
         delegate = self
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        updateTabBarItems()
+        prepareTabs()
+        
+
+        
     }
 
 
@@ -56,6 +66,7 @@ class AppMainTabViewController: UITabBarController {
             tabTitles = selectedLanguageID == 1 ? tabTitlesEnglish : tabTitlesSpanish
             guard let items = tabBar.items else { return }
             for i in 0..<items.count {
+                print("the first title is",tabTitles[i])
                 items[i].title = tabTitles[i]
             }
         
@@ -64,6 +75,12 @@ class AppMainTabViewController: UITabBarController {
     private func prepareTabs() {
         print("prepare Tabs")
         print("the initial view value is ",isInitalView)
+        
+        guard tabTitles.count >= 4 else {
+                print("Error: tabTitles does not have enough elements.")
+                return
+            }
+        
         var tabVC:[UIViewController] = []
         
         let vmain = UIStoryboard(name: "DashboardHomeTab", bundle: nil).instantiateViewController(withIdentifier: "HomeTabDashboardViewController") as! HomeTabDashboardViewController
@@ -72,12 +89,13 @@ class AppMainTabViewController: UITabBarController {
         let vc1 = UIStoryboard(name: "UserMedications", bundle: nil).instantiateViewController(withIdentifier: "UserMedicationsViewController") as! UserMedicationsViewController
         let navC = UINavigationController(rootViewController: vc1)
 
+
         let item1 = isInitalView ? navC : navCview
-        let icon1 = UITabBarItem(title: "\(tabTitles[0])", image: UIImage(named: "\(unselectedimages[0])"), selectedImage: UIImage(named: "\(selectedImages[0])"))
-        
-        item1.title = tabTitles[0]
+        let icon1 = UITabBarItem(title: "Home", image: UIImage(named: "\(unselectedimages[0])"), selectedImage: UIImage(named: "\(selectedImages[0])")) //\(tabTitles[0])
         item1.tabBarItem = icon1
         tabVC.append(item1)
+        print("Tab bar item title: \(item1.tabBarItem.title ?? "No title")")
+        
         
         let vcz = UIStoryboard(name: "DiscoveryMainDashboard", bundle: nil).instantiateViewController(withIdentifier: "DiscoveryMainViewController") as! DiscoveryMainViewController
         let navC2 = UINavigationController(rootViewController: vcz)
@@ -125,6 +143,7 @@ extension AppMainTabViewController : UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         print("Tab bar selecting from here")
+        
         if (isInitalView && (viewController.title == "Medications")) {
             print("Tab bar did select clicked")
             isInitalView = false

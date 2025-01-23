@@ -282,8 +282,8 @@
             filePath = "CalmscientIOS/MainTabBar/AppMainTabViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
             landmarkName = "prepareTabs()"
             landmarkType = "7">
          </BreakpointContent>
@@ -505,8 +505,8 @@
             filePath = "CalmscientIOS/Features/UserIntro/UserIntroDayFeedbackViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
             landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
@@ -569,8 +569,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/AddMedicationsNew/AddUserMedicationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "423"
-            endingLineNumber = "423"
+            startingLineNumber = "490"
+            endingLineNumber = "490"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -617,8 +617,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/Medications/UserMedicationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "181"
-            endingLineNumber = "181"
+            startingLineNumber = "182"
+            endingLineNumber = "182"
             landmarkName = "getresponsefordeleteMedicationAPI(response:)"
             landmarkType = "7">
             <Locations>
@@ -665,8 +665,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/Medications/UserMedicationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "256"
-            endingLineNumber = "256"
+            startingLineNumber = "257"
+            endingLineNumber = "257"
             landmarkName = "getMedicationsData(forDate:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -681,8 +681,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/Medications/UserMedicationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "285"
-            endingLineNumber = "285"
+            startingLineNumber = "286"
+            endingLineNumber = "286"
             landmarkName = "getMedicationsData(forDate:)"
             landmarkType = "7">
             <Locations>
@@ -744,8 +744,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/Medications/UserMedicationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "315"
-            endingLineNumber = "315"
+            startingLineNumber = "316"
+            endingLineNumber = "316"
             landmarkName = "getMedicationsData(forDate:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -760,8 +760,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/Medications/UserMedicationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "184"
-            endingLineNumber = "184"
+            startingLineNumber = "185"
+            endingLineNumber = "185"
             landmarkName = "getresponsefordeleteMedicationAPI(response:)"
             landmarkType = "7">
             <Locations>
@@ -808,8 +808,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/Medications/UserMedicationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "286"
-            endingLineNumber = "286"
+            startingLineNumber = "287"
+            endingLineNumber = "287"
             landmarkName = "getMedicationsData(forDate:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -824,8 +824,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/Medications/UserMedicationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
             landmarkName = "getresponseforMarkMedicationAPI(response:)"
             landmarkType = "7">
             <Locations>
@@ -872,8 +872,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/Medications/UserMedicationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "118"
-            endingLineNumber = "118"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
             landmarkName = "getresponseforMarkMedicationAPI(response:)"
             landmarkType = "7">
             <Locations>
@@ -980,8 +980,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/Medications/UserMedicationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "87"
-            endingLineNumber = "87"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
             landmarkName = "didChangeSelectionState(for:isSelected:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1031,6 +1031,21 @@
                   endingLineNumber = "785"
                   offsetFromSymbolStart = "110">
                </Location>
+               <Location
+                  uuid = "4F2BAF02-630F-4FAE-81B2-85964579B027 - 9341e6316d7e9243"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalmscientIOS.JournalEntryViewController.saveAction(updatedText: Swift.String) -&gt; ()"
+                  moduleName = "CalmscientIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nfcuser/Documents/GitHub/CalmScient/CalmscientIOS/HomeTab/WeeklySummary/JournalEntry/JournalEntryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "803"
+                  endingLineNumber = "803"
+                  offsetFromSymbolStart = "110">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1044,8 +1059,8 @@
             filePath = "CalmscientIOS/Features/UserIntro/UserIntroDayFeedbackViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "UserIntroDayFeedbackViewController"
             landmarkType = "3">
             <Locations>
@@ -1092,8 +1107,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/Medications/UserMedicationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "275"
-            endingLineNumber = "275"
+            startingLineNumber = "276"
+            endingLineNumber = "276"
             landmarkName = "getMedicationsData(forDate:)"
             landmarkType = "7">
             <Locations>
@@ -1234,8 +1249,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/AddMedicationsNew/AddUserMedicationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
+            startingLineNumber = "259"
+            endingLineNumber = "259"
             landmarkName = "doValidation()"
             landmarkType = "7">
             <Locations>
@@ -1276,14 +1291,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "CDD04278-1D50-4EAD-B14D-1C992EFAE528"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalmscientIOS/Features/UserIntro/CellsUI/TableCells/TableCellWithCollectionView/UserIntroSelectionTableCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
+            startingLineNumber = "277"
+            endingLineNumber = "277"
             landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
             <Locations>
@@ -1347,6 +1362,21 @@
                   endingLineNumber = "221"
                   offsetFromSymbolStart = "709">
                </Location>
+               <Location
+                  uuid = "CDD04278-1D50-4EAD-B14D-1C992EFAE528 - c01da9e8e6f31148"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalmscientIOS.UserIntroSelectionTableCell.collectionView(_: __C.UICollectionView, didSelectItemAt: Foundation.IndexPath) -&gt; ()"
+                  moduleName = "CalmscientIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nfcuser/Documents/GitHub/CalmScient/CalmscientIOS/Features/UserIntro/CellsUI/TableCells/TableCellWithCollectionView/UserIntroSelectionTableCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "250"
+                  endingLineNumber = "250"
+                  offsetFromSymbolStart = "1174">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1360,8 +1390,8 @@
             filePath = "CalmscientIOS/Features/UserIntro/CellsUI/TableCells/UserEntryYesOrNoCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "awakeFromNib()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1376,8 +1406,8 @@
             filePath = "CalmscientIOS/Features/UserIntro/UserIntroDayFeedbackViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "456"
-            endingLineNumber = "456"
+            startingLineNumber = "549"
+            endingLineNumber = "549"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1386,14 +1416,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "1BD55324-06D7-4024-A627-085525D57461"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CalmscientIOS/Features/UserIntro/UserIntroDayFeedbackViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "460"
-            endingLineNumber = "460"
+            startingLineNumber = "553"
+            endingLineNumber = "553"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
             <Locations>
@@ -1457,6 +1487,36 @@
                   endingLineNumber = "448"
                   offsetFromSymbolStart = "2313">
                </Location>
+               <Location
+                  uuid = "1BD55324-06D7-4024-A627-085525D57461 - adb717e71598bd05"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalmscientIOS.UserIntroDayFeedbackViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "CalmscientIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nfcuser/Documents/GitHub/CalmScient/CalmscientIOS/Features/UserIntro/UserIntroDayFeedbackViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "460"
+                  endingLineNumber = "460"
+                  offsetFromSymbolStart = "2343">
+               </Location>
+               <Location
+                  uuid = "1BD55324-06D7-4024-A627-085525D57461 - adb717e71598bd05"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalmscientIOS.UserIntroDayFeedbackViewController.tableView(_: __C.UITableView, cellForRowAt: Foundation.IndexPath) -&gt; __C.UITableViewCell"
+                  moduleName = "CalmscientIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nfcuser/Documents/GitHub/CalmScient/CalmscientIOS/Features/UserIntro/UserIntroDayFeedbackViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "460"
+                  endingLineNumber = "460"
+                  offsetFromSymbolStart = "2454">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1470,9 +1530,230 @@
             filePath = "CalmscientIOS/Features/UserIntro/UserIntroDayFeedbackViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "202"
-            endingLineNumber = "202"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
             landmarkName = "getresponseforFetchMoodDataAPI(response:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1F47DB2D-88B1-4C83-9FB3-056B52B89A4C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/AddMedicationsNew/AddUserMedicationsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "293"
+            endingLineNumber = "293"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "10AD3B17-4B8C-4C6A-A988-C33E1CA90DC0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/AddMedicationsNew/TableCells/TextFieldCell/AddNewMedicationUserEntryTableCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "prepareForReuse()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F9268F04-D413-48D8-B703-1489CE35272B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CalmscientIOS/Features/Login/LoginVC.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "71A08D8F-E369-40A7-B210-3E5E649F6439"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/AddMedicationsNew/AddUserMedicationsViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
+            landmarkName = "DidClickOnSaveButton(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7BBC698E-D7EE-472A-BE94-7D7597B111D6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CalmscientIOS/MainTabBar/AppMainTabViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "AppMainTabViewController"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "7BBC698E-D7EE-472A-BE94-7D7597B111D6 - 9cc425d14d6f44ee"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalmscientIOS.AppMainTabViewController.__allocating_init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; CalmscientIOS.AppMainTabViewController"
+                  moduleName = "CalmscientIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nfcuser/Documents/GitHub/CalmScient/CalmscientIOS/MainTabBar/AppMainTabViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "31">
+               </Location>
+               <Location
+                  uuid = "7BBC698E-D7EE-472A-BE94-7D7597B111D6 - a1689cd35b7e38a9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalmscientIOS.AppMainTabViewController.init(nibName: Swift.Optional&lt;Swift.String&gt;, bundle: Swift.Optional&lt;__C.NSBundle&gt;) -&gt; CalmscientIOS.AppMainTabViewController"
+                  moduleName = "CalmscientIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nfcuser/Documents/GitHub/CalmScient/CalmscientIOS/MainTabBar/AppMainTabViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "143">
+               </Location>
+               <Location
+                  uuid = "7BBC698E-D7EE-472A-BE94-7D7597B111D6 - 9815389251e028fc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalmscientIOS.AppMainTabViewController.__allocating_init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;CalmscientIOS.AppMainTabViewController&gt;"
+                  moduleName = "CalmscientIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nfcuser/Documents/GitHub/CalmScient/CalmscientIOS/MainTabBar/AppMainTabViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "23">
+               </Location>
+               <Location
+                  uuid = "7BBC698E-D7EE-472A-BE94-7D7597B111D6 - 5dc63f39b5399de7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalmscientIOS.AppMainTabViewController.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;CalmscientIOS.AppMainTabViewController&gt;"
+                  moduleName = "CalmscientIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nfcuser/Documents/GitHub/CalmScient/CalmscientIOS/MainTabBar/AppMainTabViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "97">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8BCDCA36-2975-4128-A4B2-6E99108E0A63"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CalmscientIOS/MainTabBar/AppMainTabViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "75"
+            endingLineNumber = "75"
+            landmarkName = "prepareTabs()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8BCDCA36-2975-4128-A4B2-6E99108E0A63 - accb8938dbe5a126"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalmscientIOS.AppMainTabViewController.prepareTabs() -&gt; ()"
+                  moduleName = "CalmscientIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nfcuser/Documents/GitHub/CalmScient/CalmscientIOS/MainTabBar/AppMainTabViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "82"
+                  endingLineNumber = "82"
+                  offsetFromSymbolStart = "819">
+               </Location>
+               <Location
+                  uuid = "8BCDCA36-2975-4128-A4B2-6E99108E0A63 - accb8938dbe5a101"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalmscientIOS.AppMainTabViewController.prepareTabs() -&gt; ()"
+                  moduleName = "CalmscientIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nfcuser/Documents/GitHub/CalmScient/CalmscientIOS/MainTabBar/AppMainTabViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "83"
+                  endingLineNumber = "83"
+                  offsetFromSymbolStart = "380">
+               </Location>
+               <Location
+                  uuid = "8BCDCA36-2975-4128-A4B2-6E99108E0A63 - accb8938dbe59e85"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CalmscientIOS.AppMainTabViewController.prepareTabs() -&gt; ()"
+                  moduleName = "CalmscientIOS"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/nfcuser/Documents/GitHub/CalmScient/CalmscientIOS/MainTabBar/AppMainTabViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "79"
+                  endingLineNumber = "79"
+                  offsetFromSymbolStart = "380">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "46F81AF9-1C52-444B-B334-0ACA619AABF6"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CalmscientIOS/Features/UserIntro/UserIntroDayFeedbackViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "334"
+            endingLineNumber = "334"
+            landmarkName = "didClickOnSaveButton(_:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

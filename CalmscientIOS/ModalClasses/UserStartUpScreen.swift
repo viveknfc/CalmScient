@@ -91,7 +91,7 @@ class UserStartupScreenDayData: Codable {
             dayWiseData.moodData?.moodQuestion = AppHelper.getLocalizeString(str: "How's_your_mood_so_far")
             dayWiseData.medicineData?.medicineQuestion = AppHelper.getLocalizeString(str: "Did_you_take_your_meds_this_morning")
             dayWiseData.timeSpendData = nil
-
+            
             dayWiseData.journalData?.journalKey = "Daily journal"
         case .Afternoon:
             dayWiseData.moodData?.moodQuestion = AppHelper.getLocalizeString(str: "How_is_your_mood_right_now")

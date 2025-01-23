@@ -82,6 +82,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         
         //end
         saveButton.isHidden = true
+        
     }
     
     func didChangeSelectionState(for cell: UITableViewCell, isSelected: Bool) {
@@ -94,7 +95,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
                 let medicineTakenValue = isSelected ? "1" : "0"
 //                let medicineTakenValue = medicineTakenString == "null" ? "0" : medicineTakenString
                 // Your code here
-                if let pmtIdInt = Int(pmtId), let medicineTakenInt = Int(medicineTakenValue) {
+                if let medicineTakenInt = Int(medicineTakenValue), let pmtIdInt = Int(pmtId) {
                     let params: [String: Int] = ["pmtId": pmtIdInt, "medicineTaken": medicineTakenInt]
                     print("Params:", params)
                     self.view.showToastActivity()
@@ -235,10 +236,10 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     
     override func viewWillAppear(_ animated: Bool) {//kiran diagnostics
         super.viewWillAppear(animated)
-        self.tabBarController?.tabBar.isHidden = false;
-        self.medicationsTableView.reloadData()
         title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Medications" : "Medicación"
-
+        self.tabBarController?.tabBar.isHidden = false;
+        self.tabBarController?.tabBar.selectedItem?.title = "Home"
+        self.medicationsTableView.reloadData()
         saveButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str:"Save"))
     }
     

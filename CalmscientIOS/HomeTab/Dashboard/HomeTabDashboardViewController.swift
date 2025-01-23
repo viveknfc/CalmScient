@@ -299,16 +299,16 @@ class HomeTabDashboardViewController: ViewController, UITableViewDataSource,UITa
             let vc = next.instantiateViewController(withIdentifier: "WeeklySummaryDashboardViewController") as? WeeklySummaryDashboardViewController
             self.navigationController?.pushViewController(vc!, animated: true)
         } else if indexPath.row == 2 {
-            let storyboard = UIStoryboard(name: "UserIntro", bundle: nil)
-               if #available(iOS 16.0, *) {
-                   if let vc = storyboard.instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as? UserIntroDayFeedbackViewController {
-                       vc.modalPresentationStyle = .fullScreen
-                       vc.modalTransitionStyle = .crossDissolve
-                       self.present(vc, animated: true, completion: nil)
-                   }
-               } else {
-                   // Fallback on earlier versions
-               }
+            
+            let next = UIStoryboard(name: "UserIntro", bundle: nil)
+            if #available(iOS 16.0, *) {
+                let vc = next.instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as? UserIntroDayFeedbackViewController
+                vc?.title = languageId == 1 ? "Mental wellbeing tracker" : "Rastreador de bienestar mental"
+                vc?.hideSkipButton = true
+                self.navigationController?.pushViewController(vc!, animated: true)
+            } else {
+                // Fallback on earlier versions
+            }
             
         }
     }

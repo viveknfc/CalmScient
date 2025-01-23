@@ -15,14 +15,16 @@ class UserEntryYesOrNoCell: UITableViewCell, UITextViewDelegate {
     @IBOutlet weak var journalTextView: UITextView!
     @IBOutlet weak var toggleImageView: UIImageView!
     
-    var toggleValue = 1 {
+    var toggleValue: Int? {
         didSet {
             let toggleImage: UIImage
             if toggleValue == 1 {
                 toggleImage = UIImage(named: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "ToggleSwitch_Yes" : "ToggleSwitch_Si")!
+                instance.medicineAnswer = "1"
                 self.toggleImageView.tag = 1
             } else {
                 toggleImage = UIImage(named: "ToggleSwitch_No")!
+                instance.medicineAnswer = "0"
                 self.toggleImageView.tag = -1
             }
             UIView.transition(with: self.toggleImageView,
@@ -84,6 +86,15 @@ class UserEntryYesOrNoCell: UITableViewCell, UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         instance.journalAnswer = textView.text
     }
+    
+    func getUpdatedToggleData() -> String? {
+        return instance.medicineAnswer
+    }
+    
+    func getUpdatedJournalData() -> String? {
+        return self.journalTextView.text
+    }
+
     
     func updateUIWithCellInstance(instance:UserStartupScreenDayData, cellType:UserEntryDayFeedbackTableCell) {
         self.instance = instance

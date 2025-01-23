@@ -26,11 +26,11 @@ fileprivate enum AddUserMedicationsCellDef:String {
 class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationControllerDelegate, UISheetPresentationControllerDelegate, MedicationsDetailTableCellDelegate, NewPickerViewDelegate {
     func didChangeSwitchState(for cell: MedicationsDetailTableCell, isSelected: Bool, at index: Int) {
                 // Capture the state change and send it to the backend
-                let status = isSelected ? 1 : 0
+                let status = isSelected ? "1" : "0"
         print("-----alarm delegate status-----")
         print(status)
-                medicationTimeData[index].isEnabled = status
-        print(medicationTimeData[index].isEnabled)
+                medicationTimeData[index].alarmEnabled = status
+        print(medicationTimeData[index].alarmEnabled)
         
     }
     
@@ -49,9 +49,9 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
     private var userEnteredDetails:[String] = Array(repeating: "", count: 4)
     
     private var medicationTimeData:[MedicationAlarm] = [
-        MedicationAlarm.init(alarmTime: .Morning)!,
-        MedicationAlarm.init(alarmTime: .Afternoon)!,
-        MedicationAlarm.init(alarmTime: .Evening)!
+        MedicationAlarm.init(alarmTime2: .Morning)!,
+        MedicationAlarm.init(alarmTime2: .Afternoon)!,
+        MedicationAlarm.init(alarmTime2: .Evening)!
     ]
     private let alarmCellStartIndex = 5
     var saveStr = "Save"
@@ -63,6 +63,8 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
     var dosage: String?
     var direction: String?
     var prescriptionId: Int?
+    
+    var presetAlarm:[MedicationAlarm]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,11 +86,33 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
             dosage = medicationData.medicationDetailsByDate.first?.medicalDetails.medicineDosage
             direction = medicationData.medicationDetailsByDate.first?.medicalDetails.directions
             prescriptionId = medicationData.medicationDetailsByDate.first?.medicalDetails.prescriptionID ?? 0
-            print("the provider name is", providerName ?? "")
+            
+            //viv start
+            
+            if let firstDetail = medicationData.medicationDetailsByDate.first?.medicalDetails {
+                presetAlarm = []
+                for schedule in firstDetail.scheduledTimeList {
+                    presetAlarm?.append(contentsOf: schedule.scheduledTimes)
+                }
+                for alarm in presetAlarm ?? [] {
+                    print("Alarm Time: \(alarm.alarmTime)")
+                }
+            }
+
+            
+            //end
             } else {
                 print("Medication Data is empty")
             }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false // Allow table view cell selection
+        view.addGestureRecognizer(tapGesture)
 
+    }
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -147,11 +171,11 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
         view.endEditing(true)
         if doValidation() {
             let medicationData = AddMedication()
+            
             for alarm in medicationTimeData {
                 print("-----alarm isenabled-----")
-                print(alarm.isEnabled)
             }
-            medicationData.alarms = medicationTimeData
+
             medicationData.direction = userEnteredDetails[3]
             medicationData.dosage = userEnteredDetails[2]
             medicationData.provider = userEnteredDetails[1]
@@ -162,12 +186,27 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
             medicationData.quantity = medicationTimeData.count
             medicationData.withMeal = (isMedicineWithMeals ? 1 : 0)
             medicationData.medicineTime = medicationTimeData.first?.medicineTime ?? "13:30:00"
+
             
             var pvcFlag: String {
                 return EditVc ?? false ? "U" : "I"
             }
+            var iValue: String {
+                return EditVc ?? false ? "U" : "I"
+            }
 
             medicationData.pvcFlag = pvcFlag
+            
+            for index in medicationData.alarms.indices {
+                if index < medicationTimeData.count {
+                    medicationData.alarms[index].flag = iValue
+                    medicationData.alarms[index].isEnabled = Int(medicationTimeData[index].alarmEnabled ?? "0")
+                    medicationData.alarms[index].alarmDate = Date().dateToString(format: "MM/dd/yyyy")
+                }
+            }
+
+
+           
             
             guard let jsonData = try? JSONEncoder().encode(medicationData) else {
                 return
@@ -256,7 +295,23 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
         case .MedicationsDetailCell:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MedicationsDetailTableCell", for: indexPath) as! MedicationsDetailTableCell
             cell.dayTimeImageView.image = UIImage(named: "\(imageNames[Int.random(in: 0..<imageNames.count)])")
-            cell.updateCellData(medicationAlarm: medicationTimeData[indexPath.row - alarmCellStartIndex])
+            
+            if EditVc ?? false {
+                let indexNumber = indexPath.row - alarmCellStartIndex
+                    print("The subset value is", indexNumber)
+                if let presetAlarm = presetAlarm, presetAlarm.indices.contains(indexNumber) {
+                        let alarmDetails = presetAlarm[indexNumber]
+                        cell.updateCellData(medicationAlarm: alarmDetails)
+                    } else {
+                        print("Preset alarm is either nil or index is out of range.")
+                        // Handle the fallback case here, e.g., show a default alarm or a placeholder
+                        cell.updateCellData(medicationAlarm: medicationTimeData[indexPath.row - alarmCellStartIndex]) // Assuming nil is a valid input
+                    }
+            } else {
+                cell.updateCellData(medicationAlarm: medicationTimeData[indexPath.row - alarmCellStartIndex])
+            }
+            
+            
             cell.selectionStyle = .none
             cell.cellIndex = indexPath.row - alarmCellStartIndex
             cell.delegate = self
@@ -268,6 +323,7 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
             case 0:
                 cell.titleLabel.text = AppHelper.getLocalizeString(str:"Medication")
                 cell.cellType = .MedicationName
+                cell.userEntryTextField.text = userEnteredDetails[indexPath.row]
                 if EditVc ?? false {
                     cell.userEntryTextField.text = medication
                     cell.configureCell(with: medication ?? "", at: 0)
@@ -275,6 +331,7 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
             case 1:
                 cell.titleLabel.text = AppHelper.getLocalizeString(str:"Provider")
                 cell.cellType = .MedicationProvider
+                cell.userEntryTextField.text = userEnteredDetails[indexPath.row]
                 if EditVc ?? false {
                     cell.userEntryTextField.text = providerName ?? ""
                     cell.configureCell(with: providerName ?? "", at: 1)
@@ -282,6 +339,7 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
             case 2:
                 cell.titleLabel.text = AppHelper.getLocalizeString(str:"Dosage")
                 cell.cellType = .MedicationDosage
+                cell.userEntryTextField.text = userEnteredDetails[indexPath.row]
                 if EditVc ?? false {
                     cell.userEntryTextField.text = dosage
                     cell.configureCell(with: dosage ?? "", at: 2)
@@ -289,6 +347,7 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
             case 3:
                 cell.titleLabel.text = AppHelper.getLocalizeString(str:"Direction")
                 cell.cellType = .MedicationDirection
+                cell.userEntryTextField.text = userEnteredDetails[indexPath.row]
                 if EditVc ?? false {
                     cell.userEntryTextField.text = direction
                     cell.configureCell(with: direction ?? "", at: 3)
@@ -315,7 +374,14 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddNewMedicationSwitchTableCell", for: indexPath) as! AddNewMedicationSwitchTableCell
             cell.selectionStyle = .none
             cell.cellTitleLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "With Meal" : "Con la Comida."
-            cell.scheduleTimeLbl.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?   "Schedule Time & Alarm" :  "Programar Hora y Alarma."
+            
+            if EditVc ?? false {
+                cell.scheduleTimeLbl.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?   "Update Time & Alarm" :  "Programar Hora y Alarma."
+            } else {
+                cell.scheduleTimeLbl.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?   "Schedule Time & Alarm" :  "Programar Hora y Alarma."
+            }
+            
+            
             cell.isMedicationIncluded = {
                 [weak self] (canIncludeMedicineWithMeals) in
                 self?.isMedicineWithMeals = canIncludeMedicineWithMeals
@@ -427,6 +493,11 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
             
 //            presentModal(instance: medicationTimeData[indexPath.row - alarmCellStartIndex])
             checkNotificationPermission(instance: medicationTimeData[indexPath.row - alarmCellStartIndex])
+            presetAlarm?[indexPath.row - alarmCellStartIndex] = medicationTimeData[indexPath.row - alarmCellStartIndex]
+            
+            for alarm in presetAlarm ?? [] {
+                print("Alarm Time From did select: \(alarm.alarmTime)")
+            }
         }
         
     }
@@ -507,7 +578,13 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
             self?.userAddMedicationsTableView.reloadData()
             self?.dimmingView?.removeFromSuperview()
         }
-        vc.headingLabelString = AppHelper.getLocalizeString(str:"Add Time & Alarm")
+        
+        if EditVc ?? false {
+            vc.headingLabelString = AppHelper.getLocalizeString(str:"Update Time & Alarm")
+        } else {
+            vc.headingLabelString = AppHelper.getLocalizeString(str:"Add Time & Alarm")
+        }
+        
         vc.medicineDose = userEnteredDetails[2]
         vc.medicineName = userEnteredDetails[0]
         
