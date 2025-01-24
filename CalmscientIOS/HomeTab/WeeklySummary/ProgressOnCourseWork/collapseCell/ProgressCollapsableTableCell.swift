@@ -42,7 +42,7 @@ class ProgressCollapsableTableCell: UITableViewCell {
     var dataItem: ProgressOfWorkCellData! {
         didSet {
             title.text = dataItem.title
-            titlePercentage.text = dataItem.titlePer
+            titlePercentage.text = "\(dataItem.titlePer) %"
             
             // Clear previous sub-section views
             subStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
@@ -78,7 +78,7 @@ class ProgressCollapsableTableCell: UITableViewCell {
                            subLabel.attributedText = attributedString
                            
                            let percentageLabel = UILabel()
-                           percentageLabel.font = UIFont(name: Fonts().lexendMedium, size: 15)
+                           percentageLabel.font = UIFont(name: Fonts().lexendLight, size: 12)
                            if index < dataItem.percentage.count {
                                percentageLabel.text = "\(dataItem.percentage[index])%  "
                            } else {
@@ -107,6 +107,7 @@ class ProgressCollapsableTableCell: UITableViewCell {
         super.awakeFromNib()
         addShadowAndBorder()
         setupSubStackView()
+        selectionStyle = .none
         // Initialization code
     }
 
@@ -152,11 +153,7 @@ class ProgressCollapsableTableCell: UITableViewCell {
         shadowView.layer.shadowOffset = CGSize(width: 0, height: 1.0)
         shadowView.layer.shadowOpacity = 0.2
         shadowView.layer.shadowRadius = 2.0
-        
-//        borderView.layer.cornerRadius = 8
-//        borderView.layer.masksToBounds = true
-//        borderView.layer.borderWidth = 1
-//        borderView.layer.borderColor = UIColor(named: "AppViewBorderColor")?.cgColor
+
         borderView.applyShadow()
     }
     

@@ -53,15 +53,13 @@ class WeeklySummaryDashboardViewController: ViewController {
         let button: UIButton = UIButton(type: UIButton.ButtonType.custom)
                 //set image for button
         button.setImage(UIImage(named: "profileIcon.png"), for: UIControl.State.normal)
-                //add function for button
-       // button.addTarget(self, action: Selector(("profileButtonPressed")), for: UIControl.Event.touchUpInside)
         button.addTarget(self, action: #selector(profileButtonPressed), for: .touchUpInside)
                 //set frame
                 button.frame = CGRectMake(0, 0, 32, 32)
 
                 let barButton = UIBarButtonItem(customView: button)
                 //assign button to navigationbar
-                self.navigationItem.rightBarButtonItem = barButton
+//                self.navigationItem.rightBarButtonItem = barButton
 
     }
     

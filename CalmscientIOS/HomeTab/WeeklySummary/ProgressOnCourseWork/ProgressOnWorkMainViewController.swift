@@ -25,12 +25,7 @@ class ProgressOnWorkMainViewController: ViewController {
     var tableData:[ProgressOfWorkMainTableData] = []
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-//        tableData.append(ProgressOfWorkMainTableData(title: "Braving Anxiety", subTitle: "45%"))
-//        tableData.append(ProgressOfWorkMainTableData(title: "Feeling Better", subTitle: "18%"))
-//        tableData.append(ProgressOfWorkMainTableData(title: "Taking Control", subTitle: "10%"))
-//        tableData.append(ProgressOfWorkMainTableData(title: "Building Confidence", subTitle: "17%"))
+
         guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
             fatalError("Unable to found Application Shared Info")
         }
@@ -65,16 +60,7 @@ class ProgressOnWorkMainViewController: ViewController {
                                 setUpTableView()
 
                                 tableView.reloadData()
-                                
-//                                        if let firstCourse = newdata.first {
-//                                            mainPercentage = firstCourse["completedPer"] as? Int
-//                                            print("mainPercentage\(mainPercentage ?? 0)")
-//                                            let courseName = firstCourse["courseName"] as? String
-//                                            tableData.append(ProgressOfWorkMainTableData(title: courseName, subTitle: "\(mainPercentage ?? Int(0.0))%"))
-//                                            setUpTableView()
-//
-//                                            tableView.reloadData()
-//                                        }
+
                                     } else {
                                         print("Unable to cast patientcourseWorkList to [[String: Any]]")
                                     }
@@ -92,6 +78,8 @@ class ProgressOnWorkMainViewController: ViewController {
                 print("Error: \(error)")
             }
         }
+        
+        tableView.isScrollEnabled = false
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {

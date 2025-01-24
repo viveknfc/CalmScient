@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="lexendregular.ttf">
+        <array key="Lexend-Medium.ttf">
+            <string>Lexend-Medium</string>
+        </array>
+        <array key="Lexend-Regular.ttf">
             <string>Lexend-Regular</string>
         </array>
     </customFonts>
@@ -30,8 +33,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eiF-Vv-KuI">
                                 <rect key="frame" x="0.0" y="0.0" width="328" height="54"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9A-Mb-eGh">
-                                        <rect key="frame" x="8" y="16" width="0.0" height="0.0"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9A-Mb-eGh">
+                                        <rect key="frame" x="8" y="16" width="239" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
                                         <color key="textColor" name="424242Color"/>
                                         <nil key="highlightedColor"/>
@@ -43,19 +46,26 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5K-hh-5L7">
-                                        <rect key="frame" x="290" y="16" width="0.0" height="0.0"/>
-                                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="12"/>
+                                        <rect key="frame" x="257" y="16" width="40" height="0.0"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="UEh-Q8-y9q"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="Lexend-Medium" family="Lexend" pointSize="12"/>
                                         <color key="textColor" name="424242Color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1cE-Rs-mfT">
-                                        <rect key="frame" x="290" y="35" width="0.0" height="0.0"/>
+                                        <rect key="frame" x="297" y="35" width="0.0" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="12"/>
                                         <color key="textColor" name="424242Color"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GJs-f5-svU">
-                                        <rect key="frame" x="298" y="5" width="22" height="22"/>
+                                        <rect key="frame" x="305" y="8.6666666666666679" width="15" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="jWM-5E-v7c"/>
+                                            <constraint firstAttribute="width" constant="15" id="tXJ-Qp-So7"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="18"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" image="cellExpansion"/>
@@ -72,6 +82,7 @@
                                     <constraint firstItem="v3C-zj-cfd" firstAttribute="top" secondItem="f9A-Mb-eGh" secondAttribute="bottom" constant="19" id="FOg-Gj-22s"/>
                                     <constraint firstItem="1cE-Rs-mfT" firstAttribute="centerY" secondItem="v3C-zj-cfd" secondAttribute="centerY" id="I2k-y6-Hjy"/>
                                     <constraint firstItem="1cE-Rs-mfT" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="v3C-zj-cfd" secondAttribute="trailing" constant="8" id="P2M-zP-B5O"/>
+                                    <constraint firstItem="y5K-hh-5L7" firstAttribute="leading" secondItem="f9A-Mb-eGh" secondAttribute="trailing" constant="10" id="Qhm-S5-j9J"/>
                                     <constraint firstItem="f9A-Mb-eGh" firstAttribute="top" secondItem="eiF-Vv-KuI" secondAttribute="top" constant="16" id="SRs-LY-zhL"/>
                                     <constraint firstItem="v3C-zj-cfd" firstAttribute="leading" secondItem="f9A-Mb-eGh" secondAttribute="leading" id="WGs-qE-bqE"/>
                                     <constraint firstItem="GJs-f5-svU" firstAttribute="centerY" secondItem="f9A-Mb-eGh" secondAttribute="centerY" id="ZYG-UM-ygr"/>

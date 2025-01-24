@@ -19,6 +19,10 @@ class ChartViewTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         addShadowAndBorder()
+        
+        lineChartView.doubleTapToZoomEnabled = false
+        barChartView.doubleTapToZoomEnabled = false
+        
         // Initialization code
     }
 
@@ -31,6 +35,11 @@ class ChartViewTableCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         graphData = []
+        
+        lineChartView.data = nil
+        lineChartView.notifyDataSetChanged()
+        barChartView.data = nil
+        barChartView.notifyDataSetChanged()
     }
     
     fileprivate func addShadowAndBorder() {
@@ -156,9 +165,13 @@ class ChartViewTableCell: UITableViewCell {
         lineChartView.xAxis.drawGridLinesBehindDataEnabled = false
         lineChartView.xAxis.drawGridLinesEnabled = false
         if (self.graphData.count > 0) {
-            lineChartView.xAxis.labelCount = self.graphData.count - 1
+            lineChartView.xAxis.labelCount = self.graphData.count // -1 was there
             lineChartView.xAxis.axisMinimum = 0
             lineChartView.xAxis.axisMaximum = Double(self.graphData.count - 1)
+            lineChartView.xAxis.granularity = 1.0 //new
+            lineChartView.xAxis.granularityEnabled = true //new
+            lineChartView.xAxis.forceLabelsEnabled = true //new
+
         } else {
             lineChartView.xAxis.labelCount = 0
         }
@@ -220,7 +233,7 @@ class ChartViewTableCell: UITableViewCell {
     
     public func setupbarChartView(data:[GraphData]) {
         self.graphData = data
-       
+        print("the graph data is", graphData.last?.xValue ?? "NA")
         self.bringSubviewToFront(barChartView)
         lineChartView.isHidden = true
         barChartView.isHidden = false
@@ -250,10 +263,8 @@ class ChartViewTableCell: UITableViewCell {
 
         leftAxis.labelTextColor = UIColor(named: "lineChartLabelColor")!
         leftAxis.drawAxisLineEnabled = false
-        leftAxis.axisMinimum = 1
         leftAxis.labelCount = self.getYAxisMaximumValue()
         leftAxis.axisMaximum = Double(self.getYAxisMaximumValue())
-        leftAxis.axisMinimum = 0
         leftAxis.valueFormatter = MoodValueAxisFormatter()
         leftAxis.labelPosition = .outsideChart
         leftAxis.spaceTop = 0.15
@@ -275,7 +286,8 @@ class ChartViewTableCell: UITableViewCell {
         var entries:[BarChartDataEntry] = []
         let colors = [UIColor(named: "barColor1")!,UIColor(named: "barColor2")!,UIColor(named: "barColor3")!,UIColor(named: "barColor4")!,UIColor(named: "barColor5")!]
         for (idx,val) in graphData.enumerated() {
-            let entry = BarChartDataEntry(x: Double(idx + 1), y: Double(val.yValue))
+            let entry = BarChartDataEntry(x: Double(idx+1), y: Double(val.yValue)) //+1 added
+            
             entries.append(entry)
         }
         let dataset = BarChartDataSet(entries: entries)
@@ -370,26 +382,24 @@ public class LineChartViewMarkerView: BalloonMarker {
 
 public class XAxisLineChartFormatter: AxisValueFormatter {
     
-    public func stringForValue(_ value: Double, axis: DGCharts.AxisBase?) -> String {
-
-        if(graphData.count > Int(value)){
-            print("the int value is",Int(value))
-            if (Int(value) == -1) {
-                return ""
-            }
-            let obj = graphData[Int(value)].getXAxisLabelValue()
-//            let obj = graphData[Int(value == -1 ? 0 : value)].getXAxisLabelValue()
-            print("the graph data value is", obj)
-            return obj
-        }else{
-            return ""
-        }
-    }
-    
     var graphData:[GraphData]
     init(graphData: [GraphData]) {
         self.graphData = graphData
+        print("graph data is", graphData)
     }
+    
+    public func stringForValue(_ value: Double, axis: DGCharts.AxisBase?) -> String {
+        let index = Int(round(value))
+//           print("Rounded value: \(index)")
+           if index >= 0 && index < graphData.count {
+               let obj = graphData[index].getXAxisLabelValue()
+               return obj
+           } else {
+               return ""
+           }
+
+    }
+    
 }
 
 public class ScoreAxisFormatter: AxisValueFormatter {

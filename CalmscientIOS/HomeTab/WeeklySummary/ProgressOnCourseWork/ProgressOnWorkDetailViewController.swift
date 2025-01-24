@@ -41,7 +41,8 @@ class ProgressOnWorkDetailViewController: ViewController, UITableViewDataSource,
             summaryResultsTableView.bottomAnchor.constraint(equalTo: needToTalkSomeOneButton.topAnchor, constant: -20),
         ])
         self.view.bringSubviewToFront(needToTalkSomeOneButton)
-        summaryResultsTableView.allowsSelection = false
+        summaryResultsTableView.allowsSelection = true
+        summaryResultsTableView.isScrollEnabled = false
         summaryResultsTableView.reloadData()
     }
     
@@ -96,6 +97,7 @@ class ProgressOnWorkDetailViewController: ViewController, UITableViewDataSource,
                 view.cellTitleLabel.text = name
                 view.percentageLabel.text = "\(perc)%"
                 view.progressView.progress = perc / 100.0
+                view.courseLabel.text = "Section"
             }
             header = view
         }
@@ -116,10 +118,6 @@ class ProgressOnWorkDetailViewController: ViewController, UITableViewDataSource,
                         return cell
                     } else {
                         return UITableViewCell()
-//                        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "SubsectionCell")
-//                        cell.textLabel?.text = dataItem.subtitle[indexPath.row - 1]
-//                        cell.detailTextLabel?.text = dataItem.percentage[indexPath.row - 1]
-//                        return cell
                     }
         }
     
@@ -137,6 +135,18 @@ class ProgressOnWorkDetailViewController: ViewController, UITableViewDataSource,
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Handle cell selection if needed
+        print("cell expansion row clicked")
+        if indexPath.row == 0 {
+            let dataItem = tableData[indexPath.section]
+            
+            // Toggle the expansion state
+            dataItem.updateExpansionState(isExpanded: !dataItem.exapansionState)
+            
+            // Reload the section to reflect changes
+            tableView.reloadSections(IndexSet(integer: indexPath.section), with: .automatic)
+        }
+
+    
     }
     
 }
