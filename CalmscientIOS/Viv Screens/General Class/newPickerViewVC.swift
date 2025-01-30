@@ -30,10 +30,18 @@ class newPickerViewVC: UIViewController {
             dateSelector.minimumDate = minimumDate
            }
 
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+         tapGesture.cancelsTouchesInView = false
+         view.addGestureRecognizer(tapGesture)
         // Do any additional setup after loading the view.
     }
     
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
     @IBAction func okButtonTapped(_ sender: UIButton) {
+            dismissKeyboard()
            let selectedDate = dateSelector.date
             delegate?.didSelectDate(selectedDate, indexPath: indexPath)
             delegate?.didDismissPicker()
@@ -41,6 +49,7 @@ class newPickerViewVC: UIViewController {
        }
        
        @IBAction func cancelButtonTapped(_ sender: UIButton) {
+           dismissKeyboard()
            delegate?.didDismissPicker()
            dismiss(animated: true, completion: nil)
        }

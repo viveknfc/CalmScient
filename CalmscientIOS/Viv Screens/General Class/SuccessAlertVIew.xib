@@ -23,17 +23,17 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQi-7U-lu0">
-                    <rect key="frame" x="20" y="296" width="353" height="260"/>
+                    <rect key="frame" x="20" y="271" width="353" height="310"/>
                     <subviews>
                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="greentickMarkCircle" translatesAutoresizingMaskIntoConstraints="NO" id="Z3y-Zg-6Bi">
-                            <rect key="frame" x="126.66666666666666" y="20" width="100" height="100"/>
+                            <rect key="frame" x="101.66666666666669" y="20" width="150" height="150"/>
                             <constraints>
-                                <constraint firstAttribute="height" constant="100" id="7FN-3O-CuD"/>
-                                <constraint firstAttribute="width" constant="100" id="AbO-Ew-3o8"/>
+                                <constraint firstAttribute="height" constant="150" id="7FN-3O-CuD"/>
+                                <constraint firstAttribute="width" constant="150" id="AbO-Ew-3o8"/>
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You saved your mood successfully" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aYe-Sk-0oc" customClass="FontLR16" customModule="CalmscientIOS" customModuleProvider="target">
-                            <rect key="frame" x="20" y="140" width="313" height="40"/>
+                            <rect key="frame" x="20" y="190" width="313" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="ZoH-9u-LY3"/>
                             </constraints>
@@ -42,7 +42,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r4p-8f-K0g" customClass="LinearGradientButton" customModule="CalmscientIOS" customModuleProvider="target">
-                            <rect key="frame" x="126.66666666666666" y="200" width="100" height="40"/>
+                            <rect key="frame" x="126.66666666666666" y="250" width="100" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="100" id="jeP-er-FeT"/>
                                 <constraint firstAttribute="height" constant="40" id="rZO-PO-ogm"/>

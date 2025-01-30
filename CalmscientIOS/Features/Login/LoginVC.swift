@@ -221,17 +221,29 @@ class LoginVC: UIViewController,UITextFieldDelegate {
                             ApplicationSharedInfo.shared.tokenResponse = loginResponse.tokenResponse
                             
                             UserDefaultsHelper.saveLoginDetailsToUserDefaults(loginDetails: loginResponse.loginDetails, tokenResponse: loginResponse.tokenResponse)
-
-                            let storyboard = UIStoryboard(name: "UserIntro", bundle: nil)
-                                let homeViewController = storyboard.instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as! UserIntroDayFeedbackViewController
-                            homeViewController.afternoonVC = true
-                            homeViewController.titleString = "\(loginResponse.loginDetails.firstName)"
-                            UserDefaults.standard.set("\(loginResponse.loginDetails.firstName)", forKey: "titleString")
-                                // Wrap the home view controller in a navigation controller if needed
-                                let navController = UINavigationController(rootViewController: homeViewController)
                             
+                            var navController: UINavigationController?
+
+                            if TimeZoneHelper.isTimeZoneChanged() {
+                                print("Time zone has changed or saved time is outdated.")
+                                let storyboard = UIStoryboard(name: "UserIntro", bundle: nil)
+                                    let homeViewController = storyboard.instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as! UserIntroDayFeedbackViewController
+                                homeViewController.afternoonVC = true
+                                homeViewController.titleString = "\(loginResponse.loginDetails.firstName)"
+                                UserDefaults.standard.set("\(loginResponse.loginDetails.firstName)", forKey: "titleString")
+                                    // Wrap the home view controller in a navigation controller if needed
+                                    navController = UINavigationController(rootViewController: homeViewController)
+                            } else {
+                                print("Time zone remains the same.")
+                                let storyboard = UIStoryboard(name: "AppTabBar", bundle: nil)
+                                    let homeViewController = storyboard.instantiateViewController(withIdentifier: "AppMainTabViewController") as! AppMainTabViewController
+                                homeViewController.isInitalView = false
+                                navController = UINavigationController(rootViewController: homeViewController)
+                                navController?.navigationBar.isHidden = true
+                            }
+
                                 if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
-                                    sceneDelegate.changeRootViewController(to: navController)
+                                    sceneDelegate.changeRootViewController(to: navController!)
                                 }
 
                         }

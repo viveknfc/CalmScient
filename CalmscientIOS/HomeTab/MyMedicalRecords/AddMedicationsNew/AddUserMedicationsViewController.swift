@@ -29,8 +29,18 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
                 let status = isSelected ? "1" : "0"
         print("-----alarm delegate status-----")
         print(status)
-                medicationTimeData[index].alarmEnabled = status
-        print(medicationTimeData[index].alarmEnabled)
+        
+        if EditVc ?? false {
+            presetAlarm?[index].alarmEnabled = status
+            if status == "1" {
+                presetAlarm?[index].isDefault = 1
+            }
+        } else {
+            medicationTimeData[index].alarmEnabled = status
+            if status == "1" {
+                medicationTimeData[index].isDefault = 1
+            }
+        }
         
     }
     
@@ -63,8 +73,11 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
     var dosage: String?
     var direction: String?
     var prescriptionId: Int?
-    
+    var expiryDate: String?
+    var meal: Int?
+
     var presetAlarm:[MedicationAlarm]?
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,6 +99,9 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
             dosage = medicationData.medicationDetailsByDate.first?.medicalDetails.medicineDosage
             direction = medicationData.medicationDetailsByDate.first?.medicalDetails.directions
             prescriptionId = medicationData.medicationDetailsByDate.first?.medicalDetails.prescriptionID ?? 0
+         
+            expiryDate = medicationData.medicationDetailsByDate.first?.medicalDetails.endDate ?? ""
+            meal = medicationData.medicationDetailsByDate.first?.medicalDetails.withMeal
             
             //viv start
             
@@ -93,13 +109,15 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
                 presetAlarm = []
                 for schedule in firstDetail.scheduledTimeList {
                     presetAlarm?.append(contentsOf: schedule.scheduledTimes)
-                }
-                for alarm in presetAlarm ?? [] {
-                    print("Alarm Time: \(alarm.alarmTime)")
+//                    medicationTimeData.append(contentsOf: schedule.scheduledTimes) //newly added
                 }
             }
 
-            
+            if let alarms = presetAlarm {
+                for alarm in alarms {
+                    print("Alarm ID: \(alarm.alarmId)")
+                }
+            }
             //end
             } else {
                 print("Medication Data is empty")
@@ -114,6 +132,11 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
     @objc private func dismissKeyboard() {
         view.endEditing(true)
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder() // Dismiss the keyboard
+            return true
+        }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -173,7 +196,8 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
             let medicationData = AddMedication()
             
             for alarm in medicationTimeData {
-                print("-----alarm isenabled-----")
+                print("-----alarm isenabled-----", alarm.alarmEnabled ?? "NA")
+                print("-----alarm ID-----", alarm.alarmId)
             }
 
             medicationData.direction = userEnteredDetails[3]
@@ -186,7 +210,10 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
             medicationData.quantity = medicationTimeData.count
             medicationData.withMeal = (isMedicineWithMeals ? 1 : 0)
             medicationData.medicineTime = medicationTimeData.first?.medicineTime ?? "13:30:00"
-
+            
+            if let expiryDate = expiryDate {
+                medicationData.endDate = expiryDate
+            }
             
             var pvcFlag: String {
                 return EditVc ?? false ? "U" : "I"
@@ -197,17 +224,41 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
 
             medicationData.pvcFlag = pvcFlag
             
-            for index in medicationData.alarms.indices {
-                if index < medicationTimeData.count {
-                    medicationData.alarms[index].flag = iValue
-                    medicationData.alarms[index].isEnabled = Int(medicationTimeData[index].alarmEnabled ?? "0")
-                    medicationData.alarms[index].alarmDate = Date().dateToString(format: "MM/dd/yyyy")
+            if let presetAlarms = presetAlarm {
+                for index in medicationData.alarms.indices {
+                    if index < presetAlarms.count {
+                        let alarmData = presetAlarms[index]
+                        
+                        medicationData.alarms[index].flag = iValue
+                        medicationData.alarms[index].isEnabled = Int(presetAlarm?[index].alarmEnabled ?? "0")
+                        medicationData.alarms[index].alarmDate = Date().dateToString(format: "MM/dd/yyyy")
+                        
+                        medicationData.alarms[index].alarmId = alarmData.alarmId
+                        medicationData.alarms[index].medicationId = alarmData.medicationId ?? 0
+                        medicationData.alarms[index].pmtId = alarmData.pmtId
+                        medicationData.alarms[index].medicineTime = presetAlarm?[index].medicineTime ?? "13:30:00"
+                        medicationData.alarms[index].isDefault = alarmData.isDefault
+
+                    } else {
+                        medicationData.alarms[index].flag = iValue
+                        medicationData.alarms[index].isEnabled = Int(medicationTimeData[index].alarmEnabled ?? "0")
+                        medicationData.alarms[index].alarmDate = Date().dateToString(format: "MM/dd/yyyy")
+                        medicationData.alarms[index].medicationId = 0
+                        medicationData.alarms[index].medicineTime = medicationTimeData[index].medicineTime
+                    }
                 }
+            } else {
+                
+                for index in medicationData.alarms.indices {
+                        medicationData.alarms[index].flag = iValue
+                        medicationData.alarms[index].isEnabled = Int(medicationTimeData[index].alarmEnabled ?? "0")
+                        medicationData.alarms[index].alarmDate = Date().dateToString(format: "MM/dd/yyyy")
+                        medicationData.alarms[index].medicationId = 0
+                        medicationData.alarms[index].medicineTime = medicationTimeData[index].medicineTime
+                }
+ 
             }
-
-
            
-            
             guard let jsonData = try? JSONEncoder().encode(medicationData) else {
                 return
             }
@@ -235,9 +286,12 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
                         let title = response.response.responseMessage
                         
                         self.showSuccessAlert(successContent: title, okButtonAction: {
-                            print("OK button tapped!")
-                            self.navigationController?.popViewController(animated: true)
-                            self.refreshControlClosure?(true)
+
+                                print("OK button tapped!")
+                                self.navigationController?.popViewController(animated: true)
+                                self.refreshControlClosure?(true)
+                            
+                            
                         })
 
                     } else if let failureResponse = failureResponse {
@@ -376,6 +430,9 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
             cell.cellTitleLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "With Meal" : "Con la Comida."
             
             if EditVc ?? false {
+                
+                cell.expiryTextfield.text = expiryDate
+                cell.switchButton.status = (meal == 1)
                 cell.scheduleTimeLbl.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?   "Update Time & Alarm" :  "Programar Hora y Alarma."
             } else {
                 cell.scheduleTimeLbl.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?   "Schedule Time & Alarm" :  "Programar Hora y Alarma."
@@ -384,12 +441,13 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
             
             cell.isMedicationIncluded = {
                 [weak self] (canIncludeMedicineWithMeals) in
+                print("the meals selection is",canIncludeMedicineWithMeals)
                 self?.isMedicineWithMeals = canIncludeMedicineWithMeals
             }
             cell.didTapExpiryTextField = { [weak self] in
                    guard let self = self else { return }
                    print("did expiry text firld tapped")
-                
+                dismissKeyboard()
                 
                 guard let parentViewController = cell.findViewController() else {
                       print("No parent view controller found")
@@ -404,6 +462,7 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
                 vc.delegate = self // Assuming this conforms to `newPickerViewVCDelegate`
                 vc.indexPath = indexPath
                 vc.minimumDate = Date()
+                
                   
                   // Add dimming view
                   if let window = UIApplication.shared.windows.first(where: \.isKeyWindow) {
@@ -457,6 +516,7 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
 
         let formattedDate = dateFormatter.string(from: resetDate)
         print("The formatted date is:", formattedDate)
+        expiryDate = formattedDate
         print("The selected date is:", date)
         
         // If indexPath is provided, update the corresponding cell's text field
@@ -490,14 +550,16 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
         let cellType = cellData[indexPath.row]
         
         if cellType == .MedicationsDetailCell {
-            
-//            presentModal(instance: medicationTimeData[indexPath.row - alarmCellStartIndex])
-            checkNotificationPermission(instance: medicationTimeData[indexPath.row - alarmCellStartIndex])
-            presetAlarm?[indexPath.row - alarmCellStartIndex] = medicationTimeData[indexPath.row - alarmCellStartIndex]
-            
-            for alarm in presetAlarm ?? [] {
-                print("Alarm Time From did select: \(alarm.alarmTime)")
+
+            if EditVc ?? false {
+
+                    checkNotificationPermission(instance: presetAlarm![indexPath.row - alarmCellStartIndex])
+                presetAlarm![indexPath.row - alarmCellStartIndex].dayTime = medicationTimeData[indexPath.row - alarmCellStartIndex].dayTime
+       
+            } else {
+                checkNotificationPermission(instance: medicationTimeData[indexPath.row - alarmCellStartIndex])
             }
+            print("alarm ID is",presetAlarm?[indexPath.row - alarmCellStartIndex].alarmId ?? 555 )
         }
         
     }
@@ -575,6 +637,10 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
         vc.isNewMedicationCreation = true
         vc.newMedicationInstance = instance
         vc.onScheetClosed = { [weak self] in
+
+//            vc.newMedicationInstance?.isDefault = 1
+            print("medication time from bottom sheet close is", vc.newMedicationInstance?.medicineTime ?? "NA")
+            print("medication default value is", vc.newMedicationInstance?.isDefault ?? 999)
             self?.userAddMedicationsTableView.reloadData()
             self?.dimmingView?.removeFromSuperview()
         }

@@ -49,6 +49,7 @@ class SuccessAlertView: UIView {
     
     
     @IBAction func okButtonTapped(_ sender: Any) {
+        print("OK button tapped! from SuccessAlertView")
         okButtonAction?()
     }
     
@@ -63,7 +64,11 @@ extension UIViewController {
         dimmingView.tag = 999 // Add a tag to identify and remove it later
         
         // Initialize the SuccessAlertView
-        let alertView = SuccessAlertView(frame: CGRect(x: 40, y: (UIScreen.main.bounds.height - 200) / 2, width: UIScreen.main.bounds.width - 80, height: 200))
+//        let alertView = SuccessAlertView(frame: CGRect(x: 40, y: (UIScreen.main.bounds.height - 200) / 2, width: UIScreen.main.bounds.width - 80, height: 200))
+
+//        let alertViewHeight: CGFloat = 200 + (centreImage?.size.height ?? 0) - 100 // Adjust the height based on the new image size
+        let alertView = SuccessAlertView(frame: CGRect(x: 40, y: (UIScreen.main.bounds.height - 250) / 2, width: UIScreen.main.bounds.width - 80, height: 250))
+
         
         // Configure the successContent if provided
         if let content = successContent {
@@ -77,6 +82,7 @@ extension UIViewController {
         
         // Set the OK button action
         alertView.okButtonAction = {
+            print("OK button tapped! from showSuccessAlert fucntion")
             // Animate the removal of the dimming view and alert view
             UIView.animate(withDuration: 0.3, animations: {
                 dimmingView.alpha = 0
@@ -91,6 +97,7 @@ extension UIViewController {
         // Add the dimming view and alert view to the current view
         self.view.addSubview(dimmingView)
         self.view.addSubview(alertView)
+
         
         // Animate the appearance
         UIView.animate(withDuration: 0.3) {

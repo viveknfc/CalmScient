@@ -11,6 +11,9 @@ protocol CustomTableViewCellDelegate: AnyObject {
     func didChangeSelectionState(for cell: UITableViewCell, isSelected: Bool)
     func didTapEditButton(in cell: UITableViewCell)
     func didTapDeleteButton(in cell: UITableViewCell)
+    
+    func didTapMoreButton(in cell: UITableViewCell, at indexPath: IndexPath, buttonFrame: CGRect)
+    func dismissDropdown()
 }
 
 class UserMedicationsTableCell: UITableViewCell {
@@ -22,12 +25,19 @@ class UserMedicationsTableCell: UITableViewCell {
     @IBOutlet weak var subTitleLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var pmTimeLabel: UILabel!
+    @IBOutlet weak var afTimeLabel: UILabel!
+    @IBOutlet weak var cellStatusLabel: UILabel!
+    @IBOutlet weak var expiredLabel: UILabel!
     
-    @IBOutlet weak var deleteButton: UIButton!
-    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var expiredLeadingValue: NSLayoutConstraint!
+    
+    @IBOutlet weak var dropDownButton: UIButton!
     
     @IBOutlet weak var PMImage: UIImageView!
     @IBOutlet weak var AMImage: UIImageView!
+    @IBOutlet weak var AFImage: UIImageView!
+    
+    
     public var isCellSelected = Bool()
     public var buttonState: SelectionButtonState = .dafault {
         didSet {
@@ -36,12 +46,13 @@ class UserMedicationsTableCell: UITableViewCell {
                    } else {
                        isCellSelected = false
                    }
-//            self.isCellSelected = (buttonState == .selected)
             delegate?.didChangeSelectionState(for: self, isSelected: isCellSelected) // Pass the cell itself
+            
         }
     }
     
     weak var delegate: CustomTableViewCellDelegate?
+    var indexPath: IndexPath?
 
     @IBAction func didTapOnSelectionButton(_ sender: UITapGestureRecognizer) {
         if buttonState == .dafault {
@@ -57,9 +68,6 @@ class UserMedicationsTableCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         addShadowAndBorder()
-        
-        editButton.addTarget(self, action: #selector(editButtonTapped(_:)), for: .touchUpInside)
-        deleteButton.addTarget(self, action: #selector(deleteButtonTapped(_:)), for: .touchUpInside)
         
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.didTapOnSelectionButton(_:)))
         self.cellSelectionImage.isUserInteractionEnabled = true
@@ -84,40 +92,92 @@ class UserMedicationsTableCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @IBAction func editButtonTapped(_ sender: UIButton) {
-          delegate?.didTapEditButton(in: self)
-      }
+    @IBAction func dropDownButtonTapped(_ sender: UIButton) {
+        guard let tableView = self.superview as? UITableView,
+                      let indexPath = indexPath else { return }
 
-      @IBAction func deleteButtonTapped(_ sender: UIButton) {
-          delegate?.didTapDeleteButton(in: self)
-      }
+                // Convert the button's frame to the table view's coordinate system
+                let buttonFrame = sender.convert(sender.bounds, to: tableView)
+                delegate?.didTapMoreButton(in: self, at: indexPath, buttonFrame: buttonFrame)
+    }
+    
     
     func updateCellWith(MedicalDetails record:MedicineDetails) {
         titleLabel.text = record.medicationDetailsByDate[0].medicineName
         subTitleLabel.text = record.medicationDetailsByDate[0].medicalDetails.directions
         
         let alarmList = record.medicationDetailsByDate[0].medicalDetails.scheduledTimeList
-        if let morningFilteredList = alarmList.filter({ obj in
-            obj.scheduledTimes[0].alarmTime.isDayTimeAM()
-        }).first {
+        
+        //viv start
+        
+        let enabledAlarms = alarmList.flatMap { obj in
+            obj.scheduledTimes.filter { $0.isDefault == 1 }
+        }
+        
+        if let morningAlarm = enabledAlarms.first(where: { $0.alarmTime.isDayTimeAM() }) {
             AMImage.isHidden = false
-            timeLabel.text =  morningFilteredList.scheduledTimes[0].alarmTime.getDayTimeFromDate(includeTimeZone: true)
+            timeLabel.text = morningAlarm.alarmTime.getDayTimeFromDate(includeTimeZone: true)
+            print("Morning alarm is", timeLabel.text ?? "")
         } else {
             AMImage.isHidden = true
-
             timeLabel.text = ""
         }
         
-        if let morningFilteredList = alarmList.filter({ obj in
-            obj.scheduledTimes[0].alarmTime.isDayTimePM()
-        }).first {
+        if let afternoonAlarm = enabledAlarms.first(where: { $0.alarmTime.isDayTimePM() }) {
+            AFImage.isHidden = false
+            afTimeLabel.text = afternoonAlarm.alarmTime.getDayTimeFromDate(includeTimeZone: true)
+            print("Afternoon alarm is", afTimeLabel.text ?? "")
+        } else {
+            AFImage.isHidden = true
+            afTimeLabel.text = ""
+        }
+        
+        if let eveningAlarm = enabledAlarms.first(where: { $0.alarmTime.isDayTimeEvening() }) {
             PMImage.isHidden = false
-
-            pmTimeLabel.text =  morningFilteredList.scheduledTimes[0].alarmTime.getDayTimeFromDate(includeTimeZone: true)
+            pmTimeLabel.text = eveningAlarm.alarmTime.getDayTimeFromDate(includeTimeZone: true)
+            print("Afternoon alarm is", afTimeLabel.text ?? "")
         } else {
             PMImage.isHidden = true
             pmTimeLabel.text = ""
         }
+
+        
+        //end
+        
+//        let alarmEnableStatus = record.medicationDetailsByDate[0].medicalDetails.scheduledTimeList.first?.scheduledTimes.first?.alarmEnabled ?? "0"
+        
+//        if let morningFilteredList = alarmList.first(where: { obj in
+//            obj.scheduledTimes.first?.alarmTime.isDayTimeAM() == true
+//        }), alarmEnableStatus == "1" {
+//            AMImage.isHidden = false
+//            timeLabel.text = morningFilteredList.scheduledTimes.first?.alarmTime.getDayTimeFromDate(includeTimeZone: true) ?? ""
+//            print("morning alarm is ", timeLabel.text ?? "NA")
+//        } else {
+//            AMImage.isHidden = true
+//            timeLabel.text = ""
+//        }
+        
+//        if let afternoonFilteredList = alarmList.first(where: { obj in
+//            obj.scheduledTimes.first?.alarmTime.isDayTimePM() == true
+//        }), alarmEnableStatus == "1" {
+//            AFImage.isHidden = false
+//            afTimeLabel.text = afternoonFilteredList.scheduledTimes.first?.alarmTime.getDayTimeFromDate(includeTimeZone: true) ?? ""
+//            print("afternoon alarm is ", timeLabel.text ?? "NA")
+//        } else {
+//            AFImage.isHidden = true
+//            afTimeLabel.text = ""
+//        }
+        
+//        if let eveningFilteredList = alarmList.first(where: { obj in
+//            obj.scheduledTimes.first?.alarmTime.isDayTimeEvening() == true
+//        }), alarmEnableStatus == "1" {
+//            PMImage.isHidden = false
+//            pmTimeLabel.text = eveningFilteredList.scheduledTimes.first?.alarmTime.getDayTimeFromDate(includeTimeZone: true) ?? ""
+//            print("Evening alarm is ", timeLabel.text ?? "NA")
+//        } else {
+//            PMImage.isHidden = true
+//            pmTimeLabel.text = ""
+//        }
     }
     
     fileprivate func addShadowAndBorder() {
@@ -135,3 +195,5 @@ class UserMedicationsTableCell: UITableViewCell {
 
     
 }
+
+

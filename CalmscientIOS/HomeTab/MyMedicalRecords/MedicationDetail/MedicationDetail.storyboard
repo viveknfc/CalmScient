@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="lexendmedium.ttf">
+        <array key="Lexend-Medium.ttf">
             <string>Lexend-Medium</string>
         </array>
-        <array key="lexendregular.ttf">
+        <array key="Lexend-Regular.ttf">
             <string>Lexend-Regular</string>
         </array>
     </customFonts>
@@ -57,28 +57,52 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xh3-nJ-76D">
-                                <rect key="frame" x="16" y="173" width="361" height="90"/>
+                                <rect key="frame" x="16" y="173" width="361" height="110"/>
                                 <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zb-II-CmE" userLabel="DeleteButton">
+                                        <rect key="frame" x="331" y="10" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="11K-1f-niR"/>
+                                            <constraint firstAttribute="height" constant="20" id="mZJ-As-2ai"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="deleteIcon"/>
+                                        <connections>
+                                            <action selector="deleteButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="o2k-aM-GgP"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ds1-MN-4X1" userLabel="EditButton">
+                                        <rect key="frame" x="291" y="10" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="20" id="9ba-jI-kC8"/>
+                                            <constraint firstAttribute="height" constant="20" id="DSF-rt-jjZ"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="editIcon"/>
+                                        <connections>
+                                            <action selector="editButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="IYm-36-3HQ"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dosage" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wgz-2k-qzE">
-                                        <rect key="frame" x="15.999999999999996" y="26" width="55.666666666666657" height="19"/>
+                                        <rect key="frame" x="15.999999999999996" y="40" width="55.666666666666657" height="19"/>
                                         <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
                                         <color key="textColor" name="MedicationCellTitleColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10mg" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iIU-aE-R7I">
-                                        <rect key="frame" x="16.000000000000004" y="49" width="48.333333333333343" height="22.666666666666671"/>
+                                        <rect key="frame" x="16.000000000000004" y="62.999999999999993" width="48.333333333333343" height="22.666666666666664"/>
                                         <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Directions" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wjj-xs-fPg">
-                                        <rect key="frame" x="271.66666666666669" y="26" width="73.333333333333314" height="19"/>
+                                        <rect key="frame" x="271.66666666666669" y="40" width="73.333333333333314" height="19"/>
                                         <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
                                         <color key="textColor" name="MedicationCellTitleColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 tablets per day" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XYj-37-PZW">
-                                        <rect key="frame" x="197.66666666666663" y="49" width="147.33333333333337" height="22.666666666666671"/>
+                                        <rect key="frame" x="197.66666666666663" y="62.999999999999993" width="147.33333333333337" height="22.666666666666664"/>
                                         <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="18"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -89,22 +113,26 @@
                                     <constraint firstItem="Wgz-2k-qzE" firstAttribute="leading" secondItem="xh3-nJ-76D" secondAttribute="leading" constant="16" id="1a2-fc-7HA"/>
                                     <constraint firstAttribute="trailing" secondItem="XYj-37-PZW" secondAttribute="trailing" constant="16" id="6qw-6Z-CG9"/>
                                     <constraint firstAttribute="trailing" secondItem="Wjj-xs-fPg" secondAttribute="trailing" constant="16" id="F5x-7c-pkv"/>
-                                    <constraint firstAttribute="height" constant="90" id="MN0-8F-FZe"/>
+                                    <constraint firstItem="Wjj-xs-fPg" firstAttribute="top" secondItem="1zb-II-CmE" secondAttribute="bottom" constant="10" id="Ijb-v4-Lw9"/>
+                                    <constraint firstAttribute="height" constant="110" id="MN0-8F-FZe"/>
+                                    <constraint firstItem="1zb-II-CmE" firstAttribute="top" secondItem="xh3-nJ-76D" secondAttribute="top" constant="10" id="Mb7-F2-UMB"/>
+                                    <constraint firstItem="ds1-MN-4X1" firstAttribute="centerY" secondItem="1zb-II-CmE" secondAttribute="centerY" id="QWQ-dX-nSH"/>
                                     <constraint firstItem="XYj-37-PZW" firstAttribute="top" secondItem="iIU-aE-R7I" secondAttribute="top" id="RWJ-6J-9cQ"/>
                                     <constraint firstItem="Wjj-xs-fPg" firstAttribute="bottom" secondItem="Wgz-2k-qzE" secondAttribute="bottom" id="Twg-jw-6Ck"/>
+                                    <constraint firstItem="1zb-II-CmE" firstAttribute="leading" secondItem="ds1-MN-4X1" secondAttribute="trailing" constant="20" id="UNk-ib-rgL"/>
                                     <constraint firstItem="iIU-aE-R7I" firstAttribute="top" secondItem="Wgz-2k-qzE" secondAttribute="bottom" constant="4" id="awQ-ua-v3O"/>
                                     <constraint firstItem="iIU-aE-R7I" firstAttribute="leading" secondItem="xh3-nJ-76D" secondAttribute="leading" constant="16" id="buE-CH-nAj"/>
-                                    <constraint firstItem="Wgz-2k-qzE" firstAttribute="bottom" secondItem="xh3-nJ-76D" secondAttribute="centerY" id="do1-BF-94T"/>
+                                    <constraint firstAttribute="trailing" secondItem="1zb-II-CmE" secondAttribute="trailing" constant="10" id="z5L-dZ-FeT"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule Time &amp; Alarm " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVb-ma-ONz">
-                                <rect key="frame" x="16" y="295" width="208" height="22.666666666666686"/>
+                                <rect key="frame" x="16" y="315" width="208" height="22.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="g09-U8-Dcr">
-                                <rect key="frame" x="0.0" y="317.66666666666674" width="393" height="500.33333333333326"/>
+                                <rect key="frame" x="0.0" y="337.66666666666674" width="393" height="480.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
                         </subviews>
@@ -145,6 +173,8 @@
     </scenes>
     <resources>
         <image name="MedicineBottle" width="68" height="68"/>
+        <image name="deleteIcon" width="13" height="15"/>
+        <image name="editIcon" width="15" height="15"/>
         <namedColor name="AppViewContentColor">
             <color red="0.98431372549019602" green="0.98431372549019602" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

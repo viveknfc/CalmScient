@@ -22,11 +22,11 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     @IBOutlet weak var infoLabel: FontLR15!
     
     @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
-    var medicationData:[MedicineDetails] = [] {
-        didSet {
-            self.medicationsTableView.reloadData()
-        }
-    }
+    var medicationData:[MedicineDetails] = [] //{
+//        didSet {
+//            self.medicationsTableView.reloadData()
+//        }
+//    }
     private var selectedNewDate:Date = Date()
     var nomedications = UILabel()
     
@@ -89,8 +89,9 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         if let indexPath = self.medicationsTableView.indexPath(for: cell) {
             medicationData[indexPath.row].isSelected = isSelected
             print("isSelected", isSelected)
+            
             if let pmtId = medicationData[indexPath.row].medicationDetailsByDate.first?.medicalDetails.scheduledTimeList.first?.scheduledTimes.first?.pmtId,
-               let medicineTakenString = medicationData[indexPath.row].medicationDetailsByDate.first?.medicalDetails.scheduledTimeList.first?.scheduledTimes.first?.medicineTaken {
+               let _ = medicationData[indexPath.row].medicationDetailsByDate.first?.medicalDetails.scheduledTimeList.first?.scheduledTimes.first?.medicineTaken {
                 
                 let medicineTakenValue = isSelected ? "1" : "0"
 //                let medicineTakenValue = medicineTakenString == "null" ? "0" : medicineTakenString
@@ -160,22 +161,35 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
 
     func didTapDeleteButton(in cell: UITableViewCell) {
         if let indexPath = self.medicationsTableView.indexPath(for: cell) {
-            print("Delete button tapped for row \(indexPath.row)")
             
-            if let iD = medicationData[indexPath.row].medicationDetailsByDate.first?.medicalDetails.prescriptionID {
-                print("the Id is", iD)
-                
-                let params:[String:Int] = ["prescriptionID": iD]
-                
-                self.view.showToastActivity()
-                APIService.deletMedicationAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") {  [self] response in
-                    // Your closure code here
-                    getresponsefordeleteMedicationAPI(response: response)
+            let alertController = UIAlertController(title: "Confirm Deletion",
+                                                            message: "Are you sure you want to delete this medication?",
+                                                            preferredStyle: .alert)
                     
-                }
-                
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                    let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+                        self.deleteMedication(at: indexPath)
+                    }
+                    
+                    alertController.addAction(cancelAction)
+                    alertController.addAction(deleteAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
+
+        }
+    }
+    
+    private func deleteMedication(at indexPath: IndexPath) {
+        
+        if let iD = medicationData[indexPath.row].medicationDetailsByDate.first?.medicalDetails.prescriptionID {
+            print("The ID is", iD)
+            
+            let params: [String: Int] = ["prescriptionID": iD]
+            
+            self.view.showToastActivity()
+            APIService.deletMedicationAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
+                self.getresponsefordeleteMedicationAPI(response: response)
             }
-            // Handle delete action
         }
     }
     
@@ -239,7 +253,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Medications" : "Medicación"
         self.tabBarController?.tabBar.isHidden = false;
         self.tabBarController?.tabBar.selectedItem?.title = "Home"
-        self.medicationsTableView.reloadData()
+        getMedicationsData(forDate: Date())
         saveButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str:"Save"))
     }
     
@@ -330,18 +344,34 @@ extension UserMedicationsViewController : UITableViewDataSource,UITableViewDeleg
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserMedicationsTableCell", for: indexPath) as! UserMedicationsTableCell
         cell.selectionStyle = .none
         cell.updateCellWith(MedicalDetails: medicationData[indexPath.row])
-
+        cell.delegate = self
+        cell.indexPath = indexPath
+        
         let medicineTaken = medicationData[indexPath.row].medicationDetailsByDate.first?.medicalDetails.scheduledTimeList.first?.scheduledTimes.first?.medicineTaken ?? "0"
         
+        print("medicine taken value is",medicineTaken)
+        
+        let expiry = medicationData[indexPath.row].medicationDetailsByDate.first?.medicalDetails.expired ?? 0
+   
         if let medicineTakenValue = Int(medicineTaken), medicineTakenValue == 1 {
+            print("medicine taken value is",medicineTakenValue)
             cell.cellSelectionImage.image = UIImage(named: "CellSelectionImage")
             cell.buttonState = .selected
+            cell.cellStatusLabel.isHidden = false
+            cell.expiredLeadingValue.constant = 100
         } else {
+            print("medicine taken value is",Int(medicineTaken) ?? 444)
             cell.cellSelectionImage.image = UIImage(named: "cellUnselectedImage")
+            cell.cellStatusLabel.isHidden = true
+            cell.expiredLeadingValue.constant = 20
         }
         
-  
-        cell.delegate = self
+        if expiry == 1 {
+            cell.expiredLabel.isHidden = false
+        } else {
+            cell.expiredLabel.isHidden = true
+        }
+        
         return cell
     }
     
@@ -358,4 +388,47 @@ extension UserMedicationsViewController : UITableViewDataSource,UITableViewDeleg
     }
     
 }
+
+@available(iOS 16.0, *)
+extension UserMedicationsViewController: CustomTableViewCellDelegate {
+    func didTapMoreButton(in cell: UITableViewCell, at indexPath: IndexPath, buttonFrame: CGRect) {
+
+        let buttonFrameInView = medicationsTableView.convert(buttonFrame, to: self.view)
+        dismissDropdown()
+
+        // Create and position the dropdown
+        let dropdown = DropdownView()
+        dropdown.configure(with: cell)
+
+        // Adjust dropdown position relative to the cell
+        let dropdownWidth: CGFloat = 120
+        let dropdownHeight: CGFloat = 100
+        var dropdownX = buttonFrameInView.maxX - dropdownWidth 
+        let dropdownY = buttonFrameInView.maxY + 8
+
+            if dropdownX < 0 {
+                dropdownX = 8 // Adjust to fit within screen, adding a small margin
+            }
+
+        dropdown.frame = CGRect(x: dropdownX, y: dropdownY, width: dropdownWidth, height: dropdownHeight)
+        dropdown.tag = 999 // To identify the dropdown later
+        self.view.addSubview(dropdown)
+
+        // Add tap gesture to dismiss dropdown
+        let overlay = UIView(frame: self.view.bounds)
+        overlay.backgroundColor = UIColor.clear
+        overlay.tag = 998
+        overlay.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissDropdown)))
+        self.view.insertSubview(overlay, belowSubview: dropdown)
+    }
+
+    @objc func dismissDropdown() {
+        self.view.viewWithTag(999)?.removeFromSuperview()
+        self.view.viewWithTag(998)?.removeFromSuperview()
+    }
+
+}
+
+
+
 

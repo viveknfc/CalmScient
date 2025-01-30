@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -37,32 +36,20 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CellSelectionImage" translatesAutoresizingMaskIntoConstraints="NO" id="EpV-5G-gBZ">
                                         <rect key="frame" x="18" y="20.666666666666671" width="29" height="29"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKT-bB-3Iq" userLabel="deleteButton">
-                                        <rect key="frame" x="443" y="9.6666666666666679" width="30" height="30.000000000000004"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="JvK-BX-XCO"/>
-                                            <constraint firstAttribute="height" constant="30" id="i05-6g-XnN"/>
-                                        </constraints>
-                                        <color key="tintColor" red="0.42882183190000001" green="0.41974490879999998" blue="0.68238306049999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal">
-                                            <imageReference key="image" image="trash.circle.fill" catalog="system" symbolScale="large"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCn-aa-G0Z" userLabel="editButton">
-                                        <rect key="frame" x="403" y="9.6666666666666679" width="30" height="30.000000000000004"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="4HM-P4-1Yf"/>
-                                            <constraint firstAttribute="width" constant="30" id="yqU-Lt-2yZ"/>
-                                        </constraints>
-                                        <color key="tintColor" red="0.42882183190000001" green="0.41974490879999998" blue="0.68238306049999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal">
-                                            <imageReference key="image" image="pencil.circle.fill" catalog="system" symbolScale="large"/>
-                                        </state>
-                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 Tablets" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XTM-SY-5bB">
                                         <rect key="frame" x="62.999999999999993" y="38" width="64.333333333333314" height="19"/>
+                                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
+                                        <color key="textColor" name="MedicationsCellSubtitleColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|   Taken" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9q-Uz-af7">
+                                        <rect key="frame" x="147.33333333333334" y="38" width="58.666666666666657" height="19"/>
+                                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
+                                        <color key="textColor" name="MedicationsCellSubtitleColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|   Expired" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCf-Gc-ygd">
+                                        <rect key="frame" x="227.33333333333334" y="38" width="71.666666666666657" height="19"/>
                                         <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
                                         <color key="textColor" name="MedicationsCellSubtitleColor"/>
                                         <nil key="highlightedColor"/>
@@ -74,43 +61,71 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="sunset" translatesAutoresizingMaskIntoConstraints="NO" id="2RO-d9-Uj4">
-                                        <rect key="frame" x="63" y="61" width="20" height="16"/>
+                                        <rect key="frame" x="18" y="67" width="20" height="16"/>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="moonSmall" translatesAutoresizingMaskIntoConstraints="NO" id="ctj-Ov-LxE">
-                                        <rect key="frame" x="408" y="60" width="18" height="18"/>
+                                        <rect key="frame" x="408" y="66" width="18" height="18"/>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8 A.M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="K8W-qB-hKN">
-                                        <rect key="frame" x="87" y="60.333333333333321" width="37.666666666666657" height="17.666666666666664"/>
+                                        <rect key="frame" x="42" y="66.333333333333329" width="37.666666666666657" height="17.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Lexend-Medium" family="Lexend" pointSize="14"/>
                                         <color key="textColor" name="MedicationCellTitleColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7 P.M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jj1-2j-bHB">
-                                        <rect key="frame" x="430" y="60" width="35" height="18"/>
+                                        <rect key="frame" x="430" y="66" width="35" height="18"/>
                                         <fontDescription key="fontDescription" name="Lexend-Medium" family="Lexend" pointSize="14"/>
                                         <color key="textColor" name="MedicationCellTitleColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7 P.M" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d22-fM-M64" userLabel="AFTime">
+                                        <rect key="frame" x="235" y="66" width="35" height="18"/>
+                                        <fontDescription key="fontDescription" name="Lexend-Medium" family="Lexend" pointSize="14"/>
+                                        <color key="textColor" name="MedicationCellTitleColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="afternoonSun" translatesAutoresizingMaskIntoConstraints="NO" id="N7i-0T-dgx" userLabel="AFImg">
+                                        <rect key="frame" x="206" y="62.666666666666671" width="25" height="25"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iL7-1N-IoY">
+                                        <rect key="frame" x="435" y="9.6666666666666679" width="30" height="30.000000000000004"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="30" id="C4W-iu-MQC"/>
+                                            <constraint firstAttribute="height" constant="30" id="gd7-jm-Dbl"/>
+                                        </constraints>
+                                        <color key="tintColor" red="0.42882183190000001" green="0.41974490879999998" blue="0.68238306049999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="seperatorIcon"/>
+                                        <connections>
+                                            <action selector="dropDownButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3jx-mb-Tmn"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" name="AppViewContentColor"/>
                                 <constraints>
-                                    <constraint firstItem="NCn-aa-G0Z" firstAttribute="centerY" secondItem="yKT-bB-3Iq" secondAttribute="centerY" id="1jU-x6-tK5"/>
                                     <constraint firstItem="K8W-qB-hKN" firstAttribute="centerY" secondItem="2RO-d9-Uj4" secondAttribute="centerY" id="9hu-mR-23e"/>
-                                    <constraint firstItem="yKT-bB-3Iq" firstAttribute="centerY" secondItem="pOI-lD-iti" secondAttribute="centerY" id="Atj-It-a2c"/>
                                     <constraint firstAttribute="trailing" secondItem="Jj1-2j-bHB" secondAttribute="trailing" constant="20" id="BUA-Sa-bbo"/>
-                                    <constraint firstItem="2RO-d9-Uj4" firstAttribute="top" secondItem="XTM-SY-5bB" secondAttribute="bottom" constant="4" id="G5b-Uc-fA1"/>
+                                    <constraint firstItem="u9q-Uz-af7" firstAttribute="centerY" secondItem="XTM-SY-5bB" secondAttribute="centerY" id="Cpf-7R-J0o"/>
+                                    <constraint firstItem="u9q-Uz-af7" firstAttribute="leading" secondItem="XTM-SY-5bB" secondAttribute="trailing" constant="20" id="G2h-S5-O75"/>
+                                    <constraint firstItem="2RO-d9-Uj4" firstAttribute="top" secondItem="XTM-SY-5bB" secondAttribute="bottom" constant="10" id="G5b-Uc-fA1"/>
                                     <constraint firstItem="XTM-SY-5bB" firstAttribute="top" secondItem="pOI-lD-iti" secondAttribute="bottom" constant="2" id="Hct-lR-saQ"/>
                                     <constraint firstItem="K8W-qB-hKN" firstAttribute="leading" secondItem="2RO-d9-Uj4" secondAttribute="trailing" constant="4" id="IU8-Qm-LOR"/>
+                                    <constraint firstItem="N7i-0T-dgx" firstAttribute="centerY" secondItem="K8W-qB-hKN" secondAttribute="centerY" id="IcJ-ER-PMU"/>
+                                    <constraint firstItem="tCf-Gc-ygd" firstAttribute="centerY" secondItem="u9q-Uz-af7" secondAttribute="centerY" id="QOB-xP-aX9"/>
                                     <constraint firstItem="EpV-5G-gBZ" firstAttribute="bottom" secondItem="chI-rX-2ia" secondAttribute="centerY" id="SvB-oc-zDJ"/>
                                     <constraint firstItem="XTM-SY-5bB" firstAttribute="leading" secondItem="EpV-5G-gBZ" secondAttribute="trailing" constant="16" id="WP0-ID-DH8"/>
                                     <constraint firstItem="Jj1-2j-bHB" firstAttribute="leading" secondItem="ctj-Ov-LxE" secondAttribute="trailing" constant="4" id="XCx-Cg-upv"/>
-                                    <constraint firstAttribute="trailing" secondItem="yKT-bB-3Iq" secondAttribute="trailing" constant="12" id="bPm-0r-0GD"/>
+                                    <constraint firstItem="Jj1-2j-bHB" firstAttribute="trailing" secondItem="iL7-1N-IoY" secondAttribute="trailing" id="ZH1-Zb-4kk"/>
+                                    <constraint firstItem="d22-fM-M64" firstAttribute="leading" secondItem="N7i-0T-dgx" secondAttribute="trailing" constant="4" id="aw3-yf-H3p"/>
+                                    <constraint firstItem="tCf-Gc-ygd" firstAttribute="leading" secondItem="XTM-SY-5bB" secondAttribute="trailing" constant="100" id="dbF-WX-Gwt"/>
                                     <constraint firstItem="pOI-lD-iti" firstAttribute="leading" secondItem="XTM-SY-5bB" secondAttribute="leading" id="gin-h4-GeX"/>
-                                    <constraint firstItem="2RO-d9-Uj4" firstAttribute="leading" secondItem="XTM-SY-5bB" secondAttribute="leading" id="hVo-5T-ZIn"/>
+                                    <constraint firstItem="2RO-d9-Uj4" firstAttribute="leading" secondItem="EpV-5G-gBZ" secondAttribute="leading" id="hVo-5T-ZIn"/>
+                                    <constraint firstItem="iL7-1N-IoY" firstAttribute="centerY" secondItem="pOI-lD-iti" secondAttribute="centerY" id="kah-Bb-QaP"/>
                                     <constraint firstItem="ctj-Ov-LxE" firstAttribute="centerY" secondItem="K8W-qB-hKN" secondAttribute="centerY" id="ngr-8t-WFg"/>
                                     <constraint firstItem="Jj1-2j-bHB" firstAttribute="centerY" secondItem="ctj-Ov-LxE" secondAttribute="centerY" id="oqz-Cd-XgQ"/>
-                                    <constraint firstItem="yKT-bB-3Iq" firstAttribute="leading" secondItem="NCn-aa-G0Z" secondAttribute="trailing" constant="10" id="p71-oc-Ykj"/>
+                                    <constraint firstItem="d22-fM-M64" firstAttribute="centerX" secondItem="chI-rX-2ia" secondAttribute="centerX" constant="10" id="sIc-po-xEp"/>
                                     <constraint firstItem="XTM-SY-5bB" firstAttribute="centerY" secondItem="EpV-5G-gBZ" secondAttribute="bottom" constant="-2" id="xX0-Dn-UCk"/>
+                                    <constraint firstItem="d22-fM-M64" firstAttribute="centerY" secondItem="N7i-0T-dgx" secondAttribute="centerY" id="zTX-Or-YXY"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -133,12 +148,16 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="AFImage" destination="N7i-0T-dgx" id="nWW-S1-oWJ"/>
                 <outlet property="AMImage" destination="2RO-d9-Uj4" id="mV9-kC-Ucw"/>
                 <outlet property="PMImage" destination="ctj-Ov-LxE" id="y8J-G1-jVt"/>
+                <outlet property="afTimeLabel" destination="d22-fM-M64" id="O5D-9e-w1k"/>
                 <outlet property="borderView" destination="chI-rX-2ia" id="EV0-S2-PHP"/>
                 <outlet property="cellSelectionImage" destination="EpV-5G-gBZ" id="mik-7P-Zbc"/>
-                <outlet property="deleteButton" destination="yKT-bB-3Iq" id="bmV-xV-XXu"/>
-                <outlet property="editButton" destination="NCn-aa-G0Z" id="1PQ-hC-elx"/>
+                <outlet property="cellStatusLabel" destination="u9q-Uz-af7" id="35T-t6-dBz"/>
+                <outlet property="dropDownButton" destination="iL7-1N-IoY" id="dny-1C-QlV"/>
+                <outlet property="expiredLabel" destination="tCf-Gc-ygd" id="t7v-hk-r2D"/>
+                <outlet property="expiredLeadingValue" destination="dbF-WX-Gwt" id="KIV-KW-A1E"/>
                 <outlet property="pmTimeLabel" destination="Jj1-2j-bHB" id="bu2-As-oCB"/>
                 <outlet property="shadowView" destination="4A4-Xk-Vdx" id="xCU-Wm-lxA"/>
                 <outlet property="subTitleLabel" destination="XTM-SY-5bB" id="auH-GB-aCZ"/>
@@ -150,10 +169,10 @@
     </objects>
     <resources>
         <image name="CellSelectionImage" width="29" height="29"/>
+        <image name="afternoonSun" width="25" height="25"/>
         <image name="moonSmall" width="18" height="18"/>
-        <image name="pencil.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="seperatorIcon" width="27" height="27"/>
         <image name="sunset" width="20" height="16"/>
-        <image name="trash.circle.fill" catalog="system" width="128" height="123"/>
         <namedColor name="AppViewContentColor">
             <color red="0.98431372549019602" green="0.98431372549019602" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

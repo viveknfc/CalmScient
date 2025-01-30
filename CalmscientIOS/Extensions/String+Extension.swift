@@ -112,7 +112,7 @@ extension String {
             let calendar = Calendar.current
             let hour = calendar.component(.hour, from: date)
             switch hour {
-            case 12..<24:
+            case 12..<18:
                 return true
             default:
                 return false
@@ -120,6 +120,25 @@ extension String {
         }
         return false
     }
+    
+    func isDayTimeEvening(formatter: String = "yyyy-MM-dd HH:mm:ss") -> Bool {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = formatter
+        dateFormatter.timeZone = TimeZone(identifier: Calendar.current.timeZone.identifier)
+
+        if let date = dateFormatter.date(from: self) {
+            let calendar = Calendar.current
+            let hour = calendar.component(.hour, from: date)
+            switch hour {
+            case 18..<24:
+                return true
+            default:
+                return false
+            }
+        }
+        return false
+    }
+
     
     func getDayTimeFromDate(formatter: String = "yyyy-MM-dd HH:mm:ss", includeTimeZone: Bool = false) -> String? {
         let dateFormatter = DateFormatter()

@@ -191,11 +191,12 @@ class BottomSheetTimeAndAlarmVC: UIViewController {
     }
     
     @IBAction func saveButtonAction(_ sender: UIButton) {
+        newMedicationInstance?.isDefault = 1
         if !tempDateTime.isEmpty {
             let newDateTime = tempDateTime
             if isNewMedicationCreation {
                 newMedicationInstance?.medicineTime = newDateTime
-                newMedicationInstance?.alarmEnabled = "1"
+//                newMedicationInstance?.alarmEnabled = "1"
                 timeIdentifier = newMedicationInstance?.getAlarmTime()
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "HH:mm:ss"

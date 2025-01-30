@@ -101,6 +101,7 @@ class MedicalDetails: Codable {
     var scheduledTimeList: [ScheduledTimeList]
     var withMeal: Int //
     var endDate: String //
+    var expired: Int?
 
     enum CodingKeys: String, CodingKey {
         case medicationId
@@ -113,6 +114,7 @@ class MedicalDetails: Codable {
         case scheduledTimeList = "scheduledTimeList"
         case withMeal
         case endDate
+        case expired
     }
     
     
@@ -129,6 +131,7 @@ class MedicalDetails: Codable {
         scheduledTimeList = try container.decode([ScheduledTimeList].self, forKey: .scheduledTimeList)
         withMeal = try container.decode(Int.self, forKey: .withMeal)
         endDate = try container.decode(String.self, forKey: .endDate)
+        expired = try container.decodeIfPresent(Int.self, forKey: .expired)
     }
 
     func encode(to encoder: Encoder) throws {
@@ -143,6 +146,7 @@ class MedicalDetails: Codable {
         try container.encode(scheduledTimeList, forKey: .scheduledTimeList)
         try container.encode(withMeal, forKey: .withMeal)
         try container.encode(endDate, forKey: .endDate)
+        try container.encode(expired, forKey: .expired)
     }
 }
 
@@ -228,13 +232,14 @@ class MedicationAlarm: Codable {
     var plId: Int?
     var medicationId: Int?
     var flag: String?
+    var isDefault = 0
     
     
     var dayTime:DayTimeValue? = .Morning
     
     
     enum CodingKeys: String, CodingKey {
-        case alarmId, alarmInterval, alarmEnabled, medicineTime, pmtId, alarmTime, medicineTaken, flag, isEnabled, alarmDate, plId, medicationId
+        case alarmId, alarmInterval, alarmEnabled, medicineTime, pmtId, alarmTime, medicineTaken, flag, isEnabled, alarmDate, plId, medicationId, isDefault
         case `repeat` = "repeat"
     }
     
@@ -338,6 +343,7 @@ class MedicationAlarm: Codable {
         `repeat` = try container.decode([String].self, forKey: .repeat)
         medicineTaken = try container.decode(String.self, forKey: .medicineTaken)
         alarmTime = try container.decode(String.self, forKey: .alarmTime)
+        isDefault = try container.decode(Int.self, forKey: .isDefault)
     }
     
     // Custom encode method to encode to JSON data
@@ -356,6 +362,7 @@ class MedicationAlarm: Codable {
 //        try container.encode(alarmTime, forKey: .alarmTime)
 //        try container.encode(medicineTaken, forKey: .medicineTaken)
         try container.encode(isEnabled, forKey: .isEnabled)
+        try container.encode(isDefault, forKey: .isDefault)
     }
 }
 
@@ -366,7 +373,7 @@ class AddMedication: Codable {
     var alarms: [MedicationAlarm] = []
     var direction: String = ""
     var dosage: String = ""
-    var endDate: String = Date().getTomorrowDate().dateToString(format: "MM/dd/yyyy")
+    var endDate: String = ""//Date().getTomorrowDate().dateToString(format: "MM/dd/yyyy")
     var isActive: Int = 1
     var medicationName: String = ""
     var medicineTime: String = ""

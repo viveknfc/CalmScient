@@ -28,9 +28,20 @@ class MedicationsDetailViewController: ViewController, UISheetPresentationContro
             guard let details = medicineDetails?.medicationDetailsByDate.first?.medicalDetails else {
                 return
             }
-            tableData = details.scheduledTimeList.sorted(by: {
+            
+            // Filter for isDefault == 1
+            let filteredData = details.scheduledTimeList.filter { schedule in
+                schedule.scheduledTimes.contains { $0.isDefault == 1 }
+            }
+            
+            // Sort the filtered data by medicineTime
+            tableData = filteredData.sorted {
                 $0.scheduledTimes.first?.medicineTime ?? "" < $1.scheduledTimes.first?.medicineTime ?? ""
-            })
+            }
+            
+//            tableData = details.scheduledTimeList.sorted(by: {
+//                $0.scheduledTimes.first?.medicineTime ?? "" < $1.scheduledTimes.first?.medicineTime ?? ""
+//            })
             medicineDetails?.medicationDetailsByDate.first?.medicalDetails.scheduledTimeList = tableData
         }
     }
@@ -81,10 +92,99 @@ class MedicationsDetailViewController: ViewController, UISheetPresentationContro
         tableTitleLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Schedule Time & Alarm" : "Programar Hora y Alarma"
     }
     
+    //MARK: - Edit Button Action
+    
+    @IBAction func editButtonPressed(_ sender: Any) {
+        
+        let next = UIStoryboard(name: "AddUserMedications", bundle: nil)
+        let vc = next.instantiateViewController(withIdentifier: "AddUserMedicationsViewController") as? AddUserMedicationsViewController
+        vc?.title = "Edit medications"
+        vc?.EditVc = true
+        vc?.medicationData = medicineDetails
+        self.navigationController?.pushViewController(vc!, animated: true)
+        
+    }
+    
+    
+    
+    
+    //MARK: - Delete Button Action
+    
+    @IBAction func deleteButtonPressed(_ sender: Any) {
+        let alertController = UIAlertController(title: "Confirm Deletion",
+                                                        message: "Are you sure you want to delete this medication?",
+                                                        preferredStyle: .alert)
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+                    self.deleteMedication()
+                }
+                
+                alertController.addAction(cancelAction)
+                alertController.addAction(deleteAction)
+                
+                self.present(alertController, animated: true, completion: nil)
+    }
+    
+    private func deleteMedication() {
+        if let iD = medicineDetails?.medicationDetailsByDate.first?.medicalDetails.prescriptionID {
+            
+            let params: [String: Int] = ["prescriptionID": iD]
+            
+            self.view.showToastActivity()
+            APIService.deletMedicationAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
+                self.getresponsefordeleteMedicationAPI(response: response)
+            }
+            
+        }
+    }
+    
+    //MARK: - Delete API Response
+    
+    func getresponsefordeleteMedicationAPI(response:AnyObject)->() {
+        if let responseString = response as? String {
+            print("Response received from delete Medication API calling is", responseString)
+        } else if let responseDict = response as? [String: Any] {
+
+                if let responseMessage = responseDict["responseMessage"] as? String {
+                    
+                    print("Response Message:", responseMessage)
+                    self.view.showToast(message: responseMessage)
+                    
+                    self.navigationController?.popViewController(animated: true)
+                    
+                       } else {
+                           print("Response Message not found or is not a string.")
+                       }
+
+        } else {
+            print("Unsupported response type:", type(of: response))
+        }
+
+    }
+    
+    //END
+    
 
 }
 extension MedicationsDetailViewController : UITableViewDataSource,UITableViewDelegate {
+    
+    func updateTableViewBackground() {
+        if tableData.isEmpty {
+            let noDataLabel = UILabel(frame: CGRect(x: 0, y: 0, width: medicationsDetailsTableView.bounds.width, height: medicationsDetailsTableView.bounds.height))
+            noDataLabel.text = "No Records Found"
+            noDataLabel.textAlignment = .center
+            noDataLabel.textColor = .gray
+            noDataLabel.font = UIFont.systemFont(ofSize: 16)
+            medicationsDetailsTableView.backgroundView = noDataLabel
+        } else {
+            medicationsDetailsTableView.backgroundView = nil
+        }
+    }
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        updateTableViewBackground()
         return tableData.count
     }
     
@@ -101,7 +201,7 @@ extension MedicationsDetailViewController : UITableViewDataSource,UITableViewDel
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //        presentModal(forInstance: tableData[indexPath.row])
-        checkNotificationPermission(forInstance: tableData[indexPath.row])
+//        checkNotificationPermission(forInstance: tableData[indexPath.row])
     }
     func setupLanguage() {
         

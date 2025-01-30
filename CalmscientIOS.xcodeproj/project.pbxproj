@@ -472,6 +472,7 @@
 		C28D0E2B2D00948A00517693 /* FontLL12.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28D0E2A2D00948A00517693 /* FontLL12.swift */; };
 		C28D0E2D2D00B16000517693 /* ConSub1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28D0E2C2D00B16000517693 /* ConSub1VC.swift */; };
 		C28D0E2F2D00CB6200517693 /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28D0E2E2D00CB6200517693 /* AlertVC.swift */; };
+		C29462142D4B849D00EF94DA /* TimeZoneHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29462132D4B849D00EF94DA /* TimeZoneHelper.swift */; };
 		C2948E1B2CFF164C00D6FC55 /* USGuideLineForDrinkingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2948E1A2CFF164C00D6FC55 /* USGuideLineForDrinkingVC.swift */; };
 		C2948E1D2CFF374900D6FC55 /* CustomView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2948E1C2CFF374900D6FC55 /* CustomView1.swift */; };
 		C2948E1F2CFF44BF00D6FC55 /* FontLL15.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2948E1E2CFF44BF00D6FC55 /* FontLL15.swift */; };
@@ -498,6 +499,7 @@
 		C2B823422D1D626300FC1291 /* SmokingIndexResourceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B823412D1D626300FC1291 /* SmokingIndexResourceTableViewCell.swift */; };
 		C2D1A3042D019C1D009CAB47 /* ConSub2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D1A3032D019C1D009CAB47 /* ConSub2VC.swift */; };
 		C2D1A3062D01C40D009CAB47 /* ConSub3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D1A3052D01C40D009CAB47 /* ConSub3VC.swift */; };
+		C2D3EE412D475EF9008A49D2 /* CustomDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3EE402D475EF9008A49D2 /* CustomDropDown.swift */; };
 		C2E534092D192670009D2477 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E534082D192670009D2477 /* ThemeManager.swift */; };
 		C2EED5DE2CFA3D18005C1E1F /* CurvedOutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EED5DD2CFA3D18005C1E1F /* CurvedOutlineButton.swift */; };
 		C2EED5E22CFA6797005C1E1F /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EED5E12CFA6797005C1E1F /* CustomView.swift */; };
@@ -1000,6 +1002,7 @@
 		C28D0E2A2D00948A00517693 /* FontLL12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLL12.swift; sourceTree = "<group>"; };
 		C28D0E2C2D00B16000517693 /* ConSub1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConSub1VC.swift; sourceTree = "<group>"; };
 		C28D0E2E2D00CB6200517693 /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
+		C29462132D4B849D00EF94DA /* TimeZoneHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneHelper.swift; sourceTree = "<group>"; };
 		C2948E1A2CFF164C00D6FC55 /* USGuideLineForDrinkingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USGuideLineForDrinkingVC.swift; sourceTree = "<group>"; };
 		C2948E1C2CFF374900D6FC55 /* CustomView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView1.swift; sourceTree = "<group>"; };
 		C2948E1E2CFF44BF00D6FC55 /* FontLL15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLL15.swift; sourceTree = "<group>"; };
@@ -1027,6 +1030,7 @@
 		C2B823412D1D626300FC1291 /* SmokingIndexResourceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokingIndexResourceTableViewCell.swift; sourceTree = "<group>"; };
 		C2D1A3032D019C1D009CAB47 /* ConSub2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConSub2VC.swift; sourceTree = "<group>"; };
 		C2D1A3052D01C40D009CAB47 /* ConSub3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConSub3VC.swift; sourceTree = "<group>"; };
+		C2D3EE402D475EF9008A49D2 /* CustomDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDown.swift; sourceTree = "<group>"; };
 		C2E534082D192670009D2477 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		C2EED5DD2CFA3D18005C1E1F /* CurvedOutlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedOutlineButton.swift; sourceTree = "<group>"; };
 		C2EED5E12CFA6797005C1E1F /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
@@ -2430,6 +2434,8 @@
 				C21BD5992D2C44AB005BA00D /* KeyChainFile.swift */,
 				C25576982D2E56DE008E9D2F /* APIService.swift */,
 				C237E9C62D30586000E895FA /* newPickerViewVC.swift */,
+				C2D3EE402D475EF9008A49D2 /* CustomDropDown.swift */,
+				C29462132D4B849D00EF94DA /* TimeZoneHelper.swift */,
 			);
 			path = "General Class";
 			sourceTree = "<group>";
@@ -2910,6 +2916,7 @@
 				C2D1A3042D019C1D009CAB47 /* ConSub2VC.swift in Sources */,
 				C25576992D2E56DE008E9D2F /* APIService.swift in Sources */,
 				4A87C1452C011245004E04CC /* CheckMailVC.swift in Sources */,
+				C2D3EE412D475EF9008A49D2 /* CustomDropDown.swift in Sources */,
 				4A78A1482BDF47E200D1EFC1 /* TablePopOverViewController.swift in Sources */,
 				4A0853972C21684B00202C02 /* Consequences_six.swift in Sources */,
 				4AD5D1642BD7A6C100E4C945 /* AppointmentDetailsVC.swift in Sources */,
@@ -2918,6 +2925,7 @@
 				43AB77552C64511C00740BA6 /* HandOverYourHeart.swift in Sources */,
 				C2948E212CFF45A200D6FC55 /* FontLM16.swift in Sources */,
 				4A0853982C21684B00202C02 /* Consequences_three.swift in Sources */,
+				C29462142D4B849D00EF94DA /* TimeZoneHelper.swift in Sources */,
 				432EBE1D2C2BF49F000BB69A /* FactorCell.swift in Sources */,
 				C2EED5E42CFA69B0005C1E1F /* ImageView.swift in Sources */,
 				432EBE242C2BF49F000BB69A /* MakePlan.swift in Sources */,

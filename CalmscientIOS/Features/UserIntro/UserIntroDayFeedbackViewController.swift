@@ -405,6 +405,8 @@ class UserIntroDayFeedbackViewController: ViewController {
                 } else if let response = response {
                     if response.responseCode == 200 {
                         
+                        self.fetchDateTime()
+                        
                         self.showSuccessAlert() {
                             print("alert shown")
                                if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
@@ -426,6 +428,27 @@ class UserIntroDayFeedbackViewController: ViewController {
                 }
             }
         }
+    }
+    
+    //MARK: - Fetch Date and TIme
+    
+    func fetchDateTime() {
+        let now = Date()
+        let calendar = Calendar.current
+
+        // Extract Date (yyyy-MM-dd)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let dateString = dateFormatter.string(from: now)
+
+        // Extract Time (HH:mm:ss)
+        let timeFormatter = DateFormatter()
+        timeFormatter.dateFormat = "HH:mm:ss"
+        let timeString = timeFormatter.string(from: now)
+
+        // Save in UserDefaults
+        UserDefaults.standard.set(dateString, forKey: "savedDate")
+        UserDefaults.standard.set(timeString, forKey: "savedTime")
     }
     
     //MARK: - Refresh Token API Call
@@ -533,8 +556,8 @@ extension UserIntroDayFeedbackViewController : UITableViewDataSource,UITableView
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellType.getCellIdentifier(), for: indexPath) as? UserIntroSelectionTableCell else {
                 return UITableViewCell()
             }
-            cell.selectedIndex = ((selectedCell ?? 0))
-            cell.spendIndex = ((SpendTime ?? 0))
+            cell.selectedIndex = ((selectedCell ?? -1))
+            cell.spendIndex = ((SpendTime ?? -1))
             
             cell.updateUIWithCellInstance(instance: userDayWiseData, cellType: cellType)
             return cell
@@ -543,7 +566,7 @@ extension UserIntroDayFeedbackViewController : UITableViewDataSource,UITableView
                 return UITableViewCell()
             }
 
-            cell.updateUIWithCellInstance(instance: userDayWiseData, cellType: cellType, slpHrs: Int(slpHours ?? "") ?? 0)
+            cell.updateUIWithCellInstance(instance: userDayWiseData, cellType: cellType, slpHrs: Int(slpHours ?? "") ?? -1)
             return cell
         case .UserEntryMedicineCell, .UserEntryJournalCell:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellType.getCellIdentifier(), for: indexPath) as? UserEntryYesOrNoCell else {

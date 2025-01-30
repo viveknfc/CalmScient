@@ -161,8 +161,8 @@ class MedicationsDetailTableCell: UITableViewCell {
         super.awakeFromNib()
         addShadowAndBorder()
         let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.didTapOnSelectionButton(_:)))
-        self.cellSwitchImageView.isUserInteractionEnabled = true
-        self.cellSwitchImageView.addGestureRecognizer(tapGestureRecognizer)
+//        self.cellSwitchImageView.isUserInteractionEnabled = true
+//        self.cellSwitchImageView.addGestureRecognizer(tapGestureRecognizer)
         isCellSelected = false
         buttonState = .dafault
         self.cellSwitchImageView.image = self.currentImage
