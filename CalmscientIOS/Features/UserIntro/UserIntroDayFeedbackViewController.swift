@@ -95,7 +95,7 @@ class UserIntroDayFeedbackViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        self.view.showToastActivity()
         skipButton.isHidden = hideSkipButton
         if hideSkipButton {
             skipButtonHeight.constant = 0
@@ -147,12 +147,17 @@ class UserIntroDayFeedbackViewController: ViewController {
         self.screenTitleLabel.text = GreetingTitle
         self.screenTitleLabel.isHidden = false
         mainTableTop.constant = 24
+        
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
+//        self.view.showToastActivity()
         let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.current
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" // Specify the desired format
-        currentTime = dateFormatter.string(from: Date())
+        let sampleTime = Date()
+        print("the fetching time is", sampleTime)
+        currentTime = dateFormatter.string(from: sampleTime)
         setupLanguage()
         fetchAPIFunc()
         
@@ -178,6 +183,12 @@ class UserIntroDayFeedbackViewController: ViewController {
                 mainTableTop.constant = 24
             }
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+//        self.view.showToastActivity()
+    }
+
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -240,10 +251,27 @@ class UserIntroDayFeedbackViewController: ViewController {
     //MARK: - Fetch API Response
     
     func getresponseforFetchMoodDataAPI(response:AnyObject)->() {
-        
+ 
         self.view.hideToastActivity()
+        view.hideToast()
+        
         if let responseString = response as? String {
             print("Response received from Fetch API calling is", responseString)
+            
+            // Show alert with retry button
+                   let alertController = UIAlertController(title: "Error",
+                                                           message: "Failed to fetch data. Would you like to retry?",
+                                                           preferredStyle: .alert)
+                   
+                   alertController.addAction(UIAlertAction(title: "Retry", style: .default, handler: { _ in
+                       // Call the API again or reload the view
+                       self.viewWillAppear(true)
+                   }))
+                   
+                   alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                   
+                   self.present(alertController, animated: true)
+            
         }
         else if let responseDict = response as? [String: Any] {
             
@@ -281,11 +309,12 @@ class UserIntroDayFeedbackViewController: ViewController {
            }
  
             feedbackTableView.reloadData()
+            
         }
         else {
             print("Unsupported response type:", type(of: response))
         }
-        
+
     }
     
     //END
@@ -426,6 +455,7 @@ class UserIntroDayFeedbackViewController: ViewController {
                 } else if let failureResponse = failureResponse {
                     self.view.showToast(message: failureResponse.statusResponse.responseMessage)
                 }
+      
             }
         }
     }
@@ -485,6 +515,8 @@ class UserIntroDayFeedbackViewController: ViewController {
         } else {
             print("Unsupported response type:", type(of: response))
         }
+        
+       
     }
     
     //MARK: - Save Alert View

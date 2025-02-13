@@ -191,6 +191,7 @@ extension MedicationsDetailViewController : UITableViewDataSource,UITableViewDel
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MedicationsDetailTableCell", for: indexPath) as! MedicationsDetailTableCell
         cell.selectionStyle = .none
+        cell.cellSwitchImageView.isUserInteractionEnabled = false
         cell.updateCellData(withScheduledTimeList: tableData[indexPath.row], medicineDetails: medicineDetails!)
         return cell
     }

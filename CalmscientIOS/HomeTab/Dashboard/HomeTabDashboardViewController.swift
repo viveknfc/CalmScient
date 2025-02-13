@@ -303,6 +303,10 @@ class HomeTabDashboardViewController: ViewController, UITableViewDataSource,UITa
             let next = UIStoryboard(name: "UserIntro", bundle: nil)
             if #available(iOS 16.0, *) {
                 let vc = next.instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as? UserIntroDayFeedbackViewController
+                
+//                vc.titleString = "\(loginResponse.loginDetails.firstName)"
+//                UserDefaults.standard.set("\(loginResponse.loginDetails.firstName)", forKey: "titleString")
+                
                 vc?.title = languageId == 1 ? "Mental wellbeing tracker" : "Rastreador de bienestar mental"
                 vc?.hideSkipButton = true
                 self.navigationController?.pushViewController(vc!, animated: true)

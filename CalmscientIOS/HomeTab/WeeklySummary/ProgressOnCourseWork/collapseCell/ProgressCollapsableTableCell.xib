@@ -34,7 +34,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="328" height="54"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f9A-Mb-eGh">
-                                        <rect key="frame" x="8" y="16" width="239" height="0.0"/>
+                                        <rect key="frame" x="8" y="16" width="229" height="0.0"/>
                                         <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
                                         <color key="textColor" name="424242Color"/>
                                         <nil key="highlightedColor"/>
@@ -46,9 +46,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y5K-hh-5L7">
-                                        <rect key="frame" x="257" y="16" width="40" height="0.0"/>
+                                        <rect key="frame" x="247" y="16" width="50" height="0.0"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="UEh-Q8-y9q"/>
+                                            <constraint firstAttribute="width" constant="50" id="UEh-Q8-y9q"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Lexend-Medium" family="Lexend" pointSize="12"/>
                                         <color key="textColor" name="424242Color"/>

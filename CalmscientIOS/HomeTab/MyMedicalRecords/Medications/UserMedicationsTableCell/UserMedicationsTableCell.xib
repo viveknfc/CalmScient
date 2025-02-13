@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="lexendmedium.ttf">
+        <array key="Lexend-Medium.ttf">
             <string>Lexend-Medium</string>
         </array>
-        <array key="lexendregular.ttf">
+        <array key="Lexend-Regular.ttf">
             <string>Lexend-Regular</string>
         </array>
     </customFonts>
@@ -42,14 +42,14 @@
                                         <color key="textColor" name="MedicationsCellSubtitleColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|   Taken" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9q-Uz-af7">
-                                        <rect key="frame" x="147.33333333333334" y="38" width="58.666666666666657" height="19"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="| Taken" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9q-Uz-af7">
+                                        <rect key="frame" x="132.33333333333334" y="38" width="50.333333333333343" height="19"/>
                                         <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
                                         <color key="textColor" name="MedicationsCellSubtitleColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="|   Expired" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCf-Gc-ygd">
-                                        <rect key="frame" x="227.33333333333334" y="38" width="71.666666666666657" height="19"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="| Expired" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tCf-Gc-ygd">
+                                        <rect key="frame" x="227.33333333333337" y="38" width="63" height="19"/>
                                         <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
                                         <color key="textColor" name="MedicationsCellSubtitleColor"/>
                                         <nil key="highlightedColor"/>
@@ -106,7 +106,7 @@
                                     <constraint firstItem="K8W-qB-hKN" firstAttribute="centerY" secondItem="2RO-d9-Uj4" secondAttribute="centerY" id="9hu-mR-23e"/>
                                     <constraint firstAttribute="trailing" secondItem="Jj1-2j-bHB" secondAttribute="trailing" constant="20" id="BUA-Sa-bbo"/>
                                     <constraint firstItem="u9q-Uz-af7" firstAttribute="centerY" secondItem="XTM-SY-5bB" secondAttribute="centerY" id="Cpf-7R-J0o"/>
-                                    <constraint firstItem="u9q-Uz-af7" firstAttribute="leading" secondItem="XTM-SY-5bB" secondAttribute="trailing" constant="20" id="G2h-S5-O75"/>
+                                    <constraint firstItem="u9q-Uz-af7" firstAttribute="leading" secondItem="XTM-SY-5bB" secondAttribute="trailing" constant="5" id="G2h-S5-O75"/>
                                     <constraint firstItem="2RO-d9-Uj4" firstAttribute="top" secondItem="XTM-SY-5bB" secondAttribute="bottom" constant="10" id="G5b-Uc-fA1"/>
                                     <constraint firstItem="XTM-SY-5bB" firstAttribute="top" secondItem="pOI-lD-iti" secondAttribute="bottom" constant="2" id="Hct-lR-saQ"/>
                                     <constraint firstItem="K8W-qB-hKN" firstAttribute="leading" secondItem="2RO-d9-Uj4" secondAttribute="trailing" constant="4" id="IU8-Qm-LOR"/>

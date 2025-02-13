@@ -26,6 +26,8 @@ class JournalEntryCollapsedTableCell: UITableViewCell {
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var borderView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subTitleLabel: UILabel!
+    
     
     var cellExpansionClosure:((Bool)->Void)?
 

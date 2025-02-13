@@ -109,9 +109,10 @@ class LoginVC: UIViewController,UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
-//        userNameTextField.text = ""
-//        passwordTextField.text = ""
-        
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" // Specify the desired format
+
     }
     
     
@@ -171,7 +172,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
     }
     
     fileprivate func createLoginRequest(userName:String,password:String) {
-     //   let url = URL(string: "http://20.197.5.97:8089/identity/api/v1/settings/userLogin")!
+ 
         let url = URL(string: "\(baseURLString)identity/api/v1/settings/userLogin")!
 
         var request = URLRequest(url: url)
@@ -211,6 +212,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
             NetworkLogger.log(response: data)
             do {
                 if let loginResponse = try? JSONDecoder().decode(LoginResponse.self, from: data) {
+                    
                     DispatchQueue.main.async {
                         if loginResponse.statusResponse.responseCode != 200 {
                             self.view.hideToastActivity()
@@ -234,6 +236,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
                                     // Wrap the home view controller in a navigation controller if needed
                                     navController = UINavigationController(rootViewController: homeViewController)
                             } else {
+                                UserDefaults.standard.set("\(loginResponse.loginDetails.firstName)", forKey: "titleString")
                                 print("Time zone remains the same.")
                                 let storyboard = UIStoryboard(name: "AppTabBar", bundle: nil)
                                     let homeViewController = storyboard.instantiateViewController(withIdentifier: "AppMainTabViewController") as! AppMainTabViewController
@@ -258,7 +261,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
                     } else {
                         DispatchQueue.main.async {
                             self.view.hideToastActivity()
-                            self.view.showToast(message: "Invalid credentials!!!!. Please Try Again!")
+                            self.view.showToast(message: "Please Try Again!")
                         }
                     }
                     
@@ -306,8 +309,10 @@ extension UIView {
     }
     
     public func hideToastActivity() {
+        print("hideToastActivity() called")
         self.isUserInteractionEnabled = true
         self.hideAllToasts(includeActivity: true)
+
     }
     
 }

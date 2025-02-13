@@ -141,43 +141,6 @@ class UserMedicationsTableCell: UITableViewCell {
             pmTimeLabel.text = ""
         }
 
-        
-        //end
-        
-//        let alarmEnableStatus = record.medicationDetailsByDate[0].medicalDetails.scheduledTimeList.first?.scheduledTimes.first?.alarmEnabled ?? "0"
-        
-//        if let morningFilteredList = alarmList.first(where: { obj in
-//            obj.scheduledTimes.first?.alarmTime.isDayTimeAM() == true
-//        }), alarmEnableStatus == "1" {
-//            AMImage.isHidden = false
-//            timeLabel.text = morningFilteredList.scheduledTimes.first?.alarmTime.getDayTimeFromDate(includeTimeZone: true) ?? ""
-//            print("morning alarm is ", timeLabel.text ?? "NA")
-//        } else {
-//            AMImage.isHidden = true
-//            timeLabel.text = ""
-//        }
-        
-//        if let afternoonFilteredList = alarmList.first(where: { obj in
-//            obj.scheduledTimes.first?.alarmTime.isDayTimePM() == true
-//        }), alarmEnableStatus == "1" {
-//            AFImage.isHidden = false
-//            afTimeLabel.text = afternoonFilteredList.scheduledTimes.first?.alarmTime.getDayTimeFromDate(includeTimeZone: true) ?? ""
-//            print("afternoon alarm is ", timeLabel.text ?? "NA")
-//        } else {
-//            AFImage.isHidden = true
-//            afTimeLabel.text = ""
-//        }
-        
-//        if let eveningFilteredList = alarmList.first(where: { obj in
-//            obj.scheduledTimes.first?.alarmTime.isDayTimeEvening() == true
-//        }), alarmEnableStatus == "1" {
-//            PMImage.isHidden = false
-//            pmTimeLabel.text = eveningFilteredList.scheduledTimes.first?.alarmTime.getDayTimeFromDate(includeTimeZone: true) ?? ""
-//            print("Evening alarm is ", timeLabel.text ?? "NA")
-//        } else {
-//            PMImage.isHidden = true
-//            pmTimeLabel.text = ""
-//        }
     }
     
     fileprivate func addShadowAndBorder() {

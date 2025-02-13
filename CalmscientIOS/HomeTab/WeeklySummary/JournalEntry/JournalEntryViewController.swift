@@ -274,6 +274,14 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
         
         minmax = false
         
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false  // Ensures taps propagate to the table view
+        view.addGestureRecognizer(tapGesture)
+        
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     private func styleButton(_ button: UIButton) {
@@ -288,8 +296,8 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
     
     private func updateButtonAppearance(_ button: UIButton) {
         if button.isSelected {
-            button.backgroundColor = #colorLiteral(red: 0.4308217764, green: 0.4193654656, blue: 0.7016245723, alpha: 1)
-            button.setTitleColor(UIColor.white, for: .normal) // Text color when selected
+            button.backgroundColor = #colorLiteral(red: 0.9098039216, green: 0.9058823529, blue: 0.9568627451, alpha: 1)
+            button.setTitleColor(UIColor.black, for: .normal) // Text color when selected
         } else {
             button.backgroundColor = UIColor.clear
             button.setTitleColor(UIColor.black, for: .normal) // Text color when not selected
@@ -304,7 +312,7 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
         let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
             let title1 = languageId == 1 ? "Quiz" : "Prueba"
             quizButton.setTitle(title1, for: .normal)
-        let title2 = languageId == 1 ? "Daily journals" : "diario"
+        let title2 = languageId == 1 ? "Daily Journals" : "diario"
         dailyButton.setTitle(title2, for: .normal)
         
         let title3 = languageId == 1 ? "Discovery Excercise" : "Ejercicio de descubrimiento"
@@ -814,6 +822,8 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
         
         print("the add Journal API call params", params)
         
+        self.view.showToastActivity()
+        
         APIService.AddJournalAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") {  [self] response in
             // Your closure code here
             getresponseforAddJournalAPI(response: response)
@@ -826,13 +836,7 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
                     self.navigationController?.navigationBar.layer.zPosition = 0
                     
                 }, completion: {_ in
-                    let title = "Journal Added"
-                    
-                    self.showSuccessAlert(successContent: title, okButtonAction: {
-                        print("OK button tapped!")
-                        self.refreshDailyJournalData()
-//                        self.navigationController?.popViewController(animated: true)
-                    })
+
                 })
             }
             
@@ -850,9 +854,11 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
             
             if let responseMessage = responseDict["responseMessage"] as? String {
                 print("Response Message:", responseMessage)
-
-//                let point = CGPoint(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2)
-//                self.view.showToast(message: responseMessage, point: point)
+                
+                self.showSuccessAlert(successContent: responseMessage, okButtonAction: {
+                    print("OK button tapped!")
+                    self.refreshDailyJournalData()
+                })
 
             }
             
@@ -964,6 +970,8 @@ extension JournalEntryViewController : UITableViewDataSource,UITableViewDelegate
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        
         if buttonTag == 1 {
             let cell = tableView.dequeueReusableCell(withIdentifier: "quizTableViewCell", for: indexPath) as! quizTableViewCell
             
@@ -988,16 +996,13 @@ extension JournalEntryViewController : UITableViewDataSource,UITableViewDelegate
         } 
         else if buttonTag == 2 {
             print("daily jounerel")
-            
+
             //viv start
 
             if expandedIndexPaths.contains(indexPath) {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "JournalEntryExpandedTableCell", for: indexPath) as? JournalEntryExpandedTableCell else {
                     return UITableViewCell()
                 }
-                
-//                tableView.rowHeight = UITableView.automaticDimension
-//                tableView.estimatedRowHeight = 44.0 // Provide a reasonable estimate
                 
                 cell.selectionStyle = .none
                 let event = filtereddailyData[indexPath.row]
@@ -1023,6 +1028,9 @@ extension JournalEntryViewController : UITableViewDataSource,UITableViewDelegate
                 let event = filtereddailyData[indexPath.row]
                 if let eventName = event["createdAt"] as? String {
                     cell.titleLabel.text = formatDateTime1(eventName)
+                }
+                if let createdAt = event["entry"] as? String {
+                    cell.subTitleLabel.text = createdAt
                 }
                 cell.cellExpansionClosure = { [weak self] shouldExpand in
                     guard let self = self else { return }
@@ -1058,8 +1066,16 @@ extension JournalEntryViewController : UITableViewDataSource,UITableViewDelegate
             return cell
         }
     }
+    
+    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
+        print("Will select row: \(indexPath.row)")
+        return indexPath
+    }
+
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        print("Selected row: \(indexPath.row), buttonTag: \(buttonTag)")
         
         if buttonTag == 2 {
             if expandedIndexPaths.contains(indexPath) {

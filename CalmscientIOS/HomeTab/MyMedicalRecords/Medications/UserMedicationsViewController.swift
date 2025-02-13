@@ -83,6 +83,8 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         //end
         saveButton.isHidden = true
         
+        medicationsTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
+
     }
     
     func didChangeSelectionState(for cell: UITableViewCell, isSelected: Bool) {
@@ -358,18 +360,50 @@ extension UserMedicationsViewController : UITableViewDataSource,UITableViewDeleg
             cell.cellSelectionImage.image = UIImage(named: "CellSelectionImage")
             cell.buttonState = .selected
             cell.cellStatusLabel.isHidden = false
-            cell.expiredLeadingValue.constant = 100
+            cell.expiredLeadingValue.constant = 65
         } else {
             print("medicine taken value is",Int(medicineTaken) ?? 444)
             cell.cellSelectionImage.image = UIImage(named: "cellUnselectedImage")
             cell.cellStatusLabel.isHidden = true
-            cell.expiredLeadingValue.constant = 20
+            cell.expiredLeadingValue.constant = 5
         }
         
         if expiry == 1 {
+            cell.cellSelectionImage.alpha = 0.5
+            cell.cellStatusLabel.alpha = 0.5
+            cell.expiredLabel.alpha = 0.5
+            cell.subTitleLabel.alpha = 0.5
+            cell.titleLabel.alpha = 0.5
+            cell.cellSelectionImage.isUserInteractionEnabled = false
             cell.expiredLabel.isHidden = false
+            cell.borderView.backgroundColor = #colorLiteral(red: 0.8557285666, green: 0.8665012121, blue: 0.866311729, alpha: 1)
+            cell.timeLabel.alpha = 0.5
+            cell.AMImage.alpha = 0.5
+            cell.pmTimeLabel.alpha = 0.5
+            cell.PMImage.alpha = 0.5
+            cell.AFImage.alpha = 0.5
+            cell.afTimeLabel.alpha = 0.5
+            
+            cell.dropDownButton.isUserInteractionEnabled = true
+            cell.dropDownButton.alpha = 1.0
         } else {
-            cell.expiredLabel.isHidden = true
+            cell.cellSelectionImage.alpha = 1
+            cell.cellStatusLabel.alpha = 1
+            cell.expiredLabel.alpha = 1
+            cell.subTitleLabel.alpha = 1
+            cell.titleLabel.alpha = 1
+            cell.borderView.backgroundColor = .white
+            cell.cellSelectionImage.isUserInteractionEnabled = true
+           cell.expiredLabel.isHidden = true
+           cell.cellStatusLabel.textColor = .black
+            cell.dropDownButton.isUserInteractionEnabled = true
+            cell.timeLabel.alpha = 1
+            cell.AMImage.alpha = 1
+            cell.pmTimeLabel.alpha = 1
+            cell.PMImage.alpha = 1
+            cell.AFImage.alpha = 1
+            cell.afTimeLabel.alpha = 1
+            cell.dropDownButton.alpha = 1.0
         }
         
         return cell
@@ -380,11 +414,20 @@ extension UserMedicationsViewController : UITableViewDataSource,UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let next = UIStoryboard(name: "MedicationDetail", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "MedicationsDetailViewController") as? MedicationsDetailViewController
-        vc?.title = AppHelper.getLocalizeString(str: "Medications detail")
-        vc?.medicineDetails = medicationData[indexPath.row]
-        self.navigationController?.pushViewController(vc!, animated: true)
+        
+        let expiry = medicationData[indexPath.row].medicationDetailsByDate.first?.medicalDetails.expired ?? 0
+        
+        if expiry == 1 {
+            
+        } else {
+            let next = UIStoryboard(name: "MedicationDetail", bundle: nil)
+            let vc = next.instantiateViewController(withIdentifier: "MedicationsDetailViewController") as? MedicationsDetailViewController
+            vc?.title = AppHelper.getLocalizeString(str: "Medications detail")
+            vc?.medicineDetails = medicationData[indexPath.row]
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
+        
+        
     }
     
 }

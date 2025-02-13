@@ -68,14 +68,14 @@ class AddNewMedicationUserEntryTableCell: UITableViewCell, UITextFieldDelegate {
         let updatedText = currentText.replacingCharacters(in: textRange, with: string)
         
         // Apply capitalization: Capitalize the first letter, lowercase the rest
-        let capitalizedText = updatedText.prefix(1).uppercased() + updatedText.dropFirst().lowercased()
+//        let capitalizedText = updatedText.prefix(1).uppercased() + updatedText.dropFirst().lowercased()
         
         // Calculate the new cursor position
         let cursorOffset = range.location + string.count
         let newCursorPosition = textField.position(from: textField.beginningOfDocument, offset: cursorOffset)
         
         // Update the text field
-        textField.text = capitalizedText
+        textField.text = updatedText//capitalizedText
         
         // Set the cursor to the new position, if possible
         if let position = newCursorPosition {

@@ -288,7 +288,17 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
                         self.showSuccessAlert(successContent: title, okButtonAction: {
 
                                 print("OK button tapped!")
-                                self.navigationController?.popViewController(animated: true)
+//                                self.navigationController?.popViewController(animated: true)
+                            
+                            let next = UIStoryboard(name: "UserMedications", bundle: nil)
+                            if #available(iOS 16.0, *) {
+                                let vc = next.instantiateViewController(withIdentifier: "UserMedicationsViewController") as? UserMedicationsViewController
+                                self.navigationController?.pushViewController(vc!, animated: true)
+                            } else {
+                                // Fallback on earlier versions
+                            }
+                            
+                            
                                 self.refreshControlClosure?(true)
                             
                             
@@ -370,60 +380,62 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
             cell.cellIndex = indexPath.row - alarmCellStartIndex
             cell.delegate = self
             return cell
+            
+            //viv start
+            
         case .textFieldUserEntry:
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddNewMedicationUserEntryTableCell", for: indexPath) as! AddNewMedicationUserEntryTableCell
 
-            switch indexPath.row % 4  {
+            // Ensure userEnteredDetails has enough elements
+            while userEnteredDetails.count <= indexPath.row {
+                userEnteredDetails.append("")
+            }
+
+            switch indexPath.row % 4 {
             case 0:
-                cell.titleLabel.text = AppHelper.getLocalizeString(str:"Medication")
+                cell.titleLabel.text = AppHelper.getLocalizeString(str: "Medication")
                 cell.cellType = .MedicationName
-                cell.userEntryTextField.text = userEnteredDetails[indexPath.row]
-                if EditVc ?? false {
-                    cell.userEntryTextField.text = medication
-                    cell.configureCell(with: medication ?? "", at: 0)
+                if EditVc ?? false, userEnteredDetails[indexPath.row].isEmpty {
+                    userEnteredDetails[indexPath.row] = medication ?? ""
                 }
             case 1:
-                cell.titleLabel.text = AppHelper.getLocalizeString(str:"Provider")
+                cell.titleLabel.text = AppHelper.getLocalizeString(str: "Provider")
                 cell.cellType = .MedicationProvider
-                cell.userEntryTextField.text = userEnteredDetails[indexPath.row]
-                if EditVc ?? false {
-                    cell.userEntryTextField.text = providerName ?? ""
-                    cell.configureCell(with: providerName ?? "", at: 1)
+                if EditVc ?? false, userEnteredDetails[indexPath.row].isEmpty {
+                    userEnteredDetails[indexPath.row] = providerName ?? ""
                 }
             case 2:
-                cell.titleLabel.text = AppHelper.getLocalizeString(str:"Dosage")
+                cell.titleLabel.text = AppHelper.getLocalizeString(str: "Dosage")
                 cell.cellType = .MedicationDosage
-                cell.userEntryTextField.text = userEnteredDetails[indexPath.row]
-                if EditVc ?? false {
-                    cell.userEntryTextField.text = dosage
-                    cell.configureCell(with: dosage ?? "", at: 2)
+                if EditVc ?? false, userEnteredDetails[indexPath.row].isEmpty {
+                    userEnteredDetails[indexPath.row] = dosage ?? ""
                 }
             case 3:
-                cell.titleLabel.text = AppHelper.getLocalizeString(str:"Direction")
+                cell.titleLabel.text = AppHelper.getLocalizeString(str: "Direction")
                 cell.cellType = .MedicationDirection
-                cell.userEntryTextField.text = userEnteredDetails[indexPath.row]
-                if EditVc ?? false {
-                    cell.userEntryTextField.text = direction
-                    cell.configureCell(with: direction ?? "", at: 3)
+                if EditVc ?? false, userEnteredDetails[indexPath.row].isEmpty {
+                    userEnteredDetails[indexPath.row] = direction ?? ""
                 }
             default:
                 break
             }
+
+            // Assign stored text to text field
+            cell.userEntryTextField.text = userEnteredDetails[indexPath.row]
             cell.selectionStyle = .none
             cell.cellRow = indexPath.row
-            cell.userEntryCaptureClosure = {
-                [weak self] (enteredText, Idx) in
-                guard let self = self else {
-                    return
-                }
-//                self.userEnteredDetails[Idx] = enteredText
-                self.userEnteredDetails[Idx] = enteredText.isEmpty ? self.userEnteredDetails[Idx] : enteredText
-//                print(self.userEnteredDetails)
-                print("Captured userEnteredDetails: \(self.userEnteredDetails)")
 
+            // Capture user input without overriding
+            cell.userEntryCaptureClosure = { [weak self] (enteredText, Idx) in
+                guard let self = self else { return }
+                self.userEnteredDetails[Idx] = enteredText
+                print("Captured userEnteredDetails: \(self.userEnteredDetails)")
             }
-            cell.userEntryCaptureClosure?(cell.userEntryTextField.text ?? "", indexPath.row)
+
             return cell
+
+            //end
+
         case .switchAndTableCell:
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddNewMedicationSwitchTableCell", for: indexPath) as! AddNewMedicationSwitchTableCell
             cell.selectionStyle = .none

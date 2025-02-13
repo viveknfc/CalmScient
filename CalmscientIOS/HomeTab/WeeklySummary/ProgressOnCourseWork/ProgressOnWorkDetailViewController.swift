@@ -97,7 +97,7 @@ class ProgressOnWorkDetailViewController: ViewController, UITableViewDataSource,
                 view.cellTitleLabel.text = name
                 view.percentageLabel.text = "\(perc)%"
                 view.progressView.progress = perc / 100.0
-                view.courseLabel.text = "Section"
+                view.courseLabel.text = "Sections"
             }
             header = view
         }
