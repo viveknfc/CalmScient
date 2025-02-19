@@ -34,12 +34,13 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.showToastActivity()
+        
         calendar.calendarToViewDelegate = self
         addMedicationsButton.imageView?.contentMode = .scaleAspectFill
         medicationsTableView.register(UINib(nibName: "UserMedicationsTableCell", bundle: nil), forCellReuseIdentifier: "UserMedicationsTableCell")
         medicationsTableView.dataSource = self
         medicationsTableView.delegate = self
-        getMedicationsData(forDate: Date())
         
         infoLabel.text = "Please select the medication you are currently taking."
         
@@ -220,23 +221,11 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     
     
     @objc func backButtonOverrideAction() {
-        if let navigationController = self.navigationController, navigationController.viewControllers.count > 1 {
-            // If there's a back page, pop to the previous view controller
-            navigationController.popViewController(animated: true)
-        } else {
-            // If there's no back page, navigate to the home tab
-            print("Navigating to Home Tab Dashboard")
-            
-            if let tabBarController = self.tabBarController {
-                let storyboard = UIStoryboard(name: "DashboardHomeTab", bundle: nil)
-                if let homeTabVC = storyboard.instantiateViewController(withIdentifier: "HomeTabDashboardViewController") as? HomeTabDashboardViewController {
-                    self.navigationController?.pushViewController(homeTabVC, animated: true)
-                }
-                tabBarController.tabBar.selectedItem?.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Home" : "Inicio"
-                   } else {
-                       print("Tab bar controller not found")
-                   }
-        }
+        
+        let next = UIStoryboard(name: "UserMedicalRecords", bundle: nil)
+        let vc = next.instantiateViewController(withIdentifier: "UserMedicalRecordsViewController") as? UserMedicalRecordsViewController
+        self.navigationController?.pushViewController(vc!, animated: true)
+
     }
 
     
@@ -255,9 +244,15 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Medications" : "Medicación"
         self.tabBarController?.tabBar.isHidden = false;
         self.tabBarController?.tabBar.selectedItem?.title = "Home"
-        getMedicationsData(forDate: Date())
         saveButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str:"Save"))
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        getMedicationsData(forDate: Date())
+    }
+
     
     func NcalendardidChangeBounds(newBounds: CGRect) {
         calendarHeightConstraint.constant = newBounds.height
@@ -270,7 +265,8 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     }
 
     func getMedicationsData(forDate:Date) {
-        self.view.showToastActivity()
+        view.showToastActivity()
+        
         var prepareRequestBodyParams:[String:Any] = [:]
         guard let loginResponse = ApplicationSharedInfo.shared.loginResponse else {
             self.view.hideToastActivity()
@@ -303,19 +299,32 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
                     print("the response code is ", response.response.responseCode)
                     if response.response.responseCode == 200 {
                         // Update medicationData and reload the table
-                        self.medicationData = response.medicineDetails.filter { obj in
-                            let dateString = self.selectedNewDate.dateToString(format: "MM/dd/yyyy")
-                            return obj.date == dateString
-                        }
+                        
+                        self.medicationData = response.medicineDetails
+                            .filter { $0.date == self.selectedNewDate.dateToString(format: "MM/dd/yyyy") }
+                            .sorted {
+                                ($0.medicationDetailsByDate.first?.medicalDetails.medicationId ?? Int.max) >
+                                ($1.medicationDetailsByDate.first?.medicalDetails.medicationId ?? Int.max)
+                            }
+
+                            let afterSorting = self.medicationData.flatMap { $0.medicationDetailsByDate }.map { $0.medicalDetails.medicationId }
+                            print("After Sorting: \(afterSorting)")
+
+                        
                         print("the medication data count is",self.medicationData.count)
                         self.nomedications.isHidden = true
                         self.medicationsTableView.isHidden = false
                         self.medicationsTableView.reloadData()
+
+                        self.view.hideToastActivity()
+                        
+                        
                     }
                     else if response.response.responseCode == 400 {
                             print("Total Records: \(response.totalRecords)")
                             self.medicationsTableView.isHidden = true
                             self.nomedications.isHidden = false
+                            self.view.hideToastActivity()
                         }
                     else {
                         print("the response message is ",response.response.responseMessage)
@@ -323,13 +332,15 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
                         self.nomedications.isHidden = false
                         self.medicationsTableView.reloadData()
                         self.view.showToast(message: response.response.responseMessage)
+                        self.view.hideToastActivity()
                         }
 
                 } else if let failureResponse = failureResponse {
                     self.view.showToast(message: failureResponse.statusResponse.responseMessage)
+                    self.view.hideToastActivity()
                 }
 
-                    self.view.hideToastActivity()
+                    
             
             }
         }

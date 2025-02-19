@@ -67,6 +67,18 @@
         }
       }
     },
+    "1l8-0d-e9m.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"1l8-0d-e9m\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Label"
+          }
+        }
+      }
+    },
     "1nh-jK-EeZ.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"1nh-jK-EeZ\";",
       "extractionState" : "extracted_with_value",
@@ -267,6 +279,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "within about 2 hours"
+          }
+        }
+      }
+    },
+    "4Mc-0q-7zS.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"4Mc-0q-7zS\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Label"
           }
         }
       }
@@ -607,6 +631,18 @@
         }
       }
     },
+    "bJ2-VW-RVx.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Put on a new patch each morning to get a steady level of nicotine that will reduce your cravings and withdrawal symptoms throughout the day.\"; ObjectID = \"bJ2-VW-RVx\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Put on a new patch each morning to get a steady level of nicotine that will reduce your cravings and withdrawal symptoms throughout the day."
+          }
+        }
+      }
+    },
     "bJf-QB-Tik.text" : {
       "comment" : "Class = \"UILabel\"; text = \"E-cigarettes go by many names like \\\"e-cigs,” vapes,\\\" and \\\"vape pens.\\\" They can look like regular cigarettes or even things like USB flash drives and pens.\\n\\nThese devices run on batteries and let people inhale something called aerosol. Vaping became popular because some thought it might be a less harmful choice compared to regular smoking.\\n\\nInside that aerosol, there's usually nicotine (though not always), flavors, and some other chemicals. The devices can be rechargeable, disposable, or come with tanks and mods.\\n\\nIs it safer than tobacco?\\nE-cigarette aerosol generally contains fewer toxic chemicals than the deadly mix of 7,000 chemicals in smoke from regular cigarettes. However, e-cigarette aerosol is not harmless. It can contain harmful and potentially harmful substances, including nicotine, heavy metals like lead, volatile organic compounds and cancer-causing agents.\"; ObjectID = \"bJf-QB-Tik\";",
       "extractionState" : "extracted_with_value",
@@ -639,6 +675,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "within about 2 hours"
+          }
+        }
+      }
+    },
+    "cgd-FI-egi.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Use a fast-acting nicotine medicine like lozenges or gum to quickly combat cravings\"; ObjectID = \"cgd-FI-egi\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Use a fast-acting nicotine medicine like lozenges or gum to quickly combat cravings"
           }
         }
       }
@@ -865,6 +913,18 @@
         }
       }
     },
+    "f5z-8n-rW7.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"You can control how often you use the fast-acting medicine, so you won’t get more nicotine than you want.\"; ObjectID = \"f5z-8n-rW7\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "You can control how often you use the fast-acting medicine, so you won’t get more nicotine than you want."
+          }
+        }
+      }
+    },
     "FB4-N7-Gbx.configuration.title" : {
       "comment" : "Class = \"UIButton\"; configuration.title = \"Need to talk with someone?\"; ObjectID = \"FB4-N7-Gbx\";",
       "extractionState" : "extracted_with_value",
@@ -993,6 +1053,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "I’m proud of you setting a limit to alcohol consumption! You’re taking a really important first step by recognizing your daily reliance on alcohol, and that’s something to be proud of."
+          }
+        }
+      }
+    },
+    "GQU-T4-53Y.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Can start a week or more before you quit smoking.\"; ObjectID = \"GQU-T4-53Y\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Can start a week or more before you quit smoking."
           }
         }
       }
@@ -1347,6 +1419,30 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Fatalities and injuries"
+          }
+        }
+      }
+    },
+    "K85-OT-l8V.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Use quit-smoking medicines\"; ObjectID = \"K85-OT-l8V\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Use quit-smoking medicines"
+          }
+        }
+      }
+    },
+    "kAJ-Aj-UVR.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Reduces your urge to smoke and enjoyment of cigarettes.\"; ObjectID = \"kAJ-Aj-UVR\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Reduces your urge to smoke and enjoyment of cigarettes."
           }
         }
       }
@@ -2047,6 +2143,18 @@
         }
       }
     },
+    "tpv-Na-YZh.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"A nicotine patch plus a lozenge (mints/cough drops) or gum is the most common combination and you can get them at any drug store.\"; ObjectID = \"tpv-Na-YZh\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "A nicotine patch plus a lozenge (mints/cough drops) or gum is the most common combination and you can get them at any drug store."
+          }
+        }
+      }
+    },
     "tvY-rL-Zad.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Let’s set a goal to screen for depression, anxiety, and alcohol and smoking regularly, as these can support your success\"; ObjectID = \"tvY-rL-Zad\";",
       "extractionState" : "extracted_with_value",
@@ -2323,6 +2431,18 @@
         }
       }
     },
+    "vV1-UJ-gjz.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"vV1-UJ-gjz\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Label"
+          }
+        }
+      }
+    },
     "VV2-8U-Ddg.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"VV2-8U-Ddg\";",
       "extractionState" : "extracted_with_value",
@@ -2367,6 +2487,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Would you like to know your drink counts?"
+          }
+        }
+      }
+    },
+    "wiA-T8-dss.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Gives you the strongest chance for success of any single medicine.\"; ObjectID = \"wiA-T8-dss\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Gives you the strongest chance for success of any single medicine."
           }
         }
       }
@@ -2475,6 +2607,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Alcohol use disorder (AUD)"
+          }
+        }
+      }
+    },
+    "ZLc-bt-u7K.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"It’s OK to start nicotine patches, gum, or lozenges a week or two before you quit smoking. This can help you get ready and may cut down on your smoking. Starting medicine, especially the nicotine patch, before you quit may improve your chances of quitting successfully.\"; ObjectID = \"ZLc-bt-u7K\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "It’s OK to start nicotine patches, gum, or lozenges a week or two before you quit smoking. This can help you get ready and may cut down on your smoking. Starting medicine, especially the nicotine patch, before you quit may improve your chances of quitting successfully."
           }
         }
       }

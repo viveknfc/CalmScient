@@ -34,7 +34,7 @@ print("originalDateString,\(originalDateString)")
         // Define the date formatter for the original date string
         let originalDateFormatter = DateFormatter()
         // Set the format of the original date string according to its current format
-        originalDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        originalDateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
         originalDateFormatter.locale = Locale(identifier: Utility.shared.getLocaleIdentifier())
         // Parse the original date string into a Date object
         if let date = originalDateFormatter.date(from: originalDateString) {

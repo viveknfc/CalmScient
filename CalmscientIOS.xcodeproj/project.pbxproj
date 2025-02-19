@@ -457,6 +457,7 @@
 		C24BB6392D01CA7700D7B73A /* ConSub4VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C24BB6382D01CA7700D7B73A /* ConSub4VC.swift */; };
 		C25576992D2E56DE008E9D2F /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25576982D2E56DE008E9D2F /* APIService.swift */; };
 		C25825492D1410260004B00C /* CustomView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C25825482D1410260004B00C /* CustomView2.swift */; };
+		C267D18B2D5DE2E100564FE3 /* TokenExpiryCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = C267D18A2D5DE2E100564FE3 /* TokenExpiryCheck.swift */; };
 		C26AA7A42CF85E1600F9A424 /* Taking Control Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26AA7A32CF85E1600F9A424 /* Taking Control Index.swift */; };
 		C26AA7A62CF8642500F9A424 /* Drinking Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26AA7A52CF8642500F9A424 /* Drinking Control.swift */; };
 		C26AA7A82CF8644600F9A424 /* Smoking Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26AA7A72CF8644600F9A424 /* Smoking Control.swift */; };
@@ -987,6 +988,7 @@
 		C24BB6382D01CA7700D7B73A /* ConSub4VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConSub4VC.swift; sourceTree = "<group>"; };
 		C25576982D2E56DE008E9D2F /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		C25825482D1410260004B00C /* CustomView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView2.swift; sourceTree = "<group>"; };
+		C267D18A2D5DE2E100564FE3 /* TokenExpiryCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenExpiryCheck.swift; sourceTree = "<group>"; };
 		C26AA7A32CF85E1600F9A424 /* Taking Control Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Taking Control Index.swift"; sourceTree = "<group>"; };
 		C26AA7A52CF8642500F9A424 /* Drinking Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drinking Control.swift"; sourceTree = "<group>"; };
 		C26AA7A72CF8644600F9A424 /* Smoking Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Smoking Control.swift"; sourceTree = "<group>"; };
@@ -2436,6 +2438,7 @@
 				C237E9C62D30586000E895FA /* newPickerViewVC.swift */,
 				C2D3EE402D475EF9008A49D2 /* CustomDropDown.swift */,
 				C29462132D4B849D00EF94DA /* TimeZoneHelper.swift */,
+				C267D18A2D5DE2E100564FE3 /* TokenExpiryCheck.swift */,
 			);
 			path = "General Class";
 			sourceTree = "<group>";
@@ -3040,6 +3043,7 @@
 				43508AD32C48FD71000B5645 /* HowToUseViewController.swift in Sources */,
 				4A0853AD2C21684B00202C02 /* introductionTakingPage.swift in Sources */,
 				43BDB7A22CAA64FE007219B0 /* GlossyController.swift in Sources */,
+				C267D18B2D5DE2E100564FE3 /* TokenExpiryCheck.swift in Sources */,
 				4A0853B82C21684B00202C02 /* CustomButton.swift in Sources */,
 				43AB775B2C64511C00740BA6 /* MovementDance.swift in Sources */,
 				C2948E1D2CFF374900D6FC55 /* CustomView1.swift in Sources */,
@@ -3317,7 +3321,7 @@
 				CODE_SIGN_ENTITLEMENTS = CalmscientIOS/CalmscientIOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 2.2;
 				DEVELOPMENT_TEAM = F7P87PL667;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CalmscientIOS/Info.plist;
@@ -3358,7 +3362,7 @@
 				CODE_SIGN_ENTITLEMENTS = CalmscientIOS/CalmscientIOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 2.2;
 				DEVELOPMENT_TEAM = F7P87PL667;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CalmscientIOS/Info.plist;

@@ -72,7 +72,7 @@ public class GraphData {
         guard let additionalInfo = self.additionalInfo else {
             return "\(scoreString)(\(yValue))"
         }
-        return "\(scoreString)(\(yValue))\n\(additionalInfo)"
+        return "\(scoreString)(\(yValue))" //\n\(additionalInfo)
     }
     
     func getXAxisLabelValue() -> String {

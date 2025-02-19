@@ -5,27 +5,27 @@
         "options": [
             {
                 "optionType": "BAD",
-                "optionTypeID": 0,
+                "optionTypeID": 1,
                 "image": "Angry"
             },
             {
                 "optionType": "COULD BE BETTER",
-                "optionTypeID": 1,
+                "optionTypeID": 2,
                 "image": "SMILE"
             },
             {
                 "optionType": "FAIR",
-                "optionTypeID": 2,
-                "image": "LAUGH"
-            },
-            {
-                "optionType": "GOOD",
                 "optionTypeID": 3,
                 "image": "LAUGH"
             },
             {
-                "optionType": "EXCELLENT",
+                "optionType": "GOOD",
                 "optionTypeID": 4,
+                "image": "LAUGH"
+            },
+            {
+                "optionType": "EXCELLENT",
+                "optionTypeID": 5,
                 "image": "LAUGH"
             }
         ]

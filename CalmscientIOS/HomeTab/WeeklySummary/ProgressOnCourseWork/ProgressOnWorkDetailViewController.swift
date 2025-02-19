@@ -42,7 +42,7 @@ class ProgressOnWorkDetailViewController: ViewController, UITableViewDataSource,
         ])
         self.view.bringSubviewToFront(needToTalkSomeOneButton)
         summaryResultsTableView.allowsSelection = true
-        summaryResultsTableView.isScrollEnabled = false
+        summaryResultsTableView.isScrollEnabled = true
         summaryResultsTableView.reloadData()
     }
     

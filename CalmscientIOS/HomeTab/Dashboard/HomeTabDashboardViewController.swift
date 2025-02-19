@@ -31,21 +31,87 @@ class HomeTabDashboardViewController: ViewController, UITableViewDataSource,UITa
         noFavsLabel.numberOfLines = 0
         self.navigationController?.isNavigationBarHidden = true
         setupLanguage()
+        
+        //title
+        
         let text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? NSMutableAttributedString(string: "Hello \(ApplicationSharedInfo.shared.loginResponse!.firstName)\nWe are happy to see you") :
         NSMutableAttributedString(string: "Hola \(ApplicationSharedInfo.shared.loginResponse!.firstName)\nEstamos felices de verte")
         text.addAttributes([.font:helloFont!], range: text.mutableString.range(of:UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "Hello" : "Hola"))
         text.addAttributes([.font:userFont!], range: text.mutableString.range(of: ApplicationSharedInfo.shared.loginResponse!.firstName))
         text.addAttributes([.font:subTextFont!], range: text.mutableString.range(of:UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "We are happy to see you" : "Estamos felices de verte"))
         screenTitleLabel.attributedText = text
+        
+        //end
+
+        // Check token expiration before making API calls
+        if TokenManager.shared.isTokenExpired() {
+            print("Token expired, refreshing...")
+            TokenManager.shared.refreshAccessToken(from: self) { success in
+                DispatchQueue.main.async {
+                    if success {
+                        print("Token refreshed, proceeding with API call")
+                        self.geMenuItemsAPICalls()
+                    } else {
+                        print("Token refresh failed")
+                        self.view.showToast(message: "Token refresh failed")
+                        // Handle failure (e.g., logout user, show alert)
+                    }
+                }
+            }
+        } else {
+            print("Token is still valid, proceeding with API call")
+            geMenuItemsAPICalls()
+        }
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    @IBAction func didClickOnProfile(_ sender: UIButton) {
+        let userProfileViewController = UIStoryboard(name: "UserProfile", bundle: nil).instantiateViewController(withIdentifier: "UserProfileViewController") as! UserProfileViewController
+        self.navigationController?.pushViewController(userProfileViewController, animated: true)
+        
+    }
+    var nomedications1 = UILabel()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
+        
+        actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
+        
+        dashboardTableView.register(UINib(nibName: "DashboardMainTableCell", bundle: nil), forCellReuseIdentifier: "DashboardMainTableCell")
+        dashboardTableView.dataSource = self
+        dashboardTableView.delegate = self
+        dashboardTableView.isScrollEnabled = true
+
+        
+        
+        let nib = UINib(nibName: "HomeTabFavoritesCollectionViewCell", bundle: nil)
+        
+        dashBoardCollectionView.register(nib, forCellWithReuseIdentifier: "HomeTabFavoritesCollectionViewCell")
+        
+        dashBoardCollectionView.delegate = self
+        dashBoardCollectionView.dataSource = self
+        if let layout = dashBoardCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .horizontal
+        }
+        dashBoardCollectionView.showsHorizontalScrollIndicator = false
+        
+        self.noFavsLabel.isHidden = true
+        
+    }
+    
+    //MARK: - Get Menu Items API Call
+    
+    func geMenuItemsAPICalls() {
+        
         guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
             fatalError("Unable to found Application Shared Info")
         }
         self.view.showToastActivity()
-
-        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
-            fatalError("Unable to found Application Shared Info")
-        }
-        //  self.view.showToastActivity()
+        
         UserDefaults.standard.removeObject(forKey: "favoriteExcersises")
         getMeniItems(plId: userInfo.patientLocationID, patientId: userInfo.patientID, clientId: userInfo.clientID, parentId: 0) { [self] result in
             switch result {
@@ -96,47 +162,6 @@ class HomeTabDashboardViewController: ViewController, UITableViewDataSource,UITa
             case .failure(let error):
                 print("Error: \(error)")
             }
-        }
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        self.navigationController?.isNavigationBarHidden = false
-    }
-    
-    @IBAction func didClickOnProfile(_ sender: UIButton) {
-        let userProfileViewController = UIStoryboard(name: "UserProfile", bundle: nil).instantiateViewController(withIdentifier: "UserProfileViewController") as! UserProfileViewController
-        self.navigationController?.pushViewController(userProfileViewController, animated: true)
-        
-    }
-    var nomedications1 = UILabel()
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
-        
-        actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
-        
-        dashboardTableView.register(UINib(nibName: "DashboardMainTableCell", bundle: nil), forCellReuseIdentifier: "DashboardMainTableCell")
-        dashboardTableView.dataSource = self
-        dashboardTableView.delegate = self
-        dashboardTableView.isScrollEnabled = true
-
-        
-        
-        let nib = UINib(nibName: "HomeTabFavoritesCollectionViewCell", bundle: nil)
-        
-        dashBoardCollectionView.register(nib, forCellWithReuseIdentifier: "HomeTabFavoritesCollectionViewCell")
-        
-        dashBoardCollectionView.delegate = self
-        dashBoardCollectionView.dataSource = self
-        if let layout = dashBoardCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .horizontal
-        }
-        dashBoardCollectionView.showsHorizontalScrollIndicator = false
-        
-        self.noFavsLabel.isHidden = true
-        
-        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
-            fatalError("Unable to found Application Shared Info")
         }
         
     }

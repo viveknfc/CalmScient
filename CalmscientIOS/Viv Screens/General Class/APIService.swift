@@ -24,7 +24,7 @@ class APIService: UIViewController {
 
     //MARK: - Refresh API Calling
     
-    static func refreshAPICalling(_ view:UIViewController,params:[String:String],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+    static func refreshAPICalling(_ view:UIViewController?,params:[String:String],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.RefreshToken
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
@@ -83,7 +83,7 @@ class APIService: UIViewController {
     //MARK: - API Calling Function
     
     static func getRequestWithToken(
-        viewController: UIViewController,
+        viewController: UIViewController?,
         urlString: String,
         params: [String: Any],
         method: String,
@@ -113,6 +113,7 @@ class APIService: UIViewController {
                 return
             }
             request = URLRequest(url: finalURL)
+            request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization") //new
         
         case "body":
             request = URLRequest(url: url)
@@ -123,11 +124,13 @@ class APIService: UIViewController {
                 callback("Error serializing body parameters: \(error.localizedDescription)" as AnyObject)
                 return
             }
+            request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")//new
         
         case "header":
             request = URLRequest(url: url)
             for (key, value) in params {
                 request.setValue("\(value)", forHTTPHeaderField: key)
+
             }
         
         default:
@@ -139,7 +142,7 @@ class APIService: UIViewController {
         request.httpMethod = method
         
         // Add Authorization header
-        request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+//        request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization") // because of this api with header is not working - viv
         
         // Add Content-Type header
         if parameterPlacement != "header" { // Avoid overwriting if params are headers

@@ -75,27 +75,30 @@ class WeeklySummaryGraphViewController: ViewController {
     }
 
     private func prepareBarChartData(data:[GraphData]) -> [GraphData] {
-        let excellentData = data.filter { obj in
-            return obj.additionalInfo?.lowercased().trimmingCharacters(in: .whitespaces) == "EXCELLENT".lowercased()
-        }
-        let goodData = data.filter { obj in
-            return obj.additionalInfo?.lowercased().trimmingCharacters(in: .whitespaces) == "GOOD".lowercased()
-        }
-        let fairData = data.filter { obj in
-            return obj.additionalInfo?.lowercased().trimmingCharacters(in: .whitespaces) == "FAIR".lowercased()
+        
+        let badData:[GraphData] = data.filter { obj in
+            return obj.additionalInfo?.lowercased().trimmingCharacters(in: .whitespaces) == "BAD".lowercased()
         }
         let couldbeBetterData:[GraphData] = data.filter { obj in
             return obj.additionalInfo?.lowercased().trimmingCharacters(in: .whitespaces) == "COULD BE BETTER".lowercased()
         }
-        let badData:[GraphData] = data.filter { obj in
-            return obj.additionalInfo?.lowercased().trimmingCharacters(in: .whitespaces) == "BAD".lowercased()
+        let fairData = data.filter { obj in
+            return obj.additionalInfo?.lowercased().trimmingCharacters(in: .whitespaces) == "FAIR".lowercased()
+        }
+        let goodData = data.filter { obj in
+            return obj.additionalInfo?.lowercased().trimmingCharacters(in: .whitespaces) == "GOOD".lowercased()
+        }
+        let excellentData = data.filter { obj in
+            return obj.additionalInfo?.lowercased().trimmingCharacters(in: .whitespaces) == "EXCELLENT".lowercased()
         }
         var preparedData:[GraphData] = []
-        preparedData.append(GraphData(yAxisValue: excellentData.count, xAxisValue: "EXCELLENT", additionalInfo: "EXCELLENT", graphType: .WeeklySummarySummaryOfMood))
-        preparedData.append(GraphData(yAxisValue: goodData.count, xAxisValue: "GOOD", additionalInfo: "GOOD", graphType: .WeeklySummarySummaryOfMood))
+
+        preparedData.append(GraphData(yAxisValue: badData.count, xAxisValue: "VBAD", additionalInfo: "BAD", graphType: .WeeklySummarySummaryOfMood))
+        preparedData.append(GraphData(yAxisValue: couldbeBetterData.count , xAxisValue: "COULD BE BETTER", additionalInfo: "COULD BE BETTER", graphType: .WeeklySummarySummaryOfMood))
         preparedData.append(GraphData(yAxisValue: fairData.count, xAxisValue: "FAIR", additionalInfo: "FAIR", graphType: .WeeklySummarySummaryOfMood))
-        preparedData.append(GraphData(yAxisValue: couldbeBetterData.count, xAxisValue: "COULD BE BETTER", additionalInfo: "GOOD", graphType: .WeeklySummarySummaryOfMood))
-        preparedData.append(GraphData(yAxisValue: badData.count, xAxisValue: "BAD", additionalInfo: "BAD", graphType: .WeeklySummarySummaryOfMood))
+        preparedData.append(GraphData(yAxisValue: goodData.count, xAxisValue: "GOOD", additionalInfo: "GOOD", graphType: .WeeklySummarySummaryOfMood))
+        preparedData.append(GraphData(yAxisValue: excellentData.count, xAxisValue: "EXCELLENT", additionalInfo: "EXCELLENT", graphType: .WeeklySummarySummaryOfMood))
+        
         return preparedData
     }
 
@@ -158,14 +161,16 @@ extension WeeklySummaryGraphViewController : UITableViewDataSource,UITableViewDe
                     cell.mostHrsSleptLbl.text = "\(first.yValue) hrs"
                     cell.leastHrsSleptLbl.text = "\(last.yValue) hrs"
                     cell.avgHrsSleptLbl.text = String(format: "%.2f", avgSleepHrs) + " hrs"
-                    let attrText = NSMutableAttributedString(string: "\(String(format: "%.2f", avgSleepHrs)) / ", attributes: [.font : UIFont(name: Fonts().lexendMedium, size: 14), .foregroundColor : UIColor(hex: "#9B9B9B")])
-                    attrText.append(NSMutableAttributedString(string: "\(first.yValue)", attributes: [.font : UIFont(name: Fonts().lexendMedium, size: 14),.foregroundColor: UIColor(hex: (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ?  "#FFFFFF" : "#000000")]))
+                    let attrText = NSMutableAttributedString(string: "\(String(format: "%.2f", avgSleepHrs)) / ", attributes: [.font : UIFont(name: Fonts().lexendMedium, size: 14) ?? "", .foregroundColor : UIColor(hex: "#9B9B9B")])
+                    attrText.append(NSMutableAttributedString(string: "10", attributes: [.font : UIFont(name: Fonts().lexendMedium, size: 14) ?? "",.foregroundColor: UIColor(hex: (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ?  "#FFFFFF" : "#000000")]))
                     cell.noOfHrsSlept.attributedText = attrText
+                    cell.configureCell(with: avgSleepHrs)
+
                 }
             }
             return cell
         }
-        return UITableViewCell()
+//        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

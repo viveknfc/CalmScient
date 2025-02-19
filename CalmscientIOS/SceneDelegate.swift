@@ -32,8 +32,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        UserDefaults.standard.set(false, forKey: "hasSkippedBefore")
-        
         if (UserDefaults.standard.value(forKey: "rememberMe") as? Int == 1) {
             print("remember Me pressed before")
             checkForSavedLogin()

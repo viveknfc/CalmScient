@@ -13,6 +13,9 @@
         <array key="Lexend-Regular.ttf">
             <string>Lexend-Regular</string>
         </array>
+        <array key="lexendlight.ttf">
+            <string>Lexend-Light</string>
+        </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -37,7 +40,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="anZ-45-biS">
-                                        <rect key="frame" x="8" y="40" width="275" height="73"/>
+                                        <rect key="frame" x="8" y="40" width="275" height="50"/>
                                         <color key="backgroundColor" name="UserIntroCellContentColor"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="8" id="u2R-Ip-BnW">
                                             <size key="itemSize" width="128" height="128"/>
@@ -46,11 +49,19 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                     </collectionView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8uF-oK-Nxu">
+                                        <rect key="frame" x="250" y="100" width="31" height="15"/>
+                                        <fontDescription key="fontDescription" name="Lexend-Light" family="Lexend" pointSize="12"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" name="UserIntroCellContentColor"/>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="8uF-oK-Nxu" secondAttribute="bottom" constant="10" id="IBB-Hd-wyb"/>
                                     <constraint firstItem="anZ-45-biS" firstAttribute="top" secondItem="sx8-vm-mc1" secondAttribute="bottom" constant="8" id="Rko-kj-fNt"/>
                                     <constraint firstItem="sx8-vm-mc1" firstAttribute="top" secondItem="g97-hU-dTu" secondAttribute="top" constant="12" id="aKG-d8-DVQ"/>
+                                    <constraint firstAttribute="trailing" secondItem="8uF-oK-Nxu" secondAttribute="trailing" constant="10" id="l8T-iy-nej"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -61,7 +72,7 @@
                             <constraint firstAttribute="bottom" secondItem="g97-hU-dTu" secondAttribute="bottom" id="bMW-pr-06o"/>
                             <constraint firstItem="g97-hU-dTu" firstAttribute="top" secondItem="4my-nq-sI2" secondAttribute="top" id="kNM-gm-8b9"/>
                             <constraint firstAttribute="trailing" secondItem="anZ-45-biS" secondAttribute="trailing" constant="8" id="kba-5w-TMU"/>
-                            <constraint firstAttribute="bottom" secondItem="anZ-45-biS" secondAttribute="bottom" constant="12" id="qLf-tP-aws"/>
+                            <constraint firstItem="8uF-oK-Nxu" firstAttribute="top" secondItem="anZ-45-biS" secondAttribute="bottom" constant="10" id="qLf-tP-aws"/>
                             <constraint firstAttribute="trailing" secondItem="g97-hU-dTu" secondAttribute="trailing" id="sWD-GU-zw9"/>
                             <constraint firstItem="sx8-vm-mc1" firstAttribute="leading" secondItem="4my-nq-sI2" secondAttribute="leading" constant="16" id="v0g-GQ-Dxb"/>
                             <constraint firstItem="anZ-45-biS" firstAttribute="leading" secondItem="4my-nq-sI2" secondAttribute="leading" constant="8" id="zFJ-L2-Y7Q"/>
@@ -80,6 +91,7 @@
                 <outlet property="cornerView" destination="g97-hU-dTu" id="Av4-jQ-NNJ"/>
                 <outlet property="shadowView" destination="4my-nq-sI2" id="yEu-V8-t94"/>
                 <outlet property="sleepHoursCollectionView" destination="anZ-45-biS" id="uei-b6-9oc"/>
+                <outlet property="sleepHoursLabel" destination="8uF-oK-Nxu" id="NN3-Ba-UXd"/>
                 <outlet property="titleLabel" destination="sx8-vm-mc1" id="PsS-Lp-eni"/>
             </connections>
             <point key="canvasLocation" x="45.038167938931295" y="53.87323943661972"/>

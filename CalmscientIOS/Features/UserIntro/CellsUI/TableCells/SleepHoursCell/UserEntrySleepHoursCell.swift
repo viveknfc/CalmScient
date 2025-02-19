@@ -13,6 +13,9 @@ class UserEntrySleepHoursCell: UITableViewCell {
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var sleepHoursCollectionView: UICollectionView!
+    
+    @IBOutlet weak var sleepHoursLabel: UILabel!
+    
     let selectedBorderColor = UIColor(named: "circleCellSelectedColor")
     let defaultBorderColor = UIColor(named: "circleIntroBorderColor")
     let selectedTextColor = UIColor.white
@@ -53,7 +56,7 @@ class UserEntrySleepHoursCell: UITableViewCell {
     }
     
     func getUpdatedData() -> Int? {
-        return self.selectedIndex
+        return self.selectedIndex + 1
     }
 
     
@@ -74,6 +77,22 @@ class UserEntrySleepHoursCell: UITableViewCell {
         
         self.titleLabel.attributedText = attributedText
         selectedIndex = slpHrs
+        
+        if slpHrs < 0 {
+            self.sleepHoursLabel.isHidden = true
+        } else {
+            self.sleepHoursLabel.isHidden = false
+            
+            if slpHrs < 1 {
+                self.sleepHoursLabel.text = "Less than 4 Hours"
+            } else if slpHrs > 7 {
+                self.sleepHoursLabel.text = "More than 10 Hours"
+            } else {
+                self.sleepHoursLabel.text = "\(slpHrs) Hours"
+            }
+            
+        }
+        
         sleepHoursCollectionView.delegate = self
         sleepHoursCollectionView.dataSource = self
         sleepHoursCollectionView.reloadData() //instance.sleepData?.sleepQuestion
@@ -151,6 +170,7 @@ extension UserEntrySleepHoursCell : UICollectionViewDelegateFlowLayout, UICollec
                 cell.circleFillColor = defaultFillColor
                 cell.contentTextColor = defaultTextColor
             }
+            
             cell.setCircleText(text: sleepData[indexPath.row])
             return cell
         }
@@ -209,13 +229,17 @@ extension UserEntrySleepHoursCell : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndex = indexPath.row
         instance.sleepAnswer = selectedIndex
-//        if selectedIndex == 0 {
-//            instance.sleepAnswer = 2
-//        } else if selectedIndex == sleepData.count - 1 {
-//            instance.sleepAnswer = 14
-//        } else {
-//            instance.sleepAnswer = Int(sleepData[indexPath.row])
-//        }
+
+        self.sleepHoursLabel.isHidden = false
+        if indexPath.row == 0 {
+            self.sleepHoursLabel.text = "Less than 4 Hours"
+        } else if indexPath.row == 8 {
+            self.sleepHoursLabel.text = "More than 10 Hours"
+        } else {
+            self.sleepHoursLabel.text = "\(sleepData[indexPath.row]) Hours"
+        }
+        
+        
         collectionView.reloadData()
     }
 }

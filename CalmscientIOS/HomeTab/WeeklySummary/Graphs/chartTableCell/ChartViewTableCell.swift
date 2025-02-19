@@ -120,7 +120,7 @@ class ChartViewTableCell: UITableViewCell {
                                              insets: UIEdgeInsets(top: 8, left: 8, bottom: 20, right: 8),xAxisValueFormatter: XAxisLineChartFormatter(graphData: graphData), data: graphData)
         marker.chartView = lineChartView
         marker.minimumSize = CGSize(width: 100, height: 45)
-        lineChartView.marker = marker
+//        lineChartView.marker = marker
         lineChartView.fitScreen()
         lineChartView.extraRightOffset = 20
         lineChartView.extraLeftOffset = 10
@@ -138,12 +138,18 @@ class ChartViewTableCell: UITableViewCell {
                 maxValue = datum.yValue
             }
         }
+        print("Y max value that we are getting is ",maxValue)
         return maxValue
     }
     
     
     
     func setupLineChartView(graphDataValues:[GraphData]) {
+        
+        for graphValue in graphDataValues {
+            print("the graph value is", graphValue.yValue)
+        }
+        
         self.graphData = graphDataValues
         //Hide Bar Chart
         self.bringSubviewToFront(lineChartView)
@@ -222,7 +228,7 @@ class ChartViewTableCell: UITableViewCell {
                                              insets: UIEdgeInsets(top: 8, left: 8, bottom: 20, right: 8),xAxisValueFormatter: XAxisLineChartFormatter(graphData: graphDataValues), data: graphDataValues)
         marker.chartView = lineChartView
         marker.minimumSize = CGSize(width: 100, height: 45)
-        lineChartView.marker = marker
+//        lineChartView.marker = marker
         lineChartView.fitScreen()
         lineChartView.extraRightOffset = 20
         lineChartView.extraLeftOffset = 20
@@ -233,7 +239,12 @@ class ChartViewTableCell: UITableViewCell {
     
     public func setupbarChartView(data:[GraphData]) {
         self.graphData = data
-        print("the graph data is", graphData.last?.xValue ?? "NA")
+        
+        for graph in data {
+            print("the graph data for bar chart is", graph.xValue) //graphData.last?.xValue ?? "NA"
+        }
+        
+        
         self.bringSubviewToFront(barChartView)
         lineChartView.isHidden = true
         barChartView.isHidden = false
@@ -287,7 +298,7 @@ class ChartViewTableCell: UITableViewCell {
         let colors = [UIColor(named: "barColor1")!,UIColor(named: "barColor2")!,UIColor(named: "barColor3")!,UIColor(named: "barColor4")!,UIColor(named: "barColor5")!]
         for (idx,val) in graphData.enumerated() {
             let entry = BarChartDataEntry(x: Double(idx+1), y: Double(val.yValue)) //+1 added
-            
+            print("the entry of BarChartDataEntry is", entry)
             entries.append(entry)
         }
         let dataset = BarChartDataSet(entries: entries)
@@ -305,7 +316,7 @@ class ChartViewTableCell: UITableViewCell {
                                   xAxisValueFormatter: MoodAxisFormatter(), yAxisFormatter: MoodValueAxisFormatter())
         marker.chartView = barChartView
         marker.minimumSize = CGSize(width: 100, height: 45)
-        barChartView.marker = marker
+//        barChartView.marker = marker
         
         barChartView.animate(yAxisDuration: 2)
     }
@@ -317,11 +328,11 @@ class ChartViewTableCell: UITableViewCell {
 public class MoodAxisFormatter:AxisValueFormatter {
     public func stringForValue(_ value: Double, axis: DGCharts.AxisBase?) -> String {
         switch value {
-        case 1: return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "EXCELLENT" : "EXCELENTE"
+        case 5: return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "EXCELLENT" : "EXCELENTE"
         case 3: return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "FAIR" : "JUSTO"
-        case 4: return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "COULD BE\n BETTER" : "PODRÍA SER\n MEJOR"
-        case 5: return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "BAD" : "MALO"
-        case 2: return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "GOOD" : "BUENO"
+        case 2: return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "COULD BE\n BETTER" : "PODRÍA SER\n MEJOR"
+        case 1: return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "BAD" : "MALO"
+        case 4: return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "GOOD" : "BUENO"
         default: return ""
         }
     }

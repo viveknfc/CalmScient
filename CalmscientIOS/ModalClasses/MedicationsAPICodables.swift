@@ -39,7 +39,7 @@ class MedicationDetailsResponse: Codable {
 
 class MedicineDetails: Codable {
     let date: String
-    let medicationDetailsByDate: [MedicationDetailsByDate]
+    var medicationDetailsByDate: [MedicationDetailsByDate]
     var isSelected: Bool?
 
     enum CodingKeys: String, CodingKey {

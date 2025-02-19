@@ -399,6 +399,12 @@ extension UIView {
             self.layer.masksToBounds = false
         }
     
+    func makeCircle(with color: UIColor) {
+          self.layer.cornerRadius = self.frame.size.width / 2
+          self.backgroundColor = color
+          self.layer.masksToBounds = true
+      }
+    
     func addShadowView() {
         //Remove previous shadow views
         superview?.viewWithTag(119900)?.removeFromSuperview()

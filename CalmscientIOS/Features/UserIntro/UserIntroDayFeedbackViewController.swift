@@ -31,7 +31,7 @@ enum UserEntryDayFeedbackTableCell:String {
         case .UserMoodHoursCell:
             return 170
         case .UserIntroSleepCell:
-            return 120
+            return 160
         case .UserEntryTimeSpendCell:
             return 160
         case .UserEntryMedicineCell:
@@ -93,6 +93,8 @@ class UserIntroDayFeedbackViewController: ViewController {
   
     fileprivate var cellData:[UserEntryDayFeedbackTableCell] = []
     
+    let sleepData = ["3","4","5","6","7","8","9","10","11"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.view.showToastActivity()
@@ -133,9 +135,9 @@ class UserIntroDayFeedbackViewController: ViewController {
             }
         }
         
-        if (UserDefaults.standard.value(forKey: "rememberMe") as? Int == 1) {
-            refreshAPIFunc()
-        }
+//        if (UserDefaults.standard.value(forKey: "rememberMe") as? Int == 1) {
+//            refreshAPIFunc()
+//        }
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGesture.cancelsTouchesInView = false // Allow table view cell selection
@@ -159,7 +161,26 @@ class UserIntroDayFeedbackViewController: ViewController {
         print("the fetching time is", sampleTime)
         currentTime = dateFormatter.string(from: sampleTime)
         setupLanguage()
-        fetchAPIFunc()
+        
+        if TokenManager.shared.isTokenExpired() {
+             print("Token expired, refreshing...")
+            TokenManager.shared.refreshAccessToken(from: self) { success in
+                 DispatchQueue.main.async {
+                     if success {
+                         print("Token refreshed, proceeding with API call")
+                         self.fetchAPIFunc()
+                     } else {
+                         print("Token refresh failed")
+                         self.view.showToast(message: "Token refresh failed")
+                         // Handle failure (e.g., logout user, show alert)
+                     }
+                 }
+             }
+         } else {
+             print("Token is still valid, proceeding with API call")
+             fetchAPIFunc()
+         }
+
         
         // Check if we are coming from the home dashboard
           if let viewControllers = self.navigationController?.viewControllers, viewControllers.count > 1 {
@@ -234,6 +255,7 @@ class UserIntroDayFeedbackViewController: ViewController {
         feedbackTableView.contentInset = .zero
         feedbackTableView.scrollIndicatorInsets = .zero
     }
+
     
     //MARK: - Fetch Mood Screen Data from API
     
@@ -285,15 +307,22 @@ class UserIntroDayFeedbackViewController: ViewController {
                     for answer in answersList {
                           switch answer.activitySection {
                           case "Mood Monitor":
-                              selectedCell = Int(answer.activityResponse)
+                              selectedCell = (Int(answer.activityResponse) ?? 0) - 1
                           case "Sleep Hours":
-                              slpHours = answer.activityResponse 
+//                              slpHours = String((Int(answer.activityResponse) ?? 0) - 1)
+                              
+                              if let index = sleepData.firstIndex(of: answer.activityResponse) {
+                                  slpHours = String(index)
+                              } else {
+                                  slpHours = "0" // Default value if not found
+                              }
+                              
                           case "Medication":
                               mediTaken = answer.activityResponse 
                           case "Journal":
                               journalText = answer.activityResponse
                           case "SpendTime":
-                              SpendTime = Int(answer.activityResponse)
+                              SpendTime = (Int(answer.activityResponse) ?? 0) - 1
                           default:
                               break
                           }
@@ -363,8 +392,11 @@ class UserIntroDayFeedbackViewController: ViewController {
                         userDayWiseData.moodAnswer =  cell.getUpdatedData4MoodId()
                         userDayWiseData.timeSpendAnswer = cell.getUpdatedData4SpendHours()
                     } else if let cell = cell as? UserEntrySleepHoursCell {
-                        let updatedSleepHours = cell.getUpdatedData()
-                        userDayWiseData.sleepAnswer = updatedSleepHours
+                        let updatedSleepHours = cell.getUpdatedData() ?? 1
+                        
+                        let sleepAns = sleepData[updatedSleepHours-1]
+                        
+                        userDayWiseData.sleepAnswer = Int(sleepAns) //updatedSleepHours
                     } else if let cell = cell as? UserEntryYesOrNoCell {
                         let journalEntry = cell.getUpdatedJournalData()
                         userDayWiseData.medicineAnswer = cell.getUpdatedToggleData()
@@ -464,7 +496,6 @@ class UserIntroDayFeedbackViewController: ViewController {
     
     func fetchDateTime() {
         let now = Date()
-        let calendar = Calendar.current
 
         // Extract Date (yyyy-MM-dd)
         let dateFormatter = DateFormatter()
@@ -473,50 +504,12 @@ class UserIntroDayFeedbackViewController: ViewController {
 
         // Extract Time (HH:mm:ss)
         let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "HH:mm:ss"
+        timeFormatter.dateFormat = "HH:mm"
         let timeString = timeFormatter.string(from: now)
 
         // Save in UserDefaults
         UserDefaults.standard.set(dateString, forKey: "savedDate")
         UserDefaults.standard.set(timeString, forKey: "savedTime")
-    }
-    
-    //MARK: - Refresh Token API Call
-    
-    func refreshAPIFunc() {
-        let params:[String:String] = ["refreshToken": ApplicationSharedInfo.shared.tokenResponse?.refreshToken ?? ""]
-        print("the input param for refresh token is", params)
-        self.view.showToastActivity()
-        APIService.refreshAPICalling(self, params: params, method: "POST", accessToken: "", acces: false, parameterPlacement: "header") {  [self] response in
-            // Your closure code here
-            getresponseforRefreshAPI(response: response)
-            
-        }
-    }
-    
-    func getresponseforRefreshAPI(response:AnyObject)->() {
-        self.view.hideToastActivity()
-        if let responseString = response as? String {
-            print("Response received from refresh API calling is", responseString)
-        } else if let responseDict = response as? [String: Any] {
-            do {
-                // Convert the dictionary to Data
-                let responseData = try JSONSerialization.data(withJSONObject: responseDict, options: [])
-                
-                // Decode the Data into LoginResponse
-                let loginResponse = try JSONDecoder().decode(TokenResponse.self, from: responseData)
-                print("Decoded LoginResponse:", loginResponse.scope)
-                
-                // Store token response
-                ApplicationSharedInfo.shared.tokenResponse = loginResponse
-            } catch {
-                print("Failed to decode LoginResponse:", error)
-            }
-        } else {
-            print("Unsupported response type:", type(of: response))
-        }
-        
-       
     }
     
     //MARK: - Save Alert View
@@ -554,15 +547,12 @@ class UserIntroDayFeedbackViewController: ViewController {
     
     @IBAction func didClickOnSkipButton(_ sender: BorderShadowButton) {
         
-        let isFirstTime = !UserDefaults.standard.bool(forKey: "hasSkippedBefore")
-        
         if let sceneDelegate = UIApplication.shared.connectedScenes
             .first?.delegate as? SceneDelegate {
             guard let window = sceneDelegate.window else { return }
             let homeController = UIStoryboard(name: "AppTabBar", bundle: nil).instantiateViewController(withIdentifier: "AppMainTabViewController") as! AppMainTabViewController
 
             homeController.isInitalView = false
-            UserDefaults.standard.set(true, forKey: "hasSkippedBefore")
  
             window.rootViewController = homeController
             window.makeKeyAndVisible()

@@ -229,8 +229,25 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
                             }
                             if let dailyJournal1 = json["dailyJournal"] as? [[String: Any]] {
                                 self.dailyData = dailyJournal1
-                                print("self.dailyData==\(self.dailyData)")
-                                self.filtereddailyData = self.dailyData
+//                                print("self.dailyData==\(self.dailyData)")
+//                                self.filtereddailyData = self.dailyData
+                                
+                                // Print sno values before sorting
+                                let beforeSorting = self.dailyData.compactMap { $0["sno"] as? Int }
+//                                print("Before Sorting: \(beforeSorting)")
+
+                                // Sort the data
+                                self.filtereddailyData = self.dailyData.sorted { (dict1, dict2) in
+                                    if let sno1 = dict1["sno"] as? Int, let sno2 = dict2["sno"] as? Int {
+                                        return sno1 > sno2 // Descending order
+                                    }
+                                    return false
+                                }
+
+                                // Print sno values after sorting
+                                let afterSorting = self.filtereddailyData.compactMap { $0["sno"] as? Int }
+//                                print("After Sorting: \(afterSorting)")
+
 
                             } else {
                                 print("providerDetails key is missing or not a dictionary")
@@ -296,11 +313,15 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
     
     private func updateButtonAppearance(_ button: UIButton) {
         if button.isSelected {
-            button.backgroundColor = #colorLiteral(red: 0.9098039216, green: 0.9058823529, blue: 0.9568627451, alpha: 1)
-            button.setTitleColor(UIColor.black, for: .normal) // Text color when selected
+            button.backgroundColor = #colorLiteral(red: 0.431372549, green: 0.4196078431, blue: 0.7019607843, alpha: 1)
+            button.setTitleColor(UIColor.white, for: .normal) // Text color when selected
+            button.layer.borderColor = #colorLiteral(red: 0.9098039216, green: 0.9058823529, blue: 0.9568627451, alpha: 1) // Border color when selected
+            button.layer.borderWidth = 2.0
         } else {
             button.backgroundColor = UIColor.clear
             button.setTitleColor(UIColor.black, for: .normal) // Text color when not selected
+            button.layer.borderColor = UIColor.black.cgColor // Border color when selected
+            button.layer.borderWidth = 1.0
         }
     }
     
@@ -910,7 +931,16 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
                        }
                        
                        self.dailyData = dailyJournal
-                       self.filtereddailyData = self.dailyData
+                       
+                       // Sort the data
+                       self.filtereddailyData = self.dailyData.sorted { (dict1, dict2) in
+                           if let sno1 = dict1["sno"] as? Int, let sno2 = dict2["sno"] as? Int {
+                               return sno1 > sno2 // Descending order
+                           }
+                           return false
+                       }
+                       
+//                       self.filtereddailyData = self.dailyData
                        self.journalTableView.reloadData()
                        
                    } else {

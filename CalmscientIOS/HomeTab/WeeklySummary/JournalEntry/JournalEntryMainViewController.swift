@@ -88,6 +88,7 @@ class JournalEntryMainViewController: ViewController, PopOverActionDelegate, Ale
                 if let err = error {
                     self.view.showToast(message: err.localizedDescription)
                 } else if let response = response {
+     
                     if response.response.responseCode == 200 {
                         self.tableData = response.journalEntriesList.map({ obj in
                             return JournalEntryDataItem(entry: obj)

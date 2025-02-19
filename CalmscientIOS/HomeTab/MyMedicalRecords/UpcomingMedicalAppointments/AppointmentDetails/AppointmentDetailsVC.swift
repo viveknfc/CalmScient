@@ -47,7 +47,7 @@ class AppointmentDetailsVC: ViewController {
         // Define the date formatter for the original date string
         let originalDateFormatter = DateFormatter()
         // Set the format of the original date string according to its current format
-        originalDateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        originalDateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
        
 
         // Parse the original date string into a Date object
@@ -55,7 +55,7 @@ class AppointmentDetailsVC: ViewController {
             // Define the date formatter for the desired output format
             let outputDateFormatter = DateFormatter()
             // Set the desired output format
-            outputDateFormatter.dateFormat = "MM/dd/yyyy HH:mm:ss"
+            outputDateFormatter.dateFormat = "MM/dd/yyyy HH:mm"
             
             // Convert the Date object to the desired output format
             let formattedDateString = outputDateFormatter.string(from: date)

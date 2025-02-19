@@ -206,11 +206,11 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegateFlowLayout, UICo
             switch cellType {
             case .UserMoodHoursCell:
                 print("the selected index value for UserMoodHoursCell is", selectedIndex,"and index path is",indexPath.row)
-                instance.moodAnswer = indexPath.row
+                instance.moodAnswer = indexPath.row + 1
                 
             case .UserEntryTimeSpendCell:
 
-                spendHoursAnswer = String(indexPath.row)
+                spendHoursAnswer = String(indexPath.row + 1)
                 
             default:
                 break
@@ -279,7 +279,7 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegate {
 
         case .UserEntryTimeSpendCell:
             spendIndex = indexPath.row
-            self.instance.timeSpendAnswer = String(spendIndex) //cellSelectedItem.1
+            self.instance.timeSpendAnswer = String(spendIndex+1) //cellSelectedItem.1
             print("Selected Index after update: \(spendIndex)")
         default:
             break

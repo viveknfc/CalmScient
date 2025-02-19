@@ -1056,7 +1056,6 @@ extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate
                 print("User tapped Yes")
                 let next = UIStoryboard(name: "LoginVC", bundle: nil)
                 UserDefaults.standard.set(0, forKey: "rememberMe")
-                UserDefaults.standard.set(false, forKey: "hasSkippedBefore")
                 
                 UserDefaultsHelper.clearLoginDetailsFromUserDefaults()
                 ApplicationSharedInfo.shared.loginResponse = nil

@@ -111,7 +111,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         self.navigationController?.navigationBar.isHidden = true
 
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" // Specify the desired format
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Specify the desired format
 
     }
     
@@ -222,6 +222,9 @@ class LoginVC: UIViewController,UITextFieldDelegate {
                             ApplicationSharedInfo.shared.loginResponse = loginResponse.loginDetails
                             ApplicationSharedInfo.shared.tokenResponse = loginResponse.tokenResponse
                             
+                            //For checking access token expiry
+                            TokenManager.shared.saveTokenData(accessToken: loginResponse.tokenResponse.accessToken, expiresIn: loginResponse.tokenResponse.expiresIn)
+                            
                             UserDefaultsHelper.saveLoginDetailsToUserDefaults(loginDetails: loginResponse.loginDetails, tokenResponse: loginResponse.tokenResponse)
                             
                             var navController: UINavigationController?
@@ -270,6 +273,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         }
         task.resume()
     }
+
     
     fileprivate func showUnKnownErrorMessage() {
         

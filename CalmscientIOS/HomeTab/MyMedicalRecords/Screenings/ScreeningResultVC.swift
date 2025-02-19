@@ -155,7 +155,7 @@ class ScreeningResultVC: ViewController {
                     
                     // Step 1: Parse the date-time string
                     let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Format matching the API response
+                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" // Format matching the API response
                     if let date = dateFormatter.date(from: screeningDate) {
                         
                         // Step 2: Extract the date
