@@ -29,17 +29,26 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
                 let status = isSelected ? "1" : "0"
         print("-----alarm delegate status-----")
         print(status)
+        print("the preset alarm count value is",presetAlarm?.count ?? 0)
         
         if EditVc ?? false {
-            presetAlarm?[index].alarmEnabled = status
-            if status == "1" {
-                presetAlarm?[index].isDefault = 1
+            
+            if let presetAlarm = presetAlarm, presetAlarm.indices.contains(index) {
+                let alarmData = presetAlarm[index]
+                
+                alarmData.alarmEnabled = status
+                if alarmData.alarmEnabled == "1" {
+                    alarmData.isDefault = 1
+                }
             }
-        } else {
-            medicationTimeData[index].alarmEnabled = status
-            if status == "1" {
-                medicationTimeData[index].isDefault = 1
-            }
+            
+        }
+        
+        else {
+          medicationTimeData[index].alarmEnabled = status
+                        if status == "1" {
+                            medicationTimeData[index].isDefault = 1
+                        }
         }
         
     }
@@ -191,6 +200,7 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
     
     
     @IBAction func DidClickOnSaveButton(_ sender: Any) {
+        userAddMedicationsTableView.delegate = self
         view.endEditing(true)
         if doValidation() {
             let medicationData = AddMedication()
@@ -564,14 +574,20 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
         if cellType == .MedicationsDetailCell {
 
             if EditVc ?? false {
+                
+                let indexNumber = indexPath.row - alarmCellStartIndex
 
-                    checkNotificationPermission(instance: presetAlarm![indexPath.row - alarmCellStartIndex])
-                presetAlarm![indexPath.row - alarmCellStartIndex].dayTime = medicationTimeData[indexPath.row - alarmCellStartIndex].dayTime
-       
+                if let presetAlarm = presetAlarm, presetAlarm.indices.contains(indexNumber) {
+                    checkNotificationPermission(instance: presetAlarm[indexPath.row - alarmCellStartIndex])
+                    presetAlarm[indexPath.row - alarmCellStartIndex].dayTime = medicationTimeData[indexPath.row - alarmCellStartIndex].dayTime
+                } else {
+                    checkNotificationPermission(instance: medicationTimeData[indexPath.row - alarmCellStartIndex])
+                }
+
             } else {
                 checkNotificationPermission(instance: medicationTimeData[indexPath.row - alarmCellStartIndex])
             }
-            print("alarm ID is",presetAlarm?[indexPath.row - alarmCellStartIndex].alarmId ?? 555 )
+           
         }
         
     }

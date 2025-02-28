@@ -26,7 +26,7 @@ class ReadyToQuitVC: ViewController, UITableViewDelegate, UITableViewDataSource 
         }
     }
     
-    let data = ["Nicotine cravings", "Irritability and mood swings", "Difficulty concentrating", "Difficulty concentrating", "Sleep disturbances", "Depression and anxiety", "Depression and anxiety"]
+    let data = ["Nicotine cravings", "Irritability and mood swings", "Difficulty concentrating", "Increased appetite and weight gain", "Sleep disturbances", "Depression and anxiety", "Feeling jumpy or restless"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         data.count
@@ -44,6 +44,27 @@ class ReadyToQuitVC: ViewController, UITableViewDelegate, UITableViewDataSource 
         if (indexPath.row == 0) {
             let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
             if let customAlertVC = storyboard.instantiateViewController(withIdentifier: "NicotinCarvingVC") as? NicotinCarvingVC {
+                customAlertVC.modalPresentationStyle = .overFullScreen
+                customAlertVC.modalTransitionStyle = .crossDissolve
+                self.present(customAlertVC, animated: true, completion: nil)
+            }
+        } else if (indexPath.row == 1) {
+            let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
+            if let customAlertVC = storyboard.instantiateViewController(withIdentifier: "IrritabilityViewController") as? IrritabilityViewController {
+                customAlertVC.modalPresentationStyle = .overFullScreen
+                customAlertVC.modalTransitionStyle = .crossDissolve
+                self.present(customAlertVC, animated: true, completion: nil)
+            }
+        } else if (indexPath.row == 2) {
+            let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
+            if let customAlertVC = storyboard.instantiateViewController(withIdentifier: "DifficultyViewController") as? DifficultyViewController {
+                customAlertVC.modalPresentationStyle = .overFullScreen
+                customAlertVC.modalTransitionStyle = .crossDissolve
+                self.present(customAlertVC, animated: true, completion: nil)
+            }
+        } else if (indexPath.row == 3) {
+            let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
+            if let customAlertVC = storyboard.instantiateViewController(withIdentifier: "IncreasedViewController") as? IncreasedViewController {
                 customAlertVC.modalPresentationStyle = .overFullScreen
                 customAlertVC.modalTransitionStyle = .crossDissolve
                 self.present(customAlertVC, animated: true, completion: nil)

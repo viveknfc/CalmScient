@@ -34,15 +34,13 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.showToastActivity()
-        
         calendar.calendarToViewDelegate = self
         addMedicationsButton.imageView?.contentMode = .scaleAspectFill
         medicationsTableView.register(UINib(nibName: "UserMedicationsTableCell", bundle: nil), forCellReuseIdentifier: "UserMedicationsTableCell")
         medicationsTableView.dataSource = self
         medicationsTableView.delegate = self
         
-        infoLabel.text = "Please select the medication you are currently taking."
+        infoLabel.text = "Please select the medication below if you took it today."
         
         nomedications.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "No Records" : "No hay registros"
         nomedications.textAlignment = .center
@@ -170,6 +168,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
                                                             preferredStyle: .alert)
                     
                     let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            cancelAction.setValue(#colorLiteral(red: 0.431, green: 0.420, blue: 0.702, alpha: 1), forKey: "titleTextColor") // Hex: #6e6bb3
                     let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
                         self.deleteMedication(at: indexPath)
                     }
@@ -245,11 +244,6 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         self.tabBarController?.tabBar.isHidden = false;
         self.tabBarController?.tabBar.selectedItem?.title = "Home"
         saveButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str:"Save"))
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
         getMedicationsData(forDate: Date())
     }
 
@@ -265,7 +259,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     }
 
     func getMedicationsData(forDate:Date) {
-        view.showToastActivity()
+        self.view.showToastActivity()
         
         var prepareRequestBodyParams:[String:Any] = [:]
         guard let loginResponse = ApplicationSharedInfo.shared.loginResponse else {
@@ -396,6 +390,7 @@ extension UserMedicationsViewController : UITableViewDataSource,UITableViewDeleg
             cell.afTimeLabel.alpha = 0.5
             
             cell.dropDownButton.isUserInteractionEnabled = true
+            
             cell.dropDownButton.alpha = 1.0
         } else {
             cell.cellSelectionImage.alpha = 1

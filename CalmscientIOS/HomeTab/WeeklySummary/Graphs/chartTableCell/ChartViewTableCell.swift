@@ -192,6 +192,18 @@ class ChartViewTableCell: UITableViewCell {
         leftAxis.drawAxisLineEnabled = false
         leftAxis.drawGridLinesEnabled = true
         leftAxis.zeroLineWidth = 0
+        // Determine maximum Y value
+        let maxYValue = self.graphData.map { $0.yValue }.max() ?? 0
+
+        // Adjust granularity based on max Y value
+        if maxYValue > 20 {
+            leftAxis.granularity = 3
+        } else if maxYValue > 10 {
+            leftAxis.granularity = 2
+        } else {
+            leftAxis.granularity = 1
+        }
+
         
         if (self.graphData.count > 0) {
             leftAxis.labelCount = self.getYAxisMaximumValue()

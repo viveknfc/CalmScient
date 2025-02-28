@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="lexendlight.ttf">
+        <array key="Lexend-Light.ttf">
             <string>Lexend-Light</string>
         </array>
-        <array key="lexendregular.ttf">
+        <array key="Lexend-Regular.ttf">
             <string>Lexend-Regular</string>
         </array>
     </customFonts>

@@ -88,7 +88,7 @@ class UserEntrySleepHoursCell: UITableViewCell {
             } else if slpHrs > 7 {
                 self.sleepHoursLabel.text = "More than 10 Hours"
             } else {
-                self.sleepHoursLabel.text = "\(slpHrs) Hours"
+                self.sleepHoursLabel.text = "\(sleepData[slpHrs]) Hours"
             }
             
         }

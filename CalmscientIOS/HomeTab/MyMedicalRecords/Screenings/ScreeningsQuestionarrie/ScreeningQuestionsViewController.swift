@@ -231,19 +231,21 @@ class ScreeningQuestionsViewController: ViewController {
             })
         }
         if pageNumber == 0 {
-            infoButton.isHidden = true
+            infoButton.isHidden = false
 //            titleLabel.text = selectedScreening?.screeningReminder
 //            titleLabel.sizeToFit()
             forwardButton.isHidden = false
             backwardButton.isHidden = true
+            completeButton.isHidden = true
         } else if pageNumber == maxPage - 1 {
-            infoButton.isHidden = false
+            infoButton.isHidden = true
             forwardButton.isHidden = false
             backwardButton.isHidden = false
         } else {
-            infoButton.isHidden = false
+            infoButton.isHidden = true
             forwardButton.isHidden = false
             backwardButton.isHidden = false
+            completeButton.isHidden = true
         }
     }
     
@@ -256,20 +258,11 @@ class ScreeningQuestionsViewController: ViewController {
         
     }
     @IBAction func didClickOnForwardButton(_ sender: Any) {
+        
+        print("page number is",pageNumber, "Max page number is",maxPage)
+        
         if pageNumber == maxPage - 1 {
-//            print(patientAnsweredOption)
-//            if(patientAnsweredOption.compactMap({$0}).count == 0){
-//                // create the alert
-//                let alert = UIAlertController(title: "", message:UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Please answer the questions": "Por favor, responde las preguntas", preferredStyle: UIAlertController.Style.alert)
-//
-//                        // add an action (button)
-//                        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
-//
-//                        // show the alert
-//                        self.present(alert, animated: true, completion: nil)
-//            }else{
-//                self.sendPatientSelectedAnswersToServer()
-//            }
+
         } else {
             let tempPageNo = pageNumber + 1
             
@@ -282,25 +275,23 @@ class ScreeningQuestionsViewController: ViewController {
                     self.questionsTableView.reloadData()
                 })
             }
-//            titleLabel.text = ""
-//            titleLabel.sizeToFit()
+        }
+
             if pageNumber == 0 {
-                infoButton.isHidden = true
-//                titleLabel.text = selectedScreening?.screeningReminder
-//                titleLabel.sizeToFit()
+                infoButton.isHidden = false
                 forwardButton.isHidden = false
                 backwardButton.isHidden = true
             } else if pageNumber == maxPage - 1 {
-                infoButton.isHidden = false
+                infoButton.isHidden = true
                 forwardButton.isHidden = true
                 completeButton.isHidden = false
                 backwardButton.isHidden = false
             } else {
-                infoButton.isHidden = false
+                infoButton.isHidden = true
                 forwardButton.isHidden = false
                 backwardButton.isHidden = false
             }
-        }
+        
         
     }
     

@@ -25,7 +25,7 @@ class ScreeningListVC: ViewController {
         screeningListTable.register(UINib(nibName: "ScreeningCell", bundle: nil), forCellReuseIdentifier: "ScreeningCell")
         self.screeningListTable.delegate = self
         self.screeningListTable.dataSource = self
-        self.view.showToastActivity()
+        
         
         //nav bar back button start
         let backButtonImage = UIImage(named: "NavigationBack")?.withRenderingMode(.alwaysOriginal)
@@ -55,6 +55,7 @@ class ScreeningListVC: ViewController {
         }
     
     override func viewWillAppear(_ animated: Bool) {
+        self.view.showToastActivity()
         self.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Screenings" : "Exámenes"
         getScreeningData()
         

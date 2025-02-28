@@ -16,8 +16,10 @@ class TimeZoneHelper {
         if let savedDateString = UserDefaults.standard.string(forKey: "savedDate"),
            let savedTimeString = UserDefaults.standard.string(forKey: "savedTime") {
             
+            print("entered here")
+            
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+            dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             
             if let savedDateTime = dateFormatter.date(from: "\(savedDateString) \(savedTimeString)") {
                 let savedZone = getDayTime(date: savedDateTime)

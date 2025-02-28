@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -30,6 +30,7 @@
                                 <rect key="frame" x="6.6666666666666679" y="8" width="47" height="47"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="47" id="4Wv-ps-yWU"/>
+                                    <constraint firstAttribute="height" constant="47" id="pe8-wy-5Kh"/>
                                     <constraint firstAttribute="width" secondItem="PSH-zV-KeB" secondAttribute="height" multiplier="1:1" id="ra7-UX-d7p"/>
                                 </constraints>
                             </imageView>
@@ -61,8 +62,11 @@
             </constraints>
             <size key="customSize" width="216" height="399"/>
             <connections>
+                <outlet property="cellHeight" destination="pe8-wy-5Kh" id="j4Y-TE-USM"/>
                 <outlet property="cellImageView" destination="PSH-zV-KeB" id="652-ad-xJi"/>
                 <outlet property="cellTitleLabel" destination="ViH-Qk-I2S" id="aB0-ut-GK3"/>
+                <outlet property="cellTitleTopHeight" destination="rwr-pK-RP1" id="voj-YQ-eDe"/>
+                <outlet property="cellWidth" destination="4Wv-ps-yWU" id="nmI-Rv-r4L"/>
             </connections>
             <point key="canvasLocation" x="74.809160305343511" y="142.25352112676057"/>
         </collectionViewCell>

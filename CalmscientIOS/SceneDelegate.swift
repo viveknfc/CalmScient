@@ -89,6 +89,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             // Populate shared info
             ApplicationSharedInfo.shared.loginResponse = loginDetails
             ApplicationSharedInfo.shared.tokenResponse = tokenResponse
+
         }
     }
 
@@ -113,7 +114,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func sceneWillEnterForeground(_ scene: UIScene) {
         // Called as the scene transitions from the background to the foreground.
-        // Use this method to undo the changes made on entering the background.
+        // Use this method to undo the changes made on entering the background. 
+        
+        print("coming from background")
+        checkForSavedLogin()
+        
+        let (loginDetails, _) = UserDefaultsHelper.retrieveLoginDetailsFromUserDefaults()
+        
+        if ((loginDetails?.email.isEmpty) == nil) {
+            print("login details are empty")
+        } else {
+            print("Returning to foreground - Checking timezone condition")
+            
+            if TimeZoneHelper.isTimeZoneChanged() {
+                print("Time zone has changed. Navigating to UserIntroDayFeedbackViewController")
+                navigateToUserIntro()
+            }
+        }
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
@@ -134,6 +151,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let options: UIView.AnimationOptions = .transitionFlipFromRight
             UIView.transition(with: window, duration: 0.5, options: options, animations: nil, completion: nil)
         }
+    
+    private func navigateToUserIntro() {
+        guard let windowScene = (UIApplication.shared.connectedScenes.first as? UIWindowScene) else { return }
+        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+        window?.windowScene = windowScene
+        let homeController = UIStoryboard(name: "UserIntro", bundle: nil).instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as! UserIntroDayFeedbackViewController
+        let navC = UINavigationController(rootViewController: homeController)
+        window?.rootViewController = navC
+        window?.makeKeyAndVisible()
+    }
 
     
 }

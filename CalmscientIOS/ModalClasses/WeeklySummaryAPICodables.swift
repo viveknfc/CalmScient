@@ -76,7 +76,8 @@ public class GraphData {
     }
     
     func getXAxisLabelValue() -> String {
-        let date = xValue.getDate(formatString: "yyyy-MM-dd")
+//        let date = xValue.getDate(formatString: "yyyy-MM-dd")
+        let date = xValue.getDate(formatString: "yyyy-MM-dd'T'HH:mm:ss")
         let monthAndDayValue = getFormattedMonthAndDay(from: date)
         return "\(monthAndDayValue.day)\n\(getMonthShortForm(value: Int(monthAndDayValue.month) ?? -1))"
     }
@@ -135,7 +136,7 @@ class MoodData: Codable {
     let moodStatusId: Int
     let moodScore: Int
     let createdAt: String
-    let mood: String
+    let mood: String?
     let sno: Int
     
     // Encoding function
@@ -156,7 +157,7 @@ class MoodData: Codable {
         moodStatusId = try container.decode(Int.self, forKey: .moodStatusId)
         moodScore = try container.decode(Int.self, forKey: .moodScore)
         createdAt = try container.decode(String.self, forKey: .createdAt)
-        mood = try container.decode(String.self, forKey: .mood)
+        mood = try container.decodeIfPresent(String.self, forKey: .mood)
         sno = try container.decode(Int.self, forKey: .sno)
     }
     
@@ -553,45 +554,48 @@ class AuditByDateRange: Codable {
 }
 
 class AuditSummary: Codable {
-    let screeningId: Int
+    let screeningId: Int?
     let plId: Int
     let score: Int
-    let screening: String
+    let totalScore: Int
+    let screening: String?
     let firstName: String
     let lastName: String
-    let scoreTitle: String
+    let scoreTitle: String?
     let startDate: String
     let completionDate: String
-    let pscreeningId: Int
+    let pscreeningId: Int?
     
     // Encoding function
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(screeningId, forKey: .screeningId)
+        try container.encodeIfPresent(screeningId, forKey: .screeningId)
         try container.encode(plId, forKey: .plId)
         try container.encode(score, forKey: .score)
-        try container.encode(screening, forKey: .screening)
+        try container.encode(totalScore, forKey: .totalScore)
+        try container.encodeIfPresent(screening, forKey: .screening)
         try container.encode(firstName, forKey: .firstName)
         try container.encode(lastName, forKey: .lastName)
-        try container.encode(scoreTitle, forKey: .scoreTitle)
+        try container.encodeIfPresent(scoreTitle, forKey: .scoreTitle)
         try container.encode(startDate, forKey: .startDate)
         try container.encode(completionDate, forKey: .completionDate)
-        try container.encode(pscreeningId, forKey: .pscreeningId)
+        try container.encodeIfPresent(pscreeningId, forKey: .pscreeningId)
     }
     
     // Decoding function
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        screeningId = try container.decode(Int.self, forKey: .screeningId)
+        screeningId = try container.decodeIfPresent(Int.self, forKey: .screeningId)
         plId = try container.decode(Int.self, forKey: .plId)
         score = try container.decode(Int.self, forKey: .score)
-        screening = try container.decode(String.self, forKey: .screening)
+        totalScore = try container.decode(Int.self, forKey: .totalScore)
+        screening = try container.decodeIfPresent(String.self, forKey: .screening)
         firstName = try container.decode(String.self, forKey: .firstName)
         lastName = try container.decode(String.self, forKey: .lastName)
-        scoreTitle = try container.decode(String.self, forKey: .scoreTitle)
+        scoreTitle = try container.decodeIfPresent(String.self, forKey: .scoreTitle)
         startDate = try container.decode(String.self, forKey: .startDate)
         completionDate = try container.decode(String.self, forKey: .completionDate)
-        pscreeningId = try container.decode(Int.self, forKey: .pscreeningId)
+        pscreeningId = try container.decodeIfPresent(Int.self, forKey: .pscreeningId)
     }
     
     // Coding keys
@@ -599,6 +603,7 @@ class AuditSummary: Codable {
         case screeningId
         case plId
         case score
+        case totalScore
         case screening
         case firstName
         case lastName
@@ -675,45 +680,48 @@ class DASTByDateRange: Codable {
 }
 
 class DASTSummary: Codable {
-    let screeningId: Int
+    let screeningId: Int?
     let plId: Int
     let score: Int
-    let screening: String
+    let totalScore: Int
+    let screening: String?
     let firstName: String
     let lastName: String
-    let scoreTitle: String
+    let scoreTitle: String?
     let startDate: String
     var completionDate: String? = nil
-    let pscreeningId: Int
+    let pscreeningId: Int?
     
     // Encoding function
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
-        try container.encode(screeningId, forKey: .screeningId)
+        try container.encodeIfPresent(screeningId, forKey: .screeningId)
         try container.encode(plId, forKey: .plId)
         try container.encode(score, forKey: .score)
-        try container.encode(screening, forKey: .screening)
+        try container.encode(totalScore, forKey: .score)
+        try container.encodeIfPresent(screening, forKey: .screening)
         try container.encode(firstName, forKey: .firstName)
         try container.encode(lastName, forKey: .lastName)
-        try container.encode(scoreTitle, forKey: .scoreTitle)
+        try container.encodeIfPresent(scoreTitle, forKey: .scoreTitle)
         try container.encode(startDate, forKey: .startDate)
         try container.encodeIfPresent(completionDate, forKey: .completionDate)
-        try container.encode(pscreeningId, forKey: .pscreeningId)
+        try container.encodeIfPresent(pscreeningId, forKey: .pscreeningId)
     }
     
     // Decoding function
     required init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
-        screeningId = try container.decode(Int.self, forKey: .screeningId)
+        screeningId = try container.decodeIfPresent(Int.self, forKey: .screeningId)
         plId = try container.decode(Int.self, forKey: .plId)
         score = try container.decode(Int.self, forKey: .score)
-        screening = try container.decode(String.self, forKey: .screening)
+        screening = try container.decodeIfPresent(String.self, forKey: .screening)
         firstName = try container.decode(String.self, forKey: .firstName)
         lastName = try container.decode(String.self, forKey: .lastName)
-        scoreTitle = try container.decode(String.self, forKey: .scoreTitle)
+        scoreTitle = try container.decodeIfPresent(String.self, forKey: .scoreTitle)
         startDate = try container.decode(String.self, forKey: .startDate)
         completionDate = try container.decodeIfPresent(String.self, forKey: .completionDate)
-        pscreeningId = try container.decode(Int.self, forKey: .pscreeningId)
+        pscreeningId = try container.decodeIfPresent(Int.self, forKey: .pscreeningId)
+        totalScore = try container.decode(Int.self, forKey: .totalScore)
         print(self)
     }
     
@@ -722,6 +730,7 @@ class DASTSummary: Codable {
         case screeningId
         case plId
         case score
+        case totalScore
         case screening
         case firstName
         case lastName

@@ -391,6 +391,18 @@
         }
       }
     },
+    "08h-TR-zeg.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Take it easy\"; ObjectID = \"08h-TR-zeg\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Take it easy"
+          }
+        }
+      }
+    },
     "8kS-7r-b6Y.text" : {
       "comment" : "Class = \"UILabel\"; text = \"You're doing a fantastic job maintaining moderation with your drinking!    As you continue this healthy habit, remember to build other wellness practices like regular exercise, a balanced diet, and enough sleep.\"; ObjectID = \"8kS-7r-b6Y\";",
       "extractionState" : "extracted_with_value",
@@ -447,6 +459,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Close"
+          }
+        }
+      }
+    },
+    "9LK-ZW-mOB.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Choose healthy snacks like celery, carrots, or sugar-free mints when you feel like munching between meals. You can also keep your hands and mouth busy with a toothpick or a straw.\"; ObjectID = \"9LK-ZW-mOB\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Choose healthy snacks like celery, carrots, or sugar-free mints when you feel like munching between meals. You can also keep your hands and mouth busy with a toothpick or a straw."
           }
         }
       }
@@ -511,6 +535,18 @@
         }
       }
     },
+    "a2R-j5-tcO.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Then you're trying to quit smoking, it's totally normal to feel a bit irritated or grouchy. Even folks who never smoked get it - it's just part of the quitting process. So, don't worry, you're not alone in feeling this way.\\n\\nHere's how to deal with it:\"; ObjectID = \"a2R-j5-tcO\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Then you're trying to quit smoking, it's totally normal to feel a bit irritated or grouchy. Even folks who never smoked get it - it's just part of the quitting process. So, don't worry, you're not alone in feeling this way.\n\nHere's how to deal with it:"
+          }
+        }
+      }
+    },
     "AcY-vP-VZQ.text" : {
       "comment" : "Class = \"UILabel\"; text = \"•    30% of suicides. \"; ObjectID = \"AcY-vP-VZQ\";",
       "extractionState" : "extracted_with_value",
@@ -535,6 +571,18 @@
         }
       }
     },
+    "AoK-ym-LPN.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Remind yourself it's normal\"; ObjectID = \"AoK-ym-LPN\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Remind yourself it's normal"
+          }
+        }
+      }
+    },
     "APl-5y-UxN.text" : {
       "comment" : "Class = \"UILabel\"; text = \"“I’m trying to quit”\"; ObjectID = \"APl-5y-UxN\";",
       "extractionState" : "extracted_with_value",
@@ -555,6 +603,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Hangover, argument, accident"
+          }
+        }
+      }
+    },
+    "auN-gl-GXP.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Remember why you quit\"; ObjectID = \"auN-gl-GXP\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Remember why you quit"
           }
         }
       }
@@ -1093,6 +1153,18 @@
         }
       }
     },
+    "gWS-tl-5JN.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Be kind to yourself\"; ObjectID = \"gWS-tl-5JN\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Be kind to yourself"
+          }
+        }
+      }
+    },
     "gXJ-Rs-KRf.text" : {
       "comment" : "Class = \"UILabel\"; text = \"And people who misuse alcohol are more likely to engage in unsafe sexual behavior, putting themselves and others at risk for sexually transmitted infections and unintentional pregnancies.\"; ObjectID = \"gXJ-Rs-KRf\";",
       "extractionState" : "extracted_with_value",
@@ -1189,6 +1261,18 @@
         }
       }
     },
+    "hPO-Hs-jhR.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Increased appetite and weight gain\"; ObjectID = \"hPO-Hs-jhR\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Increased appetite and weight gain"
+          }
+        }
+      }
+    },
     "Hq7-SS-5r6.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Alcohol-related mental dysfunction\"; ObjectID = \"Hq7-SS-5r6\";",
       "extractionState" : "extracted_with_value",
@@ -1245,6 +1329,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Complete"
+          }
+        }
+      }
+    },
+    "Iij-Vm-hwB.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Think about why you decided to quit. It's a great motivator to push through the grumpy moments.\"; ObjectID = \"Iij-Vm-hwB\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Think about why you decided to quit. It's a great motivator to push through the grumpy moments."
           }
         }
       }
@@ -1447,6 +1543,18 @@
         }
       }
     },
+    "Kbd-7G-f1b.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"You don't need to hit the gym, even a simple walk is great for your health.\"; ObjectID = \"Kbd-7G-f1b\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "You don't need to hit the gym, even a simple walk is great for your health."
+          }
+        }
+      }
+    },
     "Kfc-Sa-1e2.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Saving\"; ObjectID = \"Kfc-Sa-1e2\";",
       "extractionState" : "extracted_with_value",
@@ -1467,6 +1575,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "What is"
+          }
+        }
+      }
+    },
+    "kpp-nh-zEH.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Right after you quit smoking, you might find it a bit tough to concentrate. Don't worry, it happens to a lot of people.\\n\\nHere's what you can do:\"; ObjectID = \"kpp-nh-zEH\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Right after you quit smoking, you might find it a bit tough to concentrate. Don't worry, it happens to a lot of people.\n\nHere's what you can do:"
           }
         }
       }
@@ -1723,6 +1843,30 @@
         }
       }
     },
+    "ODL-RW-783.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Take deep breaths\"; ObjectID = \"ODL-RW-783\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Take deep breaths"
+          }
+        }
+      }
+    },
+    "of1-5R-Xg5.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"When you quit smoking, it's totally normal for your appetite to go up a bit. Your body might not burn calories as fast, and you might find yourself eating more, maybe because quitting can be a bit stressful, or you just want something to do with your hands and mouth. Plus, food might taste even better since your sense of smell and taste aren't dulled by smoke\\n\\nHere's what you can do to manage it:\"; ObjectID = \"of1-5R-Xg5\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "When you quit smoking, it's totally normal for your appetite to go up a bit. Your body might not burn calories as fast, and you might find yourself eating more, maybe because quitting can be a bit stressful, or you just want something to do with your hands and mouth. Plus, food might taste even better since your sense of smell and taste aren't dulled by smoke\n\nHere's what you can do to manage it:"
+          }
+        }
+      }
+    },
     "OHd-Ha-HDa.text" : {
       "comment" : "Class = \"UILabel\"; text = \"What is tobacco?\"; ObjectID = \"OHd-Ha-HDa\";",
       "extractionState" : "extracted_with_value",
@@ -1819,6 +1963,18 @@
         }
       }
     },
+    "Ppw-ly-Pc4.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Give yourself a break, especially in the first few days after quitting.\"; ObjectID = \"Ppw-ly-Pc4\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Give yourself a break, especially in the first few days after quitting."
+          }
+        }
+      }
+    },
     "PTj-Mm-KtG.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Basic knowledge\"; ObjectID = \"PTj-Mm-KtG\";",
       "extractionState" : "extracted_with_value",
@@ -1881,6 +2037,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "The 2020–2025 Dietary Guidelines recommend:"
+          }
+        }
+      }
+    },
+    "Qfa-dc-NdK.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"When irritation hits, take a few deep breaths to calm yourself. You can find them in “exercise”.\"; ObjectID = \"Qfa-dc-NdK\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "When irritation hits, take a few deep breaths to calm yourself. You can find them in “exercise”."
           }
         }
       }
@@ -1965,6 +2133,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "•    A significant number of sexual assaults."
+          }
+        }
+      }
+    },
+    "r56-rx-8Ux.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Get moving\"; ObjectID = \"r56-rx-8Ux\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Get moving"
           }
         }
       }
@@ -2173,6 +2353,18 @@
         }
       }
     },
+    "tWm-XU-oV5.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Focus on eating\"; ObjectID = \"tWm-XU-oV5\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Focus on eating"
+          }
+        }
+      }
+    },
     "TY6-eT-UO4.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Often these individuals are unaware that their body’s lower response to the intoxicating effects of alcohol isn’t protection from alcohol problems but instead is a reason for caution.\\n\"; ObjectID = \"TY6-eT-UO4\";",
       "extractionState" : "extracted_with_value",
@@ -2287,6 +2479,18 @@
         }
       }
     },
+    "uN9-U5-w4O.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"If you can, try not to do things that need a lot of focus right away.\"; ObjectID = \"uN9-U5-w4O\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "If you can, try not to do things that need a lot of focus right away."
+          }
+        }
+      }
+    },
     "uRP-s2-G2o.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Alcohol use disorder (AUD)\"; ObjectID = \"uRP-s2-G2o\";",
       "extractionState" : "extracted_with_value",
@@ -2295,6 +2499,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Alcohol use disorder (AUD)"
+          }
+        }
+      }
+    },
+    "Uvq-46-LPd.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Difficulty Concentrating\"; ObjectID = \"Uvq-46-LPd\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Difficulty Concentrating"
           }
         }
       }
@@ -2551,6 +2767,18 @@
         }
       }
     },
+    "xJm-oJ-twy.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Feeling grumpy is just your body adjusting to not having nicotine.\"; ObjectID = \"xJm-oJ-twy\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Feeling grumpy is just your body adjusting to not having nicotine."
+          }
+        }
+      }
+    },
     "XLJ-dh-SZG.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"XLJ-dh-SZG\";",
       "extractionState" : "extracted_with_value",
@@ -2599,6 +2827,18 @@
         }
       }
     },
+    "Ynu-z8-e6J.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"When you eat, try to pay attention to what you're eating. Turn off the TV or put away your phone. Eating a bit slower and really savoring your food can help you notice when you're full.\"; ObjectID = \"Ynu-z8-e6J\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "When you eat, try to pay attention to what you're eating. Turn off the TV or put away your phone. Eating a bit slower and really savoring your food can help you notice when you're full."
+          }
+        }
+      }
+    },
     "zax-Dh-qFG.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Alcohol use disorder (AUD)\"; ObjectID = \"zax-Dh-qFG\";",
       "extractionState" : "extracted_with_value",
@@ -2607,6 +2847,30 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Alcohol use disorder (AUD)"
+          }
+        }
+      }
+    },
+    "zCM-Ox-jZB.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Smart snacking\"; ObjectID = \"zCM-Ox-jZB\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Smart snacking"
+          }
+        }
+      }
+    },
+    "zgM-l1-z7C.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Irritability and Mood Swings\"; ObjectID = \"zgM-l1-z7C\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Irritability and Mood Swings"
           }
         }
       }

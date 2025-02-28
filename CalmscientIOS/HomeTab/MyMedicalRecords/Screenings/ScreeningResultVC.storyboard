@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="lexendregular.ttf">
+        <array key="Lexend-Regular.ttf">
             <string>Lexend-Regular</string>
         </array>
     </customFonts>
@@ -165,6 +165,12 @@
                                                 </constraints>
                                                 <color key="progressTintColor" name="AppThemeColor"/>
                                             </progressView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zrw-UP-fdG" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="26" width="281" height="0.0"/>
+                                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hby-cR-Uaz">
                                                 <rect key="frame" x="307" y="16" width="20" height="20"/>
                                                 <constraints>
@@ -265,11 +271,14 @@ score</string>
                                         </subviews>
                                         <color key="backgroundColor" name="AppViewContentColor"/>
                                         <constraints>
+                                            <constraint firstItem="Hby-cR-Uaz" firstAttribute="leading" secondItem="Zrw-UP-fdG" secondAttribute="trailing" constant="10" id="6us-eX-xls"/>
                                             <constraint firstItem="dPc-OO-Vw6" firstAttribute="top" secondItem="IaX-mu-MhJ" secondAttribute="top" constant="56" id="8fx-gh-2hO"/>
                                             <constraint firstAttribute="trailing" secondItem="dPc-OO-Vw6" secondAttribute="trailing" constant="55" id="B5u-AH-q9p"/>
                                             <constraint firstItem="Hby-cR-Uaz" firstAttribute="top" secondItem="IaX-mu-MhJ" secondAttribute="top" constant="16" id="S25-NG-CZW"/>
                                             <constraint firstItem="dPc-OO-Vw6" firstAttribute="leading" secondItem="IaX-mu-MhJ" secondAttribute="leading" constant="55" id="WU5-wx-yPF"/>
                                             <constraint firstItem="dPc-OO-Vw6" firstAttribute="centerX" secondItem="IaX-mu-MhJ" secondAttribute="centerX" id="a4e-eA-z7o"/>
+                                            <constraint firstItem="Zrw-UP-fdG" firstAttribute="leading" secondItem="IaX-mu-MhJ" secondAttribute="leading" constant="16" id="b8D-ua-hSw"/>
+                                            <constraint firstItem="Zrw-UP-fdG" firstAttribute="centerY" secondItem="Hby-cR-Uaz" secondAttribute="centerY" id="bRD-dW-YZa"/>
                                             <constraint firstItem="50b-Nc-wxS" firstAttribute="top" secondItem="dPc-OO-Vw6" secondAttribute="bottom" constant="23" id="c4l-V2-3Jp"/>
                                             <constraint firstItem="50b-Nc-wxS" firstAttribute="leading" secondItem="IaX-mu-MhJ" secondAttribute="leading" constant="23" id="cMH-Db-jKG"/>
                                             <constraint firstAttribute="trailing" secondItem="50b-Nc-wxS" secondAttribute="trailing" constant="23" id="k0I-TO-4c5"/>
@@ -323,6 +332,7 @@ score</string>
                         <outlet property="remindOptionLbl" destination="eHb-d4-6jy" id="vEJ-RQ-hrj"/>
                         <outlet property="scoreLbl" destination="DeR-c7-F4K" id="Wu0-zq-NLB"/>
                         <outlet property="scoreMarkedLabel" destination="uKD-0v-E1g" id="qNp-pX-csU"/>
+                        <outlet property="screeningLabel" destination="Zrw-UP-fdG" id="86p-R6-7CR"/>
                         <outlet property="shadowView" destination="Ewr-M7-nuu" id="06G-f9-uYy"/>
                         <outlet property="testDateLbl" destination="sKQ-CZ-tjG" id="E6l-Bx-ngy"/>
                         <outlet property="testTimeLbl" destination="Dan-LH-I8e" id="nai-O7-mYJ"/>

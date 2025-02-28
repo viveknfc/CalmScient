@@ -70,6 +70,7 @@ class WeeklySummaryGraphViewController: ViewController {
                 return
             }
             self?.chartData = responseData
+            print("the chart data is", self?.chartData ?? "")
             self?.tableView.reloadData()
         }
     }

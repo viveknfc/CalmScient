@@ -80,21 +80,40 @@ class BottomSheetTimeAndAlarmVC: UIViewController {
         
         content.sound = UNNotificationSound.criticalSoundNamed(UNNotificationSoundName(rawValue: "bell.mp3"))
         
-        for day in repeatDays {
-            var dateComponents = DateComponents()
-            dateComponents.hour = hour
-            dateComponents.minute = minute
-            dateComponents.weekday = day  // Sunday is 1, Monday is 2, ..., Saturday is 7
+        if repeatDays.isEmpty {
+              let calendar = Calendar.current
+              var dateComponents = calendar.dateComponents([.year, .month, .day], from: Date()) // Get today's date
+              dateComponents.hour = hour
+              dateComponents.minute = minute
+              
+              let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false) // No repeat
+              
+              let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+              UNUserNotificationCenter.current().add(request) { error in
+                  if let error = error {
+                      print("Error scheduling notification: \(error)")
+                  }
+              }
+        } else {
             
-            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-            
-            let request = UNNotificationRequest(identifier: "\(identifier)_\(day)", content: content, trigger: trigger)
-            UNUserNotificationCenter.current().add(request) { error in
-                if let error = error {
-                    print("Error scheduling notification: \(error)")
+            for day in repeatDays {
+                var dateComponents = DateComponents()
+                dateComponents.hour = hour
+                dateComponents.minute = minute
+                dateComponents.weekday = day  // Sunday is 1, Monday is 2, ..., Saturday is 7
+                
+                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+                
+                let request = UNNotificationRequest(identifier: "\(identifier)_\(day)", content: content, trigger: trigger)
+                UNUserNotificationCenter.current().add(request) { error in
+                    if let error = error {
+                        print("Error scheduling notification: \(error)")
+                    }
                 }
             }
+            
         }
+    
     }
 
     
@@ -240,7 +259,8 @@ class BottomSheetTimeAndAlarmVC: UIViewController {
                     let hour = calendar.component(.hour, from: date)
                     let minute = calendar.component(.minute, from: date)
                     
-                    print("Hour: \(hour), Minute: \(minute)")
+                    print("VIV Hour: \(hour), Minute: \(minute)")
+                    print("the time identifier is", timeIdentifier ?? "")
                     hourTime = hour
                     minTime = minute
                     repeatDays = convertDaysToNumbers(days: scheduledObj.repeat )

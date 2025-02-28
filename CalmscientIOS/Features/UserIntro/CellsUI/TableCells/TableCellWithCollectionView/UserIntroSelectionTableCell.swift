@@ -191,6 +191,10 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegateFlowLayout, UICo
     //viv start
     
     private func configureCell(_ cell: UserIntroDayCollectionCell, indexPath: IndexPath, isSelected: Bool, cellData: (String, String)) {
+        
+        let defaultSize = cell.defaultImageSize
+        let newSize = defaultSize * 1.1
+        
         if isSelected {
             // Configure the selected cell appearance
             cell.cellTitleLabel.textColor = self.cellType == .UserEntryTimeSpendCell ? UIColor(named: "barColor1") :
@@ -219,8 +223,12 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegateFlowLayout, UICo
             //end
             cell.cellImageView.image = self.cellType == .UserEntryTimeSpendCell ? UIImage(named: self.selectedFamilyImages[indexPath.row]) : UIImage(named: "\(cellData.0)")
             cell.cellImageView.applyShadow()
+
+            cell.cellWidth.constant = newSize
+            cell.cellHeight.constant = newSize
+            cell.cellImageView.layer.cornerRadius = newSize / 2
             
-            cell.cellImageView.layer.cornerRadius = cell.cellImageView.frame.height / 2
+//            cell.cellImageView.layer.cornerRadius = cell.cellImageView.frame.height / 2
             cell.cellImageView.clipsToBounds = false
             cell.cellImageView.layer.borderWidth = 2
             cell.cellImageView.layer.borderColor = UIColor.white.cgColor
@@ -229,13 +237,20 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegateFlowLayout, UICo
             cell.cellImageView.layer.shadowOffset = CGSize(width: 0, height: 2)
             cell.cellImageView.layer.shadowRadius = 4
             cell.cellImageView.layer.shadowPath = UIBezierPath(ovalIn: cell.cellImageView.bounds).cgPath
+
         } else {
             // Configure the unselected cell appearance
+
+            cell.cellWidth.constant = defaultSize
+            cell.cellHeight.constant = defaultSize
+            cell.cellImageView.layer.cornerRadius = defaultSize / 2
+            
             cell.cellTitleLabel.textColor = UIColor(named: "UserIntroCollectionCellBackgroundColor")
             cell.cellImageView.image = UIImage(named: "\(cellData.0)")
             cell.cellImageView.layer.borderWidth = 1
             cell.cellImageView.layer.borderColor = UIColor.clear.cgColor
             cell.cellImageView.layer.masksToBounds = true
+            
         }
         
         cell.cellTitleLabel.text = cellData.1

@@ -90,7 +90,7 @@ class MedicationsDetailTableCell: UITableViewCell {
                    return
                }
                if let jsonString = String(data: jsonData, encoding: .utf8) {
-                   print("JSON String: \(jsonString)")
+                   print("From did tap selection JSON String: \(jsonString)")
                }
                
                let requestForm = UpdateMedicationsAlarmRequestForm(jsonData)

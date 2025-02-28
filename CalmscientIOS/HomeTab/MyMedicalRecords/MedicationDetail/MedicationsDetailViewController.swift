@@ -42,7 +42,7 @@ class MedicationsDetailViewController: ViewController, UISheetPresentationContro
 //            tableData = details.scheduledTimeList.sorted(by: {
 //                $0.scheduledTimes.first?.medicineTime ?? "" < $1.scheduledTimes.first?.medicineTime ?? ""
 //            })
-            medicineDetails?.medicationDetailsByDate.first?.medicalDetails.scheduledTimeList = tableData
+//            medicineDetails?.medicationDetailsByDate.first?.medicalDetails.scheduledTimeList = tableData
         }
     }
     
@@ -101,6 +101,7 @@ class MedicationsDetailViewController: ViewController, UISheetPresentationContro
         vc?.title = "Edit medications"
         vc?.EditVc = true
         vc?.medicationData = medicineDetails
+        print("the medicine details coming to add user VC via medication detail Edit",medicineDetails?.medicationDetailsByDate.first?.medicalDetails.scheduledTimeList.first?.scheduledTimes.first?.alarmId ?? "666")
         self.navigationController?.pushViewController(vc!, animated: true)
         
     }
@@ -115,7 +116,8 @@ class MedicationsDetailViewController: ViewController, UISheetPresentationContro
                                                         message: "Are you sure you want to delete this medication?",
                                                         preferredStyle: .alert)
                 
-                let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+cancelAction.setValue(#colorLiteral(red: 0.431, green: 0.420, blue: 0.702, alpha: 1), forKey: "titleTextColor")
                 let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
                     self.deleteMedication()
                 }

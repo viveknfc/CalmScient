@@ -19,6 +19,8 @@ class ScreeningResultVC: ViewController {
     @IBOutlet weak var testTimeLbl: UILabel!
     @IBOutlet weak var remindOptionLbl: UILabel!
     @IBOutlet weak var needToTalkButton: LinearGradientButton!
+    @IBOutlet weak var screeningLabel: FontLR15!
+    
     
     private var customAlertBackgroundView:UIVisualEffectView?
     public weak var selectedScreening:Screening? = nil
@@ -43,16 +45,6 @@ class ScreeningResultVC: ViewController {
             subview.layer.cornerRadius = 12
         }
         getResultsForScreening()
-        
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "MM/dd/yyyy"
-//        let dateString = dateFormatter.string(from: Date())
-//        
-//        let timeFormatter = DateFormatter()
-//        timeFormatter.dateFormat = "h:mm a"
-//        let timeString = timeFormatter.string(from: Date())
-//        testDateLbl.text = dateString
-//        testTimeLbl.text = timeString
         
         //nav bar back button start
         let backButtonImage = UIImage(named: "NavigationBack")?.withRenderingMode(.alwaysOriginal)
@@ -148,6 +140,7 @@ class ScreeningResultVC: ViewController {
                     self.totalScoreLbl.text = "\(self.screeningResult?.total ?? 0)"
                     self.scoreLbl.text =  "\(self.screeningResult?.score ?? 0)"
                     self.progressBar.setProgress(Float(response.screeningResults.score)/Float(response.screeningResults.total), animated: true)
+                    self.screeningLabel.text = "\(self.screeningResult?.screeningName ?? "")"
                     
                     //Date and Time
                     
@@ -155,7 +148,7 @@ class ScreeningResultVC: ViewController {
                     
                     // Step 1: Parse the date-time string
                     let dateFormatter = DateFormatter()
-                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" // Format matching the API response
+                    dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Format matching the API response
                     if let date = dateFormatter.date(from: screeningDate) {
                         
                         // Step 2: Extract the date
@@ -232,8 +225,11 @@ class ScreeningResultVC: ViewController {
         customAlertView?.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         customAlertView?.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor).isActive = true
         customAlertView?.widthAnchor.constraint(equalToConstant: self.view.frame.width * 0.9).isActive = true
-        customAlertView?.heightAnchor.constraint(equalToConstant: self.view.frame.height * 0.55).isActive = true
-       
+//        customAlertView?.heightAnchor.constraint(equalToConstant: self.view.frame.height * 0.45).isActive = true
+//        let alertHeight = self.view.frame.height * 0.45
+//        customAlertView?.heightAnchor.constraint(greaterThanOrEqualToConstant: 220).isActive = true // Minimum height
+//        customAlertView?.heightAnchor.constraint(lessThanOrEqualToConstant: alertHeight).isActive = true // Dynamic height up to 45% of screen
+
 
     
     }

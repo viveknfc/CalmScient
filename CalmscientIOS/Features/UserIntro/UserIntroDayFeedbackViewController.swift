@@ -97,7 +97,7 @@ class UserIntroDayFeedbackViewController: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.view.showToastActivity()
+
         skipButton.isHidden = hideSkipButton
         if hideSkipButton {
             skipButtonHeight.constant = 0
@@ -135,10 +135,6 @@ class UserIntroDayFeedbackViewController: ViewController {
             }
         }
         
-//        if (UserDefaults.standard.value(forKey: "rememberMe") as? Int == 1) {
-//            refreshAPIFunc()
-//        }
-        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGesture.cancelsTouchesInView = false // Allow table view cell selection
         view.addGestureRecognizer(tapGesture)
@@ -153,10 +149,9 @@ class UserIntroDayFeedbackViewController: ViewController {
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-//        self.view.showToastActivity()
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone.current
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm" // Specify the desired format
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Specify the desired format
         let sampleTime = Date()
         print("the fetching time is", sampleTime)
         currentTime = dateFormatter.string(from: sampleTime)
@@ -204,12 +199,6 @@ class UserIntroDayFeedbackViewController: ViewController {
                 mainTableTop.constant = 24
             }
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-//        self.view.showToastActivity()
-    }
-
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -262,20 +251,19 @@ class UserIntroDayFeedbackViewController: ViewController {
     func fetchAPIFunc() {
         let params:[String:Any] = ["patientLocationId": plId, "clientId": clientId, "patientId": patientId, "time": currentTime!]
         print("the input param for fetch api is", params)
-        self.view.showToastActivity()
-        APIService.FetchMoodScreenDataAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") {  [self] response in
+        feedbackTableView.showToastActivity()
+        APIService.FetchMoodScreenDataAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse?.accessToken ?? "", acces: false, parameterPlacement: "body") {  [self] response in
             // Your closure code here
-            getresponseforFetchMoodDataAPI(response: response)
+            getresponseforFetchMoodDataAPI(response: response) {
+                self.feedbackTableView.hideToastActivity()
+            }
             
         }
     }
     
     //MARK: - Fetch API Response
     
-    func getresponseforFetchMoodDataAPI(response:AnyObject)->() {
- 
-        self.view.hideToastActivity()
-        view.hideToast()
+    func getresponseforFetchMoodDataAPI(response:AnyObject, completion: @escaping () -> Void) {
         
         if let responseString = response as? String {
             print("Response received from Fetch API calling is", responseString)
@@ -343,6 +331,8 @@ class UserIntroDayFeedbackViewController: ViewController {
         else {
             print("Unsupported response type:", type(of: response))
         }
+        
+        completion()
 
     }
     
@@ -504,7 +494,7 @@ class UserIntroDayFeedbackViewController: ViewController {
 
         // Extract Time (HH:mm:ss)
         let timeFormatter = DateFormatter()
-        timeFormatter.dateFormat = "HH:mm"
+        timeFormatter.dateFormat = "HH:mm:ss"
         let timeString = timeFormatter.string(from: now)
 
         // Save in UserDefaults

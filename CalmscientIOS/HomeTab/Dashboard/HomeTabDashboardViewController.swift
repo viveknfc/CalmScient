@@ -18,7 +18,7 @@ class HomeTabDashboardViewController: ViewController, UITableViewDataSource,UITa
     var excersises: [[String: Any]] = []
     var patientFavorites: [[String: Any]] = []
     
-    let screenTitle = "Hello  \(ApplicationSharedInfo.shared.loginResponse!.firstName)\nWe are happy to see you"
+    let screenTitle = "Hello  \(ApplicationSharedInfo.shared.loginResponse?.firstName ?? "")\nWe are happy to see you"
     let helloFont = UIFont(name: Fonts().lexendLight, size: 34)
     let userFont = UIFont(name: Fonts().lexendSemiBold, size: 34)
     let subTextFont = UIFont(name: Fonts().lexendLight, size: 14)

@@ -820,6 +820,7 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
     func closeAction() {
         UIView.transition(with: self.view, duration: 0.25, options: .transitionCrossDissolve, animations: {
             self.editJournalView.removeFromSuperview()
+            self.editJournalView.journalTextView.text = ""
             self.editJournalBackGroundView?.removeFromSuperview()
             self.editJournalBackGroundView = nil
             self.navigationController?.navigationBar.layer.zPosition = 0
@@ -851,6 +852,7 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
             
             DispatchQueue.main.async {
                 UIView.transition(with: self.view, duration: 0.25, options: .transitionCrossDissolve, animations: {
+                    self.editJournalView.journalTextView.text = ""
                     self.editJournalView.removeFromSuperview()
                     self.editJournalBackGroundView?.removeFromSuperview()
                     self.editJournalBackGroundView = nil
