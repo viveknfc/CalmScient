@@ -14,6 +14,9 @@ class ExcercisesRepository {
     
     func addFavAPICall(isFav: Int, pageId: Int, title: String, completion: @escaping (Result<Data, Error>) -> Void){
         // Define the URL
+        
+        print("the title getting is ", title)
+        
         guard let url = URL(string: "\(baseURLString)patients/api/v1/course/savePatientExercisesFavorites") else {
             print("Invalid URL")
             return

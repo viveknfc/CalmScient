@@ -157,13 +157,18 @@ extension WeeklySummaryGraphViewController : UITableViewDataSource,UITableViewDe
                 for hour in sleepHrs {
                     totalSleepHrs += Float(hour)
                 }
-                let avgSleepHrs = totalSleepHrs/Float(list.count)
+                
+                let filteredDataForAvg = chartData.filter { $0.yValue > 0 }
+                
+                let avgSleepHrs = totalSleepHrs/Float(filteredDataForAvg.count)
+                print("the total sleep hours is ",totalSleepHrs, " and the list count is ",list.count, " filtered data for avg count is ",filteredDataForAvg, "so avg sleep hours is ", avgSleepHrs)
+                
                 if let first = list.first, let last = list.last {
                     cell.mostHrsSleptLbl.text = "\(first.yValue) hrs"
                     cell.leastHrsSleptLbl.text = "\(last.yValue) hrs"
                     cell.avgHrsSleptLbl.text = String(format: "%.2f", avgSleepHrs) + " hrs"
                     let attrText = NSMutableAttributedString(string: "\(String(format: "%.2f", avgSleepHrs)) / ", attributes: [.font : UIFont(name: Fonts().lexendMedium, size: 14) ?? "", .foregroundColor : UIColor(hex: "#9B9B9B")])
-                    attrText.append(NSMutableAttributedString(string: "10", attributes: [.font : UIFont(name: Fonts().lexendMedium, size: 14) ?? "",.foregroundColor: UIColor(hex: (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ?  "#FFFFFF" : "#000000")]))
+                    attrText.append(NSMutableAttributedString(string: "12", attributes: [.font : UIFont(name: Fonts().lexendMedium, size: 14) ?? "",.foregroundColor: UIColor(hex: (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ?  "#FFFFFF" : "#000000")]))
                     cell.noOfHrsSlept.attributedText = attrText
                     cell.configureCell(with: avgSleepHrs)
 

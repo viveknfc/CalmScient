@@ -41,25 +41,9 @@ class CoursesViewController: ViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
-       // self.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "Changing your response to stress" : "Cambiando tu respuesta al estrés"
+
         getCoursesData()
-//        let courseRequest = GetCourseSessionIdRequestForm()
-//        guard let requestURL = courseRequest.getURLRequest() else {
-//            return
-//        }
-//        NetworkAPIRequest.sendRequest(request: requestURL) { [weak self](response: CoursesSessionInfo?, failureResponse: FailureResponse?, error: Error?) in
-//            DispatchQueue.global(qos: .userInitiated).async {
-//                guard let self = self else {
-//                    return
-//                }
-//                if let _ = error {
-//
-//                } else if let response = response {
-//                    self.courseSessionID = response.sessionId
-//                }
-//            }
-//
-//        }
+
     }
     
     func getCoursesData() {
@@ -151,19 +135,7 @@ extension CoursesViewController : UITableViewDataSource, UITableViewDelegate {
             cell.updateTableCell(data: instance)
             cell.selectionStyle = .none
         }
-//        cell.courseSelectionClosure = { [weak self] (urlString,title) in
-//            guard self?.courseSessionID != "" else {
-//                return
-//            }
-//            let next = UIStoryboard(name: "WebViewLesson", bundle: nil)
-//            let vc = next.instantiateViewController(withIdentifier: "WebViewLessonViewController") as? WebViewLessonViewController
-//            let fullURLString = "\(urlString)&sessionId=\(self?.courseSessionID ?? "")"
-//            vc?.urlString = fullURLString
-//            vc?.title = "\(title)"
-//            self?.navigationController?.pushViewController(vc!, animated: true)
-//        }
-//        cell.updateTableCell(data: instance)
-//        cell.selectionStyle = .none
+
         return cell
     }
     

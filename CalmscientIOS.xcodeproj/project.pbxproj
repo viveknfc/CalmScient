@@ -510,6 +510,7 @@
 		C2EED5E22CFA6797005C1E1F /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EED5E12CFA6797005C1E1F /* CustomView.swift */; };
 		C2EED5E42CFA69B0005C1E1F /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EED5E32CFA69B0005C1E1F /* ImageView.swift */; };
 		C2EED5E62CFA6CB8005C1E1F /* FontLR12.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EED5E52CFA6CB8005C1E1F /* FontLR12.swift */; };
+		C2FA57FA2D71E80B0093568A /* FontLM20.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FA57F92D71E80B0093568A /* FontLM20.swift */; };
 		C2FC40F02D118F6800D9ED37 /* FontLL14.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC40EF2D118F6800D9ED37 /* FontLL14.swift */; };
 		C2FDECB02D267897005EE6BA /* ThinkingAbtQuitingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FDECAF2D267897005EE6BA /* ThinkingAbtQuitingVC.swift */; };
 		C2FDECB22D267EB9005EE6BA /* ReadyToQuitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FDECB12D267EB9005EE6BA /* ReadyToQuitVC.swift */; };
@@ -1046,6 +1047,7 @@
 		C2EED5E12CFA6797005C1E1F /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		C2EED5E32CFA69B0005C1E1F /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		C2EED5E52CFA6CB8005C1E1F /* FontLR12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLR12.swift; sourceTree = "<group>"; };
+		C2FA57F92D71E80B0093568A /* FontLM20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLM20.swift; sourceTree = "<group>"; };
 		C2FC40EF2D118F6800D9ED37 /* FontLL14.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLL14.swift; sourceTree = "<group>"; };
 		C2FDECAF2D267897005EE6BA /* ThinkingAbtQuitingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkingAbtQuitingVC.swift; sourceTree = "<group>"; };
 		C2FDECB12D267EB9005EE6BA /* ReadyToQuitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyToQuitVC.swift; sourceTree = "<group>"; };
@@ -1161,6 +1163,7 @@
 				C2FC40EF2D118F6800D9ED37 /* FontLL14.swift */,
 				C298223D2D13405C00541886 /* FontLM25.swift */,
 				C2ADB3B72D1A68CC00157631 /* FontLR16.swift */,
+				C2FA57F92D71E80B0093568A /* FontLM20.swift */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -3095,6 +3098,7 @@
 				4AD5D1022BD7A60E00E4C945 /* AppMainTabViewController.swift in Sources */,
 				4A0853D82C23C0A600202C02 /* EventsTrackersTableViewCell.swift in Sources */,
 				C249D1422D27030C009EE005 /* testVC.swift in Sources */,
+				C2FA57FA2D71E80B0093568A /* FontLM20.swift in Sources */,
 				4AA705672BDE3B230013932B /* ExpansionTableViewCell.swift in Sources */,
 				C26AA7A62CF8642500F9A424 /* Drinking Control.swift in Sources */,
 				4A0853DC2C23C0A600202C02 /* SummaryTableViewCell.swift in Sources */,

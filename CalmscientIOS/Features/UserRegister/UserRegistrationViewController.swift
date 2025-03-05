@@ -13,10 +13,17 @@ class UserRegistrationViewController: UIViewController {
     @IBOutlet weak var licenseTextField: customUITextField!
     @IBOutlet weak var userLicenseTextView: UITextView!
     @IBOutlet weak var submitButton: LinearGradientButton!
-    @IBOutlet weak var checkBoxWithTitleButton1: SelectionButton!
-    @IBOutlet weak var checkBoxWithTitleButton2: SelectionButton!
+    
+    @IBOutlet weak var firstCheck: UIButton!
+    @IBOutlet weak var firstLabel: FontLR15!
+    @IBOutlet weak var secondCheck: UIButton!
+    @IBOutlet weak var secondLabel: FontLR15!
+    
+    var buttonState1: SelectionButtonState = .dafault
+    var buttonState2: SelectionButtonState = .dafault
     
     
+    var navController: UINavigationController?
     private var customAlertBackgroundView:UIVisualEffectView?
     
     override func viewDidLoad() {
@@ -31,41 +38,50 @@ class UserRegistrationViewController: UIViewController {
         self.userLicenseTextView.backgroundColor = UIColor(named: "UserRegistrationTextViewBackgroundColor")
         self.userLicenseTextView.layer.borderWidth = 1.0
         self.userLicenseTextView.layer.cornerRadius = 4
-        //self.submitButton.setTitle("Submit", for: .normal)
-        
-       
-        
+        self.userLicenseTextView.isEditable = false
+ 
         self.submitButton.setAttributedTitleWithGradientDefaults(title: "Submit")
         self.userLicenseTextView.textContainerInset = UIEdgeInsets(top: 15, left: 16, bottom: 15, right: 10)
         self.navigationController?.isNavigationBarHidden = true
-        printSystemFonts()
         
-        checkBoxWithTitleButton1.contentLabel.text = "I have read it and understood."
-        checkBoxWithTitleButton2.contentLabel.text = "I agree to share my info with medical provider"
+        updateButtonImage1()
+        updateButtonImage2()
+        firstLabel.text = "I have read it and understood."
+        secondLabel.text = "I agree to share my info with medical provider"
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tapGesture)
     }
     
-    public func printSystemFonts() {
-        // Use this identifier to filter out the system fonts in the logs.
-        let identifier: String = "[SYSTEM FONTS]"
-        // Here's the functionality that prints all the system fonts.
-        for family in UIFont.familyNames as [String] {
-            debugPrint("\(identifier) FONT FAMILY :  \(family)")
-            for name in UIFont.fontNames(forFamilyName: family) {
-                debugPrint("\(identifier) FONT NAME :  \(name)")
-            }
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+    
+    //CHeck Box
+    
+    @IBAction func firstCheckboxPressed(_ sender: Any) {
+        buttonState1 = (buttonState1 == .dafault) ? .selected : .dafault
+        updateButtonImage1()
+    }
+    
+    private func updateButtonImage1() {
+        firstCheck.setImage(buttonState1.getAssetImageForState(), for: .normal)
         }
+    
+    
+    @IBAction func secondCheckboxPressed(_ sender: Any) {
+        buttonState2 = (buttonState2 == .dafault) ? .selected : .dafault
+        updateButtonImage2()
     }
     
+    private func updateButtonImage2() {
+        secondCheck.setImage(buttonState2.getAssetImageForState(), for: .normal)
+        }
     
    
     @IBAction func didClickOnSubmitButton(_ sender: UIButton) {
-//        navigateToCreateAccount()
+
         addAlertView()
-//        let next = UIStoryboard(name: "UserIntro", bundle: nil)
-//        let vc = next.instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as? UserIntroDayFeedbackViewController
-//        vc?.afternoonVC = true
-//        vc?.titleString = "Good Afternoon"
-//        self.navigationController?.pushViewController(vc!, animated: true)
         
     }
     
@@ -97,16 +113,29 @@ class UserRegistrationViewController: UIViewController {
         customAlertView?.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         customAlertView?.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor).isActive = true
         customAlertView?.widthAnchor.constraint(equalToConstant: self.view.frame.width * 0.9).isActive = true
-        customAlertView?.heightAnchor.constraint(equalToConstant: self.view.frame.height * 0.35).isActive = true
-        
+        customAlertView?.heightAnchor.constraint(equalToConstant: 315).isActive = true //self.view.frame.height * 0.30
+         
 
     }
     
     func navigateToCreateAccount(){
 
-        let next = UIStoryboard(name: "CreateAccountVC", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "CreateAccountVC") as? CreateAccountVC
-        self.navigationController?.pushViewController(vc!, animated: true)
+//        let next = UIStoryboard(name: "CreateAccountVC", bundle: nil)
+//        let vc = next.instantiateViewController(withIdentifier: "CreateAccountVC") as? CreateAccountVC
+//        self.navigationController?.pushViewController(vc!, animated: true)
+        
+        let storyboard = UIStoryboard(name: "UserIntro", bundle: nil)
+            let homeViewController = storyboard.instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as! UserIntroDayFeedbackViewController
+        homeViewController.afternoonVC = true
+        let titleS = ApplicationSharedInfo.shared.loginResponse?.firstName ?? ""
+        homeViewController.titleString = "\(titleS)"
+        UserDefaults.standard.set("\(titleS)", forKey: "titleString")
+            // Wrap the home view controller in a navigation controller if needed
+            navController = UINavigationController(rootViewController: homeViewController)
+        
+        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+            sceneDelegate.changeRootViewController(to: navController!)
+        }
         
     }
     

@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gK3-WH-vae">
-                                <rect key="frame" x="0.0" y="70" width="393" height="106"/>
+                                <rect key="frame" x="0.0" y="70" width="393" height="109"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search" textAlignment="natural" minimumFontSize="17" background="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Rru-9T-LhV">
                                         <rect key="frame" x="15" y="10" width="317" height="36"/>
@@ -29,10 +29,10 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="oIA-zw-Aia">
-                                        <rect key="frame" x="15" y="61" width="363" height="35"/>
+                                        <rect key="frame" x="15" y="61" width="363" height="38"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29V-dT-X0j">
-                                                <rect key="frame" x="0.0" y="0.0" width="115.66666666666667" height="35"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="115.66666666666667" height="38"/>
                                                 <color key="backgroundColor" name="AppBackGroundColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="tintColor" name="blackAndWhite"/>
@@ -45,7 +45,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ciW-kL-yFa">
-                                                <rect key="frame" x="123.66666666666666" y="0.0" width="115.66666666666666" height="35"/>
+                                                <rect key="frame" x="123.66666666666666" y="0.0" width="115.66666666666666" height="38"/>
                                                 <color key="backgroundColor" name="AppBackGroundColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="tintColor" name="AppBackGroundColor"/>
@@ -58,7 +58,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fJO-3R-56L">
-                                                <rect key="frame" x="247.33333333333329" y="0.0" width="115.66666666666666" height="35"/>
+                                                <rect key="frame" x="247.33333333333329" y="0.0" width="115.66666666666666" height="38"/>
                                                 <color key="backgroundColor" name="AppBackGroundColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="tintColor" name="AppBackGroundColor"/>
@@ -77,7 +77,7 @@
                                             </button>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="35" id="Nx3-D6-Rtb"/>
+                                            <constraint firstAttribute="height" constant="38" id="Nx3-D6-Rtb"/>
                                         </constraints>
                                     </stackView>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wNI-s0-dM5">
@@ -120,7 +120,7 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gPC-1f-kLK">
-                                <rect key="frame" x="9" y="186" width="377" height="564"/>
+                                <rect key="frame" x="9" y="189" width="377" height="561"/>
                                 <color key="backgroundColor" name="AppBackGroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="cTQ-Hd-4uj"/>

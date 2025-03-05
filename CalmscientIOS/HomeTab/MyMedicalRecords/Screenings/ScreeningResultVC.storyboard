@@ -165,7 +165,7 @@
                                                 </constraints>
                                                 <color key="progressTintColor" name="AppThemeColor"/>
                                             </progressView>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zrw-UP-fdG" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zrw-UP-fdG" customClass="FontLM20" customModule="CalmscientIOS" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="26" width="281" height="0.0"/>
                                                 <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="14"/>
                                                 <nil key="textColor"/>

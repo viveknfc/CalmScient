@@ -15,7 +15,11 @@ enum ExcercisesTypeEnum: Int {
     case movementDance
     case movementRunning
     case mindfulBodyMovement
+    case dummy1
     case breathingTechnique
+    case breathingTechnique1
+    case breathingTechnique2
+    case breathingTechnique3
     case progressive
     
     var storyboardID: String {
@@ -38,6 +42,14 @@ enum ExcercisesTypeEnum: Int {
             return "MindfulBodyMovement"
         case .breathingTechnique:
             return "BreathingTechnique"
+        case .breathingTechnique1:
+            return "BreathingTechniqueType1"
+        case .breathingTechnique2:
+            return "MindfulBreathing"
+        case .breathingTechnique3:
+            return "DiagraphicBreathe"
+        case .dummy1:
+            return ""
         }
     }
     
@@ -60,39 +72,22 @@ enum ExcercisesTypeEnum: Int {
         case .mindfulBodyMovement:
             return "Mindful body movement"
         case .breathingTechnique:
-            return "Breathing technique"
+            return "BreathingTechnique" //Breathing technique
+        case .breathingTechnique1:
+            return "4–7–8 Breathing exercise"
+        case .breathingTechnique2:
+            return "Mindful breathing exercise"
+        case .breathingTechnique3:
+            return "Diaphragmatic breathing exercise"
+        case .dummy1:
+            return ""
         }
     }
-    
-//    var viewController: UIViewController {
         
         var destVC: UIViewController {
             let storyboard = UIStoryboard(name: "Excercises", bundle: nil)
             return storyboard.instantiateViewController(withIdentifier: self.storyboardID);
-//            switch self {
-//            case .mindfulness:
-//                
-//            default:
-//                return MindfulNess()
-//                //        case .progressive:
-//                //            return ""
-//                //        case .touchAndButterfly:
-//                //            return ""
-//                //        case .handOverHeart:
-//                //            return ""
-//                //        case .mindfulWalking:
-//                //            return ""
-//                //        case .movementDance:
-//                //            return ""
-//                //        case .movementRunning:
-//                //            return ""
-//                //        case .mindfulBodyMovement:
-//                //            return ""
-//                //        case .breathingTechnique:
-//                //            return ""
-//            }
         }
-//    }
     
 }
 

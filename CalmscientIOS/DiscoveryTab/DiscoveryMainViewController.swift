@@ -8,12 +8,12 @@
 import UIKit
 
 @available(iOS 16.0, *)
-class DiscoveryMainViewController: UIViewController {
+class DiscoveryMainViewController: UIViewController{
     var tutorialFlag : Int?
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
-        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Discovery" : "Descubrir"
         super.viewDidLoad()
 
@@ -21,8 +21,8 @@ class DiscoveryMainViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.separatorStyle = .none
-        self.navigationController?.navigationItem.leftBarButtonItem?.isHidden = true
-        
+//        self.navigationController?.navigationItem.leftBarButtonItem?.isHidden = true
+        self.navigationItem.leftBarButtonItem = nil
         
         guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
             fatalError("Unable to found Application Shared Info")
@@ -83,10 +83,15 @@ class DiscoveryMainViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setupLanguage()
-        self.navigationController?.navigationBar.isHidden = false
-        self.navigationController?.navigationItem.leftBarButtonItem?.isHidden = true
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationItem.leftBarButtonItem = nil
 
         tableView.reloadData()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     func setupLanguage() {

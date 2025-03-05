@@ -115,7 +115,7 @@ class DiagraphicBreathe: ViewController {
             maximiseImg.addGestureRecognizer(maximiseGesture)
         if let data = UserDefaults.standard.value(forKey: "favoriteExcersises") as? Data {
             favExcercises = try! PropertyListDecoder().decode([ExcercisesModel].self, from: data)
-            if let abc  = favExcercises.filter({$0.screenCode == ExcercisesTypeEnum.breathingTechnique.rawValue}).first {
+            if let abc  = favExcercises.filter({$0.screenCode == ExcercisesTypeEnum.breathingTechnique3.rawValue}).first {
                 isFav = abc.isFav
             }
         }
@@ -227,7 +227,7 @@ class DiagraphicBreathe: ViewController {
         player = AVPlayer(url: url)
                playerLayer = AVPlayerLayer(player: player)
                playerLayer.frame = videoView.bounds
-               playerLayer.videoGravity = .resizeAspectFill
+               playerLayer.videoGravity = .resizeAspect
                videoView.layer.addSublayer(playerLayer)
                videoView.bringSubviewToFront(playPauseImg)
         videoView.bringSubviewToFront(favImg)
@@ -304,7 +304,7 @@ class DiagraphicBreathe: ViewController {
     @objc func favImgTapped(sender: UITapGestureRecognizer) {
         isFav = (isFav == 0) ? 1 : 0
         self.view.showToastActivity()
-        ExcercisesRepository.shared.addFavAPICall(isFav: isFav, pageId: 3, title: ExcercisesTypeEnum.breathingTechnique.addFavCode) { [self] result in
+        ExcercisesRepository.shared.addFavAPICall(isFav: isFav, pageId: 1, title: ExcercisesTypeEnum.breathingTechnique3.addFavCode) { [self] result in
             switch result {
             case .success(let data):
                 // Convert data to JSON object and print it

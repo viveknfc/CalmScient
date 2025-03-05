@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeTabDashboardViewController: ViewController, UITableViewDataSource,UITableViewDelegate {
+class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet weak var noFavsLabel: UILabel!
     @IBOutlet weak var screenTitleLabel: UILabel!
@@ -66,6 +66,7 @@ class HomeTabDashboardViewController: ViewController, UITableViewDataSource,UITa
     }
     
     override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
         self.navigationController?.isNavigationBarHidden = false
     }
     
@@ -400,7 +401,6 @@ extension HomeTabDashboardViewController : UICollectionViewDelegateFlowLayout, U
         if let isFromExcercise = selectedFavorite["isFromExercises"] as? Int, isFromExcercise == 1, let screenCode = selectedFavorite["screenCode"] as? Int  {
             let storyboard = UIStoryboard(name: "Excercises", bundle: nil)
             let excerciseType = ExcercisesTypeEnum(rawValue: screenCode)
-            //            let destinationVC = storyboard.instantiateViewController(withIdentifier: excerciseType!.storyboardID)
             
             // Push to the destination view controller
             self.navigationController?.pushViewController(excerciseType!.destVC, animated: true)

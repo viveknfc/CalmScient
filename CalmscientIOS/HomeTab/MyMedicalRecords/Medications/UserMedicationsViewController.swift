@@ -240,6 +240,9 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     
     override func viewWillAppear(_ animated: Bool) {//kiran diagnostics
         super.viewWillAppear(animated)
+        
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        
         title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Medications" : "Medicación"
         self.tabBarController?.tabBar.isHidden = false;
         self.tabBarController?.tabBar.selectedItem?.title = "Home"

@@ -128,7 +128,7 @@ class BreathingTechniqueType1: ViewController {
         maximiseImg.addGestureRecognizer(maximiseGesture)
         if let data = UserDefaults.standard.value(forKey: "favoriteExcersises") as? Data {
             favExcercises = try! PropertyListDecoder().decode([ExcercisesModel].self, from: data)
-            if let abc  = favExcercises.filter({$0.screenCode == ExcercisesTypeEnum.breathingTechnique.rawValue}).first {
+            if let abc  = favExcercises.filter({$0.screenCode == ExcercisesTypeEnum.breathingTechnique1.rawValue}).first {
                 isFav = abc.isFav
             }
         }
@@ -277,7 +277,7 @@ class BreathingTechniqueType1: ViewController {
         player = AVPlayer(url: url)
         playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = videoView.bounds
-        playerLayer.videoGravity = .resizeAspectFill//.resizeAspect
+        playerLayer.videoGravity = .resizeAspect //resizeAspectFill
         videoView.layer.addSublayer(playerLayer)
         videoView.bringSubviewToFront(playPauseImage)
         videoView.bringSubviewToFront(favImg)
@@ -323,10 +323,15 @@ class BreathingTechniqueType1: ViewController {
 
     @objc func favImgTapped(sender: UITapGestureRecognizer) {
         isFav = (isFav == 0) ? 1 : 0
+        
+        print("tht title from fav button tapped is ", ExcercisesTypeEnum.breathingTechnique1.addFavCode)
+        
         self.view.showToastActivity()
-        ExcercisesRepository.shared.addFavAPICall(isFav: isFav, pageId: 1, title: ExcercisesTypeEnum.breathingTechnique.addFavCode) { [self] result in
+        ExcercisesRepository.shared.addFavAPICall(isFav: isFav, pageId: 1, title: ExcercisesTypeEnum.breathingTechnique1.addFavCode) { [self] result in
             switch result {
+                
             case .success(let data):
+
                 // Convert data to JSON object and print it
                 do {
                     if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
@@ -371,23 +376,6 @@ class BreathingTechniqueType1: ViewController {
 
 
 extension UIView {
-//    func applyShadow(
-//        color: UIColor = UIColor.black, //UIColor(hex: "#323247"),
-//        opacity: Float = 1,
-//        offset: CGSize = CGSize(width: 2, height: 8),
-//        radius: CGFloat = 5) {
-//            
-//            
-//            self.backgroundColor = .white
-//            self.layer.borderColor = UIColor(hex: "#E8E7F4").cgColor
-//            self.layer.borderWidth = 1
-//            self.layer.shadowColor = color.cgColor.copy(alpha: 0.08)
-//        self.layer.shadowOpacity = opacity
-//        self.layer.shadowOffset = offset
-//        self.layer.shadowRadius = radius
-//        self.layer.masksToBounds = false
-//        self.layer.cornerRadius = 15
-//    }
     
     func applyShadow(cornerRadius: CGFloat = 10.0, shadowColor: UIColor = .black, shadowOpacity: Float = 0.2, shadowOffset: CGSize = CGSize(width: 0, height: 2), shadowRadius: CGFloat = 5.0) {
        // self.backgroundColor = .white

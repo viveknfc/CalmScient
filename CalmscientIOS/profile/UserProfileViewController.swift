@@ -54,12 +54,15 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.showToastActivity()
+        
         self.navigationController?.isNavigationBarHidden = false
         self.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Settings" : "Ajustes"
         setupView()
         setupTableView()
         setupLanguage()
-        self.view.showToastActivity()
+        
         
         
         guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
@@ -78,7 +81,7 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
         guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
             fatalError("Unable to found Application Shared Info")
         }
-        self.view.showToastActivity()
+
         
         getPatientLanguages(patientId: userInfo.patientID, clientId: userInfo.clientID,bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken) { [self] result in
             switch result {
@@ -104,6 +107,7 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
                 print("Error: \(error)")
             }
         }
+
         profileTableView.reloadData()
         
         
@@ -137,17 +141,12 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
     }
     
     @objc func backButtonOverrideAction() {
-//        if let navigationController = self.navigationController, navigationController.viewControllers.count > 1 {
-//            // If there's a back page, pop to the previous view controller
-//            navigationController.popViewController(animated: true)
-//        } else {
-            // If there's no back page, navigate to the home tab
+
             print("Navigating to Home Tab Dashboard from settings")
             let storyboard = UIStoryboard(name: "DashboardHomeTab", bundle: nil)
             if let homeTabVC = storyboard.instantiateViewController(withIdentifier: "HomeTabDashboardViewController") as? HomeTabDashboardViewController {
                 self.navigationController?.pushViewController(homeTabVC, animated: true)
             }
-//        }
           
        }
 
@@ -364,7 +363,7 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
                 return
             }
             do {
-                let jsonResponse = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+                _ = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
                 //  print("Response JSON: \(jsonResponse)")
             } catch {
                 print("Error parsing JSON response: \(error)")
@@ -498,8 +497,11 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
     }
     
     private func setupView() {
-        profileIcon.layer.cornerRadius = profileIcon.bounds.width / 2
-        profileIcon.layer.masksToBounds = true
+        
+        profileIcon.layer.cornerRadius = self.profileIcon.frame.size.width / 2
+        profileIcon.clipsToBounds = true
+        profileIcon.contentMode = .scaleAspectFill
+
         profileIcon.layer.borderWidth = 2.0
         profileIcon.layer.borderColor = UIColor(hex: "#6E6BB3").cgColor
         circleView.layer.cornerRadius = circleView.bounds.width / 2
@@ -603,15 +605,16 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
             return
         }
         
-        // Convert the image to JPEG data with a quality of 0.8
-        guard let imageData = image.jpegData(compressionQuality: 0.8) else {
+        let resizedImage = resizeImage(image: image, targetSize: CGSize(width: 500, height: 500))
+        guard let imageData = resizedImage?.jpegData(compressionQuality: 0.5) else {
             print("Unable to convert image to data")
             return
         }
         
+        
         // Define the filename (e.g., "profile.jpg")
         let fileName = "profile.jpeg"
-        self.view.showToastActivity()
+        
         guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
             fatalError("Unable to found Application Shared Info")
         }
@@ -626,6 +629,12 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
                         DispatchQueue.main.async {
                             print("uploadProfileImage===\(json)")
                             self.profileIcon.image = UIImage(data: imageData)
+                            
+                            // Ensure circular shape
+                           self.profileIcon.layer.cornerRadius = self.profileIcon.frame.size.width / 2
+                           self.profileIcon.clipsToBounds = true
+                           self.profileIcon.contentMode = .scaleAspectFill
+                            
                             self.view.hideToastActivity()
                         }
                     } else {
@@ -655,6 +664,25 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
            // Dismiss the image picker
            picker.dismiss(animated: true, completion: nil)
        }
+    
+    //MARK: - For resizing image
+    
+    func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage? {
+        let size = image.size
+        let widthRatio  = targetSize.width  / size.width
+        let heightRatio = targetSize.height / size.height
+        let newSize = widthRatio > heightRatio ?
+            CGSize(width: size.width * heightRatio, height: size.height * heightRatio) :
+            CGSize(width: size.width * widthRatio, height: size.height * widthRatio)
+
+        UIGraphicsBeginImageContextWithOptions(newSize, false, 1.0)
+        image.draw(in: CGRect(origin: .zero, size: newSize))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
+    }
+
 }
 @available(iOS 16.0, *)
 private func setAppDarkMode(_ isDarkMode: Bool) {
@@ -672,6 +700,10 @@ func uploadProfileImage( patientId: Int, clientId: Int, fileData: Data, fileName
         print("Invalid URL")
         return
     }
+    
+    print("the input param for upload profile image is patient id ", patientId, " client id ",clientId, " file name is ",fileName,"file data is \n", fileData)
+    print("fileData first 100 bytes:", fileData.prefix(100))
+
 
     // Create the request
     var request = URLRequest(url: url)
@@ -696,16 +728,22 @@ func uploadProfileImage( patientId: Int, clientId: Int, fileData: Data, fileName
     // Add the file field
     body.append("--\(boundary)\r\n")
     body.append("Content-Disposition: form-data; name=\"file\"; filename=\"\(fileName)\"\r\n")
-    body.append("Content-Type: application/octet-stream\r\n\r\n")
+    body.append("Content-Type: image/jpeg\r\n\r\n")
+
+//    body.append("Content-Type: application/octet-stream\r\n\r\n")
     body.append(fileData)
     body.append("\r\n")
 
     // End the boundary
-    body.append("--\(boundary)--\r\n")
+//    body.append("--\(boundary)--\r\n")
+    body.append("--\(boundary)--\r\n\r\n")
+
    
     print("body=======\(body)")
     // Set the request body
     request.httpBody = body
+    request.setValue("\(body.count)", forHTTPHeaderField: "Content-Length")
+
     print("the final request is", request)
 
     // Create the URLSession data task
@@ -715,6 +753,11 @@ func uploadProfileImage( patientId: Int, clientId: Int, fileData: Data, fileName
             completion(.failure(error))
             return
         }
+        
+        if let httpResponse = response as? HTTPURLResponse {
+            print("HTTP Status Code:", httpResponse.statusCode)
+        }
+
 
         guard let data = data else {
             print("No data received")

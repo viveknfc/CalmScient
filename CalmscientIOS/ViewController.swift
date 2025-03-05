@@ -42,12 +42,12 @@ class ViewController: UIViewController {
             UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "TabBarUnSelectedColor")!, NSAttributedString.Key.font: UIFont(name: Fonts().lexendRegular, size: 9)!], for: .normal)
             UITabBar.appearance().isTranslucent = true
             UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "TabBarSelectedColor")!, NSAttributedString.Key.font:UIFont(name: Fonts().lexendRegular, size: 9)!], for: .selected)
-            UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font:UIFont(name: Fonts().lexendMedium, size: 20)!]
-
-            let backImage = UIImage(named: "NavigationBack")
-            UINavigationBar.appearance().backIndicatorImage = backImage
-            UINavigationBar.appearance().backIndicatorTransitionMaskImage = backImage
-            UINavigationBar.appearance().backItem?.backButtonTitle = ""
+//            UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font:UIFont(name: Fonts().lexendMedium, size: 20)!]
+//
+//            let backImage = UIImage(named: "NavigationBack")
+//            UINavigationBar.appearance().backIndicatorImage = backImage
+//            UINavigationBar.appearance().backIndicatorTransitionMaskImage = backImage
+//            UINavigationBar.appearance().backItem?.backButtonTitle = ""
         }
         self.view.setNeedsDisplay()
     }

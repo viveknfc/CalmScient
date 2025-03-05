@@ -280,8 +280,11 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
         let title2 = languageId == 1 ? "Daily journal" : "diario"
         dailyButton.setTitle(title2, for: .normal)
         
-        let title3 = languageId == 1 ? "Discovery Excercise" : "Ejercicio de descubrimiento"
+        let title3 = languageId == 1 ? "Discovery\nExcercise" : "Ejercicio de descubrimiento"
         discoveryButton.setTitle(title3, for: .normal)
+        discoveryButton.titleLabel?.numberOfLines = 2
+        discoveryButton.titleLabel?.textAlignment = .center
+        discoveryButton.titleLabel?.lineBreakMode = .byWordWrapping
         
         quizButton.isSelected = true
         addButton.isHidden = true

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-class Excercises: ViewController {
+class Excercises: UIViewController {
     
     
     @IBOutlet weak var excercisesCollection: UICollectionView!
@@ -45,7 +45,7 @@ class Excercises: ViewController {
     
     override func viewDidLoad() {
         
-        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationItem.leftBarButtonItem = nil
         setupLanguage()
         if let layout = excercisesCollection.collectionViewLayout as? UICollectionViewFlowLayout {
@@ -82,13 +82,18 @@ class Excercises: ViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = false
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
 
         self.navigationItem.leftBarButtonItem = nil
         setupLanguage()
         self.title = titleStr;
         excercisesCollection.reloadData()
         
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
 
 }

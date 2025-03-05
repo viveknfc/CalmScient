@@ -22,9 +22,13 @@ class LoginVC: UIViewController,UITextFieldDelegate {
     
     @IBOutlet weak var createAnAccountLabel: UILabel!
     var languageId : Int?
+    var isFirstLaunch: Bool?
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        isFirstLaunch = UserDefaults.standard.bool(forKey: "isFirstLaunch")
+        
         setupLanguage()
 
        
@@ -74,8 +78,19 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
         let termsAndConditions = (languageId == 0 ? 1 : languageId  ) == 1 ? "Accept Terms and Conditions" : "Aceptar Términos y Condiciones"
         let termsAndConditionsAttributedText = NSMutableAttributedString(string: termsAndConditions, attributes: [.font: UIFont(name: Fonts().lexendLight, size: 14.0)!, .foregroundColor:UIColor(named: "MainTextColor") ?? UIColor.white])
+        
+        let linkText = (languageId == 1) ? "Terms and Conditions" : "Términos y Condiciones"
+        if let range = Range((termsAndConditions as NSString).range(of: linkText), in: termsAndConditions) {
+            termsAndConditionsAttributedText.addAttributes([
+                .underlineStyle: NSUnderlineStyle.single.rawValue,
+                .underlineColor: UIColor(named: "MainTextColor") ?? UIColor.white,
+                .link: URL(string: "https://example.com")! // Replace with your actual URL
+            ], range: NSRange(range, in: termsAndConditions))
+        }
+        
         termsAndConditionsAttributedText.addAttributes([.underlineStyle : NSUnderlineStyle.single.rawValue, .underlineColor:UIColor(named: "MainTextColor") ?? UIColor.white], range: (termsAndConditions as NSString).range(of: "terms and conditions"))
-        selectionButton.contentLabel.attributedText = termsAndConditionsAttributedText
+//        selectionButton.contentLabel.attributedText = termsAndConditionsAttributedText
+        selectionButton.textView.attributedText = termsAndConditionsAttributedText
         
         let tapGesture1 = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGesture1.cancelsTouchesInView = false // Allow table view cell selection
@@ -224,6 +239,12 @@ class LoginVC: UIViewController,UITextFieldDelegate {
                             self.view.hideToastActivity()
                             ApplicationSharedInfo.shared.loginResponse = loginResponse.loginDetails
                             ApplicationSharedInfo.shared.tokenResponse = loginResponse.tokenResponse
+
+                            if self.selectionButton.isRememberMeSelected {
+                                UserDefaults.standard.set(1, forKey: "rememberMe")
+                            } else {
+                                UserDefaults.standard.set(0, forKey: "rememberMe")
+                            }
                             
                             //For checking access token expiry
                             TokenManager.shared.saveTokenData(accessToken: loginResponse.tokenResponse.accessToken, expiresIn: loginResponse.tokenResponse.expiresIn)
@@ -231,26 +252,42 @@ class LoginVC: UIViewController,UITextFieldDelegate {
                             UserDefaultsHelper.saveLoginDetailsToUserDefaults(loginDetails: loginResponse.loginDetails, tokenResponse: loginResponse.tokenResponse)
                             
                             var navController: UINavigationController?
+                            
+                            if !(self.isFirstLaunch ?? true) {
+                                
+                                print("this is the first launch")
+                                
+                                let storyboard = UIStoryboard(name: "UserRegistration", bundle: nil)
+                                    let registrationViewController = storyboard.instantiateViewController(withIdentifier: "UserRegistrationViewController") as! UserRegistrationViewController
 
-                            if TimeZoneHelper.isTimeZoneChanged() {
-                                print("Time zone has changed or saved time is outdated.")
-                                let storyboard = UIStoryboard(name: "UserIntro", bundle: nil)
-                                    let homeViewController = storyboard.instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as! UserIntroDayFeedbackViewController
-                                homeViewController.afternoonVC = true
-                                homeViewController.titleString = "\(loginResponse.loginDetails.firstName)"
-                                UserDefaults.standard.set("\(loginResponse.loginDetails.firstName)", forKey: "titleString")
-                                    // Wrap the home view controller in a navigation controller if needed
-                                    navController = UINavigationController(rootViewController: homeViewController)
+                                    navController = UINavigationController(rootViewController: registrationViewController)
+                                UserDefaults.standard.set(true, forKey: "isFirstLaunch")
+                                
                             } else {
-                                UserDefaults.standard.set("\(loginResponse.loginDetails.firstName)", forKey: "titleString")
-                                print("Time zone remains the same.")
-                                let storyboard = UIStoryboard(name: "AppTabBar", bundle: nil)
-                                    let homeViewController = storyboard.instantiateViewController(withIdentifier: "AppMainTabViewController") as! AppMainTabViewController
-                                homeViewController.isInitalView = false
-                                navController = UINavigationController(rootViewController: homeViewController)
-                                navController?.navigationBar.isHidden = true
+                                
+                                print("this is not the first launch")
+                                
+                                if TimeZoneHelper.isTimeZoneChanged() {
+                                    print("Time zone has changed or saved time is outdated.")
+                                    let storyboard = UIStoryboard(name: "UserIntro", bundle: nil)
+                                        let homeViewController = storyboard.instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as! UserIntroDayFeedbackViewController
+                                    homeViewController.afternoonVC = true
+                                    homeViewController.titleString = "\(loginResponse.loginDetails.firstName)"
+                                    UserDefaults.standard.set("\(loginResponse.loginDetails.firstName)", forKey: "titleString")
+                                        // Wrap the home view controller in a navigation controller if needed
+                                        navController = UINavigationController(rootViewController: homeViewController)
+                                } else {
+                                    UserDefaults.standard.set("\(loginResponse.loginDetails.firstName)", forKey: "titleString")
+                                    print("Time zone remains the same.")
+                                    let storyboard = UIStoryboard(name: "AppTabBar", bundle: nil)
+                                        let homeViewController = storyboard.instantiateViewController(withIdentifier: "AppMainTabViewController") as! AppMainTabViewController
+                                    homeViewController.isInitalView = false
+                                    navController = UINavigationController(rootViewController: homeViewController)
+                                    navController?.navigationBar.isHidden = true
+                                }
+                                
                             }
-
+   
                                 if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
                                     sceneDelegate.changeRootViewController(to: navController!)
                                 }

@@ -19,10 +19,13 @@ public enum SelectionButtonState {
     }
 }
 
-final class SelectionButton : UIView {
+class SelectionButton : UIView {
     
     @IBOutlet weak var userSelectionImage: UIImageView!
     @IBOutlet weak var contentLabel: UILabel!
+    
+    @IBOutlet weak var textView: UITextView!
+    
     @IBOutlet weak var rememberMeImg: UIImageView!
     @IBOutlet weak var rememberMeLabel: UILabel!
     
@@ -34,10 +37,14 @@ final class SelectionButton : UIView {
         }
     }
     
-    private var rememberMeState:SelectionButtonState = .dafault {
+    var rememberMeState:SelectionButtonState = .dafault {
         didSet {
-//            self.isSelected = (rememberMeState == .selected)
+
         }
+    }
+    
+    var isRememberMeSelected: Bool {
+        return rememberMeState == .selected
     }
     
     required init?(coder: NSCoder) {
@@ -81,9 +88,11 @@ final class SelectionButton : UIView {
         UIView.transition(with: rememberMeImg, duration: 0.5, options: .transitionCrossDissolve) {
             self.rememberMeImg.image = self.rememberMeState.getAssetImageForState()
         }
-        if (rememberMeState == .selected) {
-            UserDefaults.standard.set(1, forKey: "rememberMe")
-        }
+
+        
+//        if (rememberMeState == .selected) {
+//            UserDefaults.standard.set(1, forKey: "rememberMe")
+//        }
     }
     
     private func loadViewFromNib(nibName: String? = "\(type(of: SelectionButton.self))") {

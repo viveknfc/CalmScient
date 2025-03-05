@@ -19,7 +19,7 @@ class ScreeningResultVC: ViewController {
     @IBOutlet weak var testTimeLbl: UILabel!
     @IBOutlet weak var remindOptionLbl: UILabel!
     @IBOutlet weak var needToTalkButton: LinearGradientButton!
-    @IBOutlet weak var screeningLabel: FontLR15!
+    @IBOutlet weak var screeningLabel: FontLM20!
     
     
     private var customAlertBackgroundView:UIVisualEffectView?
@@ -226,9 +226,6 @@ class ScreeningResultVC: ViewController {
         customAlertView?.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor).isActive = true
         customAlertView?.widthAnchor.constraint(equalToConstant: self.view.frame.width * 0.9).isActive = true
 //        customAlertView?.heightAnchor.constraint(equalToConstant: self.view.frame.height * 0.45).isActive = true
-//        let alertHeight = self.view.frame.height * 0.45
-//        customAlertView?.heightAnchor.constraint(greaterThanOrEqualToConstant: 220).isActive = true // Minimum height
-//        customAlertView?.heightAnchor.constraint(lessThanOrEqualToConstant: alertHeight).isActive = true // Dynamic height up to 45% of screen
 
 
     

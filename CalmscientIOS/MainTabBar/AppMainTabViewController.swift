@@ -27,6 +27,8 @@ class AppMainTabViewController: UITabBarController {
         
         // Register for language change notifications
                 NotificationCenter.default.addObserver(self, selector: #selector(languageChanged(_:)), name: .languageChanged, object: nil)
+        
+        self.navigationController?.isNavigationBarHidden = false
                 
         if #available(iOS 15, *) {
             let tabBarItemAppearence = UITabBarItemAppearance()
@@ -46,6 +48,8 @@ class AppMainTabViewController: UITabBarController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        self.navigationController?.isNavigationBarHidden = false
         
         updateTabBarItems()
         prepareTabs()
@@ -89,7 +93,7 @@ class AppMainTabViewController: UITabBarController {
         let vc1 = UIStoryboard(name: "UserMedications", bundle: nil).instantiateViewController(withIdentifier: "UserMedicationsViewController") as! UserMedicationsViewController
         let navC = UINavigationController(rootViewController: vc1)
 
-
+        print("the initial view value is ", isInitalView)
         let item1 = isInitalView ? navC : navCview
         let icon1 = UITabBarItem(title: "Home", image: UIImage(named: "\(unselectedimages[0])"), selectedImage: UIImage(named: "\(selectedImages[0])")) //\(tabTitles[0])
         item1.tabBarItem = icon1
@@ -116,7 +120,11 @@ class AppMainTabViewController: UITabBarController {
         item3.tabBarItem = icon3
         tabVC.append(item3)
         
-        let item4 = TestViewController4()
+
+        let vcz4 = TestViewController4()
+        let navC4 = UINavigationController(rootViewController: vcz4)
+        let item4 = navC4 // Use the navigation controller instead of the direct VC
+
         item4.title = tabTitles[3]
         let icon4 = UITabBarItem(title: "\(tabTitles[3])", image: UIImage(named: "MainTab_Rewards_UnSelected"), selectedImage: UIImage(named: "MainTab_Rewards_Selected"))
         item4.tabBarItem = icon4
@@ -143,11 +151,11 @@ extension AppMainTabViewController : UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         print("Tab bar selecting from here")
+        prepareTabs()
         
         if (isInitalView && (viewController.title == "Medications")) {
             print("Tab bar did select clicked")
             isInitalView = false
-            prepareTabs()
         }
     }
 }

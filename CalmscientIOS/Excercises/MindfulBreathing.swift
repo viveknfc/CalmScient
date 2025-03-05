@@ -135,7 +135,7 @@ class MindfulBreathing: ViewController {
         self.bottomDescLabel.font = UIFont(name: Fonts().lexendLight, size: 15)
         if let data = UserDefaults.standard.value(forKey: "favoriteExcersises") as? Data {
             favExcercises = try! PropertyListDecoder().decode([ExcercisesModel].self, from: data)
-            if let abc  = favExcercises.filter({$0.screenCode == ExcercisesTypeEnum.breathingTechnique.rawValue}).first {
+            if let abc  = favExcercises.filter({$0.screenCode == ExcercisesTypeEnum.breathingTechnique2.rawValue}).first {
                 isFav = abc.isFav
             }
         }
@@ -319,7 +319,7 @@ class MindfulBreathing: ViewController {
         player = AVPlayer(url: url)
                playerLayer = AVPlayerLayer(player: player)
                playerLayer.frame = videoView.bounds
-               playerLayer.videoGravity = .resizeAspectFill
+               playerLayer.videoGravity = .resizeAspect
                videoView.layer.addSublayer(playerLayer)
         videoView.bringSubviewToFront(playPauseImage)
         videoView.bringSubviewToFront(favImg)
@@ -334,29 +334,7 @@ class MindfulBreathing: ViewController {
         progressBar.value = 0
         progressBar.addTarget(self, action: #selector(sliderValueChanged(_:)), for: .valueChanged)
     }
-    
-    
-//    @IBAction func playPauseTapped(_ sender: UIButton) {
-//
-//            if isPlaying {
-//                player.pause()
-//                playPauseImage.image = UIImage(named: "Play")
-//   
-//                
-//            } else {
-//                playPauseImage.image = UIImage(named: "pause")
-//                guard let player = player else { return }
-//                avController.modalPresentationStyle = .fullScreen
-//                avController.player = player
-//                present(avController, animated: true) {
-//                    player.play()
-//                }
-//                
-//                bringControlsToFront()
-//
-//            }
-//            isPlaying.toggle()
-//        }
+
         @objc func sliderValueChanged(_ sender: UISlider) {
             let seconds = Double(progressBar.value) * player.currentItem!.duration.seconds
             let targetTime = CMTime(seconds: seconds, preferredTimescale: 600)
@@ -396,7 +374,7 @@ class MindfulBreathing: ViewController {
     @objc func favImgTapped(sender: UITapGestureRecognizer) {
         isFav = (isFav == 0) ? 1 : 0
         self.view.showToastActivity()
-        ExcercisesRepository.shared.addFavAPICall(isFav: isFav, pageId: 2, title: ExcercisesTypeEnum.breathingTechnique.addFavCode) { [self] result in
+        ExcercisesRepository.shared.addFavAPICall(isFav: isFav, pageId: 1, title: ExcercisesTypeEnum.breathingTechnique2.addFavCode) { [self] result in
             switch result {
             case .success(let data):
                 // Convert data to JSON object and print it
