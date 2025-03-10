@@ -187,3 +187,62 @@ extension UITextField {
     
   }
 }
+
+
+
+@IBDesignable
+class CustomTextView: UITextView {
+
+    // Border width
+    @IBInspectable var borderWidth: CGFloat = 1.0 {
+        didSet {
+            self.layer.borderWidth = borderWidth
+        }
+    }
+    
+    // Border color
+    @IBInspectable var borderColor: UIColor = UIColor.gray {
+        didSet {
+            self.layer.borderColor = borderColor.cgColor
+        }
+    }
+    
+    // Corner radius
+    @IBInspectable var cornerRadius: CGFloat = 5.0 {
+        didSet {
+            self.layer.cornerRadius = cornerRadius
+        }
+    }
+    
+    // Padding for text
+    @IBInspectable var textPadding: CGFloat = 10 {
+        didSet {
+            self.textContainerInset = UIEdgeInsets(top: textPadding, left: textPadding, bottom: textPadding, right: textPadding)
+        }
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupUI()
+    }
+    
+    override init(frame: CGRect, textContainer: NSTextContainer?) {
+        super.init(frame: frame, textContainer: textContainer)
+        setupUI()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setupUI()
+    }
+
+    private func setupUI() {
+        self.layer.borderWidth = borderWidth
+        self.layer.borderColor = borderColor.cgColor
+        self.layer.cornerRadius = cornerRadius
+        self.textContainerInset = UIEdgeInsets(top: textPadding, left: textPadding, bottom: textPadding, right: textPadding)
+        self.textContainer.lineFragmentPadding = 0  // Ensure padding consistency
+    }
+}
+
+

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -52,7 +52,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpi-Jk-jB9">
-                                                <rect key="frame" x="374" y="18" width="13" height="22"/>
+                                                <rect key="frame" x="378.66666666666669" y="18" width="8.3333333333333144" height="22"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" image="MedicationsCellArrow"/>
                                             </button>
@@ -70,7 +70,7 @@
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" systemColor="systemBlueColor"/>
                                 <constraints>
                                     <constraint firstItem="tHb-eO-DPh" firstAttribute="leading" secondItem="w10-8q-0Q0" secondAttribute="leading" id="85V-6c-xRt"/>
                                     <constraint firstItem="tHb-eO-DPh" firstAttribute="top" secondItem="w10-8q-0Q0" secondAttribute="top" id="B5e-WR-Cgf"/>
@@ -103,13 +103,14 @@
                 <outlet property="cellIconImageView" destination="Iak-kB-nwd" id="SwT-Wz-uAC"/>
                 <outlet property="contentTextLabel" destination="qzP-3e-JnW" id="URI-pJ-g6V"/>
                 <outlet property="dateLabel" destination="z32-1q-pxJ" id="dPk-k3-LPb"/>
+                <outlet property="editDeletButton" destination="Qpi-Jk-jB9" id="LYn-vl-exz"/>
                 <outlet property="shadowView" destination="w10-8q-0Q0" id="pZk-2u-ZaH"/>
             </connections>
             <point key="canvasLocation" x="60.305343511450381" y="57.74647887323944"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="MedicationsCellArrow" width="13" height="21.333333969116211"/>
+        <image name="MedicationsCellArrow" width="8.3333330154418945" height="13.666666984558105"/>
         <image name="appointmentIcon" width="24" height="24"/>
         <image name="eclipse_Medications" width="40" height="40"/>
         <namedColor name="AppLightTextColor">
@@ -120,6 +121,9 @@
         </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBlueColor">
+            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
