@@ -179,13 +179,17 @@ class WebViewLessonViewController: ViewController, WKNavigationDelegate, WKScrip
                 if keyValuePair.key == "1001" {
                     //index 3 - last page (quiz)
                     if(index == 2){
+                        print("key 1001 indeex value 2 clicked complete button")
                         self.navigationController?.popViewController(animated: true)
                     }else if(index == 3){
-                        self.title = "Your results"
+                        print("key 1001 indeex value 2 clicked complete button")
+                        self.navigationController?.popViewController(animated: true) //viv added
+//                        self.title = "Your results"
                     }
                     self.navigationController?.isNavigationBarHidden = false
                     
                 } else if keyValuePair.key == "1100" {
+                    print("key is 1100")
                     //index 3 - quiz page entered
                     self.view.hideToastActivity()
                     if(pageTitle != "" ){

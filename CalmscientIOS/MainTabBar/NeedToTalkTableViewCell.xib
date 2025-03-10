@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -29,7 +30,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZDN-7r-Sok">
-                        <rect key="frame" x="16" y="30" width="296" height="18"/>
+                        <rect key="frame" x="16" y="30" width="296" height="127"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="296" id="Mlq-I7-ZDI"/>
                         </constraints>
@@ -37,8 +38,15 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="7Hm-6T-Ta3">
+                        <rect key="frame" x="16" y="30" width="296" height="127"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="textColor" systemColor="labelColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fjn-wb-ztz">
-                        <rect key="frame" x="174" y="48" width="138" height="33"/>
+                        <rect key="frame" x="174" y="157" width="138" height="33"/>
                         <color key="backgroundColor" name="blueAndDarkBule"/>
                         <constraints>
                             <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="123" id="LyJ-7N-h41"/>
@@ -55,7 +63,8 @@
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="fjn-wb-ztz" secondAttribute="bottom" constant="10" id="0u5-Us-dc6"/>
+                    <constraint firstAttribute="bottom" secondItem="fjn-wb-ztz" secondAttribute="bottom" constant="10" id="0u5-Us-dc6"/>
+                    <constraint firstItem="7Hm-6T-Ta3" firstAttribute="top" secondItem="ZDN-7r-Sok" secondAttribute="top" id="AtE-p8-g0M"/>
                     <constraint firstAttribute="trailing" secondItem="fjn-wb-ztz" secondAttribute="trailing" constant="8" id="EUO-CI-WEi"/>
                     <constraint firstItem="ZDN-7r-Sok" firstAttribute="top" secondItem="BuN-go-dFf" secondAttribute="bottom" constant="2" id="Gis-D4-lgr"/>
                     <constraint firstItem="BuN-go-dFf" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="OQM-SB-w2O"/>
@@ -63,11 +72,15 @@
                     <constraint firstItem="fjn-wb-ztz" firstAttribute="top" secondItem="ZDN-7r-Sok" secondAttribute="bottom" id="Ti8-lJ-PgA"/>
                     <constraint firstItem="BuN-go-dFf" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="7" id="bw4-XZ-Lki"/>
                     <constraint firstAttribute="trailing" secondItem="fjn-wb-ztz" secondAttribute="trailing" constant="8" id="c4M-yi-hPu"/>
+                    <constraint firstItem="ZDN-7r-Sok" firstAttribute="bottom" secondItem="7Hm-6T-Ta3" secondAttribute="bottom" id="grc-MR-Dt1"/>
+                    <constraint firstItem="ZDN-7r-Sok" firstAttribute="trailing" secondItem="7Hm-6T-Ta3" secondAttribute="trailing" id="iOZ-xA-BqS"/>
                     <constraint firstAttribute="trailing" secondItem="ZDN-7r-Sok" secondAttribute="trailing" constant="8" id="uZD-we-SAT"/>
+                    <constraint firstItem="7Hm-6T-Ta3" firstAttribute="leading" secondItem="ZDN-7r-Sok" secondAttribute="leading" id="xYz-Bs-QRR"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="desTextView" destination="7Hm-6T-Ta3" id="6LR-JM-89F"/>
                 <outlet property="descriptionLabel" destination="ZDN-7r-Sok" id="TGm-br-NUW"/>
                 <outlet property="learnMoreButton" destination="fjn-wb-ztz" id="F8z-lL-E67"/>
                 <outlet property="titleLabel" destination="BuN-go-dFf" id="5bL-cZ-74e"/>
@@ -83,5 +96,11 @@
         <namedColor name="blueAndPink">
             <color red="0.43000000715255737" green="0.41800001263618469" blue="0.68199998140335083" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
         </namedColor>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

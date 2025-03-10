@@ -15,6 +15,12 @@ class NeedToTalkViewController: ViewController {
     
     @IBOutlet weak var needToTalkTableView: UITableView!
     var needToTalkData: [[String: Any]] = []
+    
+    let links: [String: String] = [
+              "988": "tel://988",
+              "741741": "sms:741741",
+              "678678": "sms:678678",
+          ]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +34,8 @@ class NeedToTalkViewController: ViewController {
         
         needToTalkTableView.dataSource = self
         needToTalkTableView.delegate = self
+        needToTalkTableView.estimatedRowHeight = 44
+        needToTalkTableView.rowHeight = UITableView.automaticDimension
         
         self.view.showToastActivity()
         guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
@@ -41,7 +49,7 @@ class NeedToTalkViewController: ViewController {
                 do {
                     if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                         DispatchQueue.main.async {
-                            print(json)
+                            print("Need to talk data is ",json)
                             self.view.hideToastActivity()
                             if let need = json["providerDetails"] as? [String: Any] {
                                 if let docName = need["providerName"] as? String {
@@ -183,7 +191,32 @@ extension NeedToTalkViewController : UITableViewDataSource,UITableViewDelegate {
                 }
                 
                 if let eventContent = event["content"] as? String {
-                    cell.descriptionLabel.text = eventContent
+//                    cell.desTextView.text = eventContent
+                    cell.desTextView.dataDetectorTypes = [.link, .phoneNumber]
+                    cell.desTextView.isSelectable = true
+                    cell.desTextView.isEditable = false
+                    cell.desTextView.isScrollEnabled = false
+
+                    let attributedString = NSMutableAttributedString(string: eventContent, attributes: [
+                                .font: UIFont(name: Fonts().lexendRegular, size: 12) ?? UIFont.systemFont(ofSize: 12),
+                                .foregroundColor: UIColor.black
+                            ])
+                    
+                    for (text, link) in links {
+                               let range = (eventContent as NSString).range(of: text)
+                               if range.location != NSNotFound {
+                                   attributedString.addAttribute(.link, value: link, range: range)
+                               }
+                           }
+                    
+                    cell.desTextView.attributedText = attributedString
+                    cell.desTextView.linkTextAttributes = [
+                        .foregroundColor: #colorLiteral(red: 0.431372549, green: 0.4196078431, blue: 0.7019607843, alpha: 1)
+                        , .underlineStyle: NSUnderlineStyle.single.rawValue
+                            ]
+                    
+//                    cell.descriptionLabel.text = eventContent
+                    
                 } else {
                     cell.descriptionLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "No content available" : "No hay contenido disponible."
                 }

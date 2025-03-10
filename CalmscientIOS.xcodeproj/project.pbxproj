@@ -434,7 +434,6 @@
 		C20245E52D1EB02A001CBDDC /* TobacoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20245E42D1EB02A001CBDDC /* TobacoViewController.swift */; };
 		C20245E72D1EF40C001CBDDC /* VapingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20245E62D1EF40C001CBDDC /* VapingViewController.swift */; };
 		C20245E92D1F37B1001CBDDC /* SmokingRelaxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20245E82D1F37B1001CBDDC /* SmokingRelaxVC.swift */; };
-		C21BD5982D2C42C5005BA00D /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = C21BD5972D2C42C5005BA00D /* KeychainAccess */; };
 		C21BD59A2D2C44AC005BA00D /* KeyChainFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BD5992D2C44AB005BA00D /* KeyChainFile.swift */; };
 		C21BD59B2D2C48A7005BA00D /* Pods_CalmscientIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4269D638E194B1C11CF122B0 /* Pods_CalmscientIOS.framework */; };
 		C21BD59C2D2C48A7005BA00D /* Pods_CalmscientIOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4269D638E194B1C11CF122B0 /* Pods_CalmscientIOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -1061,7 +1060,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C21BD5982D2C42C5005BA00D /* KeychainAccess in Frameworks */,
 				C21BD59B2D2C48A7005BA00D /* Pods_CalmscientIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2536,7 +2534,6 @@
 			);
 			name = CalmscientIOS;
 			packageProductDependencies = (
-				C21BD5972D2C42C5005BA00D /* KeychainAccess */,
 			);
 			productName = CalmscientIOS;
 			productReference = 4A65C2F02BD6852C00809222 /* CalmscientIOS.app */;
@@ -3446,14 +3443,6 @@
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		C21BD5972D2C42C5005BA00D /* KeychainAccess */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C21BD5962D2C42C5005BA00D /* XCRemoteSwiftPackageReference "KeychainAccess" */;
-			productName = KeychainAccess;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4A65C2E82BD6852C00809222 /* Project object */;
 }

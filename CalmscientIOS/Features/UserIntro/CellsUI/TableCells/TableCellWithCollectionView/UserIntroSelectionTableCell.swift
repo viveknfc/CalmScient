@@ -81,17 +81,17 @@ class UserIntroSelectionTableCell: UITableViewCell {
     :
     
     ["UserMoodHoursCell":[
-        ("UserIntro_Bad","MALO"),
-        ("UserIntro_Couldbe","PODRÍA SER MEJOR"),
-        ("UserIntro_Fair","Justo"),
-        ("UserIntro_Good","BUENO"),
-        ("UserIntro_Excellent","EXCELENTE")
+        ("UserIntro_Bad","Mal"),
+        ("UserIntro_Couldbe","Podría ser mejor"),
+        ("UserIntro_Fair","Más o menos"),
+        ("UserIntro_Good","Bueno"),
+        ("UserIntro_Excellent","Excelente")
     ],"UserEntryTimeSpendCell":[
-        ("UserIntro_Family","FAMILIA"),
-        ("UserIntro_Friends","AMIGOS"),
-        ("UserIntro_Workmates","COMPAÑEROS DE TRABAJO"),
-        ("UserIntro_Others","OTROS"),
-        ("UserIntro_Alone","SOLO")
+        ("UserIntro_Family","Familia"),
+        ("UserIntro_Friends","Amigos"),
+        ("UserIntro_Workmates","Compaňeros de trabajo"),
+        ("UserIntro_Others","Otras personas"),
+        ("UserIntro_Alone","Solo")
     ]]
     
     let selectedSmileyImgs = ["bad_selected","could_better_selected","fair_selected","good_selected","excellent_selected"]

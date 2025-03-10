@@ -116,7 +116,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         createAnAccountLabel.attributedText = createAccountAttributedText
         
         
-        self.loginButton.setAttributedTitleWithGradientDefaults(title: (languageId == 0 ? 1 : languageId  ) == 1 ?  "Login" : "Acceso")
+        self.loginButton.setAttributedTitleWithGradientDefaults(title: (languageId == 0 ? 1 : languageId  ) == 1 ?  "Login" : "Login")
         selectionButton.contentLabel.text = (languageId == 0 ? 1 : languageId  ) == 1 ? "Accept Terms & Conditions" : "Aceptar Términos y Condiciones"
         userNameLabel.text = AppHelper.getLocalizeString(str: "Username")
         passwordLabel.text = AppHelper.getLocalizeString(str: "Password")
@@ -180,7 +180,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
            }
         
         guard selectionButton.isSelected else {
-            self.view.showToast(message: "Please Accept Terms & Conditions")
+            self.view.showToast(message: "Please accept terms conditions")
             return
         }
         
@@ -340,8 +340,20 @@ extension UIView {
     public func showToast(message:String,title:String? = nil,point:CGPoint? = nil) {
         self.hideAllToasts(includeActivity: true)
         self.updateToastStyleWithAppDefaults()
-        self.makeToast(message, duration: 2 ,point: point ?? CGPoint(x: self.frame.width/2, y: self.frame.height-50), title: title, image: nil) { didTap in
-            self.hideToastActivity()
+        
+        let window = UIApplication.shared.windows.first
+        let safeAreaBottom = window?.safeAreaInsets.bottom ?? 0
+        let tabBarHeight = findViewController()?.tabBarController?.tabBar.frame.height ?? 49  // Default tab bar height if nil
+        let bottomPadding: CGFloat = 16  // Extra spacing above the tab bar for better visibility
+
+        // Dynamic Y position ensuring it appears above the tab bar
+        let adjustedY = self.frame.height - (tabBarHeight + safeAreaBottom + bottomPadding)
+
+        let defaultPoint = CGPoint(x: self.frame.width / 2, y: adjustedY)
+        
+//        let centerPoint = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
+        self.makeToast(message, duration: 2 ,point: point ?? defaultPoint , title: title, image: nil) { didTap in
+            self.hideToastActivity() //CGPoint(x: self.frame.width/2, y: self.frame.height-50)
         }
     }
     

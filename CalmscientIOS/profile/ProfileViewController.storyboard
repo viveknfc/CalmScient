@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Lexend-Regular.ttf">
+        <array key="lexendregular.ttf">
             <string>Lexend-Regular</string>
         </array>
     </customFonts>
@@ -330,7 +330,7 @@
     </scenes>
     <designables>
         <designable name="63Q-WV-8oX">
-            <size key="intrinsicContentSize" width="52" height="31"/>
+            <size key="intrinsicContentSize" width="48" height="30"/>
         </designable>
     </designables>
     <resources>

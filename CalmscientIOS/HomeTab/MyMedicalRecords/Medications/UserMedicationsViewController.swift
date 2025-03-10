@@ -22,11 +22,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     @IBOutlet weak var infoLabel: FontLR15!
     
     @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
-    var medicationData:[MedicineDetails] = [] //{
-//        didSet {
-//            self.medicationsTableView.reloadData()
-//        }
-//    }
+    var medicationData:[MedicineDetails] = []
     private var selectedNewDate:Date = Date()
     var nomedications = UILabel()
     
@@ -72,8 +68,8 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
 
         // Set constraints to adjust the size
         backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.widthAnchor.constraint(equalToConstant: 26).isActive = true // Set desired width
-        backButton.heightAnchor.constraint(equalToConstant: 26).isActive = true // Set desired height
+        backButton.widthAnchor.constraint(equalToConstant: 32).isActive = true // Set desired width
+        backButton.heightAnchor.constraint(equalToConstant: 32).isActive = true // Set desired height
 
         // Create a UIBarButtonItem using the UIButton
         let backBarButtonItem = UIBarButtonItem(customView: backButton)
@@ -82,52 +78,63 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         //end
         saveButton.isHidden = true
         
-        medicationsTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 100, right: 0)
+        medicationsTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 150, right: 0)
 
     }
     
-    func didChangeSelectionState(for cell: UITableViewCell, isSelected: Bool) {
-        if let indexPath = self.medicationsTableView.indexPath(for: cell) {
-            medicationData[indexPath.row].isSelected = isSelected
-            print("isSelected", isSelected)
+    //MARK: - MARK Medication API Call
+    
+    func didTapTakenButton(in cell: UITableViewCell, buttonType: ButtonType) {
+        guard let indexPath = self.medicationsTableView.indexPath(for: cell) else { return }
+        
+        print("Button tapped at row: \(indexPath.row), type: \(buttonType)")
+        
+        let medicationDetails = medicationData[indexPath.row].medicationDetailsByDate.first?.medicalDetails
+        let scheduledIndex = buttonType.scheduledIndex
+        
+        if let scheduledTimes = medicationDetails?.scheduledTimeList[scheduledIndex].scheduledTimes.first {
             
-            if let pmtId = medicationData[indexPath.row].medicationDetailsByDate.first?.medicalDetails.scheduledTimeList.first?.scheduledTimes.first?.pmtId,
-               let _ = medicationData[indexPath.row].medicationDetailsByDate.first?.medicalDetails.scheduledTimeList.first?.scheduledTimes.first?.medicineTaken {
-                
-                let medicineTakenValue = isSelected ? "1" : "0"
-//                let medicineTakenValue = medicineTakenString == "null" ? "0" : medicineTakenString
-                // Your code here
-                if let medicineTakenInt = Int(medicineTakenValue), let pmtIdInt = Int(pmtId) {
-                    let params: [String: Int] = ["pmtId": pmtIdInt, "medicineTaken": medicineTakenInt]
-                    print("Params:", params)
-                    self.view.showToastActivity()
-                    APIService.MarkMedicationAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") {  [self] response in
-                        // Your closure code here
-                        getresponseforMarkMedicationAPI(response: response)
-                    }
-                } else {
-                    print("Error: Unable to convert pmtId or medicineTaken to Int.")
-                }
-                
-            }
+            let pmtId = scheduledTimes.pmtId
+            let medicineTaken = (scheduledTimes.medicineTaken == "1") ? "0" : "1"
+            let currentDateTime = Date().toString()
 
-                }
+              // Call API with the updated medicineTaken value
+            callForMarkMedication(pmtId: pmtId, medicineTaken: medicineTaken, medicationdatetime: currentDateTime)
+            
+          } else {
+              print("No scheduledTimes found for button: \(buttonType)")
+          }
+        
+    }
+    
+    func callForMarkMedication(pmtId: String, medicineTaken: String, medicationdatetime: String) {
+        
+        if let medicineTakenInt = Int(medicineTaken), let pmtIdInt = Int(pmtId) {
+            let params: [String: Any] = ["pmtId": pmtIdInt, "medicineTaken": medicineTakenInt, "medicationdatetime": medicationdatetime]
+            print("Params of mark medeication is :", params)
+            self.view.showToastActivity()
+            APIService.MarkMedicationAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") {  [self] response in
+                // Your closure code here
+                getresponseforMarkMedicationAPI(response: response)
+            }
+        } else {
+            print("Error: Unable to convert pmtId or medicineTaken to Int.")
+        }
+        
     }
     
     //MARK: - Mark Medication API Response
     
     func getresponseforMarkMedicationAPI(response:AnyObject)->() {
-        self.view.hideToastActivity()
+
+        getMedicationsData(forDate: Date())
+        
         if let responseString = response as? String {
             print("Response received from Mark Medication API calling is", responseString)
         } else if let responseDict = response as? [String: Any] {
             
             if let responseMessage = responseDict["responseMessage"] as? String {
                 print("Response Message:", responseMessage)
-
-//                let point = CGPoint(x: self.view.bounds.width / 2, y: self.view.bounds.height / 2)
-//                self.view.showToast(message: responseMessage, point: point)
-
             }
             
         }
@@ -362,27 +369,11 @@ extension UserMedicationsViewController : UITableViewDataSource,UITableViewDeleg
         print("medicine taken value is",medicineTaken)
         
         let expiry = medicationData[indexPath.row].medicationDetailsByDate.first?.medicalDetails.expired ?? 0
-   
-        if let medicineTakenValue = Int(medicineTaken), medicineTakenValue == 1 {
-            print("medicine taken value is",medicineTakenValue)
-            cell.cellSelectionImage.image = UIImage(named: "CellSelectionImage")
-            cell.buttonState = .selected
-            cell.cellStatusLabel.isHidden = false
-            cell.expiredLeadingValue.constant = 65
-        } else {
-            print("medicine taken value is",Int(medicineTaken) ?? 444)
-            cell.cellSelectionImage.image = UIImage(named: "cellUnselectedImage")
-            cell.cellStatusLabel.isHidden = true
-            cell.expiredLeadingValue.constant = 5
-        }
         
         if expiry == 1 {
-            cell.cellSelectionImage.alpha = 0.5
-            cell.cellStatusLabel.alpha = 0.5
             cell.expiredLabel.alpha = 0.5
             cell.subTitleLabel.alpha = 0.5
             cell.titleLabel.alpha = 0.5
-            cell.cellSelectionImage.isUserInteractionEnabled = false
             cell.expiredLabel.isHidden = false
             cell.borderView.backgroundColor = #colorLiteral(red: 0.8557285666, green: 0.8665012121, blue: 0.866311729, alpha: 1)
             cell.timeLabel.alpha = 0.5
@@ -396,15 +387,11 @@ extension UserMedicationsViewController : UITableViewDataSource,UITableViewDeleg
             
             cell.dropDownButton.alpha = 1.0
         } else {
-            cell.cellSelectionImage.alpha = 1
-            cell.cellStatusLabel.alpha = 1
             cell.expiredLabel.alpha = 1
             cell.subTitleLabel.alpha = 1
             cell.titleLabel.alpha = 1
             cell.borderView.backgroundColor = .white
-            cell.cellSelectionImage.isUserInteractionEnabled = true
-           cell.expiredLabel.isHidden = true
-           cell.cellStatusLabel.textColor = .black
+            cell.expiredLabel.isHidden = true
             cell.dropDownButton.isUserInteractionEnabled = true
             cell.timeLabel.alpha = 1
             cell.AMImage.alpha = 1
@@ -419,7 +406,7 @@ extension UserMedicationsViewController : UITableViewDataSource,UITableViewDeleg
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-       return 116
+       return 142
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

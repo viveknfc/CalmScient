@@ -22,7 +22,12 @@ class UserEntrySleepHoursCell: UITableViewCell {
     let defaultTextColor = UIColor(named: "circleTextColor")
     let selectedFillColor = UIColor(named: "circleCellSelectedColor")
     let defaultFillColor = UIColor(named: "circleFillColor")
+    
+    let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+    
     let sleepData = ["Less","4","5","6","7","8","9","10","More"]
+    let sleepData1 = ["Menos","4","5","6","7","8","9","10","Más"]
+    
     var selectedIndex: Int = 7 {
            didSet {
                print("the selected index value for sleep is", selectedIndex)
@@ -63,7 +68,7 @@ class UserEntrySleepHoursCell: UITableViewCell {
     func updateUIWithCellInstance(instance:UserStartupScreenDayData, cellType:UserEntryDayFeedbackTableCell, slpHrs: Int) {
         self.instance = instance
         self.cellType = cellType
-        let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+        
         self.titleLabel.font = UIFont(name: Fonts().lexendMedium, size: 16)
         
         let labelText = languageId == 1 ? "How many hours did you sleep last night?" : "¿Cuántas horas dormiste anoche?"
@@ -152,7 +157,8 @@ extension UserEntrySleepHoursCell : UICollectionViewDelegateFlowLayout, UICollec
                 cell.contentTextColor = defaultTextColor
             }
             
-            cell.setCircleText(text: sleepData[indexPath.row])
+            let cellText: () = languageId == 1 ? cell.setCircleText(text: sleepData[indexPath.row]) : cell.setCircleText(text: sleepData1[indexPath.row])
+            
             return cell
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CustomOvalCollectionViewCell", for: indexPath) as? CustomOvalCollectionViewCell else {

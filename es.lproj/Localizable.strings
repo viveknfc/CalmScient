@@ -13,10 +13,10 @@
 
 // Login
 
-"Username" = "Nombre de usuario";
+"Username" = "Usuario";
 "Password" = "Contraseña";
 "Forgot Password?" = "¿Has olvidado tu contraseña?";
-"Create an New account" = "Crear una nueva cuenta";
+"Create an New account" = "Crea una cuenta nueva";
 
 //Create Account
 "First Name" = "Nombre";
@@ -192,7 +192,7 @@ been verified." = "Tu clave de licencia ha sido verificada.";
 
 //selection button
 "I agree to share my info with medical provider" = "Acepto compartir mi información con el proveedor médico";
-"Remember me" = "Acuérdate de mí";
+"Remember me" = "Recuérdame";
 
 //landing vc
 "Hello " = "Hola ";

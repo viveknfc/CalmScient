@@ -129,8 +129,8 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
 
         // Set constraints to adjust the size
         backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.widthAnchor.constraint(equalToConstant: 26).isActive = true // Set desired width
-        backButton.heightAnchor.constraint(equalToConstant: 26).isActive = true // Set desired height
+        backButton.widthAnchor.constraint(equalToConstant: 32).isActive = true // Set desired width
+        backButton.heightAnchor.constraint(equalToConstant: 32).isActive = true // Set desired height
 
         // Create a UIBarButtonItem using the UIButton
         let backBarButtonItem = UIBarButtonItem(customView: backButton)
@@ -156,11 +156,11 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
             
             if languageId == 1 {
                 UserDefaults.standard.set("en", forKey: "Language")
-                self.versionLabel.text = AppHelper.getLocalizeString(str: "Version 1.0.0")
+                self.versionLabel.text = AppHelper.getLocalizeString(str: "Version 1.0.1")
                
             } else if languageId == 2 {
                 UserDefaults.standard.set("es", forKey: "Language")
-                self.versionLabel.text = AppHelper.getLocalizeString(str: "Version 1.0.0")
+                self.versionLabel.text = AppHelper.getLocalizeString(str: "Version 1.0.1")
 
             }
         }
@@ -803,7 +803,7 @@ extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate
                 DispatchQueue.global().async {
                     if let data = try? Data(contentsOf: url) {
                         DispatchQueue.main.async {
-                            cell.darkmodeLbl.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Dark Mode" : "modo oscuro"
+                            cell.darkmodeLbl.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Dark Mode" : "la noche"
 
                             cell.cellIconView.image = UIImage(named: self.profileSvgIcons[indexPath.row])
                             guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {

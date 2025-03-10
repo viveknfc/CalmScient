@@ -210,7 +210,7 @@ extension DiscoveryMainViewController : UITableViewDataSource,UITableViewDelegat
             
             let next = UIStoryboard(name: "ManagingAnxietyBeginScreen", bundle: nil)
             let vc = next.instantiateViewController(withIdentifier: "ManagingAnxietyBeginScreen") as? ManagingAnxietyBeginScreen
-            vc?.title = "VManaging Anxiety"
+
             //vc?.courseID = 2
             self.navigationController?.pushViewController(vc!, animated: true)
         } else if indexPath.row == 1 {

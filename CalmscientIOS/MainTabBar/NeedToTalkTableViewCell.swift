@@ -13,6 +13,9 @@ class NeedToTalkTableViewCell: UITableViewCell {
     
     @IBOutlet weak var titleLabel: UILabel!
     
+    @IBOutlet weak var desTextView: UITextView!
+    
+    
     @IBOutlet weak var learnMoreButton: UIButton!
     override func awakeFromNib() {
         super.awakeFromNib()

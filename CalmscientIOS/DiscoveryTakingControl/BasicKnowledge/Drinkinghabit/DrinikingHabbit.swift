@@ -136,8 +136,8 @@ class DrinikingHabbit: ViewController {
 
         // Set constraints to adjust the size
         backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.widthAnchor.constraint(equalToConstant: 26).isActive = true // Set desired width
-        backButton.heightAnchor.constraint(equalToConstant: 26).isActive = true // Set desired height
+        backButton.widthAnchor.constraint(equalToConstant: 32).isActive = true // Set desired width
+        backButton.heightAnchor.constraint(equalToConstant: 32).isActive = true // Set desired height
 
         // Create a UIBarButtonItem using the UIButton
         let backBarButtonItem = UIBarButtonItem(customView: backButton)

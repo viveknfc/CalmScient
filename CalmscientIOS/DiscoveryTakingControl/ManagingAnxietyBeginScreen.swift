@@ -16,10 +16,24 @@ class ManagingAnxietyBeginScreen: ViewController {
     @IBOutlet weak var areYouReadyLbl: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "Managing anxiety" : "Manejo de la Ansiedad"
+        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "The Discovery" : "The Discovery"
         managingTextView.font = UIFont(name: Fonts().lexendLight, size: 16)
         calmsLabels.font = UIFont(name: Fonts().lexendMedium, size: 16)
         letsBeginButton.titleLabel?.font = UIFont(name: Fonts().lexendSemiBold, size: 18)
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        let defaultAppearance = UINavigationBarAppearance()
+        defaultAppearance.configureWithOpaqueBackground()
+        defaultAppearance.backgroundColor = nil // Reset to default (system default color)
+        defaultAppearance.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.label] // Default text color
+
+        navigationController?.navigationBar.standardAppearance = defaultAppearance
+        navigationController?.navigationBar.scrollEdgeAppearance = defaultAppearance
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -31,6 +45,16 @@ class ManagingAnxietyBeginScreen: ViewController {
         calmsLabels.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "The Calmscient discovery will only be as effective as you make it." : "El descubrimiento de Calmscient será tan efectivo como usted lo haga."
         
         managingTextView.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "So be determined to dedicate time to following along and completing the exercises. Each section has interesting and informative content that is designed to keep you actively thinking about your specific challenges. But, like taking a road trip to an unknown destination, you’ll need to be committed to following the map! It may be a little more work than you’re used to, but it will absolutely pay off in the end." : "Así que esté decidido a dedicar tiempo a seguir y completar los ejercicios. Cada sección tiene contenido interesante e informativo diseñado para mantenerlo pensando activamente en sus desafíos específicos. Pero, al igual que hacer un viaje por carretera a un destino desconocido, ¡deberás comprometerte a seguir el mapa! Puede que suponga un poco más de trabajo del que estás acostumbrado, pero al final dará sus frutos."
+        
+        // Customize the navigation bar appearance
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundColor = #colorLiteral(red: 0.5218948722, green: 0.5200269818, blue: 0.7418552041, alpha: 1) // Set the nav bar background color
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white] // Set title color to white
+        
+        // Apply appearance to the navigation bar
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
 
     }
     @IBAction func letBeginButtonAction(_ sender: Any) {

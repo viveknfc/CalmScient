@@ -365,8 +365,8 @@ class UserIntroDayFeedbackViewController: ViewController {
 //        case .Afternoon:
 //            return [.UserMoodHoursCell]
         case .Evening:
-//            return [.UserMoodHoursCell,.UserIntroSleepCell,.UserEntryMedicineCell, .UserEntryJournalCell]
-            return [.UserMoodHoursCell,.UserEntryTimeSpendCell,.UserEntryMedicineCell,.UserEntryJournalCell]
+            return [.UserMoodHoursCell,.UserIntroSleepCell,.UserEntryMedicineCell, .UserEntryJournalCell]
+//            return [.UserMoodHoursCell,.UserEntryTimeSpendCell,.UserEntryMedicineCell,.UserEntryJournalCell]
         }
     }
     
