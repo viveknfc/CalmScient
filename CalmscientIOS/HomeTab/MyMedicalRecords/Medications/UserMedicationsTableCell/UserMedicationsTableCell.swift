@@ -59,7 +59,7 @@ class UserMedicationsTableCell: UITableViewCell {
     weak var delegate: CustomTableViewCellDelegate?
     var indexPath: IndexPath?
     
-    let isSpanish = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1
+    let isSpanish = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
    
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -127,8 +127,8 @@ class UserMedicationsTableCell: UITableViewCell {
             let isTaken = morningAlarm.medicineTaken == "1"
             amButton.layer.borderColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4356096983, green: 0.419034481, blue: 0.7057439685, alpha: 1)
             timeLabel.textColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4356096983, green: 0.419034481, blue: 0.7057439685, alpha: 1)
-            
-            let actionText = isSpanish ? (isTaken ? "Tomado" : "Tomar") : (isTaken ? "Taken" : "Take")
+            print("is spanish value is",isSpanish)
+            let actionText = (isSpanish == 2) ? (isTaken ? "Tomado" : "Tomar") : (isTaken ? "Taken" : "Take")
             amTaken.text = actionText
 
             amTaken.textColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4356096983, green: 0.419034481, blue: 0.7057439685, alpha: 1)
@@ -149,7 +149,7 @@ class UserMedicationsTableCell: UITableViewCell {
             afButton.layer.borderColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4318677187, green: 0.4149213433, blue: 0.7059496045, alpha: 1)
             afTimeLabel.textColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4356096983, green: 0.419034481, blue: 0.7057439685, alpha: 1)
 
-            let actionText = isSpanish ? (isTaken ? "Tomado" : "Tomar") : (isTaken ? "Taken" : "Take")
+            let actionText = (isSpanish == 2) ? (isTaken ? "Tomado" : "Tomar") : (isTaken ? "Taken" : "Take")
             afTaken.text = actionText
             
             afTaken.textColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4356096983, green: 0.419034481, blue: 0.7057439685, alpha: 1)
@@ -170,7 +170,7 @@ class UserMedicationsTableCell: UITableViewCell {
             pmButton.layer.borderColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4318677187, green: 0.4149213433, blue: 0.7059496045, alpha: 1)
             pmTimeLabel.textColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4356096983, green: 0.419034481, blue: 0.7057439685, alpha: 1)
             
-            let actionText = isSpanish ? (isTaken ? "Tomado" : "Tomar") : (isTaken ? "Taken" : "Take")
+            let actionText = (isSpanish == 2) ? (isTaken ? "Tomado" : "Tomar") : (isTaken ? "Taken" : "Take")
             pmTaken.text = actionText
             
             pmTaken.textColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4356096983, green: 0.419034481, blue: 0.7057439685, alpha: 1)

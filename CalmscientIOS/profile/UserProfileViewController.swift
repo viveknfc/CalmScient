@@ -572,7 +572,7 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
            
            // Option to delete the profile picture
            let deletePhotoAction = UIAlertAction(title: "Delete Photo", style: .destructive) { _ in
-               // Handle the deletion of the profile picture
+              
                self.deleteProfilePicture()
            }
            
@@ -589,11 +589,38 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
     }
     
     func deleteProfilePicture() {
-        // Implement the logic to delete the profile picture, e.g., set the image view to a placeholder
-        print("Profile picture deleted")
-        // Example: Assuming you have an imageView for the profile picture
-        profileIcon.image = UIImage(named: "placeholder") // Replace with your placeholder image
+        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+            fatalError("Unable to found Application Shared Info")
+        }
+        
+        let params: [String: Int] = ["patientId": userInfo.patientID, "clientId": userInfo.clientID]
+        print("Params of Profile pic deleeete api is :", params)
+        self.view.showToastActivity()
+        APIService.DeleteProfilePicAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") {  [self] response in
+            // Your closure code here
+            getresponseforDeleteProfilePicAPI(response: response)
+        }
+        
+        
     }
+    
+    //MARK: - Delete API Response
+    
+    func getresponseforDeleteProfilePicAPI(response:AnyObject)->() {
+        self.view.hideToastActivity()
+        if let responseString = response as? String {
+            print("Response received from Delete Profile Pic API calling is", responseString)
+        } else if let responseDict = response as? [String: Any] {
+            if let responseMessage = responseDict["responseMessage"] as? String {
+                print("Response Message:", responseMessage)
+            }
+
+        } else {
+            print("Unsupported response type:", type(of: response))
+        }
+    }
+    
+    //END
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         // Dismiss the image picker

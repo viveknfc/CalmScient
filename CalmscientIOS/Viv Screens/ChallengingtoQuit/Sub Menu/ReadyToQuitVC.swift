@@ -69,7 +69,29 @@ class ReadyToQuitVC: ViewController, UITableViewDelegate, UITableViewDataSource 
                 customAlertVC.modalTransitionStyle = .crossDissolve
                 self.present(customAlertVC, animated: true, completion: nil)
             }
+        } else if (indexPath.row == 4) {
+            let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
+            if let customAlertVC = storyboard.instantiateViewController(withIdentifier: "SleepDistrubanceVC") as? SleepDistrubanceVC {
+                customAlertVC.modalPresentationStyle = .overFullScreen
+                customAlertVC.modalTransitionStyle = .crossDissolve
+                self.present(customAlertVC, animated: true, completion: nil)
+            }
+        } else if (indexPath.row == 5) {
+            let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
+            if let customAlertVC = storyboard.instantiateViewController(withIdentifier: "DepressionnAnxietyVC") as? DepressionnAnxietyVC {
+                customAlertVC.modalPresentationStyle = .overFullScreen
+                customAlertVC.modalTransitionStyle = .crossDissolve
+                self.present(customAlertVC, animated: true, completion: nil)
+            }
+        } else if (indexPath.row == 6) {
+            let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
+            if let customAlertVC = storyboard.instantiateViewController(withIdentifier: "FeelingJumpyVC") as? FeelingJumpyVC {
+                customAlertVC.modalPresentationStyle = .overFullScreen
+                customAlertVC.modalTransitionStyle = .crossDissolve
+                self.present(customAlertVC, animated: true, completion: nil)
+            }
         }
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {

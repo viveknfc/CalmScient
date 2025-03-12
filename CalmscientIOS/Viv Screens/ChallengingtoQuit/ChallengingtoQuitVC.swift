@@ -47,15 +47,15 @@ class ChallengingtoQuitVC: ViewController, UITableViewDelegate, UITableViewDataS
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0{
             
-            let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
-            let vc = next.instantiateViewController(withIdentifier: "testVC") as? testVC
-            vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
-            self.navigationController?.pushViewController(vc!, animated: true)
-            
 //            let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
-//            let vc = next.instantiateViewController(withIdentifier: "ThinkingAbtQuitingVC") as? ThinkingAbtQuitingVC
+//            let vc = next.instantiateViewController(withIdentifier: "testVC") as? testVC
 //            vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
 //            self.navigationController?.pushViewController(vc!, animated: true)
+            
+            let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+            let vc = next.instantiateViewController(withIdentifier: "ThinkingAbtQuitingVC") as? ThinkingAbtQuitingVC
+            vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
+            self.navigationController?.pushViewController(vc!, animated: true)
         }
         
         if indexPath.row == 1{

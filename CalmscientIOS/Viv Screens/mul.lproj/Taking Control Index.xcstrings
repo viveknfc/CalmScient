@@ -1,6 +1,18 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "0bb-uS-Ezl.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Sleep Disturbances\"; ObjectID = \"0bb-uS-Ezl\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sleep Disturbances"
+          }
+        }
+      }
+    },
     "0H7-09-fBf.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Personalized action plan to control\\nyour drinking and smoking habit\"; ObjectID = \"0H7-09-fBf\";",
       "extractionState" : "extracted_with_value",
@@ -63,6 +75,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "•"
+          }
+        }
+      }
+    },
+    "0VD-cw-OzF.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"After you quit smoking, you might find it a bit tricky to get a good night's sleep at first. But don't worry, it gets better! If it's really bothering you, talk to your healthcare provider—they can help. Because if you're super tired from not sleeping well, it can make it tougher to stay smoke-free.\\n\\nHere's how you can manage it:\"; ObjectID = \"0VD-cw-OzF\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "After you quit smoking, you might find it a bit tricky to get a good night's sleep at first. But don't worry, it gets better! If it's really bothering you, talk to your healthcare provider—they can help. Because if you're super tired from not sleeping well, it can make it tougher to stay smoke-free.\n\nHere's how you can manage it:"
           }
         }
       }
@@ -171,6 +195,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Alcohol-related blackouts"
+          }
+        }
+      }
+    },
+    "2tZ-ww-axx.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"If you're into coffee, tea, or other caffeinated drinks, try cutting back a bit. After quitting smoking, caffeine hangs around in your body longer.\\n\\nIncrease your chance to success\"; ObjectID = \"2tZ-ww-axx\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "If you're into coffee, tea, or other caffeinated drinks, try cutting back a bit. After quitting smoking, caffeine hangs around in your body longer.\n\nIncrease your chance to success"
           }
         }
       }
@@ -295,6 +331,18 @@
         }
       }
     },
+    "5DF-i2-EUi.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Sleep routine\"; ObjectID = \"5DF-i2-EUi\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Sleep routine"
+          }
+        }
+      }
+    },
     "5EI-LO-2nE.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Daily drink counts\"; ObjectID = \"5EI-LO-2nE\";",
       "extractionState" : "extracted_with_value",
@@ -367,6 +415,18 @@
         }
       }
     },
+    "6pQ-zO-rJm.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Do things you enjoy, even if they're small. Those little things can make you feel better.\"; ObjectID = \"6pQ-zO-rJm\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Do things you enjoy, even if they're small. Those little things can make you feel better."
+          }
+        }
+      }
+    },
     "6sN-zr-MXh.text" : {
       "comment" : "Class = \"UILabel\"; text = \"There is a wide range of short- and long-term consequences associated with alcohol misuse.\\nFor some individuals, any amount of drinking\\ncould be potentially harmful\"; ObjectID = \"6sN-zr-MXh\";",
       "extractionState" : "extracted_with_value",
@@ -387,6 +447,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Up to 4 or more drinks"
+          }
+        }
+      }
+    },
+    "8FD-Vi-3D7.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Doing some physical activity can really help with that jumpy feeling. Take a short walk or just get up and stretch if you're feeling restless.\"; ObjectID = \"8FD-Vi-3D7\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Doing some physical activity can really help with that jumpy feeling. Take a short walk or just get up and stretch if you're feeling restless."
           }
         }
       }
@@ -415,6 +487,18 @@
         }
       }
     },
+    "8m6-K3-z1k.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"If you're into coffee, tea, or other caffeinated drinks, avoid them in the late afternoon or evening. After quitting smoking, caffeine sticks around longer in your body.\"; ObjectID = \"8m6-K3-z1k\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "If you're into coffee, tea, or other caffeinated drinks, avoid them in the late afternoon or evening. After quitting smoking, caffeine sticks around longer in your body."
+          }
+        }
+      }
+    },
     "8nm-2v-avJ.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Screenings\"; ObjectID = \"8nm-2v-avJ\";",
       "extractionState" : "extracted_with_value",
@@ -429,6 +513,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Evaluaciones"
+          }
+        }
+      }
+    },
+    "8OD-GO-5fe.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Create a sleep-friendly space\"; ObjectID = \"8OD-GO-5fe\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Create a sleep-friendly space"
           }
         }
       }
@@ -571,6 +667,18 @@
         }
       }
     },
+    "AKe-cG-oSO.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Treat yourself\"; ObjectID = \"AKe-cG-oSO\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Treat yourself"
+          }
+        }
+      }
+    },
     "AoK-ym-LPN.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Remind yourself it's normal\"; ObjectID = \"AoK-ym-LPN\";",
       "extractionState" : "extracted_with_value",
@@ -579,6 +687,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Remind yourself it's normal"
+          }
+        }
+      }
+    },
+    "apa-zn-U97.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Consider using a nicotine replacement patch and/or tobacco-cessation medication.\"; ObjectID = \"apa-zn-U97\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Consider using a nicotine replacement patch and/or tobacco-cessation medication."
           }
         }
       }
@@ -739,6 +859,18 @@
         }
       }
     },
+    "CG9-3D-Rbu.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Get moving\"; ObjectID = \"CG9-3D-Rbu\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Get moving"
+          }
+        }
+      }
+    },
     "cgd-FI-egi.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Use a fast-acting nicotine medicine like lozenges or gum to quickly combat cravings\"; ObjectID = \"cgd-FI-egi\";",
       "extractionState" : "extracted_with_value",
@@ -787,6 +919,18 @@
         }
       }
     },
+    "cYH-dK-Vtl.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Feeling Jumpy or Restless\"; ObjectID = \"cYH-dK-Vtl\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Feeling Jumpy or Restless"
+          }
+        }
+      }
+    },
     "cZ6-xa-GM8.text" : {
       "comment" : "Class = \"UILabel\"; text = \"What new habits are helping you keep going?\"; ObjectID = \"cZ6-xa-GM8\";",
       "extractionState" : "extracted_with_value",
@@ -831,6 +975,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Remember, moderate drinking is defined as:"
+          }
+        }
+      }
+    },
+    "Dif-E0-K1c.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Nicotine patch tip\"; ObjectID = \"Dif-E0-K1c\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Nicotine patch tip"
           }
         }
       }
@@ -961,6 +1117,18 @@
         }
       }
     },
+    "Euq-A0-GuS.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Do some physical activity during the day (just not right before bed).\"; ObjectID = \"Euq-A0-GuS\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Do some physical activity during the day (just not right before bed)."
+          }
+        }
+      }
+    },
     "ew3-gy-EBe.text" : {
       "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"ew3-gy-EBe\";",
       "extractionState" : "extracted_with_value",
@@ -969,6 +1137,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "•"
+          }
+        }
+      }
+    },
+    "ewj-ke-LkC.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Talk to people who support you in quitting smoking. Having someone to chat with every day can lift your spirits.\"; ObjectID = \"ewj-ke-LkC\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Talk to people who support you in quitting smoking. Having someone to chat with every day can lift your spirits."
           }
         }
       }
@@ -1065,6 +1245,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Why does smoking seem to relax me?"
+          }
+        }
+      }
+    },
+    "g0v-XO-FLG.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Try going to bed and waking up around the same time every day, even on weekends.\"; ObjectID = \"g0v-XO-FLG\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Try going to bed and waking up around the same time every day, even on weekends."
           }
         }
       }
@@ -1417,6 +1609,18 @@
         }
       }
     },
+    "iVM-yx-ChM.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Explore ways to handle stress and anxiety\"; ObjectID = \"iVM-yx-ChM\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Explore ways to handle stress and anxiety"
+          }
+        }
+      }
+    },
     "Iza-SP-szp.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"Iza-SP-szp\";",
       "extractionState" : "extracted_with_value",
@@ -1491,6 +1695,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contador de"
+          }
+        }
+      }
+    },
+    "Jnz-RU-fWN.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Watch your caffeine\"; ObjectID = \"Jnz-RU-fWN\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Watch your caffeine"
           }
         }
       }
@@ -1579,6 +1795,18 @@
         }
       }
     },
+    "KNE-W4-huX.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Get rid of ashtrays, lighters and matches.\"; ObjectID = \"KNE-W4-huX\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Get rid of ashtrays, lighters and matches."
+          }
+        }
+      }
+    },
     "kpp-nh-zEH.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Right after you quit smoking, you might find it a bit tough to concentrate. Don't worry, it happens to a lot of people.\\n\\nHere's what you can do:\"; ObjectID = \"kpp-nh-zEH\";",
       "extractionState" : "extracted_with_value",
@@ -1621,6 +1849,18 @@
         }
       }
     },
+    "la1-dn-BSn.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"When your quit day arrives, get rid of all your cigarettes and/or chewing tobacco.\"; ObjectID = \"la1-dn-BSn\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "When your quit day arrives, get rid of all your cigarettes and/or chewing tobacco."
+          }
+        }
+      }
+    },
     "LAu-rm-KDv.text" : {
       "comment" : "Class = \"UILabel\"; text = \"It's important to reflect on your drinking habits, especially during social events, and consider how you can enjoy those moments without going overboard. By taking small steps to reduce your consumption, you’ll start to see the benefits for both your health and your relationships.\"; ObjectID = \"LAu-rm-KDv\";",
       "extractionState" : "extracted_with_value",
@@ -1633,6 +1873,30 @@
         }
       }
     },
+    "LKz-Js-6no.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Watch your caffeine\"; ObjectID = \"LKz-Js-6no\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Watch your caffeine"
+          }
+        }
+      }
+    },
+    "lNa-5O-yKb.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Connect with others\"; ObjectID = \"lNa-5O-yKb\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Connect with others"
+          }
+        }
+      }
+    },
     "LnT-YJ-LAa.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Drinking is associated with a number of health problems and can make certain chronic health problems worse. \"; ObjectID = \"LnT-YJ-LAa\";",
       "extractionState" : "extracted_with_value",
@@ -1641,6 +1905,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Drinking is associated with a number of health problems and can make certain chronic health problems worse. "
+          }
+        }
+      }
+    },
+    "LNx-3j-bqd.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"People who smoke are more likely to have anxiety or depression than people who don’t smoke. Some people feel mood changes for a short time after they quit smoking. For some people, smoking may seem like it helps with anxiety or depression, but don’t be tricked. Smoking might make you feel better in the short-term, but that’s because the nicotine in cigarettes stops the discomfort of withdrawal, and not because it is helping with anxiety or depression. There are much better ways to deal with withdrawal symptoms and mood changes than returning to smoking! The good news is that once people have been smoke-free for a few months, their anxiety and depression levels are often lower than when they were smoking.\\n\\nHere's how you can manage it:\"; ObjectID = \"LNx-3j-bqd\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "People who smoke are more likely to have anxiety or depression than people who don’t smoke. Some people feel mood changes for a short time after they quit smoking. For some people, smoking may seem like it helps with anxiety or depression, but don’t be tricked. Smoking might make you feel better in the short-term, but that’s because the nicotine in cigarettes stops the discomfort of withdrawal, and not because it is helping with anxiety or depression. There are much better ways to deal with withdrawal symptoms and mood changes than returning to smoking! The good news is that once people have been smoke-free for a few months, their anxiety and depression levels are often lower than when they were smoking.\n\nHere's how you can manage it:"
           }
         }
       }
@@ -1669,6 +1945,18 @@
         }
       }
     },
+    "Lug-SK-tCh.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Exercise can really boost your mood. Start with something small and work your way up. It might be tough when you're feeling low, but it's worth it!\"; ObjectID = \"Lug-SK-tCh\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Exercise can really boost your mood. Start with something small and work your way up. It might be tough when you're feeling low, but it's worth it!"
+          }
+        }
+      }
+    },
     "LXh-Bz-n9U.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"LXh-Bz-n9U\";",
       "extractionState" : "extracted_with_value",
@@ -1689,6 +1977,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "USD($)"
+          }
+        }
+      }
+    },
+    "mdG-bt-k5b.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Keep yourself occupied and have a routine. Even getting out of the house for a bit can make a difference.\"; ObjectID = \"mdG-bt-k5b\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Keep yourself occupied and have a routine. Even getting out of the house for a bit can make a difference."
           }
         }
       }
@@ -1765,6 +2065,18 @@
         }
       }
     },
+    "Nl6-mo-FdC.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Have you checked out \\\"discovery\\\"? There are lots of useful courses that can help you manage stress and anxiety!\"; ObjectID = \"Nl6-mo-FdC\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Have you checked out \"discovery\"? There are lots of useful courses that can help you manage stress and anxiety!"
+          }
+        }
+      }
+    },
     "nls-iu-O3L.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Drink in moderation\"; ObjectID = \"nls-iu-O3L\";",
       "extractionState" : "extracted_with_value",
@@ -1785,6 +2097,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "3."
+          }
+        }
+      }
+    },
+    "nSW-eD-GnN.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Stay busy\"; ObjectID = \"nSW-eD-GnN\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Stay busy"
           }
         }
       }
@@ -1815,6 +2139,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "al día"
+          }
+        }
+      }
+    },
+    "nvr-i7-mCn.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"If you're using the nicotine patch, try taking it off an hour before bedtime. Sometimes, nicotine from the patch can mess with your sleep.\"; ObjectID = \"nvr-i7-mCn\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "If you're using the nicotine patch, try taking it off an hour before bedtime. Sometimes, nicotine from the patch can mess with your sleep."
           }
         }
       }
@@ -1959,6 +2295,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Resources and tools to support\nyour journey"
+          }
+        }
+      }
+    },
+    "pkF-ZU-UHK.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"When you first quit smoking, it's totally normal to feel a bit jumpy or restless. It's like your body is adjusting without nicotine, and it can affect not just your mind but the rest of you too.\\n\\nHere's how you can handle it:\"; ObjectID = \"pkF-ZU-UHK\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "When you first quit smoking, it's totally normal to feel a bit jumpy or restless. It's like your body is adjusting without nicotine, and it can affect not just your mind but the rest of you too.\n\nHere's how you can handle it:"
           }
         }
       }
@@ -2209,6 +2557,18 @@
         }
       }
     },
+    "Sep-Lf-yeg.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Schedule the date when you will quit. Make it soon, preferably within a month, so you will still be excited to become tobacco-free. Cut back on your tobacco use by one cigarette every two days before you completely give up tobacco on your quit date. Aim to start quitting completely when you are down to at least 10 cigarettes per day.\"; ObjectID = \"Sep-Lf-yeg\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Schedule the date when you will quit. Make it soon, preferably within a month, so you will still be excited to become tobacco-free. Cut back on your tobacco use by one cigarette every two days before you completely give up tobacco on your quit date. Aim to start quitting completely when you are down to at least 10 cigarettes per day."
+          }
+        }
+      }
+    },
     "Sg1-gQ-aN3.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Most teens who smoke think they will quit in their 20s and actually don't until their 40s. Stopping smoking is about making a change and that is something we're not too good at, in fact smoking cessation can be a long journey of trying and relapsing, just like a long ride on a roller coaster. There is no magic solution or medication to transform one to a non-smoker overnight, though some people have the gene to be able to quit smoking or drinking without any struggles.\\n\\n\\nSo what does this ride of change look like? There are 4 steps and helpful strategies you can take!\"; ObjectID = \"Sg1-gQ-aN3\";",
       "extractionState" : "extracted_with_value",
@@ -2311,6 +2671,18 @@
         }
       }
     },
+    "tie-sB-OLQ.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Depression and Anxiety\"; ObjectID = \"tie-sB-OLQ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Depression and Anxiety"
+          }
+        }
+      }
+    },
     "Ton-bC-Ji6.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Moderate everyday drinking\"; ObjectID = \"Ton-bC-Ji6\";",
       "extractionState" : "extracted_with_value",
@@ -2331,6 +2703,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "A nicotine patch plus a lozenge (mints/cough drops) or gum is the most common combination and you can get them at any drug store."
+          }
+        }
+      }
+    },
+    "tvo-IQ-Q2T.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Stay active\"; ObjectID = \"tvo-IQ-Q2T\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Stay active"
           }
         }
       }
@@ -2551,6 +2935,18 @@
         }
       }
     },
+    "uzQ-rh-vaC.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Talk to someone\"; ObjectID = \"uzQ-rh-vaC\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Talk to someone"
+          }
+        }
+      }
+    },
     "V8S-0X-F7E.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Yes\"; ObjectID = \"V8S-0X-F7E\";",
       "extractionState" : "extracted_with_value",
@@ -2719,6 +3115,18 @@
         }
       }
     },
+    "WTS-sK-lmi.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"No TV, phones, or gadgets in bed. Make your bedroom quiet, dark, relaxing, and comfy.\\nSkip heavy meals or alcohol right before bedtime.\"; ObjectID = \"WTS-sK-lmi\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "No TV, phones, or gadgets in bed. Make your bedroom quiet, dark, relaxing, and comfy.\nSkip heavy meals or alcohol right before bedtime."
+          }
+        }
+      }
+    },
     "WYf-lw-dFE.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Full version will be available soon!\"; ObjectID = \"WYf-lw-dFE\";",
       "extractionState" : "extracted_with_value",
@@ -2739,6 +3147,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Men:"
+          }
+        }
+      }
+    },
+    "xav-C4-frY.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Move around:\"; ObjectID = \"xav-C4-frY\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Move around:"
           }
         }
       }
@@ -2847,6 +3267,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Alcohol use disorder (AUD)"
+          }
+        }
+      }
+    },
+    "ZbU-Ps-hZP.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Clean your house to remove the odour of tobacco from your clothes, furnitures and car.\"; ObjectID = \"ZbU-Ps-hZP\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Clean your house to remove the odour of tobacco from your clothes, furnitures and car."
           }
         }
       }

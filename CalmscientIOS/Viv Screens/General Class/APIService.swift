@@ -20,6 +20,7 @@ class APIService: UIViewController {
     static var GetJournalData = "patients/api/v1/patientDetails/getPatientJournalByPatientIdForMobile"
     static var FetchMoodScreenData = "patients/api/v1/patientDetails/getPatientStartupScreen"
     static var JournalData = "patients/api/v1/patientDetails/getPatientJournalByPatientIdForMobile"
+    static var ProfilePicDelet = "/api/v1/settings/deleteProfileImage"
 
 
     //MARK: - Refresh API Calling
@@ -75,6 +76,14 @@ class APIService: UIViewController {
     static func JournalDataAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.JournalData
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
+    //MARK: - Delete Profile Pic
+    
+    static func DeleteProfilePicAPICalling(_ view:UIViewController,params:[String:Int],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.ProfilePicDelet
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
     }
     

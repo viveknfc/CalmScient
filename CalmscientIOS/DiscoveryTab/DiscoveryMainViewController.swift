@@ -28,38 +28,44 @@ class DiscoveryMainViewController: UIViewController{
             fatalError("Unable to found Application Shared Info")
             
         }
-        self.view.showToastActivity()
-        getTakingControlIntroduction(plId: userInfo.patientLocationID, patientId: userInfo.patientID, clientId: userInfo.clientID, activityDate: "", bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken) { [self] result in
-            switch result {
-            case .success(let data):
-                // Convert data to JSON object and print it
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        DispatchQueue.main.async { [self] in
-                            self.view.hideToastActivity()
-                            if let introData = json["takingControlIntroduction"] as? [String: Any] {
-                                if let tutorialFlagValue = introData["tutorialFlag"] as? Int {
-                                    tutorialFlag = tutorialFlagValue
-                                    print("tutorialFlag===\(tutorialFlag ?? 0)")
-                                } else {
-                                    print("tutorialFlag not found or not an Int")
-                                }
-                                tableView.reloadData()
-                                self.view.hideToastActivity()
-                            } else {
-                                print("Unable to cast takingControlIntroduction to [String: Any]")
-                            }
-                        }
-                    } else {
-                        print("Unable to convert data to JSON")
-                    }
-                } catch {
-                    print("Error converting data to JSON: \(error)")
-                }
-            case .failure(let error):
-                print("Error: \(error)")
-            }
-        }
+        
+        //MARK: - Hiding API call for now Viv
+        
+//        self.view.showToastActivity()
+//        getTakingControlIntroduction(plId: userInfo.patientLocationID, patientId: userInfo.patientID, clientId: userInfo.clientID, activityDate: "", bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken) { [self] result in
+//            switch result {
+//            case .success(let data):
+//                // Convert data to JSON object and print it
+//                do {
+//                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+//                        DispatchQueue.main.async { [self] in
+//                            self.view.hideToastActivity()
+//                            if let introData = json["takingControlIntroduction"] as? [String: Any] {
+//                                if let tutorialFlagValue = introData["tutorialFlag"] as? Int {
+//                                    tutorialFlag = tutorialFlagValue
+//                                    print("tutorialFlag===\(tutorialFlag ?? 0)")
+//                                } else {
+//                                    print("tutorialFlag not found or not an Int")
+//                                }
+//                                tableView.reloadData()
+//                                self.view.hideToastActivity()
+//                            } else {
+//                                print("Unable to cast takingControlIntroduction to [String: Any]")
+//                            }
+//                        }
+//                    } else {
+//                        print("Unable to convert data to JSON")
+//                    }
+//                } catch {
+//                    print("Error converting data to JSON: \(error)")
+//                }
+//            case .failure(let error):
+//                print("Error: \(error)")
+//            }
+//        }
+        
+        //END
+        
         // Do any additional setup after loading the view.
         let button: UIButton = UIButton(type: UIButton.ButtonType.custom)
                 //set image for button

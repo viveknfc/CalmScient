@@ -497,6 +497,11 @@
 		C2B8233C2D1D403C00FC1291 /* SmokingBasicIndexTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B8233B2D1D403C00FC1291 /* SmokingBasicIndexTableCell.swift */; };
 		C2B8233E2D1D5F4500FC1291 /* SomkingIndexResourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2B8233D2D1D5F4500FC1291 /* SomkingIndexResourceCell.xib */; };
 		C2B823422D1D626300FC1291 /* SmokingIndexResourceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B823412D1D626300FC1291 /* SmokingIndexResourceTableViewCell.swift */; };
+		C2B8E9852D815B75003962A7 /* SleepDistrubanceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B8E9842D815B75003962A7 /* SleepDistrubanceVC.swift */; };
+		C2B8E9872D81624B003962A7 /* DepressionnAnxietyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B8E9862D81624B003962A7 /* DepressionnAnxietyVC.swift */; };
+		C2B8E9892D81694C003962A7 /* TextHighlighter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B8E9882D81694C003962A7 /* TextHighlighter.swift */; };
+		C2B8E98B2D816FCC003962A7 /* FeelingJumpyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B8E98A2D816FCC003962A7 /* FeelingJumpyVC.swift */; };
+		C2B8E98D2D81BB99003962A7 /* SmokingAffectMentalHealthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B8E98C2D81BB99003962A7 /* SmokingAffectMentalHealthVC.swift */; };
 		C2B94B132D6A1B11006C0D91 /* CapsuleButton3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B94B122D6A1B11006C0D91 /* CapsuleButton3.swift */; };
 		C2B94B152D6A1DA9006C0D91 /* IrritabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B94B142D6A1DA9006C0D91 /* IrritabilityViewController.swift */; };
 		C2B94B172D6A2071006C0D91 /* DifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B94B162D6A2071006C0D91 /* DifficultyViewController.swift */; };
@@ -1034,6 +1039,11 @@
 		C2B8233B2D1D403C00FC1291 /* SmokingBasicIndexTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokingBasicIndexTableCell.swift; sourceTree = "<group>"; };
 		C2B8233D2D1D5F4500FC1291 /* SomkingIndexResourceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SomkingIndexResourceCell.xib; sourceTree = "<group>"; };
 		C2B823412D1D626300FC1291 /* SmokingIndexResourceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokingIndexResourceTableViewCell.swift; sourceTree = "<group>"; };
+		C2B8E9842D815B75003962A7 /* SleepDistrubanceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepDistrubanceVC.swift; sourceTree = "<group>"; };
+		C2B8E9862D81624B003962A7 /* DepressionnAnxietyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepressionnAnxietyVC.swift; sourceTree = "<group>"; };
+		C2B8E9882D81694C003962A7 /* TextHighlighter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextHighlighter.swift; sourceTree = "<group>"; };
+		C2B8E98A2D816FCC003962A7 /* FeelingJumpyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeelingJumpyVC.swift; sourceTree = "<group>"; };
+		C2B8E98C2D81BB99003962A7 /* SmokingAffectMentalHealthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokingAffectMentalHealthVC.swift; sourceTree = "<group>"; };
 		C2B94B122D6A1B11006C0D91 /* CapsuleButton3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleButton3.swift; sourceTree = "<group>"; };
 		C2B94B142D6A1DA9006C0D91 /* IrritabilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrritabilityViewController.swift; sourceTree = "<group>"; };
 		C2B94B162D6A2071006C0D91 /* DifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyViewController.swift; sourceTree = "<group>"; };
@@ -2419,6 +2429,7 @@
 				C20245E62D1EF40C001CBDDC /* VapingViewController.swift */,
 				C20245E82D1F37B1001CBDDC /* SmokingRelaxVC.swift */,
 				C22E9F952D2281B500600715 /* ChallengingtoQuit */,
+				C2B8E98C2D81BB99003962A7 /* SmokingAffectMentalHealthVC.swift */,
 			);
 			path = "Viv Screens";
 			sourceTree = "<group>";
@@ -2449,6 +2460,7 @@
 				C29462132D4B849D00EF94DA /* TimeZoneHelper.swift */,
 				C267D18A2D5DE2E100564FE3 /* TokenExpiryCheck.swift */,
 				C2B94B122D6A1B11006C0D91 /* CapsuleButton3.swift */,
+				C2B8E9882D81694C003962A7 /* TextHighlighter.swift */,
 			);
 			path = "General Class";
 			sourceTree = "<group>";
@@ -2484,6 +2496,9 @@
 				C2B94B142D6A1DA9006C0D91 /* IrritabilityViewController.swift */,
 				C2B94B162D6A2071006C0D91 /* DifficultyViewController.swift */,
 				C2B94B182D6A27BB006C0D91 /* IncreasedViewController.swift */,
+				C2B8E9842D815B75003962A7 /* SleepDistrubanceVC.swift */,
+				C2B8E9862D81624B003962A7 /* DepressionnAnxietyVC.swift */,
+				C2B8E98A2D816FCC003962A7 /* FeelingJumpyVC.swift */,
 			);
 			path = "Sub Menu";
 			sourceTree = "<group>";
@@ -2881,6 +2896,7 @@
 				4A7B04722BDCE21D0052BBB8 /* ScreeningQuestionsViewController.swift in Sources */,
 				4A0853D32C23C0A600202C02 /* CustomProgressBar.swift in Sources */,
 				C2B8233C2D1D403C00FC1291 /* SmokingBasicIndexTableCell.swift in Sources */,
+				C2B8E98D2D81BB99003962A7 /* SmokingAffectMentalHealthVC.swift in Sources */,
 				4A404C5D2BF6712B000790C8 /* ProfileDefaultTableViewCell.swift in Sources */,
 				432EBE212C2BF49F000BB69A /* ChangeCell.swift in Sources */,
 				432EBE2B2C2BF49F000BB69A /* TellUsCell.swift in Sources */,
@@ -2910,6 +2926,7 @@
 				4AFA67712BFA03B2001197C9 /* CourseAPICodables.swift in Sources */,
 				C2AEBC5B2D0C55D200B65DBB /* Modarate2VC.swift in Sources */,
 				43AB77592C64511C00740BA6 /* ExcercisesCell.swift in Sources */,
+				C2B8E9872D81624B003962A7 /* DepressionnAnxietyVC.swift in Sources */,
 				4396C4EB2C2E8564000985A7 /* MonthsViewController.swift in Sources */,
 				4A6DCA2C2BE33DF600F2EB7C /* ImagePaddingTextField.swift in Sources */,
 				4A0853A12C21684B00202C02 /* USGuidlines.swift in Sources */,
@@ -3001,6 +3018,7 @@
 				4A0853922C21684B00202C02 /* BasicknowledgeVideo.swift in Sources */,
 				4A0853802C21684B00202C02 /* DrinikingCell.swift in Sources */,
 				4A0853942C21684B00202C02 /* BasicStandardDrink.swift in Sources */,
+				C2B8E9892D81694C003962A7 /* TextHighlighter.swift in Sources */,
 				C2EED5DE2CFA3D18005C1E1F /* CurvedOutlineButton.swift in Sources */,
 				C21BD59A2D2C44AC005BA00D /* KeyChainFile.swift in Sources */,
 				C22E9F922D2270F700600715 /* CapsuleTableViewCell.swift in Sources */,
@@ -3038,6 +3056,7 @@
 				C2AEBC5F2D0CB53400B65DBB /* Modarate4VC.swift in Sources */,
 				4A0853A82C21684B00202C02 /* InfoAlertCell.swift in Sources */,
 				C230434B2D105D3C001E152B /* FontLL8.swift in Sources */,
+				C2B8E9852D815B75003962A7 /* SleepDistrubanceVC.swift in Sources */,
 				C24BB6392D01CA7700D7B73A /* ConSub4VC.swift in Sources */,
 				4AD5D1582BD7A6C100E4C945 /* MedicationsDetailViewController.swift in Sources */,
 				C2948E252CFF6ABB00D6FC55 /* ComingSoonVC.swift in Sources */,
@@ -3071,6 +3090,7 @@
 				C2B823422D1D626300FC1291 /* SmokingIndexResourceTableViewCell.swift in Sources */,
 				4A0853A42C21684B00202C02 /* CustomCell.swift in Sources */,
 				43AB77522C64511C00740BA6 /* DiagraphicBreathe.swift in Sources */,
+				C2B8E98B2D816FCC003962A7 /* FeelingJumpyVC.swift in Sources */,
 				4A0853D42C23C0A600202C02 /* DrinksTrackerCollectionCell.swift in Sources */,
 				4AD5D1562BD7A6C100E4C945 /* UserMedicationsViewController.swift in Sources */,
 				4AA7056C2BDE4BC50013932B /* WeeklySummaryResultsViewController.swift in Sources */,

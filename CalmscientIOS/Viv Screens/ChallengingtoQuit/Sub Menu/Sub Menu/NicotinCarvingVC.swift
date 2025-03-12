@@ -63,9 +63,9 @@ Positive thoughts:
 Remember why you decided to quit. You're in control, and cravings don't last forever. They'll pass.
 """
         
-        subContext3.attributedText = getFormattedText(fullText: subContext3Text, highlightTexts: ["One non-nicotine medicine"], highlightColor: UIColor(hex: "6E6BB3"))
-        subContext4.attributedText = getFormattedText(fullText: subCOntext4Text, highlightTexts: ["Varenicline"], highlightColor: UIColor(hex: "6E6BB3"))
-        subContext5.attributedText = getFormattedText(fullText: subCOntext7Text, highlightTexts: ["Know your triggers:", "Positive thoughts:"], highlightColor: UIColor(hex: "6E6BB3"))
+        subContext3.attributedText = TextHighlighter.getFormattedText(fullText: subContext3Text, highlightTexts: ["One non-nicotine medicine"], highlightColor: UIColor(hex: "6E6BB3"))
+        subContext4.attributedText = TextHighlighter.getFormattedText(fullText: subCOntext4Text, highlightTexts: ["Varenicline"], highlightColor: UIColor(hex: "6E6BB3"))
+        subContext5.attributedText = TextHighlighter.getFormattedText(fullText: subCOntext7Text, highlightTexts: ["Know your triggers:", "Positive thoughts:"], highlightColor: UIColor(hex: "6E6BB3"))
     }
     
     override func viewDidLayoutSubviews() {
@@ -81,47 +81,6 @@ Remember why you decided to quit. You're in control, and cravings don't last for
     @IBAction func closeButtonPressed(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
-    
-    //MARK: - For Text Line coloring
-
-    func getFormattedText(fullText: String, highlightTexts: [String], highlightColor: UIColor) -> NSAttributedString {
-        let attributedString = NSMutableAttributedString(string: fullText)
-        
-        
-        
-        for highlightText in highlightTexts {
-            
-            print("Searching for:", highlightText)
-            if fullText.contains(highlightText) {
-                print("\(highlightText) exists in fullText")
-            } else {
-                print("\(highlightText) NOT FOUND in fullText")
-            }
-            
-            let ranges = rangesOf(text: highlightText, in: fullText)
-            for range in ranges {
-                attributedString.addAttribute(.foregroundColor, value: highlightColor, range: range)
-            }
-        }
-        
-        return attributedString
-    }
-
-    // Helper function to find all occurrences of a substring
-    func rangesOf(text: String, in fullText: String) -> [NSRange] {
-        var ranges: [NSRange] = []
-        var searchRange = fullText.startIndex..<fullText.endIndex
-        
-        while let range = fullText.range(of: text, options: .caseInsensitive, range: searchRange) {
-            let nsRange = NSRange(range, in: fullText)
-            ranges.append(nsRange)
-            
-            searchRange = range.upperBound..<fullText.endIndex
-        }
-        
-        return ranges
-    }
-
     
 
 }

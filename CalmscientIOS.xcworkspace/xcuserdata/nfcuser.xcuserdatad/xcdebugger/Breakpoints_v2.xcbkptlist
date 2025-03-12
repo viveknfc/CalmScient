@@ -310,8 +310,8 @@
             filePath = "CalmscientIOS/DiscoveryTab/DiscoveryMainViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -438,8 +438,8 @@
             filePath = "CalmscientIOS/DiscoveryTab/DiscoveryMainViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "222"
-            endingLineNumber = "222"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -454,8 +454,8 @@
             filePath = "CalmscientIOS/DiscoveryTab/DiscoveryMainViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
+            startingLineNumber = "210"
+            endingLineNumber = "210"
             landmarkName = "tableView(_:didSelectRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -677,8 +677,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/Medications/UserMedicationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "205"
-            endingLineNumber = "205"
+            startingLineNumber = "224"
+            endingLineNumber = "224"
             landmarkName = "getresponsefordeleteMedicationAPI(response:)"
             landmarkType = "7">
             <Locations>
@@ -725,8 +725,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/Medications/UserMedicationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "272"
-            endingLineNumber = "272"
+            startingLineNumber = "291"
+            endingLineNumber = "291"
             landmarkName = "getMedicationsData(forDate:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -741,8 +741,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/Medications/UserMedicationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
+            startingLineNumber = "321"
+            endingLineNumber = "321"
             landmarkName = "getMedicationsData(forDate:)"
             landmarkType = "7">
             <Locations>
@@ -804,8 +804,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/Medications/UserMedicationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "347"
-            endingLineNumber = "347"
+            startingLineNumber = "366"
+            endingLineNumber = "366"
             landmarkName = "getMedicationsData(forDate:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -820,8 +820,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/Medications/UserMedicationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "208"
-            endingLineNumber = "208"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
             landmarkName = "getresponsefordeleteMedicationAPI(response:)"
             landmarkType = "7">
             <Locations>
@@ -868,8 +868,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/Medications/UserMedicationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "303"
-            endingLineNumber = "303"
+            startingLineNumber = "322"
+            endingLineNumber = "322"
             landmarkName = "getMedicationsData(forDate:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -884,8 +884,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/Medications/UserMedicationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
             landmarkName = "getresponseforMarkMedicationAPI(response:)"
             landmarkType = "7">
             <Locations>
@@ -932,8 +932,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/Medications/UserMedicationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "132"
-            endingLineNumber = "132"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
             landmarkName = "getresponseforMarkMedicationAPI(response:)"
             landmarkType = "7">
             <Locations>
@@ -1196,8 +1196,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/Medications/UserMedicationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "292"
-            endingLineNumber = "292"
+            startingLineNumber = "311"
+            endingLineNumber = "311"
             landmarkName = "getMedicationsData(forDate:)"
             landmarkType = "7">
             <Locations>
@@ -2044,8 +2044,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/Medications/UserMedicationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "360"
-            endingLineNumber = "360"
+            startingLineNumber = "379"
+            endingLineNumber = "379"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2342,8 +2342,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/Medications/UserMedicationsViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "129"
-            endingLineNumber = "129"
+            startingLineNumber = "148"
+            endingLineNumber = "148"
             landmarkName = "getresponseforMarkMedicationAPI(response:)"
             landmarkType = "7">
          </BreakpointContent>

@@ -25,6 +25,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     var medicationData:[MedicineDetails] = []
     private var selectedNewDate:Date = Date()
     var nomedications = UILabel()
+    var combinedDateTime = String()
     
     
     override func viewDidLoad() {
@@ -92,14 +93,32 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         let medicationDetails = medicationData[indexPath.row].medicationDetailsByDate.first?.medicalDetails
         let scheduledIndex = buttonType.scheduledIndex
         
+        let responseDate = medicationData[indexPath.row].date
+        
         if let scheduledTimes = medicationDetails?.scheduledTimeList[scheduledIndex].scheduledTimes.first {
             
             let pmtId = scheduledTimes.pmtId
             let medicineTaken = (scheduledTimes.medicineTaken == "1") ? "0" : "1"
-            let currentDateTime = Date().toString()
+            
+            let reponseTime = scheduledTimes.medicineTime
+            
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yyyy"
+            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+            if let date = dateFormatter.date(from: responseDate) {
+                
+                
+                // Convert date to required format
+                let outputFormatter = DateFormatter()
+                outputFormatter.dateFormat = "yyyy-MM-dd" // Target format for date
+                
+                let formattedDate = outputFormatter.string(from: date)
+                combinedDateTime = "\(formattedDate) \(reponseTime)" // Append time
+
+            }
 
               // Call API with the updated medicineTaken value
-            callForMarkMedication(pmtId: pmtId, medicineTaken: medicineTaken, medicationdatetime: currentDateTime)
+            callForMarkMedication(pmtId: pmtId, medicineTaken: medicineTaken, medicationdatetime: combinedDateTime)
             
           } else {
               print("No scheduledTimes found for button: \(buttonType)")

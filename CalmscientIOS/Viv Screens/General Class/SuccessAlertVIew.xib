@@ -22,6 +22,10 @@
             <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
+                <view alpha="0.75" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0uT-r4-IlS" userLabel="Main BG">
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hQi-7U-lu0">
                     <rect key="frame" x="20" y="256" width="353" height="340"/>
                     <subviews>
@@ -83,10 +87,14 @@
             <viewLayoutGuide key="safeArea" id="VP7-TG-hyY"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="0uT-r4-IlS" secondAttribute="bottom" id="AyY-Z3-Ha7"/>
                 <constraint firstItem="hQi-7U-lu0" firstAttribute="centerX" secondItem="dYf-SZ-WWG" secondAttribute="centerX" id="EHo-6o-RlR"/>
+                <constraint firstItem="0uT-r4-IlS" firstAttribute="top" secondItem="dYf-SZ-WWG" secondAttribute="top" id="O8P-th-7i1"/>
                 <constraint firstItem="hQi-7U-lu0" firstAttribute="leading" secondItem="VP7-TG-hyY" secondAttribute="leading" constant="20" id="OSS-hE-Exr"/>
                 <constraint firstItem="hQi-7U-lu0" firstAttribute="centerY" secondItem="dYf-SZ-WWG" secondAttribute="centerY" id="Rhz-fI-Eev"/>
+                <constraint firstItem="0uT-r4-IlS" firstAttribute="leading" secondItem="VP7-TG-hyY" secondAttribute="leading" id="ckE-ht-7nw"/>
                 <constraint firstItem="VP7-TG-hyY" firstAttribute="trailing" secondItem="hQi-7U-lu0" secondAttribute="trailing" constant="20" id="eww-M1-c2H"/>
+                <constraint firstItem="VP7-TG-hyY" firstAttribute="trailing" secondItem="0uT-r4-IlS" secondAttribute="trailing" id="jS3-gJ-BaR"/>
             </constraints>
             <point key="canvasLocation" x="-7" y="20"/>
         </view>
