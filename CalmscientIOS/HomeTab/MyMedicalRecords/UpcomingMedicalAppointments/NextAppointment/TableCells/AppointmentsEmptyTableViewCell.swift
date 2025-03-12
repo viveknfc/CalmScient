@@ -13,7 +13,7 @@ class AppointmentsEmptyTableViewCell: UITableViewCell {
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var contentTextLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
-    
+    @IBOutlet weak var editDeletButton: UIButton!
     @IBOutlet weak var cellIconImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()

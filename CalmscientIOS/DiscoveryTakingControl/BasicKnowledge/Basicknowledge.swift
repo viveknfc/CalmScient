@@ -11,7 +11,7 @@ import UIKit
 @available(iOS 16.0, *)
 class Basicknowledge: ViewController, UITableViewDelegate, UITableViewDataSource {
 
-        @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var completeButton: CapsuleButton1!
 
     var data: [String] = []
@@ -164,6 +164,8 @@ class Basicknowledge: ViewController, UITableViewDelegate, UITableViewDataSource
             
             let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
             let vc = next.instantiateViewController(withIdentifier: "ConsequenceVC") as? ConsequenceVC
+            let newData = basicData2[indexPath.row]
+            vc?.sectionID5 = newData["sectionId"] as? Int
             vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
             self.navigationController?.pushViewController(vc!, animated: true)
             
@@ -176,6 +178,8 @@ class Basicknowledge: ViewController, UITableViewDelegate, UITableViewDataSource
             
             let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
             let vc = next.instantiateViewController(withIdentifier: "HoldYourLiquorVC") as? HoldYourLiquorVC
+            let newData = basicData2[indexPath.row]
+            vc?.sectionID6 = newData["sectionId"] as? Int
             vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
             self.navigationController?.pushViewController(vc!, animated: true)
             

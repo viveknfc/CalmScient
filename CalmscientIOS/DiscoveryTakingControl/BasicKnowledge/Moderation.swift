@@ -44,33 +44,7 @@ class Moderation: ViewController {
      //   hyperTextLabel.dataDetectorTypes = .link
 //        title = "Basic Knowledge"
         
-        self.view.showToastActivity()
-        
-        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
-            fatalError("Unable to found Application Shared Info")
-        }
-        updateBasicKnowledgeIndex( patientId: userInfo.patientID, clientId: userInfo.clientID, activityDate: "", bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken) { [self] result in
-            switch result {
-            case .success(let data):
-                // Convert data to JSON object and print it
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        DispatchQueue.main.async { [self] in
-                            print(json)
-                            
-                            self.view.hideToastActivity()
-                        }
-                        
-                    } else {
-                        print("Unable to convert data to JSON")
-                    }
-                } catch {
-                    print("Error converting data to JSON: \(error)")
-                }
-            case .failure(let error):
-                print("Error: \(error)")
-            }
-        }
+
         
     }
     
@@ -305,7 +279,35 @@ class Moderation: ViewController {
     //MARK: - Complete Button Pressed
     
     @IBAction func completeButtonPressed(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+       
+        self.view.showToastActivity()
+        
+        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+            fatalError("Unable to found Application Shared Info")
+        }
+        updateBasicKnowledgeIndex( patientId: userInfo.patientID, clientId: userInfo.clientID, activityDate: "", bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken) { [self] result in
+            switch result {
+            case .success(let data):
+                // Convert data to JSON object and print it
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        DispatchQueue.main.async { [self] in
+                            print(json)
+                            
+                            self.view.hideToastActivity()
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                        
+                    } else {
+                        print("Unable to convert data to JSON")
+                    }
+                } catch {
+                    print("Error converting data to JSON: \(error)")
+                }
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+        }
     }
     
     

@@ -20,7 +20,13 @@ class APIService: UIViewController {
     static var GetJournalData = "patients/api/v1/patientDetails/getPatientJournalByPatientIdForMobile"
     static var FetchMoodScreenData = "patients/api/v1/patientDetails/getPatientStartupScreen"
     static var JournalData = "patients/api/v1/patientDetails/getPatientJournalByPatientIdForMobile"
+
     static var ProfilePicDelet = "/api/v1/settings/deleteProfileImage"
+
+    static var GetTakingControlIndex = "patients/api/v1/takingControl/getTakingControlIndex"
+    static var CreateDrinkTracking = "patients/api/v1/alcohol/createDrinkTracking"
+    
+
 
 
     //MARK: - Refresh API Calling
@@ -79,6 +85,7 @@ class APIService: UIViewController {
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
+
     //MARK: - Delete Profile Pic
     
     static func DeleteProfilePicAPICalling(_ view:UIViewController,params:[String:Int],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
@@ -87,6 +94,23 @@ class APIService: UIViewController {
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
+
+    //MARK: - Drinking GetTakingControlIndex
+    
+    static func getTakingControlIndexAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.GetTakingControlIndex
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
+    //MARK: - Drinking GetTakingControlIndex
+    
+    static func createDrinkingCountAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.CreateDrinkTracking
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+
     
     
     //MARK: - API Calling Function

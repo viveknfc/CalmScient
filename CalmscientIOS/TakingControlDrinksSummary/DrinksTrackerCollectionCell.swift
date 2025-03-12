@@ -16,7 +16,7 @@ class DrinksTrackerCollectionCell: UICollectionViewCell {
     @IBOutlet weak var numberView: UIView!
     @IBOutlet weak var drinksTitle: UILabel!
     @IBOutlet weak var drinksIImageView: UIImageView!
-    
+    @IBOutlet weak var rightCountView: UIView!
     var minusButtonAction: (() -> Void)?
     
     var plusButtonAction: (() -> Void)?
@@ -50,7 +50,9 @@ class DrinksTrackerCollectionCell: UICollectionViewCell {
         numberView.layer.borderWidth = 1
         numberView.layer.borderColor = UIColor(hex: "#F2F2F2").cgColor
         
-        
+        rightCountView.layer.cornerRadius = 10 // Half of 20
+        rightCountView.clipsToBounds = true
+        rightCountView.isHidden = true
         
                
                // Adding a shadow path for better performance

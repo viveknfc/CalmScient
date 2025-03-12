@@ -422,6 +422,12 @@
 		4AED7C3F2BFCAAEF0087F9D3 /* UserStartUpScreenDayData.json in Resources */ = {isa = PBXBuildFile; fileRef = 4AED7C3E2BFCAAEF0087F9D3 /* UserStartUpScreenDayData.json */; };
 		4AFA67712BFA03B2001197C9 /* CourseAPICodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFA67702BFA03B2001197C9 /* CourseAPICodables.swift */; };
 		4AFA67732BFA692A001197C9 /* UpcomingMedicalAppointmentsAPICodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AFA67722BFA692A001197C9 /* UpcomingMedicalAppointmentsAPICodables.swift */; };
+		4C778C792D81723900D57073 /* SaveDrinkingCountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C778C782D81723900D57073 /* SaveDrinkingCountRequest.swift */; };
+		4C7FA3812D7EB2EF00143612 /* NewAppointmentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C7FA3802D7EB2EF00143612 /* NewAppointmentTableViewCell.xib */; };
+		4C7FA3822D7EB2EF00143612 /* NewAppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7FA37F2D7EB2EF00143612 /* NewAppointmentTableViewCell.swift */; };
+		4C7FA3842D7F19AE00143612 /* DrinkingTakingControlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7FA3832D7F19AE00143612 /* DrinkingTakingControlResponse.swift */; };
+		4C8099402D79B47D009648CB /* AddNewAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C80993F2D79B47D009648CB /* AddNewAppointmentViewController.swift */; };
+		4C80994E2D79BBC8009648CB /* AddNewAppointment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C80994D2D79BBC8009648CB /* AddNewAppointment.storyboard */; };
 		6B5789C72C7C3C7500EFB8FF /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6B5789C62C7C3C7500EFB8FF /* bell.mp3 */; };
 		6B5CC41C2C673C14007DDEE5 /* UserStartUpScreenDayDataSpanish.json in Resources */ = {isa = PBXBuildFile; fileRef = 6B5CC41B2C673C14007DDEE5 /* UserStartUpScreenDayDataSpanish.json */; };
 		6B75829C2C6B9A62008EB4EF /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B75829B2C6B9A61008EB4EF /* Header.swift */; };
@@ -964,6 +970,12 @@
 		4AED7C3E2BFCAAEF0087F9D3 /* UserStartUpScreenDayData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UserStartUpScreenDayData.json; sourceTree = "<group>"; };
 		4AFA67702BFA03B2001197C9 /* CourseAPICodables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseAPICodables.swift; sourceTree = "<group>"; };
 		4AFA67722BFA692A001197C9 /* UpcomingMedicalAppointmentsAPICodables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpcomingMedicalAppointmentsAPICodables.swift; sourceTree = "<group>"; };
+		4C778C782D81723900D57073 /* SaveDrinkingCountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaveDrinkingCountRequest.swift; sourceTree = "<group>"; };
+		4C7FA37F2D7EB2EF00143612 /* NewAppointmentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAppointmentTableViewCell.swift; sourceTree = "<group>"; };
+		4C7FA3802D7EB2EF00143612 /* NewAppointmentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewAppointmentTableViewCell.xib; sourceTree = "<group>"; };
+		4C7FA3832D7F19AE00143612 /* DrinkingTakingControlResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkingTakingControlResponse.swift; sourceTree = "<group>"; };
+		4C80993F2D79B47D009648CB /* AddNewAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAppointmentViewController.swift; sourceTree = "<group>"; };
+		4C80994D2D79BBC8009648CB /* AddNewAppointment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNewAppointment.storyboard; sourceTree = "<group>"; };
 		6B5789C62C7C3C7500EFB8FF /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
 		6B5CC41B2C673C14007DDEE5 /* UserStartUpScreenDayDataSpanish.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UserStartUpScreenDayDataSpanish.json; sourceTree = "<group>"; };
 		6B75829B2C6B9A61008EB4EF /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
@@ -2278,6 +2290,7 @@
 		4AD5D12A2BD7A6C100E4C945 /* UpcomingMedicalAppointments */ = {
 			isa = PBXGroup;
 			children = (
+				4C80993E2D79B435009648CB /* Add New Appointments */,
 				4AD5D12B2BD7A6C100E4C945 /* AddAppointments */,
 				4AD5D1312BD7A6C100E4C945 /* NextAppointment */,
 				4AD5D1372BD7A6C100E4C945 /* AppointmentDetails */,
@@ -2368,6 +2381,25 @@
 			path = MedicalRecordMain;
 			sourceTree = "<group>";
 		};
+		4C7FA37E2D7EB2A400143612 /* NewAppointmentTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				4C7FA37F2D7EB2EF00143612 /* NewAppointmentTableViewCell.swift */,
+				4C7FA3802D7EB2EF00143612 /* NewAppointmentTableViewCell.xib */,
+			);
+			path = NewAppointmentTableViewCell;
+			sourceTree = "<group>";
+		};
+		4C80993E2D79B435009648CB /* Add New Appointments */ = {
+			isa = PBXGroup;
+			children = (
+				4C80993F2D79B47D009648CB /* AddNewAppointmentViewController.swift */,
+				4C80994D2D79BBC8009648CB /* AddNewAppointment.storyboard */,
+				4C7FA37E2D7EB2A400143612 /* NewAppointmentTableViewCell */,
+			);
+			path = "Add New Appointments";
+			sourceTree = "<group>";
+		};
 		6184F34205A8E8BAD2A8E4A5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -2417,6 +2449,7 @@
 				C28D0E262D006B9900517693 /* General Class */,
 				C26AA7A32CF85E1600F9A424 /* Taking Control Index.swift */,
 				C26AA7A52CF8642500F9A424 /* Drinking Control.swift */,
+				4C7FA3832D7F19AE00143612 /* DrinkingTakingControlResponse.swift */,
 				C20245E12D1E7FC4001CBDDC /* Smoking Index */,
 				C2948E1A2CFF164C00D6FC55 /* USGuideLineForDrinkingVC.swift */,
 				C2948E242CFF6ABB00D6FC55 /* ComingSoonVC.swift */,
@@ -2485,6 +2518,7 @@
 				C23043402D1024E8001E152B /* DrinkingCountVC.swift */,
 				C23043462D102609001E152B /* DrinkingCountCell.swift */,
 				C23043482D10263F001E152B /* DrinkingCountCell.xib */,
+				4C778C782D81723900D57073 /* SaveDrinkingCountRequest.swift */,
 			);
 			path = "Drinking Count";
 			sourceTree = "<group>";
@@ -2698,6 +2732,7 @@
 				4A967FCE2BD6892800FCE646 /* UserIntro.storyboard in Resources */,
 				431C247A2C469C2500909C24 /* UserProfile.storyboard in Resources */,
 				43A08DB32C3EE5F20082F47B /* Lexend-Bold.ttf in Resources */,
+				4C7FA3812D7EB2EF00143612 /* NewAppointmentTableViewCell.xib in Resources */,
 				43508AEB2C4D7F63000B5645 /* docpic.png in Resources */,
 				4A8044832BD91E370054A120 /* TimeCell.xib in Resources */,
 				431C24812C46DF0B00909C24 /* LoginVC.storyboard in Resources */,
@@ -2729,6 +2764,7 @@
 				4A65C3322BD6859800809222 /* lexendsemibold.ttf in Resources */,
 				4AD5D1052BD7A60E00E4C945 /* MainTabAssets.xcassets in Resources */,
 				4AD5D1552BD7A6C100E4C945 /* UserMedicationsTableCell.xib in Resources */,
+				4C80994E2D79BBC8009648CB /* AddNewAppointment.storyboard in Resources */,
 				4A0853B52C21684B00202C02 /* AlcholFreeCell.xib in Resources */,
 				43A08DB82C3EE5F20082F47B /* Lexend-Medium.ttf in Resources */,
 				4A03EB262BDC0E74006AE8C4 /* AddNewMedicationSwitchTableCell.xib in Resources */,
@@ -2964,6 +3000,7 @@
 				C2EED5E42CFA69B0005C1E1F /* ImageView.swift in Sources */,
 				432EBE242C2BF49F000BB69A /* MakePlan.swift in Sources */,
 				4A0E1F942BE69D07008389C4 /* NetworkResponseError.swift in Sources */,
+				4C8099402D79B47D009648CB /* AddNewAppointmentViewController.swift in Sources */,
 				4A65C3232BD6858000809222 /* GradientButton.swift in Sources */,
 				432EBE1F2C2BF49F000BB69A /* MindCell.swift in Sources */,
 				4A0E1FA12BEB4D14008389C4 /* ScreeningsAPICodables.swift in Sources */,
@@ -3065,6 +3102,8 @@
 				4A78A12A2BDEDF5F00D1EFC1 /* ProgressOnCourseWorkMainViewTableCell.swift in Sources */,
 				C275E3912D0212FD00E7513D /* ConSub5VC.swift in Sources */,
 				4A0E1F7C2BE69D00008389C4 /* Observable.swift in Sources */,
+				4C7FA3822D7EB2EF00143612 /* NewAppointmentTableViewCell.swift in Sources */,
+				4C7FA3842D7F19AE00143612 /* DrinkingTakingControlResponse.swift in Sources */,
 				43A08D8B2C35120E0082F47B /* CustomAlertView1.swift in Sources */,
 				4A08539F2C21684B00202C02 /* Moderation.swift in Sources */,
 				4A0E1F922BE69D07008389C4 /* URLParameterEncoder.swift in Sources */,
@@ -3138,6 +3177,7 @@
 				C20245E72D1EF40C001CBDDC /* VapingViewController.swift in Sources */,
 				4A08539C2C21684B00202C02 /* CustomCheckboxCell.swift in Sources */,
 				4A967FC72BD6892800FCE646 /* UserEntryYesOrNoCell.swift in Sources */,
+				4C778C792D81723900D57073 /* SaveDrinkingCountRequest.swift in Sources */,
 				C2ADB3C22D1AA3EE00157631 /* Language.swift in Sources */,
 				C226A5722D0844B40080397A /* HoldYourLiquorVC.swift in Sources */,
 				4A967FD72BD6892800FCE646 /* LoginVC.swift in Sources */,
@@ -3357,9 +3397,9 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = CalmscientIOS/CalmscientIOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2.2;
-				DEVELOPMENT_TEAM = F7P87PL667;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CalmscientIOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CalmscientIOS;
@@ -3370,7 +3410,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -3398,9 +3438,9 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = CalmscientIOS/CalmscientIOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 2.2;
-				DEVELOPMENT_TEAM = F7P87PL667;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CalmscientIOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CalmscientIOS;
@@ -3411,7 +3451,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
