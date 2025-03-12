@@ -21,6 +21,7 @@ class BasicStandardDrink: ViewController {
     let activityIndicator = UIActivityIndicatorView(style: .large)
     
     var sectionID1: Int?
+    var userloginResponse : LoginDetails?
     override func viewDidLoad() {
         super.viewDidLoad()
         labelText()
@@ -43,6 +44,7 @@ class BasicStandardDrink: ViewController {
         guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
             fatalError("Unable to found Application Shared Info")
         }
+        userloginResponse = userInfo
       
         self.normalTextLabel.font = UIFont(name: Fonts().lexendLight, size: 16)
         self.normalTextView.font = UIFont(name: Fonts().lexendLight, size: 16)
@@ -70,28 +72,7 @@ class BasicStandardDrink: ViewController {
                 print("Error: \(error)")
             }
             
-            updateBasicKnowledgeIndex( patientId: userInfo.patientID, clientId: userInfo.clientID, activityDate: "", bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken) { [self] result in
-                switch result {
-                case .success(let data):
-                    // Convert data to JSON object and print it
-                    do {
-                        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                            DispatchQueue.main.async { [self] in
-                                print(json)
-                                
-                                self.view.hideToastActivity()
-                            }
-                            
-                        } else {
-                            print("Unable to convert data to JSON")
-                        }
-                    } catch {
-                        print("Error converting data to JSON: \(error)")
-                    }
-                case .failure(let error):
-                    print("Error: \(error)")
-                }
-            }
+            
         }
     }
     
@@ -336,7 +317,32 @@ class BasicStandardDrink: ViewController {
     //MARK: - Complete Button Pressed
     
     @IBAction func completeButtonPressed(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+            fatalError("Unable to found Application Shared Info")
+        }
+        updateBasicKnowledgeIndex( patientId: userInfo.patientID, clientId: userInfo.clientID, activityDate: "", bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken) { [self] result in
+            switch result {
+            case .success(let data):
+                // Convert data to JSON object and print it
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        DispatchQueue.main.async { [self] in
+                            print(json)
+                            self.view.hideToastActivity()
+                            self.navigationController?.popViewController(animated: true)
+                        }
+                        
+                    } else {
+                        print("Unable to convert data to JSON")
+                    }
+                } catch {
+                    print("Error converting data to JSON: \(error)")
+                }
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+            self.view.hideToastActivity()
+        }
     }
     
     

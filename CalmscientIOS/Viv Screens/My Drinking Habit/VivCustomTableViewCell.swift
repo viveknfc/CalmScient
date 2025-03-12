@@ -36,9 +36,11 @@ class VivCustomTableViewCell: UITableViewCell {
     }
 
     
-    func configureCell(heading: String, image: UIImage, subtasks: [String]) {
+    func configureCell(heading: String, image: UIImage, subtasks: [String], isSelected: Bool) {
         mainHeading.text = heading
         tickImage.image = image
+        tickImage.isHidden = isSelected == true ? false : true
+        
         subTasks.spacing = 0
         
             // Clear existing subtask views

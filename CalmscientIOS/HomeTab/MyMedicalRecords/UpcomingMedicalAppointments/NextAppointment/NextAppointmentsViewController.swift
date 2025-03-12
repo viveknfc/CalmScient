@@ -141,6 +141,8 @@ extension NextAppointmentsViewController : UITableViewDataSource, UITableViewDel
         let cell = tableView.dequeueReusableCell(withIdentifier: "AppointmentsEmptyTableViewCell", for: indexPath) as! AppointmentsEmptyTableViewCell
         let instance = medicalAppointmentsData[indexPath.row]
         cell.editDeletButton.tag = indexPath.row
+        /// below lines for testing purpose to know how the booked  appointmenrs will show ..we can edit once api create appointment api is ready
+        
         if (indexPath.row % 2) == 0 {
             
             switch instance {
@@ -159,7 +161,7 @@ extension NextAppointmentsViewController : UITableViewDataSource, UITableViewDel
         }
         else
         {
-            cell.contentTextLabel.text = "Naveen"
+            cell.contentTextLabel.text = "Booked Appointment"
             cell.cellIconImageView.image = UIImage(named: "UpcomingMedicalAppointmentsDoctor")
             cell.editDeletButton.setImage(UIImage(named: "seperatorIcon"), for: .normal)
             cell.editDeletButton.addTarget(self, action: #selector(editDeletBtnAction), for: .touchUpInside)

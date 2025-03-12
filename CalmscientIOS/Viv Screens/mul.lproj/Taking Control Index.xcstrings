@@ -488,13 +488,13 @@
       }
     },
     "9Ti-Yg-mwU.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Now let’s see what drinking habits \\ndo you have\"; ObjectID = \"9Ti-Yg-mwU\";",
+      "comment" : "Class = \"UILabel\"; text = \"Now let’s see what drinking habits do you have\"; ObjectID = \"9Ti-Yg-mwU\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Now let’s see what drinking habits \ndo you have"
+            "value" : "Now let’s see what drinking habits do you have"
           }
         }
       }
@@ -1310,13 +1310,13 @@
       }
     },
     "I0E-jG-CNU.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"10 days\"; ObjectID = \"I0E-jG-CNU\";",
+      "comment" : "Class = \"UILabel\"; text = \"0 days\"; ObjectID = \"I0E-jG-CNU\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "10 days"
+            "value" : "0 days"
           }
         }
       }
@@ -1785,18 +1785,6 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "3."
-          }
-        }
-      }
-    },
-    "NtS-zn-YJB.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"1.6\"; ObjectID = \"NtS-zn-YJB\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "1.6"
           }
         }
       }
@@ -2438,13 +2426,13 @@
       }
     },
     "ugw-41-hOz.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"2.0\"; ObjectID = \"ugw-41-hOz\";",
+      "comment" : "Class = \"UILabel\"; text = \"0\"; ObjectID = \"ugw-41-hOz\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "2.0"
+            "value" : "0"
           }
         }
       }

@@ -45,6 +45,9 @@ class DrinkingControl: UIViewController, CalendarToViewDelegate {
     @IBOutlet weak var textR1: FontLL14!
     @IBOutlet weak var textR2: FontLL14!
     
+    
+    @IBOutlet weak var goalTypeLbl1: UILabel!
+    @IBOutlet weak var goalTypeLbl2: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -99,12 +102,15 @@ class DrinkingControl: UIViewController, CalendarToViewDelegate {
         infoView.layer.shadowRadius = 4 // Blur radius for a soft shadow
         infoView.layer.masksToBounds = false // Ensure shadow appears outside bounds
         
+        
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         needToTalkButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str:"Need to talk with someone?"))
+        getTakingControlIndexAPICalling()
     }
 
     //MARK: - Info Button Pressed
@@ -203,7 +209,61 @@ extension DrinkingControl: FSCalendarDelegate, FSCalendarDataSource{
 
 
 
+extension DrinkingControl {
 
+//MARK: - GetTakingControlIndexAPICalling
+    func getTakingControlIndexAPICalling() {
+        self.view.showToastActivity()
+        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+            fatalError("Unable to found Application Shared Info")
+        }
+        
+        let params: [String: Any] = [
+                "patientId": userInfo.patientID,
+                "plId": userInfo.patientLocationID,
+                "clientId": userInfo.clientID,
+                "date": "06/03/2025"
+               
+            ]
+        
+        print("the Get Journal API call params", params)
+        
+        APIService.getTakingControlIndexAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
+            
+            self.view.hideToastActivity()
+            self.parsetheDrinkingResponse(response: response)
+        }
+    }
+    
+//MARK: - Parsing the Response
+    func parsetheDrinkingResponse(response:AnyObject)->() {
+        self.view.hideToastActivity()
+        if let responseString = response as? String {
+            print("Response received from Get Drinking Data API calling is", responseString)
+        }
+        else if let responseDict = response as? [String: Any] {
+
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: responseDict, options: [])
+                let data = try JSONDecoder().decode(DrinkingTakingControlResponse.self, from: jsonData)
+                print(data)
+                if !data.index!.isEmpty {
+                    self.goalTypeLbl1.text = data.index?[0].goalType
+                    self.leftBoxLabel.text = "\(data.index?[0].goal ?? 0)"
+                    self.goalTypeLbl2.text = data.index?[1].goalType
+                    self.rightBoxLabel.text = "\(data.index?[1].goal ?? 0)"
+                }
+            } catch {
+                print("Error decoding JSON: \(error)")
+            }
+
+           
+       } else {
+           print("Unsupported response type:", type(of: response))
+       }
+
+    }
+}
 
 
 
