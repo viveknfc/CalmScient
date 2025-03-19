@@ -63,6 +63,18 @@ class SmokingBasicVc: ViewController, UITableViewDelegate, UITableViewDataSource
             vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
             self.navigationController?.pushViewController(vc!, animated: true)
         }
+        else if indexPath.row == 4 {
+            let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+            let vc = next.instantiateViewController(withIdentifier: "SmokingAffectMentalHealthVC") as? SmokingAffectMentalHealthVC
+            vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
+        else if indexPath.row == 5 {
+            let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+            let vc = next.instantiateViewController(withIdentifier: "MySmokingHabitVC") as? MySmokingHabitVC
+            vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
     }
     
 

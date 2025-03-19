@@ -505,13 +505,17 @@ class UserIntroDayFeedbackViewController: ViewController {
     //MARK: - Save Alert View
     
     func showSuccessAlert(completion: @escaping () -> Void) {
+        
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let window = windowScene.windows.first else { return }
+        
         // Create a semi-transparent background view
-        let backgroundView = UIView(frame: self.view.bounds)
+        let backgroundView = UIView(frame: window.bounds)
         backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         backgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         // Add the background view to the main view
-        self.view.addSubview(backgroundView)
+        window.addSubview(backgroundView)
         
         // Create the alert view
         let successAlert = SuccessAlertView()
@@ -532,6 +536,14 @@ class UserIntroDayFeedbackViewController: ViewController {
             successAlert.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
             successAlert.heightAnchor.constraint(equalToConstant: 300)
         ])
+        
+        // Animate the appearance of the alert
+            backgroundView.alpha = 0
+            successAlert.alpha = 0
+            UIView.animate(withDuration: 0.3) {
+                backgroundView.alpha = 1
+                successAlert.alpha = 1
+            }
     }
 
     

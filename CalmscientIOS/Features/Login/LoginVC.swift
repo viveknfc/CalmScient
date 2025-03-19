@@ -112,7 +112,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         forgotPasswordLabel.attributedText = attributedText
         
        
-        let createAccountAttributedText = NSMutableAttributedString(string:  (languageId == 0 ? 1 : languageId  ) == 1 ?  "Create a new account" : "Crea una nueva cuenta", attributes: [.font: UIFont(name: Fonts().lexendLight, size: 14.0)!, .foregroundColor:UIColor(named: "MainTextColor") ?? UIColor.white, .underlineStyle : NSUnderlineStyle.single.rawValue, .underlineColor:UIColor(named: "MainTextColor") ?? UIColor.white])
+        let createAccountAttributedText = NSMutableAttributedString(string:  (languageId == 0 ? 1 : languageId  ) == 1 ?  "Create a new account" : "Crea una cuenta nueva", attributes: [.font: UIFont(name: Fonts().lexendLight, size: 14.0)!, .foregroundColor:UIColor(named: "MainTextColor") ?? UIColor.white, .underlineStyle : NSUnderlineStyle.single.rawValue, .underlineColor:UIColor(named: "MainTextColor") ?? UIColor.white])
         createAnAccountLabel.attributedText = createAccountAttributedText
         
         
@@ -120,7 +120,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         selectionButton.contentLabel.text = (languageId == 0 ? 1 : languageId  ) == 1 ? "Accept Terms & Conditions" : "Aceptar Términos y Condiciones"
         userNameLabel.text = AppHelper.getLocalizeString(str: "Username")
         passwordLabel.text = AppHelper.getLocalizeString(str: "Password")
-        createAnAccountLabel.text = (languageId == 0 ? 1 : languageId  ) == 1 ? "Create a new account" : "Crear una nueva cuenta"
+        createAnAccountLabel.text = (languageId == 0 ? 1 : languageId  ) == 1 ? "Create a new account" : "Crea una cuenta nueva"
         forgotPasswordLabel.text = (languageId == 0 ? 1 : languageId  ) == 1 ?  "Forgot password?" : "¿Has olvidado tu contraseña?"
         
         }

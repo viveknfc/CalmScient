@@ -512,9 +512,11 @@
 		C2B94B152D6A1DA9006C0D91 /* IrritabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B94B142D6A1DA9006C0D91 /* IrritabilityViewController.swift */; };
 		C2B94B172D6A2071006C0D91 /* DifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B94B162D6A2071006C0D91 /* DifficultyViewController.swift */; };
 		C2B94B192D6A27BB006C0D91 /* IncreasedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B94B182D6A27BB006C0D91 /* IncreasedViewController.swift */; };
+		C2CFEF712D81CABE00192126 /* MySmokingHabitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CFEF702D81CABE00192126 /* MySmokingHabitVC.swift */; };
 		C2D1A3042D019C1D009CAB47 /* ConSub2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D1A3032D019C1D009CAB47 /* ConSub2VC.swift */; };
 		C2D1A3062D01C40D009CAB47 /* ConSub3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D1A3052D01C40D009CAB47 /* ConSub3VC.swift */; };
 		C2D3EE412D475EF9008A49D2 /* CustomDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3EE402D475EF9008A49D2 /* CustomDropDown.swift */; };
+		C2E111CF2D89D81F00FF5358 /* FavouritesGeneralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E111CE2D89D81F00FF5358 /* FavouritesGeneralManager.swift */; };
 		C2E534092D192670009D2477 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E534082D192670009D2477 /* ThemeManager.swift */; };
 		C2EED5DE2CFA3D18005C1E1F /* CurvedOutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EED5DD2CFA3D18005C1E1F /* CurvedOutlineButton.swift */; };
 		C2EED5E22CFA6797005C1E1F /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EED5E12CFA6797005C1E1F /* CustomView.swift */; };
@@ -1060,9 +1062,11 @@
 		C2B94B142D6A1DA9006C0D91 /* IrritabilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrritabilityViewController.swift; sourceTree = "<group>"; };
 		C2B94B162D6A2071006C0D91 /* DifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyViewController.swift; sourceTree = "<group>"; };
 		C2B94B182D6A27BB006C0D91 /* IncreasedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncreasedViewController.swift; sourceTree = "<group>"; };
+		C2CFEF702D81CABE00192126 /* MySmokingHabitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySmokingHabitVC.swift; sourceTree = "<group>"; };
 		C2D1A3032D019C1D009CAB47 /* ConSub2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConSub2VC.swift; sourceTree = "<group>"; };
 		C2D1A3052D01C40D009CAB47 /* ConSub3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConSub3VC.swift; sourceTree = "<group>"; };
 		C2D3EE402D475EF9008A49D2 /* CustomDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDown.swift; sourceTree = "<group>"; };
+		C2E111CE2D89D81F00FF5358 /* FavouritesGeneralManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesGeneralManager.swift; sourceTree = "<group>"; };
 		C2E534082D192670009D2477 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		C2EED5DD2CFA3D18005C1E1F /* CurvedOutlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedOutlineButton.swift; sourceTree = "<group>"; };
 		C2EED5E12CFA6797005C1E1F /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
@@ -2463,6 +2467,7 @@
 				C20245E82D1F37B1001CBDDC /* SmokingRelaxVC.swift */,
 				C22E9F952D2281B500600715 /* ChallengingtoQuit */,
 				C2B8E98C2D81BB99003962A7 /* SmokingAffectMentalHealthVC.swift */,
+				C2CFEF702D81CABE00192126 /* MySmokingHabitVC.swift */,
 			);
 			path = "Viv Screens";
 			sourceTree = "<group>";
@@ -2494,6 +2499,7 @@
 				C267D18A2D5DE2E100564FE3 /* TokenExpiryCheck.swift */,
 				C2B94B122D6A1B11006C0D91 /* CapsuleButton3.swift */,
 				C2B8E9882D81694C003962A7 /* TextHighlighter.swift */,
+				C2E111CE2D89D81F00FF5358 /* FavouritesGeneralManager.swift */,
 			);
 			path = "General Class";
 			sourceTree = "<group>";
@@ -3019,6 +3025,7 @@
 				4A0E1F982BE69D07008389C4 /* HTTPTask.swift in Sources */,
 				4A967FCD2BD6892800FCE646 /* UserIntroDayFeedbackViewController.swift in Sources */,
 				4AD5D1662BD7A6C100E4C945 /* QuestionnairesVC.swift in Sources */,
+				C2E111CF2D89D81F00FF5358 /* FavouritesGeneralManager.swift in Sources */,
 				4A65C2F82BD6852C00809222 /* ViewController.swift in Sources */,
 				C2948E232CFF5EC600D6FC55 /* CapsuleButton.swift in Sources */,
 				C2AEBC592D0C468700B65DBB /* ModerateDrinkingVC.swift in Sources */,
@@ -3140,6 +3147,7 @@
 				4A08537E2C21684B00202C02 /* CustomCollectioncell.swift in Sources */,
 				C2FDECB62D269C9E005EE6BA /* TobaccoFreeVC.swift in Sources */,
 				4A0853962C21684B00202C02 /* Consequences_four.swift in Sources */,
+				C2CFEF712D81CABE00192126 /* MySmokingHabitVC.swift in Sources */,
 				4A78A1382BDF333600D1EFC1 /* ProgressOnWorkExpansionTableView.swift in Sources */,
 				4A0E1F902BE69D07008389C4 /* JSONParameterEncoder.swift in Sources */,
 				4A0E1F9C2BEB3AAA008389C4 /* ScreeningsAPIRequest.swift in Sources */,
@@ -3397,9 +3405,9 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = CalmscientIOS/CalmscientIOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2.2;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = F7P87PL667;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CalmscientIOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CalmscientIOS;
@@ -3438,9 +3446,9 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = CalmscientIOS/CalmscientIOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2.2;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = F7P87PL667;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CalmscientIOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CalmscientIOS;

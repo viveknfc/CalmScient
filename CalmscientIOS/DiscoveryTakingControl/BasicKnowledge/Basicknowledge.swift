@@ -177,9 +177,7 @@ class Basicknowledge: ViewController, UITableViewDelegate, UITableViewDataSource
             //start
             
             let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
-            let vc = next.instantiateViewController(withIdentifier: "HoldYourLiquorVC") as? HoldYourLiquorVC
-            let newData = basicData2[indexPath.row]
-            vc?.sectionID6 = newData["sectionId"] as? Int
+            let vc = next.instantiateViewController(withIdentifier: "MyDrinkingHabitVC") as? MyDrinkingHabitVC
             vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
             self.navigationController?.pushViewController(vc!, animated: true)
             
@@ -197,11 +195,14 @@ class Basicknowledge: ViewController, UITableViewDelegate, UITableViewDataSource
             //start
             
             let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
-            let vc = next.instantiateViewController(withIdentifier: "MyDrinkingHabitVC") as? MyDrinkingHabitVC
+            let vc = next.instantiateViewController(withIdentifier: "HoldYourLiquorVC") as? HoldYourLiquorVC
+            let newData = basicData2[indexPath.row]
+            vc?.sectionID6 = newData["sectionId"] as? Int
             vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
             self.navigationController?.pushViewController(vc!, animated: true)
             
             //end
+            
             
 //            let next = UIStoryboard(name: "WhatToExpectViewController", bundle: nil)
 //            let vc = next.instantiateViewController(withIdentifier: "WhatToExpectViewController") as? WhatToExpectViewController

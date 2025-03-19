@@ -451,6 +451,18 @@
         }
       }
     },
+    "7Jd-sj-U9R.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"After going through a basic knowledge about smoking, which stage do you think you are at?\"; ObjectID = \"7Jd-sj-U9R\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "After going through a basic knowledge about smoking, which stage do you think you are at?"
+          }
+        }
+      }
+    },
     "8FD-Vi-3D7.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Doing some physical activity can really help with that jumpy feeling. Take a short walk or just get up and stretch if you're feeling restless.\"; ObjectID = \"8FD-Vi-3D7\";",
       "extractionState" : "extracted_with_value",
@@ -655,6 +667,18 @@
         }
       }
     },
+    "Aed-8o-AxL.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"My smoking habit\"; ObjectID = \"Aed-8o-AxL\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "My smoking habit"
+          }
+        }
+      }
+    },
     "AK8-gQ-50t.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Up to 1 drink/day\"; ObjectID = \"AK8-gQ-50t\";",
       "extractionState" : "extracted_with_value",
@@ -855,6 +879,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "within about 2 hours"
+          }
+        }
+      }
+    },
+    "Ca8-Y7-iNg.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Yes\"; ObjectID = \"Ca8-Y7-iNg\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Yes"
           }
         }
       }
@@ -1609,6 +1645,18 @@
         }
       }
     },
+    "itR-8a-CO8.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"How does smoking affect your mental health?\"; ObjectID = \"itR-8a-CO8\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "How does smoking affect your mental health?"
+          }
+        }
+      }
+    },
     "iVM-yx-ChM.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Explore ways to handle stress and anxiety\"; ObjectID = \"iVM-yx-ChM\";",
       "extractionState" : "extracted_with_value",
@@ -2101,7 +2149,6 @@
         }
       }
     },
-
     "nSW-eD-GnN.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Stay busy\"; ObjectID = \"nSW-eD-GnN\";",
       "extractionState" : "extracted_with_value",
@@ -2114,19 +2161,6 @@
         }
       }
     },
-    "NtS-zn-YJB.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"1.6\"; ObjectID = \"NtS-zn-YJB\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "1.6"
-          }
-        }
-      }
-    },
-
     "NuI-qg-DrV.text" : {
       "comment" : "Class = \"UILabel\"; text = \"limit\"; ObjectID = \"NuI-qg-DrV\";",
       "extractionState" : "extracted_with_value",
@@ -2351,6 +2385,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Resources"
+          }
+        }
+      }
+    },
+    "q3Z-vg-55f.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Many people think smoking relieves stress. However, Nicotine does something interesting in your brain – it releases a chemical called dopamine. Dopamine is like a happiness signal and makes you feel good. Some people with depression have low levels of dopamine, so they might smoke to get a quick boost. \\n\\nBut here's the problem... once your brain gets used to nicotine boosters, it will cry for more smoking when it is not getting enough nicotine. Thus, your concentration goes down, your heart beats faster, and you get more anxious and stressed.\\n\\nAs a result, you smoke to reduce your nicotine stress, not your real stress. This is a vicious cycle that affects your anxiety and mood.\\n\\nDepression is common because when you smoke a lot, your brain kind of switches off its own way of making dopamine. So, in the long run, your brain has less dopamine that affects your mood.\"; ObjectID = \"q3Z-vg-55f\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Many people think smoking relieves stress. However, Nicotine does something interesting in your brain – it releases a chemical called dopamine. Dopamine is like a happiness signal and makes you feel good. Some people with depression have low levels of dopamine, so they might smoke to get a quick boost. \n\nBut here's the problem... once your brain gets used to nicotine boosters, it will cry for more smoking when it is not getting enough nicotine. Thus, your concentration goes down, your heart beats faster, and you get more anxious and stressed.\n\nAs a result, you smoke to reduce your nicotine stress, not your real stress. This is a vicious cycle that affects your anxiety and mood.\n\nDepression is common because when you smoke a lot, your brain kind of switches off its own way of making dopamine. So, in the long run, your brain has less dopamine that affects your mood."
           }
         }
       }
@@ -2759,6 +2805,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Often these individuals are unaware that their body’s lower response to the intoxicating effects of alcohol isn’t protection from alcohol problems but instead is a reason for caution.\n"
+          }
+        }
+      }
+    },
+    "u0s-bE-o8F.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"u0s-bE-o8F\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
           }
         }
       }
@@ -3225,6 +3283,30 @@
         }
       }
     },
+    "Xvj-FH-C7G.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"Xvj-FH-C7G\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
+          }
+        }
+      }
+    },
+    "yfp-pz-HSM.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Save it to weekly summary journal entry\"; ObjectID = \"yfp-pz-HSM\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Save it to weekly summary journal entry"
+          }
+        }
+      }
+    },
     "Yjx-ZK-Im2.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Need to talk with someone?\"; ObjectID = \"Yjx-ZK-Im2\";",
       "extractionState" : "extracted_with_value",
@@ -3341,18 +3423,6 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Complete"
-          }
-        }
-      }
-    },
-    "ZY5-lM-L4v.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"•  Do something to stay active at home\\n•  Call or visit a friend or family member\\n•  Brush your teeth\\n•  Play with a pet\\n•  Update your contact list on your cell phone\\n•  Try a new hobby\\n•  Switch to coffee with less caffeine or \\n   decaf products\"; ObjectID = \"ZY5-lM-L4v\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "•  Do something to stay active at home\n•  Call or visit a friend or family member\n•  Brush your teeth\n•  Play with a pet\n•  Update your contact list on your cell phone\n•  Try a new hobby\n•  Switch to coffee with less caffeine or \n   decaf products"
           }
         }
       }

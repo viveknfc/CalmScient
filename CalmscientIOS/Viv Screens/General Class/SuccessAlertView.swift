@@ -58,18 +58,19 @@ class SuccessAlertView: UIView {
 extension UIViewController {
     func showSuccessAlert(successContent: String? = nil, centreImage: UIImage? = nil, okButtonAction: (() -> Void)? = nil) {
         
-        self.view.subviews.filter { $0.tag == 999 }.forEach { $0.removeFromSuperview() }
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+        let window = windowScene.windows.first else { return }
+        
+        window.subviews.filter { $0.tag == 999 }.forEach { $0.removeFromSuperview() }
+        
+//        self.view.subviews.filter { $0.tag == 999 }.forEach { $0.removeFromSuperview() }
         
         // Create a dimming background view
         let dimmingView = UIView(frame: UIScreen.main.bounds)
         dimmingView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
         dimmingView.alpha = 0 // Start invisible
         dimmingView.tag = 999 // Add a tag to identify and remove it later
-        
-        // Initialize the SuccessAlertView
-//        let alertView = SuccessAlertView(frame: CGRect(x: 40, y: (UIScreen.main.bounds.height - 200) / 2, width: UIScreen.main.bounds.width - 80, height: 200))
 
-//        let alertViewHeight: CGFloat = 200 + (centreImage?.size.height ?? 0) - 100 // Adjust the height based on the new image size
         let alertView = SuccessAlertView(frame: CGRect(x: 40, y: (UIScreen.main.bounds.height - 250) / 2, width: UIScreen.main.bounds.width - 80, height: 280))
 
         
@@ -98,8 +99,10 @@ extension UIViewController {
         }
         
         // Add the dimming view and alert view to the current view
-        self.view.addSubview(dimmingView)
-        self.view.addSubview(alertView)
+//        self.view.addSubview(dimmingView)
+//        self.view.addSubview(alertView)
+        window.addSubview(dimmingView)
+        window.addSubview(alertView)
 
         
         // Animate the appearance

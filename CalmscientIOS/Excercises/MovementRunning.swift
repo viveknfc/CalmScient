@@ -27,6 +27,7 @@ class MovementRunning: ViewController {
         if let data = UserDefaults.standard.value(forKey: "favoriteExcersises") as? Data {
             favExcercises = try! PropertyListDecoder().decode([ExcercisesModel].self, from: data)
             if let abc  = favExcercises.filter({$0.screenCode == ExcercisesTypeEnum.movementRunning.rawValue}).first {
+                print("the fav image value is ",abc.isFav)
                 isFav = abc.isFav
             }
         }

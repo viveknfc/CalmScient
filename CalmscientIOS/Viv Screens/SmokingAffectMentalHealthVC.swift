@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SmokingAffectMentalHealthVC: UIViewController {
+class SmokingAffectMentalHealthVC: ViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -228,7 +228,7 @@ class DrinkingHabbitController:  ViewController {
                                 let next = UIStoryboard(name: "DrinikingHabbit", bundle: nil)
                                 let vc = next.instantiateViewController(withIdentifier: "DrinikingHabbit") as? DrinikingHabbit
                                 vc?.sectionID66 = sectionID6
-                                vc?.title = "Basic Knowledge"
+                                vc?.title = "Basic knowledge"
                                 // vc?.basicData = answersList
                                 self.navigationController?.pushViewController(vc!, animated: true)
                             }

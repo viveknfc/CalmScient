@@ -9,6 +9,8 @@ import UIKit
 
 class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
     
+    static let shared = HomeTabDashboardViewController()
+    
     @IBOutlet weak var noFavsLabel: UILabel!
     @IBOutlet weak var screenTitleLabel: UILabel!
     @IBOutlet weak var dashboardTableView: UITableView!
@@ -43,6 +45,66 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
         
         //end
 
+        NotificationCenter.default.addObserver(self, selector: #selector(updateFavorites), name: .favoritesUpdated, object: nil)  
+        self.favorites = FavoriteManager.shared.favorites
+        self.dashBoardCollectionView.reloadData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+        NotificationCenter.default.removeObserver(self, name: .favoritesUpdated, object: nil)
+    }
+    
+    //MARK: - Add Favourites
+    
+    @objc func updateFavorites() {
+        print("Received Notification - Updating Favorites")
+        self.favorites = FavoriteManager.shared.favorites
+        self.excersises = FavoriteManager.shared.exercises
+        self.noFavsLabel.isHidden = !self.favorites.isEmpty
+        print("✅ Favorites Updated: \(self.favorites.count), Exercises: \(self.excersises.count)")
+        self.dashBoardCollectionView.reloadData()
+        self.view.hideToastActivity()
+    }
+    
+    
+    private func fetchFavorites() {
+        self.view.showToastActivity()
+        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else { return }
+
+        FavoriteManager.shared.fetchFavoritesIfNeeded(
+            plId: userInfo.patientLocationID,
+            patientId: userInfo.patientID,
+            clientId: userInfo.clientID,
+            parentId: 0
+        ) {
+            UserDefaults.standard.set(true, forKey: "hasFetchedFavorites")
+        }
+    }
+    
+    //END
+    
+    @IBAction func didClickOnProfile(_ sender: UIButton) {
+        let userProfileViewController = UIStoryboard(name: "UserProfile", bundle: nil).instantiateViewController(withIdentifier: "UserProfileViewController") as! UserProfileViewController
+        self.navigationController?.pushViewController(userProfileViewController, animated: true)
+        
+    }
+    var nomedications1 = UILabel()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
+        
+        let hasFetchedFavorites = UserDefaults.standard.bool(forKey: "hasFetchedFavorites")
+        
+        //VIV Fav API Call
+        
         // Check token expiration before making API calls
         if TokenManager.shared.isTokenExpired() {
             print("Token expired, refreshing...")
@@ -50,7 +112,10 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
                 DispatchQueue.main.async {
                     if success {
                         print("Token refreshed, proceeding with API call")
-                        self.geMenuItemsAPICalls()
+//                        self.geMenuItemsAPICalls()
+                        if !hasFetchedFavorites {
+                            self.fetchFavorites()
+                            }
                     } else {
                         print("Token refresh failed")
                         self.view.showToast(message: "Token refresh failed")
@@ -60,25 +125,13 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
             }
         } else {
             print("Token is still valid, proceeding with API call")
-            geMenuItemsAPICalls()
+//            geMenuItemsAPICalls()
+            if !hasFetchedFavorites {
+                       fetchFavorites()
+                   }
         }
         
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        self.navigationController?.isNavigationBarHidden = false
-    }
-    
-    @IBAction func didClickOnProfile(_ sender: UIButton) {
-        let userProfileViewController = UIStoryboard(name: "UserProfile", bundle: nil).instantiateViewController(withIdentifier: "UserProfileViewController") as! UserProfileViewController
-        self.navigationController?.pushViewController(userProfileViewController, animated: true)
-        
-    }
-    var nomedications1 = UILabel()
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
+        //END
         
         actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
         
@@ -101,71 +154,71 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
         dashBoardCollectionView.showsHorizontalScrollIndicator = false
         
         self.noFavsLabel.isHidden = true
-        
+   
     }
     
     //MARK: - Get Menu Items API Call
     
-    func geMenuItemsAPICalls() {
-        
-        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
-            fatalError("Unable to found Application Shared Info")
-        }
-        self.view.showToastActivity()
-        
-        UserDefaults.standard.removeObject(forKey: "favoriteExcersises")
-        getMeniItems(plId: userInfo.patientLocationID, patientId: userInfo.patientID, clientId: userInfo.clientID, parentId: 0) { [self] result in
-            switch result {
-            case .success(let data):
-                // Convert data to JSON object and print it
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        if let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted),
-                           let jsonString = String(data: jsonData, encoding: .utf8) {
-                            print("Json string -> \(jsonString)")  // Prints JSON in readable format
-                        }
-                        DispatchQueue.main.async {
-                            
-                            self.favorites = json["favorites"] as! [[String : Any]]
-                            self.excersises = self.favorites.filter({ if let abc = $0["isFromExercises"], abc as! Int == 1 {
-                                return true
-                            } else {return false}})
-                            var favExcercises: [ExcercisesModel] = []
-                            
-                            self.excersises.forEach {
-                                if let isFav = $0["isFavorite"] as? Int, let screenCode = $0["screenCode"] as? Int {
-                                    favExcercises.append(ExcercisesModel(isFav: isFav, screenCode: screenCode))
-                                }}
-
-                                UserDefaults.standard.set(try? PropertyListEncoder().encode(favExcercises), forKey: "favoriteExcersises")
-        
-                            if self.favorites.isEmpty{
-                                self.noFavsLabel.isHidden = false
-                            }
-                            else {
-                                self.noFavsLabel.isHidden = true
-                                print("self.favorites\(self.favorites)")
-                                self.dashBoardCollectionView.reloadData()
-                            }
-                            self.view.hideToastActivity()
-                            
-                        }
-                        
-                    } else {
-                        self.view.hideToastActivity()
-                        print("Unable to convert data to JSON")
-                    }
-                    
-                } catch {
-                    self.view.hideToastActivity()
-                    print("Error converting data to JSON: \(error)")
-                }
-            case .failure(let error):
-                print("Error: \(error)")
-            }
-        }
-        
-    }
+//    func geMenuItemsAPICalls() {
+//        
+//        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+//            fatalError("Unable to found Application Shared Info")
+//        }
+//        self.view.showToastActivity()
+//        
+//        UserDefaults.standard.removeObject(forKey: "favoriteExcersises")
+//        getMeniItems(plId: userInfo.patientLocationID, patientId: userInfo.patientID, clientId: userInfo.clientID, parentId: 0) { [self] result in
+//            switch result {
+//            case .success(let data):
+//                // Convert data to JSON object and print it
+//                do {
+//                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+//                        if let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted),
+//                           let jsonString = String(data: jsonData, encoding: .utf8) {
+//                            print("Json string -> \(jsonString)")  // Prints JSON in readable format
+//                        }
+//                        DispatchQueue.main.async {
+//                            
+////                            self.favorites = json["favorites"] as! [[String : Any]]
+//                            self.excersises = self.favorites.filter({ if let abc = $0["isFromExercises"], abc as! Int == 1 {
+//                                return true
+//                            } else {return false}})
+//                            var favExcercises: [ExcercisesModel] = []
+//                            
+//                            self.excersises.forEach {
+//                                if let isFav = $0["isFavorite"] as? Int, let screenCode = $0["screenCode"] as? Int {
+//                                    favExcercises.append(ExcercisesModel(isFav: isFav, screenCode: screenCode))
+//                                }}
+//
+//                                UserDefaults.standard.set(try? PropertyListEncoder().encode(favExcercises), forKey: "favoriteExcersises")
+//        
+//                            if self.favorites.isEmpty{
+//                                self.noFavsLabel.isHidden = false
+//                            }
+//                            else {
+//                                self.noFavsLabel.isHidden = true
+//                                print("self.favorites\(self.favorites)")
+//                                self.dashBoardCollectionView.reloadData()
+//                            }
+//                            self.view.hideToastActivity()
+//                            
+//                        }
+//                        
+//                    } else {
+//                        self.view.hideToastActivity()
+//                        print("Unable to convert data to JSON")
+//                    }
+//                    
+//                } catch {
+//                    self.view.hideToastActivity()
+//                    print("Error converting data to JSON: \(error)")
+//                }
+//            case .failure(let error):
+//                print("Error: \(error)")
+//            }
+//        }
+//        
+//    }
     
     func setupLanguage() {
         

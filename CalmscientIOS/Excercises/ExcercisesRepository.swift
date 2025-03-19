@@ -41,12 +41,11 @@ class ExcercisesRepository {
             "patientId": userInfo.patientID,
             "title": title
         ]
-        debugPrint("Payload -> \(payload)")
+
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: payload, options: [])
-            debugPrint("Payload -> \(jsonData)")
             request.httpBody = jsonData
-            print(jsonData)
+
         } catch {
             print("Error converting payload to JSON: \(error)")
             completion(.failure(error))
@@ -65,17 +64,38 @@ class ExcercisesRepository {
                 completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
                 return
             }
-            // If needed, handle the response here
-            completion(.success(data))
+
+//            completion(.success(data))
+            
+            //VIV start
+            
+            do {
+                       if let jsonResponse = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+                          let responseCode = jsonResponse["responseCode"] as? Int, responseCode == 200 {
+                           
+                           DispatchQueue.main.async {
+                        FavoriteManager.shared.fetchFavoritesIfNeeded(plId: userInfo.patientLocationID,
+                                                                             patientId: userInfo.patientID,
+                                                                             clientId: userInfo.clientID,
+                                                                             parentId: 0) {
+                            print("✅ Favorites updated after adding/removing favorite")
+                            NotificationCenter.default.post(name: .favoritesUpdated, object: nil)
+                               }
+                                           }
+                           completion(.success(data))
+                       } else {
+                           print("Failed to update favorite status")
+                           completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "Failed to update favorite"])))
+                       }
+                   } catch {
+                       print("Error parsing response: \(error)")
+                       completion(.failure(error))
+                   }
+               
+            
+            //END
         }
-        /*
-        {
-            "responseMessage": "Saved Patient Favorites",
-            "responseCode": 200
-        }
-         */
-        
-        // Start the data task
+
         task.resume()
     }
 }

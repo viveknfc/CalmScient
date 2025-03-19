@@ -17,7 +17,7 @@ class USGuidlines: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTextView()
-        title = "Basic Knowledge"
+        title = "Basic knowledge"
         self.view.showToastActivity()
         usguideTextView.font = UIFont(name: Fonts().lexendLight, size: 16)
         guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {

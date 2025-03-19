@@ -73,7 +73,7 @@ class Consequences_three:  ViewController {
         // Perform the action you want here
         let next = UIStoryboard(name: "Basicknowledge", bundle: nil)
         let vc = next.instantiateViewController(withIdentifier: "Basicknowledge") as? Basicknowledge
-        vc?.title = "Basic Knowledge"
+        vc?.title = "Basic knowledge"
         self.navigationController?.pushViewController(vc!, animated: true)
         
     }

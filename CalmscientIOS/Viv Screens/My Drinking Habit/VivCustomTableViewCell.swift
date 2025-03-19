@@ -90,5 +90,39 @@ class VivCustomTableViewCell: UITableViewCell {
                 subTasks.addArrangedSubview(containerView)
             }
         }
+    
+    func configureCell1(heading: String, image: UIImage, subtasks: [String], isSelected: Bool) {
+        mainHeading.text = heading
+        tickImage.image = image
+        tickImage.isHidden = !isSelected
+        
+        subTasks.spacing = 0
+        
+        // Clear existing subtask views
+        subTasks.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        
+        // Add subtasks as multiline labels
+        for subtask in subtasks {
+            let label = UILabel()
+            label.text = subtask
+            label.font = UIFont(name: Fonts().lexendLight, size: 14)
+            label.numberOfLines = 0
+            label.lineBreakMode = .byWordWrapping
+            
+            let containerView = UIView()
+            containerView.translatesAutoresizingMaskIntoConstraints = false
+            containerView.addSubview(label)
+            
+            label.translatesAutoresizingMaskIntoConstraints = false
+            NSLayoutConstraint.activate([
+                label.topAnchor.constraint(equalTo: containerView.topAnchor, constant: 8),
+                label.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -8),
+                label.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
+                label.trailingAnchor.constraint(equalTo: containerView.trailingAnchor)
+            ])
+            
+            subTasks.addArrangedSubview(containerView)
+        }
+    }
 
 }

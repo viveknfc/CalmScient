@@ -56,7 +56,7 @@ class BasicknowledgeVideo: ViewController {
     }
     
     @IBAction func maximiseButtonAction(_ sender: Any) {
-        let videoURL = URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")!
+        let videoURL = URL(string: "https://calmscient.blob.core.windows.net/course/Tipsy_truth_with_subtitle.mp4")!
         let avPlayer = AVPlayer(url: videoURL)
         let avController = AVPlayerViewController()
         avController.player = avPlayer
@@ -65,39 +65,12 @@ class BasicknowledgeVideo: ViewController {
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.view.showToastActivity()
-        
-//        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
-//            fatalError("Unable to found Application Shared Info")
-//        }
-//        updateBasicKnowledgeIndex( patientId: userInfo.patientID, clientId: userInfo.clientID, activityDate: "", bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken) { [self] result in
-//            switch result {
-//            case .success(let data):
-//                // Convert data to JSON object and print it
-//                do {
-//                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-//                        DispatchQueue.main.async { [self] in
-//                            print(json)
-//                            
-//                            self.view.hideToastActivity()
-//                        }
-//                        
-//                    } else {
-//                        print("Unable to convert data to JSON")
-//                    }
-//                } catch {
-//                    print("Error converting data to JSON: \(error)")
-//                }
-//            case .failure(let error):
-//                print("Error: \(error)")
-//            }
-//        }
-    }
-    
     func setupPlayer() {
         
-        guard let url = URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4") else { return }
+        guard let url = URL(string: "https://calmscient.blob.core.windows.net/course/Tipsy_truth_with_subtitle.mp4") else { return }
+        
+        //http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
+        
         player = AVPlayer(url: url)
         playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = videoView.bounds
@@ -180,7 +153,7 @@ class BasicknowledgeVideo: ViewController {
             playPauseButton.alpha = 1.0
             player.pause()
             playPauseButton.setTitle("Play", for: .normal)
-            let videoURL = URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")!
+            let videoURL = URL(string: "https://calmscient.blob.core.windows.net/course/Tipsy_truth_with_subtitle.mp4")!
             let avPlayer = AVPlayer(url: videoURL)
             let avController = AVPlayerViewController()
             //                avController.player = avPlayer

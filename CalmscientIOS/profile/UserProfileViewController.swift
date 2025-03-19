@@ -1133,6 +1133,9 @@ extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate
                 
                 // to Remove all Alarms in medications page
                 self.removeAllAlarms()
+                
+                self.clearFavorites()
+                
                 // Add your code to handle the "Yes" action here
                 if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
                     let newViewController = next.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
@@ -1162,9 +1165,15 @@ extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate
         }
         
     }
-
-
     
+    func clearFavorites() {
+        UserDefaults.standard.removeObject(forKey: "favoriteExcersises")
+        UserDefaults.standard.removeObject(forKey: "favoriteItems")
+        UserDefaults.standard.set(false, forKey: "hasFetchedFavorites")
+        UserDefaults.standard.synchronize()
+        NotificationCenter.default.post(name: .favoritesUpdated, object: nil) // Notify UI
+    }
+ 
     func removeAllAlarms() {
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         UNUserNotificationCenter.current().removeAllDeliveredNotifications()

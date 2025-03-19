@@ -37,7 +37,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         medicationsTableView.dataSource = self
         medicationsTableView.delegate = self
         
-        infoLabel.text = "Please select the medication below if you took it today."
+        infoLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Please select the medication below if you took it today." : "Selecciona el medicamento de la lista si lo has tomado hoy"
         
         nomedications.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "No Records" : "No hay registros"
         nomedications.textAlignment = .center
@@ -86,44 +86,51 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     //MARK: - MARK Medication API Call
     
     func didTapTakenButton(in cell: UITableViewCell, buttonType: ButtonType) {
-        guard let indexPath = self.medicationsTableView.indexPath(for: cell) else { return }
         
-        print("Button tapped at row: \(indexPath.row), type: \(buttonType)")
-        
-        let medicationDetails = medicationData[indexPath.row].medicationDetailsByDate.first?.medicalDetails
-        let scheduledIndex = buttonType.scheduledIndex
-        
-        let responseDate = medicationData[indexPath.row].date
-        
-        if let scheduledTimes = medicationDetails?.scheduledTimeList[scheduledIndex].scheduledTimes.first {
+        let calendar = Calendar.current
+        if !calendar.isDate(selectedNewDate, inSameDayAs: Date()) {
+            print("Dates are different")
+        } else {
+            print("Dates are the same")
+            guard let indexPath = self.medicationsTableView.indexPath(for: cell) else { return }
             
-            let pmtId = scheduledTimes.pmtId
-            let medicineTaken = (scheduledTimes.medicineTaken == "1") ? "0" : "1"
+            print("Button tapped at row: \(indexPath.row), type: \(buttonType)")
             
-            let reponseTime = scheduledTimes.medicineTime
+            let medicationDetails = medicationData[indexPath.row].medicationDetailsByDate.first?.medicalDetails
+            let scheduledIndex = buttonType.scheduledIndex
             
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "MM/dd/yyyy"
-            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-            if let date = dateFormatter.date(from: responseDate) {
+            let responseDate = medicationData[indexPath.row].date
+            
+            if let scheduledTimes = medicationDetails?.scheduledTimeList[scheduledIndex].scheduledTimes.first {
                 
+                let pmtId = scheduledTimes.pmtId
+                let medicineTaken = (scheduledTimes.medicineTaken == "1") ? "0" : "1"
                 
-                // Convert date to required format
-                let outputFormatter = DateFormatter()
-                outputFormatter.dateFormat = "yyyy-MM-dd" // Target format for date
+                let reponseTime = scheduledTimes.medicineTime
                 
-                let formattedDate = outputFormatter.string(from: date)
-                combinedDateTime = "\(formattedDate) \(reponseTime)" // Append time
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = "MM/dd/yyyy"
+                dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+                if let date = dateFormatter.date(from: responseDate) {
+                    
+                    
+                    // Convert date to required format
+                    let outputFormatter = DateFormatter()
+                    outputFormatter.dateFormat = "yyyy-MM-dd" // Target format for date
+                    
+                    let formattedDate = outputFormatter.string(from: date)
+                    combinedDateTime = "\(formattedDate) \(reponseTime)" // Append time
 
-            }
+                }
 
-              // Call API with the updated medicineTaken value
-            callForMarkMedication(pmtId: pmtId, medicineTaken: medicineTaken, medicationdatetime: combinedDateTime)
-            
-          } else {
-              print("No scheduledTimes found for button: \(buttonType)")
-          }
-        
+                  // Call API with the updated medicineTaken value
+                callForMarkMedication(pmtId: pmtId, medicineTaken: medicineTaken, medicationdatetime: combinedDateTime)
+                
+              } else {
+                  print("No scheduledTimes found for button: \(buttonType)")
+              }
+        }
+   
     }
     
     func callForMarkMedication(pmtId: String, medicineTaken: String, medicationdatetime: String) {
