@@ -75,40 +75,52 @@ class MedicalAppointmentDetailsByDate: Codable {
 }
 
 class MedicalAppointmentDetails: Codable {
+    let appointmentId: Int
     let providerName: String
+    let patientName: String
     let hospitalName: String
     let dateAndTime: String
-    let contact: String
-    let address: String
+    let contact: String?
+    let address: String?
     let appointmentDetails: String
+    let alert: Int
     
     required init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.appointmentId = try container.decode(Int.self, forKey: .appointmentId)
         self.providerName = try container.decode(String.self, forKey: .providerName)
+        self.patientName = try container.decode(String.self, forKey: .patientName)
         self.hospitalName = try container.decode(String.self, forKey: .hospitalName)
         self.dateAndTime = try container.decode(String.self, forKey: .dateAndTime)
-        self.contact = try container.decode(String.self, forKey: .contact)
-        self.address = try container.decode(String.self, forKey: .address)
+        self.contact = try container.decodeIfPresent(String.self, forKey: .contact)
+        self.address = try container.decodeIfPresent(String.self, forKey: .address)
         self.appointmentDetails = try container.decode(String.self, forKey: .appointmentDetails)
+        self.alert = try container.decode(Int.self, forKey: .alert)
     }
     
     enum CodingKeys: String, CodingKey {
+        case appointmentId
         case providerName
+        case patientName
         case hospitalName
         case dateAndTime
         case contact
         case address
         case appointmentDetails
+        case alert
     }
     
     func encode(to encoder: any Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(self.appointmentId, forKey: .appointmentId)
         try container.encode(self.providerName, forKey: .providerName)
+        try container.encode(self.patientName, forKey: .patientName)
         try container.encode(self.hospitalName, forKey: .hospitalName)
         try container.encode(self.dateAndTime, forKey: .dateAndTime)
-        try container.encode(self.contact, forKey: .contact)
-        try container.encode(self.address, forKey: .address)
+        try container.encodeIfPresent(self.contact, forKey: .contact)
+        try container.encodeIfPresent(self.address, forKey: .address)
         try container.encode(self.appointmentDetails, forKey: .appointmentDetails)
+        try container.encode(self.alert, forKey: .alert)
     }
 }
 

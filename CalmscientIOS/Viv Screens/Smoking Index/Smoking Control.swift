@@ -15,6 +15,7 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var resourceTableView: UITableView!
+    var basicData2: [Course]?
     
     
     override func viewDidLoad() {
@@ -40,6 +41,9 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: true)
         }
+        
+        TakingControlData ()
+        
     }
     
     let data = [("Basic knowledge", UIImage(named: "check") ?? UIImage()), ("Make a plan", UIImage(named: "check") ?? UIImage()), ("Stay focused", UIImage(named: "check") ?? UIImage()), ("My progress", UIImage(named: "check") ?? UIImage())]
@@ -48,7 +52,7 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.tableView {
-            return data.count
+            return basicData2?.count ?? 0 //data.count
         } else if tableView == self.resourceTableView {
             return resourceData.count
         }
@@ -59,17 +63,28 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if tableView == self.tableView {
                   let cell = tableView.dequeueReusableCell(withIdentifier: "smokingBasicCell", for: indexPath) as! SmokingBasicIndexTableCell
+            
+                cell.selectionStyle = .none
                   
-                  let content = data[indexPath.row].0
-                  let image = data[indexPath.row].1
-                  
-                  cell.cellContentText.text = content
-                  if indexPath.row == 0 {
-                      cell.configureCell(isActive: true)
-                      cell.ticckImage.image = image
-                  } else {
-                      cell.configureCell(isActive: false)
-                  }
+            // Fetch course object
+            let course = basicData2?[indexPath.row]
+            
+            // Assign course name to cell text
+            cell.cellContentText.text = course?.courseName
+
+            // Set checkmark image based on completion status
+            if course?.isCompleted == 1 {
+                cell.ticckImage.image = UIImage(named: "check")
+            } else {
+                cell.ticckImage.image = nil
+            }
+
+            // Configure cell appearance for the first item
+            if indexPath.row == 0 {
+                cell.configureCell(isActive: true)
+            } else {
+                cell.configureCell(isActive: false)
+            }
                   
                   return cell
               } else if tableView == self.resourceTableView {
@@ -120,6 +135,66 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
         }
         
     }
+    
+    //MARK: - Basic Knowledge API Call
+    
+    func TakingControlData () {
+        
+        self.view.showToastActivity()
+        
+        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+            fatalError("Unable to found Application Shared Info")
+        }
+        
+        let params: [String: Any] = [
+            "plId": userInfo.patientLocationID,
+            "clientId": userInfo.clientID,
+            "patientId": userInfo.patientID,
+            "date": ""
+        ]
+
+        APIService.SGetTakingControlAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
+            self.getresponseforTakingControlAPI(response: response)
+        }
+        
+    }
+    
+    //MARK: - Basic Knowledge API Response
+    
+    func getresponseforTakingControlAPI(response: Any) {
+        
+        if let responseDict = response as? [String: Any],
+           let indexArray = responseDict["courseLists"] as? [[String: Any]] {
+            
+            print("Response from Smoking Taking Control API:", indexArray)
+            
+            do {
+                // Convert dictionary array to JSON data
+                let jsonData = try JSONSerialization.data(withJSONObject: indexArray, options: [])
+                
+                // Decode JSON data into an array of Course objects
+                let decodedCourses = try JSONDecoder().decode([Course].self, from: jsonData)
+                
+                // Assign the decoded courses to your variable
+                basicData2 = decodedCourses
+                
+            } catch {
+                print("Error decoding course list: \(error)")
+            }
+            
+        } else {
+            print("Unsupported response type:", type(of: response))
+        }
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                self.view.hideToastActivity()
+            }
+        }
+    }
+
     
 }
 

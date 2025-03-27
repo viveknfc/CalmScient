@@ -40,7 +40,15 @@ class ModerateDrinkingVC: ViewController {
     }
 
     @IBAction func completeButtonPressed(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+        let next = UIStoryboard(name: "Basicknowledge", bundle: nil)
+        if #available(iOS 16.0, *) {
+            let vc = next.instantiateViewController(withIdentifier: "Basicknowledge") as? Basicknowledge
+            vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
+            self.navigationController?.pushViewController(vc!, animated: true)
+        } else {
+            // Fallback on earlier versions
+        }
+
     }
     
 }

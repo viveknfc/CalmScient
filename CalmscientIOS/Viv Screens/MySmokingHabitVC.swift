@@ -12,6 +12,7 @@ class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var smokingTableView: UITableView!
     
     var selectedRowIndex : Int?
+    var sectionID6: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,10 +41,47 @@ class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSour
 
     
     @IBAction func yesButtonPressede(_ sender: Any) {
+        
+        guard let value = selectedRowIndex else {
+            return
+        }
+        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+            fatalError("Unable to found Application Shared Info")
+        }
+        
+        let params: [String: Any] = [
+                "patientId": userInfo.patientID,
+                "entry": data[selectedRowIndex ?? 0].0,
+                "plId": userInfo.patientLocationID,
+                "clientId": userInfo.clientID,
+                "entryType": "discovery_exercise"
+                // Add other necessary parameters here
+            ]
+
+        print("the Yes Button in My Smoking Habit API call params", params)
+        
+        self.view.showToastActivity()
+        
+        APIService.AddJournalAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") {  [self] response in
+            print(response)
+            self.view.hideToastActivity()
+            if let responseDict = response as? [String: Any],
+               let statusResponse = responseDict["statusResponse"] as? [String: Any],
+               let responseMessage = statusResponse["responseMessage"] as? String {
+                print(responseMessage)
+                self.showSuccessAlert(successContent: responseMessage, centreImage: nil, okButtonAction: {
+                    
+                })
+            }
+
+            
+        }
+        
     }
     
     
     @IBAction func completeButtonPresseed(_ sender: Any) {
+        completeButtonAPICall()
     }
     
     //MARK: - Table Delegate Methods
@@ -92,7 +130,40 @@ class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSour
         
     }
 
+    //MARK: - Complete Button API Call
     
+    func completeButtonAPICall() {
+        self.view.showToastActivity()
+        
+        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+            fatalError("Unable to found Application Shared Info")
+        }
+        
+        let params: [String: Any] = [
+            "isCompleted":1,
+            "patientId": userInfo.patientID,
+            "sectionId":sectionID6 ?? 0
+        ]
+
+        APIService.DUpdateBasicKAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
+            self.getresponseforBasicKnowAPI(response: response)
+        }
+    }
+    
+    //MARK: - Complete Button API Response
+    
+    func getresponseforBasicKnowAPI(response: Any) {
+        self.view.hideToastActivity()
+        
+        if let responseDict = response as? [String: Any] {
+            
+            print("Response from Basic standard complete button:", responseDict)
+            self.navigationController?.popViewController(animated: true)
+            
+        } else {
+            print("Unsupported response type:", type(of: response))
+        }
+    }
     
 
 

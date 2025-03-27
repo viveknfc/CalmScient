@@ -383,9 +383,6 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
             if #available(iOS 16.0, *) {
                 let vc = next.instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as? UserIntroDayFeedbackViewController
                 
-//                vc.titleString = "\(loginResponse.loginDetails.firstName)"
-//                UserDefaults.standard.set("\(loginResponse.loginDetails.firstName)", forKey: "titleString")
-                
                 vc?.title = languageId == 1 ? "Mental wellbeing tracker" : "Rastreador de bienestar mental"
                 vc?.hideSkipButton = true
                 self.navigationController?.pushViewController(vc!, animated: true)
@@ -415,16 +412,31 @@ extension HomeTabDashboardViewController : UICollectionViewDelegateFlowLayout, U
         
         let images = favorites[indexPath.row]
         
-        
         if let imageUrlString = images["thumbnailUrl"] as? String, let url = URL(string: imageUrlString) {
-            DispatchQueue.global().async {
-                if let data = try? Data(contentsOf: url) {
-                    DispatchQueue.main.async {
-                        cell.cellImageView.image = UIImage(data: data)
+            let config = URLSessionConfiguration.default
+            config.waitsForConnectivity = true // Ensures better network handling
+            let session = URLSession(configuration: config)
+
+            session.dataTask(with: url) { data, _, error in
+                if let data = data, error == nil, let image = UIImage(data: data) {
+                    DispatchQueue.main.async(qos: .userInitiated) {
+                        cell.cellImageView.image = image
                     }
                 }
-            }
+            }.resume()
         }
+
+
+        
+//        if let imageUrlString = images["thumbnailUrl"] as? String, let url = URL(string: imageUrlString) {
+//            DispatchQueue.global().async {
+//                if let data = try? Data(contentsOf: url) {
+//                    DispatchQueue.main.async {
+//                        cell.cellImageView.image = UIImage(data: data)
+//                    }
+//                }
+//            }
+//        }
         cell.titleLabel.text = images["title"] as? String
         
         // cell.cellImageView.image = UIImage(named: "HometabFavorites\(Int.random(in: 1...2))")

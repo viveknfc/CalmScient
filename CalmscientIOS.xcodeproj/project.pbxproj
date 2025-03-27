@@ -440,6 +440,7 @@
 		C20245E52D1EB02A001CBDDC /* TobacoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20245E42D1EB02A001CBDDC /* TobacoViewController.swift */; };
 		C20245E72D1EF40C001CBDDC /* VapingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20245E62D1EF40C001CBDDC /* VapingViewController.swift */; };
 		C20245E92D1F37B1001CBDDC /* SmokingRelaxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20245E82D1F37B1001CBDDC /* SmokingRelaxVC.swift */; };
+		C202E1ED2D931BE300DACB21 /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C202E1EC2D931BE300DACB21 /* LaunchScreenVC.swift */; };
 		C21BD59A2D2C44AC005BA00D /* KeyChainFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BD5992D2C44AB005BA00D /* KeyChainFile.swift */; };
 		C21BD59B2D2C48A7005BA00D /* Pods_CalmscientIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4269D638E194B1C11CF122B0 /* Pods_CalmscientIOS.framework */; };
 		C21BD59C2D2C48A7005BA00D /* Pods_CalmscientIOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4269D638E194B1C11CF122B0 /* Pods_CalmscientIOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -471,6 +472,7 @@
 		C26AA7B22CF8D75000F9A424 /* FontLM38.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26AA7B12CF8D75000F9A424 /* FontLM38.swift */; };
 		C26AA7B42CF8DF8800F9A424 /* FontLR18.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26AA7B32CF8DF8800F9A424 /* FontLR18.swift */; };
 		C26AA7B62CF8E0F900F9A424 /* FontLR15.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26AA7B52CF8E0F900F9A424 /* FontLR15.swift */; };
+		C26E59E32D8D405000CC2443 /* AppointmentLocationModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26E59E22D8D405000CC2443 /* AppointmentLocationModal.swift */; };
 		C275E3912D0212FD00E7513D /* ConSub5VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275E3902D0212FD00E7513D /* ConSub5VC.swift */; };
 		C2815F6D2D2C174B00B2A640 /* SuccessAlertVIew.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2815F6C2D2C174B00B2A640 /* SuccessAlertVIew.xib */; };
 		C2815F6F2D2C1A0900B2A640 /* SuccessAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2815F6E2D2C1A0900B2A640 /* SuccessAlertView.swift */; };
@@ -488,6 +490,7 @@
 		C298223C2D1329CA00541886 /* FullComingSoonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C298223B2D1329CA00541886 /* FullComingSoonVC.swift */; };
 		C298223E2D13405C00541886 /* FontLM25.swift in Sources */ = {isa = PBXBuildFile; fileRef = C298223D2D13405C00541886 /* FontLM25.swift */; };
 		C29822402D13426600541886 /* CapsuleButton2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C298223F2D13426600541886 /* CapsuleButton2.swift */; };
+		C29E597E2D9435020068FDD7 /* MyDrinkingHabitRefDoc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E597D2D9435020068FDD7 /* MyDrinkingHabitRefDoc.swift */; };
 		C2A293E52D2CFB2800666D25 /* NicotinCarvingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A293E42D2CFB2700666D25 /* NicotinCarvingVC.swift */; };
 		C2ADB3B82D1A68CC00157631 /* FontLR16.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADB3B72D1A68CC00157631 /* FontLR16.swift */; };
 		C2ADB3BA2D1A6AE800157631 /* ProfileTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADB3B92D1A6AE800157631 /* ProfileTextField.swift */; };
@@ -991,6 +994,7 @@
 		C20245E42D1EB02A001CBDDC /* TobacoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TobacoViewController.swift; sourceTree = "<group>"; };
 		C20245E62D1EF40C001CBDDC /* VapingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VapingViewController.swift; sourceTree = "<group>"; };
 		C20245E82D1F37B1001CBDDC /* SmokingRelaxVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokingRelaxVC.swift; sourceTree = "<group>"; };
+		C202E1EC2D931BE300DACB21 /* LaunchScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
 		C21BD5992D2C44AB005BA00D /* KeyChainFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainFile.swift; sourceTree = "<group>"; };
 		C226A5712D0844B40080397A /* HoldYourLiquorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldYourLiquorVC.swift; sourceTree = "<group>"; };
 		C226A5752D089AAA0080397A /* VivTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VivTableViewCell.xib; sourceTree = "<group>"; };
@@ -1020,6 +1024,7 @@
 		C26AA7B12CF8D75000F9A424 /* FontLM38.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLM38.swift; sourceTree = "<group>"; };
 		C26AA7B32CF8DF8800F9A424 /* FontLR18.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLR18.swift; sourceTree = "<group>"; };
 		C26AA7B52CF8E0F900F9A424 /* FontLR15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLR15.swift; sourceTree = "<group>"; };
+		C26E59E22D8D405000CC2443 /* AppointmentLocationModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentLocationModal.swift; sourceTree = "<group>"; };
 		C275E3902D0212FD00E7513D /* ConSub5VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConSub5VC.swift; sourceTree = "<group>"; };
 		C2815F6C2D2C174B00B2A640 /* SuccessAlertVIew.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuccessAlertVIew.xib; sourceTree = "<group>"; };
 		C2815F6E2D2C1A0900B2A640 /* SuccessAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessAlertView.swift; sourceTree = "<group>"; };
@@ -1037,6 +1042,7 @@
 		C298223B2D1329CA00541886 /* FullComingSoonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullComingSoonVC.swift; sourceTree = "<group>"; };
 		C298223D2D13405C00541886 /* FontLM25.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLM25.swift; sourceTree = "<group>"; };
 		C298223F2D13426600541886 /* CapsuleButton2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleButton2.swift; sourceTree = "<group>"; };
+		C29E597D2D9435020068FDD7 /* MyDrinkingHabitRefDoc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDrinkingHabitRefDoc.swift; sourceTree = "<group>"; };
 		C2A293E42D2CFB2700666D25 /* NicotinCarvingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicotinCarvingVC.swift; sourceTree = "<group>"; };
 		C2ADB3B72D1A68CC00157631 /* FontLR16.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLR16.swift; sourceTree = "<group>"; };
 		C2ADB3B92D1A6AE800157631 /* ProfileTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextField.swift; sourceTree = "<group>"; };
@@ -2500,6 +2506,8 @@
 				C2B94B122D6A1B11006C0D91 /* CapsuleButton3.swift */,
 				C2B8E9882D81694C003962A7 /* TextHighlighter.swift */,
 				C2E111CE2D89D81F00FF5358 /* FavouritesGeneralManager.swift */,
+				C26E59E22D8D405000CC2443 /* AppointmentLocationModal.swift */,
+				C202E1EC2D931BE300DACB21 /* LaunchScreenVC.swift */,
 			);
 			path = "General Class";
 			sourceTree = "<group>";
@@ -2553,6 +2561,7 @@
 				C2AEBC5A2D0C55D200B65DBB /* Modarate2VC.swift */,
 				C2AEBC5C2D0C5AF400B65DBB /* Modarate3VC.swift */,
 				C2AEBC5E2D0CB53400B65DBB /* Modarate4VC.swift */,
+				C29E597D2D9435020068FDD7 /* MyDrinkingHabitRefDoc.swift */,
 			);
 			path = "My Drinking Habit";
 			sourceTree = "<group>";
@@ -2908,6 +2917,7 @@
 				4A0853AB2C21684B00202C02 /* IntroductionPageController.swift in Sources */,
 				6BE9FE6D2C6F7C1800178B92 /* CustomViewController.swift in Sources */,
 				4A9A2EC22BF4CF6400E1DF74 /* Array+Extension.swift in Sources */,
+				C26E59E32D8D405000CC2443 /* AppointmentLocationModal.swift in Sources */,
 				4AD5D1112BD7A6A500E4C945 /* CustomCalender.swift in Sources */,
 				4A0853BE2C21684B00202C02 /* Discovery.swift in Sources */,
 				4A0853872C21684B00202C02 /* DrinkingHabbitController.swift in Sources */,
@@ -2967,7 +2977,9 @@
 				4A8044812BD91E370054A120 /* BottomSheetTimeAndAlarmVC.swift in Sources */,
 				4AFA67712BFA03B2001197C9 /* CourseAPICodables.swift in Sources */,
 				C2AEBC5B2D0C55D200B65DBB /* Modarate2VC.swift in Sources */,
+				C202E1ED2D931BE300DACB21 /* LaunchScreenVC.swift in Sources */,
 				43AB77592C64511C00740BA6 /* ExcercisesCell.swift in Sources */,
+				C29E597E2D9435020068FDD7 /* MyDrinkingHabitRefDoc.swift in Sources */,
 				C2B8E9872D81624B003962A7 /* DepressionnAnxietyVC.swift in Sources */,
 				4396C4EB2C2E8564000985A7 /* MonthsViewController.swift in Sources */,
 				4A6DCA2C2BE33DF600F2EB7C /* ImagePaddingTextField.swift in Sources */,

@@ -12,13 +12,14 @@ fileprivate enum EmptyOrMedicalAppointment {
     case medicalAppointment(MedicalAppointmentDetailsByDate)
 }
 
-class NextAppointmentsViewController: ViewController, CalendarToViewDelegate, NCalendarToViewDelegate {
+class NextAppointmentsViewController: ViewController, NCalendarToViewDelegate {
     func NcalendardidChangeBounds(newBounds: CGRect) {
         calenderHeightConstraint.constant = newBounds.height
     }
 
     func NuserSelectedNewDate(selectedDate: Date) {
         selectedNewDate = selectedDate
+        getMedicalAppointmentsData(forDate: selectedNewDate)
     }
     
 
@@ -29,7 +30,7 @@ class NextAppointmentsViewController: ViewController, CalendarToViewDelegate, NC
     private var selectedNewDate:Date = Date()
     private var isDataExistForSelectedDate:Bool = false
     private var userMedicalAppointments:[MedicalAppointmentDetailsList] = []
-    private var currentWeekList:[Date] = Date().datesOfCurrentWeek() ?? []
+    private var currentWeekList:[Date] = Date().nextSevenDays()
     private var medicalAppointmentsData:[EmptyOrMedicalAppointment] = []
     
     private let actionView = UIView()
@@ -40,28 +41,28 @@ class NextAppointmentsViewController: ViewController, CalendarToViewDelegate, NC
         nextAppointmentTableView.register(UINib(nibName: "AppointmentsEmptyTableViewCell", bundle: nil), forCellReuseIdentifier: "AppointmentsEmptyTableViewCell")
         nextAppointmentTableView.dataSource = self
         nextAppointmentTableView.delegate = self
+        nextAppointmentTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 150, right: 0)
         
-        getMedicalAppointmentsData(forDate: selectedNewDate)
-        // Do any additional setup after loading the view.
-        setupActionView()
+//        getMedicalAppointmentsData(forDate: selectedNewDate)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         selectedIndexPath = 0
         self.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Next appointments" : "Próximas citas"
-    }
-    
-    func calendardidChangeBounds(newBounds: CGRect) {
-        calenderHeightConstraint.constant = newBounds.height
-    }
-    
-    func userSelectedNewDate(selectedDate: Date) {
-        selectedNewDate = selectedDate
         getMedicalAppointmentsData(forDate: selectedNewDate)
     }
     
+//    func calendardidChangeBounds(newBounds: CGRect) {
+//        calenderHeightConstraint.constant = newBounds.height
+//    }
+//    
+//    func userSelectedNewDate(selectedDate: Date) {
+//        selectedNewDate = selectedDate
+//        getMedicalAppointmentsData(forDate: selectedNewDate)
+//    }
+    
     func getMedicalAppointmentsData(forDate:Date) {
-        currentWeekList = forDate.datesOfCurrentWeek() ?? []
+        currentWeekList = forDate.nextSevenDays()
         self.view.showToastActivity()
         var prepareRequestBodyParams:[String:Any] = [:]
         guard let loginResponse = ApplicationSharedInfo.shared.loginResponse else {
@@ -71,12 +72,12 @@ class NextAppointmentsViewController: ViewController, CalendarToViewDelegate, NC
         prepareRequestBodyParams["patientId"] = loginResponse.patientID
         prepareRequestBodyParams["clientId"] = loginResponse.clientID
         
-        let tomorrowDate = Date().getTomorrowDate()
-        prepareRequestBodyParams["fromDate"] = currentWeekList.first?.dateInMMDDYYYYFormat() ?? Date().dateInMMDDYYYYFormat()
-        prepareRequestBodyParams["toDate"] = currentWeekList.last?.dateInMMDDYYYYFormat() ?? Date().getTomorrowDate().dateInMMDDYYYYFormat()
+        let calendar = Calendar.current
+        let toDate = calendar.date(byAdding: .day, value: 6, to: Date())
 
-//        prepareRequestBodyParams["fromDate"] = Date().dateInMMDDYYYYFormat()
-//        prepareRequestBodyParams["toDate"] = tomorrowDate.dateInMMDDYYYYFormat()
+        prepareRequestBodyParams["fromDate"] = Date().dateInMMDDYYYYFormat()
+        prepareRequestBodyParams["toDate"] = toDate?.dateInMMDDYYYYFormat() ?? Date().dateInMMDDYYYYFormat()
+
         let questonariesRequest = GetUserMedicalAppointmentsRequestForm(prepareRequestBodyParams)
         guard let requestURL = questonariesRequest.getURLRequest() else {
             self.view.showToast(message: "An Unknown error occured. Please check with Admin")
@@ -139,35 +140,35 @@ extension NextAppointmentsViewController : UITableViewDataSource, UITableViewDel
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "AppointmentsEmptyTableViewCell", for: indexPath) as! AppointmentsEmptyTableViewCell
+        if #available(iOS 16.0, *) {
+            cell.delegate = self
+        } else {
+            // Fallback on earlier versions
+        }
+        cell.indexPath = indexPath
+        cell.selectionStyle = .none
         let instance = medicalAppointmentsData[indexPath.row]
-        cell.editDeletButton.tag = indexPath.row
-        /// below lines for testing purpose to know how the booked  appointmenrs will show ..we can edit once api create appointment api is ready
         
-        if (indexPath.row % 2) == 0 {
-            
             switch instance {
+                
             case .emptyAppointment(let dateInstance):
                 cell.dateLabel.text = dateInstance
                 cell.cellIconImageView.image = UIImage(named: "appointmentIcon")
-                cell.editDeletButton.setImage(UIImage(named: "MedicationsCellArrow"), for: .normal)
-               // UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "No appointments" : "Sin citas"
+                cell.forwardButton.isHidden = false
+                cell.forwardButton.setImage(UIImage(named: "MedicationsCellArrow"), for: .normal)
+                cell.editDeletButton.isHidden = true
                 cell.contentTextLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "No appointments" : "Sin citas"
+                
             case .medicalAppointment(let appointment):
-                cell.dateLabel.text = appointment.dateString
+                cell.dateLabel.text = appointment.appointmentDetails.dateAndTime.toFormattedDateString()
                 cell.cellIconImageView.image = UIImage(named: "doctorWithSteth")
-                cell.contentTextLabel.text = appointment.appointmentDetails.hospitalName
+                cell.editDeletButton.isHidden = false
+                cell.forwardButton.isHidden = true
+                cell.editDeletButton.setImage(UIImage(named: "seperatorIcon"), for: .normal)
+                cell.contentTextLabel.text = appointment.appointmentDetails.providerName
                 break
             }
-        }
-        else
-        {
-            cell.contentTextLabel.text = "Booked Appointment"
-            cell.cellIconImageView.image = UIImage(named: "UpcomingMedicalAppointmentsDoctor")
-            cell.editDeletButton.setImage(UIImage(named: "seperatorIcon"), for: .normal)
-            cell.editDeletButton.addTarget(self, action: #selector(editDeletBtnAction), for: .touchUpInside)
-        }
-        
-        cell.selectionStyle = .none
+
         return cell
     }
     
@@ -182,99 +183,163 @@ extension NextAppointmentsViewController : UITableViewDataSource, UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        let instance = medicalAppointmentsData[indexPath.row]
-//        switch instance {
-//        case .emptyAppointment(_):
-//           break
-//        case .medicalAppointment(let appointment):
-//            let next = UIStoryboard(name: "AppointmentDetailsVC", bundle: nil)
-//            let vc = next.instantiateViewController(withIdentifier: "AppointmentDetailsVC") as? AppointmentDetailsVC
-//            vc?.medicalAppointment = appointment
-//            self.navigationController?.pushViewController(vc!, animated: true)
-//        }
         
-        let next = UIStoryboard(name: "AppointmentDetailsVC", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "AppointmentDetailsVC") as? AppointmentDetailsVC
-//        vc?.medicalAppointment = appointment
-        self.navigationController?.pushViewController(vc!, animated: true)
+        print("row selected from did select")
+
+        let instance = medicalAppointmentsData[indexPath.row]
+        switch instance {
+        case .emptyAppointment(_):
+           break
+        case .medicalAppointment(let appointment):
+            let next = UIStoryboard(name: "AppointmentDetailsVC", bundle: nil)
+            let vc = next.instantiateViewController(withIdentifier: "AppointmentDetailsVC") as? AppointmentDetailsVC
+            vc?.medicalAppointment = appointment
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
        
     }
+
+}
+
+@available(iOS 16.0, *)
+extension NextAppointmentsViewController: CustomTableViewCellDelegate {
     
-    @objc func editDeletBtnAction(sender : UIButton) {
+    func didTapMoreButton(in cell: UITableViewCell, at indexPath: IndexPath, buttonFrame: CGRect) {
+
+        let buttonFrameInView = nextAppointmentTableView.convert(buttonFrame, to: self.view)
+        dismissDropdown()
+
+        // Create and position the dropdown
+        let dropdown = DropdownView()
+        dropdown.configure(with: cell)
+
+        // Adjust dropdown position relative to the cell
+        let dropdownWidth: CGFloat = 120
+        let dropdownHeight: CGFloat = 100
+        var dropdownX = buttonFrameInView.maxX - dropdownWidth
+        let dropdownY = buttonFrameInView.maxY + 8
+
+            if dropdownX < 0 {
+                dropdownX = 8 // Adjust to fit within screen, adding a small margin
+            }
+
+        dropdown.frame = CGRect(x: dropdownX, y: dropdownY, width: dropdownWidth, height: dropdownHeight)
+        dropdown.tag = 999 // To identify the dropdown later
+        self.view.addSubview(dropdown)
+
+        // Add tap gesture to dismiss dropdown
+        let overlay = UIView(frame: self.view.bounds)
+        overlay.backgroundColor = UIColor.clear
+        overlay.tag = 998
+        overlay.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissDropdown)))
+        self.view.insertSubview(overlay, belowSubview: dropdown)
+    }
+
+    @objc func dismissDropdown() {
+        self.view.viewWithTag(999)?.removeFromSuperview()
+        self.view.viewWithTag(998)?.removeFromSuperview()
+    }
+    
+    //MARK: - Edit Button Tapped
+    
+    func didTapEditButton(in cell: UITableViewCell) {
         
-//        actionView.frame.origin = CGPoint(x: sender.frame.maxX - 100, y: sender.frame.maxY + 5)
-//                    actionView.isHidden = false
-//                    
-//        print("Button tapped at row: \(sender.tag)")
-        selectedIndexPath = sender.tag
-        if let cell = sender.superview?.superview?.superview?.superview?.superview as? AppointmentsEmptyTableViewCell, let indexPath = nextAppointmentTableView.indexPath(for: cell) {
-                    let buttonFrame = sender.convert(sender.bounds, to: view) // Get button's position in the main view
-                    actionView.frame.origin = CGPoint(x: buttonFrame.maxX - 100, y: buttonFrame.maxY + 5)
-                    actionView.isHidden = false
+        if let indexPath = self.nextAppointmentTableView.indexPath(for: cell) {
+            print("Edit button tapped for row \(indexPath.row)")
+            
+            let instance = medicalAppointmentsData[indexPath.row]
+            let next = UIStoryboard(name: "AddNewAppointment", bundle: nil)
+            let vc = next.instantiateViewController(withIdentifier: "AddNewAppointmentViewController") as? AddNewAppointmentViewController
+            if case let .medicalAppointment(details) = instance {
+                vc?.forEditMedicalAppointmentsData = details
+                vc?.EditVc = true
+            } else {
+                vc?.forEditMedicalAppointmentsData = nil
+            }
+
+            self.navigationController?.pushViewController(vc!, animated: true)
+            
+            
+        }
+
+    }
+    
+    //MARK: - Delete Button Tapped
+    
+    func didTapDeleteButton(in cell: UITableViewCell) {
+        if let indexPath = self.nextAppointmentTableView.indexPath(for: cell) {
+            print("Delete button tapped for row \(indexPath.row)")
+            
+            
+            let alertController = UIAlertController(title: "Confirm Deletion",
+                                                            message: "Are you sure you want to delete this appointment?",
+                                                            preferredStyle: .alert)
                     
-                    print("Button tapped at row: \(indexPath.row)")
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            cancelAction.setValue(#colorLiteral(red: 0.431, green: 0.420, blue: 0.702, alpha: 1), forKey: "titleTextColor") // Hex: #6e6bb3
+                    let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+                        self.deleteAppointment(at: indexPath)
+                    }
+                    
+                    alertController.addAction(cancelAction)
+                    alertController.addAction(deleteAction)
+                    
+                    self.present(alertController, animated: true, completion: nil)
+            
+        }
+    }
+    
+    //MARK: - Delete Button API Call
+    
+    private func deleteAppointment(at indexPath: IndexPath) {
+        
+        let instance = medicalAppointmentsData[indexPath.row]
+        
+        if case let .medicalAppointment(details) = instance {
+                let iD = Int(details.appointmentDetails.appointmentId)
+                print("The ID is", iD)
+                let params: [String: Int] = ["appointmentId": iD]
+                
+                self.view.showToastActivity()
+                APIService.deleteAppointmentAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "url") { response in
+                    self.getresponsefordeleteAppointmentAPI(response: response)
                 }
+            
+
+        } else {
+
+        }
         
     }
     
+    //MARK: - Delete Button API Response
+    
+    func getresponsefordeleteAppointmentAPI(response:AnyObject)->() {
+        self.view.hideToastActivity()
+        if let responseString = response as? String {
+            print("Response received from delete Appointment API calling is", responseString)
+        } else if let responseDict = response as? [String: Any] {
+
+                if let responseMessage = responseDict["responseMessage"] as? String {
+                    
+                    print("Response Message:", responseMessage)
+                    self.view.showToast(message: responseMessage)
+                    
+                    getMedicalAppointmentsData(forDate: selectedNewDate)
+
+                       } else {
+                           print("Response Message not found or is not a string.")
+                       }
+
+        } else {
+            print("Unsupported response type:", type(of: response))
+        }
+
+    }
+    
+    func didTapTakenButton(in cell: UITableViewCell, buttonType: ButtonType) {
+        return
+    }
 
 }
 
-
-
-extension NextAppointmentsViewController {
-    
-    private func setupActionView() {
-           actionView.frame = CGRect(x: 0, y: 0, width: 100, height: 80)
-           actionView.backgroundColor = .white
-           actionView.layer.cornerRadius = 8
-           actionView.layer.shadowColor = UIColor.black.cgColor
-           actionView.layer.shadowOpacity = 0.3
-           actionView.layer.shadowOffset = CGSize(width: 0, height: 3)
-           actionView.layer.shadowRadius = 5
-           actionView.isHidden = true  // Initially hidden
-           
-        let editButton = UIButton(type: .custom)
-            editButton.setImage(UIImage(named: "editIcon"), for: .normal)
-            editButton.setTitle("  Edit    ", for: .normal)
-            editButton.setTitleColor(UIColor(named: "barColor1"), for: .normal)
-            editButton.addTarget(self, action: #selector(editTapped), for: .touchUpInside)
-           
-        let deleteButton = UIButton(type: .custom)
-            deleteButton.setImage(UIImage(named: "deleteIcon"), for: .normal)
-            deleteButton.setTitle("  Delete", for: .normal)
-            deleteButton.setTitleColor(UIColor(named: "barColor1"), for: .normal)
-            deleteButton.addTarget(self, action: #selector(deleteTapped), for: .touchUpInside)
-           
-           let stackView = UIStackView(arrangedSubviews: [editButton, deleteButton])
-           stackView.axis = .vertical
-           stackView.spacing = 10
-           stackView.alignment = .fill
-           stackView.distribution = .fillEqually
-           stackView.frame = CGRect(x: 10, y: 10, width: 80, height: 60)
-           
-           actionView.addSubview(stackView)
-           view.addSubview(actionView)
-           
-           let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideActionView))
-           view.addGestureRecognizer(tapGesture)
-       }
-       
-    @objc private func editTapped() {
-           print("Edit tapped")
-           hideActionView()
-        let next = UIStoryboard(name: "AddNewAppointment", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "AddNewAppointmentViewController") as? AddNewAppointmentViewController
-        self.navigationController?.pushViewController(vc!, animated: true)
-    
-       }
-       
-       @objc private func deleteTapped() {
-           print("Delete tapped")
-           hideActionView()
-       }
-       
-       @objc private func hideActionView() {
-           actionView.isHidden = true
-       }
-}

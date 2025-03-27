@@ -38,8 +38,7 @@ class WebViewLessonViewController: ViewController, WKNavigationDelegate, WKScrip
             [weak self] in
             self?.view.hideToastActivity()
         })
-        configureCustomBackButton()
-        configureRightButton()
+
         disableZoom()
         self.navigationController?.toolbar.isHidden = true
         // Do any additional setup after loading the view.
@@ -130,6 +129,8 @@ class WebViewLessonViewController: ViewController, WKNavigationDelegate, WKScrip
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        configureCustomBackButton()
+        configureRightButton()
         self.navigationController?.isNavigationBarHidden = false
     }
     
@@ -217,7 +218,20 @@ class WebViewLessonViewController: ViewController, WKNavigationDelegate, WKScrip
 //                    let vc = next.instantiateViewController(withIdentifier: "NeedToTalkViewController") as? NeedToTalkViewController
 //                    vc?.title = "Emergency resource"
 //                    self.navigationController?.pushViewController(vc!, animated: true)
-                } else {
+                } else if keyValuePair.key == "1008" {
+                    let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+                    let vc = next.instantiateViewController(withIdentifier: "TakingControlIndex") as? TakingControlIndex
+                    vc?.title = AppHelper.getLocalizeString(str: "Taking control")
+                    self.navigationController?.pushViewController(vc!, animated: true)
+                } else if keyValuePair.key == "1009" {
+                    let next = UIStoryboard(name: "CourseViewController", bundle: nil)
+                    let vc = next.instantiateViewController(withIdentifier: "CoursesViewController") as? CoursesViewController
+                    vc?.title =  UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "Changing your response to stress" : "Cambiando tu respuesta al estrés"
+                    vc?.courseID = 3
+                    self.navigationController?.pushViewController(vc!, animated: true)
+                }
+                
+                else {
                     self.navigationController?.isNavigationBarHidden = false
                 }
             }

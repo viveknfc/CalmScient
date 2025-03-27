@@ -118,11 +118,12 @@ extension MyDrinkingHabitVC {
                 "patientId": userInfo.patientID,
                 "entry": data[selectedRowIndex ?? 0].0,
                 "plId": userInfo.patientLocationID,
-                "clientId": userInfo.clientID
+                "clientId": userInfo.clientID,
+                "entryType": "discovery_exercise"
                 // Add other necessary parameters here
             ]
 
-        print("the add Journal API call params", params)
+        print("the Yes Button in My Drinking Habit API call params", params)
         
         self.view.showToastActivity()
         

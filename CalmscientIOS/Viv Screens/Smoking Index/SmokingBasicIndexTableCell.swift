@@ -26,7 +26,8 @@ class SmokingBasicIndexTableCell: UITableViewCell {
     
     func configureCell(isActive: Bool) {
         if isActive {
-            
+            self.cellContentText.textColor = #colorLiteral(red: 0.429181397, green: 0.4192816615, blue: 0.7016126513, alpha: 1)
+            self.outlineView.setBorderColor(#colorLiteral(red: 0.429181397, green: 0.4192816615, blue: 0.7016126513, alpha: 1))
         } else {
             self.cellContentText.textColor = .gray
             self.outlineView.setBorderColor(.gray)

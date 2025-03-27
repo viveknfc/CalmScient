@@ -25,6 +25,9 @@ class CoursesViewController: ViewController {
             // Fallback on earlier versions
         }
         setupTableView()
+        
+        setupRightBarButton()
+        
 //        getCoursesData()
         // Do any additional setup after loading the view.
     }
@@ -45,6 +48,26 @@ class CoursesViewController: ViewController {
         getCoursesData()
 
     }
+    
+    //MARK: - Right Nave bar Button
+    
+    func setupRightBarButton() {
+        let image = UIImage(named: "coursesRightButton")
+        let rightButton = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(rightBarButtonTapped))
+        
+        navigationItem.rightBarButtonItem = rightButton
+    }
+
+    @objc func rightBarButtonTapped() {
+        print("Right bar button tapped!")
+        let next = UIStoryboard(name: "GlossyController", bundle: nil)
+        let vc = next.instantiateViewController(withIdentifier: "GlossyController") as? GlossyController
+        vc?.title = "Glossary"
+        self.navigationController?.pushViewController(vc!, animated: true)
+        // Add your action here
+    }
+    
+    //END
     
     func getCoursesData() {
         guard let loginResponse = ApplicationSharedInfo.shared.loginResponse else {

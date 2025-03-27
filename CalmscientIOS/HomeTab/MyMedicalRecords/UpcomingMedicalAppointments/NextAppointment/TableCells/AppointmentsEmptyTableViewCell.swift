@@ -7,17 +7,26 @@
 
 import UIKit
 
-class AppointmentsEmptyTableViewCell: UITableViewCell {
+class AppointmentsEmptyTableViewCell: UITableViewCell, EditableCell {
 
     @IBOutlet weak var borderView: UIView!
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var contentTextLabel: UILabel!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var editDeletButton: UIButton!
+    
+    @IBOutlet weak var forwardButton: UIButton!
+    
     @IBOutlet weak var cellIconImageView: UIImageView!
+    
+    weak var delegate: CustomTableViewCellDelegate?
+    var indexPath: IndexPath?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         addShadowAndBorder()
+        self.clipsToBounds = false
+        self.layer.masksToBounds = false
         // Initialization code
     }
 
@@ -40,6 +49,16 @@ class AppointmentsEmptyTableViewCell: UITableViewCell {
         borderView.layer.borderWidth = 1
         borderView.layer.borderColor = UIColor(named: "AppViewBorderColor")?.cgColor
     }
+    
+    @IBAction func editDeleteButtonTapped(_ sender: UIButton) {
+        guard let tableView = self.superview as? UITableView,
+                      let indexPath = indexPath else { return }
+
+                // Convert the button's frame to the table view's coordinate system
+                let buttonFrame = sender.convert(sender.bounds, to: tableView)
+                delegate?.didTapMoreButton(in: self, at: indexPath, buttonFrame: buttonFrame)
+    }
+    
 
     
 }

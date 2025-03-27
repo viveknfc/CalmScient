@@ -19,9 +19,11 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
     
     @IBOutlet weak var phoneTF: UITextField!
     
-    @IBOutlet weak var newPwTF: ImagePaddingTextField!
+    @IBOutlet weak var oldPasswordTF: CustomTextField!
+    @IBOutlet weak var newPasswordTF: CustomTextField!
+    @IBOutlet weak var confirmPasswordTF: CustomTextField!
     
-    @IBOutlet weak var confirmPwTF: ImagePaddingTextField!
+    
     
     @IBOutlet weak var ContentView: UIView!
     @IBOutlet weak var phoneView: UIView!
@@ -126,6 +128,77 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
     }
 
     }
+    
+    //MARK: - Update Password Button Pressed
+    
+    @IBAction func updatePasswordButtonPressed(_ sender: Any) {
+        
+        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+            fatalError("Unable to found Application Shared Info")
+        }
+        
+        let userID = userInfo.userID
+        
+        guard let email = emailTF.text, !email.isEmpty else {
+            self.view.showToast(message: "Email is required.")
+            return
+        }
+
+        guard let oldPassword = oldPasswordTF.text, !oldPassword.isEmpty else {
+            self.view.showToast(message: "Old password is required.")
+            return
+        }
+
+        guard let newPassword = newPasswordTF.text, !newPassword.isEmpty else {
+            self.view.showToast(message: "New password is required.")
+            return
+        }
+
+        guard let confirmNewPassword = confirmPasswordTF.text, !confirmNewPassword.isEmpty else {
+            self.view.showToast(message: "Confirm password is required.")
+            return
+        }
+
+        guard newPassword == confirmNewPassword else {
+            self.view.showToast(message: "New password and confirm password must be the same.")
+            return
+        }
+
+        // Proceed with further processing if all validations pass
+
+        
+        let params: [String: Any] = ["emailId": email, "userId": userID, "oldPassword": oldPassword, "newPassword": newPassword, "confirmNewPassword": confirmNewPassword]
+        
+        self.view.showToastActivity()
+        APIService.updatePasswordAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
+            self.getresponseforUpdatePasswordAPI(response: response)
+        }
+        
+    }
+    
+    //MARK: - Update Password API Response
+    
+    func getresponseforUpdatePasswordAPI(response:AnyObject)->() {
+        self.view.hideToastActivity()
+        print("Response received from update password API calling is", response)
+        if let responseString = response as? String {
+            print("Response received from update password API calling is", responseString)
+        } else if let responseDict = response as? [String: Any] {
+
+                if let responseMessage = responseDict["responseMessage"] as? String {
+                    
+                    print("Response Message:", responseMessage)
+                    self.view.showToast(message: responseMessage)
+                    
+                       } else {
+                           print("Response Message not found or is not a string.")
+                       }
+
+        } else {
+            print("Unsupported response type:", type(of: response))
+        }
+    }
+    
     
     //MARK: - Phone TF format
     
@@ -303,8 +376,6 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
             "firstName": firstNameTextField.text ?? "",
             "lastName": lastNameTextfield.text ?? "",
             "email": emailTF.text ?? "",
-//            "password1": newPwTF.text ?? "",
-//            "password2": confirmPwTF.text ?? "",
             "phone": phoneTF.text ?? ""
         ]
         

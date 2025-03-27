@@ -47,6 +47,18 @@ public enum DayTimeValue:String, Comparable, Equatable {
 
 extension String {
     
+    func toFormattedDateString(inputFormat: String = "yyyy-MM-dd HH:mm:ss", outputFormat: String = "MM/dd/yyyy") -> String? {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = inputFormat
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        dateFormatter.timeZone = TimeZone.current
+        
+        if let date = dateFormatter.date(from: self) {
+            dateFormatter.dateFormat = outputFormat
+            return dateFormatter.string(from: date)
+        }
+        return nil
+    }
     
     //Format "YYYY-MM-DD"
     public func dateWithYYYYMMDDHighfenFormat() -> Date {

@@ -63,19 +63,32 @@ extension ProfileLanguageTableViewCell: UICollectionViewDelegateFlowLayout, UICo
         }
         let newData = languagesArray[indexPath.row]
         cell.langaugeLable.text = newData["languageName"] as? String
-//        cell.langaugeLable.textColor = (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ? UIColor(hex: "#424242") : .white
+        
         if let imageUrlString = newData["flagUrl"] as? String, let url = URL(string: imageUrlString) {
-            DispatchQueue.global().async {
-                if let data = try? Data(contentsOf: url) {
-                    DispatchQueue.main.async {
-                        cell.languageImage.image = UIImage(data: data)
-                        
+            let config = URLSessionConfiguration.default
+            config.waitsForConnectivity = true // Ensures better network handling
+            let session = URLSession(configuration: config)
+
+            session.dataTask(with: url) { data, _, error in
+                if let data = data, error == nil, let image = UIImage(data: data) {
+                    DispatchQueue.main.async(qos: .userInitiated) {
+                        cell.languageImage.image = image
                     }
                 }
-            }
+            }.resume()
         }
-//        cell.cellBackGroundView.layer.borderWidth = 1
-//        cell.cellBackGroundView.layer.borderColor = UIColor(red: 110/255, green: 107/255, blue: 179/255, alpha: 1).cgColor
+
+
+//        if let imageUrlString = newData["flagUrl"] as? String, let url = URL(string: imageUrlString) {
+//            DispatchQueue.global().async {
+//                if let data = try? Data(contentsOf: url) {
+//                    DispatchQueue.main.async {
+//                        cell.languageImage.image = UIImage(data: data)
+//                        
+//                    }
+//                }
+//            }
+//        }
         cell.cellBackGroundView.layer.cornerRadius = 10
         
         if let preferred = newData["preferred"] as? Int, preferred == 1 {

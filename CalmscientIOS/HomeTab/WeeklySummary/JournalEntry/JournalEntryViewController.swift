@@ -8,7 +8,7 @@
 import UIKit
 
 class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEntryEditViewActions, NewPickerViewDelegate, UISheetPresentationControllerDelegate {
-    func didSelectDate(_ date: Date, indexPath: IndexPath?) {
+    func didSelectDate(_ date: Date, indexPath: IndexPath?, isTimePicker: Bool) {
         let calendar = Calendar.current
         let resetDate = calendar.startOfDay(for: date)
         
@@ -704,6 +704,7 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
     @IBAction func discoveryButtonTapped(_ sender: Any) {
         buttonTag = 3
         journalTableView.register(UINib(nibName: "JournalEntryExpandedTableCell", bundle: nil), forCellReuseIdentifier: "JournalEntryExpandedTableCell")
+        journalTableView.register(UINib(nibName: "JournalEntryCollapsedTableCell", bundle: nil), forCellReuseIdentifier: "JournalEntryCollapsedTableCell")
         journalTableView.delegate = self
         journalTableView.dataSource = self
         journalTableView.reloadData()
@@ -841,7 +842,8 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
                 "patientId": userInfo.patientID,
                 "entry": updatedText,
                 "plId": userInfo.patientLocationID,
-                "clientId": userInfo.clientID
+                "clientId": userInfo.clientID,
+                "entryType": "daily_journal"
                 // Add other necessary parameters here
             ]
         
@@ -1047,6 +1049,7 @@ extension JournalEntryViewController : UITableViewDataSource,UITableViewDelegate
                 if let createdAt = event["entry"] as? String {
                     cell.journalTextLabel.text = createdAt
                 }
+                cell.bulletinLabel.text = ""
                 cell.cellExpansionClosure = { [weak self] shouldCollapse in
                     guard let self = self else { return }
                     if shouldCollapse {
@@ -1067,6 +1070,7 @@ extension JournalEntryViewController : UITableViewDataSource,UITableViewDelegate
                 if let createdAt = event["entry"] as? String {
                     cell.subTitleLabel.text = createdAt
                 }
+                
                 cell.cellExpansionClosure = { [weak self] shouldExpand in
                     guard let self = self else { return }
                     if shouldExpand {
@@ -1079,21 +1083,94 @@ extension JournalEntryViewController : UITableViewDataSource,UITableViewDelegate
 
         }
         else if buttonTag == 3 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: "JournalEntryExpandedTableCell", for: indexPath) as! JournalEntryExpandedTableCell
             
-            let event = filtereddiscoverData[indexPath.row]
-            
-            if let createdAt = event["createdAt"] as? String, let title = event["title"] as? String {
-                let createdAt1 = formatDateTime1(createdAt)
-                cell.titleLabel.text = ("\(createdAt1 ?? "") | \(title)")
-            }
+            //viv start
 
-           
-            if let createdAt = event["entry"] as? String {
-                cell.journalTextLabel.text = createdAt
+            if expandedIndexPaths.contains(indexPath) {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "JournalEntryExpandedTableCell", for: indexPath) as? JournalEntryExpandedTableCell else {
+                    return UITableViewCell()
+                }
+                
+                cell.selectionStyle = .none
+                let event = filtereddiscoverData[indexPath.row]
+                
+                if let eventName = event["createdAt"] as? String {
+                    cell.titleLabel.text = formatDateTime1(eventName)
+                }
+                
+                if let createdAt = event["entry"] as? String {
+                    cell.journalTextLabel.text = createdAt
+                }
+ 
+                // Set bullet points in bulletPointsLabel
+                if let entryTitle = event["entry"] as? String, let details = DrinkingData.shared[entryTitle]?.1 {
+ 
+                    // Create the bullet point text with proper indentation for wrapped lines
+                    let bulletPointText = details.map { "•  \($0)" }.joined(separator: "\n")
+                    
+                    // Create an NSMutableAttributedString
+                    let attributedString = NSMutableAttributedString(string: bulletPointText)
+                    
+                    // Define paragraph style to control line breaks and indentation
+                    let paragraphStyle = NSMutableParagraphStyle()
+                    paragraphStyle.lineSpacing = 4 // Adjust line spacing if necessary
+                    paragraphStyle.paragraphSpacing = 6
+                    paragraphStyle.firstLineHeadIndent = 0 // No indent for the first line
+                    paragraphStyle.headIndent = 15 // Indentation for wrapped lines (text after the bullet point)
+                    paragraphStyle.alignment = .left // Ensure text is aligned to the left
+                    
+                    // Apply the paragraph style to the entire text
+                    attributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSRange(location: 0, length: attributedString.length))
+                    
+                    cell.bulletinLabel.attributedText = attributedString
+                    cell.bulletinLabel.font = UIFont(name: "Lexend-Light", size: 14.0)
+                    cell.bulletinLabel.textColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+                    cell.bulletinLabel.isHidden = false
+
+                } else {
+                    
+                    cell.bulletinLabel.text = "" // Hide label if no bullet points
+                    cell.bulletinLabel.isHidden = true
+
+                }
+
+     
+                cell.cellExpansionClosure = { [weak self] shouldCollapse in
+                    guard let self = self else { return }
+                    if shouldCollapse {
+                        self.expandedIndexPaths.remove(indexPath)
+                    }
+
+                    tableView.reloadRows(at: [indexPath], with: .automatic)
+                    
+                }
+                
+                return cell
+            } else {
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: "JournalEntryCollapsedTableCell", for: indexPath) as? JournalEntryCollapsedTableCell else {
+                    return UITableViewCell()
+                }
+                
+                cell.selectionStyle = .none
+                let event = filtereddiscoverData[indexPath.row]
+                if let eventName = event["createdAt"] as? String {
+                    cell.titleLabel.text = formatDateTime1(eventName)
+                }
+                if let createdAt = event["entry"] as? String {
+                    cell.subTitleLabel.text = createdAt
+                }
+                cell.cellExpansionClosure = { [weak self] shouldExpand in
+                    guard let self = self else { return }
+                    if shouldExpand {
+                        self.expandedIndexPaths.insert(indexPath)
+                    }
+                    tableView.reloadRows(at: [indexPath], with: .automatic)
+                }
+                return cell
             }
-//            nomedications.text = filtereddiscoverData.count > 0 ?  "" :  "No data for this date"
-            return cell
+            
+            //END
+
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "quizTableViewCell", for: indexPath)
@@ -1122,16 +1199,15 @@ extension JournalEntryViewController : UITableViewDataSource,UITableViewDelegate
         }
         
         if buttonTag == 3{
-            let names = discoverData[indexPath.row] as [String : Any]
-            let newUrl = names["url"] as! String
-            let title = names["title"] as? String
-            print("newUrl===\(newUrl)")
             
-            let next = UIStoryboard(name: "FavoritesVideosWebViewController", bundle: nil)
-            let vc = next.instantiateViewController(withIdentifier: "FavoritesVideosWebViewController") as? FavoritesVideosWebViewController
-            vc?.favURL = newUrl
-            vc?.title = title
-            self.navigationController?.pushViewController(vc!, animated: true)
+            if expandedIndexPaths.contains(indexPath) {
+                   expandedIndexPaths.remove(indexPath)
+               } else {
+                   expandedIndexPaths.insert(indexPath)
+               }
+
+               tableView.reloadRows(at: [indexPath], with: .automatic)
+
         }
     }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -1148,7 +1224,14 @@ extension JournalEntryViewController : UITableViewDataSource,UITableViewDelegate
                     }
         }
         if buttonTag == 3 {
-            return 98
+            
+            if expandedIndexPaths.contains(indexPath) {
+                        // Dynamic height for expanded cell
+                        return UITableView.automaticDimension
+                    } else {
+                        // Fixed height for non-expanded cells
+                        return 98 // Replace with your fixed height
+                    }
         }
         return 150
        

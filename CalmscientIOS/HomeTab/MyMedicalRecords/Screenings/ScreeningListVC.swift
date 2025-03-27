@@ -45,6 +45,8 @@ class ScreeningListVC: ViewController {
         navigationItem.leftBarButtonItem = backBarButtonItem
         
         //end
+        
+        getScreeningData()
     }
     
     @objc func backButtonOverrideAction() {
@@ -55,13 +57,14 @@ class ScreeningListVC: ViewController {
         }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.view.showToastActivity()
+//        self.view.showToastActivity()
         self.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Screenings" : "Exámenes"
-        getScreeningData()
+        
         
     }
     
     func getScreeningData() {
+        self.view.showToastActivity()
         screeningData = []
         guard let requestURL = screeningRequest.getURLRequest() else {
             self.view.showToast(message: "An Unknown error occured. Please check with Admin")

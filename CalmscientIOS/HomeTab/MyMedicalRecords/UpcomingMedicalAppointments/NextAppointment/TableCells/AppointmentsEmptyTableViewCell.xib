@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -52,19 +52,29 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qpi-Jk-jB9">
-                                                <rect key="frame" x="378.66666666666669" y="18" width="8.3333333333333144" height="22"/>
+                                                <rect key="frame" x="374.66666666666669" y="18" width="8.3333333333333144" height="22"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="MedicationsCellArrow"/>
+                                                <connections>
+                                                    <action selector="editDeleteButtonTapped:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BNk-xe-0Kc"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hwi-C0-ANk">
+                                                <rect key="frame" x="374.66666666666669" y="18" width="8.3333333333333144" height="22"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" image="MedicationsCellArrow"/>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" name="NextAppointmentsCellBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="Qpi-Jk-jB9" secondAttribute="trailing" constant="8" id="9NE-km-2pR"/>
+                                            <constraint firstAttribute="trailing" secondItem="Qpi-Jk-jB9" secondAttribute="trailing" constant="12" id="9NE-km-2pR"/>
                                             <constraint firstItem="HCM-Pw-QkW" firstAttribute="centerY" secondItem="tHb-eO-DPh" secondAttribute="centerY" id="Eus-BY-iQa"/>
                                             <constraint firstItem="qzP-3e-JnW" firstAttribute="centerY" secondItem="HCM-Pw-QkW" secondAttribute="centerY" id="LXn-Xd-n9v"/>
                                             <constraint firstItem="Iak-kB-nwd" firstAttribute="centerY" secondItem="HCM-Pw-QkW" secondAttribute="centerY" id="RY9-wV-YGs"/>
                                             <constraint firstItem="HCM-Pw-QkW" firstAttribute="leading" secondItem="tHb-eO-DPh" secondAttribute="leading" constant="16" id="V7b-j9-evw"/>
                                             <constraint firstItem="qzP-3e-JnW" firstAttribute="leading" secondItem="HCM-Pw-QkW" secondAttribute="trailing" constant="8" id="fhe-zE-zpP"/>
+                                            <constraint firstAttribute="trailing" secondItem="Hwi-C0-ANk" secondAttribute="trailing" constant="12" id="q38-tm-B7B"/>
+                                            <constraint firstItem="Hwi-C0-ANk" firstAttribute="centerY" secondItem="tHb-eO-DPh" secondAttribute="centerY" id="wl7-bM-y80"/>
                                             <constraint firstItem="Qpi-Jk-jB9" firstAttribute="centerY" secondItem="tHb-eO-DPh" secondAttribute="centerY" id="xex-vM-xqk"/>
                                             <constraint firstItem="Iak-kB-nwd" firstAttribute="centerX" secondItem="HCM-Pw-QkW" secondAttribute="centerX" id="zLk-GF-si3"/>
                                         </constraints>
@@ -104,6 +114,7 @@
                 <outlet property="contentTextLabel" destination="qzP-3e-JnW" id="URI-pJ-g6V"/>
                 <outlet property="dateLabel" destination="z32-1q-pxJ" id="dPk-k3-LPb"/>
                 <outlet property="editDeletButton" destination="Qpi-Jk-jB9" id="LYn-vl-exz"/>
+                <outlet property="forwardButton" destination="Hwi-C0-ANk" id="mJe-Sb-vhc"/>
                 <outlet property="shadowView" destination="w10-8q-0Q0" id="pZk-2u-ZaH"/>
             </connections>
             <point key="canvasLocation" x="60.305343511450381" y="57.74647887323944"/>
@@ -123,7 +134,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBlueColor">
-            <color red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

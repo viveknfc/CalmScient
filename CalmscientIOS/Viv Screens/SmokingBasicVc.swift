@@ -24,6 +24,11 @@ class SmokingBasicVc: ViewController, UITableViewDelegate, UITableViewDataSource
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        getBasicKnowledgeQuestions ()
+    }
+    
     let data = ["What is tobacco?", "How is vaping safer than tobacco?", "Why does smoking seem to relax me?", "Why is it challenging to quit?", "How does smoking affect your mental health?", "My smoking habit"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -80,6 +85,44 @@ class SmokingBasicVc: ViewController, UITableViewDelegate, UITableViewDataSource
 
     @IBAction func completeButtonPressed(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    //MARK: - Basic Knowledge API Call
+    
+    func getBasicKnowledgeQuestions () {
+        
+        self.view.showToastActivity()
+        
+        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+            fatalError("Unable to found Application Shared Info")
+        }
+        
+        let params: [String: Any] = [
+            "plId": userInfo.patientLocationID,
+            "clientId": userInfo.clientID,
+        ]
+
+        APIService.SBasicKQAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
+            self.getresponseforBasicKnowAPI(response: response)
+        }
+        
+    }
+    
+    //MARK: - Basic Knowledge API Response
+    
+    func getresponseforBasicKnowAPI(response: Any) {
+        self.view.hideToastActivity()
+        
+        if let responseDict = response as? [String: Any],
+           let indexArray = responseDict["index"] as? [[String: Any]] {
+            
+            print("Response from Smoking Basic Knowledge API:", indexArray)
+//            basicData2 = indexArray
+            tableView.reloadData()
+            
+        } else {
+            print("Unsupported response type:", type(of: response))
+        }
     }
     
 

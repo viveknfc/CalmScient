@@ -23,6 +23,10 @@ class LoginVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var createAnAccountLabel: UILabel!
     var languageId : Int?
     var isFirstLaunch: Bool?
+    
+    var navController: UINavigationController?
+    let dateFormatter = DateFormatter()
+    var formattedDate: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,8 +42,8 @@ class LoginVC: UIViewController,UITextFieldDelegate {
        userNameTextField.text = "chandra.p@gmail.com"
        passwordTextField.text = "chandra@1234"
         
-//       userNameTextField.text = "ramesh@gmail.com"
-//       passwordTextField.text = "ramesh@123"
+//       userNameTextField.text = "jasmine69@gmail.com"
+//       passwordTextField.text = "Test@1234"
         
 //          userNameTextField.text = "sravanthi@gmail.com"
 //          passwordTextField.text = "sravanthi@1234"
@@ -70,10 +74,12 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         tapGesture.numberOfTapsRequired = 1
         self.forgotPasswordLabel.addGestureRecognizer(tapGesture)
         
-        self.createAnAccountLabel.isUserInteractionEnabled = true
-        let createAccountTapGesture = UITapGestureRecognizer(target: self, action: #selector(createAnAccountGesture(tapGestureRecognizer:)))
-        createAccountTapGesture.numberOfTapsRequired = 1
-        self.createAnAccountLabel.addGestureRecognizer(createAccountTapGesture)
+        self.createAnAccountLabel.isHidden = true
+        
+//        self.createAnAccountLabel.isUserInteractionEnabled = true
+//        let createAccountTapGesture = UITapGestureRecognizer(target: self, action: #selector(createAnAccountGesture(tapGestureRecognizer:)))
+//        createAccountTapGesture.numberOfTapsRequired = 1
+//        self.createAnAccountLabel.addGestureRecognizer(createAccountTapGesture)
         
         languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
         let termsAndConditions = (languageId == 0 ? 1 : languageId  ) == 1 ? "Accept Terms and Conditions" : "Aceptar Términos y Condiciones"
@@ -127,10 +133,6 @@ class LoginVC: UIViewController,UITextFieldDelegate {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.isHidden = true
-
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Specify the desired format
-
     }
     
     
@@ -180,7 +182,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
            }
         
         guard selectionButton.isSelected else {
-            self.view.showToast(message: "Please accept terms conditions")
+            self.view.showToast(message: "Accept Terms and Conditions")
             return
         }
         
@@ -236,7 +238,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
                             self.view.hideToastActivity()
                             self.view.showToast(message: loginResponse.statusResponse.responseMessage)
                         } else {
-                            self.view.hideToastActivity()
+
                             ApplicationSharedInfo.shared.loginResponse = loginResponse.loginDetails
                             ApplicationSharedInfo.shared.tokenResponse = loginResponse.tokenResponse
 
@@ -251,7 +253,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
                             
                             UserDefaultsHelper.saveLoginDetailsToUserDefaults(loginDetails: loginResponse.loginDetails, tokenResponse: loginResponse.tokenResponse)
                             
-                            var navController: UINavigationController?
+                            UserDefaults.standard.set("\(loginResponse.loginDetails.firstName)", forKey: "titleString")
                             
                             if !(self.isFirstLaunch ?? true) {
                                 
@@ -260,37 +262,22 @@ class LoginVC: UIViewController,UITextFieldDelegate {
                                 let storyboard = UIStoryboard(name: "UserRegistration", bundle: nil)
                                     let registrationViewController = storyboard.instantiateViewController(withIdentifier: "UserRegistrationViewController") as! UserRegistrationViewController
 
-                                    navController = UINavigationController(rootViewController: registrationViewController)
+                                self.navController = UINavigationController(rootViewController: registrationViewController)
                                 UserDefaults.standard.set(true, forKey: "isFirstLaunch")
+                                
+                                if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+                                    sceneDelegate.changeRootViewController(to: self.navController!)
+                                }
                                 
                             } else {
                                 
                                 print("this is not the first launch")
                                 
-                                if TimeZoneHelper.isTimeZoneChanged() {
-                                    print("Time zone has changed or saved time is outdated.")
-                                    let storyboard = UIStoryboard(name: "UserIntro", bundle: nil)
-                                        let homeViewController = storyboard.instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as! UserIntroDayFeedbackViewController
-                                    homeViewController.afternoonVC = true
-                                    homeViewController.titleString = "\(loginResponse.loginDetails.firstName)"
-                                    UserDefaults.standard.set("\(loginResponse.loginDetails.firstName)", forKey: "titleString")
-                                        // Wrap the home view controller in a navigation controller if needed
-                                        navController = UINavigationController(rootViewController: homeViewController)
-                                } else {
-                                    UserDefaults.standard.set("\(loginResponse.loginDetails.firstName)", forKey: "titleString")
-                                    print("Time zone remains the same.")
-                                    let storyboard = UIStoryboard(name: "AppTabBar", bundle: nil)
-                                        let homeViewController = storyboard.instantiateViewController(withIdentifier: "AppMainTabViewController") as! AppMainTabViewController
-                                    homeViewController.isInitalView = false
-                                    navController = UINavigationController(rootViewController: homeViewController)
-                                    navController?.navigationBar.isHidden = true
-                                }
+                                self.userStartUpAPICall ()
                                 
                             }
    
-                                if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
-                                    sceneDelegate.changeRootViewController(to: navController!)
-                                }
+
 
                         }
                     }
@@ -312,6 +299,111 @@ class LoginVC: UIViewController,UITextFieldDelegate {
             }
         }
         task.resume()
+    }
+    
+    //MARK: - User Start up API Call
+    
+    func userStartUpAPICall () {
+        
+        guard let loginResponse = ApplicationSharedInfo.shared.loginResponse else {
+            return
+        }
+        let plId = loginResponse.patientLocationID
+        let patientId = loginResponse.patientID
+        let clientId = loginResponse.clientID
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Specify the desired format
+        let currentDate = Date()
+        let formattedDate = dateFormatter.string(from: currentDate)
+        
+        let params: [String: Any] = ["patientLocationId": plId, "clientId": clientId, "patientId": patientId, "time": formattedDate]
+        
+        print("params for the user startup api is", params)
+
+        APIService.userStartUpAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
+            self.getresponseforUserStartUpAPI(response: response)
+        }
+        
+    }
+    
+    //MARK: - User Start Up API Response
+    
+    func getresponseforUserStartUpAPI(response:AnyObject)->() {
+        
+        self.view.hideToastActivity()
+
+        if let responseString = response as? String {
+            print("Response received from User Startup API calling is", responseString)
+            
+            // Show alert with retry button
+                   let alertController = UIAlertController(title: "Error",
+                                                           message: "Failed to fetch data. Would you like to retry?",
+                                                           preferredStyle: .alert)
+                   
+                   alertController.addAction(UIAlertAction(title: "Retry", style: .default, handler: { _ in
+                       // Call the API again or reload the view
+                       self.loginButton.sendActions(for: .touchUpInside)
+                   }))
+                   
+                   alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                   
+                   self.present(alertController, animated: true)
+            
+        } else if let responseDict = response as? [String: Any] {
+            
+            print("the response from user startup api is", responseDict)
+
+                if let responseMessage = responseDict["saved"] as? Int {
+                    
+                    if responseMessage != 1 {
+                        
+                        print("entering mood screen from startup api true")
+                        
+                        let storyboard = UIStoryboard(name: "UserIntro", bundle: nil)
+                            let homeViewController = storyboard.instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as! UserIntroDayFeedbackViewController
+                        homeViewController.afternoonVC = true
+                        if let titleString = UserDefaults.standard.string(forKey: "titleString") {
+                            homeViewController.titleString = titleString
+                        }
+
+                            // Wrap the home view controller in a navigation controller if needed
+                        self.navController = UINavigationController(rootViewController: homeViewController)
+                        
+                    } else {
+                        
+//                        if TimeZoneHelper.isTimeZoneChanged() {
+//                            print("Time zone has changed or saved time is outdated.")
+//                            let storyboard = UIStoryboard(name: "UserIntro", bundle: nil)
+//                                let homeViewController = storyboard.instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as! UserIntroDayFeedbackViewController
+//                            homeViewController.afternoonVC = true
+//                            if let titleString = UserDefaults.standard.string(forKey: "titleString") {
+//                                homeViewController.titleString = titleString
+//                            }
+//
+//                                // Wrap the home view controller in a navigation controller if needed
+//                            self.navController = UINavigationController(rootViewController: homeViewController)
+//                        } else {
+
+                            print("Time zone remains the same.")
+                            let storyboard = UIStoryboard(name: "AppTabBar", bundle: nil)
+                                let homeViewController = storyboard.instantiateViewController(withIdentifier: "AppMainTabViewController") as! AppMainTabViewController
+                            homeViewController.isInitalView = false
+                            self.navController = UINavigationController(rootViewController: homeViewController)
+                            self.navController?.navigationBar.isHidden = true
+//                        }
+                        
+                    }
+                    
+                    if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+                        sceneDelegate.changeRootViewController(to: self.navController!)
+                    }
+
+               } else {
+                   print("Response Message not found or is not a string.")
+               }
+
+        } else {
+            print("Unsupported response type:", type(of: response))
+        }
     }
 
     

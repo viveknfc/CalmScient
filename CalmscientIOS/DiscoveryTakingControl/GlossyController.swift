@@ -16,7 +16,7 @@ struct TermData1 {
     let summary1: String
 }
 
-class GlossyController: UIViewController,  UITableViewDataSource, UITableViewDelegate {
+class GlossyController: ViewController,  UITableViewDataSource, UITableViewDelegate {
     var selectedIndexPath: IndexPath?
 
     @IBOutlet weak var glossyTableview: UITableView!
@@ -110,12 +110,12 @@ class GlossyController: UIViewController,  UITableViewDataSource, UITableViewDel
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-            return termsData.count
+            return 1
         }
         
         // There is just one row in every section
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return 1
+            return termsData.count
         }
         
         // Set the spacing between sections

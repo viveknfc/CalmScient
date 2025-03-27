@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="lexendregular.ttf">
+        <array key="Lexend-Regular.ttf">
             <string>Lexend-Regular</string>
         </array>
     </customFonts>
@@ -234,6 +234,9 @@
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Update Password"/>
+                                                        <connections>
+                                                            <action selector="updatePasswordButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="v5k-pD-avP"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -307,6 +310,7 @@
                     </view>
                     <connections>
                         <outlet property="ContentView" destination="ZAX-C7-eOS" id="EVe-Jk-Fv3"/>
+                        <outlet property="confirmPasswordTF" destination="jZ8-LW-us2" id="6R1-Ox-tYv"/>
                         <outlet property="emailLabel" destination="WUG-YJ-xOp" id="PiD-Op-dCT"/>
                         <outlet property="emailTF" destination="HHV-pb-w9D" id="qHi-SC-hY4"/>
                         <outlet property="emailView" destination="JTN-Dd-FRU" id="AzN-mr-j7p"/>
@@ -316,6 +320,8 @@
                         <outlet property="lastName" destination="sxB-JY-gCq" id="9Fw-Bh-Ndv"/>
                         <outlet property="lastNameTextfield" destination="4CJ-LB-2TO" id="dIN-Ta-pCw"/>
                         <outlet property="lastView" destination="sKo-ys-Lpf" id="yH5-Gf-RQC"/>
+                        <outlet property="newPasswordTF" destination="Jm6-pL-PyP" id="3gA-4z-2lp"/>
+                        <outlet property="oldPasswordTF" destination="kHA-D6-q2q" id="GiE-xA-MEb"/>
                         <outlet property="phoneLabel" destination="zMA-Mb-DHm" id="6RN-GW-C7e"/>
                         <outlet property="phoneTF" destination="00a-w0-A0Z" id="0WE-Cd-CqW"/>
                         <outlet property="phoneView" destination="p1H-Gf-avA" id="YLh-pV-kXt"/>

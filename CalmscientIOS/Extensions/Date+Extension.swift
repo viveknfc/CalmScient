@@ -9,6 +9,11 @@ import Foundation
 
 extension Date {
     
+    func nextSevenDays() -> [Date] {
+            let calendar = Calendar.current
+            return (0..<7).compactMap { calendar.date(byAdding: .day, value: $0, to: self) }
+        }
+    
     func getStartAndEndOfWeek() -> (start: Date, end: Date) {
         let calendar = Calendar.current
         let today = Date()

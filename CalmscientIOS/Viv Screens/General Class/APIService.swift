@@ -26,8 +26,37 @@ class APIService: UIViewController {
     static var GetTakingControlIndex = "patients/api/v1/takingControl/getTakingControlIndex"
     static var CreateDrinkTracking = "patients/api/v1/alcohol/createDrinkTracking"
     
+    static var DeleteeAppointment = "patients/api/v1/appointments/deactivate"
+    static var EditAppointment = "patients/api/v1/appointments/update"
+    static var SaveAppointment = "patients/api/v1/appointments/create"
+    static var LocationDetails = "identity/api/v1/location/getLocationList"
+    static var ProviderDetails = "identity/api/v1/location/getAllProviders"
+    
+    static var UserStartUpScreen = "patients/api/v1/patientDetails/hasSavedStartupScreen"
+    static var updatePassword = "identity/api/v1/settings/changePasswordForMob"
+    
+    static var DBasicKnowledgeQuestions = "patients/api/v1/takingControl/getBasicKnowledgeIndex"
+    static var DUpdateBasicKnowledge = "patients/api/v1/takingControl/updateBasicKnowledgeIndex"
+    
+    static var SGetTakingControlIndex = "patients/api/v1/smokingcontrol/getTakingControlIndex"
+    static var SBasicKnowledgeQuestions = "patients/api/v1/smokingcontrol/getBasicKnowledgeIndex"
+    
 
-
+    //MARK: - user StartUp API Calling
+    
+    static func userStartUpAPICalling(_ view:UIViewController?,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.UserStartUpScreen
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
+    //MARK: - Update Password API Calling
+    
+    static func updatePasswordAPICalling(_ view:UIViewController?,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.updatePassword
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+    }
 
     //MARK: - Refresh API Calling
     
@@ -42,6 +71,78 @@ class APIService: UIViewController {
     static func deletMedicationAPICalling(_ view:UIViewController,params:[String:Int],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.DeleteMedication
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
+    //MARK: - Delete Appointment
+    
+    static func deleteAppointmentAPICalling(_ view:UIViewController,params:[String:Int],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.DeleteeAppointment
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
+    //MARK: - Edit Appointment
+    
+    static func editSaveAppointmentAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.EditAppointment
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
+    //MARK: - Save Appointment
+    
+    static func SaveAppointmentAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.SaveAppointment
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
+    //MARK: - Smoking Get Taking COntrol
+    
+    static func SGetTakingControlAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.SGetTakingControlIndex
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
+    //MARK: - Smoking Basic Know Question
+    
+    static func SBasicKQAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.SBasicKnowledgeQuestions
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
+    //MARK: - Drinking Basic Know Question
+    
+    static func DBasicKQAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.DBasicKnowledgeQuestions
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
+    //MARK: - Drinking Update Basic Know
+    
+    static func DUpdateBasicKAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.DUpdateBasicKnowledge
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
+    //MARK: - Get Location Details in Appointment
+    
+    static func LocationDetailsAPICalling(_ view:UIViewController,params:[String:Int],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.LocationDetails
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
+    //MARK: - Get Provider Details in Appointment
+    
+    static func ProviderDetailsAPICalling(_ view:UIViewController,params:[String:Int],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.ProviderDetails
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
     }
     

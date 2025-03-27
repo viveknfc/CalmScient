@@ -34,33 +34,64 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         if (UserDefaults.standard.value(forKey: "rememberMe") as? Int == 1) {
             print("remember Me pressed before")
-            checkForSavedLogin()
             
-            if TimeZoneHelper.isTimeZoneChanged() {
-                print("Time zone has changed or saved time is outdated.")
-                
-                guard let windowScene = (scene as? UIWindowScene) else { return }
-                window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-                window?.windowScene = windowScene
-                let homeController = UIStoryboard(name: "UserIntro", bundle: nil).instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as! UserIntroDayFeedbackViewController
-                let navC = UINavigationController(rootViewController: homeController)
-                window?.rootViewController = navC
+            guard let windowScene = scene as? UIWindowScene else { return }
+
+            // Initialize the window
+            window = UIWindow(windowScene: windowScene)
+            let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
+            if let splashVC = storyboard.instantiateViewController(withIdentifier: "LaunchScreenVC") as? LaunchScreenVC {
+                window?.rootViewController = splashVC
                 window?.makeKeyAndVisible()
-                
+                print("✅ Splash screen loaded from TakingControl storyboard")
             } else {
-                print("Time zone remains the same.")
-                
-                guard let windowScene = (scene as? UIWindowScene) else { return }
-                window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-                window?.windowScene = windowScene
-                let homeController = UIStoryboard(name: "AppTabBar", bundle: nil).instantiateViewController(withIdentifier: "AppMainTabViewController") as! AppMainTabViewController
-                homeController.isInitalView = false
-                let navC = UINavigationController(rootViewController: homeController)
-                navC.navigationBar.isHidden = true
-                window?.rootViewController = navC
-                window?.makeKeyAndVisible()
-                
+                print("❌ Failed to load SplashViewController")
+                return
             }
+
+            print("Splash screen is set as rootViewController")
+            
+            let (loginDetails, tokenResponse) = UserDefaultsHelper.retrieveLoginDetailsFromUserDefaults()
+
+            if let loginDetails = loginDetails, let tokenResponse = tokenResponse {
+                // Populate shared info
+                ApplicationSharedInfo.shared.loginResponse = loginDetails
+                ApplicationSharedInfo.shared.tokenResponse = tokenResponse
+
+                    self.userStartUpAPICall()
+                
+
+            }
+            else {
+                // If no login details are found, navigate to Login screen
+                navigateToLogin()
+            }
+            
+//            if TimeZoneHelper.isTimeZoneChanged() {
+//                print("Time zone has changed or saved time is outdated.")
+//                
+//                guard let windowScene = (scene as? UIWindowScene) else { return }
+//                window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+//                window?.windowScene = windowScene
+//                let homeController = UIStoryboard(name: "UserIntro", bundle: nil).instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as! UserIntroDayFeedbackViewController
+//                let navC = UINavigationController(rootViewController: homeController)
+//                window?.rootViewController = navC
+//                window?.makeKeyAndVisible()
+//                
+//            } else {
+//                print("Time zone remains the same.")
+//                
+//                guard let windowScene = (scene as? UIWindowScene) else { return }
+//                window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+//                window?.windowScene = windowScene
+//                let homeController = UIStoryboard(name: "AppTabBar", bundle: nil).instantiateViewController(withIdentifier: "AppMainTabViewController") as! AppMainTabViewController
+//                homeController.isInitalView = false
+//                let navC = UINavigationController(rootViewController: homeController)
+//                navC.navigationBar.isHidden = true
+//                window?.rootViewController = navC
+//                window?.makeKeyAndVisible()
+//                
+//            }
                  
         } else {
             guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -81,6 +112,64 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     }
+    
+    //MARK: - First API Call if remember ME
+    
+    func userStartUpAPICall() {
+        
+        guard let loginResponse = ApplicationSharedInfo.shared.loginResponse,
+              let tokenResponse = ApplicationSharedInfo.shared.tokenResponse else {
+            print("No login details found, navigating to login screen.")
+            DispatchQueue.main.async {
+                self.navigateToLogin()
+            }
+            return
+        }
+
+        
+        let plId = loginResponse.patientLocationID
+        let patientId = loginResponse.patientID
+        let clientId = loginResponse.clientID
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let formattedDate = dateFormatter.string(from: Date())
+
+        let params: [String: Any] = [
+            "patientLocationId": plId,
+            "clientId": clientId,
+            "patientId": patientId,
+            "time": formattedDate
+        ]
+
+        print("Params for user startup API from scene delegate is :", params)
+        
+        if let rootVC = window?.rootViewController {
+            APIService.userStartUpAPICalling(rootVC, params: params, method: "POST", accessToken: tokenResponse.accessToken, acces: false, parameterPlacement: "body") { response in
+                DispatchQueue.main.async {
+                    self.handleUserStartUpResponse(response: response as! [String : Any])
+                }
+            }
+        }
+
+    }
+    
+    //MARK: - User Mood Screen if Remember Me Response
+    
+    func handleUserStartUpResponse(response: [String: Any]) {
+        print("the responsae from startup is", response)
+        guard let responseMessage = response["saved"] as? Int else {
+            print("Invalid response, navigating to default screen.")
+            navigateToLogin()
+            return
+        }
+
+        if responseMessage == 0 {
+            navigateToUserIntro()
+        } else {
+            navigateToDashboard()
+        }
+    }
+
     
     func checkForSavedLogin() {
         let (loginDetails, tokenResponse) = UserDefaultsHelper.retrieveLoginDetailsFromUserDefaults()
@@ -117,20 +206,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to undo the changes made on entering the background. 
         
         print("coming from background")
-        checkForSavedLogin()
-        
-        let (loginDetails, _) = UserDefaultsHelper.retrieveLoginDetailsFromUserDefaults()
-        
-        if ((loginDetails?.email.isEmpty) == nil) {
-            print("login details are empty")
-        } else {
-            print("Returning to foreground - Checking timezone condition")
-            
-            if TimeZoneHelper.isTimeZoneChanged() {
-                print("Time zone has changed. Navigating to UserIntroDayFeedbackViewController")
-                navigateToUserIntro()
-            }
-        }
+//        checkForSavedLogin()
+//            
+////            if TimeZoneHelper.isTimeZoneChanged() {
+////                print("Time zone has changed. Navigating to UserIntroDayFeedbackViewController")
+//////                navigateToUserIntro()
+////            }
+//        }
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
@@ -152,14 +234,90 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             UIView.transition(with: window, duration: 0.5, options: options, animations: nil, completion: nil)
         }
     
+//    private func navigateToUserIntro() {
+//        guard let windowScene = (UIApplication.shared.connectedScenes.first as? UIWindowScene) else { return }
+//        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+//        window?.windowScene = windowScene
+//        let homeController = UIStoryboard(name: "UserIntro", bundle: nil).instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as! UserIntroDayFeedbackViewController
+//        let navC = UINavigationController(rootViewController: homeController)
+//        window?.rootViewController = navC
+//        window?.makeKeyAndVisible()
+//    }
+    
     private func navigateToUserIntro() {
-        guard let windowScene = (UIApplication.shared.connectedScenes.first as? UIWindowScene) else { return }
-        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-        window?.windowScene = windowScene
-        let homeController = UIStoryboard(name: "UserIntro", bundle: nil).instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as! UserIntroDayFeedbackViewController
-        let navC = UINavigationController(rootViewController: homeController)
-        window?.rootViewController = navC
-        window?.makeKeyAndVisible()
+        guard let window = self.window else {
+            print("❌ Window is nil, cannot navigate to User Intro")
+            return
+        }
+
+        let storyboard = UIStoryboard(name: "UserIntro", bundle: nil)
+        if let homeController = storyboard.instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as? UserIntroDayFeedbackViewController {
+            
+            let navC = UINavigationController(rootViewController: homeController)
+
+            // ✅ Smooth transition from splash screen to User Intro
+            UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
+                window.rootViewController = navC
+            })
+        } else {
+            print("❌ Failed to load UserIntroDayFeedbackViewController")
+        }
+    }
+
+    
+//    private func navigateToLogin() {
+//        guard let windowScene = (UIApplication.shared.connectedScenes.first as? UIWindowScene) else { return }
+//        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+//        window?.windowScene = windowScene
+//        let homeController = UIStoryboard(name: "LoginVC", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+//        let navC = UINavigationController(rootViewController: homeController)
+//        navC.navigationBar.isHidden = true
+//        window?.rootViewController = navC
+//        window?.makeKeyAndVisible()
+//    }
+    
+    private func navigateToLogin() {
+        guard let window = self.window else {
+            print("❌ Window is nil, cannot navigate to Login")
+            return
+        }
+
+        let storyboard = UIStoryboard(name: "LoginVC", bundle: nil)
+        if let homeController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC {
+            
+            let navC = UINavigationController(rootViewController: homeController)
+            navC.navigationBar.isHidden = true
+
+            // ✅ Smooth transition to Login screen
+            UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
+                window.rootViewController = navC
+            })
+        } else {
+            print("❌ Failed to load LoginVC")
+        }
+    }
+
+    
+    private func navigateToDashboard() {
+        guard let window = self.window else {
+            print("❌ Window is nil, cannot navigate to dashboard")
+            return
+        }
+
+        let storyboard = UIStoryboard(name: "AppTabBar", bundle: nil)
+        if let homeController = storyboard.instantiateViewController(withIdentifier: "AppMainTabViewController") as? AppMainTabViewController {
+            
+            homeController.isInitalView = false
+            let navC = UINavigationController(rootViewController: homeController)
+            navC.navigationBar.isHidden = true
+
+            // ✅ Smooth transition from splash screen to dashboard
+            UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
+                window.rootViewController = navC
+            })
+        } else {
+            print("❌ Failed to load AppMainTabViewController")
+        }
     }
 
     

@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol EditableCell: AnyObject {
+    var delegate: CustomTableViewCellDelegate? { get }
+}
+
 protocol CustomTableViewCellDelegate: AnyObject {
     func didTapEditButton(in cell: UITableViewCell)
     func didTapDeleteButton(in cell: UITableViewCell)
@@ -31,7 +35,7 @@ enum ButtonType {
         }
 }
 
-class UserMedicationsTableCell: UITableViewCell {
+class UserMedicationsTableCell: UITableViewCell, EditableCell {
 
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var borderView: UIView!

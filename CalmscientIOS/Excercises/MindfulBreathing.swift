@@ -163,6 +163,7 @@ class MindfulBreathing: ViewController {
         navigationItem.leftBarButtonItem = backBarButtonItem
         
         //end
+
     }
     
     @objc func backButtonOverrideAction() {
@@ -242,16 +243,16 @@ class MindfulBreathing: ViewController {
             isPlaying.toggle()
     }
     
-    @objc func maximiseTapped(tapGestureRecognizer: UITapGestureRecognizer)
-    {
-        
-        guard let player = player else { return }
-        avController.modalPresentationStyle = .fullScreen
-        avController.player = player
-        present(avController, animated: true) {
-            player.play()
+        @objc func maximiseTapped(tapGestureRecognizer: UITapGestureRecognizer)
+        {
+            
+            guard let player = player else { return }
+            avController.modalPresentationStyle = .fullScreen
+            avController.player = player
+            present(avController, animated: true) {
+                player.play()
+            }
         }
-    }
     
     func designWidgetsSetup(){
        
@@ -417,3 +418,4 @@ class MindfulBreathing: ViewController {
     
 
 }
+

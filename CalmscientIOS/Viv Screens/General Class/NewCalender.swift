@@ -142,7 +142,7 @@ class NewCalender : UIView, UISheetPresentationControllerDelegate, NewPickerView
 
     }
     
-    func didSelectDate(_ date: Date, indexPath: IndexPath?) {
+    func didSelectDate(_ date: Date, indexPath: IndexPath?, isTimePicker: Bool) {
         self.customCalender.setCurrentPage(date, animated: true) // Update the calendar
         self.customCalender.select(date, scrollToDate: true)
         self.calendarToViewDelegate?.NuserSelectedNewDate(selectedDate: convertToLocalTimeZone(date: date))

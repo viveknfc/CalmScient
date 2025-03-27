@@ -7,32 +7,36 @@
 
 import UIKit
 
-class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UISheetPresentationControllerDelegate {
- 
+class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UISheetPresentationControllerDelegate, UIGestureRecognizerDelegate {
     
-    func didSelectDate(_ date: Date, indexPath: IndexPath?) {
-        let calendar = Calendar.current
-        let resetDate = calendar.startOfDay(for: date)
-        
-        // Format the selected date as a string
+    var forEditMedicalAppointmentsData: MedicalAppointmentDetailsByDate?
+    var EditVc: Bool?
+    var params: [String: Any] = [:]
+    
+    func didSelectDate(_ date: Date, indexPath: IndexPath?, isTimePicker: Bool) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
-        
-        dateFormatter.locale = Locale(identifier: "en_US")  // Set the locale
+        dateFormatter.locale = Locale(identifier: "en_US")
         dateFormatter.timeZone = TimeZone.current
-
-        let formattedDate = dateFormatter.string(from: resetDate)
-        print("The formatted date is:", formattedDate)
-        self.dateTF.text = formattedDate
-        print("The selected date is:", date)        
+        
+        if isTimePicker {
+            // Format time and update timeTF
+            dateFormatter.dateFormat = "hh:mm a"  // Example: "10:30 AM"
+            let formattedTime = dateFormatter.string(from: date)
+            self.timeTF.text = formattedTime
+            print("The selected time is:", formattedTime)
+        } else {
+            // Format date and update dateTF
+            dateFormatter.dateFormat = "MM/dd/yyyy"  // Example: "08/22/2024"
+            let formattedDate = dateFormatter.string(from: date)
+            self.dateTF.text = formattedDate
+            print("The selected date is:", formattedDate)
+        }
     }
     
     func didDismissPicker() {
         
     }
-    
-   
-    
+ 
     @IBOutlet weak var appointmentStackVW : UIStackView!
     @IBOutlet weak var patientNameTF : UITextField!
     @IBOutlet weak var patientNameVW : UIView!
@@ -45,26 +49,299 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
     @IBOutlet weak var descriptionTV : UITextView!
     @IBOutlet weak var notificationBtn : UIButton!
     
-    var inPutTextField = UITextField()
-    
-    private let appointmentsTB = UITableView()
-    private let data = ["Kevin", "Hyderabad", "Cherry", "Date", "Elderberry"]
-    private var filteredData = ["Kevin", "Hyderabad", "Cherry", "Date", "Elderberry"]
-    var appointmentsTBTop = 0.0
+    let dropdownTableView = UITableView()
+    var locationData: [LocationDetail] = [] // Holds all locations from API
+    var providerData: [ProviderDetail] = []
+
+    var filteredItems: [String] = []
+    var filteredID: [Int] = []
     
     let placeholderText = "Description"
     
+    var appointmentId = Int()
+    var patientLocationId = Int()
+    var patientId = Int()
+    var clientId = Int()
+    var providerFirstName = String()
+    var providerLastName = String()
+    var providerId: Int? = nil  // Can be an Int or nil
+    var locationId: Int? = nil  // Can be an Int or nil
+    var locationName = String()
+    var appointmentDateTime = String()
+    var itemDescription = String()
+    var dateTimeforParam = String()
+    var alert = Int()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Add Appointment"
+        self.title = EditVc ?? false ? "Edit Appointment" : "Add Appointment"
         descriptionTV.text = placeholderText
         descriptionTV.textColor = UIColor.lightGray
         descriptionTV.delegate = self
         
-        setUpTextFields()
-        setupTableView()
+        setupDropdownTable()
+
+        patientNameTF.isUserInteractionEnabled = false
+        patientNameTF.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        patientNameTF.text = UserDefaults.standard.string(forKey: "titleString")
+
+        dropdownTableView.isHidden = true  // Hide initially
+        providerNameTF.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        locationTF.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
+        providerNameTF.delegate = self
+        locationTF.delegate = self
+        
+        // ✅ Add tap gesture recognizer to dismiss dropdown when tapping outside
+        let tapGesture = UITapGestureRecognizer(target: self, action: nil)
+        tapGesture.cancelsTouchesInView = false
+        tapGesture.delegate = self
+        view.addGestureRecognizer(tapGesture)
+        
+        guard let loginResponse = ApplicationSharedInfo.shared.loginResponse else {
+            return
+        }
+        patientLocationId = loginResponse.patientLocationID
+        patientId = loginResponse.patientID
+        clientId = loginResponse.clientID
+        
+        locationDetailAPI()
+        providerDetailAPI()
+        
+        if let medicalAppointmentsData = forEditMedicalAppointmentsData {
+            
+            print("the received appointment details for edit is", medicalAppointmentsData)
+            
+            let providerNameFromFirstAPI = medicalAppointmentsData.appointmentDetails.providerName
+            let hospitalNameFromFirstAPI = medicalAppointmentsData.appointmentDetails.hospitalName
+
+            if let matchedProvider = providerData.first(where: { $0.firstName == providerNameFromFirstAPI }) {
+                providerId = matchedProvider.providerId
+                print("✅ Found Provider ID: \(String(describing: providerId)) for Provider Name: \(providerNameFromFirstAPI)")
+            } else {
+                print("❌ No matching provider found for name: \(providerNameFromFirstAPI)")
+            }
+            
+            // Find matching location ID from locationData list
+            if let matchedLocation = locationData.first(where: { $0.locationName == hospitalNameFromFirstAPI }) {
+                locationId = matchedLocation.locationId
+                print("✅ Found Location ID: \(String(describing: locationId)) for Hospital Name: \(hospitalNameFromFirstAPI)")
+            } else {
+                print("❌ No matching location found for name: \(hospitalNameFromFirstAPI)")
+            }
+            
+//            patientNameTF.text = medicalAppointmentsData.appointmentDetails.patientName
+            providerNameTF.text = providerNameFromFirstAPI
+            locationTF.text = hospitalNameFromFirstAPI
+            let date = medicalAppointmentsData.appointmentDetails.dateAndTime
+            parseAndSetDateTime(from: date)
+            appointmentId = medicalAppointmentsData.appointmentDetails.appointmentId
+            itemDescription = medicalAppointmentsData.appointmentDetails.appointmentDetails
+            descriptionTV.text = itemDescription
+            alert = medicalAppointmentsData.appointmentDetails.alert
+            updateNotificationButton()
+            
+        } else {
+            appointmentId = 0
+            alert = 0
+            
+        }
 
     }
+
+    
+    //MARK: - Drop down table
+    
+    func setupDropdownTable() {
+        dropdownTableView.backgroundColor = .white  // To make sure it’s visible
+        dropdownTableView.delegate = self
+        dropdownTableView.dataSource = self
+        dropdownTableView.isHidden = true
+        dropdownTableView.allowsSelection = true
+        dropdownTableView.isUserInteractionEnabled = true
+        dropdownTableView.layer.borderWidth = 1
+        dropdownTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        dropdownTableView.layer.borderColor = UIColor.lightGray.cgColor
+        view.addSubview(dropdownTableView)
+        view.bringSubviewToFront(dropdownTableView)
+    }
+    
+    //MARK: - Date and Time to convert from api to textfield
+    
+    func parseAndSetDateTime(from isoString: String) {
+        let isoFormatter = DateFormatter()
+        isoFormatter.locale = Locale(identifier: "en_US")
+        isoFormatter.timeZone = TimeZone.current
+        isoFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // API format
+
+        // Convert ISO string to Date object
+        guard let date = isoFormatter.date(from: isoString) else {
+            print("Error: Invalid date format from API")
+            return
+        }
+
+        // Extract and set Date (MM/dd/yyyy)
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        self.dateTF.text = dateFormatter.string(from: date)
+
+        // Extract and set Time (hh:mm a)
+        let timeFormatter = DateFormatter()
+        timeFormatter.locale = Locale(identifier: "en_US")
+        timeFormatter.dateFormat = "hh:mm a"
+        self.timeTF.text = timeFormatter.string(from: date)
+
+        print("Parsed Date:", self.dateTF.text ?? "N/A")
+        print("Parsed Time:", self.timeTF.text ?? "N/A")
+    }
+
+    
+    //MARK: - Date Time in Required format for param
+    
+    func formatToISO8601() -> Bool {
+        let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: "en_US")
+        dateFormatter.timeZone = TimeZone.current
+
+        // Validate date input
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        guard let dateText = dateTF.text?.trimmingCharacters(in: .whitespacesAndNewlines), !dateText.isEmpty,
+              let selectedDate = dateFormatter.date(from: dateText) else {
+            self.view.showToast(message: "Please enter a valid date.")
+            return false
+        }
+
+        // Validate time input
+        dateFormatter.dateFormat = "hh:mm a"
+        guard let timeText = timeTF.text?.trimmingCharacters(in: .whitespacesAndNewlines), !timeText.isEmpty,
+              let selectedTime = dateFormatter.date(from: timeText) else {
+            self.view.showToast(message: "Please enter a valid time.")
+            return false
+        }
+
+        // Combine date and time
+        let calendar = Calendar.current
+        let finalDate = calendar.date(
+            bySettingHour: calendar.component(.hour, from: selectedTime),
+            minute: calendar.component(.minute, from: selectedTime),
+            second: 0,
+            of: selectedDate
+        ) ?? selectedDate
+
+        // Convert to ISO 8601 format
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        dateTimeforParam = dateFormatter.string(from: finalDate)
+        
+        return true
+    }
+
+
+    
+//    func formatToISO8601() {
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.locale = Locale(identifier: "en_US")
+//        dateFormatter.timeZone = TimeZone.current
+//
+//        // Get the date from dateTF or use current date
+//        dateFormatter.dateFormat = "MM/dd/yyyy"
+//        let selectedDate = dateTF.text.flatMap { dateFormatter.date(from: $0) } ?? Date()
+//
+//        // Get the time from timeTF or use current time
+//        dateFormatter.dateFormat = "hh:mm a"
+//        let selectedTime = timeTF.text.flatMap { dateFormatter.date(from: $0) } ?? Date()
+//
+//        // Combine date and time
+//        let calendar = Calendar.current
+//        let finalDate = calendar.date(
+//            bySettingHour: calendar.component(.hour, from: selectedTime),
+//            minute: calendar.component(.minute, from: selectedTime),
+//            second: calendar.component(.second, from: selectedTime),
+//            of: selectedDate
+//        ) ?? Date()
+//
+//        // Convert to ISO 8601 format
+//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+//        dateTimeforParam = dateFormatter.string(from: finalDate)
+//
+//    }
+    
+    //MARK: - Location Detail API Call
+    
+    func locationDetailAPI() {
+        let params: [String: Int] = ["locationId": patientLocationId, "clientId": clientId]
+        
+        self.view.showToastActivity()
+        APIService.LocationDetailsAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
+            self.getResponseForLocationDetailsAPI(response: response)
+        }
+    }
+    
+    //MARK: - Provider Detail API Call
+    
+    func providerDetailAPI() {
+        let params: [String: Int] = ["locationId": patientLocationId, "clientId": clientId]
+        print("the param for provider detail is",params)
+        
+        self.view.showToastActivity()
+        APIService.ProviderDetailsAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
+            self.getResponseForProviderDetailsAPI(response: response)
+        }
+    }
+    
+    //MARK: - Provider Details API Response
+    
+    func getResponseForProviderDetailsAPI(response: AnyObject) {
+        print("entered provider deyail response")
+        print("🔹 Raw API Response:", response)
+
+        self.view.hideToastActivity()
+        
+        if let responseData = try? JSONSerialization.data(withJSONObject: response, options: []) {
+            do {
+                let decodedResponse = try JSONDecoder().decode(ProviderResponse.self, from: responseData)
+                
+                DispatchQueue.main.async {
+                    self.providerData = decodedResponse.providerList
+                    print("✅ Decoded provider list count:", self.providerData.count)
+                    print("Provider name", self.providerData.first?.firstName ?? "UNKNOWN")
+                    self.dropdownTableView.reloadData()
+                }
+                // Use decodedResponse.locationDetails in your dropdown
+            } catch {
+                print("Decoding error:", error)
+            }
+        } else {
+            print("Invalid response format")
+        }
+    }
+
+    
+    //MARK: - Location Details API Response
+    
+    func getResponseForLocationDetailsAPI(response: AnyObject) {
+        self.view.hideToastActivity()
+        
+        if let responseData = try? JSONSerialization.data(withJSONObject: response, options: []) {
+            do {
+                let decodedResponse = try JSONDecoder().decode(LocationResponse.self, from: responseData)
+
+                print("Total Locations:", decodedResponse.totalRecords)
+                
+                DispatchQueue.main.async {
+                    self.locationData = decodedResponse.locationDetails
+                    print("loc name", self.locationData.first?.locationName ?? "UNKNOWN")
+                    print("loc ID", self.locationData.first?.locationId ?? "NA")
+                    self.dropdownTableView.reloadData()
+                }
+                // Use decodedResponse.locationDetails in your dropdown
+            } catch {
+                print("Decoding error:", error)
+            }
+        } else {
+            print("Invalid response format")
+        }
+    }
+
     
 //MARK: - Button Actions
     
@@ -73,129 +350,159 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
         notificationBtn.isSelected = !notificationBtn.isSelected
         if !notificationBtn.isSelected == true {
             notificationBtn.setImage(UIImage(named: "cellUnselectedImage"), for: .normal)
+            alert = 0
         }
         else
         {
             notificationBtn.setImage(UIImage(named: "CellSelectionImage"), for: .normal)
+            alert = 1
         }
     }
     
+    //MARK: - Function to update the UI of alert
+    
+    func updateNotificationButton() {
+        notificationBtn.isSelected = alert == 1
+        let imageName = alert == 1 ? "CellSelectionImage" : "cellUnselectedImage"
+        notificationBtn.setImage(UIImage(named: imageName), for: .normal)
+    }
+    
     @IBAction func cancelBtnAction(){
-        
+        self.navigationController?.popViewController(animated: true)
     }
   
     @IBAction func saveBtnAction(){
         
-        self.showSuccessAlert(successContent: "Your appointment has been successfully added.", centreImage: nil) {
-            print("OK button tapped!")
-            
+        providerFirstName = providerNameTF.text ?? ""
+        locationName = locationTF.text ?? ""
+        itemDescription = descriptionTV.text ?? ""
+        
+        // Validation check
+        if providerFirstName.isEmpty {
+            self.view.showToast(message: "Provider Name cannot be empty.")
+            return
+        }
+
+        if locationName.isEmpty {
+            self.view.showToast(message: "Location Name cannot be empty.")
+            return
         }
         
+        if !formatToISO8601() {
+            return // Stop execution if date/time is invalid
+        }
+        
+        self.view.showToastActivity()
+        
+        params =                       ["appointmentId": appointmentId,
+                                       "plId": patientLocationId,
+                                       "patientId": patientId,
+                                       "clientId": clientId,
+                                       "providerFirstName": providerFirstName,
+                                       "providerLastName": NSNull(),
+                                       "locationName": locationName,
+                                       "appointmentDateTime": dateTimeforParam,
+                                       "description": itemDescription,
+                                       "status": "Active",
+                                       "alert": alert]
+        
+        params["providerId"] = providerId ?? NSNull()
+        params["locationId"] = locationId ?? NSNull()
+        
+        print("the params of appoibntment save are ", params)
+        
+        if EditVc ?? false {
+            
+            APIService.editSaveAppointmentAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
+                self.getresponseforEditSaceAppointmentAPI(response: response)
+            }
+            
+        } else {
+            
+            APIService.SaveAppointmentAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
+                self.getresponseforEditSaceAppointmentAPI(response: response)
+            }
+
+        }
     }
     
-    @IBAction func dateBtnAction(){
-        
+    //MARK: - Edit Save Button API Response
+    
+    func getresponseforEditSaceAppointmentAPI(response:AnyObject)->() {
+        self.view.hideToastActivity()
+        if let responseString = response as? String {
+            print("Response received from Edit Save API calling is", responseString)
+        } else if let responseDict = response as? [String: Any] {
+
+                if let responseMessage = responseDict["responseMessage"] as? String {
+                    
+                    print("Response Message:", responseMessage)
+                    
+                    self.showSuccessAlert(successContent: responseMessage, centreImage: nil, okButtonAction: {
+                        self.navigationController?.popViewController(animated: true)
+                    })
+                    
+                       } else {
+                           print("Response Message not found or is not a string.")
+                       }
+
+        } else {
+            print("Unsupported response type:", type(of: response))
+        }
+    }
+    
+    //MARK: - Date / Time Picker Function
+    
+    func openPicker(pickerMode: PickerMode) {
         guard let parentViewController = self.findViewController() else {
             print("No parent view controller found")
             return
         }
         
-        let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
-        guard let vc = next.instantiateViewController(withIdentifier: "newPickerViewVC") as? newPickerViewVC else {
-            fatalError("Could not instantiate view controller with identifier 'BottomSheetTimeAndAlarmVC'")
+        let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
+        guard let vc = storyboard.instantiateViewController(withIdentifier: "newPickerViewVC") as? newPickerViewVC else {
+            fatalError("Could not instantiate view controller with identifier 'newPickerViewVC'")
         }
         
         vc.delegate = self
-        
+        vc.pickerMode = pickerMode // Set mode (date or time)
+
         if #available(iOS 15.0, *) {
             if let sheet = vc.sheetPresentationController {
-                
                 if #available(iOS 16.0, *) {
                     let customDetent = UISheetPresentationController.Detent.custom { _ in
-                        return 270 // Replace with desired height
+                        return 270 // Custom height
                     }
                     sheet.detents = [customDetent]
                 } else {
                     sheet.detents = [.medium()]
-                    // Fallback on earlier versions
                 }
-                
                 
                 sheet.largestUndimmedDetentIdentifier = .medium
                 sheet.prefersScrollingExpandsWhenScrolledToEdge = false
                 sheet.prefersEdgeAttachedInCompactHeight = true
                 sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
-
-                sheet.delegate = self // To handle delegate methods and adjust dimming view
-
+                sheet.delegate = self
             }
-        } else {
-            // Fallback on earlier versions
         }
 
         vc.isModalInPresentation = true
         parentViewController.present(vc, animated: true, completion: nil)
+    }
+
+    
+    //END
+    
+    @IBAction func dateBtnAction(){
+        
+        openPicker(pickerMode: .date)
         
     }
     
     @IBAction func timeBtnAction(){
         
-        let alertController = UIAlertController(title: "", message: "", preferredStyle: .actionSheet)
-        
-        // Create the Date Picker
-        let timePicker = UIDatePicker()
-        timePicker.datePickerMode = .time  // Set mode to Time
-        timePicker.preferredDatePickerStyle = .wheels // Use classic wheel style
-        timePicker.locale = Locale(identifier: "en_US") // Ensures 12-hour format
-        
-        // Set DatePicker frame
-        timePicker.frame = CGRect(x: 0, y: 70, width: alertController.view.frame.width - 20, height: 150)
-        
-        // Create toolbar with Done & Cancel buttons
-        let toolBar = UIToolbar(frame: CGRect(x: 5, y: 0, width: alertController.view.frame.width - 25, height: 44))
-        toolBar.barStyle = .default
-        toolBar.backgroundColor = UIColor.clear
-        toolBar.barTintColor = UIColor(hex: "F0F0F0")
-        toolBar.layer.cornerRadius = 10
-        toolBar.layer.masksToBounds = true
-        
-        
-        
-        // Flexible space to push buttons to right side
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-        
-        // Done button
-        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: nil, action: nil)
-        doneButton.action = #selector(self.doneButtonTapped(_:))
-        doneButton.target = self
-        doneButton.tintColor = .black
-        
-        // Cancel button
-        let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: nil, action: nil)
-        cancelButton.action = #selector(self.cancelButtonTapped(_:))
-        cancelButton.target = self
-        cancelButton.tintColor = .black
-        
-        // Add buttons to toolbar
-        toolBar.setItems([cancelButton, flexibleSpace, doneButton], animated: false)
-        
-        // Add toolbar and date picker to the alert
-        alertController.view.addSubview(toolBar)
-        alertController.view.addSubview(timePicker)
-        
-        // Adjust height of the alert
-        let height: NSLayoutConstraint = NSLayoutConstraint(item: alertController.view!,
-                                                            attribute: .height,
-                                                            relatedBy: .equal,
-                                                            toItem: nil,
-                                                            attribute: .notAnAttribute,
-                                                            multiplier: 1,
-                                                            constant: 260) // Adjust height
-        
-        alertController.view.addConstraint(height)
-        
-        // Present the alert
-        present(alertController, animated: true)
+        openPicker(pickerMode: .time)
+
     }
     
     // Done Button Action
@@ -239,115 +546,103 @@ extension AddNewAppointmentViewController :  UITextViewDelegate {
 }
 
 
-extension AddNewAppointmentViewController :  UITableViewDelegate, UITableViewDataSource {
+extension AddNewAppointmentViewController :  UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
-    private func setupTableView() {
-        appointmentsTB.frame = CGRect(x: 30, y: patientNameVW.frame.maxY + 100, width: patientNameTF.frame.width, height: 150)
-        appointmentsTB.delegate = self
-        appointmentsTB.dataSource = self
-        appointmentsTB.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        appointmentsTB.separatorStyle = .none
-        appointmentsTB.layer.shadowColor = UIColor.black.cgColor
-        appointmentsTB.layer.shadowOpacity = 0.3
-        appointmentsTB.layer.shadowOffset = CGSize(width: 0, height: 3)
-        appointmentsTB.layer.shadowRadius = 5
-        appointmentsTB.layer.masksToBounds = false
-        appointmentsTB.layer.cornerRadius = 4
-        appointmentStackVW.addSubview(appointmentsTB)
-        appointmentsTB.isHidden = true
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(hideTableView))
-            tapGesture.cancelsTouchesInView = false
-            view.addGestureRecognizer(tapGesture)
+    func updateDropdownPosition(for textField: UITextField) {
+        // Convert textField's frame to the main view's coordinate system
+        let textFieldFrame = textField.superview?.convert(textField.frame, to: view) ?? textField.frame
+
+        dropdownTableView.frame = CGRect(
+            x: textFieldFrame.origin.x,
+            y: textFieldFrame.origin.y + textFieldFrame.height + 5, // Ensure it's below the text field
+            width: textFieldFrame.width,
+            height: 150
+        )
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        // ✅ If tap is inside dropdownTableView, do NOT dismiss it
+        if dropdownTableView.frame.contains(touch.location(in: view)) {
+            print("✅ Tap inside dropdown, keeping it open")
+            return false
+        }
+
+        // ✅ Tap is outside, hide dropdown
+        print("✅ Tap outside dropdown, hiding it")
+        dropdownTableView.isHidden = true
+        return true
+    }
+
+    
+    // ✅ Show dropdown when text field is tapped
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        print("✅ textFieldDidBeginEditing called for: \(textField.text ?? "Empty")")
         
+        if textField == providerNameTF {
+            filteredItems = providerData.map { $0.firstName } // Show provider names//
+            filteredID = providerData.map { $0.providerId }
+        } else if textField == locationTF {
+            filteredItems = locationData.map { $0.locationName } // Show locations
+            filteredID = locationData.map { $0.locationId }
+        } else {
+            return
+        }
+
+        dropdownTableView.reloadData()
+        updateDropdownPosition(for: textField)
+        dropdownTableView.isHidden = filteredItems.isEmpty//false
+        print("✅ Dropdown should now be visible!")
     }
-    @objc private func hideTableView() {
-        appointmentsTB.isHidden = true
-    }
+
     
+    @objc func textFieldDidChange(_ textField: UITextField) {
+        guard textField == providerNameTF || textField == locationTF else { return }
+
+        guard let text = textField.text, !text.isEmpty else {
+            filteredItems = (textField == providerNameTF) ? providerData.map { $0.firstName } : locationData.map { $0.locationName }
+            dropdownTableView.isHidden = false
+            dropdownTableView.reloadData()
+            return
+        }
+
+        // Filter items based on input
+        if textField == providerNameTF {
+            filteredItems = providerData.map { $0.firstName }.filter { $0.lowercased().contains(text.lowercased()) }
+        } else if textField == locationTF {
+            filteredItems = locationData.map { $0.locationName }.filter { $0.lowercased().contains(text.lowercased()) }
+        }
+
+        // Show or hide tableView
+        dropdownTableView.isHidden = filteredItems.isEmpty
+        updateDropdownPosition(for: textField)
+        dropdownTableView.reloadData()
+    }
+
+
+    // MARK: - UITableViewDataSource & UITableViewDelegate
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return filteredData.count
+        return filteredItems.count
     }
-    
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = UITableViewCell()
-        cell.selectionStyle = .none
-        cell.textLabel?.text = filteredData[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = filteredItems[indexPath.row]
         return cell
     }
-    
+
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        appointmentsTB.isHidden = true
-        print("------ ", filteredData[indexPath.row], " ------")
-        if inPutTextField == patientNameTF {
-            patientNameTF.text = filteredData[indexPath.row]
-        }
-        else if inPutTextField == providerNameTF{
-            providerNameTF.text = filteredData[indexPath.row]
-        }
-        else if inPutTextField == locationTF{
-            locationTF.text = filteredData[indexPath.row]
+        if providerNameTF.isFirstResponder {
+            providerNameTF.text = filteredItems[indexPath.row]
+            providerId = filteredID[indexPath.row]
+        } else if locationTF.isFirstResponder {
+            locationTF.text = filteredItems[indexPath.row]
+            locationId = filteredID[indexPath.row]
         }
         
+        dropdownTableView.isHidden = true
+        view.endEditing(true) // Dismiss keyboard
+        print("✅ Selected: \(filteredItems[indexPath.row]) and Id is \(filteredID[indexPath.row])")
     }
-}
 
-
-
-extension AddNewAppointmentViewController : UITextFieldDelegate {
-    
-
-    func setUpTextFields() {
-        patientNameTF.delegate = self
-        providerNameTF.delegate = self
-        locationTF.delegate = self
-    }
-    
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        appointmentsTB.isHidden = false
-        if textField == patientNameTF {
-            inPutTextField = patientNameTF
-            appointmentsTB.frame = CGRect(x: patientNameVW.frame.minX, y: patientNameVW.frame.maxY, width: patientNameTF.frame.width, height: 150)
-        }
-        else if textField == providerNameTF {
-            inPutTextField = providerNameTF
-            appointmentsTB.frame = CGRect(x: patientNameVW.frame.minX, y: providerNameVW.frame.maxY, width: patientNameTF.frame.width, height: 150)
-        }
-        else if textField == locationTF {
-            inPutTextField = locationTF
-            appointmentsTB.frame = CGRect(x: patientNameVW.frame.minX, y: locationVW.frame.maxY, width: patientNameTF.frame.width, height: 150)
-        }
-        
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-       
-        if let text = textField.text as NSString? {
-            let updatedText = text.replacingCharacters(in: range, with: string).lowercased()
-            
-            if updatedText.isEmpty {
-                filteredData = data
-            } else {
-                filteredData = data.filter { $0.lowercased().contains(updatedText) }
-            }
-            
-            DispatchQueue.main.async {
-                self.appointmentsTB.reloadData()
-                self.updateTableViewHeight()
-            }
-            
-        }
-        return true
-        
-    }
-    
-    private func updateTableViewHeight() {
-        let rowHeight: CGFloat = 44  // Approximate row height
-        let newHeight = min(CGFloat(filteredData.count) * rowHeight, 200)
-
-        UIView.animate(withDuration: 0.3) {
-            self.appointmentsTB.frame.size.height = newHeight
-        }
-    }
-    
 }

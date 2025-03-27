@@ -8,6 +8,8 @@
 import UIKit
 
 class SmokingAffectMentalHealthVC: ViewController {
+    
+    var sectionID5: Int?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,5 +17,43 @@ class SmokingAffectMentalHealthVC: ViewController {
         // Do any additional setup after loading the view.
     }
 
+    @IBAction func completeButtonPrerssed(_ sender: Any) {
+        completeButtonAPICall()
+    }
+    
+    //MARK: - Complete Button API Call
+    
+    func completeButtonAPICall() {
+        self.view.showToastActivity()
+        
+        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+            fatalError("Unable to found Application Shared Info")
+        }
+        
+        let params: [String: Any] = [
+            "isCompleted":1,
+            "patientId": userInfo.patientID,
+            "sectionId":sectionID5 ?? 0
+        ]
 
+        APIService.DUpdateBasicKAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
+            self.getresponseforBasicKnowAPI(response: response)
+        }
+    }
+    
+    //MARK: - Complete Button API Response
+    
+    func getresponseforBasicKnowAPI(response: Any) {
+        self.view.hideToastActivity()
+        
+        if let responseDict = response as? [String: Any] {
+            
+            print("Response from Basic standard complete button:", responseDict)
+            self.navigationController?.popViewController(animated: true)
+            
+        } else {
+            print("Unsupported response type:", type(of: response))
+        }
+    }
+    
 }

@@ -524,7 +524,7 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
 
     }
     
-    func didSelectDate(_ date: Date, indexPath: IndexPath?) {
+    func didSelectDate(_ date: Date, indexPath: IndexPath?, isTimePicker: Bool) {
         
         let calendar = Calendar.current
         let resetDate = calendar.startOfDay(for: date)

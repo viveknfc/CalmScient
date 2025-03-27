@@ -8,8 +8,13 @@
 import UIKit
 
 protocol NewPickerViewDelegate: AnyObject {
-    func didSelectDate(_ date: Date, indexPath: IndexPath?)
+    func didSelectDate(_ date: Date, indexPath: IndexPath?, isTimePicker: Bool)
     func didDismissPicker()
+}
+
+enum PickerMode {
+    case date
+    case time
 }
 
 class newPickerViewVC: UIViewController {
@@ -23,8 +28,19 @@ class newPickerViewVC: UIViewController {
     var indexPath: IndexPath?
     var minimumDate: Date?
     
+    var pickerMode: PickerMode = .date // Default mode
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        switch pickerMode {
+        case .date:
+            dateSelector.datePickerMode = .date
+            titleLabel.text = "Please Select Date"
+        case .time:
+            dateSelector.datePickerMode = .time
+            titleLabel.text = "Please Select Time"
+        }
         
         if let minimumDate = minimumDate {
             dateSelector.minimumDate = minimumDate
@@ -43,7 +59,23 @@ class newPickerViewVC: UIViewController {
     @IBAction func okButtonTapped(_ sender: UIButton) {
             dismissKeyboard()
            let selectedDate = dateSelector.date
-            delegate?.didSelectDate(selectedDate, indexPath: indexPath)
+//            delegate?.didSelectDate(selectedDate, indexPath: indexPath)
+        
+        if pickerMode == .time {
+            // Extract only the time part
+            let calendar = Calendar.current
+            let timeComponents = calendar.dateComponents([.hour, .minute], from: selectedDate)
+            let normalizedTime = calendar.date(bySettingHour: timeComponents.hour ?? 0,
+                                               minute: timeComponents.minute ?? 0,
+                                               second: 0,
+                                               of: Date()) ?? selectedDate
+            
+            delegate?.didSelectDate(normalizedTime, indexPath: indexPath, isTimePicker: true)
+        } else {
+            // Send full date
+            delegate?.didSelectDate(selectedDate, indexPath: indexPath, isTimePicker: false)
+        }
+        
             delegate?.didDismissPicker()
            dismiss(animated: true, completion: nil)
        }

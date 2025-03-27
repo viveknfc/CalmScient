@@ -13,7 +13,7 @@
         <array key="Lexend-Bold.ttf">
             <string>Lexend-Bold</string>
         </array>
-        <array key="lexendsemibold.ttf">
+        <array key="Lexend-SemiBold.ttf">
             <string>Lexend-SemiBold</string>
         </array>
     </customFonts>
@@ -132,8 +132,9 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6W-X6-773" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
-                                        <rect key="frame" x="306" y="739" width="67" height="40"/>
+                                        <rect key="frame" x="253" y="739" width="120" height="40"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="120" id="0Nt-3X-2ny"/>
                                             <constraint firstAttribute="height" constant="40" id="cNf-xr-E9c"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>

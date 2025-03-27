@@ -45,6 +45,7 @@ class DropdownView: UIView {
         
         editButton.contentHorizontalAlignment = .leading
         deleteButton.contentHorizontalAlignment = .leading
+        
         editButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0)  // Adjust image position
         deleteButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 0)  // Adjust image position
         
@@ -77,15 +78,19 @@ class DropdownView: UIView {
 
        @objc func editButtonTapped() {
            print("Edit button tapped")
-           guard let cell = cell, let delegate = (cell as? UserMedicationsTableCell)?.delegate else { return }
-           delegate.didTapEditButton(in: cell)
+           guard let cell = cell as? EditableCell, let delegate = cell.delegate else { return }
+           delegate.didTapEditButton(in: cell as! UITableViewCell)
+//           guard let cell = cell, let delegate = (cell as? UserMedicationsTableCell)?.delegate else { return }
+//           delegate.didTapEditButton(in: cell)
            delegate.dismissDropdown()
        }
 
        @objc func deleteButtonTapped() {
            print("Delete button tapped")
-           guard let cell = cell, let delegate = (cell as? UserMedicationsTableCell)?.delegate else { return }
-           delegate.didTapDeleteButton(in: cell)
+           guard let cell = cell as? EditableCell, let delegate = cell.delegate else { return }
+           delegate.didTapDeleteButton(in: cell as! UITableViewCell)
+//           guard let cell = cell, let delegate = (cell as? UserMedicationsTableCell)?.delegate else { return }
+//           delegate.didTapDeleteButton(in: cell)
            delegate.dismissDropdown()
        }
 }

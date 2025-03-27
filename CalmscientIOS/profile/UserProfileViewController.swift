@@ -825,102 +825,178 @@ extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate
             cell.cellTitleLabel.text = cellTitleList[indexPath.row]
             return cell
         case .ProfileThemeTableViewCell:
+            
+            //VIV STart
+            
             let cell = tableView.dequeueReusableCell(withIdentifier: data.rawValue, for: indexPath) as! ProfileThemeTableViewCell
-            if let imageUrlString = profileIconList[indexPath.row] as? String, let url = URL(string: imageUrlString) {
-                DispatchQueue.global().async {
-                    if let data = try? Data(contentsOf: url) {
-                        DispatchQueue.main.async {
-                            cell.darkmodeLbl.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Dark Mode" : "la noche"
+            let imageUrlString = profileIconList[indexPath.row]
 
-                            cell.cellIconView.image = UIImage(named: self.profileSvgIcons[indexPath.row])
-                            guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
-                                fatalError("Unable to found Application Shared Info")
-                            }
+            if let url = URL(string: imageUrlString) {
+                let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                    guard let data = data, error == nil else {
+                        print("Failed to load image: \(error?.localizedDescription ?? "Unknown error")")
+                        return
+                    }
+                    
+                    DispatchQueue.main.async {
+                        cell.darkmodeLbl.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Dark Mode" : "la noche"
+                        
+                        cell.cellIconView.image = UIImage(named: self.profileSvgIcons[indexPath.row])
+                        
+                        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+                            fatalError("Unable to found Application Shared Info")
+                        }
+                        
+                        let isDarkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
+                        let lan = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+                        
+                        let imageName = isDarkMode ? (lan == 1 ? "ToggleSwitch_Yes" : "ToggleSwitch_Si") : "ToggleSwitch_No"
+                        cell.darkModeChangeButton.setImage(UIImage(named: imageName), for: .normal)
+                        
+                        cell.darkModeChangeButton.imageView?.contentMode = .scaleAspectFill
+                        cell.darkModeChangeButtonAction = { [weak self, weak cell] in
+                            guard let self = self, let cell = cell else { return }
                             
-                            let isDarkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
-                            let lan = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+                            let newDarkModeState = !isDarkMode
+                            setAppDarkMode(newDarkModeState)
                             
-                            if lan == 1 {
-                                cell.darkModeChangeButton.setImage(UIImage(named: isDarkMode ? "ToggleSwitch_Yes" : "ToggleSwitch_No"), for: .normal)
-                            } else {
-                                cell.darkModeChangeButton.setImage(UIImage(named: isDarkMode ? "ToggleSwitch_Si" : "ToggleSwitch_No"), for: .normal)
-                            }
+                            let newImageName = newDarkModeState ? (lan == 1 ? "ToggleSwitch_Yes" : "ToggleSwitch_Si") : "ToggleSwitch_No"
+                            cell.darkModeChangeButton.setImage(UIImage(named: newImageName), for: .normal)
                             
+                            UserDefaults.standard.set(newDarkModeState, forKey: "isDarkMode")
                             
-                            cell.darkModeChangeButton.imageView?.contentMode = .scaleAspectFill
-                            cell.darkModeChangeButtonAction = { [weak self, weak cell] in
-                                guard let self = self, let cell = cell else { return }
-                                if cell.darkModeChangeButton.currentImage == UIImage(named: "ToggleSwitch_No") {
-                                    setAppDarkMode(true)
-                                    
-                                    if lan == 1 {
-                                        cell.darkModeChangeButton.setImage(UIImage(named: "ToggleSwitch_Yes"), for: .normal)
-                                    }else {
-                                        cell.darkModeChangeButton.setImage(UIImage(named: "ToggleSwitch_Si"), for: .normal)
-                                    }
-                                    
-                                    UserDefaults.standard.set(true, forKey: "isDarkMode")
-                                    
-                                    self.getUserTheme( patientId: userInfo.patientID, clientId: userInfo.clientID,bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, dark : 1) { [self] result in
-                                        switch result {
-                                        case .success(let data):
-                                            // Convert data to JSON object and print it
-                                            do {
-                                                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                                                    DispatchQueue.main.async {
-                                                        print(json)
-                                                        
-                                                    }
-                                                    
-                                                } else {
-                                                    print("Unable to convert data to JSON")
-                                                }
-                                            } catch {
-                                                print("Error converting data to JSON: \(error)")
-                                            }
-                                        case .failure(let error):
-                                            print("Error: \(error)")
+                            self.getUserTheme(
+                                patientId: userInfo.patientID,
+                                clientId: userInfo.clientID,
+                                bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken,
+                                dark: newDarkModeState ? 1 : 0
+                            ) { result in
+                                DispatchQueue.main.async {
+                                    switch result {
+                                    case .success(let data):
+                                        if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                                            print(json)
+                                        } else {
+                                            print("Unable to convert data to JSON")
                                         }
+                                    case .failure(let error):
+                                        print("Error: \(error)")
                                     }
-                                    let indexPath = IndexPath(row: 2, section: 0)
-                                            tableView.reloadRows(at: [indexPath], with: .automatic)
-                                    print("Switch is ON")
-                                } else {
-                                    setAppDarkMode(false)
-                                    
-                                    cell.darkModeChangeButton.setImage(UIImage(named: "ToggleSwitch_No"), for: .normal)
-                                    UserDefaults.standard.set(false, forKey: "isDarkMode")
-                                    
-                                    self.getUserTheme( patientId: userInfo.patientID, clientId: userInfo.clientID,bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, dark : 0) { [self] result in
-                                        switch result {
-                                        case .success(let data):
-                                            // Convert data to JSON object and print it
-                                            do {
-                                                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                                                    DispatchQueue.main.async {
-                                                        print(json)
-                                                        
-                                                    }
-                                                    
-                                                } else {
-                                                    print("Unable to convert data to JSON")
-                                                }
-                                            } catch {
-                                                print("Error converting data to JSON: \(error)")
-                                            }
-                                        case .failure(let error):
-                                            print("Error: \(error)")
-                                        }
-                                    }
-                                    let indexPath = IndexPath(row: 2, section: 0)
-                                            tableView.reloadRows(at: [indexPath], with: .automatic)
                                 }
                             }
                             
+                            DispatchQueue.main.async {
+                                if let tableView = cell.getTableView() {
+                                    let indexPath = IndexPath(row: 2, section: 0)
+                                    tableView.reloadRows(at: [indexPath], with: .automatic)
+                                }
+                            }
                         }
                     }
                 }
+                task.resume() // Start the async request
             }
+
+            
+            //END
+            
+            
+//            let cell = tableView.dequeueReusableCell(withIdentifier: data.rawValue, for: indexPath) as! ProfileThemeTableViewCell
+//            if let imageUrlString = profileIconList[indexPath.row] as? String, let url = URL(string: imageUrlString) {
+//                DispatchQueue.global().async {
+//                    if let data = try? Data(contentsOf: url) {
+//                        DispatchQueue.main.async {
+//                            cell.darkmodeLbl.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Dark Mode" : "la noche"
+//
+//                            cell.cellIconView.image = UIImage(named: self.profileSvgIcons[indexPath.row])
+//                            guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+//                                fatalError("Unable to found Application Shared Info")
+//                            }
+//                            
+//                            let isDarkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
+//                            let lan = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+//                            
+//                            if lan == 1 {
+//                                cell.darkModeChangeButton.setImage(UIImage(named: isDarkMode ? "ToggleSwitch_Yes" : "ToggleSwitch_No"), for: .normal)
+//                            } else {
+//                                cell.darkModeChangeButton.setImage(UIImage(named: isDarkMode ? "ToggleSwitch_Si" : "ToggleSwitch_No"), for: .normal)
+//                            }
+//                            
+//                            
+//                            cell.darkModeChangeButton.imageView?.contentMode = .scaleAspectFill
+//                            cell.darkModeChangeButtonAction = { [weak self, weak cell] in
+//                                guard let self = self, let cell = cell else { return }
+//                                if cell.darkModeChangeButton.currentImage == UIImage(named: "ToggleSwitch_No") {
+//                                    setAppDarkMode(true)
+//                                    
+//                                    if lan == 1 {
+//                                        cell.darkModeChangeButton.setImage(UIImage(named: "ToggleSwitch_Yes"), for: .normal)
+//                                    }else {
+//                                        cell.darkModeChangeButton.setImage(UIImage(named: "ToggleSwitch_Si"), for: .normal)
+//                                    }
+//                                    
+//                                    UserDefaults.standard.set(true, forKey: "isDarkMode")
+//                                    
+//                                    self.getUserTheme( patientId: userInfo.patientID, clientId: userInfo.clientID,bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, dark : 1) { [self] result in
+//                                        switch result {
+//                                        case .success(let data):
+//                                            // Convert data to JSON object and print it
+//                                            do {
+//                                                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+//                                                    DispatchQueue.main.async {
+//                                                        print(json)
+//                                                        
+//                                                    }
+//                                                    
+//                                                } else {
+//                                                    print("Unable to convert data to JSON")
+//                                                }
+//                                            } catch {
+//                                                print("Error converting data to JSON: \(error)")
+//                                            }
+//                                        case .failure(let error):
+//                                            print("Error: \(error)")
+//                                        }
+//                                    }
+//                                    let indexPath = IndexPath(row: 2, section: 0)
+//                                            tableView.reloadRows(at: [indexPath], with: .automatic)
+//                                    print("Switch is ON")
+//                                } else {
+//                                    setAppDarkMode(false)
+//                                    
+//                                    cell.darkModeChangeButton.setImage(UIImage(named: "ToggleSwitch_No"), for: .normal)
+//                                    UserDefaults.standard.set(false, forKey: "isDarkMode")
+//                                    
+//                                    self.getUserTheme( patientId: userInfo.patientID, clientId: userInfo.clientID,bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, dark : 0) { [self] result in
+//                                        switch result {
+//                                        case .success(let data):
+//                                            // Convert data to JSON object and print it
+//                                            do {
+//                                                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+//                                                    DispatchQueue.main.async {
+//                                                        print(json)
+//                                                        
+//                                                    }
+//                                                    
+//                                                } else {
+//                                                    print("Unable to convert data to JSON")
+//                                                }
+//                                            } catch {
+//                                                print("Error converting data to JSON: \(error)")
+//                                            }
+//                                        case .failure(let error):
+//                                            print("Error: \(error)")
+//                                        }
+//                                    }
+//                                    let indexPath = IndexPath(row: 2, section: 0)
+//                                            tableView.reloadRows(at: [indexPath], with: .automatic)
+//                                }
+//                            }
+//                            
+//                        }
+//                    }
+//                }
+//            }
             
             
             
@@ -990,8 +1066,8 @@ extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate
             return cell
         case .ProfileLanguageTableViewCell:
             let cell = tableView.dequeueReusableCell(withIdentifier: data.rawValue, for: indexPath) as! ProfileLanguageTableViewCell
-            
-            if let imageUrlString = profileIconList[indexPath.row] as? String, let url = URL(string: imageUrlString) {
+            let imageUrlString = profileIconList[indexPath.row]
+            if let url = URL(string: imageUrlString) {
                 DispatchQueue.global().async {
                     if let data = try? Data(contentsOf: url) {
                         DispatchQueue.main.async {
@@ -1043,7 +1119,8 @@ extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate
             
         case .LogoutTableViewCell:
             let cell = tableView.dequeueReusableCell(withIdentifier: data.rawValue, for: indexPath) as! LogoutTableViewCell
-            if let imageUrlString = profileIconList[indexPath.row] as? String, let url = URL(string: imageUrlString) {
+            let imageUrlString = profileIconList[indexPath.row]
+            if let url = URL(string: imageUrlString) {
                 DispatchQueue.global().async {
                     if let data = try? Data(contentsOf: url) {
                         DispatchQueue.main.async {
@@ -1189,3 +1266,14 @@ extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate
     }
 
 }
+
+extension UITableViewCell {
+    func getTableView() -> UITableView? {
+        var view = self.superview
+        while let superview = view, !(superview is UITableView) {
+            view = superview.superview
+        }
+        return view as? UITableView
+    }
+}
+

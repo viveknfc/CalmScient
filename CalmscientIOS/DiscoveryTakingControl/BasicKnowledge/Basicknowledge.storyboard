@@ -34,8 +34,9 @@
                                                         </constraints>
                                                     </tableView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2q7-3k-xAH" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="306" y="620" width="67" height="40"/>
+                                                        <rect key="frame" x="253" y="620" width="120" height="40"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="width" constant="120" id="5QC-iT-yPq"/>
                                                             <constraint firstAttribute="height" constant="40" id="rfZ-5i-6fW"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>

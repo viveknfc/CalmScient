@@ -10,34 +10,34 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Lexend-Light.ttf">
+            <string>Lexend-Light</string>
+        </array>
         <array key="Lexend-Regular.ttf">
             <string>Lexend-Regular</string>
-        </array>
-        <array key="lexendlight.ttf">
-            <string>Lexend-Light</string>
         </array>
     </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="100" id="KGk-i7-Jjw" customClass="JournalEntryExpandedTableCell" customModule="CalmscientIOS" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="345" height="100"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="131" id="KGk-i7-Jjw" customClass="JournalEntryExpandedTableCell" customModule="CalmscientIOS" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="338" height="131"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="345" height="100"/>
+                <rect key="frame" x="0.0" y="0.0" width="338" height="131"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8g1-OD-riL">
-                        <rect key="frame" x="0.0" y="0.0" width="348" height="100"/>
+                        <rect key="frame" x="0.0" y="0.0" width="338" height="131"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y5q-lK-C9I">
-                                <rect key="frame" x="16" y="8" width="316" height="84"/>
+                                <rect key="frame" x="16" y="8" width="306" height="115"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EJz-gk-xEH">
-                                        <rect key="frame" x="0.0" y="0.0" width="316" height="84"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="306" height="115"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pw4-mU-zzI">
-                                                <rect key="frame" x="8" y="16" width="261" height="19"/>
+                                                <rect key="frame" x="8" y="16" width="251" height="19"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="19" id="5cN-GG-XKJ"/>
                                                 </constraints>
@@ -46,7 +46,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" tag="9001" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sBk-3B-1sf">
-                                                <rect key="frame" x="284" y="14" width="24" height="23"/>
+                                                <rect key="frame" x="274" y="14" width="24" height="23"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="24" id="WpM-Gp-cfB"/>
                                                 </constraints>
@@ -60,16 +60,23 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" text=" have written programmatically" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuT-fn-LOK">
-                                                <rect key="frame" x="9" y="46.666666666666664" width="272" height="21.999999999999993"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="width" constant="272" id="AuQ-kN-naY"/>
-                                                </constraints>
+                                                <rect key="frame" x="9" y="46.666666666666664" width="262" height="20.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="Lexend-Light" family="Lexend" pointSize="15"/>
                                                 <color key="textColor" name="CalenderDefaultSameColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hf6-dQ-m3S" customClass="FontLL14" customModule="CalmscientIOS" customModuleProvider="target">
+                                                <rect key="frame" x="9" y="77.333333333333329" width="262" height="20.333333333333329"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <button opaque="NO" tag="9001" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rcn-Ps-f79">
-                                                <rect key="frame" x="284" y="45" width="24" height="25.333333333333329"/>
+                                                <rect key="frame" x="274" y="45" width="24" height="24"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="24" id="BQL-mC-GOe"/>
+                                                    <constraint firstAttribute="width" constant="24" id="Yp2-Lv-QhZ"/>
+                                                </constraints>
                                                 <color key="tintColor" red="0.90031844380000003" green="0.43484184149999999" blue="0.2391234934" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" image="JournalEntryCellEdit">
@@ -82,6 +89,7 @@
                                         </subviews>
                                         <color key="backgroundColor" name="AppBackGroundColor"/>
                                         <constraints>
+                                            <constraint firstItem="hf6-dQ-m3S" firstAttribute="leading" secondItem="KuT-fn-LOK" secondAttribute="leading" id="7EU-Q6-btQ"/>
                                             <constraint firstItem="sBk-3B-1sf" firstAttribute="top" secondItem="EJz-gk-xEH" secondAttribute="top" constant="14" id="8Gy-m7-uRw"/>
                                             <constraint firstItem="KuT-fn-LOK" firstAttribute="centerY" secondItem="Rcn-Ps-f79" secondAttribute="centerY" id="Abp-hQ-Lz7"/>
                                             <constraint firstItem="KuT-fn-LOK" firstAttribute="top" secondItem="pw4-mU-zzI" secondAttribute="bottom" constant="11.666666666666657" id="BqG-eQ-zcA"/>
@@ -91,10 +99,13 @@
                                             <constraint firstItem="sBk-3B-1sf" firstAttribute="trailing" secondItem="EJz-gk-xEH" secondAttribute="trailingMargin" id="NNk-Ty-b2M"/>
                                             <constraint firstItem="pw4-mU-zzI" firstAttribute="top" secondItem="EJz-gk-xEH" secondAttribute="top" constant="16" id="Qzc-cJ-AHt"/>
                                             <constraint firstItem="Rcn-Ps-f79" firstAttribute="leading" secondItem="KuT-fn-LOK" secondAttribute="trailing" constant="3" id="Z1H-Hx-lKA"/>
-                                            <constraint firstAttribute="bottom" secondItem="Rcn-Ps-f79" secondAttribute="bottom" constant="13.666666666666657" id="aPj-be-cil"/>
                                             <constraint firstItem="KuT-fn-LOK" firstAttribute="leading" secondItem="EJz-gk-xEH" secondAttribute="leading" constant="9" id="ahb-wx-KtQ"/>
                                             <constraint firstItem="Rcn-Ps-f79" firstAttribute="top" secondItem="sBk-3B-1sf" secondAttribute="bottom" constant="8.0000000000000142" id="bTS-B1-UMJ"/>
+                                            <constraint firstItem="KuT-fn-LOK" firstAttribute="trailing" secondItem="hf6-dQ-m3S" secondAttribute="trailing" id="g8W-Zg-0Sy"/>
                                             <constraint firstItem="sBk-3B-1sf" firstAttribute="trailing" secondItem="Rcn-Ps-f79" secondAttribute="trailing" id="nMR-ws-4E5"/>
+                                            <constraint firstItem="hf6-dQ-m3S" firstAttribute="top" secondItem="KuT-fn-LOK" secondAttribute="bottom" constant="10" id="rbP-X4-fSs"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hf6-dQ-m3S" secondAttribute="bottom" constant="10" id="soK-x7-SWc"/>
+                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="KuT-fn-LOK" secondAttribute="bottom" constant="10" id="wlQ-gg-46E"/>
                                             <constraint firstItem="pw4-mU-zzI" firstAttribute="centerY" secondItem="sBk-3B-1sf" secondAttribute="centerY" id="ygv-QJ-cNr"/>
                                         </constraints>
                                     </view>
@@ -129,12 +140,13 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="borderView" destination="EJz-gk-xEH" id="Ohf-eU-oVu"/>
+                <outlet property="bulletinLabel" destination="hf6-dQ-m3S" id="ed1-Mj-gAc"/>
                 <outlet property="editCellButton" destination="Rcn-Ps-f79" id="ke6-vH-6Ll"/>
                 <outlet property="journalTextLabel" destination="KuT-fn-LOK" id="eY8-Qt-kwo"/>
                 <outlet property="shadowView" destination="y5q-lK-C9I" id="Wj6-lt-kOb"/>
                 <outlet property="titleLabel" destination="pw4-mU-zzI" id="kYq-aM-bWM"/>
             </connections>
-            <point key="canvasLocation" x="55.725190839694655" y="20.422535211267608"/>
+            <point key="canvasLocation" x="50.381679389312978" y="21.47887323943662"/>
         </tableViewCell>
     </objects>
     <resources>
