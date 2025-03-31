@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Lexend-Light.ttf">
+        <array key="lexendlight.ttf">
             <string>Lexend-Light</string>
         </array>
     </customFonts>
@@ -24,20 +24,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainLogoNw" translatesAutoresizingMaskIntoConstraints="NO" id="Yi0-PU-1gu">
-                                <rect key="frame" x="115" y="230.33333333333337" width="200" height="100"/>
+                                <rect key="frame" x="115" y="227.66666666666663" width="200" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="7uv-T5-iv6"/>
                                     <constraint firstAttribute="width" constant="200" id="z0J-Mq-MrI"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wK1-PD-6px">
-                                <rect key="frame" x="39.999999999999993" y="346.33333333333331" width="64.333333333333314" height="16.333333333333314"/>
+                                <rect key="frame" x="40.000000000000007" y="343.66666666666669" width="67.666666666666686" height="17.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Lexend-Light" family="Lexend" pointSize="14"/>
                                 <color key="textColor" name="424242Color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wse-Ol-MLE" customClass="ImagePaddingTextField" customModule="CalmscientIOS" customModuleProvider="target">
-                                <rect key="frame" x="40" y="366.66666666666669" width="350" height="40"/>
+                                <rect key="frame" x="40" y="365.33333333333331" width="350" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="S2Y-aX-tGz"/>
                                 </constraints>
@@ -53,7 +53,7 @@
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlQ-kq-Lq2">
-                                <rect key="frame" x="40" y="422.66666666666669" width="62" height="16.333333333333314"/>
+                                <rect key="frame" x="40" y="421.33333333333331" width="63.666666666666657" height="17.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Lexend-Light" family="Lexend" pointSize="14"/>
                                 <color key="textColor" name="424242Color"/>
                                 <nil key="highlightedColor"/>
@@ -103,13 +103,13 @@
                                 <rect key="frame" x="0.0" y="722.33333333333337" width="430" height="209.66666666666663"/>
                             </imageView>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgot Password?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aUn-1C-xU1">
-                                <rect key="frame" x="275.33333333333331" y="655" width="114.66666666666669" height="16.333333333333371"/>
+                                <rect key="frame" x="271.33333333333331" y="655" width="118.66666666666669" height="17.666666666666629"/>
                                 <fontDescription key="fontDescription" name="Lexend-Light" family="Lexend" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create an New account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKc-Ue-D8k">
-                                <rect key="frame" x="242.66666666666663" y="677.33333333333337" width="147.33333333333337" height="16.333333333333371"/>
+                                <rect key="frame" x="234.66666666666663" y="678.66666666666663" width="155.33333333333337" height="17.666666666666629"/>
                                 <fontDescription key="fontDescription" name="Lexend-Light" family="Lexend" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>

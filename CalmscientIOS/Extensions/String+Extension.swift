@@ -97,7 +97,7 @@ extension String {
         return dateFormatter.date(from: self) ?? Date()
     }
     
-    func isDayTimeAM(formatter:String = "yyyy-MM-dd HH:mm:ss") -> Bool {
+    func isDayTimeAM(formatter:String = "HH:mm:ss") -> Bool { //yyyy-MM-dd
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = formatter
         dateFormatter.timeZone = TimeZone(identifier: Calendar.current.timeZone.identifier)
@@ -115,7 +115,7 @@ extension String {
         return false
     }
     
-    func isDayTimePM(formatter:String = "yyyy-MM-dd HH:mm:ss") -> Bool {
+    func isDayTimePM(formatter:String = "HH:mm:ss") -> Bool { //yyyy-MM-dd
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = formatter
         dateFormatter.timeZone = TimeZone(identifier: Calendar.current.timeZone.identifier)
@@ -133,7 +133,7 @@ extension String {
         return false
     }
     
-    func isDayTimeEvening(formatter: String = "yyyy-MM-dd HH:mm:ss") -> Bool {
+    func isDayTimeEvening(formatter: String = "HH:mm:ss") -> Bool { //yyyy-MM-dd 
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = formatter
         dateFormatter.timeZone = TimeZone(identifier: Calendar.current.timeZone.identifier)

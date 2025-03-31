@@ -428,13 +428,13 @@
       }
     },
     "6sN-zr-MXh.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"There is a wide range of short- and long-term consequences associated with alcohol misuse.\\nFor some individuals, any amount of drinking\\ncould be potentially harmful\"; ObjectID = \"6sN-zr-MXh\";",
+      "comment" : "Class = \"UILabel\"; text = \"There is a wide range of short- and long-term consequences associated with alcohol misuse. For some individuals, any amount of drinking could be potentially harmful\"; ObjectID = \"6sN-zr-MXh\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "There is a wide range of short- and long-term consequences associated with alcohol misuse.\nFor some individuals, any amount of drinking\ncould be potentially harmful"
+            "value" : "There is a wide range of short- and long-term consequences associated with alcohol misuse. For some individuals, any amount of drinking could be potentially harmful"
           }
         }
       }

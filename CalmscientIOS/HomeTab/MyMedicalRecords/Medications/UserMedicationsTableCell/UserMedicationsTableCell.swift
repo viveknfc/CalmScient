@@ -122,7 +122,7 @@ class UserMedicationsTableCell: UITableViewCell, EditableCell {
             obj.scheduledTimes.filter { $0.isDefault == 1 }
         }
         
-        if let morningAlarm = enabledAlarms.first(where: { $0.alarmTime.isDayTimeAM() }) {
+        if let morningAlarm = enabledAlarms.first(where: { $0.medicineTime.isDayTimeAM() }) {
             AMImage.isHidden = false
             amTaken.isHidden = false
             amButton.isHidden = false
@@ -143,7 +143,7 @@ class UserMedicationsTableCell: UITableViewCell, EditableCell {
             timeLabel.text = ""
         }
         
-        if let afternoonAlarm = enabledAlarms.first(where: { $0.alarmTime.isDayTimePM() }) {
+        if let afternoonAlarm = enabledAlarms.first(where: { $0.medicineTime.isDayTimePM() }) {
             AFImage.isHidden = false
             afTaken.isHidden = false
             afButton.isHidden = false
@@ -164,7 +164,7 @@ class UserMedicationsTableCell: UITableViewCell, EditableCell {
             afTimeLabel.text = ""
         }
         
-        if let eveningAlarm = enabledAlarms.first(where: { $0.alarmTime.isDayTimeEvening() }) {
+        if let eveningAlarm = enabledAlarms.first(where: { $0.medicineTime.isDayTimeEvening() }) {
             PMImage.isHidden = false
             pmTaken.isHidden = false
             pmButton.isHidden = false

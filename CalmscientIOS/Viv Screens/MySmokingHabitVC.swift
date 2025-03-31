@@ -42,7 +42,22 @@ class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBAction func yesButtonPressede(_ sender: Any) {
         
-        guard let value = selectedRowIndex else {
+        guard selectedRowIndex != nil else {
+            
+            let alertText = "Please select the stage that applies to you."
+            
+            showGeneralAlert(
+                image: UIImage(named: "InfoIcon"),
+                imageSize: CGSize(width: 60, height: 60),
+                title: alertText,
+                okButtonTitle: "Ok",
+                okAction: {
+                    print("Retry action triggered")
+                },
+                dismissAction: {
+                    print("Dismiss action triggered")
+                }
+            )
             return
         }
         guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
@@ -81,7 +96,15 @@ class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSour
     
     
     @IBAction func completeButtonPresseed(_ sender: Any) {
-        completeButtonAPICall()
+        showGeneralAlert(
+            title: "We will guide you to create a strategic plan in Taking control full version.",
+            okButtonTitle: "Ok",
+            okAction: {
+                self.completeButtonAPICall()
+            },
+            showDismissButton: false
+        )
+
     }
     
     //MARK: - Table Delegate Methods

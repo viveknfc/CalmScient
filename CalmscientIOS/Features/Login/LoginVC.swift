@@ -451,7 +451,7 @@ extension UIView {
     
     public func showToastActivity() {
         self.isUserInteractionEnabled = false
-        self.hideAllToasts(includeActivity: true)
+//        self.hideAllToasts(includeActivity: true)
         self.updateToastStyleWithAppDefaults()
         self.makeToastActivity(.center)
     }

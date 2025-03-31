@@ -205,14 +205,27 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background. 
         
-        print("coming from background")
-//        checkForSavedLogin()
-//            
-////            if TimeZoneHelper.isTimeZoneChanged() {
-////                print("Time zone has changed. Navigating to UserIntroDayFeedbackViewController")
-//////                navigateToUserIntro()
-////            }
-//        }
+        
+        let (loginDetails, tokenResponse) = UserDefaultsHelper.retrieveLoginDetailsFromUserDefaults()
+
+        if let loginDetails = loginDetails, let tokenResponse = tokenResponse {
+            // Populate shared info
+            ApplicationSharedInfo.shared.loginResponse = loginDetails
+            ApplicationSharedInfo.shared.tokenResponse = tokenResponse
+
+            if TimeZoneHelper.isTimeZoneChanged() {
+                print("Time zone has changed. Navigating to UserIntroDayFeedbackViewController")
+                navigateToUserIntro()
+            }
+            
+
+        }
+        else {
+            // If no login details are found, navigate to Login screen
+            navigateToLogin()
+        }
+            
+
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {

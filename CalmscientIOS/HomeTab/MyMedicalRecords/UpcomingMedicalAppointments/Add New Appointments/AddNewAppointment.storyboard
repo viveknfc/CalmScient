@@ -35,7 +35,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="75"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6D-vS-FTq" customClass="FontLR16" customModule="CalmscientIOS" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="21"/>
+                                                                        <rect key="frame" x="0.0" y="5" width="343" height="21"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="21" id="xRE-DQ-7Fr"/>
                                                                         </constraints>
@@ -44,7 +44,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CXo-6P-zBm" customClass="customUITextField" customModule="CalmscientIOS" customModuleProvider="target">
-                                                                        <rect key="frame" x="0.0" y="29" width="343" height="38"/>
+                                                                        <rect key="frame" x="0.0" y="34" width="343" height="33"/>
                                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                                         <textInputTraits key="textInputTraits"/>
@@ -58,7 +58,7 @@
                                                                     <constraint firstItem="CXo-6P-zBm" firstAttribute="top" secondItem="d6D-vS-FTq" secondAttribute="bottom" constant="8" id="7br-bo-kpq"/>
                                                                     <constraint firstAttribute="bottom" secondItem="CXo-6P-zBm" secondAttribute="bottom" constant="8" id="dYw-MX-hbG"/>
                                                                     <constraint firstItem="d6D-vS-FTq" firstAttribute="leading" secondItem="v2t-Q9-wNL" secondAttribute="leading" id="uMD-Wn-HEH"/>
-                                                                    <constraint firstItem="d6D-vS-FTq" firstAttribute="top" secondItem="v2t-Q9-wNL" secondAttribute="top" id="ydh-w8-q5s"/>
+                                                                    <constraint firstItem="d6D-vS-FTq" firstAttribute="top" secondItem="v2t-Q9-wNL" secondAttribute="top" constant="5" id="ydh-w8-q5s"/>
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FNg-BD-wSK">

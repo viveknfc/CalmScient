@@ -30,7 +30,7 @@ class CurvedOutlineButton: UIButton {
         // Set default transparent background
         self.backgroundColor = .clear
         
-        self.titleLabel?.font = UIFont(name: Fonts().lexendLight, size: 14) // Default font
+        self.titleLabel?.font = UIFont(name: Fonts().lexendLight, size: 16) // Default font
         self.setTitleColor(UIColor(named: "VTextColor2")!)
         self.contentHorizontalAlignment = .left
         self.titleEdgeInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 0)

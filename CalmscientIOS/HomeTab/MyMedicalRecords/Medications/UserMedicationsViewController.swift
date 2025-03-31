@@ -155,17 +155,13 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
 
         getMedicationsData(forDate: Date())
         
-        if let responseString = response as? String {
-            print("Response received from Mark Medication API calling is", responseString)
-        } else if let responseDict = response as? [String: Any] {
-            
-            if let responseMessage = responseDict["responseMessage"] as? String {
-                print("Response Message:", responseMessage)
-            }
-            
-        }
-        else {
-            print("Unsupported response type:", type(of: response))
+        if let responseDict = response as? [String: Any],
+           let responseCode = responseDict["responseCode"] as? Int,
+           responseCode == 200 {
+            print("medine updation success")
+        } else {
+            print("Failed to mark medication. Response: \(response)")
+            self.view.hideToastActivity()
         }
     }
     
@@ -295,7 +291,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     }
 
     func getMedicationsData(forDate:Date) {
-        self.view.showToastActivity()
+        view.showToastActivity()
         
         var prepareRequestBodyParams:[String:Any] = [:]
         guard let loginResponse = ApplicationSharedInfo.shared.loginResponse else {
@@ -316,6 +312,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
             return
         }
         NetworkAPIRequest.sendRequest(request: requestURL) { [weak self](response: MedicationDetailsResponse?, failureResponse: FailureResponse?, error: Error?) in
+            
             print("vivek here", response as Any)
             DispatchQueue.main.async {
                 guard let self = self else {
@@ -344,9 +341,14 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
                         print("the medication data count is",self.medicationData.count)
                         self.nomedications.isHidden = true
                         self.medicationsTableView.isHidden = false
-                        self.medicationsTableView.reloadData()
+//                        self.medicationsTableView.reloadData()
 
-                        self.view.hideToastActivity()
+                        self.reloadTableView {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // Slight delay to allow rendering completion
+                                print("spinner stops")
+                                self.view.hideToastActivity() // Now hide the spinner
+                            }
+                        }
                         
                         
                     }
@@ -354,7 +356,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
                             print("Total Records: \(response.totalRecords)")
                             self.medicationsTableView.isHidden = true
                             self.nomedications.isHidden = false
-                            self.view.hideToastActivity()
+                        self.view.hideToastActivity()
                         }
                     else {
                         print("the response message is ",response.response.responseMessage)
@@ -370,11 +372,24 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
                     self.view.hideToastActivity()
                 }
 
-                    
-            
             }
         }
     }
+    
+    //MARK: - Table Reload Smooth UI
+    
+    func reloadTableView(completion: @escaping () -> Void) {
+        DispatchQueue.main.async {
+            self.medicationsTableView.reloadData()
+            
+            // Force table view to fully layout its cells before continuing
+            self.medicationsTableView.layoutIfNeeded()
+            
+            // Hide spinner once layout and rendering are done
+            completion()
+        }
+    }
+   
 }
 
 @available(iOS 16.0, *)

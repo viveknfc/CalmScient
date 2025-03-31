@@ -107,9 +107,25 @@ extension MyDrinkingHabitVC {
     
     @IBAction func yesBtnAction() {
         
-        guard let value = selectedRowIndex else {
+        guard selectedRowIndex != nil else {
+            
+            let alertText = "Please select the stage that applies to you."
+            
+            showGeneralAlert(
+                image: UIImage(named: "InfoIcon"),
+                imageSize: CGSize(width: 60, height: 60),
+                title: alertText,
+                okButtonTitle: "Ok",
+                okAction: {
+                    print("Retry action triggered")
+                },
+                dismissAction: {
+                    print("Dismiss action triggered")
+                }
+            )
             return
         }
+        
         guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
             fatalError("Unable to found Application Shared Info")
         }

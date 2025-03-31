@@ -519,6 +519,8 @@
 		C2D1A3042D019C1D009CAB47 /* ConSub2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D1A3032D019C1D009CAB47 /* ConSub2VC.swift */; };
 		C2D1A3062D01C40D009CAB47 /* ConSub3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D1A3052D01C40D009CAB47 /* ConSub3VC.swift */; };
 		C2D3EE412D475EF9008A49D2 /* CustomDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3EE402D475EF9008A49D2 /* CustomDropDown.swift */; };
+		C2D48F6C2D9676420058677F /* GeneralAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2D48F6B2D9676420058677F /* GeneralAlertView.xib */; };
+		C2D48F6E2D96782D0058677F /* GeneralAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D48F6D2D96782D0058677F /* GeneralAlert.swift */; };
 		C2E111CF2D89D81F00FF5358 /* FavouritesGeneralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E111CE2D89D81F00FF5358 /* FavouritesGeneralManager.swift */; };
 		C2E534092D192670009D2477 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E534082D192670009D2477 /* ThemeManager.swift */; };
 		C2EED5DE2CFA3D18005C1E1F /* CurvedOutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EED5DD2CFA3D18005C1E1F /* CurvedOutlineButton.swift */; };
@@ -1072,6 +1074,8 @@
 		C2D1A3032D019C1D009CAB47 /* ConSub2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConSub2VC.swift; sourceTree = "<group>"; };
 		C2D1A3052D01C40D009CAB47 /* ConSub3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConSub3VC.swift; sourceTree = "<group>"; };
 		C2D3EE402D475EF9008A49D2 /* CustomDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDown.swift; sourceTree = "<group>"; };
+		C2D48F6B2D9676420058677F /* GeneralAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralAlertView.xib; sourceTree = "<group>"; };
+		C2D48F6D2D96782D0058677F /* GeneralAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAlert.swift; sourceTree = "<group>"; };
 		C2E111CE2D89D81F00FF5358 /* FavouritesGeneralManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesGeneralManager.swift; sourceTree = "<group>"; };
 		C2E534082D192670009D2477 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		C2EED5DD2CFA3D18005C1E1F /* CurvedOutlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedOutlineButton.swift; sourceTree = "<group>"; };
@@ -2508,6 +2512,8 @@
 				C2E111CE2D89D81F00FF5358 /* FavouritesGeneralManager.swift */,
 				C26E59E22D8D405000CC2443 /* AppointmentLocationModal.swift */,
 				C202E1EC2D931BE300DACB21 /* LaunchScreenVC.swift */,
+				C2D48F6B2D9676420058677F /* GeneralAlertView.xib */,
+				C2D48F6D2D96782D0058677F /* GeneralAlert.swift */,
 			);
 			path = "General Class";
 			sourceTree = "<group>";
@@ -2731,6 +2737,7 @@
 				4A967FC92BD6892800FCE646 /* UserEntrySleepHoursCell.xib in Resources */,
 				433E538B2C45604000A37E84 /* ProfileLanguage1CollectionViewCell.xib in Resources */,
 				4A8045E12BD91EC20054A120 /* AddMedications.xcassets in Resources */,
+				C2D48F6C2D9676420058677F /* GeneralAlertView.xib in Resources */,
 				4A178C962C0572F100371517 /* WebViewLesson.storyboard in Resources */,
 				4A65C33B2BD685E500809222 /* AppAssets.xcassets in Resources */,
 				C2B823382D1D3D6700FC1291 /* IndexBasicTableCell.xib in Resources */,
@@ -2923,6 +2930,7 @@
 				4A0853872C21684B00202C02 /* DrinkingHabbitController.swift in Sources */,
 				C2B94B132D6A1B11006C0D91 /* CapsuleButton3.swift in Sources */,
 				437392E42C761DBC009F9F2C /* ManagingAnxietyBeginScreen.swift in Sources */,
+				C2D48F6E2D96782D0058677F /* GeneralAlert.swift in Sources */,
 				4A0853842C21684B00202C02 /* DrinkEachTimeCell.swift in Sources */,
 				4A0853B62C21684B00202C02 /* ButtonCell.swift in Sources */,
 				C237E9C72D30586000E895FA /* newPickerViewVC.swift in Sources */,

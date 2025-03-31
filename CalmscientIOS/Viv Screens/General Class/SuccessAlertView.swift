@@ -16,6 +16,8 @@ class SuccessAlertView: UIView {
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var okButton: LinearGradientButton!
     
+    
+    
     var okButtonAction: (() -> Void)?
     
     override init(frame: CGRect) {

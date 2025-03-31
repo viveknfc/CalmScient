@@ -33,22 +33,31 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
         noFavsLabel.numberOfLines = 0
         self.navigationController?.isNavigationBarHidden = true
         setupLanguage()
-        
-        //title
-        
-        let text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? NSMutableAttributedString(string: "Hello \(ApplicationSharedInfo.shared.loginResponse!.firstName)\nWe are happy to see you") :
-        NSMutableAttributedString(string: "Hola \(ApplicationSharedInfo.shared.loginResponse!.firstName)\nEstamos felices de verte")
-        text.addAttributes([.font:helloFont!], range: text.mutableString.range(of:UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "Hello" : "Hola"))
-        text.addAttributes([.font:userFont!], range: text.mutableString.range(of: ApplicationSharedInfo.shared.loginResponse!.firstName))
-        text.addAttributes([.font:subTextFont!], range: text.mutableString.range(of:UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "We are happy to see you" : "Estamos felices de verte"))
-        screenTitleLabel.attributedText = text
-        
-        //end
 
-        NotificationCenter.default.addObserver(self, selector: #selector(updateFavorites), name: .favoritesUpdated, object: nil)  
+        // Safely unwrap loginResponse
+        guard let loginResponse = ApplicationSharedInfo.shared.loginResponse else {
+            print("Error: loginResponse is nil")
+            return
+        }
+
+        // Title
+        let languageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+        let greeting = languageID == 1 ? "Hello" : "Hola"
+        let subText = languageID == 1 ? "We are happy to see you" : "Estamos felices de verte"
+        let firstName = loginResponse.firstName
+
+        let text = NSMutableAttributedString(string: "\(greeting) \(firstName)\n\(subText)")
+        text.addAttributes([.font: helloFont!], range: text.mutableString.range(of: greeting))
+        text.addAttributes([.font: userFont!], range: text.mutableString.range(of: firstName))
+        text.addAttributes([.font: subTextFont!], range: text.mutableString.range(of: subText))
+        screenTitleLabel.attributedText = text
+
+        // End
+        NotificationCenter.default.addObserver(self, selector: #selector(updateFavorites), name: .favoritesUpdated, object: nil)
         self.favorites = FavoriteManager.shared.favorites
         self.dashBoardCollectionView.reloadData()
     }
+
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)

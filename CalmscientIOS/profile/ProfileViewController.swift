@@ -140,27 +140,62 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
         let userID = userInfo.userID
         
         guard let email = emailTF.text, !email.isEmpty else {
-            self.view.showToast(message: "Email is required.")
+            showGeneralAlert(
+                title: "Email is required.",
+                okButtonTitle: "Ok",
+                okAction: {
+
+                },
+                showDismissButton: false
+            )
             return
         }
 
         guard let oldPassword = oldPasswordTF.text, !oldPassword.isEmpty else {
-            self.view.showToast(message: "Old password is required.")
+            showGeneralAlert(
+                title: "Old password is required.",
+                okButtonTitle: "Ok",
+                okAction: {
+
+                },
+                showDismissButton: false
+            )
             return
         }
 
         guard let newPassword = newPasswordTF.text, !newPassword.isEmpty else {
-            self.view.showToast(message: "New password is required.")
+            showGeneralAlert(
+                title: "New password is required.",
+                okButtonTitle: "Ok",
+                okAction: {
+
+                },
+                showDismissButton: false
+            )
             return
         }
 
         guard let confirmNewPassword = confirmPasswordTF.text, !confirmNewPassword.isEmpty else {
-            self.view.showToast(message: "Confirm password is required.")
+            showGeneralAlert(
+                title: "Confirm password is required.",
+                okButtonTitle: "Ok",
+                okAction: {
+
+                },
+                showDismissButton: false
+            )
             return
         }
 
         guard newPassword == confirmNewPassword else {
-            self.view.showToast(message: "New password and confirm password must be the same.")
+            showGeneralAlert(
+                title: "New password and confirm password must be the same.",
+                okButtonTitle: "Ok",
+                okAction: {
+
+                },
+                showDismissButton: false
+            )
             return
         }
 

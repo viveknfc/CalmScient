@@ -81,7 +81,7 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
         
         setupDropdownTable()
 
-        patientNameTF.isUserInteractionEnabled = false
+        patientNameTF.isUserInteractionEnabled = true
         patientNameTF.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         patientNameTF.text = UserDefaults.standard.string(forKey: "titleString")
 

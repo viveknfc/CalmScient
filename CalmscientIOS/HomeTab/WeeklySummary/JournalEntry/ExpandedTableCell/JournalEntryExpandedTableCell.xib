@@ -59,18 +59,27 @@
                                                     <action selector="didClickOnExpandAndCollapseAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="TbA-kd-8bv"/>
                                                 </connections>
                                             </button>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="748" text=" have written programmatically" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuT-fn-LOK">
-                                                <rect key="frame" x="9" y="46.666666666666664" width="262" height="20.666666666666664"/>
-                                                <fontDescription key="fontDescription" name="Lexend-Light" family="Lexend" pointSize="15"/>
-                                                <color key="textColor" name="CalenderDefaultSameColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hf6-dQ-m3S" customClass="FontLL14" customModule="CalmscientIOS" customModuleProvider="target">
-                                                <rect key="frame" x="9" y="77.333333333333329" width="262" height="20.333333333333329"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="RNN-F2-QpV">
+                                                <rect key="frame" x="10" y="45" width="286" height="60"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="748" text=" have written programmatically" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KuT-fn-LOK">
+                                                        <rect key="frame" x="0.0" y="0.0" width="286" height="29.666666666666668"/>
+                                                        <fontDescription key="fontDescription" name="Lexend-Light" family="Lexend" pointSize="15"/>
+                                                        <color key="textColor" name="CalenderDefaultSameColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hf6-dQ-m3S" customClass="FontLL14" customModule="CalmscientIOS" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="39.666666666666671" width="286" height="20.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="KuT-fn-LOK" secondAttribute="trailing" id="OHR-uI-KIy"/>
+                                                    <constraint firstItem="KuT-fn-LOK" firstAttribute="leading" secondItem="RNN-F2-QpV" secondAttribute="leading" id="PMl-JP-4Yu"/>
+                                                </constraints>
+                                            </stackView>
                                             <button opaque="NO" tag="9001" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rcn-Ps-f79">
                                                 <rect key="frame" x="274" y="45" width="24" height="24"/>
                                                 <constraints>
@@ -89,23 +98,18 @@
                                         </subviews>
                                         <color key="backgroundColor" name="AppBackGroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="hf6-dQ-m3S" firstAttribute="leading" secondItem="KuT-fn-LOK" secondAttribute="leading" id="7EU-Q6-btQ"/>
+                                            <constraint firstAttribute="bottom" secondItem="RNN-F2-QpV" secondAttribute="bottom" constant="10" id="2x2-uJ-XkI"/>
                                             <constraint firstItem="sBk-3B-1sf" firstAttribute="top" secondItem="EJz-gk-xEH" secondAttribute="top" constant="14" id="8Gy-m7-uRw"/>
-                                            <constraint firstItem="KuT-fn-LOK" firstAttribute="centerY" secondItem="Rcn-Ps-f79" secondAttribute="centerY" id="Abp-hQ-Lz7"/>
-                                            <constraint firstItem="KuT-fn-LOK" firstAttribute="top" secondItem="pw4-mU-zzI" secondAttribute="bottom" constant="11.666666666666657" id="BqG-eQ-zcA"/>
                                             <constraint firstItem="pw4-mU-zzI" firstAttribute="leading" secondItem="EJz-gk-xEH" secondAttribute="leadingMargin" id="EVQ-YV-jNI"/>
+                                            <constraint firstItem="RNN-F2-QpV" firstAttribute="leading" secondItem="EJz-gk-xEH" secondAttribute="leading" constant="10" id="HRv-Gk-Cdh"/>
                                             <constraint firstItem="sBk-3B-1sf" firstAttribute="leading" secondItem="pw4-mU-zzI" secondAttribute="trailing" constant="15" id="J5h-vd-jS5"/>
                                             <constraint firstItem="sBk-3B-1sf" firstAttribute="leading" secondItem="Rcn-Ps-f79" secondAttribute="leading" id="LZn-FW-g4C"/>
                                             <constraint firstItem="sBk-3B-1sf" firstAttribute="trailing" secondItem="EJz-gk-xEH" secondAttribute="trailingMargin" id="NNk-Ty-b2M"/>
                                             <constraint firstItem="pw4-mU-zzI" firstAttribute="top" secondItem="EJz-gk-xEH" secondAttribute="top" constant="16" id="Qzc-cJ-AHt"/>
-                                            <constraint firstItem="Rcn-Ps-f79" firstAttribute="leading" secondItem="KuT-fn-LOK" secondAttribute="trailing" constant="3" id="Z1H-Hx-lKA"/>
-                                            <constraint firstItem="KuT-fn-LOK" firstAttribute="leading" secondItem="EJz-gk-xEH" secondAttribute="leading" constant="9" id="ahb-wx-KtQ"/>
+                                            <constraint firstItem="RNN-F2-QpV" firstAttribute="top" secondItem="pw4-mU-zzI" secondAttribute="bottom" constant="10" id="UJf-kJ-rKx"/>
                                             <constraint firstItem="Rcn-Ps-f79" firstAttribute="top" secondItem="sBk-3B-1sf" secondAttribute="bottom" constant="8.0000000000000142" id="bTS-B1-UMJ"/>
-                                            <constraint firstItem="KuT-fn-LOK" firstAttribute="trailing" secondItem="hf6-dQ-m3S" secondAttribute="trailing" id="g8W-Zg-0Sy"/>
                                             <constraint firstItem="sBk-3B-1sf" firstAttribute="trailing" secondItem="Rcn-Ps-f79" secondAttribute="trailing" id="nMR-ws-4E5"/>
-                                            <constraint firstItem="hf6-dQ-m3S" firstAttribute="top" secondItem="KuT-fn-LOK" secondAttribute="bottom" constant="10" id="rbP-X4-fSs"/>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="hf6-dQ-m3S" secondAttribute="bottom" constant="10" id="soK-x7-SWc"/>
-                                            <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="KuT-fn-LOK" secondAttribute="bottom" constant="10" id="wlQ-gg-46E"/>
+                                            <constraint firstAttribute="trailing" secondItem="RNN-F2-QpV" secondAttribute="trailing" constant="10" id="sFn-a4-yqP"/>
                                             <constraint firstItem="pw4-mU-zzI" firstAttribute="centerY" secondItem="sBk-3B-1sf" secondAttribute="centerY" id="ygv-QJ-cNr"/>
                                         </constraints>
                                     </view>
