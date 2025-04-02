@@ -19,6 +19,10 @@ class AppointmentsEmptyTableViewCell: UITableViewCell, EditableCell {
     
     @IBOutlet weak var cellIconImageView: UIImageView!
     
+    @IBOutlet weak var dateLabelHeight: NSLayoutConstraint!
+    
+    @IBOutlet weak var dateToAppointmentHeight: NSLayoutConstraint!
+    
     weak var delegate: CustomTableViewCellDelegate?
     var indexPath: IndexPath?
     

@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Lexend-Bold.ttf">
+        <array key="lexendbold.ttf">
             <string>Lexend-Bold</string>
         </array>
-        <array key="Lexend-SemiBold.ttf">
+        <array key="lexendsemibold.ttf">
             <string>Lexend-SemiBold</string>
         </array>
     </customFonts>
@@ -74,7 +74,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
-                                                <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.96470588235294119" green="0.96470588235294119" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="204" id="7EF-OP-Viq"/>
                                                     <constraint firstAttribute="trailing" secondItem="LiO-Sb-fKC" secondAttribute="trailing" constant="110" id="Ol1-v4-1Ae"/>

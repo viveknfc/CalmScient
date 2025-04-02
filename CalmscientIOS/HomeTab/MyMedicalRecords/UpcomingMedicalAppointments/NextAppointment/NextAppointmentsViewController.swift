@@ -42,7 +42,7 @@ class NextAppointmentsViewController: ViewController, NCalendarToViewDelegate {
         nextAppointmentTableView.dataSource = self
         nextAppointmentTableView.delegate = self
         nextAppointmentTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 150, right: 0)
-        
+
 //        getMedicalAppointmentsData(forDate: selectedNewDate)
     }
     
@@ -96,22 +96,37 @@ class NextAppointmentsViewController: ViewController, NCalendarToViewDelegate {
                     } else {
                         var tableData:[EmptyOrMedicalAppointment] = []
                         self.userMedicalAppointments = response.appointmentDetailsList
-                        for datum in self.currentWeekList {
-                            if let appointmentDetailsList = response.appointmentDetailsList.filter({ instance in
+                        
+                        for datum in self.currentWeekList{
+                            let matchedAppointments = response.appointmentDetailsList.filter { instance in
                                 let appointmentDateString = instance.date.getDate().dateToString(format: "MM/dd/yyyy")
-                                print("appointmentDateString: \(appointmentDateString)")
                                 let dateString = datum.dateToString(format: "MM/dd/yyyy")
                                 return appointmentDateString == dateString
-                            }).first {
-                                for eachAppointment in appointmentDetailsList.appointmentDetailsByDate {
-                                    eachAppointment.dateString = appointmentDetailsList.date.getDate().dateToString(format: "MM/dd/yyyy")
-                                    tableData.append(.medicalAppointment(eachAppointment))
-                                }
-                            } else {
+                            }
+                            
+                            if matchedAppointments.isEmpty {
                                 tableData.append(.emptyAppointment(datum.dateToString(format: "MM/dd/yyyy")))
+                            } else {
+
+                                var isFirstAppointmentForDate = true
+                                
+                                for appointmentDetailsList in matchedAppointments {
+                                    for eachAppointment in appointmentDetailsList.appointmentDetailsByDate {
+                                        let updatedAppointment = eachAppointment
+                                        updatedAppointment.dateString = appointmentDetailsList.date.getDate().dateToString(format: "MM/dd/yyyy")
+                                        
+                                        // Set `showDateLabel` to true only for the first appointment of the day
+                                        updatedAppointment.showDateLabel = isFirstAppointmentForDate
+                                        isFirstAppointmentForDate = false
+                                        
+                                        tableData.append(.medicalAppointment(updatedAppointment))
+                                    }
+                                }
+
                             }
                             self.medicalAppointmentsData = tableData
                         }
+
                         self.view.hideToastActivity()
                         self.nextAppointmentTableView.reloadData()
                     }
@@ -153,32 +168,53 @@ extension NextAppointmentsViewController : UITableViewDataSource, UITableViewDel
                 
             case .emptyAppointment(let dateInstance):
                 cell.dateLabel.text = dateInstance
+                cell.dateLabel.isHidden = false
+                cell.dateLabelHeight.constant = 20
+                cell.dateToAppointmentHeight.constant = 8
                 cell.cellIconImageView.image = UIImage(named: "appointmentIcon")
                 cell.forwardButton.isHidden = false
                 cell.forwardButton.setImage(UIImage(named: "MedicationsCellArrow"), for: .normal)
                 cell.editDeletButton.isHidden = true
                 cell.contentTextLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "No appointments" : "Sin citas"
+                return cell
                 
             case .medicalAppointment(let appointment):
                 cell.dateLabel.text = appointment.appointmentDetails.dateAndTime.toFormattedDateString()
+                
+                if appointment.showDateLabel {
+                    cell.dateLabel.isHidden = false
+                    cell.dateLabelHeight.constant = 20  // Desired height when visible
+                    cell.dateToAppointmentHeight.constant = 8
+                } else {
+                    cell.dateLabel.isHidden = true
+                    cell.dateLabelHeight.constant = 0   // Collapse height when hidden
+                    cell.dateToAppointmentHeight.constant = 0
+                }
+                
                 cell.cellIconImageView.image = UIImage(named: "doctorWithSteth")
                 cell.editDeletButton.isHidden = false
                 cell.forwardButton.isHidden = true
                 cell.editDeletButton.setImage(UIImage(named: "seperatorIcon"), for: .normal)
                 cell.contentTextLabel.text = appointment.appointmentDetails.providerName
-                break
+                return cell
+                
             }
 
-        return cell
     }
+
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let instance = medicalAppointmentsData[indexPath.row]
         switch instance {
         case .emptyAppointment(_):
            return 110
-        case .medicalAppointment(_):
-            return 130
+        case .medicalAppointment(let appointment):
+            if appointment.showDateLabel {
+                return 130  // Height when dateLabel is visible
+            } else {
+                return 94  // Height when dateLabel is hidden
+            }
+//            return 130
         }
     }
     

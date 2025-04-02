@@ -102,7 +102,10 @@ class DrinkingControl: UIViewController, CalendarToViewDelegate {
         infoView.layer.shadowRadius = 4 // Blur radius for a soft shadow
         infoView.layer.masksToBounds = false // Ensure shadow appears outside bounds
         
-        
+        // Add tap gesture recognizer to the main view
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissInfoView))
+        tapGesture.cancelsTouchesInView = false // Allow other views to receive touches
+        self.view.addGestureRecognizer(tapGesture)
         
     }
     
@@ -135,6 +138,27 @@ class DrinkingControl: UIViewController, CalendarToViewDelegate {
          UIView.animate(withDuration: 0.3) {
              self.infoView.alpha = 1
          }
+    }
+    
+    //MARK: - Info Button to close
+    
+    @objc func dismissInfoView(_ sender: UITapGestureRecognizer) {
+        let location = sender.location(in: self.view)
+        
+        // Ignore the tap if it's within the infoView's frame
+        if infoView.isHidden || infoView.frame.contains(location) {
+            return
+        }
+        
+        hideInfoView()
+    }
+
+    func hideInfoView() {
+        UIView.animate(withDuration: 0.2, animations: {
+            self.infoView.alpha = 0
+        }) { _ in
+            self.infoView.isHidden = true
+        }
     }
     
     
@@ -190,6 +214,36 @@ class DrinkingControl: UIViewController, CalendarToViewDelegate {
             customAlertVC.modalTransitionStyle = .crossDissolve
             self.present(customAlertVC, animated: true, completion: nil)
         }
+    }
+    
+    //MARK: - Resources
+    
+    @IBAction func workYourStrengthButton(_ sender: Any) {
+    }
+    
+    @IBAction func breathingExerciseButton(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Excercises", bundle: nil)
+        let destinationVC = storyboard.instantiateViewController(withIdentifier: "BreathingTechnique") as! BreathingTechnique
+        self.navigationController?.pushViewController(destinationVC, animated: true)
+    }
+    
+    @IBAction func managingAnxietyButton(_ sender: Any) {
+        let next = UIStoryboard(name: "ManagingAnxietyBeginScreen", bundle: nil)
+        let vc = next.instantiateViewController(withIdentifier: "ManagingAnxietyBeginScreen") as? ManagingAnxietyBeginScreen
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
+    @IBAction func screeningButton(_ sender: Any) {
+        let next = UIStoryboard(name: "ScreeningListVC", bundle: nil)
+        let vc = next.instantiateViewController(withIdentifier: "ScreeningListVC") as? ScreeningListVC
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
+    
+    @IBAction func drinkCountButton(_ sender: Any) {
+        let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+        let vc = next.instantiateViewController(withIdentifier: "DrinkingCountVC") as? DrinkingCountVC
+        vc?.title = AppHelper.getLocalizeString(str: "Drink counts calculator")
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
 

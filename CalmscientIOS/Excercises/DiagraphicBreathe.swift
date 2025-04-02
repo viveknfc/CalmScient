@@ -197,7 +197,7 @@ class DiagraphicBreathe: ViewController {
     {
         
         guard let player = player else { return }
-        avController.modalPresentationStyle = .fullScreen
+        avController.modalPresentationStyle = .overFullScreen
         avController.player = player
         present(avController, animated: true) {
             player.play()
@@ -339,10 +339,11 @@ class DiagraphicBreathe: ViewController {
     }
     
     @IBAction func completeButtonPressed(_ sender: Any) {
-        let destinationVC = UIStoryboard(name: "Excercises", bundle: nil).instantiateViewController(withIdentifier: "Excercises") as! Excercises
-                
-                // Push to the destination view controller
-                self.navigationController?.pushViewController(destinationVC, animated: true)
+        self.navigationController?.popViewController(animated: true)
+//        let destinationVC = UIStoryboard(name: "Excercises", bundle: nil).instantiateViewController(withIdentifier: "Excercises") as! Excercises
+//                
+//                // Push to the destination view controller
+//                self.navigationController?.pushViewController(destinationVC, animated: true)
     }
     
     

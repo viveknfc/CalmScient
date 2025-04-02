@@ -31,18 +31,18 @@ class ScreeningListVC: ViewController {
         let backButtonImage = UIImage(named: "NavigationBack")?.withRenderingMode(.alwaysOriginal)
 
         // Create a UIButton
-        let backButton = UIButton(type: .custom)
-        backButton.setImage(backButtonImage, for: .normal)
-        backButton.addTarget(self, action: #selector(backButtonOverrideAction), for: .touchUpInside)
-
-        // Set constraints to adjust the size
-        backButton.translatesAutoresizingMaskIntoConstraints = false
-        backButton.widthAnchor.constraint(equalToConstant: 32).isActive = true // Set desired width
-        backButton.heightAnchor.constraint(equalToConstant: 32).isActive = true // Set desired height
-
-        // Create a UIBarButtonItem using the UIButton
-        let backBarButtonItem = UIBarButtonItem(customView: backButton)
-        navigationItem.leftBarButtonItem = backBarButtonItem
+//        let backButton = UIButton(type: .custom)
+//        backButton.setImage(backButtonImage, for: .normal)
+//        backButton.addTarget(self, action: #selector(backButtonOverrideAction), for: .touchUpInside)
+//
+//        // Set constraints to adjust the size
+//        backButton.translatesAutoresizingMaskIntoConstraints = false
+//        backButton.widthAnchor.constraint(equalToConstant: 32).isActive = true // Set desired width
+//        backButton.heightAnchor.constraint(equalToConstant: 32).isActive = true // Set desired height
+//
+//        // Create a UIBarButtonItem using the UIButton
+//        let backBarButtonItem = UIBarButtonItem(customView: backButton)
+//        navigationItem.leftBarButtonItem = backBarButtonItem
         
         //end
         

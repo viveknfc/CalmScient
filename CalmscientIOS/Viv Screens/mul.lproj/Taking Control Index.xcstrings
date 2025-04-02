@@ -2509,6 +2509,18 @@
         }
       }
     },
+    "QXK-Cm-JcM.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"any day or 8 drinks or more per week\"; ObjectID = \"QXK-Cm-JcM\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "any day or 8 drinks or more per week"
+          }
+        }
+      }
+    },
     "r1p-7f-5jb.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Done\"; ObjectID = \"r1p-7f-5jb\";",
       "extractionState" : "extracted_with_value",
@@ -2625,6 +2637,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Most teens who smoke think they will quit in their 20s and actually don't until their 40s. Stopping smoking is about making a change and that is something we're not too good at, in fact smoking cessation can be a long journey of trying and relapsing, just like a long ride on a roller coaster. There is no magic solution or medication to transform one to a non-smoker overnight, though some people have the gene to be able to quit smoking or drinking without any struggles.\n\n\nSo what does this ride of change look like? There are 4 steps and helpful strategies you can take!"
+          }
+        }
+      }
+    },
+    "sGi-CA-kTo.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Women\"; ObjectID = \"sGi-CA-kTo\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Women"
           }
         }
       }
@@ -3339,6 +3363,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "When you eat, try to pay attention to what you're eating. Turn off the TV or put away your phone. Eating a bit slower and really savoring your food can help you notice when you're full."
+          }
+        }
+      }
+    },
+    "YY9-Q8-kcS.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Up to 4 or more drinks on\"; ObjectID = \"YY9-Q8-kcS\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Up to 4 or more drinks on"
           }
         }
       }

@@ -82,7 +82,6 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
         setupDropdownTable()
 
         patientNameTF.isUserInteractionEnabled = true
-        patientNameTF.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         patientNameTF.text = UserDefaults.standard.string(forKey: "titleString")
 
         dropdownTableView.isHidden = true  // Hide initially
@@ -137,7 +136,7 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
             appointmentId = medicalAppointmentsData.appointmentDetails.appointmentId
             itemDescription = medicalAppointmentsData.appointmentDetails.appointmentDetails
             descriptionTV.text = itemDescription
-            alert = medicalAppointmentsData.appointmentDetails.alert
+            alert = medicalAppointmentsData.appointmentDetails.alert ?? 0
             updateNotificationButton()
             
         } else {
@@ -207,7 +206,14 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
         dateFormatter.dateFormat = "MM/dd/yyyy"
         guard let dateText = dateTF.text?.trimmingCharacters(in: .whitespacesAndNewlines), !dateText.isEmpty,
               let selectedDate = dateFormatter.date(from: dateText) else {
-            self.view.showToast(message: "Please enter a valid date.")
+            showGeneralAlert(
+                title: "Please enter a valid date.",
+                okButtonTitle: "Ok",
+                okAction: {
+
+                },
+                showDismissButton: false
+            )
             return false
         }
 
@@ -215,7 +221,14 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
         dateFormatter.dateFormat = "hh:mm a"
         guard let timeText = timeTF.text?.trimmingCharacters(in: .whitespacesAndNewlines), !timeText.isEmpty,
               let selectedTime = dateFormatter.date(from: timeText) else {
-            self.view.showToast(message: "Please enter a valid time.")
+            showGeneralAlert(
+                title: "Please enter a valid time.",
+                okButtonTitle: "Ok",
+                okAction: {
+
+                },
+                showDismissButton: false
+            )
             return false
         }
 
@@ -373,18 +386,46 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
   
     @IBAction func saveBtnAction(){
         
+        let patientName = patientNameTF.text ?? ""
         providerFirstName = providerNameTF.text ?? ""
         locationName = locationTF.text ?? ""
         itemDescription = descriptionTV.text ?? ""
         
         // Validation check
+        
+        if patientName.isEmpty {
+            showGeneralAlert(
+                title: "Patient Name cannot be empty.",
+                okButtonTitle: "Ok",
+                okAction: {
+
+                },
+                showDismissButton: false
+            )
+            return
+        }
+        
         if providerFirstName.isEmpty {
-            self.view.showToast(message: "Provider Name cannot be empty.")
+            showGeneralAlert(
+                title: "Provider Name cannot be empty.",
+                okButtonTitle: "Ok",
+                okAction: {
+
+                },
+                showDismissButton: false
+            )
             return
         }
 
         if locationName.isEmpty {
-            self.view.showToast(message: "Location Name cannot be empty.")
+            showGeneralAlert(
+                title: "Location Name cannot be empty.",
+                okButtonTitle: "Ok",
+                okAction: {
+
+                },
+                showDismissButton: false
+            )
             return
         }
         

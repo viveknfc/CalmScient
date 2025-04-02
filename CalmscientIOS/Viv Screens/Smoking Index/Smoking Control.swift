@@ -132,6 +132,22 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
                 self.navigationController?.pushViewController(vc!, animated: true)
                 
             }
+        } else if tableView == self.resourceTableView {
+            if indexPath.row == 0 {
+                
+            } else if indexPath.row == 1 {
+                let storyboard = UIStoryboard(name: "Excercises", bundle: nil)
+                let destinationVC = storyboard.instantiateViewController(withIdentifier: "BreathingTechnique") as! BreathingTechnique
+                self.navigationController?.pushViewController(destinationVC, animated: true)
+            } else if indexPath.row == 2 {
+                let next = UIStoryboard(name: "ManagingAnxietyBeginScreen", bundle: nil)
+                let vc = next.instantiateViewController(withIdentifier: "ManagingAnxietyBeginScreen") as? ManagingAnxietyBeginScreen
+                self.navigationController?.pushViewController(vc!, animated: true)
+            } else if indexPath.row == 3 {
+                let next = UIStoryboard(name: "ScreeningListVC", bundle: nil)
+                let vc = next.instantiateViewController(withIdentifier: "ScreeningListVC") as? ScreeningListVC
+                self.navigationController?.pushViewController(vc!, animated: true)
+            }
         }
         
     }

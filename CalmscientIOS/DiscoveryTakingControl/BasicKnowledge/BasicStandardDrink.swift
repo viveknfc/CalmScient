@@ -127,45 +127,117 @@ class BasicStandardDrink: ViewController {
             }
         self.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
         }
+    
+    //viv start
+    
     func loadTitlesAndImages() {
         activityIndicator.startAnimating()
         
         let filteredDrinks = drinks.filter { drink in
             if let drinkId = drink["drinkId"] as? Int {
-                return drinkId != 1
+                return drinkId >= 2  // Start from drinkId = 2
             }
             return false
         }
-        for drink in filteredDrinks {
-            if let title = drink["drinkName"] as? String, let imageUrlString = drink["imageUrl"] as? String, let url = URL(string: imageUrlString) {
-                
+        .sorted { // Sort by drinkId to maintain the sequence
+            if let id1 = $0["drinkId"] as? Int, let id2 = $1["drinkId"] as? Int {
+                return id1 < id2
+            }
+            return false
+        }
+        
+        var tempTitles: [String] = Array(repeating: "", count: filteredDrinks.count)
+        var tempImages: [UIImage?] = Array(repeating: nil, count: filteredDrinks.count)
+        var loadedCount = 0
+
+        for (index, drink) in filteredDrinks.enumerated() {
+            if let title = drink["drinkName"] as? String,
+               let imageUrlString = drink["imageUrl"] as? String,
+               let url = URL(string: imageUrlString) {
+
                 DispatchQueue.global().async {
                     if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
                         DispatchQueue.main.async {
-                            self.titles.append(title)
+                            tempTitles[index] = title
+                            tempImages[index] = image
+                            loadedCount += 1
                             
-                            self.images.append(image)
-                            if self.images.count == 1 {
+                            if loadedCount == filteredDrinks.count {
+                                // Now update your main arrays in correct order
+                                self.titles = tempTitles
+                                self.images = tempImages.compactMap { $0 }
                                 self.updateContent()
-                            }
-                            
-                            if self.images.count == self.drinks.count {
                                 self.activityIndicator.stopAnimating()
                             }
-                            
                         }
                     } else {
                         DispatchQueue.main.async {
                             print("Failed to load image from URL: \(url)")
-                            self.activityIndicator.stopAnimating()
+                            loadedCount += 1
+                            if loadedCount == filteredDrinks.count {
+                                self.titles = tempTitles
+                                self.images = tempImages.compactMap { $0 }
+                                self.updateContent()
+                                self.activityIndicator.stopAnimating()
+                            }
                         }
                     }
                 }
             } else {
-                print("Invalid data: \(drink)")  // Debug statement
+                print("Invalid data: \(drink)")
             }
         }
     }
+
+    
+    //END
+    
+//    func loadTitlesAndImages() {
+//        activityIndicator.startAnimating()
+//        
+//        let filteredDrinks = drinks.filter { drink in
+//            if let drinkId = drink["drinkId"] as? Int {
+//                return drinkId >= 2
+//            }
+//            return false
+//        }
+//            .sorted { // Sort by drinkId to maintain the sequence
+//                if let id1 = $0["drinkId"] as? Int, let id2 = $1["drinkId"] as? Int {
+//                    return id1 < id2
+//                }
+//                return false
+//            }
+//        
+//        for drink in filteredDrinks {
+//            if let title = drink["drinkName"] as? String, let imageUrlString = drink["imageUrl"] as? String, let url = URL(string: imageUrlString) {
+//                
+//                DispatchQueue.global().async {
+//                    if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
+//                        DispatchQueue.main.async {
+//                            self.titles.append(title)
+//                            
+//                            self.images.append(image)
+//                            if self.images.count == 1 {
+//                                self.updateContent()
+//                            }
+//                            
+//                            if self.images.count == self.drinks.count {
+//                                self.activityIndicator.stopAnimating()
+//                            }
+//                            
+//                        }
+//                    } else {
+//                        DispatchQueue.main.async {
+//                            print("Failed to load image from URL: \(url)")
+//                            self.activityIndicator.stopAnimating()
+//                        }
+//                    }
+//                }
+//            } else {
+//                print("Invalid data: \(drink)")  // Debug statement
+//            }
+//        }
+//    }
     
     func getAlcoholDrinks(plId: Int, patientId: Int, clientId: Int, activityDate: String,bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void) {
         // Define the URL
@@ -188,7 +260,7 @@ class BasicStandardDrink: ViewController {
             "clientId": clientId,
             "activityDate": activityDate
         ]
-        print("payload\(payload)")
+        print("getDrinksList payload\(payload)")
         // Convert the payload to JSON data
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: payload, options: [])
@@ -248,8 +320,10 @@ class BasicStandardDrink: ViewController {
         guard !images.isEmpty, !titles.isEmpty else { return }
         if currentIndex < images.count - 1 {
             currentIndex += 1
-            updateContent()
+        } else {
+            currentIndex = 0  // Rotate back to the first image
         }
+        updateContent()
     }
 
     //MARK: - Complete Button Pressed

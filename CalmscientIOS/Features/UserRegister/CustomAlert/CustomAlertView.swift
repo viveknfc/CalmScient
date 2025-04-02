@@ -31,7 +31,7 @@ class CustomAlertView : UIView {
             } else if languageId == 2 {
                 UserDefaults.standard.set("es", forKey: "Language")
             }
-        titleLabel.text = AppHelper.getLocalizeString(str: "Your License key has\nbeen verified.")
+        titleLabel.text = AppHelper.getLocalizeString(str: "Your license key has\nbeen verified.")
 //        contentLabel.text = AppHelper.getLocalizeString(str: "Please complete your profile to start using Calmscient.")
         continueButton.titleLabel?.text = AppHelper.getLocalizeString(str: "Continue")
         

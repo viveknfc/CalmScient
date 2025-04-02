@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         // Create a UIBarButtonItem using the UIButton
         let backBarButtonItem = UIBarButtonItem(customView: backButton)
         navigationItem.leftBarButtonItem = backBarButtonItem
+
     }
     
     @objc func customBackButtonTapped() {

@@ -113,7 +113,7 @@ class UserRegistrationViewController: UIViewController {
         customAlertView?.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         customAlertView?.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor).isActive = true
         customAlertView?.widthAnchor.constraint(equalToConstant: self.view.frame.width * 0.9).isActive = true
-        customAlertView?.heightAnchor.constraint(equalToConstant: 315).isActive = true //self.view.frame.height * 0.30
+        customAlertView?.heightAnchor.constraint(equalToConstant: 345).isActive = true //self.view.frame.height * 0.30
          
 
     }

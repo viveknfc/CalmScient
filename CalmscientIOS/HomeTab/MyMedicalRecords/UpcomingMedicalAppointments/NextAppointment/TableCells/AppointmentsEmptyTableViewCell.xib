@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="lexendregular.ttf">
+        <array key="Lexend-Regular.ttf">
             <string>Lexend-Regular</string>
         </array>
     </customFonts>
@@ -28,7 +28,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="427" height="110"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28/04/2023" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z32-1q-pxJ">
-                                <rect key="frame" x="15.999999999999993" y="9.3333333333333339" width="101.33333333333331" height="22.666666666666664"/>
+                                <rect key="frame" x="15.999999999999993" y="8" width="101.33333333333331" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="LGU-dZ-Wfd"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="18"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -86,6 +89,7 @@
                                     <constraint firstItem="tHb-eO-DPh" firstAttribute="top" secondItem="w10-8q-0Q0" secondAttribute="top" id="B5e-WR-Cgf"/>
                                     <constraint firstAttribute="trailing" secondItem="tHb-eO-DPh" secondAttribute="trailing" id="CWu-cU-AJU"/>
                                     <constraint firstAttribute="bottom" secondItem="tHb-eO-DPh" secondAttribute="bottom" id="JzZ-d1-jns"/>
+                                    <constraint firstAttribute="height" constant="80" id="qY9-I5-fS9"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -93,10 +97,10 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="w10-8q-0Q0" secondAttribute="trailing" constant="16" id="0vs-wb-dzM"/>
                             <constraint firstAttribute="bottom" secondItem="w10-8q-0Q0" secondAttribute="bottom" constant="16" id="2UI-KG-C7R"/>
-                            <constraint firstItem="w10-8q-0Q0" firstAttribute="top" secondItem="ZUI-Ja-b8Q" secondAttribute="top" constant="36" id="DEJ-nX-l6J"/>
+                            <constraint firstItem="z32-1q-pxJ" firstAttribute="top" secondItem="ZUI-Ja-b8Q" secondAttribute="top" constant="8" id="4W8-hF-o4Q"/>
                             <constraint firstItem="w10-8q-0Q0" firstAttribute="leading" secondItem="ZUI-Ja-b8Q" secondAttribute="leading" constant="16" id="HO5-IU-qXD"/>
                             <constraint firstItem="z32-1q-pxJ" firstAttribute="leading" secondItem="w10-8q-0Q0" secondAttribute="leading" id="W7Y-Pk-MTE"/>
-                            <constraint firstItem="w10-8q-0Q0" firstAttribute="top" secondItem="z32-1q-pxJ" secondAttribute="bottom" constant="4" id="oI4-hw-6D8"/>
+                            <constraint firstItem="w10-8q-0Q0" firstAttribute="top" secondItem="z32-1q-pxJ" secondAttribute="bottom" constant="8" id="oI4-hw-6D8"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -113,6 +117,8 @@
                 <outlet property="cellIconImageView" destination="Iak-kB-nwd" id="SwT-Wz-uAC"/>
                 <outlet property="contentTextLabel" destination="qzP-3e-JnW" id="URI-pJ-g6V"/>
                 <outlet property="dateLabel" destination="z32-1q-pxJ" id="dPk-k3-LPb"/>
+                <outlet property="dateLabelHeight" destination="LGU-dZ-Wfd" id="GaB-Wj-AMs"/>
+                <outlet property="dateToAppointmentHeight" destination="oI4-hw-6D8" id="t4d-6R-0tM"/>
                 <outlet property="editDeletButton" destination="Qpi-Jk-jB9" id="LYn-vl-exz"/>
                 <outlet property="forwardButton" destination="Hwi-C0-ANk" id="mJe-Sb-vhc"/>
                 <outlet property="shadowView" destination="w10-8q-0Q0" id="pZk-2u-ZaH"/>

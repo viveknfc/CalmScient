@@ -23,20 +23,20 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mainLogoNw" translatesAutoresizingMaskIntoConstraints="NO" id="LBx-C9-0hN">
-                                <rect key="frame" x="64" y="72.333333333333314" width="300" height="150"/>
+                                <rect key="frame" x="114" y="97.333333333333314" width="200" height="100"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="fuc-4Y-M3j"/>
-                                    <constraint firstAttribute="width" constant="300" id="rjz-Ke-yDA"/>
+                                    <constraint firstAttribute="height" constant="100" id="fuc-4Y-M3j"/>
+                                    <constraint firstAttribute="width" constant="200" id="rjz-Ke-yDA"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="License-Key" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wCP-So-aPk">
-                                <rect key="frame" x="20" y="222.33333333333334" width="80" height="17.333333333333343"/>
+                                <rect key="frame" x="20" y="217.33333333333334" width="80" height="17.333333333333343"/>
                                 <fontDescription key="fontDescription" name="Lexend-Light" family="Lexend" pointSize="14"/>
                                 <color key="textColor" name="MainTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="2827-HSJU-919181-MNHY" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="ALi-Or-e8u" customClass="customUITextField" customModule="CalmscientIOS" customModuleProvider="target">
-                                <rect key="frame" x="20" y="243.66666666666663" width="388" height="40"/>
+                                <rect key="frame" x="20" y="238.66666666666663" width="388" height="40"/>
                                 <color key="backgroundColor" red="0.99215686319999996" green="0.99215686319999996" blue="0.99215686319999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="le3-8N-sbd"/>
@@ -46,7 +46,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" usesAttributedText="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pvu-vk-gK5">
-                                <rect key="frame" x="20" y="299.66666666666669" width="388" height="231.66666666666669"/>
+                                <rect key="frame" x="20" y="294.66666666666669" width="388" height="231.66666666666669"/>
                                 <color key="backgroundColor" red="0.99215686319999996" green="0.99215686319999996" blue="0.99215686319999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <attributedString key="attributedText">
                                     <fragment>
@@ -63,7 +63,7 @@ Here's an example from Nintendo. First, it's made clear that the company is offe
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="829-xm-Xgj" userLabel="firstCheck">
-                                <rect key="frame" x="20" y="561.33333333333337" width="20" height="20"/>
+                                <rect key="frame" x="20" y="556.33333333333337" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="0Xl-ZB-L3x"/>
                                     <constraint firstAttribute="height" constant="20" id="Ir4-HP-UOV"/>
@@ -74,13 +74,13 @@ Here's an example from Nintendo. First, it's made clear that the company is offe
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wma-ba-dVD" userLabel="firstLabel" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
-                                <rect key="frame" x="60" y="571.33333333333337" width="348" height="0.0"/>
+                                <rect key="frame" x="60" y="566.33333333333337" width="348" height="0.0"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwz-Xb-e71" userLabel="secondCheck">
-                                <rect key="frame" x="20" y="611.33333333333337" width="20" height="20"/>
+                                <rect key="frame" x="20" y="606.33333333333337" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="6pB-2F-NBM"/>
                                     <constraint firstAttribute="width" constant="20" id="Rbx-Sh-Ue0"/>
@@ -91,7 +91,7 @@ Here's an example from Nintendo. First, it's made clear that the company is offe
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zhn-7b-WyL" userLabel="secondLabel" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
-                                <rect key="frame" x="60" y="601.33333333333337" width="348" height="40"/>
+                                <rect key="frame" x="60" y="596.33333333333337" width="348" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="pKt-f1-iLW"/>
                                 </constraints>
@@ -155,7 +155,7 @@ Here's an example from Nintendo. First, it's made clear that the company is offe
                             <constraint firstItem="FE9-af-ygc" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="q01-KL-ImU"/>
                             <constraint firstItem="829-xm-Xgj" firstAttribute="leading" secondItem="ALi-Or-e8u" secondAttribute="leading" id="q29-Z2-O74"/>
                             <constraint firstItem="wCP-So-aPk" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="uR1-w9-aRh"/>
-                            <constraint firstItem="wCP-So-aPk" firstAttribute="top" secondItem="LBx-C9-0hN" secondAttribute="bottom" id="ufL-Ad-zz3"/>
+                            <constraint firstItem="wCP-So-aPk" firstAttribute="top" secondItem="LBx-C9-0hN" secondAttribute="bottom" constant="20" id="ufL-Ad-zz3"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="T3C-1w-mnX"/>
