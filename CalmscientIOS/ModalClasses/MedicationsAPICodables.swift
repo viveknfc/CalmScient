@@ -232,7 +232,7 @@ class MedicationAlarm: Codable {
     var plId: Int?
     var medicationId: Int?
     var flag: String?
-    var isDefault = 0
+    var isDefault = 1 //0
     
     
     var dayTime:DayTimeValue? = .Morning

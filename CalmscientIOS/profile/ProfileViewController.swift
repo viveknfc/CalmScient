@@ -162,6 +162,8 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
             )
             return
         }
+        
+        let passwordRegex = "^(?=.*[0-9])(?=.*[!@#$%^&*(),.?\":{}|<>])[A-Za-z\\d!@#$%^&*(),.?\":{}|<>]{8,}$"
 
         guard let newPassword = newPasswordTF.text, !newPassword.isEmpty else {
             showGeneralAlert(
@@ -170,6 +172,16 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
                 okAction: {
 
                 },
+                showDismissButton: false
+            )
+            return
+        }
+        
+        guard NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: newPassword) else {
+            showGeneralAlert(
+                title: "Your password must be at least eight characters long and include at least one special character and one number.",
+                okButtonTitle: "Ok",
+                okAction: { },
                 showDismissButton: false
             )
             return

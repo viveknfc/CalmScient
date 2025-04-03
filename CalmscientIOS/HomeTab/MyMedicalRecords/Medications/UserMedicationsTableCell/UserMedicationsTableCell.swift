@@ -119,7 +119,7 @@ class UserMedicationsTableCell: UITableViewCell, EditableCell {
         //viv start
         
         let enabledAlarms = alarmList.flatMap { obj in
-            obj.scheduledTimes.filter { $0.isDefault == 1 }
+            obj.scheduledTimes.filter { $0.isDefault == 0 } // 1
         }
         
         if let morningAlarm = enabledAlarms.first(where: { $0.medicineTime.isDayTimeAM() }) {

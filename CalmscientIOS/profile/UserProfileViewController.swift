@@ -63,20 +63,20 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
         setupTableView()
         setupLanguage()
         
+        profilePicAPICalling()
         
-        
-        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
-            fatalError("Unable to found Application Shared Info")
-        }
-        getUserProfile(plId: userInfo.patientLocationID, patientId: userInfo.patientID, clientId: userInfo.clientID,bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken){ [self] result in
-            switch result {
-            case .success(let data):
-                handleUserProfileResponse(data: data)
-            case .failure(let error):
-                print("Error: \(error)")
-            }
-            
-        }
+//        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+//            fatalError("Unable to found Application Shared Info")
+//        }
+//        getUserProfile(plId: userInfo.patientLocationID, patientId: userInfo.patientID, clientId: userInfo.clientID,bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken){ [self] result in
+//            switch result {
+//            case .success(let data):
+//                handleUserProfileResponse(data: data)
+//            case .failure(let error):
+//                print("Error: \(error)")
+//            }
+//            
+//        }
         
         guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
             fatalError("Unable to found Application Shared Info")
@@ -596,7 +596,7 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
         let params: [String: Int] = ["patientId": userInfo.patientID, "clientId": userInfo.clientID]
         print("Params of Profile pic deleeete api is :", params)
         self.view.showToastActivity()
-        APIService.DeleteProfilePicAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") {  [self] response in
+        APIService.DeleteProfilePicAPICalling(self, params: params, method: "DELETE", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "url") {  [self] response in
             // Your closure code here
             getresponseforDeleteProfilePicAPI(response: response)
         }
@@ -608,19 +608,36 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
     
     func getresponseforDeleteProfilePicAPI(response:AnyObject)->() {
         self.view.hideToastActivity()
-        if let responseString = response as? String {
-            print("Response received from Delete Profile Pic API calling is", responseString)
-        } else if let responseDict = response as? [String: Any] {
-            if let responseMessage = responseDict["responseMessage"] as? String {
-                print("Response Message:", responseMessage)
-            }
-
+        if let responseDict = response as? [String: Any],
+           let status = responseDict["status"] as? [String: Any],
+           let responseCode = status["responseCode"] as? Int, responseCode == 200 {
+            print("the delete profile pic response is", status)
+            self.profileIcon.image = UIImage(named: "profileIcon")  // Remove the profile image
         } else {
-            print("Unsupported response type:", type(of: response))
+            print("Unsupported response type or failed status:", type(of: response))
         }
     }
     
     //END
+    
+    //MARK: - Profile Pic API Calling
+    
+    func profilePicAPICalling() {
+        
+        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+            fatalError("Unable to found Application Shared Info")
+        }
+        getUserProfile(plId: userInfo.patientLocationID, patientId: userInfo.patientID, clientId: userInfo.clientID,bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken){ [self] result in
+            switch result {
+            case .success(let data):
+                handleUserProfileResponse(data: data)
+            case .failure(let error):
+                print("Error: \(error)")
+            }
+            
+        }
+        
+    }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         // Dismiss the image picker

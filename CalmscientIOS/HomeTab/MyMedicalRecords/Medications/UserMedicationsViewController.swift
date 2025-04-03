@@ -23,7 +23,15 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     
     @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
     var medicationData:[MedicineDetails] = []
-    private var selectedNewDate:Date = Date()
+    
+    private var selectedNewDate: Date = {
+        var utcCalendar = Calendar(identifier: .gregorian)
+        utcCalendar.timeZone = TimeZone(identifier: "UTC")! // Force UTC time zone
+        return utcCalendar.startOfDay(for: Date())
+    }()
+
+    
+//    private var selectedNewDate:Date = Calendar.current.startOfDay(for: Date())//Date()
     var nomedications = UILabel()
     var combinedDateTime = String()
     
@@ -87,8 +95,11 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     
     func didTapTakenButton(in cell: UITableViewCell, buttonType: ButtonType) {
         
-        let calendar = Calendar.current
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(identifier: "UTC")!
+        
         if !calendar.isDate(selectedNewDate, inSameDayAs: Date()) {
+            print("the selected new date is",selectedNewDate,"and the date is", Date())
             print("Dates are different")
         } else {
             print("Dates are the same")
@@ -287,11 +298,18 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     func NuserSelectedNewDate(selectedDate: Date) {
         self.medicationData = []
         selectedNewDate = selectedDate
+        print("the selected from calender selection is", selectedNewDate)
+        print("Formatted date is:", selectedNewDate.dateInMMDDYYYYFormat1())
         getMedicationsData(forDate: selectedDate)
     }
 
     func getMedicationsData(forDate:Date) {
         view.showToastActivity()
+        
+        var utcCalendar = Calendar(identifier: .gregorian)
+        utcCalendar.timeZone = TimeZone(identifier: "UTC")!
+
+        let utcDate = utcCalendar.startOfDay(for: forDate) // Midnight in UTC
         
         var prepareRequestBodyParams:[String:Any] = [:]
         guard let loginResponse = ApplicationSharedInfo.shared.loginResponse else {
@@ -302,10 +320,11 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         prepareRequestBodyParams["patientId"] = loginResponse.patientID
         prepareRequestBodyParams["clientId"] = loginResponse.clientID
         
-        let tomorrowDate = selectedNewDate.getTomorrowDate()
+//        let tomorrowDate = selectedNewDate.getTomorrowDate()
+        let tomorrowDate = Calendar.current.date(byAdding: .day, value: 1, to: utcDate)!
 
-        prepareRequestBodyParams["fromDate"] = selectedNewDate.dateInMMDDYYYYFormat()
-        prepareRequestBodyParams["toDate"] = tomorrowDate.dateInMMDDYYYYFormat()
+        prepareRequestBodyParams["fromDate"] = utcDate.dateInMMDDYYYYFormat1()
+        prepareRequestBodyParams["toDate"] = tomorrowDate.dateInMMDDYYYYFormat1()
         let questonariesRequest = GetMedicationsRequestForm(prepareRequestBodyParams)
         guard let requestURL = questonariesRequest.getURLRequest() else {
             self.view.showToast(message: "An Unknown error occured. Please check with Admin")
@@ -328,7 +347,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
                         // Update medicationData and reload the table
                         
                         self.medicationData = response.medicineDetails
-                            .filter { $0.date == self.selectedNewDate.dateToString(format: "MM/dd/yyyy") }
+                            .filter { $0.date == utcDate.dateToString1(format: "MM/dd/yyyy") }
                             .sorted {
                                 ($0.medicationDetailsByDate.first?.medicalDetails.medicationId ?? Int.max) >
                                 ($1.medicationDetailsByDate.first?.medicalDetails.medicationId ?? Int.max)

@@ -38,7 +38,7 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
                 
                 alarmData.alarmEnabled = status
                 if alarmData.alarmEnabled == "1" {
-                    alarmData.isDefault = 1
+                    alarmData.isDefault = 0 //1
                 }
             }
             
@@ -47,7 +47,7 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
         else {
           medicationTimeData[index].alarmEnabled = status
                         if status == "1" {
-                            medicationTimeData[index].isDefault = 1
+                            medicationTimeData[index].isDefault = 0 //1
                         }
         }
         

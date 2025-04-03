@@ -21,7 +21,7 @@ class APIService: UIViewController {
     static var FetchMoodScreenData = "patients/api/v1/patientDetails/getPatientStartupScreen"
     static var JournalData = "patients/api/v1/patientDetails/getPatientJournalByPatientIdForMobile"
 
-    static var ProfilePicDelet = "/api/v1/settings/deleteProfileImage"
+    static var ProfilePicDelet = "identity/api/v1/settings/deleteProfileImage"
 
     static var GetTakingControlIndex = "patients/api/v1/takingControl/getTakingControlIndex"
     static var CreateDrinkTracking = "patients/api/v1/alcohol/createDrinkTracking"

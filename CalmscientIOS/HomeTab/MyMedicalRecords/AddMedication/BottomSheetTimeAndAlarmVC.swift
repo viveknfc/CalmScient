@@ -210,7 +210,7 @@ class BottomSheetTimeAndAlarmVC: UIViewController {
     }
     
     @IBAction func saveButtonAction(_ sender: UIButton) {
-        newMedicationInstance?.isDefault = 1
+        newMedicationInstance?.isDefault = 0 //1
         if !tempDateTime.isEmpty {
             let newDateTime = tempDateTime
             if isNewMedicationCreation {

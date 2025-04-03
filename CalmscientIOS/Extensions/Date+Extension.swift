@@ -41,18 +41,37 @@ extension Date {
         let (startOfWeek,endOfWeek) = getStartAndEndOfWeek()
         return (startOfWeek.dateInMMDDYYYYFormat(), endOfWeek.dateInMMDDYYYYFormat())
     }
+    
+    //MARK: - For Mark Medi UTC Time
+    
+    func dateInMMDDYYYYFormat1() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        return dateFormatter.string(from: self)
+    }
+    
+    func dateToString1(format:String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format
+        dateFormatter.timeZone = TimeZone(identifier: "UTC")
+        return dateFormatter.string(from: self)
+    }
+
+    
+    //END
  
     func dateInMMDDYYYYFormat() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
-        dateFormatter.timeZone = TimeZone(identifier: Calendar.current.timeZone.identifier)
+        dateFormatter.timeZone = TimeZone(identifier: Calendar.current.timeZone.identifier) //TimeZone(identifier: "UTC")
         return dateFormatter.string(from: self)
     }
     
     func dateToString(format:String) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = format
-        dateFormatter.timeZone = TimeZone(identifier: Calendar.current.timeZone.identifier)
+        dateFormatter.timeZone = TimeZone(identifier: Calendar.current.timeZone.identifier) //TimeZone(identifier: "UTC")
         return dateFormatter.string(from: self)
     }
     
