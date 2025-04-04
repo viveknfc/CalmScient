@@ -442,6 +442,10 @@ extension UserMedicationsViewController : UITableViewDataSource,UITableViewDeleg
             cell.PMImage.alpha = 0.5
             cell.AFImage.alpha = 0.5
             cell.afTimeLabel.alpha = 0.5
+
+            cell.amButton.isUserInteractionEnabled = false
+            cell.pmButton.isUserInteractionEnabled = false
+            cell.afButton.isUserInteractionEnabled = false
             
             cell.dropDownButton.isUserInteractionEnabled = true
             
@@ -460,6 +464,10 @@ extension UserMedicationsViewController : UITableViewDataSource,UITableViewDeleg
             cell.AFImage.alpha = 1
             cell.afTimeLabel.alpha = 1
             cell.dropDownButton.alpha = 1.0
+            
+            cell.amButton.isUserInteractionEnabled = true
+            cell.pmButton.isUserInteractionEnabled = true
+            cell.afButton.isUserInteractionEnabled = true
         }
         
         return cell

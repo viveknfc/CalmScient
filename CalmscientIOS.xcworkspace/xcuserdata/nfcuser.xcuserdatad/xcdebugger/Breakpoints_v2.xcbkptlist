@@ -455,10 +455,10 @@
             filePath = "CalmscientIOS/profile/ProfileViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "469"
-            endingLineNumber = "469"
+            startingLineNumber = "479"
+            endingLineNumber = "479"
             landmarkName = "ProfileViewController"
-            landmarkType = "21">
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2327,8 +2327,8 @@
             filePath = "CalmscientIOS/DiscoveryTab/Courses/CoursesViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "117"
-            endingLineNumber = "117"
+            startingLineNumber = "125"
+            endingLineNumber = "125"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -2343,8 +2343,8 @@
             filePath = "CalmscientIOS/HomeTab/MyMedicalRecords/UpcomingMedicalAppointments/Add New Appointments/AddNewAppointmentViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "294"
-            endingLineNumber = "294"
+            startingLineNumber = "264"
+            endingLineNumber = "264"
             landmarkName = "providerDetailAPI()"
             landmarkType = "7">
          </BreakpointContent>

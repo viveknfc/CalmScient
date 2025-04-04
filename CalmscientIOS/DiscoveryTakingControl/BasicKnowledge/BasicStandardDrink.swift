@@ -192,53 +192,6 @@ class BasicStandardDrink: ViewController {
     
     //END
     
-//    func loadTitlesAndImages() {
-//        activityIndicator.startAnimating()
-//        
-//        let filteredDrinks = drinks.filter { drink in
-//            if let drinkId = drink["drinkId"] as? Int {
-//                return drinkId >= 2
-//            }
-//            return false
-//        }
-//            .sorted { // Sort by drinkId to maintain the sequence
-//                if let id1 = $0["drinkId"] as? Int, let id2 = $1["drinkId"] as? Int {
-//                    return id1 < id2
-//                }
-//                return false
-//            }
-//        
-//        for drink in filteredDrinks {
-//            if let title = drink["drinkName"] as? String, let imageUrlString = drink["imageUrl"] as? String, let url = URL(string: imageUrlString) {
-//                
-//                DispatchQueue.global().async {
-//                    if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
-//                        DispatchQueue.main.async {
-//                            self.titles.append(title)
-//                            
-//                            self.images.append(image)
-//                            if self.images.count == 1 {
-//                                self.updateContent()
-//                            }
-//                            
-//                            if self.images.count == self.drinks.count {
-//                                self.activityIndicator.stopAnimating()
-//                            }
-//                            
-//                        }
-//                    } else {
-//                        DispatchQueue.main.async {
-//                            print("Failed to load image from URL: \(url)")
-//                            self.activityIndicator.stopAnimating()
-//                        }
-//                    }
-//                }
-//            } else {
-//                print("Invalid data: \(drink)")  // Debug statement
-//            }
-//        }
-//    }
-    
     func getAlcoholDrinks(plId: Int, patientId: Int, clientId: Int, activityDate: String,bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void) {
         // Define the URL
         guard let url = URL(string: "\(baseURLString)patients/api/v1/alcohol/getDrinksList") else {
@@ -320,9 +273,10 @@ class BasicStandardDrink: ViewController {
         guard !images.isEmpty, !titles.isEmpty else { return }
         if currentIndex < images.count - 1 {
             currentIndex += 1
-        } else {
-            currentIndex = 0  // Rotate back to the first image
-        }
+        } 
+//        else {
+//            currentIndex = 0  // Rotate back to the first image
+//        }
         updateContent()
     }
 

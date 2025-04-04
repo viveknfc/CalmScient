@@ -247,36 +247,6 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
         
         return true
     }
-
-
-    
-//    func formatToISO8601() {
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.locale = Locale(identifier: "en_US")
-//        dateFormatter.timeZone = TimeZone.current
-//
-//        // Get the date from dateTF or use current date
-//        dateFormatter.dateFormat = "MM/dd/yyyy"
-//        let selectedDate = dateTF.text.flatMap { dateFormatter.date(from: $0) } ?? Date()
-//
-//        // Get the time from timeTF or use current time
-//        dateFormatter.dateFormat = "hh:mm a"
-//        let selectedTime = timeTF.text.flatMap { dateFormatter.date(from: $0) } ?? Date()
-//
-//        // Combine date and time
-//        let calendar = Calendar.current
-//        let finalDate = calendar.date(
-//            bySettingHour: calendar.component(.hour, from: selectedTime),
-//            minute: calendar.component(.minute, from: selectedTime),
-//            second: calendar.component(.second, from: selectedTime),
-//            of: selectedDate
-//        ) ?? Date()
-//
-//        // Convert to ISO 8601 format
-//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-//        dateTimeforParam = dateFormatter.string(from: finalDate)
-//
-//    }
     
     //MARK: - Location Detail API Call
     
@@ -620,7 +590,7 @@ extension AddNewAppointmentViewController :  UITableViewDelegate, UITableViewDat
         print("✅ textFieldDidBeginEditing called for: \(textField.text ?? "Empty")")
         
         if textField == providerNameTF {
-            filteredItems = providerData.map { $0.firstName } // Show provider names//
+            filteredItems = providerData.map { "\($0.firstName) \($0.lastName)" } // Show provider names//
             filteredID = providerData.map { $0.providerId }
         } else if textField == locationTF {
             filteredItems = locationData.map { $0.locationName } // Show locations

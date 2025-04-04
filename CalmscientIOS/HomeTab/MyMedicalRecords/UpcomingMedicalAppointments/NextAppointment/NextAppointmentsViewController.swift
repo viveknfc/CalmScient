@@ -196,6 +196,7 @@ extension NextAppointmentsViewController : UITableViewDataSource, UITableViewDel
                 cell.forwardButton.isHidden = true
                 cell.editDeletButton.setImage(UIImage(named: "seperatorIcon"), for: .normal)
                 cell.contentTextLabel.text = appointment.appointmentDetails.providerName
+                cell.contentTextLabel.textColor = .black
                 return cell
                 
             }

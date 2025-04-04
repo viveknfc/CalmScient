@@ -39,8 +39,8 @@ class LoginVC: UIViewController,UITextFieldDelegate {
 //       userNameTextField.text = "masa@calmscient.com"
 //       passwordTextField.text = "CDMrVgjdM5"
         
-//       userNameTextField.text = "chandra.p@gmail.com"
-//       passwordTextField.text = "chandra@1234"
+       userNameTextField.text = "chandra.p@gmail.com"
+       passwordTextField.text = "chandra@1234"
         
 //       userNameTextField.text = "jasmine69@gmail.com"
 //       passwordTextField.text = "Test@1234"
@@ -255,7 +255,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
                             
                             UserDefaults.standard.set("\(loginResponse.loginDetails.firstName)", forKey: "titleString")
                             
-                            if !(self.isFirstLaunch ?? true) {
+                            if true { //!(self.isFirstLaunch ?? true)
                                 
                                 print("this is the first launch")
                                 

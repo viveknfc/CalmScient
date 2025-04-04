@@ -363,10 +363,13 @@ class WhatToExpectViewController: ViewController {
 
     
     @IBAction func maximiseButtonAction(_ sender: Any) {
+        print("max button clicked")
         let videoURL = URL(string: "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4")!
                 let avPlayer = AVPlayer(url: videoURL)
                 let avController = AVPlayerViewController()
                 avController.player = avPlayer
+                avController.modalPresentationStyle = .overFullScreen
+//                self.definesPresentationContext = true
                 present(avController, animated: true) {
                     avPlayer.play()
                 }

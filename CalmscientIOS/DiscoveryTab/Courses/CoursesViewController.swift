@@ -27,9 +27,7 @@ class CoursesViewController: ViewController {
         setupTableView()
         
         setupRightBarButton()
-        
-//        getCoursesData()
-        // Do any additional setup after loading the view.
+
     }
     
     private func setupTableView() {
@@ -44,6 +42,16 @@ class CoursesViewController: ViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
+        
+        // Customize the navigation bar appearance
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+//        appearance.backgroundColor = #colorLiteral(red: 0.5218948722, green: 0.5200269818, blue: 0.7418552041, alpha: 1) // Set the nav bar background color
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.black, .font: UIFont(name: Fonts().lexendMedium, size: 18)!] // Set title color to white
+        
+        // Apply appearance to the navigation bar
+        navigationController?.navigationBar.standardAppearance = appearance
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
 
         getCoursesData()
 

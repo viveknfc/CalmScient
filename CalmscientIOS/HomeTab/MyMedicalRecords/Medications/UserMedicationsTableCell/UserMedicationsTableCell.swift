@@ -126,7 +126,7 @@ class UserMedicationsTableCell: UITableViewCell, EditableCell {
             AMImage.isHidden = false
             amTaken.isHidden = false
             amButton.isHidden = false
-            timeLabel.text = morningAlarm.alarmTime.getDayTimeFromDate(includeTimeZone: true)
+            timeLabel.text = morningAlarm.medicineTime.getDayTimeFromDate(formatter: "HH:mm:ss", includeTimeZone: true) //alarmTime
             print("Morning alarm is", timeLabel.text ?? "")
             let isTaken = morningAlarm.medicineTaken == "1"
             amButton.layer.borderColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4356096983, green: 0.419034481, blue: 0.7057439685, alpha: 1)
@@ -147,7 +147,7 @@ class UserMedicationsTableCell: UITableViewCell, EditableCell {
             AFImage.isHidden = false
             afTaken.isHidden = false
             afButton.isHidden = false
-            afTimeLabel.text = afternoonAlarm.alarmTime.getDayTimeFromDate(includeTimeZone: true)
+            afTimeLabel.text = afternoonAlarm.medicineTime.getDayTimeFromDate(formatter: "HH:mm:ss", includeTimeZone: true)
             print("Afternoon alarm is", afTimeLabel.text ?? "")
             let isTaken = afternoonAlarm.medicineTaken == "1"
             afButton.layer.borderColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4318677187, green: 0.4149213433, blue: 0.7059496045, alpha: 1)
@@ -168,7 +168,7 @@ class UserMedicationsTableCell: UITableViewCell, EditableCell {
             PMImage.isHidden = false
             pmTaken.isHidden = false
             pmButton.isHidden = false
-            pmTimeLabel.text = eveningAlarm.alarmTime.getDayTimeFromDate(includeTimeZone: true)
+            pmTimeLabel.text = eveningAlarm.medicineTime.getDayTimeFromDate(formatter: "HH:mm:ss", includeTimeZone: true)
             print("Afternoon alarm is", afTimeLabel.text ?? "")
             let isTaken = eveningAlarm.medicineTaken == "1"
             pmButton.layer.borderColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4318677187, green: 0.4149213433, blue: 0.7059496045, alpha: 1)

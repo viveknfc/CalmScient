@@ -26,4 +26,5 @@ struct ProviderResponse: Codable {
 struct ProviderDetail: Codable {
     let providerId: Int
     let firstName: String
+    let lastName: String
 }

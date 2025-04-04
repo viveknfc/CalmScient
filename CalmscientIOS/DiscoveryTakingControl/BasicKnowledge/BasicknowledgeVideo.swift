@@ -56,10 +56,12 @@ class BasicknowledgeVideo: ViewController {
     }
     
     @IBAction func maximiseButtonAction(_ sender: Any) {
+        print("max button clicked from tipsy turth")
         let videoURL = URL(string: "https://calmscient.blob.core.windows.net/course/Tipsy_truth_with_subtitle.mp4")!
         let avPlayer = AVPlayer(url: videoURL)
         let avController = AVPlayerViewController()
         avController.player = avPlayer
+        avController.modalPresentationStyle = .overFullScreen
         present(avController, animated: true) {
             avPlayer.play()
         }

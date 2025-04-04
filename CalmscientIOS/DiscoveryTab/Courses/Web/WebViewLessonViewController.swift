@@ -183,7 +183,7 @@ class WebViewLessonViewController: ViewController, WKNavigationDelegate, WKScrip
                         print("key 1001 indeex value 2 clicked complete button")
                         self.navigationController?.popViewController(animated: true)
                     }else if(index == 3){
-                        print("key 1001 indeex value 2 clicked complete button")
+                        print("key 1001 indeex value 3 clicked complete button")
                         self.navigationController?.popViewController(animated: true) //viv added
 //                        self.title = "Your results"
                     }

@@ -4853,7 +4853,7 @@ your journey</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1qP-TX-7S6" userLabel="workYourStrenghtsView" customClass="RoundedView2" customModule="CalmscientIOS" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="610" width="353" height="140"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img1" translatesAutoresizingMaskIntoConstraints="NO" id="wOl-DY-5uB" userLabel="mainbg" customClass="RoundedImageView" customModule="CalmscientIOS" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Maskgroup" translatesAutoresizingMaskIntoConstraints="NO" id="wOl-DY-5uB" userLabel="mainbg" customClass="RoundedImageView" customModule="CalmscientIOS" customModuleProvider="target">
                                                                 <rect key="frame" x="10" y="10" width="156.66666666666666" height="120"/>
                                                             </imageView>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="lSv-Ci-dMW" userLabel="video">
@@ -4912,7 +4912,7 @@ your journey</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVc-Y5-LSf" userLabel="BreathingExerciseView" customClass="RoundedView2" customModule="CalmscientIOS" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="770" width="353" height="160"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="touchNhug" translatesAutoresizingMaskIntoConstraints="NO" id="jfA-2Z-d8b" customClass="RoundedImageView" customModule="CalmscientIOS" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BreathingTechnic" translatesAutoresizingMaskIntoConstraints="NO" id="jfA-2Z-d8b" customClass="RoundedImageView" customModule="CalmscientIOS" customModuleProvider="target">
                                                                 <rect key="frame" x="10" y="10" width="156.66666666666666" height="140"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breathing exercises" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sY2-IH-kqh" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
@@ -4963,7 +4963,7 @@ your journey</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IBB-S8-I0P" userLabel="ManagingAnxietyView" customClass="RoundedView2" customModule="CalmscientIOS" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="950" width="353" height="150"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SummaryOfSleep" translatesAutoresizingMaskIntoConstraints="NO" id="mWn-SF-CRC" customClass="RoundedImageView" customModule="CalmscientIOS" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img1" translatesAutoresizingMaskIntoConstraints="NO" id="mWn-SF-CRC" customClass="RoundedImageView" customModule="CalmscientIOS" customModuleProvider="target">
                                                                 <rect key="frame" x="10" y="10" width="156.66666666666666" height="130"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Managing anxiety" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHU-KI-ESo" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
@@ -5021,7 +5021,7 @@ your journey</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DOt-RN-bQi" userLabel="screeningView" customClass="RoundedView2" customModule="CalmscientIOS" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="1120" width="353" height="140"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SummaryOfAudit" translatesAutoresizingMaskIntoConstraints="NO" id="6ie-r8-CdL" customClass="RoundedImageView" customModule="CalmscientIOS" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screening_Cell" translatesAutoresizingMaskIntoConstraints="NO" id="6ie-r8-CdL" customClass="RoundedImageView" customModule="CalmscientIOS" customModuleProvider="target">
                                                                 <rect key="frame" x="10" y="10" width="156.66666666666666" height="120"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Screenings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nm-2v-avJ" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
@@ -5071,7 +5071,7 @@ your journey</string>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ND5-ob-WoY" userLabel="drinkCOuntView" customClass="RoundedView2" customModule="CalmscientIOS" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="1280" width="353" height="140"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="SummaryOfDAST" translatesAutoresizingMaskIntoConstraints="NO" id="Myw-CL-ZvS" customClass="RoundedImageView" customModule="CalmscientIOS" customModuleProvider="target">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DrinkCount" translatesAutoresizingMaskIntoConstraints="NO" id="Myw-CL-ZvS" customClass="RoundedImageView" customModule="CalmscientIOS" customModuleProvider="target">
                                                                 <rect key="frame" x="10" y="10" width="156.66666666666666" height="120"/>
                                                             </imageView>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drink counts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmi-g8-vE8" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
@@ -6762,13 +6762,14 @@ Depression is common because when you smoke a lot, your brain kind of switches o
     <resources>
         <image name="Badeg" width="30.333333969116211" height="30.333333969116211"/>
         <image name="BeerWine" width="10.666666984558105" height="10.666666984558105"/>
+        <image name="BreathingTechnic" width="370" height="246"/>
         <image name="Cigar" width="30.333333969116211" height="30.333333969116211"/>
+        <image name="DrinkCount" width="154.66667175292969" height="120"/>
         <image name="FolderIn" width="10.666666984558105" height="10.666666984558105"/>
         <image name="InfoIcon" width="25.666666030883789" height="25.666666030883789"/>
+        <image name="Maskgroup" width="154.66667175292969" height="120"/>
         <image name="NotePad" width="30.333333969116211" height="30.333333969116211"/>
-        <image name="SummaryOfAudit" width="61.666667938232422" height="41.666667938232422"/>
-        <image name="SummaryOfDAST" width="61.666667938232422" height="41.666667938232422"/>
-        <image name="SummaryOfSleep" width="61.666667938232422" height="41.666667938232422"/>
+        <image name="Screening_Cell" width="400" height="170"/>
         <image name="calenderi" width="10.666666984558105" height="10.666666984558105"/>
         <image name="circle.fill" catalog="system" width="128" height="123"/>
         <image name="closeIcon" width="32.333332061767578" height="33"/>
@@ -6780,7 +6781,6 @@ Depression is common because when you smoke a lot, your brain kind of switches o
         <image name="play" width="100" height="100"/>
         <image name="purse" width="10.666666984558105" height="10.666666984558105"/>
         <image name="spotlight" width="46" height="46"/>
-        <image name="touchNhug" width="1260" height="804"/>
         <namedColor name="6E6BB3ColorOnly">
             <color red="0.43137254901960786" green="0.41960784313725491" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

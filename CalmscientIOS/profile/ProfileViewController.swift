@@ -235,7 +235,17 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
                 if let responseMessage = responseDict["responseMessage"] as? String {
                     
                     print("Response Message:", responseMessage)
-                    self.view.showToast(message: responseMessage)
+                    
+                    showGeneralAlert(
+                        title: responseMessage,
+                        okButtonTitle: "Ok",
+                        okAction: {
+
+                        },
+                        showDismissButton: false
+                    )
+                    
+//                    self.view.showToast(message: responseMessage)
                     
                        } else {
                            print("Response Message not found or is not a string.")
