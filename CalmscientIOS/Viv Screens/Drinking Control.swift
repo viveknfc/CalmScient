@@ -9,7 +9,15 @@ import Foundation
 import UIKit
 import FSCalendar
 
-class DrinkingControl: UIViewController, CalendarToViewDelegate {
+class DrinkingControl: UIViewController, NCalendarToViewDelegate { //CalendarToViewDelegate
+    func NcalendardidChangeBounds(newBounds: CGRect) {
+        calenderHeight.constant = newBounds.height
+    }
+    
+    func NuserSelectedNewDate(selectedDate: Date) {
+        
+    }
+    
     
     @IBOutlet weak var leftBox: UIView!
     @IBOutlet weak var rightBox: UIView!
@@ -20,7 +28,7 @@ class DrinkingControl: UIViewController, CalendarToViewDelegate {
     @IBOutlet weak var infoButton: UIButton!
     
     @IBOutlet weak var calenderView2: UIView!
-    @IBOutlet weak var weeklyCalender: CustomCalender!
+    @IBOutlet weak var weeklyCalender: NewCalender! //CustomCalender
     @IBOutlet weak var calenderHeight: NSLayoutConstraint!
     
     @IBOutlet weak var drinkTrackerButtonView: UIView!
@@ -249,16 +257,16 @@ class DrinkingControl: UIViewController, CalendarToViewDelegate {
 
 }
 
-extension DrinkingControl: FSCalendarDelegate, FSCalendarDataSource{
-
-    func calendardidChangeBounds(newBounds: CGRect) {
-        calenderHeight.constant = newBounds.height
-    }
-    
-    func userSelectedNewDate(selectedDate: Date) {
-    }
-
-}
+//extension DrinkingControl: FSCalendarDelegate, FSCalendarDataSource{
+//
+//    func calendardidChangeBounds(newBounds: CGRect) {
+//        calenderHeight.constant = newBounds.height
+//    }
+//    
+//    func userSelectedNewDate(selectedDate: Date) {
+//    }
+//
+//}
 
 
 

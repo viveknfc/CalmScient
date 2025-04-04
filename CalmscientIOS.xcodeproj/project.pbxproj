@@ -476,6 +476,7 @@
 		C275E3912D0212FD00E7513D /* ConSub5VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275E3902D0212FD00E7513D /* ConSub5VC.swift */; };
 		C2815F6D2D2C174B00B2A640 /* SuccessAlertVIew.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2815F6C2D2C174B00B2A640 /* SuccessAlertVIew.xib */; };
 		C2815F6F2D2C1A0900B2A640 /* SuccessAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2815F6E2D2C1A0900B2A640 /* SuccessAlertView.swift */; };
+		C281E4902D9FF22200589224 /* LaunchGifFile.gif in Resources */ = {isa = PBXBuildFile; fileRef = C281E48F2D9FF22200589224 /* LaunchGifFile.gif */; };
 		C28D0E292D006BFB00517693 /* ConsequenceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28D0E282D006BFB00517693 /* ConsequenceVC.swift */; };
 		C28D0E2B2D00948A00517693 /* FontLL12.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28D0E2A2D00948A00517693 /* FontLL12.swift */; };
 		C28D0E2D2D00B16000517693 /* ConSub1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28D0E2C2D00B16000517693 /* ConSub1VC.swift */; };
@@ -1030,6 +1031,7 @@
 		C275E3902D0212FD00E7513D /* ConSub5VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConSub5VC.swift; sourceTree = "<group>"; };
 		C2815F6C2D2C174B00B2A640 /* SuccessAlertVIew.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuccessAlertVIew.xib; sourceTree = "<group>"; };
 		C2815F6E2D2C1A0900B2A640 /* SuccessAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessAlertView.swift; sourceTree = "<group>"; };
+		C281E48F2D9FF22200589224 /* LaunchGifFile.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = LaunchGifFile.gif; sourceTree = "<group>"; };
 		C28D0E282D006BFB00517693 /* ConsequenceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsequenceVC.swift; sourceTree = "<group>"; };
 		C28D0E2A2D00948A00517693 /* FontLL12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLL12.swift; sourceTree = "<group>"; };
 		C28D0E2C2D00B16000517693 /* ConSub1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConSub1VC.swift; sourceTree = "<group>"; };
@@ -1630,6 +1632,7 @@
 				431C24862C47E77A00909C24 /* weeklySummaryImage.png */,
 				43AB773F2C63DBC800740BA6 /* weeklySummay1.png */,
 				43508AD82C4A70AD000B5645 /* comingsoon.png */,
+				C281E48F2D9FF22200589224 /* LaunchGifFile.gif */,
 				43508AEA2C4D7F63000B5645 /* docpic.png */,
 				43508ACE2C48F0B4000B5645 /* pause.png */,
 				43AB77222C62E71B00740BA6 /* Excercises */,
@@ -2708,6 +2711,7 @@
 				4A65C3392BD685B300809222 /* ColorAssets.xcassets in Resources */,
 				4A0853B72C21684B00202C02 /* ButtonCell.xib in Resources */,
 				4A0853862C21684B00202C02 /* DrinkingHabbitController.storyboard in Resources */,
+				C281E4902D9FF22200589224 /* LaunchGifFile.gif in Resources */,
 				43A08DB72C3EE5F20082F47B /* Lexend-ExtraLight.ttf in Resources */,
 				4A0853852C21684B00202C02 /* DrinkEachTimeCell.xib in Resources */,
 				43508AD92C4A70AD000B5645 /* comingsoon.png in Resources */,

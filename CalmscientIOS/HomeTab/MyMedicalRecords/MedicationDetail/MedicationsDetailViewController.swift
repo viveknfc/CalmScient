@@ -31,7 +31,7 @@ class MedicationsDetailViewController: ViewController, UISheetPresentationContro
             
             // Filter for isDefault == 1
             let filteredData = details.scheduledTimeList.filter { schedule in
-                schedule.scheduledTimes.contains { $0.isDefault == 1 }
+                schedule.scheduledTimes.contains { $0.isDefault == 0 }
             }
             
             // Sort the filtered data by medicineTime

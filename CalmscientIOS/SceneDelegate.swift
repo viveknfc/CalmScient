@@ -66,32 +66,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 // If no login details are found, navigate to Login screen
                 navigateToLogin()
             }
-            
-//            if TimeZoneHelper.isTimeZoneChanged() {
-//                print("Time zone has changed or saved time is outdated.")
-//                
-//                guard let windowScene = (scene as? UIWindowScene) else { return }
-//                window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-//                window?.windowScene = windowScene
-//                let homeController = UIStoryboard(name: "UserIntro", bundle: nil).instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as! UserIntroDayFeedbackViewController
-//                let navC = UINavigationController(rootViewController: homeController)
-//                window?.rootViewController = navC
-//                window?.makeKeyAndVisible()
-//                
-//            } else {
-//                print("Time zone remains the same.")
-//                
-//                guard let windowScene = (scene as? UIWindowScene) else { return }
-//                window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-//                window?.windowScene = windowScene
-//                let homeController = UIStoryboard(name: "AppTabBar", bundle: nil).instantiateViewController(withIdentifier: "AppMainTabViewController") as! AppMainTabViewController
-//                homeController.isInitalView = false
-//                let navC = UINavigationController(rootViewController: homeController)
-//                navC.navigationBar.isHidden = true
-//                window?.rootViewController = navC
-//                window?.makeKeyAndVisible()
-//                
-//            }
                  
         } else {
             guard let windowScene = (scene as? UIWindowScene) else { return }

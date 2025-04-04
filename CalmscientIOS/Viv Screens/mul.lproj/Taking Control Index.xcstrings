@@ -67,18 +67,6 @@
         }
       }
     },
-    "0tG-c6-W9Q.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"0tG-c6-W9Q\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "•"
-          }
-        }
-      }
-    },
     "0VD-cw-OzF.text" : {
       "comment" : "Class = \"UILabel\"; text = \"After you quit smoking, you might find it a bit tricky to get a good night's sleep at first. But don't worry, it gets better! If it's really bothering you, talk to your healthcare provider—they can help. Because if you're super tired from not sleeping well, it can make it tougher to stay smoke-free.\\n\\nHere's how you can manage it:\"; ObjectID = \"0VD-cw-OzF\";",
       "extractionState" : "extracted_with_value",
@@ -163,18 +151,6 @@
         }
       }
     },
-    "1vl-It-iCq.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"1vl-It-iCq\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "•"
-          }
-        }
-      }
-    },
     "2EI-SM-XZg.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Total\"; ObjectID = \"2EI-SM-XZg\";",
       "extractionState" : "extracted_with_value",
@@ -207,6 +183,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "If you're into coffee, tea, or other caffeinated drinks, try cutting back a bit. After quitting smoking, caffeine hangs around in your body longer.\n\nIncrease your chance to success"
+          }
+        }
+      }
+    },
+    "2yg-c1-UVt.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"2yg-c1-UVt\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Complete"
           }
         }
       }
@@ -631,18 +619,6 @@
         }
       }
     },
-    "A2h-us-13o.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Research has shown an important association between alcohol consumption and breast cancer—for each 10 grams of alcohol consumed (less than 1 standard drink) on an average daily basis, a woman’s chance of developing postmenopausal breast cancer increases by around 9 percent. \"; ObjectID = \"A2h-us-13o\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Research has shown an important association between alcohol consumption and breast cancer—for each 10 grams of alcohol consumed (less than 1 standard drink) on an average daily basis, a woman’s chance of developing postmenopausal breast cancer increases by around 9 percent. "
-          }
-        }
-      }
-    },
     "a2R-j5-tcO.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Then you're trying to quit smoking, it's totally normal to feel a bit irritated or grouchy. Even folks who never smoked get it - it's just part of the quitting process. So, don't worry, you're not alone in feeling this way.\\n\\nHere's how to deal with it:\"; ObjectID = \"a2R-j5-tcO\";",
       "extractionState" : "extracted_with_value",
@@ -811,18 +787,6 @@
         }
       }
     },
-    "B4g-hn-woU.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Research has also shown that alcohol misuse increases the risk of liver disease, cardiovascular  diseases, depression, and stomach bleeding, as well as cancers of the oral cavity, esophagus, larynx, pharynx, liver, colon, and rectum. \"; ObjectID = \"B4g-hn-woU\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Research has also shown that alcohol misuse increases the risk of liver disease, cardiovascular  diseases, depression, and stomach bleeding, as well as cancers of the oral cavity, esophagus, larynx, pharynx, liver, colon, and rectum. "
-          }
-        }
-      }
-    },
     "BcZ-fs-hOz.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Do something you're good at to build self-confidence, then tackle a tougher task.\"; ObjectID = \"BcZ-fs-hOz\";",
       "extractionState" : "extracted_with_value",
@@ -955,6 +919,18 @@
         }
       }
     },
+    "Cya-NI-GmS.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Half of liver disease deaths in the United States are caused by alcohol, and alcohol-associated liver disease is increasing, particularly among women and young people. \"; ObjectID = \"Cya-NI-GmS\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Half of liver disease deaths in the United States are caused by alcohol, and alcohol-associated liver disease is increasing, particularly among women and young people. "
+          }
+        }
+      }
+    },
     "cYH-dK-Vtl.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Feeling Jumpy or Restless\"; ObjectID = \"cYH-dK-Vtl\";",
       "extractionState" : "extracted_with_value",
@@ -987,6 +963,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Tobacco comes from the leaves of the Nicotiana plant and is used in things like cigarettes, cigars, and chewing tobacco. The main thing in tobacco is nicotine, a natural substance that can be addictive and affect your brain\n\nWhen people smoke cigarettes, they inhale over 7,000 chemicals, and nicotine is the one that makes smoking addictive. There are also other chemicals added to make the smoke taste better and for the nicotine to be absorbed more easily.\n\nEach time someone smokes a cigarette, they get about 1-2 milligrams of nicotine, which quickly goes to their brain and makes their heart beat faster, raises their blood pressure, and increases their breathing. It's kind of like a quick energy boost, but it can become a habit.\n\nCigarettes are designed so that someone who smokes regularly gets around 200 \"hits\" of nicotine to their brain every day. Other tobacco products, like chewing tobacco, also have nicotine. Some people use e-cigarettes to get nicotine without all the extra chemicals in tobacco smoke.\n\nNicotine works on the brain in a way that makes it feel good and can become a habit because it gives a sense of pleasure. That's why it's important to understand what's in tobacco and the effects it can have on your body and brain.\n"
+          }
+        }
+      }
+    },
+    "dge-gw-QtH.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"dge-gw-QtH\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•"
           }
         }
       }
@@ -1059,30 +1047,6 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Label"
-          }
-        }
-      }
-    },
-    "dsN-Mb-XrA.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"dsN-Mb-XrA\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "•"
-          }
-        }
-      }
-    },
-    "e5K-t6-sko.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Birth defects. Prenatal alcohol exposure can result in brain damage and other serious problems in babies. The effects are known as fetal alcohol spectrum disorders, or FASD, and can result in lifelong physical, cognitive, and behavioral problems. Because there is no known safe level of alcohol for a developing baby, women who are pregnant or might be pregnant should not drink.\"; ObjectID = \"e5K-t6-sko\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Birth defects. Prenatal alcohol exposure can result in brain damage and other serious problems in babies. The effects are known as fetal alcohol spectrum disorders, or FASD, and can result in lifelong physical, cognitive, and behavioral problems. Because there is no known safe level of alcohol for a developing baby, women who are pregnant or might be pregnant should not drink."
           }
         }
       }
@@ -1161,18 +1125,6 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Do some physical activity during the day (just not right before bed)."
-          }
-        }
-      }
-    },
-    "ew3-gy-EBe.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"ew3-gy-EBe\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "•"
           }
         }
       }
@@ -1297,6 +1249,18 @@
         }
       }
     },
+    "g2f-4A-RWO.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Birth defects. Prenatal alcohol exposure can result in brain damage and other serious problems in babies. The effects are known as fetal alcohol spectrum disorders, or FASD, and can result in lifelong physical, cognitive, and behavioral problems. Because there is no known safe level of alcohol for a developing baby, women who are pregnant or might be pregnant should not drink.\"; ObjectID = \"g2f-4A-RWO\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Birth defects. Prenatal alcohol exposure can result in brain damage and other serious problems in babies. The effects are known as fetal alcohol spectrum disorders, or FASD, and can result in lifelong physical, cognitive, and behavioral problems. Because there is no known safe level of alcohol for a developing baby, women who are pregnant or might be pregnant should not drink."
+          }
+        }
+      }
+    },
     "G2g-L6-k7N.text" : {
       "comment" : "Class = \"UILabel\"; text = \"What are the U.S. guidelines for drinking?\"; ObjectID = \"G2g-L6-k7N\";",
       "extractionState" : "extracted_with_value",
@@ -1381,6 +1345,18 @@
         }
       }
     },
+    "gSr-WK-JbT.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Research has shown an important association between alcohol consumption and breast cancer—for each 10 grams of alcohol consumed (less than 1 standard drink) on an average daily basis, a woman’s chance of developing postmenopausal breast cancer increases by around 9 percent. \"; ObjectID = \"gSr-WK-JbT\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Research has shown an important association between alcohol consumption and breast cancer—for each 10 grams of alcohol consumed (less than 1 standard drink) on an average daily basis, a woman’s chance of developing postmenopausal breast cancer increases by around 9 percent. "
+          }
+        }
+      }
+    },
     "gWS-tl-5JN.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Be kind to yourself\"; ObjectID = \"gWS-tl-5JN\";",
       "extractionState" : "extracted_with_value",
@@ -1389,30 +1365,6 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Be kind to yourself"
-          }
-        }
-      }
-    },
-    "gXJ-Rs-KRf.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"And people who misuse alcohol are more likely to engage in unsafe sexual behavior, putting themselves and others at risk for sexually transmitted infections and unintentional pregnancies.\"; ObjectID = \"gXJ-Rs-KRf\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "And people who misuse alcohol are more likely to engage in unsafe sexual behavior, putting themselves and others at risk for sexually transmitted infections and unintentional pregnancies."
-          }
-        }
-      }
-    },
-    "h0P-jA-aNo.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"h0P-jA-aNo\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "•"
           }
         }
       }
@@ -1437,6 +1389,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Women"
+          }
+        }
+      }
+    },
+    "HgA-tp-OoQ.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"HgA-tp-OoQ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•"
           }
         }
       }
@@ -1545,6 +1509,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "0 days"
+          }
+        }
+      }
+    },
+    "I1L-nA-ZYt.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"I1L-nA-ZYt\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Label"
           }
         }
       }
@@ -1767,6 +1743,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Complete"
+          }
+        }
+      }
+    },
+    "k1F-Sh-SOC.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Research has also shown that alcohol misuse increases the risk of liver disease, cardiovascular  diseases, depression, and stomach bleeding, as well as cancers of the oral cavity, esophagus, larynx, pharynx, liver, colon, and rectum. \"; ObjectID = \"k1F-Sh-SOC\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Research has also shown that alcohol misuse increases the risk of liver disease, cardiovascular  diseases, depression, and stomach bleeding, as well as cancers of the oral cavity, esophagus, larynx, pharynx, liver, colon, and rectum. "
           }
         }
       }
@@ -2251,18 +2239,6 @@
         }
       }
     },
-    "Oqd-Yf-OJe.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"People who misuse alcohol may also have problems managing conditions such as diabetes, high blood pressure, pain, and sleep disorders.\"; ObjectID = \"Oqd-Yf-OJe\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "People who misuse alcohol may also have problems managing conditions such as diabetes, high blood pressure, pain, and sleep disorders."
-          }
-        }
-      }
-    },
     "oQg-Wx-L1Z.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Use this calculator to plan to control your drinking habit.\"; ObjectID = \"oQg-Wx-L1Z\";",
       "extractionState" : "extracted_with_value",
@@ -2301,6 +2277,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Smoking"
+          }
+        }
+      }
+    },
+    "pbh-wh-jyj.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"pbh-wh-jyj\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•"
           }
         }
       }
@@ -2473,6 +2461,18 @@
         }
       }
     },
+    "Qth-i7-wvV.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"Qth-i7-wvV\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•"
+          }
+        }
+      }
+    },
     "qUC-T1-qYB.text" : {
       "comment" : "Class = \"UILabel\"; text = \"“I’m ready to quit”\"; ObjectID = \"qUC-T1-qYB\";",
       "extractionState" : "extracted_with_value",
@@ -2565,6 +2565,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "If you have even tried to quit once in the past, you have some idea how it feels, the challenges you experienced, and what caused you to start smoking again. That means you’ve already tasted this journey and know how tricky it can be. There are small steps you can take now to help you quit for good and increase your chances of success. Learn the skills that will help you permanently achieve a tobacco-free life.\n\nIn the following sections, you can learn about recommended strategies for overcoming potential challenges you may encounter!"
+          }
+        }
+      }
+    },
+    "RJn-yv-6On.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Health problems\"; ObjectID = \"RJn-yv-6On\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Health problems"
           }
         }
       }
@@ -2743,6 +2755,18 @@
         }
       }
     },
+    "Ti4-T0-PWs.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"Ti4-T0-PWs\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•"
+          }
+        }
+      }
+    },
     "tie-sB-OLQ.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Depression and Anxiety\"; ObjectID = \"tie-sB-OLQ\";",
       "extractionState" : "extracted_with_value",
@@ -2857,18 +2881,6 @@
         }
       }
     },
-    "uBz-gc-B5m.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"uBz-gc-B5m\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "•"
-          }
-        }
-      }
-    },
     "ueQ-KJ-ver.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Up to 2 drinks per day\"; ObjectID = \"ueQ-KJ-ver\";",
       "extractionState" : "extracted_with_value",
@@ -2935,6 +2947,18 @@
         }
       }
     },
+    "Ui9-Zc-m0j.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"Ui9-Zc-m0j\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•"
+          }
+        }
+      }
+    },
     "uM4-m4-vem.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"uM4-m4-vem\";",
       "extractionState" : "extracted_with_value",
@@ -2979,18 +3003,6 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Difficulty Concentrating"
-          }
-        }
-      }
-    },
-    "uxo-Hg-sa8.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Half of liver disease deaths in the United States are caused by alcohol, and alcohol-associated liver disease is increasing, particularly among women and young people. \"; ObjectID = \"uxo-Hg-sa8\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Half of liver disease deaths in the United States are caused by alcohol, and alcohol-associated liver disease is increasing, particularly among women and young people. "
           }
         }
       }
@@ -3199,6 +3211,18 @@
         }
       }
     },
+    "WOV-qb-aW9.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"And people who misuse alcohol are more likely to engage in unsafe sexual behavior, putting themselves and others at risk for sexually transmitted infections and unintentional pregnancies.\"; ObjectID = \"WOV-qb-aW9\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "And people who misuse alcohol are more likely to engage in unsafe sexual behavior, putting themselves and others at risk for sexually transmitted infections and unintentional pregnancies."
+          }
+        }
+      }
+    },
     "WTS-sK-lmi.text" : {
       "comment" : "Class = \"UILabel\"; text = \"No TV, phones, or gadgets in bed. Make your bedroom quiet, dark, relaxing, and comfy.\\nSkip heavy meals or alcohol right before bedtime.\"; ObjectID = \"WTS-sK-lmi\";",
       "extractionState" : "extracted_with_value",
@@ -3315,6 +3339,30 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Complete"
+          }
+        }
+      }
+    },
+    "YcH-0w-ona.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Drinking is associated with a number of health problems and can make certain chronic health problems worse. \"; ObjectID = \"YcH-0w-ona\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Drinking is associated with a number of health problems and can make certain chronic health problems worse. "
+          }
+        }
+      }
+    },
+    "YEt-nx-o1G.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"People who misuse alcohol may also have problems managing conditions such as diabetes, high blood pressure, pain, and sleep disorders.\"; ObjectID = \"YEt-nx-o1G\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "People who misuse alcohol may also have problems managing conditions such as diabetes, high blood pressure, pain, and sleep disorders."
           }
         }
       }
