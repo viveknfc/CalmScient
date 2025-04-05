@@ -604,13 +604,18 @@ extension AddNewAppointmentViewController :  UITableViewDelegate, UITableViewDat
         dropdownTableView.isHidden = filteredItems.isEmpty//false
         print("✅ Dropdown should now be visible!")
     }
-
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         guard textField == providerNameTF || textField == locationTF else { return }
 
-        guard let text = textField.text, !text.isEmpty else {
-            filteredItems = (textField == providerNameTF) ? providerData.map { $0.firstName } : locationData.map { $0.locationName }
+        guard let text = textField.text else { return }
+        
+        if text.isEmpty {
+            if textField == providerNameTF {
+                filteredItems = providerData.compactMap { $0.firstName }  // Ensure non-nil strings
+            } else if textField == locationTF {
+                filteredItems = locationData.compactMap { $0.locationName }  // Ensure non-nil strings
+            }
             dropdownTableView.isHidden = false
             dropdownTableView.reloadData()
             return
@@ -618,9 +623,9 @@ extension AddNewAppointmentViewController :  UITableViewDelegate, UITableViewDat
 
         // Filter items based on input
         if textField == providerNameTF {
-            filteredItems = providerData.map { $0.firstName }.filter { $0.lowercased().contains(text.lowercased()) }
+            filteredItems = providerData.compactMap { $0.firstName }.filter { $0.lowercased().contains(text.lowercased()) }
         } else if textField == locationTF {
-            filteredItems = locationData.map { $0.locationName }.filter { $0.lowercased().contains(text.lowercased()) }
+            filteredItems = locationData.compactMap { $0.locationName }.filter { $0.lowercased().contains(text.lowercased()) }
         }
 
         // Show or hide tableView

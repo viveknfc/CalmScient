@@ -457,6 +457,7 @@
 		C230434B2D105D3C001E152B /* FontLL8.swift in Sources */ = {isa = PBXBuildFile; fileRef = C230434A2D105D3C001E152B /* FontLL8.swift */; };
 		C230434D2D10903B001E152B /* FontLM14.swift in Sources */ = {isa = PBXBuildFile; fileRef = C230434C2D10903B001E152B /* FontLM14.swift */; };
 		C237E9C72D30586000E895FA /* newPickerViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C237E9C62D30586000E895FA /* newPickerViewVC.swift */; };
+		C23BD4E52DA1202A00283907 /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = C23BD4E42DA1202A00283907 /* SwiftyGif */; };
 		C249D13C2D26F4CE009EE005 /* NewCalender.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249D13B2D26F4CE009EE005 /* NewCalender.swift */; };
 		C249D13E2D26F6E7009EE005 /* NewCalender.xib in Resources */ = {isa = PBXBuildFile; fileRef = C249D13D2D26F6E7009EE005 /* NewCalender.xib */; };
 		C249D1422D27030C009EE005 /* testVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249D1412D27030C009EE005 /* testVC.swift */; };
@@ -1099,6 +1100,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C21BD59B2D2C48A7005BA00D /* Pods_CalmscientIOS.framework in Frameworks */,
+				C23BD4E52DA1202A00283907 /* SwiftyGif in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2607,6 +2609,7 @@
 			);
 			name = CalmscientIOS;
 			packageProductDependencies = (
+				C23BD4E42DA1202A00283907 /* SwiftyGif */,
 			);
 			productName = CalmscientIOS;
 			productReference = 4A65C2F02BD6852C00809222 /* CalmscientIOS.app */;
@@ -2638,7 +2641,7 @@
 			);
 			mainGroup = 4A65C2E72BD6852C00809222;
 			packageReferences = (
-				C21BD5962D2C42C5005BA00D /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+				C23BD4E32DA1202A00283907 /* XCRemoteSwiftPackageReference "SwiftyGif" */,
 			);
 			productRefGroup = 4A65C2F12BD6852C00809222 /* Products */;
 			projectDirPath = "";
@@ -3526,15 +3529,23 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C21BD5962D2C42C5005BA00D /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+		C23BD4E32DA1202A00283907 /* XCRemoteSwiftPackageReference "SwiftyGif" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			repositoryURL = "https://github.com/kirualex/SwiftyGif";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.4.5;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C23BD4E42DA1202A00283907 /* SwiftyGif */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C23BD4E32DA1202A00283907 /* XCRemoteSwiftPackageReference "SwiftyGif" */;
+			productName = SwiftyGif;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4A65C2E82BD6852C00809222 /* Project object */;
 }

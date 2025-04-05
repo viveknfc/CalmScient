@@ -16,12 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchGifFile.gif" translatesAutoresizingMaskIntoConstraints="NO" id="eEs-LS-wNw">
-                                <rect key="frame" x="46.666666666666657" y="276" width="300" height="300"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="300" id="1kf-KK-v2O"/>
-                                    <constraint firstAttribute="height" constant="300" id="G7x-eI-ncD"/>
-                                </constraints>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="eEs-LS-wNw">
+                                <rect key="frame" x="-13.666666666666657" y="-31.666666666666686" width="420.33333333333326" height="915.33333333333348"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
@@ -38,6 +34,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="LaunchGifFile.gif" width="1320" height="500"/>
+        <image name="launchScreen" width="420" height="915"/>
     </resources>
 </document>

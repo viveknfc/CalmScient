@@ -46,6 +46,7 @@ class Excercises: UIViewController {
     override func viewDidLoad() {
         
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationItem.hidesBackButton = true
         self.navigationItem.leftBarButtonItem = nil
         setupLanguage()
         if let layout = excercisesCollection.collectionViewLayout as? UICollectionViewFlowLayout {

@@ -6829,20 +6829,22 @@ Depression is common because when you smoke a lot, your brain kind of switches o
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="launchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="Nq5-OA-8Lc">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nq5-OA-8Lc">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="d1Q-Ti-f5f"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="d1Q-Ti-f5f" firstAttribute="bottom" secondItem="Nq5-OA-8Lc" secondAttribute="bottom" id="0Gb-3m-ijY"/>
-                            <constraint firstItem="Nq5-OA-8Lc" firstAttribute="top" secondItem="d1Q-Ti-f5f" secondAttribute="top" id="4by-vu-odK"/>
-                            <constraint firstItem="d1Q-Ti-f5f" firstAttribute="trailing" secondItem="Nq5-OA-8Lc" secondAttribute="trailing" id="pvB-bw-fhI"/>
-                            <constraint firstItem="Nq5-OA-8Lc" firstAttribute="centerX" secondItem="Qzk-aM-klk" secondAttribute="centerX" id="qhF-tE-hke"/>
-                            <constraint firstItem="Nq5-OA-8Lc" firstAttribute="leading" secondItem="d1Q-Ti-f5f" secondAttribute="leading" id="rfi-bA-Thn"/>
+                            <constraint firstItem="Nq5-OA-8Lc" firstAttribute="leading" secondItem="d1Q-Ti-f5f" secondAttribute="leading" id="7Hs-Dh-MnT"/>
+                            <constraint firstItem="d1Q-Ti-f5f" firstAttribute="trailing" secondItem="Nq5-OA-8Lc" secondAttribute="trailing" id="KRh-Gg-MZR"/>
+                            <constraint firstItem="Nq5-OA-8Lc" firstAttribute="top" secondItem="d1Q-Ti-f5f" secondAttribute="top" id="hvM-5J-fmt"/>
+                            <constraint firstItem="d1Q-Ti-f5f" firstAttribute="bottom" secondItem="Nq5-OA-8Lc" secondAttribute="bottom" id="z4U-d7-ZkH"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="launchGif" destination="Nq5-OA-8Lc" id="CwT-iM-vyx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqb-de-FV0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -6887,7 +6889,6 @@ Depression is common because when you smoke a lot, your brain kind of switches o
         <image name="eventTracker" width="14.666666984558105" height="14.666666984558105"/>
         <image name="forwardArrow" width="41" height="41"/>
         <image name="img1" width="392" height="162"/>
-        <image name="launchScreen" width="420" height="915"/>
         <image name="play" width="100" height="100"/>
         <image name="purse" width="10.666666984558105" height="10.666666984558105"/>
         <image name="spotlight" width="46" height="46"/>

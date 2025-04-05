@@ -10,6 +10,8 @@ import UIKit
 @available(iOS 16.0, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
+    var isSplashScreenShowing = false
+
     var window: UIWindow?
     func changeToUserInterfaceStyle(_ style: UIUserInterfaceStyle) {
         if let window = self.window {
@@ -21,62 +23,81 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // Set the new root view controller
         window.rootViewController = viewController
-        
-        // Optional: Animate the transition
-//        UIView.transition(with: window,
-//                          duration: 0.5,
-//                          options: .transitionFlipFromRight,
-//                          animations: nil,
-//                          completion: nil)
+
     }
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        if (UserDefaults.standard.value(forKey: "rememberMe") as? Int == 1) {
-            print("remember Me pressed before")
-            
-            guard let windowScene = scene as? UIWindowScene else { return }
+        //viv start
+        
+        guard let windowScene = scene as? UIWindowScene else { return }
 
-            // Initialize the window
-            window = UIWindow(windowScene: windowScene)
-            let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
-            if let splashVC = storyboard.instantiateViewController(withIdentifier: "LaunchScreenVC") as? LaunchScreenVC {
-                window?.rootViewController = splashVC
-                window?.makeKeyAndVisible()
-                print("✅ Splash screen loaded from TakingControl storyboard")
-            } else {
-                print("❌ Failed to load SplashViewController")
-                return
-            }
+        // Initialize the window
+        window = UIWindow(windowScene: windowScene)
+        let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
+        print("📘 Storyboard loaded")
+        let vc = storyboard.instantiateViewController(withIdentifier: "LaunchScreenVC")
+        print("🧩 ViewController instantiated: \(vc)")
 
-            print("Splash screen is set as rootViewController")
-            
-            let (loginDetails, tokenResponse) = UserDefaultsHelper.retrieveLoginDetailsFromUserDefaults()
-
-            if let loginDetails = loginDetails, let tokenResponse = tokenResponse {
-                // Populate shared info
-                ApplicationSharedInfo.shared.loginResponse = loginDetails
-                ApplicationSharedInfo.shared.tokenResponse = tokenResponse
-
-                    self.userStartUpAPICall()
-                
-
-            }
-            else {
-                // If no login details are found, navigate to Login screen
-                navigateToLogin()
-            }
-                 
-        } else {
-            guard let windowScene = (scene as? UIWindowScene) else { return }
-            window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-            window?.windowScene = windowScene
-            let homeController = UIStoryboard(name: "LoginVC", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-            let navC = UINavigationController(rootViewController: homeController)
-            navC.navigationBar.isHidden = true
-            window?.rootViewController = navC
+        if let splashVC = vc as? LaunchScreenVC {
+            splashVC.sceneDelegate = self
+            window?.rootViewController = splashVC
             window?.makeKeyAndVisible()
+            isSplashScreenShowing = true
+            print("🌟 Window made key and visible: \(window?.isKeyWindow == true)")
+            print("✅ LaunchScreenVC set as root")
+        } else {
+            print("❌ Could not cast to LaunchScreenVC")
         }
+        
+        //end
+        
+//        if (UserDefaults.standard.value(forKey: "rememberMe") as? Int == 1) {
+//            print("remember Me pressed before")
+//            
+//            guard let windowScene = scene as? UIWindowScene else { return }
+//
+//            // Initialize the window
+//            window = UIWindow(windowScene: windowScene)
+//            let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
+//            if let splashVC = storyboard.instantiateViewController(withIdentifier: "LaunchScreenVC") as? LaunchScreenVC {
+//                window?.rootViewController = splashVC
+//                window?.makeKeyAndVisible()
+//                print("✅ Splash screen loaded from TakingControl storyboard")
+//                
+//            } else {
+//                print("❌ Failed to load SplashViewController")
+//                return
+//            }
+//
+//            print("Splash screen is set as rootViewController")
+//            
+//            let (loginDetails, tokenResponse) = UserDefaultsHelper.retrieveLoginDetailsFromUserDefaults()
+//
+//            if let loginDetails = loginDetails, let tokenResponse = tokenResponse {
+//                // Populate shared info
+//                ApplicationSharedInfo.shared.loginResponse = loginDetails
+//                ApplicationSharedInfo.shared.tokenResponse = tokenResponse
+//
+//                    self.userStartUpAPICall()
+//                
+//
+//            }
+//            else {
+//                // If no login details are found, navigate to Login screen
+//                navigateToLogin()
+//            }
+//                 
+//        } else {
+//            guard let windowScene = (scene as? UIWindowScene) else { return }
+//            window = UIWindow(frame: windowScene.coordinateSpace.bounds)
+//            window?.windowScene = windowScene
+//            let homeController = UIStoryboard(name: "LoginVC", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+//            let navC = UINavigationController(rootViewController: homeController)
+//            navC.navigationBar.isHidden = true
+//            window?.rootViewController = navC
+//            window?.makeKeyAndVisible()
+//        }
   
         
         if let isDarkMode = UserDefaults.standard.value(forKey: "isDarkMode") as? Bool {
@@ -85,6 +106,36 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
 
 
+    }
+    
+    //MARK: - Proceed after Splash screen
+    
+    func proceedAfterSplashScreen() {
+        isSplashScreenShowing = false
+        print("after 2 sec its printing")
+        if (UserDefaults.standard.value(forKey: "rememberMe") as? Int == 1) {
+            print("remember Me pressed before")
+            
+            let (loginDetails, tokenResponse) = UserDefaultsHelper.retrieveLoginDetailsFromUserDefaults()
+            
+            if let loginDetails = loginDetails, let tokenResponse = tokenResponse {
+                // Populate shared info
+                ApplicationSharedInfo.shared.loginResponse = loginDetails
+                ApplicationSharedInfo.shared.tokenResponse = tokenResponse
+
+                self.userStartUpAPICall()
+            } else {
+                // If no login details are found, navigate to Login screen
+                navigateToLogin()
+            }
+        } else {
+            // No rememberMe, go to LoginVC
+            let homeController = UIStoryboard(name: "LoginVC", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+            let navC = UINavigationController(rootViewController: homeController)
+            navC.navigationBar.isHidden = true
+            window?.rootViewController = navC
+            window?.makeKeyAndVisible()
+        }
     }
     
     //MARK: - First API Call if remember ME
@@ -179,6 +230,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the background to the foreground.
         // Use this method to undo the changes made on entering the background. 
         
+        if isSplashScreenShowing {
+            print("⏳ Skipping login check — splash screen is still showing")
+            return
+        }
         
         let (loginDetails, tokenResponse) = UserDefaultsHelper.retrieveLoginDetailsFromUserDefaults()
 
