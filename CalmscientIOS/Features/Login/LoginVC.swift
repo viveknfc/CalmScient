@@ -42,8 +42,8 @@ class LoginVC: UIViewController,UITextFieldDelegate {
        userNameTextField.text = "chandra.p@gmail.com"
        passwordTextField.text = "chandra@1234"
         
-//       userNameTextField.text = "jasmine69@gmail.com"
-//       passwordTextField.text = "Test@1234"
+//       userNameTextField.text = "william@gmail.com"
+//       passwordTextField.text = "william@1234"
         
 //          userNameTextField.text = "sravanthi@gmail.com"
 //          passwordTextField.text = "sravanthi@1234"
@@ -255,7 +255,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
                             
                             UserDefaults.standard.set("\(loginResponse.loginDetails.firstName)", forKey: "titleString")
                             
-                            if true { //!(self.isFirstLaunch ?? true)
+                            if !(self.isFirstLaunch ?? true) {
                                 
                                 print("this is the first launch")
                                 
@@ -369,19 +369,6 @@ class LoginVC: UIViewController,UITextFieldDelegate {
                         self.navController = UINavigationController(rootViewController: homeViewController)
                         
                     } else {
-                        
-//                        if TimeZoneHelper.isTimeZoneChanged() {
-//                            print("Time zone has changed or saved time is outdated.")
-//                            let storyboard = UIStoryboard(name: "UserIntro", bundle: nil)
-//                                let homeViewController = storyboard.instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as! UserIntroDayFeedbackViewController
-//                            homeViewController.afternoonVC = true
-//                            if let titleString = UserDefaults.standard.string(forKey: "titleString") {
-//                                homeViewController.titleString = titleString
-//                            }
-//
-//                                // Wrap the home view controller in a navigation controller if needed
-//                            self.navController = UINavigationController(rootViewController: homeViewController)
-//                        } else {
 
                             print("Time zone remains the same.")
                             let storyboard = UIStoryboard(name: "AppTabBar", bundle: nil)
@@ -389,7 +376,6 @@ class LoginVC: UIViewController,UITextFieldDelegate {
                             homeViewController.isInitalView = false
                             self.navController = UINavigationController(rootViewController: homeViewController)
                             self.navController?.navigationBar.isHidden = true
-//                        }
                         
                     }
                     

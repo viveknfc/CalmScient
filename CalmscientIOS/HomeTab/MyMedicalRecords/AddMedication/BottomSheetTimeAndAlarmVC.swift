@@ -78,7 +78,11 @@ class BottomSheetTimeAndAlarmVC: UIViewController {
             // Fallback on earlier versions
         }
         
-        content.sound = UNNotificationSound.criticalSoundNamed(UNNotificationSoundName(rawValue: "bell.mp3"))
+        content.sound = UNNotificationSound.criticalSoundNamed(
+            UNNotificationSoundName(rawValue: "bell.mp3")
+        )
+
+//        content.sound = UNNotificationSound.criticalSoundNamed(UNNotificationSoundName(rawValue: "bell.mp3"))
         
         if repeatDays.isEmpty {
               let calendar = Calendar.current

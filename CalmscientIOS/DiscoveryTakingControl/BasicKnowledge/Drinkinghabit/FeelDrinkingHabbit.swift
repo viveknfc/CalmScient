@@ -30,7 +30,7 @@ class FeelDrinkingHabbit:  ViewController, UITableViewDelegate, UITableViewDataS
         "What happens to your brain when you drink?",
         "What are the consequences?",
         "My drinking habit",
-        "What to expect when you quit drinking?"
+        "Why is the ability to hold your liquor a concern?" //"What to expect when you quit drinking?"
     ]
     
     var checkedStates: [Bool] = []

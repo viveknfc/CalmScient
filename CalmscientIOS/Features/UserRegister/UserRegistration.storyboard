@@ -103,7 +103,7 @@ Here's an example from Nintendo. First, it's made clear that the company is offe
                                 <rect key="frame" x="0.0" y="716.66666666666663" width="428" height="209.33333333333337"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FE9-af-ygc" customClass="LinearGradientButton" customModule="CalmscientIOS" customModuleProvider="target">
-                                <rect key="frame" x="36" y="710.33333333333337" width="356" height="45"/>
+                                <rect key="frame" x="36" y="666.33333333333337" width="356" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="bMh-kl-r0E"/>
                                 </constraints>
@@ -148,7 +148,7 @@ Here's an example from Nintendo. First, it's made clear that the company is offe
                             <constraint firstItem="fI5-8k-kqa" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="fGw-UX-nah"/>
                             <constraint firstItem="LBx-C9-0hN" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="gDv-n7-AVe"/>
                             <constraint firstItem="ALi-Or-e8u" firstAttribute="leading" secondItem="wCP-So-aPk" secondAttribute="leading" id="gUO-0c-VA7"/>
-                            <constraint firstItem="fI5-8k-kqa" firstAttribute="top" secondItem="FE9-af-ygc" secondAttribute="centerY" constant="-16" id="jdU-cy-GNj"/>
+                            <constraint firstItem="FE9-af-ygc" firstAttribute="top" secondItem="Zhn-7b-WyL" secondAttribute="bottom" constant="30" id="jdU-cy-GNj"/>
                             <constraint firstItem="cwz-Xb-e71" firstAttribute="top" secondItem="829-xm-Xgj" secondAttribute="bottom" constant="30" id="jp9-qQ-USh"/>
                             <constraint firstItem="fI5-8k-kqa" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="lbv-H5-yHB"/>
                             <constraint firstItem="Zhn-7b-WyL" firstAttribute="leading" secondItem="cwz-Xb-e71" secondAttribute="trailing" constant="20" id="pVO-yU-CWk"/>

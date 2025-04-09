@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class TakingControllIntro: ViewController,UITableViewDelegate,UITableViewDataSource,QuestionAlertAlertViewActionProtocol, InfoAlertViewActionProtocol {
+class TakingControllIntro: UIViewController,UITableViewDelegate,UITableViewDataSource,QuestionAlertAlertViewActionProtocol {
     var screeningData:[Screening] = []
     var previouslySelectedIndexPath: Int?
     var networkHandler:NetworkAPIRequest = NetworkAPIRequest()
@@ -19,111 +19,115 @@ class TakingControllIntro: ViewController,UITableViewDelegate,UITableViewDataSou
     fileprivate var infoAlertBackGroundView:UIView?
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var infoButton: UIButton!
-    //    @IBOutlet weak var alcholnowView: UIView!
-    //    @IBOutlet weak var drinkgoalView: UIView!
-    //    @IBOutlet weak var drinknowView: UIView!
-    //    @IBOutlet weak var basicKnowledge: UIButton!
-    //    @IBOutlet weak var labelsContainerView: UIView!
     
-    var data = ["AUDIT","DUST-10","CAGE"]
+    var data: [String] = []
     var introData: [Any] = []
-    var auditFlag : Int?
-    var dastFlag : Int?
-    var cageFlag : Int?
+    
+    var auditFlag: Int = 0
+    var dastFlag: Int = 0
+    var cageFlag: Int = 0
+
     var auditFlag1 : Int?
     var dastFlag1 : Int?
     var cageFlag1 : Int?
+    
     @IBOutlet weak var headerLabel: UILabel!
     
     @IBOutlet weak var descriptionLabel: UILabel!
     var doesttext = ""
     var applytometext = ""
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        doesttext = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Doesn't apply to me" : "No se aplica a mi"
-        applytometext = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Apply to me" : "Aplicarme"
+       
         getScreeningData()
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.reloadData()
+        
+        title = "Taking control introduction"
+        self.navigationItem.hidesBackButton = true
         
         tableView.register(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: "CustomCell")
+        
+        getTakingControlIntroAPICalling()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+        data = [
+            selectedLanguageID == 1 ? "AUDIT" : "AUDITORÍA",
+            selectedLanguageID == 1 ? "DUST-10" : "POLVO-10",
+            selectedLanguageID == 1 ? "CAGE" : "JAULA"
+        ]
+        
+        headerLabel.text = (selectedLanguageID != 0) ? "Welcome to taking control!" : "¡Bienvenido a tomar el control!"
+        descriptionLabel.text = (selectedLanguageID != 0) ? "Thank you for being willing to talk about alcohol and drugs. Now let’s begin with a brief assessment." : "Gracias por estar dispuesto a hablar sobre el alcohol y las drogas. Ahora comencemos con una breve evaluación."
+        
+        doesttext = selectedLanguageID == 1 ? "Doesn't apply to me" : "No se aplica a mi"
+        applytometext = selectedLanguageID == 1 ? "Apply to me" : "Aplicarme"
+
+        
+        tableView.reloadData()
+
+    }
+
+    
+    //MARK: - Get Taking Control Intro Data API Calling
+    
+    func getTakingControlIntroAPICalling() {
+        self.view.showToastActivity()
+        
         guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
             fatalError("Unable to found Application Shared Info")
         }
-        updateTakingControlIndex( plId: userInfo.patientLocationID, patientId: userInfo.patientID, clientId: userInfo.clientID, activityDate: "", bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken) { [self] result in
-            switch result {
-            case .success(let data):
-                // Convert data to JSON object and print it
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        DispatchQueue.main.async { [self] in
-                            print(json)
-                            
-                            self.view.hideToastActivity()
-                        }
-                        
-                    } else {
-                        print("Unable to convert data to JSON")
-                    }
-                } catch {
-                    print("Error converting data to JSON: \(error)")
-                }
-            case .failure(let error):
-                print("Error: \(error)")
-            }
-        }
         
-        self.view.showToastActivity()
-        
-        getTakingControlIntroduction(plId: userInfo.patientLocationID, patientId: userInfo.patientID, clientId: userInfo.clientID, activityDate: "", bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken) { [self] result in
-            switch result {
-            case .success(let data):
-                // Convert data to JSON object and print it
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        DispatchQueue.main.async { [self] in
-                            self.view.hideToastActivity()
-                            if let introData = json["takingControlIntroduction"] as? [String: Any] {
-                                if let auditFlagValue = introData["auditFlag"] as? Int {
-                                    auditFlag = auditFlagValue
-                                    print("auditFlag\(auditFlag ?? 0)")
-                                } else {
-                                    print("auditFlag not found or not an Int")
-                                }
-                                if let dustFlagValue = introData["dastFlag"] as? Int {
-                                    dastFlag = dustFlagValue
-                                    print("dastFlag\(dastFlag ?? 0)")
-                                   
-                                } else {
-                                    print("dustFlagValue not found or not an Int")
-                                }
-                                if let cageFlagFlagValue = introData["cageFlag"] as? Int {
-                                    cageFlag = cageFlagFlagValue
-                                    print("cageFlag\(cageFlag ?? 0)")
-                                  
+        let params: [String: Any] = [
+            "clientId":userInfo.clientID,
+            "patientId": userInfo.patientID,
+            "plId":userInfo.patientLocationID
+        ]
 
-                                } else {
-                                    print("cageFlag not found or not an Int")
-                                }
-                                tableView.reloadData()
-                                self.view.hideToastActivity()
-                            } else {
-                                print("Unable to cast takingControlIntroduction to [String: Any]")
-                            }
-                        }
-                    } else {
-                        print("Unable to convert data to JSON")
-                    }
-                } catch {
-                    print("Error converting data to JSON: \(error)")
-                }
-            case .failure(let error):
-                print("Error: \(error)")
-            }
+        APIService.getTakingControlIntroAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
+            self.getresponseforGetTakingControlIntroAPI(response: response)
         }
     }
+    
+    //MARK: - Get Taking Control Intro Data API Response
+    
+    func getresponseforGetTakingControlIntroAPI(response: Any) {
+        self.view.hideToastActivity()
+        
+        if let responseDict = response as? [String: Any] {
+            print("Response from Get Taking Control Intro Data:", responseDict)
+
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: responseDict, options: [])
+                let decodedResponse = try JSONDecoder().decode(IntroductionResponse.self, from: jsonData)
+
+                auditFlag = decodedResponse.takingControlIntroduction.result.auditFlag
+                cageFlag = decodedResponse.takingControlIntroduction.result.cageFlag
+                dastFlag = decodedResponse.takingControlIntroduction.result.dastFlag
+
+                print("Audit Flag: \(String(describing: auditFlag))")
+                print("Cage Flag: \(String(describing: cageFlag))")
+                print("DAST Flag: \(String(describing: dastFlag))")
+
+                tableView.reloadData()
+                // 👉 You can now use these flags however you want (e.g. update UI)
+
+            } catch {
+                print("Decoding failed with error:", error)
+            }
+
+        } else {
+            print("Unsupported response type:", type(of: response))
+        }
+    }
+
+    //END
+    
     func getScreeningData() {
         screeningData = []
         guard let requestURL = screeningRequest.getURLRequest() else {
@@ -147,90 +151,7 @@ class TakingControllIntro: ViewController,UITableViewDelegate,UITableViewDataSou
             
         }
     }
-    override func viewWillAppear(_ animated: Bool) {
-        setupLanguage()
-        data = [UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "AUDIT" : "AUDITORÍA" ,
-                    
-                    UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "DUST-10" : "POLVO-10" ,
-                    UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "CAGE" : "JAULA"]
-        tableView.reloadData()
-        
-        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
-            fatalError("Unable to found Application Shared Info")
-        }
-        
-        self.view.showToastActivity()
-        
-        getTakingControlIntroduction(plId: userInfo.patientLocationID, patientId: userInfo.patientID, clientId: userInfo.clientID, activityDate: "", bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken) { [self] result in
-            switch result {
-            case .success(let data):
-                // Convert data to JSON object and print it
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        DispatchQueue.main.async { [self] in
-                            self.view.hideToastActivity()
-                            if let introData = json["takingControlIntroduction"] as? [String: Any] {
-                                if let auditFlagValue = introData["auditFlag"] as? Int {
-                                    auditFlag = auditFlagValue
-                                    print("auditFlag\(auditFlag ?? 0)")
-                                } else {
-                                    print("auditFlag not found or not an Int")
-                                }
-                                if let dustFlagValue = introData["dastFlag"] as? Int {
-                                    dastFlag = dustFlagValue
-                                    print("dastFlag\(dastFlag ?? 0)")
-                                   
-                                } else {
-                                    print("dustFlagValue not found or not an Int")
-                                }
-                                if let cageFlagFlagValue = introData["cageFlag"] as? Int {
-                                    cageFlag = cageFlagFlagValue
-                                    print("cageFlag\(cageFlag ?? 0)")
-                                  
 
-                                } else {
-                                    print("cageFlag not found or not an Int")
-                                }
-                                tableView.reloadData()
-                                self.view.hideToastActivity()
-                            } else {
-                                print("Unable to cast takingControlIntroduction to [String: Any]")
-                            }
-                        }
-                    } else {
-                        print("Unable to convert data to JSON")
-                    }
-                } catch {
-                    print("Error converting data to JSON: \(error)")
-                }
-            case .failure(let error):
-                print("Error: \(error)")
-            }
-        }
-    }
-    
-    func setupLanguage() {
-        
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-                
-                
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-                
-               
-            }
-    //    self.title = AppHelper.getLocalizeString(str: "Taking Control Introduction")
-        
-        
-        headerLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Welcome to taking control!" : "¡Bienvenido a tomar el control!"
-        descriptionLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Thank you for being willing to talk about alcohol and drugs. Now let’s begin with a brief assessment." : "Gracias por estar dispuesto a hablar sobre el alcohol y las drogas. Ahora comencemos con una breve evaluación."
-        
-       
-        
-        }
     @available(iOS 16.0, *)
     @IBAction func forwardButtonAction(_ sender: Any) {
                 let next = UIStoryboard(name: "introductionTakingPage", bundle: nil)
@@ -238,126 +159,6 @@ class TakingControllIntro: ViewController,UITableViewDelegate,UITableViewDataSou
         print(AppHelper.getLocalizeString(str: "Taking control introduction"));
         vc?.title = AppHelper.getLocalizeString(str: "Taking control introduction")
                 self.navigationController?.pushViewController(vc!, animated: true)
-    }
-    
-    //override func viewWillAppear(_ animated: Bool) {
-//    tableView.reloadData()
-//    print("viewWillAppear")
-//        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
-//            fatalError("Unable to found Application Shared Info")
-//        }
-//        
-//        self.view.showToastActivity()
-//        getTakingControlIntroduction(plId: userInfo.patientLocationID, patientId: userInfo.patientID, clientId: userInfo.clientID, activityDate: "", bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken) { [self] result in
-//            switch result {
-//            case .success(let data):
-//                // Convert data to JSON object and print it
-//                do {
-//                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-//                        DispatchQueue.main.async { [self] in
-//                            self.view.hideToastActivity()
-//                            if let introData = json["takingControlIntroduction"] as? [String: Any] {
-//                                if let auditFlagValue = introData["auditFlag"] as? Int {
-//                                    auditFlag = auditFlagValue
-//                                    print("auditFlag\(auditFlag ?? 0)")
-//                                } else {
-//                                    print("auditFlag not found or not an Int")
-//                                }
-//                                if let dustFlagValue = introData["dastFlag"] as? Int {
-//                                    dastFlag = dustFlagValue
-//                                    print("dastFlag\(dastFlag ?? 0)")
-//                                   
-//                                } else {
-//                                    print("dustFlagValue not found or not an Int")
-//                                }
-//                                if let cageFlagFlagValue = introData["cageFlag"] as? Int {
-//                                    cageFlag = cageFlagFlagValue
-//                                    print("cageFlag\(cageFlag ?? 0)")
-//                                  
-//
-//                                } else {
-//                                    print("cageFlag not found or not an Int")
-//                                }
-//                                tableView.reloadData()
-//                                self.view.hideToastActivity()
-//                            } else {
-//                                print("Unable to cast takingControlIntroduction to [String: Any]")
-//                            }
-//                        }
-//                    } else {
-//                        print("Unable to convert data to JSON")
-//                    }
-//                } catch {
-//                    print("Error converting data to JSON: \(error)")
-//                }
-//            case .failure(let error):
-//                print("Error: \(error)")
-//            }
-//        }
-//    }
-    func getTakingControlIntroduction(plId: Int, patientId: Int, clientId: Int, activityDate: String,bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void){
-        // Define the URL
-        guard let url = URL(string: "\(baseURLString)patients/api/v1/takingControl/getTakingControlIntroduction") else {
-            print("Invalid URL")
-            return
-        }
-        
-        // Create the request
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer \(bearerToken)", forHTTPHeaderField: "Authorization")
-        
-        
-        // Define the JSON payload
-        let payload: [String: Any] = [
-            
-            
-            "patientId": patientId,
-            "clientId": clientId,
-            "plId":plId,
-        ]
-        
-        
-        print("payload\(payload)")
-        // Convert the payload to JSON data
-        do {
-            let jsonData = try JSONSerialization.data(withJSONObject: payload, options: [])
-            request.httpBody = jsonData
-            print(jsonData)
-        } catch {
-            print("Error converting payload to JSON: \(error)")
-            completion(.failure(error))
-            return
-        }
-        
-        // Create the URLSession data task
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                print("Error with request: \(error)")
-                completion(.failure(error))
-                return
-            }
-            
-            guard let data = data else {
-                print("No data received")
-                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
-                return
-            }
-            do {
-                let jsonResponse = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
-                print("Response JSON: \(jsonResponse)")
-            } catch {
-                print("Error parsing JSON response: \(error)")
-                completion(.failure(error))
-                return
-            }
-            // If needed, handle the response here
-            completion(.success(data))
-        }
-        
-        // Start the data task
-        task.resume()
     }
     
     
@@ -387,16 +188,6 @@ class TakingControllIntro: ViewController,UITableViewDelegate,UITableViewDataSou
             "cageFlag": cageFlag1 as Any,
             "tutorialFlag": 0
         ]
-//        {
-//        "patientId": 4,
-//        "clientId": 1,
-//        "plId": 4,
-//        "introductionFlag": 0,
-//        "auditFlag": null,
-//        "dastFlag": 0,
-//        "cageFlag": null,
-//        "tutorialFlag": null
-//        }
         
         print("payload\(payload)")
         // Convert the payload to JSON data
@@ -553,40 +344,25 @@ class TakingControllIntro: ViewController,UITableViewDelegate,UITableViewDataSou
         questionAlertView.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         questionAlertView.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor).isActive = true
         questionAlertView.widthAnchor.constraint(equalToConstant: self.view.frame.width * 0.9).isActive = true
-        questionAlertView.heightAnchor.constraint(equalToConstant: 333).isActive = true
+        questionAlertView.heightAnchor.constraint(equalToConstant: 275).isActive = true
     }
-    fileprivate lazy var infoAlertView:InfoAlert = {
-        let infoAlertView = InfoAlert(frame: .zero)
-        
-        //        questionAlertView.titleLabel.text = "Delete"
-        infoAlertView.alertActionDelegate =  self
-        
-        return infoAlertView
-    }()
-    fileprivate func showinfoAlertMessageView() {
-        infoAlertBackGroundView = UIView(frame: .zero)
-        infoAlertBackGroundView?.frame = self.view.frame
-        infoAlertBackGroundView?.backgroundColor = UIColor.darkGray.withAlphaComponent(0.8)
-        infoAlertBackGroundView?.addSubview(infoAlertView)
-        infoAlertView.translatesAutoresizingMaskIntoConstraints = false
-        UIView.transition(with: self.view, duration: 0.5, options: .transitionCrossDissolve, animations: {
-            self.navigationController?.navigationBar.layer.zPosition = -1
-            self.view.addSubview(self.infoAlertBackGroundView!)
-        }, completion: nil)
-        infoAlertView.layer.cornerRadius = 10
-        infoAlertView.layer.masksToBounds = true
-        infoAlertView.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        infoAlertView.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor).isActive = true
-        infoAlertView.widthAnchor.constraint(equalToConstant: self.view.frame.width * 0.9).isActive = true
-        infoAlertView.heightAnchor.constraint(equalToConstant: 750).isActive = true
-    }
+
+
     
     @IBAction func infoTapped(_ sender: UIButton) {
-        showinfoAlertMessageView()
+        
+        let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
+        if let customAlertVC = storyboard.instantiateViewController(withIdentifier: "InfoButtonVC") as? InfoButtonVC {
+            customAlertVC.modalPresentationStyle = .overFullScreen
+            customAlertVC.modalTransitionStyle = .crossDissolve
+            self.present(customAlertVC, animated: true, completion: nil)
+        }
+
     }
-    @IBAction func back_action(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-    }
+    
+//    @IBAction func back_action(_ sender: UIButton) {
+//        self.navigationController?.popViewController(animated: true) //showGeneralAlertYesNo
+//    }
     func didClickOnYESButton() {
         print("YES button clicked")
         
@@ -622,13 +398,6 @@ class TakingControllIntro: ViewController,UITableViewDelegate,UITableViewDataSou
             auditFlag1 = auditFlag
             dastFlag1 = dastFlag
         }
-//        print("flag1====\(auditFlag1 ?? 0)")
-//        print("dastFlag1====\(dastFlag1 ?? 0)")
-//        print("dastFlag1====\(cageFlag1 ?? 0)")
-//        
-//        print("flag====\(auditFlag ?? 0)")
-//        print("dastFlag====\(dastFlag ?? 0)")
-//        print("cageFlag====\(cageFlag ?? 0)")
         
         self.view.showToastActivity()
         saveTakingControlIntroduction( plId: userInfo.patientLocationID, patientId: userInfo.patientID, clientId: userInfo.clientID, activityDate: "", bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken) { [self] result in
@@ -640,9 +409,9 @@ class TakingControllIntro: ViewController,UITableViewDelegate,UITableViewDataSou
                         DispatchQueue.main.async { [self] in
                             print(json)
                           
-                            auditFlag = auditFlag1
-                            dastFlag = dastFlag1
-                            cageFlag = cageFlag1
+                            auditFlag = auditFlag1 ?? 0
+                            dastFlag = dastFlag1 ?? 0
+                            cageFlag = cageFlag1 ?? 0
                             tableView.reloadData()
                             self.view.hideToastActivity()
                            
@@ -658,58 +427,6 @@ class TakingControllIntro: ViewController,UITableViewDelegate,UITableViewDataSou
                 print("Error: \(error)")
             }
         }
-
-        
-//        self.view.showToastActivity()
-//        getTakingControlIntroduction(plId: userInfo.patientLocationID, patientId: userInfo.patientID, clientId: userInfo.clientID, activityDate: "", bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken) { [self] result in
-//            switch result {
-//            case .success(let data):
-//                // Convert data to JSON object and print it
-//                do {
-//                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-//                        DispatchQueue.main.async { [self] in
-//                            self.view.hideToastActivity()
-//                            print("getTakingControlIntroduction")
-//                            if let introData = json["takingControlIntroduction"] as? [String: Any] {
-//                                if let auditFlagValue = introData["auditFlag"] as? Int {
-//                                    auditFlag = auditFlagValue
-//                                    print("auditFlag123\(auditFlag ?? 0)")
-//                                } else {
-//                                    print("auditFlag not found or not an Int")
-//                                }
-//                                if let dustFlagValue = introData["dastFlag"] as? Int {
-//                                    dastFlag = dustFlagValue
-//                                    print("dastFlag123\(dastFlag ?? 0)")
-//                                   
-//                                } else {
-//                                    print("dustFlagValue not found or not an Int")
-//                                }
-//                                if let cageFlagFlagValue = introData["cageFlag"] as? Int {
-//                                    cageFlag = cageFlagFlagValue
-//                                    print("cageFlag123\(cageFlag ?? 0)")
-//                                  
-//
-//                                } else {
-//                                    print("cageFlag not found or not an Int")
-//                                }
-//                                
-//                                tableView.reloadData()
-//                               
-//                               
-//                            } else {
-//                                print("Unable to cast takingControlIntroduction to [String: Any]")
-//                            }
-//                        }
-//                    } else {
-//                        print("Unable to convert data to JSON")
-//                    }
-//                } catch {
-//                    print("Error converting data to JSON: \(error)")
-//                }
-//            case .failure(let error):
-//                print("Error: \(error)")
-//            }
-//        }
         
         UIView.transition(with: self.view, duration: 0.5, options: .transitionCrossDissolve, animations: {
             self.questionAlertView.removeFromSuperview()
@@ -717,11 +434,6 @@ class TakingControllIntro: ViewController,UITableViewDelegate,UITableViewDataSou
             self.questionAlertBackGroundView = nil
             self.navigationController?.navigationBar.layer.zPosition = 0
         }, completion: nil)
-//
-//        let next = UIStoryboard(name: "introductionTakingPage", bundle: nil)
-//        let vc = next.instantiateViewController(withIdentifier: "introductionTakingPage") as? introductionTakingPage
-//        vc?.title = "Taking control Introduction"
-//        self.navigationController?.pushViewController(vc!, animated: true)
         
         
     }
@@ -772,14 +484,7 @@ class TakingControllIntro: ViewController,UITableViewDelegate,UITableViewDataSou
             showDeleteAlertMessageView(value: data[indexPath.row])
         }
     }
-    func didClickOnCancelButton() {
-        UIView.transition(with: self.view, duration: 0.5, options: .transitionCrossDissolve, animations: {
-            self.infoAlertView.removeFromSuperview()
-            self.infoAlertBackGroundView?.removeFromSuperview()
-            self.infoAlertBackGroundView = nil
-            self.navigationController?.navigationBar.layer.zPosition = 0
-        }, completion: nil)
-    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -796,6 +501,7 @@ class TakingControllIntro: ViewController,UITableViewDelegate,UITableViewDataSou
         cell.main_view.layer.borderWidth = 1
         cell.main_view.layer.borderColor = UIColor(red: 110/255, green: 107/255, blue: 179/255, alpha: 0.2).cgColor
         cell.name_label.text = data[indexPath.row]
+        cell.selectionStyle = .none
         
         if indexPath.row == 0 {
             if auditFlag == 1 {
@@ -838,22 +544,73 @@ class TakingControllIntro: ViewController,UITableViewDelegate,UITableViewDataSou
             cell.main_view.backgroundColor = UIColor(named: "barColor3")
         }
     }
-    
-    //cell.action_button.setTitle("Doesn't apply to me", for: .normal)
-    //                cell.selectionStyle = .none
-    // Configure the cell as needed
-    cell.action_button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
-    
+
+//    cell.action_button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)
+        
+    //viv start
+        
+        // Configure button action
+        cell.onButtonTap = { [weak self] in
+            guard let self = self else { return }
+            self.handleAlertForRow(at: indexPath.row)
+        }
+
+    //end
     
     return cell
 }
+    
+    //MARK: - Alert Function
+    
+    func handleAlertForRow(at index: Int) {
+        var flagValue = 0
+        var flagName = ""
+        var updateFlag: ((Int) -> Void)? = nil
+
+        switch index {
+        case 0:
+            flagValue = auditFlag
+            flagName = data[0]
+            updateFlag = { self.auditFlag = $0 }
+        case 1:
+            flagValue = dastFlag
+            flagName = data[1]
+            updateFlag = { self.dastFlag = $0 }
+        case 2:
+            flagValue = cageFlag
+            flagName = data[2]
+            updateFlag = { self.cageFlag = $0 }
+        default:
+            return
+        }
+
+        let subTitle = flagValue == 0 ? "\(flagName) \(applytometext)" : "\(flagName) \(doesttext)"
+
+        showGeneralAlertYesNo(
+            title: flagName,
+            subTitle: subTitle,
+            okButtonTitle: "Yes",
+            cancelButtonTitle: "No",
+            okAction: {
+                let newFlag = flagValue == 0 ? 1 : 0
+                updateFlag?(newFlag)
+                print("Updated \(flagName) flag to \(newFlag)")
+                // optionally reload this row only
+                self.tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+            }
+        )
+    }
+
+
+    
+    //END
 
         
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.row == 0 {
-            var screeningID = 3
+            let screeningID = 3
             if auditFlag == 0{
                 
             }
@@ -869,7 +626,7 @@ class TakingControllIntro: ViewController,UITableViewDelegate,UITableViewDataSou
             }
         }
         if indexPath.row == 1 {
-            var screeningID1 = 4
+            let screeningID1 = 4
             if dastFlag == 0 {
                 
             }
@@ -886,7 +643,7 @@ class TakingControllIntro: ViewController,UITableViewDelegate,UITableViewDataSou
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 100
+        return 80
     }
    
     

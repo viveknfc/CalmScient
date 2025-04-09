@@ -133,7 +133,11 @@ class MedicationsDetailTableCell: UITableViewCell {
             // Fallback on earlier versions
         }
         
-        content.sound = UNNotificationSound.criticalSoundNamed(UNNotificationSoundName(rawValue: "bell.mp3"))
+        content.sound = UNNotificationSound.criticalSoundNamed(
+            UNNotificationSoundName(rawValue: "bell.mp3")
+        )
+        
+//        content.sound = UNNotificationSound.criticalSoundNamed(UNNotificationSoundName(rawValue: "bell.mp3"))
         
         for day in repeatDays {
             var dateComponents = DateComponents()

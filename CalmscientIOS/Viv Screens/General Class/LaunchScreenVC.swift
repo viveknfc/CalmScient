@@ -21,7 +21,7 @@ class LaunchScreenVC: UIViewController {
 
         do {
             print("🎬 Loading GIF in viewDidLoad")
-            let gif = try UIImage(gifName: "LaunchGifFile.gif")
+            let gif = try UIImage(gifName: "launchGifWhite.gif")
             launchGif.setGifImage(gif, loopCount: -1)
         } catch {
             print("❌ Failed to load GIF: \(error)")

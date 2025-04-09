@@ -7,13 +7,6 @@
 
 import Foundation
 
-// This file was generated from JSON Schema using quicktype, do not modify it directly.
-// To parse the JSON, add this file to your project and do:
-//
-//   let drinkingTakingControlResponse = try? JSONDecoder().decode(DrinkingTakingControlResponse.self, from: jsonData)
-
-
-// MARK: - DrinkingTakingControlResponse
 struct DrinkingTakingControlResponse: Codable {
     let statusResponse: StatusResponse?
     let index: [Index]?
@@ -21,43 +14,34 @@ struct DrinkingTakingControlResponse: Codable {
     let intoDates: [IntoDate]?
 }
 
-// MARK: - CourseList
-struct CourseList: Codable {
-    let id, patientID, clientID, plID: Int?
-    let courseName: String?
-    let courseID, isEnable, isCompleted, skipTutorialFlag: Int?
-
-    enum CodingKeys: String, CodingKey {
-        case id
-        case patientID = "patientId"
-        case clientID = "clientId"
-        case plID = "plId"
-        case courseName
-        case courseID = "courseId"
-        case isEnable, isCompleted, skipTutorialFlag
-    }
-}
-
-// MARK: - Index
-struct Index: Codable {
-    let goalType: String?
-    let goalDescription: String?
-    let goalSetupID, goal, now: Int?
-
-    enum CodingKeys: String, CodingKey {
-        case goalType, goalDescription
-        case goalSetupID = "goalSetupId"
-        case goal, now
-    }
-}
-
-// MARK: - IntoDate
-struct IntoDate: Codable {
-    let eventDate, colorCode, eventDescription: String?
-}
-
-// MARK: - StatusResponse
 struct StatusResponse: Codable {
     let responseMessage: String?
     let responseCode: Int?
 }
+
+struct Index: Codable {
+    let goalType: String?
+    let goalDescription: String?
+    let goalSetupID: Int?
+    let goal: Int?
+    let now: Int?
+}
+
+struct CourseList: Codable {
+    let id: Int?
+    let patientID: Int?
+    let clientID: Int?
+    let plID: Int?
+    let courseName: String?
+    let courseID: Int?
+    let isEnable: Int?
+    let isCompleted: Int?
+    let skipTutorialFlag: Int?
+}
+
+struct IntoDate: Codable {
+    let eventDate: String?
+    let colorCode: String?
+    let eventDescription: String?
+}
+

@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="lexendregular.ttf">
+        <array key="Lexend-Regular.ttf">
             <string>Lexend-Regular</string>
         </array>
-        <array key="lexendsemibold.ttf">
+        <array key="Lexend-SemiBold.ttf">
             <string>Lexend-SemiBold</string>
         </array>
     </customFonts>
@@ -45,7 +45,7 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GhY-fI-n0o">
                                         <rect key="frame" x="8" y="8" width="341" height="131"/>
-                                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
+                                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="14"/>
                                         <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="0.81464360036006589" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>

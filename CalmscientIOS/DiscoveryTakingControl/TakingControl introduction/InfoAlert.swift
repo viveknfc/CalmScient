@@ -17,7 +17,35 @@ class InfoAlert: UIView, UITableViewDelegate, UITableViewDataSource {
     var infoItems: [String] =  ["AUDIT","DUST-10","CAGE"]
     var infoalertItems: [String] = ["(Alcohol Use Disorder Identification Test)", "(Drug Abuse Screening Test)", "(Cut, Annoyed, Guilty and Eye)"]
     var spanishInfoItems = ["(Test de Identificación de Trastornos por Consumo de Alcohol)", "(Test de Detección de Abuso de Drogas)","(Cortar, Molestar, Culpable y Ojo)"]
-    var details_value: [String] = ["Do you enjoy a drink now or then? Many of us do, often when socializing with friends and family. Let's take a look at your drinking patterns and how they may affect your health.The AUDIT questionnaire is designed to help in the self-assessment of alcohol consumption and to identify any implications for the person's health and well being, now and in the future. Conduct a quick self-test with AUDIT above. Click on \("Submit") at the end for an instant assessment.", "\("Drug use") refers to the use of prescribed or over-the-counter drugs in excess of the directions, and any non medical use of drugs.The various classes of drugs may include cannabis (marijuana, hashish), solvents (e.g., paint thinner), tranquilizers (e.g., valium), barbiturates, cocaine, stimulants (e.g., speed), hallucinogens (e.g., LSD) or narcotics (e.g., heroin). The questions do not include alcoholic beverages. Please answer the questions in this survey. If you have difficulty with a statement, simply choose the best response possible. These questions refer to drug use in the past 12 months. Please answer NO or YES to each question.", "The CAGE questionnaire for smoking (modified from the familiar CAGE questionnaire for alcoholism), the \("four Cs") test and the Fagerström Test for Nicotine Dependence help diagnose nicotine dependence based on standard criteria. Additional questions can  be used to determine a patient's readiness to change and the nature of reinforcement the patient receives  from smoking. These tools can assist family physicians in guiding patients to quit smoking-the single most important thing smokers can do to improve their health."]
+    
+    var details_value: [String] = [
+        """
+        Do you enjoy a drink now or then? Many of us do, often when socializing with friends and family. Let's take a look at your drinking patterns and how they may affect your health.
+
+        The AUDIT questionnaire is designed to help in the self-assessment of alcohol consumption and to identify any implications for the person's health and well being, now and in the future.
+
+        Conduct a quick self-test with AUDIT above. Click on "Submit" at the end for an instant assessment.
+        """,
+        
+        """
+        "Drug use" refers to
+        
+        1. the use of prescribed or over-the-counter drugs in excess of the directions, and
+        2. any non medical use of drugs.
+        
+        The various classes of drugs may include cannabis (marijuana, hashish), solvents (e.g., paint thinner), tranquilizers (e.g., valium), barbiturates, cocaine, stimulants (e.g., speed), hallucinogens (e.g., LSD) or narcotics (e.g., heroin). The questions do not include alcoholic beverages.
+
+        Please answer the questions in this survey. If you have difficulty with a statement, simply choose the best response possible.
+
+        These questions refer to drug use in the past 12 months. Please answer NO or YES to each question.
+        """,
+        
+        """
+        The CAGE questionnaire for smoking (modified from the familiar CAGE questionnaire for alcoholism), the "four Cs" test and the Fagerström Test for Nicotine Dependence help diagnose nicotine dependence based on standard criteria. Additional questions can be used to determine a patient's readiness to change and the nature of reinforcement the patient receives from smoking. These tools can assist family physicians in guiding patients to quit smoking—the single most important thing smokers can do to improve their health.
+        """
+    ]
+
+    
     let spanish_details = [
         "¿Disfruta de una bebida de vez en cuando? Muchos de nosotros lo hacemos, a menudo cuando socializamos con amigos y familiares. Echemos un vistazo a sus patrones de consumo de alcohol y cómo pueden afectar su salud. El cuestionario AUDIT está diseñado para ayudar en la autoevaluación del consumo de alcohol e identificar cualquier implicación para la salud y el bienestar de la persona, ahora y en el futuro. Realice una autoevaluación rápida con AUDIT arriba. Haga clic en \"Enviar\" al final para obtener una evaluación instantánea.",
         
@@ -44,7 +72,7 @@ class InfoAlert: UIView, UITableViewDelegate, UITableViewDataSource {
         guard let view = nib.instantiate(withOwner: self, options: nil).first as? UIView else { return }
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        view.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        view.backgroundColor = UIColor(red: 95/255, green: 95/255, blue: 95/255, alpha: 0.9)
         addSubview(view)
     }
     
@@ -79,7 +107,7 @@ class InfoAlert: UIView, UITableViewDelegate, UITableViewDataSource {
     @IBAction func didClickOnCancelButton(_ sender: UIButton) {
         alertActionDelegate?.didClickOnCancelButton()
        
-      //  self.removeFromSuperview()
+        self.removeFromSuperview()
     }
     
     

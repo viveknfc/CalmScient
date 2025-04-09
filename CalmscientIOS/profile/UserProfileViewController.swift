@@ -65,19 +65,6 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
         
         profilePicAPICalling()
         
-//        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
-//            fatalError("Unable to found Application Shared Info")
-//        }
-//        getUserProfile(plId: userInfo.patientLocationID, patientId: userInfo.patientID, clientId: userInfo.clientID,bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken){ [self] result in
-//            switch result {
-//            case .success(let data):
-//                handleUserProfileResponse(data: data)
-//            case .failure(let error):
-//                print("Error: \(error)")
-//            }
-//            
-//        }
-        
         guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
             fatalError("Unable to found Application Shared Info")
         }
@@ -338,6 +325,8 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
             "patientId": patientId,
             "clientId": clientId,
         ]
+        
+        print("the poayload for profile pic is", payload)
         
         do {
             let jsonData = try JSONSerialization.data(withJSONObject: payload, options: [])

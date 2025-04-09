@@ -277,7 +277,7 @@ class BreathingTechniqueType1: ViewController {
     
     func setupPlayer() {
         
-        guard let url = URL(string: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "https://calmscient.blob.core.windows.net/exercises-videos/4-7-8Breathing.mp4" : "https://calmscient.blob.core.windows.net/exercises-spanish-videos-audios/Spanish4-7-8Breathing.mp4") else { return }
+        guard let url = URL(string: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "https://media.calmscient.in/uploads/exercises-videos/4-7-8Breathing.mp4" : "https://media.calmscient.in/uploads/exercises-spanish-videos-audios/Spanish4-7-8Breathing.mp4") else { return }
         player = AVPlayer(url: url)
         playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = videoView.bounds

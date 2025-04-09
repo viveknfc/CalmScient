@@ -57,7 +57,7 @@ class BasicknowledgeVideo: ViewController {
     
     @IBAction func maximiseButtonAction(_ sender: Any) {
         print("max button clicked from tipsy turth")
-        let videoURL = URL(string: "https://calmscient.blob.core.windows.net/course/Tipsy_truth_with_subtitle.mp4")!
+        let videoURL = URL(string: "https://media.calmscient.in/uploads/course/Tipsy_truth_with_subtitle.mp4")!
         let avPlayer = AVPlayer(url: videoURL)
         let avController = AVPlayerViewController()
         avController.player = avPlayer
@@ -69,7 +69,7 @@ class BasicknowledgeVideo: ViewController {
     
     func setupPlayer() {
         
-        guard let url = URL(string: "https://calmscient.blob.core.windows.net/course/Tipsy_truth_with_subtitle.mp4") else { return }
+        guard let url = URL(string: "https://media.calmscient.in/uploads/course/Tipsy_truth_with_subtitle.mp4") else { return }
         
         //http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4
         
@@ -93,7 +93,7 @@ class BasicknowledgeVideo: ViewController {
             playPauseButton.alpha = 1.0
             player.pause()
             playPauseButton.setTitle("Play", for: .normal)
-            let videoURL = URL(string: "https://calmscient.blob.core.windows.net/course/Tipsy_truth_with_subtitle.mp4")!
+            let videoURL = URL(string: "https://media.calmscient.in/uploads/course/Tipsy_truth_with_subtitle.mp4")!
             let avPlayer = AVPlayer(url: videoURL)
             let avController = AVPlayerViewController()
             //                avController.player = avPlayer

@@ -41,7 +41,7 @@ class MindfulWalking: ViewController {
     var languageId : Int = 1
     var isObservingStatus = false
     var audioURL: String {
-        return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "https://calmscient.blob.core.windows.net/exercises-audios/MindfulWalkingWithMusicEnglish.mp3" : "https://calmscient.blob.core.windows.net/exercises-audios/MindfulWalkingWithMusicSpanish.mp3"
+        return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "https://media.calmscient.in/uploads/exercises-audios/MindfulWalkingWithMusicEnglish.mp3" : "https://media.calmscient.in/uploads/exercises-audios/MindfulWalkingWithMusicSpanish.mp3"
     }
     
     override func viewDidLoad() {

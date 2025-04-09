@@ -7,7 +7,7 @@
 
 import Foundation
 
-public let baseURLString:String = "https://calmscient.centralindia.cloudapp.azure.com:8090/"
+public let baseURLString:String = "https://calmscient.in/api/" //"https://calmscient.centralindia.cloudapp.azure.com:8090/"
 
 //MARK: - Screening List (Main Page)
 

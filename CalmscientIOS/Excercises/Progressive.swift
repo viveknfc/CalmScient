@@ -27,7 +27,7 @@ class Progressive: ViewController {
     var isFav: Int = 0
     var favExcercises:[ExcercisesModel] = []
     var audioURL: String {
-        return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "https://calmscient.blob.core.windows.net/exercises-audios/ProgressiveMuscleRelaxationEnglishWithMusic.wav" : "https://calmscient.blob.core.windows.net/exercises-audios/ProgressiveMuscleRelaxationWithMusicSpanish.wav"
+        return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "https://media.calmscient.in/uploads/exercises-audios/ProgressiveMuscleRelaxationEnglishWithMusic.wav" : "https://media.calmscient.in/uploads/exercises-audios/ProgressiveMuscleRelaxationWithMusicSpanish.wav"
     }
     
     override func viewDidLoad() {

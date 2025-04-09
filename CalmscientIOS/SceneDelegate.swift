@@ -171,7 +171,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let rootVC = window?.rootViewController {
             APIService.userStartUpAPICalling(rootVC, params: params, method: "POST", accessToken: tokenResponse.accessToken, acces: false, parameterPlacement: "body") { response in
                 DispatchQueue.main.async {
-                    self.handleUserStartUpResponse(response: response as! [String : Any])
+//                    self.handleUserStartUpResponse(response: response as! [String : Any])
+                    if let dictResponse = response as? [String: Any] {
+                        self.handleUserStartUpResponse(response: dictResponse)
+                    } else {
+                        // Handle unexpected response type
+                        print("Unexpected response format: \(response)")
+                        // Optionally show alert or handle gracefully
+                    }
                 }
             }
         }

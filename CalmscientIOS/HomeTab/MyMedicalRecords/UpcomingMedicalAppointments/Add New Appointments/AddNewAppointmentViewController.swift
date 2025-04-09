@@ -450,6 +450,26 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
                     print("Response Message:", responseMessage)
                     
                     self.showSuccessAlert(successContent: responseMessage, centreImage: nil, okButtonAction: {
+                        
+                        if self.alert == 1 {
+                            let alerts: [(TimeInterval, String, String)] = [
+                                (86400, "Upcoming Appointment", "Don’t forget your medical appointment tomorrow."),
+                                (7200, "Upcoming Appointment", "Your medical appointment is in 2 hours.")
+                            ]
+
+                            for (offset, title, body) in alerts {
+                                scheduleAlarmNotification(
+                                    dateTimeString: self.dateTimeforParam,
+                                    dateFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+                                    alarmOffset: offset,
+                                    title: title,
+                                    body: body
+                                )
+                            }
+
+                        }
+
+                        
                         self.navigationController?.popViewController(animated: true)
                     })
                     

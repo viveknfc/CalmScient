@@ -457,6 +457,10 @@
 		C230434B2D105D3C001E152B /* FontLL8.swift in Sources */ = {isa = PBXBuildFile; fileRef = C230434A2D105D3C001E152B /* FontLL8.swift */; };
 		C230434D2D10903B001E152B /* FontLM14.swift in Sources */ = {isa = PBXBuildFile; fileRef = C230434C2D10903B001E152B /* FontLM14.swift */; };
 		C237E9C72D30586000E895FA /* newPickerViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C237E9C62D30586000E895FA /* newPickerViewVC.swift */; };
+		C23B71672DA6B47A006CCFE4 /* InfoButtonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B71662DA6B47A006CCFE4 /* InfoButtonVC.swift */; };
+		C23B71692DA6C4BC006CCFE4 /* GeneralwithYesNoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B71682DA6C4BC006CCFE4 /* GeneralwithYesNoView.swift */; };
+		C23B716B2DA6E46D006CCFE4 /* getTakingControlIntroDataModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B716A2DA6E46D006CCFE4 /* getTakingControlIntroDataModal.swift */; };
+		C23B716D2DA6F076006CCFE4 /* GeneralAlertwithYesNo.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23B716C2DA6F076006CCFE4 /* GeneralAlertwithYesNo.xib */; };
 		C23BD4E52DA1202A00283907 /* SwiftyGif in Frameworks */ = {isa = PBXBuildFile; productRef = C23BD4E42DA1202A00283907 /* SwiftyGif */; };
 		C249D13C2D26F4CE009EE005 /* NewCalender.swift in Sources */ = {isa = PBXBuildFile; fileRef = C249D13B2D26F4CE009EE005 /* NewCalender.swift */; };
 		C249D13E2D26F6E7009EE005 /* NewCalender.xib in Resources */ = {isa = PBXBuildFile; fileRef = C249D13D2D26F6E7009EE005 /* NewCalender.xib */; };
@@ -494,6 +498,8 @@
 		C29822402D13426600541886 /* CapsuleButton2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C298223F2D13426600541886 /* CapsuleButton2.swift */; };
 		C29E597E2D9435020068FDD7 /* MyDrinkingHabitRefDoc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E597D2D9435020068FDD7 /* MyDrinkingHabitRefDoc.swift */; };
 		C2A293E52D2CFB2800666D25 /* NicotinCarvingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A293E42D2CFB2700666D25 /* NicotinCarvingVC.swift */; };
+		C2A7F2242DA3C60D00E41D5A /* launchGifWhite.gif in Resources */ = {isa = PBXBuildFile; fileRef = C2A7F2232DA3C60D00E41D5A /* launchGifWhite.gif */; };
+		C2A7F2262DA4E7B300E41D5A /* scheduleAlarmNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A7F2252DA4E7B300E41D5A /* scheduleAlarmNotification.swift */; };
 		C2ADB3B82D1A68CC00157631 /* FontLR16.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADB3B72D1A68CC00157631 /* FontLR16.swift */; };
 		C2ADB3BA2D1A6AE800157631 /* ProfileTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADB3B92D1A6AE800157631 /* ProfileTextField.swift */; };
 		C2ADB3BC2D1A7E7800157631 /* CurvedOutlineButton1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADB3BB2D1A7E7800157631 /* CurvedOutlineButton1.swift */; };
@@ -1013,6 +1019,10 @@
 		C230434A2D105D3C001E152B /* FontLL8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLL8.swift; sourceTree = "<group>"; };
 		C230434C2D10903B001E152B /* FontLM14.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLM14.swift; sourceTree = "<group>"; };
 		C237E9C62D30586000E895FA /* newPickerViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newPickerViewVC.swift; sourceTree = "<group>"; };
+		C23B71662DA6B47A006CCFE4 /* InfoButtonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButtonVC.swift; sourceTree = "<group>"; };
+		C23B71682DA6C4BC006CCFE4 /* GeneralwithYesNoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralwithYesNoView.swift; sourceTree = "<group>"; };
+		C23B716A2DA6E46D006CCFE4 /* getTakingControlIntroDataModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getTakingControlIntroDataModal.swift; sourceTree = "<group>"; };
+		C23B716C2DA6F076006CCFE4 /* GeneralAlertwithYesNo.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralAlertwithYesNo.xib; sourceTree = "<group>"; };
 		C249D13B2D26F4CE009EE005 /* NewCalender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCalender.swift; sourceTree = "<group>"; };
 		C249D13D2D26F6E7009EE005 /* NewCalender.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewCalender.xib; sourceTree = "<group>"; };
 		C249D1412D27030C009EE005 /* testVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testVC.swift; sourceTree = "<group>"; };
@@ -1049,6 +1059,8 @@
 		C298223F2D13426600541886 /* CapsuleButton2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleButton2.swift; sourceTree = "<group>"; };
 		C29E597D2D9435020068FDD7 /* MyDrinkingHabitRefDoc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDrinkingHabitRefDoc.swift; sourceTree = "<group>"; };
 		C2A293E42D2CFB2700666D25 /* NicotinCarvingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicotinCarvingVC.swift; sourceTree = "<group>"; };
+		C2A7F2232DA3C60D00E41D5A /* launchGifWhite.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = launchGifWhite.gif; sourceTree = "<group>"; };
+		C2A7F2252DA4E7B300E41D5A /* scheduleAlarmNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scheduleAlarmNotification.swift; sourceTree = "<group>"; };
 		C2ADB3B72D1A68CC00157631 /* FontLR16.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLR16.swift; sourceTree = "<group>"; };
 		C2ADB3B92D1A6AE800157631 /* ProfileTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextField.swift; sourceTree = "<group>"; };
 		C2ADB3BB2D1A7E7800157631 /* CurvedOutlineButton1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedOutlineButton1.swift; sourceTree = "<group>"; };
@@ -1360,6 +1372,8 @@
 				4A0853642C21684B00202C02 /* TakingControllIntro.swift */,
 				4A0853652C21684B00202C02 /* VideoController.storyboard */,
 				4A0853662C21684B00202C02 /* VideoController.swift */,
+				C23B71662DA6B47A006CCFE4 /* InfoButtonVC.swift */,
+				C23B716A2DA6E46D006CCFE4 /* getTakingControlIntroDataModal.swift */,
 			);
 			path = "TakingControl introduction";
 			sourceTree = "<group>";
@@ -1634,6 +1648,7 @@
 				431C24862C47E77A00909C24 /* weeklySummaryImage.png */,
 				43AB773F2C63DBC800740BA6 /* weeklySummay1.png */,
 				43508AD82C4A70AD000B5645 /* comingsoon.png */,
+				C2A7F2232DA3C60D00E41D5A /* launchGifWhite.gif */,
 				C281E48F2D9FF22200589224 /* LaunchGifFile.gif */,
 				43508AEA2C4D7F63000B5645 /* docpic.png */,
 				43508ACE2C48F0B4000B5645 /* pause.png */,
@@ -2519,6 +2534,9 @@
 				C202E1EC2D931BE300DACB21 /* LaunchScreenVC.swift */,
 				C2D48F6B2D9676420058677F /* GeneralAlertView.xib */,
 				C2D48F6D2D96782D0058677F /* GeneralAlert.swift */,
+				C2A7F2252DA4E7B300E41D5A /* scheduleAlarmNotification.swift */,
+				C23B71682DA6C4BC006CCFE4 /* GeneralwithYesNoView.swift */,
+				C23B716C2DA6F076006CCFE4 /* GeneralAlertwithYesNo.xib */,
 			);
 			path = "General Class";
 			sourceTree = "<group>";
@@ -2823,6 +2841,7 @@
 				43AB773E2C62E8C800740BA6 /* ExcercisesAssets.xcassets in Resources */,
 				4A967FC22BD6892800FCE646 /* LandingVC.storyboard in Resources */,
 				4A7B04742BDCE2370052BBB8 /* ScreeningQuestions.storyboard in Resources */,
+				C2A7F2242DA3C60D00E41D5A /* launchGifWhite.gif in Resources */,
 				C23043492D10263F001E152B /* DrinkingCountCell.xib in Resources */,
 				4AD5D1502BD7A6C100E4C945 /* HomeTabFavoritesCollectionViewCell.xib in Resources */,
 				4A0853D52C23C0A600202C02 /* DrinksTrackerCollectionCell.xib in Resources */,
@@ -2858,6 +2877,7 @@
 				432EBE202C2BF49F000BB69A /* MindCell.xib in Resources */,
 				432EBE262C2BF49F000BB69A /* ProsCell.xib in Resources */,
 				431C24872C47E77B00909C24 /* weeklySummaryImage.png in Resources */,
+				C23B716D2DA6F076006CCFE4 /* GeneralAlertwithYesNo.xib in Resources */,
 				4A0853932C21684B00202C02 /* BasicStandardDrink.storyboard in Resources */,
 				4A967FCA2BD6892800FCE646 /* UserEntryYesOrNoCell.xib in Resources */,
 				43A08D912C36A64E0082F47B /* ProfileViewController.storyboard in Resources */,
@@ -2919,6 +2939,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C2ADB3BA2D1A6AE800157631 /* ProfileTextField.swift in Sources */,
+				C23B716B2DA6E46D006CCFE4 /* getTakingControlIntroDataModal.swift in Sources */,
 				43AB77562C64511C00740BA6 /* MovementRunning.swift in Sources */,
 				4A0E1F992BE69D07008389C4 /* NetworkLogger.swift in Sources */,
 				4A6DCA142BE1E46500F2EB7C /* ChartViewTableCell.swift in Sources */,
@@ -3010,6 +3031,7 @@
 				4AD5D1762BD7A6C100E4C945 /* MyMedicalRecordsCell.swift in Sources */,
 				C2FC40F02D118F6800D9ED37 /* FontLL14.swift in Sources */,
 				4AD5D16B2BD7A6C100E4C945 /* ScreeningListVC.swift in Sources */,
+				C23B71692DA6C4BC006CCFE4 /* GeneralwithYesNoView.swift in Sources */,
 				4A6ADF402BDCE6AB0066357E /* ScreeningQuestionarrieTableViewCell.swift in Sources */,
 				4AFA67732BFA692A001197C9 /* UpcomingMedicalAppointmentsAPICodables.swift in Sources */,
 				4AD828C52BD6E27100BD9A25 /* BorderShadowButton.swift in Sources */,
@@ -3090,6 +3112,7 @@
 				4A0853802C21684B00202C02 /* DrinikingCell.swift in Sources */,
 				4A0853942C21684B00202C02 /* BasicStandardDrink.swift in Sources */,
 				C2B8E9892D81694C003962A7 /* TextHighlighter.swift in Sources */,
+				C23B71672DA6B47A006CCFE4 /* InfoButtonVC.swift in Sources */,
 				C2EED5DE2CFA3D18005C1E1F /* CurvedOutlineButton.swift in Sources */,
 				C21BD59A2D2C44AC005BA00D /* KeyChainFile.swift in Sources */,
 				C22E9F922D2270F700600715 /* CapsuleTableViewCell.swift in Sources */,
@@ -3176,6 +3199,7 @@
 				4A0853962C21684B00202C02 /* Consequences_four.swift in Sources */,
 				C2CFEF712D81CABE00192126 /* MySmokingHabitVC.swift in Sources */,
 				4A78A1382BDF333600D1EFC1 /* ProgressOnWorkExpansionTableView.swift in Sources */,
+				C2A7F2262DA4E7B300E41D5A /* scheduleAlarmNotification.swift in Sources */,
 				4A0E1F902BE69D07008389C4 /* JSONParameterEncoder.swift in Sources */,
 				4A0E1F9C2BEB3AAA008389C4 /* ScreeningsAPIRequest.swift in Sources */,
 				43508ADF2C4A87B1000B5645 /* JournalEntryViewController.swift in Sources */,

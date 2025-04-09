@@ -223,7 +223,7 @@ class DiagraphicBreathe: ViewController {
     }
     
     func setupPlayer() {
-        guard let url = URL(string: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "https://calmscient.blob.core.windows.net/exercises-videos/Diaphragmaticbreathing.mp4" : "https://calmscient.blob.core.windows.net/exercises-spanish-videos-audios/SpanishDiaphragmaticbreathing.mp4") else { return }
+        guard let url = URL(string: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "https://media.calmscient.in/uploads/exercises-videos/Diaphragmaticbreathing.mp4" : "https://media.calmscient.in/uploads/exercises-spanish-videos-audios/SpanishDiaphragmaticbreathing.mp4") else { return }
         player = AVPlayer(url: url)
                playerLayer = AVPlayerLayer(player: player)
                playerLayer.frame = videoView.bounds

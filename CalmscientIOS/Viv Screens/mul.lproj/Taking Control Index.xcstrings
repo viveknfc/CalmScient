@@ -10,6 +10,12 @@
             "state" : "new",
             "value" : "Sleep Disturbances"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sleep Disturbances"
+          }
         }
       }
     },
@@ -21,6 +27,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Personalized action plan to control\nyour drinking and smoking habit"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Plan de acción personalizado para que puedas controlar tus hábitos de consumo\n"
           }
         }
       }
@@ -52,6 +64,12 @@
             "state" : "new",
             "value" : "“I’m thinking about quitting”"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Estoy pensando en dejarlo”\n"
+          }
         }
       }
     },
@@ -63,6 +81,30 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Up to 5 or more drinks on"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hasta 5 o más bebidas en"
+          }
+        }
+      }
+    },
+    "0tG-c6-W9Q.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"0tG-c6-W9Q\";",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "."
           }
         }
       }
@@ -76,6 +118,24 @@
             "state" : "new",
             "value" : "After you quit smoking, you might find it a bit tricky to get a good night's sleep at first. But don't worry, it gets better! If it's really bothering you, talk to your healthcare provider—they can help. Because if you're super tired from not sleeping well, it can make it tougher to stay smoke-free.\n\nHere's how you can manage it:"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Después de dejar de fumar, podrías encontrar un poco difícil dormir bien al principio. Pero no te preocupes, ¡esto mejora con el tiempo! Si realmente te está molestando, habla con tu médico; ellos pueden ayudarte. Porque si estás muy cansado por no dormir bien, puede ser más difícil mantenerte libre del cigarrillo.\n                                                      Aquí tienes cómo manejarlo:\n"
+          }
+        }
+      }
+    },
+    "1CS-Tp-ypj.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"DUST-10\"; ObjectID = \"1CS-Tp-ypj\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DUST-10"
+          }
         }
       }
     },
@@ -88,6 +148,12 @@
             "state" : "new",
             "value" : "Label"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Etiqueta"
+          }
         }
       }
     },
@@ -99,6 +165,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Complete"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completar"
           }
         }
       }
@@ -124,6 +196,12 @@
             "state" : "new",
             "value" : "Alcohol is a factor in: "
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El alcohol es un factor importante en:\n"
+          }
         }
       }
     },
@@ -135,6 +213,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Did you know?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Sabías que?\n"
           }
         }
       }
@@ -148,6 +232,30 @@
             "state" : "new",
             "value" : "For some people who drink, it takes quite a few drinks to “get a buzz” or feel relaxed, and they may be less likely to show signs of intoxication compared to others. This is sometimes called being able to “hold your liquor” or “drink someone under the table.”"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para algunas personas que beben, se necesitan varias copas para \"sentirse bien\" o relajarse, y pueden ser menos propensas a mostrar signos de intoxicación en comparación con otras. Esto a veces se llama ser capaz de \"controlarse\" \n"
+          }
+        }
+      }
+    },
+    "1vl-It-iCq.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"1vl-It-iCq\";",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "."
+          }
         }
       }
     },
@@ -158,6 +266,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
+            "value" : "Total"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "Total"
           }
         }
@@ -172,6 +286,12 @@
             "state" : "new",
             "value" : "Alcohol-related blackouts"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lagunas relacionadas con el alcohol\n"
+          }
         }
       }
     },
@@ -183,6 +303,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "If you're into coffee, tea, or other caffeinated drinks, try cutting back a bit. After quitting smoking, caffeine hangs around in your body longer.\n\nIncrease your chance to success"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si te gustan el café, el té u otras bebidas con cafeína, trata de reducirlas un poco. Después de dejar de fumar, la cafeína permanece en tu cuerpo por más tiempo.\n                                                                                Aumenta tus posibilidades de éxito\n"
           }
         }
       }
@@ -208,6 +334,12 @@
             "state" : "new",
             "value" : "Complete"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completar"
+          }
         }
       }
     },
@@ -219,6 +351,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Complete"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completar"
           }
         }
       }
@@ -232,6 +370,12 @@
             "state" : "new",
             "value" : "alcohol misuse?"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " el uso indebido de alcohol?\n"
+          }
         }
       }
     },
@@ -243,6 +387,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Up to 2 drinks/day"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "hasta 2 bebidas al día\n"
           }
         }
       }
@@ -256,6 +406,12 @@
             "state" : "new",
             "value" : "What is"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Qué es"
+          }
         }
       }
     },
@@ -267,6 +423,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "When you're trying to quit smoking, pretty much everyone feels the urge to smoke from time to time. It can be a small feeling or sometimes really strong. But guess what?\n\nDealing with these cravings is a big deal for staying smoke-free.\n\nHere are some ways to handle it:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuando se intenta dejar de fumar, casi todos sienten el deseo de vez en cuando. Puede ser una sensación leve o a veces muy fuerte. Pero adivina qué…\n                                                                         Lidiar con estos deseos es un gran desafío para mantenerse libre.\n                                                                           Aquí tienes algunas formas de manejarlo:\n"
           }
         }
       }
@@ -292,6 +454,12 @@
             "state" : "new",
             "value" : "Alcohol-related deaths are increasing in the United States. "
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las muertes relacionadas con el alcohol están aumentando en los Estados Unidos.\n"
+          }
         }
       }
     },
@@ -303,6 +471,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "within about 2 hours"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " durante alrededor de 2 horas\n"
           }
         }
       }
@@ -316,6 +490,12 @@
             "state" : "new",
             "value" : "Label"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Etiqueta"
+          }
         }
       }
     },
@@ -327,6 +507,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Sleep routine"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rutina de sueño\n"
           }
         }
       }
@@ -358,6 +544,12 @@
             "state" : "new",
             "value" : "Save it to weekly summary journal entry"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar en el resumen semanal\n"
+          }
         }
       }
     },
@@ -369,6 +561,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Complete"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completar"
           }
         }
       }
@@ -400,6 +598,12 @@
             "state" : "new",
             "value" : "Upcoming alcohol-free day"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Próximo día libre de alcohol\n"
+          }
         }
       }
     },
@@ -411,6 +615,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Do things you enjoy, even if they're small. Those little things can make you feel better."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haz cosas que disfrutes, incluso si son pequeñas. Esas pequeñas cosas pueden hacerte sentir mejor.\n"
           }
         }
       }
@@ -424,6 +634,12 @@
             "state" : "new",
             "value" : "There is a wide range of short- and long-term consequences associated with alcohol misuse. For some individuals, any amount of drinking could be potentially harmful"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Existen una amplia variedad de consecuencias a corto y largo plazo asociadas con el uso indebido de alcohol. Para algunas personas, cualquier cantidad de alcohol podría ser potencialmente dañina.\n"
+          }
         }
       }
     },
@@ -435,6 +651,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Up to 4 or more drinks"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hasta 4 o más bebidas "
           }
         }
       }
@@ -460,6 +682,12 @@
             "state" : "new",
             "value" : "Doing some physical activity can really help with that jumpy feeling. Take a short walk or just get up and stretch if you're feeling restless."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hacer algo de actividad física puede realmente ayudar con esa sensación de nerviosismo. Da una corta caminata o simplemente levántate y estírate si te sientes inquieto.\n"
+          }
         }
       }
     },
@@ -471,6 +699,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Take it easy"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tómatelo con calma\n"
           }
         }
       }
@@ -484,6 +718,12 @@
             "state" : "new",
             "value" : "You're doing a fantastic job maintaining moderation with your drinking!    As you continue this healthy habit, remember to build other wellness practices like regular exercise, a balanced diet, and enough sleep."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Estás haciendo un trabajo fantástico moderando tu consumo de alcohol!\nA medida que continúas con este hábito saludable, recuerda incorporar otras prácticas de bienestar, como el ejercicio regular, una dieta equilibrada y suficiente sueño.\n"
+          }
         }
       }
     },
@@ -495,6 +735,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "If you're into coffee, tea, or other caffeinated drinks, avoid them in the late afternoon or evening. After quitting smoking, caffeine sticks around longer in your body."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si te gustan el café, el té u otras bebidas con cafeína, evítalos en la tarde o noche. Después de dejar de fumar, la cafeína permanece en tu cuerpo por más tiempo.\n"
           }
         }
       }
@@ -526,6 +772,12 @@
             "state" : "new",
             "value" : "Create a sleep-friendly space"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Crea un espacio favorable para el sueño\n"
+          }
         }
       }
     },
@@ -556,6 +808,12 @@
             "state" : "new",
             "value" : "Close"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerrar"
+          }
         }
       }
     },
@@ -568,6 +826,12 @@
             "state" : "new",
             "value" : "Choose healthy snacks like celery, carrots, or sugar-free mints when you feel like munching between meals. You can also keep your hands and mouth busy with a toothpick or a straw."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Elige bocadillos saludables como apio, zanahorias o mentas sin azúcar cuando sientas hambre entre comidas. También puedes mantener ocupadas tus manos y boca con un palillo o una pajilla.\n"
+          }
         }
       }
     },
@@ -579,6 +843,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "binge drinking?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "el consumo excesivo de alcohol esporádico?"
           }
         }
       }
@@ -604,6 +874,12 @@
             "state" : "new",
             "value" : "Complete"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completar"
+          }
         }
       }
     },
@@ -615,6 +891,30 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Complete"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completar"
+          }
+        }
+      }
+    },
+    "A2h-us-13o.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Research has shown an important association between alcohol consumption and breast cancer—for each 10 grams of alcohol consumed (less than 1 standard drink) on an average daily basis, a woman’s chance of developing postmenopausal breast cancer increases by around 9 percent. \"; ObjectID = \"A2h-us-13o\";",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Research has shown an important association between alcohol consumption and breast cancer—for each 10 grams of alcohol consumed (less than 1 standard drink) on an average daily basis, a woman’s chance of developing postmenopausal breast cancer increases by around 9 percent. "
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "• Investigaciones han demostrado una importante asociación entre el consumo de alcohol y el cáncer de mama; por cada 10 gramos de alcohol consumido (menos de 1 bebida estándar) en promedio al día, la probabilidad de que una mujer desarrolle cáncer de mama postmenopáusico aumenta alrededor del 9%.\n"
           }
         }
       }
@@ -628,6 +928,12 @@
             "state" : "new",
             "value" : "Then you're trying to quit smoking, it's totally normal to feel a bit irritated or grouchy. Even folks who never smoked get it - it's just part of the quitting process. So, don't worry, you're not alone in feeling this way.\n\nHere's how to deal with it:"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuando estás intentando dejar de fumar, es totalmente normal sentirse un poco irritado o malhumorado. Incluso las personas que nunca han fumado lo entienden: es solo parte del proceso de dejar de fumar. Así que, no te preocupes, no estás solo, no eres el único que se siente así.\n                                                                           Aquí tienes cómo manejarlo:\n"
+          }
         }
       }
     },
@@ -639,6 +945,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "•    30% of suicides. "
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " 30% de los suicidios\n\n"
           }
         }
       }
@@ -652,6 +964,12 @@
             "state" : "new",
             "value" : "My smoking habit"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mis hábitos de fumar\n"
+          }
         }
       }
     },
@@ -663,6 +981,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Up to 1 drink/day"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " hasta 1 bebida al día\n"
           }
         }
       }
@@ -676,6 +1000,12 @@
             "state" : "new",
             "value" : "Treat yourself"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date un gusto\n"
+          }
         }
       }
     },
@@ -687,6 +1017,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Remind yourself it's normal"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recuerda que es normal\n"
           }
         }
       }
@@ -700,6 +1036,12 @@
             "state" : "new",
             "value" : "Consider using a nicotine replacement patch and/or tobacco-cessation medication."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Considera usar un parche de reemplazo de nicotina y/o medicamentos para dejar de fumar.\n"
+          }
         }
       }
     },
@@ -711,6 +1053,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "“I’m trying to quit”"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Estoy intentando dejarlo”\n"
           }
         }
       }
@@ -724,6 +1072,12 @@
             "state" : "new",
             "value" : "Hangover, argument, accident"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resaca, discusión, accidente\n"
+          }
         }
       }
     },
@@ -735,6 +1089,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Remember why you quit"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recuerda por qué dejaste de fumar\n"
           }
         }
       }
@@ -766,6 +1126,12 @@
             "state" : "new",
             "value" : "Memory problem; alcohol can impair both short-term and long-term memory. I can lead to blackouts(Can’t recall events that occurred while one is intoxicated)."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "• Problemas de memoria; el alcohol puede afectar tanto la memoria a corto como a largo plazo. Puede provocar desmayos (no recordar los eventos que ocurrieron mientras se está intoxicado).\n"
+          }
         }
       }
     },
@@ -787,6 +1153,24 @@
         }
       }
     },
+    "B4g-hn-woU.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Research has also shown that alcohol misuse increases the risk of liver disease, cardiovascular  diseases, depression, and stomach bleeding, as well as cancers of the oral cavity, esophagus, larynx, pharynx, liver, colon, and rectum. \"; ObjectID = \"B4g-hn-woU\";",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Research has also shown that alcohol misuse increases the risk of liver disease, cardiovascular  diseases, depression, and stomach bleeding, as well as cancers of the oral cavity, esophagus, larynx, pharynx, liver, colon, and rectum. "
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "• Las personas que hacen un uso indebido del alcohol también pueden tener problemas para manejar condiciones como diabetes, hipertensión, dolor y trastornos del sueño.\n"
+          }
+        }
+      }
+    },
     "BcZ-fs-hOz.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Do something you're good at to build self-confidence, then tackle a tougher task.\"; ObjectID = \"BcZ-fs-hOz\";",
       "extractionState" : "extracted_with_value",
@@ -795,6 +1179,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Do something you're good at to build self-confidence, then tackle a tougher task."
+          }
+        }
+      }
+    },
+    "beN-65-v47.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"CAGE\"; ObjectID = \"beN-65-v47\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "CAGE"
           }
         }
       }
@@ -808,6 +1204,12 @@
             "state" : "new",
             "value" : "Put on a new patch each morning to get a steady level of nicotine that will reduce your cravings and withdrawal symptoms throughout the day."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Coloca un parche nuevo cada mañana para obtener un nivel constante de nicotina que reducirá tus deseos y síntomas de abstinencia durante el día.\n"
+          }
         }
       }
     },
@@ -819,6 +1221,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "E-cigarettes go by many names like \"e-cigs,” vapes,\" and \"vape pens.\" They can look like regular cigarettes or even things like USB flash drives and pens.\n\nThese devices run on batteries and let people inhale something called aerosol. Vaping became popular because some thought it might be a less harmful choice compared to regular smoking.\n\nInside that aerosol, there's usually nicotine (though not always), flavors, and some other chemicals. The devices can be rechargeable, disposable, or come with tanks and mods.\n\nIs it safer than tobacco?\nE-cigarette aerosol generally contains fewer toxic chemicals than the deadly mix of 7,000 chemicals in smoke from regular cigarettes. However, e-cigarette aerosol is not harmless. It can contain harmful and potentially harmful substances, including nicotine, heavy metals like lead, volatile organic compounds and cancer-causing agents."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Los cigarrillos electrónicos tienen muchos nombres, como \"e-cigs,\" \"vapes\" o \"lapiceros de vapeo.\" Pueden parecer cigarrillos normales o incluso parecer otras cosas como USBs o lapiceros                                                                                Estos dispositivos funcionan con baterías y permiten a las personas inhalar algo llamado aerosol. El vapeo se hizo popular porque algunos pensaron que podría ser una opción menos dañina en comparación con fumar cigarrillos normales.                                   Dentro de ese aerosol, generalmente hay nicotina (aunque no siempre), sabores y algunos otros químicos. Los dispositivos pueden ser recargables, desechables o venir con tanques de recarga.\n¿Es más seguro que el tabaco?\nEl aerosol de los cigarrillos electrónicos generalmente contiene menos químicos tóxicos que la mortal mezcla de 7,000 químicos en el humo de los cigarrillos normales. Sin embargo, el aerosol de los cigarrillos electrónicos no es inofensivo. Puede contener sustancias nocivas y potencialmente dañinas, incluyendo nicotina, metales pesados como el plomo, compuestos orgánicos volátiles y agentes cancerígenos.\n"
           }
         }
       }
@@ -832,6 +1240,12 @@
             "state" : "new",
             "value" : "any day or 15 drinks or more per week"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "cualquier día o 15 bebidas o más por semana\n"
+          }
         }
       }
     },
@@ -843,6 +1257,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "within about 2 hours"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "durante alrededor de 2 horas\n"
           }
         }
       }
@@ -856,6 +1276,12 @@
             "state" : "new",
             "value" : "Yes"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si"
+          }
         }
       }
     },
@@ -867,6 +1293,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Get moving"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muévete\n"
           }
         }
       }
@@ -880,6 +1312,12 @@
             "state" : "new",
             "value" : "Use a fast-acting nicotine medicine like lozenges or gum to quickly combat cravings"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usa un medicamento de nicotina de acción rápida, como pastillas o chicles, para combatir rápidamente los deseos.\n"
+          }
         }
       }
     },
@@ -891,6 +1329,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "NIAAA defines heavy drinking as follows:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El NIAAA define el consumo excesivo de alcohol de la siguiente manera:\n"
           }
         }
       }
@@ -904,6 +1348,12 @@
             "state" : "new",
             "value" : "24"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "24"
+          }
         }
       }
     },
@@ -915,6 +1365,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Complete"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completar"
           }
         }
       }
@@ -940,6 +1396,12 @@
             "state" : "new",
             "value" : "Feeling Jumpy or Restless"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sentirse nervioso o inquieto\n"
+          }
         }
       }
     },
@@ -952,6 +1414,12 @@
             "state" : "new",
             "value" : "What new habits are helping you keep going?"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Qué nuevos hábitos te están ayudando a seguir adelante?\n"
+          }
         }
       }
     },
@@ -963,6 +1431,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Tobacco comes from the leaves of the Nicotiana plant and is used in things like cigarettes, cigars, and chewing tobacco. The main thing in tobacco is nicotine, a natural substance that can be addictive and affect your brain\n\nWhen people smoke cigarettes, they inhale over 7,000 chemicals, and nicotine is the one that makes smoking addictive. There are also other chemicals added to make the smoke taste better and for the nicotine to be absorbed more easily.\n\nEach time someone smokes a cigarette, they get about 1-2 milligrams of nicotine, which quickly goes to their brain and makes their heart beat faster, raises their blood pressure, and increases their breathing. It's kind of like a quick energy boost, but it can become a habit.\n\nCigarettes are designed so that someone who smokes regularly gets around 200 \"hits\" of nicotine to their brain every day. Other tobacco products, like chewing tobacco, also have nicotine. Some people use e-cigarettes to get nicotine without all the extra chemicals in tobacco smoke.\n\nNicotine works on the brain in a way that makes it feel good and can become a habit because it gives a sense of pleasure. That's why it's important to understand what's in tobacco and the effects it can have on your body and brain.\n"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El tabaco proviene de las hojas de la planta Nicotiana y se utiliza en cosas como cigarrillos, puros y tabaco de mascar. Lo principal en el tabaco es la nicotina, una sustancia natural que puede ser adictiva y afectar tu cerebro.\n                                                  Cuando las personas fuman cigarrillos, inhalan más de 7,000 químicos, y la nicotina es la que hace que fumar sea adictivo. También se añaden otros químicos para que el humo tenga mejor sabor y para que la nicotina se absorba más fácilmente.\n                                                           Cada vez que alguien fuma un cigarrillo, recibe aproximadamente 1-2 miligramos de nicotina, que llega rápidamente a su cerebro y hace que su corazón lata más rápido, aumenta su presión arterial y acelera su respiración. Es como un impulso rápido de energía, pero puede convertirse en un hábito.\n                                                        Los cigarrillos están diseñados para que alguien que fuma regularmente reciba alrededor de 200 \"dosis\" de nicotina en su cerebro cada día. Otros productos de tabaco, como el tabaco de mascar, también contienen nicotina. Algunas personas usan cigarrillos electrónicos para obtener nicotina sin todos los químicos adicionales en el humo del tabaco.\n                                                          La nicotina actúa en el cerebro de manera que te hace sentir bien y puede convertirse en un hábito porque brinda una sensación de placer. Por eso es importante entender qué contiene el tabaco y que efectos puede tener en tu cuerpo y cerebro.\n"
           }
         }
       }
@@ -988,6 +1462,12 @@
             "state" : "new",
             "value" : "What features can you use\nin full version?"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Qué funciones podrás usar en la versión completa?\n"
+          }
         }
       }
     },
@@ -999,6 +1479,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Remember, moderate drinking is defined as:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recuerda, el consumo moderado se define como:\n"
           }
         }
       }
@@ -1012,6 +1498,12 @@
             "state" : "new",
             "value" : "Nicotine patch tip"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Consejo sobre el parche de nicotina\n"
+          }
         }
       }
     },
@@ -1022,6 +1514,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
+            "value" : "2."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "2."
           }
         }
@@ -1036,6 +1534,12 @@
             "state" : "new",
             "value" : "Drink more than moderation"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bebiste más de lo debido\n"
+          }
         }
       }
     },
@@ -1047,6 +1551,48 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Label"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Etiqueta"
+          }
+        }
+      }
+    },
+    "dsN-Mb-XrA.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"dsN-Mb-XrA\";",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "."
+          }
+        }
+      }
+    },
+    "e5K-t6-sko.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Birth defects. Prenatal alcohol exposure can result in brain damage and other serious problems in babies. The effects are known as fetal alcohol spectrum disorders, or FASD, and can result in lifelong physical, cognitive, and behavioral problems. Because there is no known safe level of alcohol for a developing baby, women who are pregnant or might be pregnant should not drink.\"; ObjectID = \"e5K-t6-sko\";",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Birth defects. Prenatal alcohol exposure can result in brain damage and other serious problems in babies. The effects are known as fetal alcohol spectrum disorders, or FASD, and can result in lifelong physical, cognitive, and behavioral problems. Because there is no known safe level of alcohol for a developing baby, women who are pregnant or might be pregnant should not drink."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "• Defectos de nacimiento. La exposición prenatal al alcohol puede causar daño cerebral y otros problemas graves en los bebés. Debido a que no se conoce un nivel seguro de alcohol para un bebé en desarrollo, las mujeres que están embarazadas o que podrían estarlo no deben beber.\n"
           }
         }
       }
@@ -1060,6 +1606,12 @@
             "state" : "new",
             "value" : "Social / weekend binge drinking"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Consumo excesivo social / de fines de semana\n"
+          }
         }
       }
     },
@@ -1071,6 +1623,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Why is it challenging to quit?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Por qué dejarlo es un reto?\n"
           }
         }
       }
@@ -1084,6 +1642,12 @@
             "state" : "new",
             "value" : "count"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "contar"
+          }
         }
       }
     },
@@ -1095,6 +1659,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Save"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ahorrar"
           }
         }
       }
@@ -1126,6 +1696,30 @@
             "state" : "new",
             "value" : "Do some physical activity during the day (just not right before bed)."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Haz algo de actividad física durante el día (que no sea justo antes de acostarte).\n"
+          }
+        }
+      }
+    },
+    "ew3-gy-EBe.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"ew3-gy-EBe\";",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "."
+          }
         }
       }
     },
@@ -1138,6 +1732,12 @@
             "state" : "new",
             "value" : "Talk to people who support you in quitting smoking. Having someone to chat with every day can lift your spirits."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Habla con personas que te ayuden a dejar de fumar. Tener a alguien con quien charlar cada día puede levantarte el ánimo.\n"
+          }
         }
       }
     },
@@ -1149,6 +1749,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "You can control how often you use the fast-acting medicine, so you won’t get more nicotine than you want."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puedes controlar la frecuencia con la que usas el medicamento de acción rápida, de modo que no recibirás más nicotina de la que deseas.\n"
           }
         }
       }
@@ -1210,6 +1816,12 @@
             "state" : "new",
             "value" : "Fatalities and injuries"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muerte y lesiones\n"
+          }
         }
       }
     },
@@ -1221,6 +1833,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Up to 1 drink per day"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " hasta 1 bebida al día\n"
           }
         }
       }
@@ -1234,6 +1852,12 @@
             "state" : "new",
             "value" : "Why does smoking seem to relax me?"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Por qué parece que fumar me relaja?\n"
+          }
         }
       }
     },
@@ -1245,6 +1869,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Try going to bed and waking up around the same time every day, even on weekends."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Intenta acostarte y despertarte a la misma hora todos los días, incluso los fines de semana.\n"
           }
         }
       }
@@ -1270,6 +1900,24 @@
             "state" : "new",
             "value" : "What are the U.S. guidelines for drinking?"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cuáles son las pautas de EE. UU. para el consumo de alcohol?\n"
+          }
+        }
+      }
+    },
+    "gAR-KU-Lqf.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"The CAGE questionnaire for smoking (modified from the familiar CAGE questionnaire for alcoholism), the \\\"four Cs\\\" test and the Fagerström Test for Nicotine Dependence help diagnose nicotine dependence based on standard criteria. Additional questions can  be used to determine a patient's readiness to change and the nature of reinforcement the patient receives  from smoking. These tools can assist family physicians in guiding patients to quit smoking-the single most important thing smokers can do to improve their health.\"; ObjectID = \"gAR-KU-Lqf\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "The CAGE questionnaire for smoking (modified from the familiar CAGE questionnaire for alcoholism), the \"four Cs\" test and the Fagerström Test for Nicotine Dependence help diagnose nicotine dependence based on standard criteria. Additional questions can  be used to determine a patient's readiness to change and the nature of reinforcement the patient receives  from smoking. These tools can assist family physicians in guiding patients to quit smoking-the single most important thing smokers can do to improve their health."
+          }
         }
       }
     },
@@ -1281,6 +1929,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "I’m proud of you for recognizing the need to address your heavy drinking! Acknowledging that your drinking patterns may be problematic is a crucial first step toward a healthier life."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Estoy orgulloso de ti por reconocer la necesidad de trabajar en tu consumo excesivo de alcohol! Reconocer que tus patrones de consumo son un problema, es un paso crucial hacia una vida más saludable.\n"
           }
         }
       }
@@ -1306,6 +1960,12 @@
             "state" : "new",
             "value" : "I’m proud of you setting a limit to alcohol consumption! You’re taking a really important first step by recognizing your daily reliance on alcohol, and that’s something to be proud of."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Estoy orgulloso de que hayas establecido un límite para el consumo de alcohol! Estás dando un paso muy importante al reconocer tu dependencia diaria al alcohol, y eso es algo de lo que debes estar orgulloso.\n"
+          }
         }
       }
     },
@@ -1317,6 +1977,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Can start a week or more before you quit smoking."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puedes comenzar una semana o más antes de dejar de fumar.\n"
           }
         }
       }
@@ -1330,6 +1996,12 @@
             "state" : "new",
             "value" : "It's essential to reflect on how your alcohol consumption impacts your well-being and relationships. By committing to change and taking small steps to reduce your drinking, you can begin to experience the benefits of a more balanced lifestyle."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es fundamental reflexionar sobre cómo tu consumo de alcohol impacta tu bienestar y tus relaciones. Al comprometerte a cambiar y dar pequeños pasos para reducir tu consumo, podrás comenzar a experimentar los beneficios de un estilo de vida más equilibrado.\n"
+          }
         }
       }
     },
@@ -1341,6 +2013,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Complete"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completar"
           }
         }
       }
@@ -1366,6 +2044,48 @@
             "state" : "new",
             "value" : "Be kind to yourself"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sé amable contigo mismo\n"
+          }
+        }
+      }
+    },
+    "gXJ-Rs-KRf.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"And people who misuse alcohol are more likely to engage in unsafe sexual behavior, putting themselves and others at risk for sexually transmitted infections and unintentional pregnancies.\"; ObjectID = \"gXJ-Rs-KRf\";",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "And people who misuse alcohol are more likely to engage in unsafe sexual behavior, putting themselves and others at risk for sexually transmitted infections and unintentional pregnancies."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "• Y las personas que abusan del alcohol tienen más probabilidades de participar en comportamientos sexuales no seguros, poniéndose a sí mismas y a otras personas en riesgo de infecciones de transmisión sexual y embarazos no deseados.\n"
+          }
+        }
+      }
+    },
+    "h0P-jA-aNo.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"h0P-jA-aNo\";",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "."
+          }
         }
       }
     },
@@ -1378,6 +2098,12 @@
             "state" : "new",
             "value" : "Label"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Etiqueta"
+          }
         }
       }
     },
@@ -1389,6 +2115,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Women"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mujeres"
           }
         }
       }
@@ -1414,6 +2146,12 @@
             "state" : "new",
             "value" : "Complete"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completar"
+          }
         }
       }
     },
@@ -1426,6 +2164,12 @@
             "state" : "new",
             "value" : "Now you are a non-smoker and are trying to stay that way. When we make changes, it’s critical to meditate on how important this change is to you and how confident you are in making this change. You want to pay attention to how your mind, body, and emotional regulation feel differently, how your attitude changed, and what you have started doing instead for better self-care.\n\nThinking about it helps you to not go back to your old relationship with smoking.\n\nNow you know what to expect on this ride. It won’t hit you as a surprise when you expect ups and downs of this journey! Remember it’s all about coming up with a strategy that works for you, it’s not about your will power.\n\nAre you out of the woods? Many people want to know how long it takes before the chance of going back to tobacco is no longer a concern. Relapse most commonly happens in the first one to three months after quitting.\n\nHowever, it’s always wise to be on guard"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ahora eres un no fumador y estás tratando de mantenerte así. Cuando hacemos cambios, es fundamental meditar sobre cuán importante es este cambio para ti y cuán seguro te sientes al hacer este cambio. Debes prestar atención a cómo se siente tu mente, cuerpo y tu regulación emocional, cómo cambió tu actitud y qué has comenzado a hacer para cuidarte mejor.\n                                                  Pensar en ello te ayuda a no retroceder a tu antigua relación con el cigarrillo.\n                                                    Ahora sabes qué esperar en este viaje. No te tomará por sorpresa cuando tengas altibajos en este camino. Recuerda que todo se trata de idear una estrategia que funcione para ti, no de tu fuerza de voluntad.\n                                                        ¿Ya estás fuera de peligro? Muchas personas quieren saber cuánto tiempo pasará para que la posibilidad de volver al tabaco deje de ser una preocupación. La recaída ocurre con más frecuencia en el primer mes a tres meses después de dejar de fumar.                                                                      Sin embargo, siempre es prudente estar alerta.\n               "
+          }
         }
       }
     },
@@ -1436,6 +2180,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
+            "value" : "192"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "192"
           }
         }
@@ -1450,6 +2200,12 @@
             "state" : "new",
             "value" : "Celebrate being tobacco-free for:\n\n•  3 days\n•  7 days\n•  2 weeks\n•  1 month\n•  3 months\n•  6 months\n•  1 year"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Celebra estar libre de tabaco por:\n• 3 días                                                 • 7 días\n• 2 semanas\n• 1 mes\n• 3 meses\n• 6 meses\n• 1 año\n"
+          }
         }
       }
     },
@@ -1461,6 +2217,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Increased appetite and weight gain"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aumento del apetito y aumento de peso\n"
           }
         }
       }
@@ -1474,6 +2236,12 @@
             "state" : "new",
             "value" : "Alcohol-related mental dysfunction"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disfunción mental relacionada con el alcohol.\n"
+          }
         }
       }
     },
@@ -1485,6 +2253,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Complete"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completar"
           }
         }
       }
@@ -1498,6 +2272,12 @@
             "state" : "new",
             "value" : "Alcohol-related blackouts"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lagunas relacionadas con el alcohol\n"
+          }
         }
       }
     },
@@ -1509,6 +2289,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "0 days"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "0 días.\n"
           }
         }
       }
@@ -1534,6 +2320,12 @@
             "state" : "new",
             "value" : "Complete"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completar"
+          }
         }
       }
     },
@@ -1545,6 +2337,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Think about why you decided to quit. It's a great motivator to push through the grumpy moments."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Piensa en por qué decidiste dejar de fumar. Es un gran motivador para superar los momentos de mal humor.\n"
           }
         }
       }
@@ -1576,6 +2374,12 @@
             "state" : "new",
             "value" : "Up to 5 or more drinks"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hasta 5 o más bebidas "
+          }
         }
       }
     },
@@ -1588,6 +2392,12 @@
             "state" : "new",
             "value" : "Men"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hombres"
+          }
         }
       }
     },
@@ -1599,6 +2409,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Excessive alcohol consumption can have a significant negative impact on mental capacity."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El consumo excesivo de alcohol puede tener un impacto negativo significativo en la capacidad mental.\n"
           }
         }
       }
@@ -1630,6 +2446,12 @@
             "state" : "new",
             "value" : "How does smoking affect your mental health?"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cómo es que fumar afecta tu salud mental?\n"
+          }
         }
       }
     },
@@ -1641,6 +2463,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Explore ways to handle stress and anxiety"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Explora formas de manejar el estrés y la ansiedad\n"
           }
         }
       }
@@ -1654,6 +2482,12 @@
             "state" : "new",
             "value" : "Complete"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completar"
+          }
         }
       }
     },
@@ -1665,6 +2499,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Cancel"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Anular\n"
           }
         }
       }
@@ -1678,6 +2518,12 @@
             "state" : "new",
             "value" : "Women:"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mujeres"
+          }
         }
       }
     },
@@ -1690,6 +2536,12 @@
             "state" : "new",
             "value" : "Alcohol-free day"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Días libre de alcohol\n"
+          }
         }
       }
     },
@@ -1701,6 +2553,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "What are the consequences?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cuáles son las consecuencias?\n"
           }
         }
       }
@@ -1732,6 +2590,12 @@
             "state" : "new",
             "value" : "Watch your caffeine"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuida tu cafeína\n"
+          }
         }
       }
     },
@@ -1743,6 +2607,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Complete"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completar"
           }
         }
       }
@@ -1768,6 +2638,12 @@
             "state" : "new",
             "value" : "Fatalities and injuries"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muerte y lesiones\n"
+          }
         }
       }
     },
@@ -1779,6 +2655,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Use quit-smoking medicines"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Usa medicamentos para dejar de fumar\n"
           }
         }
       }
@@ -1792,6 +2674,12 @@
             "state" : "new",
             "value" : "Reduces your urge to smoke and enjoyment of cigarettes."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reduce tu deseo de fumar y el placer de los cigarrillos.\n"
+          }
         }
       }
     },
@@ -1803,6 +2691,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "You don't need to hit the gym, even a simple walk is great for your health."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No necesitas ir al gimnasio, incluso una simple caminata es excelente para tu salud.\n"
           }
         }
       }
@@ -1816,6 +2710,12 @@
             "state" : "new",
             "value" : "Saving"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ahorro"
+          }
         }
       }
     },
@@ -1827,6 +2727,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "What is"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Qué es"
           }
         }
       }
@@ -1840,6 +2746,12 @@
             "state" : "new",
             "value" : "Get rid of ashtrays, lighters and matches."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deshazte de ceniceros, encendedores y fósforos.\n"
+          }
         }
       }
     },
@@ -1852,6 +2764,12 @@
             "state" : "new",
             "value" : "Right after you quit smoking, you might find it a bit tough to concentrate. Don't worry, it happens to a lot of people.\n\nHere's what you can do:"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Justo después de dejar de fumar, puede que te sea difícil concentrarte. No te preocupes, le pasa a mucha gente.\n                                                       Aquí tienes lo que puedes hacer:\n"
+          }
         }
       }
     },
@@ -1863,6 +2781,24 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "•    40% of fatal burn injuries."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "• 40% of fatal burn injuries\n"
+          }
+        }
+      }
+    },
+    "kxb-LH-K9H.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"(Drug Abuse Screening Test)\"; ObjectID = \"kxb-LH-K9H\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "(Drug Abuse Screening Test)"
           }
         }
       }
@@ -1894,6 +2830,12 @@
             "state" : "new",
             "value" : "When your quit day arrives, get rid of all your cigarettes and/or chewing tobacco."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuando llegue tu fecha para dejar de fumar, deshazte de todos tus cigarrillos y/o tabaco de mascar.\n"
+          }
         }
       }
     },
@@ -1905,6 +2847,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "It's important to reflect on your drinking habits, especially during social events, and consider how you can enjoy those moments without going overboard. By taking small steps to reduce your consumption, you’ll start to see the benefits for both your health and your relationships."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Es importante reflexionar sobre tus hábitos de consumo, especialmente durante eventos sociales, y considerar cómo puedes disfrutar de esos momentos sin excederte. Al dar pequeños pasos para reducir tu consumo, empezarás a ver los beneficios tanto para tu salud como para tus relaciones.\n"
           }
         }
       }
@@ -1918,6 +2866,12 @@
             "state" : "new",
             "value" : "Watch your caffeine"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuida tu cafeína\n"
+          }
         }
       }
     },
@@ -1929,6 +2883,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Connect with others"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Conéctate con otros\n"
           }
         }
       }
@@ -1942,6 +2902,12 @@
             "state" : "new",
             "value" : "Drinking is associated with a number of health problems and can make certain chronic health problems worse. "
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El consumo de alcohol está asociado con una serie de problemas de salud y puede empeorar ciertos problemas de salud crónicos.\n"
+          }
         }
       }
     },
@@ -1953,6 +2919,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "People who smoke are more likely to have anxiety or depression than people who don’t smoke. Some people feel mood changes for a short time after they quit smoking. For some people, smoking may seem like it helps with anxiety or depression, but don’t be tricked. Smoking might make you feel better in the short-term, but that’s because the nicotine in cigarettes stops the discomfort of withdrawal, and not because it is helping with anxiety or depression. There are much better ways to deal with withdrawal symptoms and mood changes than returning to smoking! The good news is that once people have been smoke-free for a few months, their anxiety and depression levels are often lower than when they were smoking.\n\nHere's how you can manage it:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las personas que fuman tienen más probabilidades de tener ansiedad o depresión que las personas que no fuman. Algunas personas experimentan cambios de humor por un corto período después de dejar de fumar.\nPara algunas personas, fumar puede parecer que ayuda con la ansiedad o la depresión, pero no te dejes engañar. Fumar puede hacerte sentir mejor a corto plazo, pero eso es porque la nicotina en los cigarrillos detiene el malestar de la abstinencia, y no porque esté ayudando con la ansiedad o la depresión. ¡Hay formas mucho mejores de manejar los síntomas de abstinencia y los cambios de humor! La buena noticia es que una vez que las personas han dejado de fumar por unos meses, sus niveles de ansiedad y depresión suelen ser más bajos que cuando fumaban.\n                                                           Aquí tienes cómo manejarlo:\n"
           }
         }
       }
@@ -1966,6 +2938,12 @@
             "state" : "new",
             "value" : "Nicotine cravings"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Deseos de nicotina\n"
+          }
         }
       }
     },
@@ -1977,6 +2955,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Please select a date"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, selecciona una fecha\n"
           }
         }
       }
@@ -1990,6 +2974,12 @@
             "state" : "new",
             "value" : "Exercise can really boost your mood. Start with something small and work your way up. It might be tough when you're feeling low, but it's worth it!"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El ejercicio puede realmente mejorar tu estado de ánimo. Comienza con algo pequeño y ve aumentando. Puede ser difícil cuando te sientes decaído, ¡pero vale la pena!\n"
+          }
         }
       }
     },
@@ -2001,6 +2991,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Complete"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completar"
           }
         }
       }
@@ -2014,6 +3010,24 @@
             "state" : "new",
             "value" : "USD($)"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "USD($)"
+          }
+        }
+      }
+    },
+    "LzV-Am-45f.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Do you enjoy a drink now or then? Many of us do, often when socializing with friends and family. Let's take a look at your drinking patterns and how they may affect your health.\\n\\nThe AUDIT questionnaire is designed to help in the self-assessment of alcohol consumption and to identify any implications for the person's health and well being, now and in the future.\\n\\nConduct a quick self-test with AUDIT above. Click on \\\"Submit\\\" at the end for an instant assessment.\"; ObjectID = \"LzV-Am-45f\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Do you enjoy a drink now or then? Many of us do, often when socializing with friends and family. Let's take a look at your drinking patterns and how they may affect your health.\n\nThe AUDIT questionnaire is designed to help in the self-assessment of alcohol consumption and to identify any implications for the person's health and well being, now and in the future.\n\nConduct a quick self-test with AUDIT above. Click on \"Submit\" at the end for an instant assessment."
+          }
         }
       }
     },
@@ -2025,6 +3039,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Keep yourself occupied and have a routine. Even getting out of the house for a bit can make a difference."
+          }
+        }
+      }
+    },
+    "MGg-jJ-hUY.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"(Cut, Annoyed, Guilty and Eye)\"; ObjectID = \"MGg-jJ-hUY\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "(Cut, Annoyed, Guilty and Eye)"
           }
         }
       }
@@ -2050,6 +3076,12 @@
             "state" : "new",
             "value" : "Complete"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completar"
+          }
         }
       }
     },
@@ -2074,6 +3106,12 @@
             "state" : "new",
             "value" : "Complete"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completar"
+          }
         }
       }
     },
@@ -2085,6 +3123,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "How is vaping (E-cigarettes) safer than tobacco?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cómo es que vapear (cigarrillos electrónicos) es más seguro que fumar tabaco?\n"
           }
         }
       }
@@ -2098,6 +3142,24 @@
             "state" : "new",
             "value" : "Approximately 75% of smokers want to quit, but 25% are not interested. Perhaps you are thinking about it, but not quite ready to act. Although, cigarettes are expensive, you might still like the sensations of smoking. You may also feel pressured to quit because people smoke on the break or you live with someone who also smokes.\n\nBut just so you know, thinking about quitting is already a first big step forward toward change! It’s normal to feel intimidated by taking action. No one wants to fail.. But think about this.. If it’s going to be a challenge now and it’s going to be a challenge in 5 years, why not do it now without spending more money on cigarettes?"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aproximadamente el 75% de los fumadores quieren dejarlo, pero el 25% no está interesado. Quizás estás pensando en ello, pero no estás del todo listo para actuar. Aunque los cigarrillos son caros, todavía disfrutas de fumar. También puedes sentirte presionado porque la gente a tu alrededor fuma en los breaks del trabajo o vives con alguien que también fuma.\n                                                                           Pero para que lo sepas, pensar en dejarlo ya es un primer gran paso hacia el cambio. Es normal sentirse intimidado. Nadie quiere fallar. Pero piensa en esto: si va a ser un desafío hoy y también será un desafío en 5 años, ¿por qué no hacerlo ahora sin gastar más dinero en cigarrillos?\n\n"
+          }
+        }
+      }
+    },
+    "nIg-1K-rx9.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"\\\"Drug use\\\" refers to\\n \\n1. the use of prescribed or over-the-counter drugs in excess of the directions, and \\n2. any non medical use of drugs.\\n\\nThe various classes of drugs may include cannabis (marijuana, hashish), solvents (e.g., paint thinner), tranquilizers (e.g., valium), barbiturates, cocaine, stimulants (e.g., speed), hallucinogens (e.g., LSD) or narcotics (e.g., heroin). The questions do not include alcoholic beverages.\\n\\nPlease answer the questions in this survey. If you have difficulty with a statement, simply choose the best response possible.\\n\\nThese questions refer to drug use in the past 12 months. Please answer NO or YES to each question.\"; ObjectID = \"nIg-1K-rx9\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "\"Drug use\" refers to\n \n1. the use of prescribed or over-the-counter drugs in excess of the directions, and \n2. any non medical use of drugs.\n\nThe various classes of drugs may include cannabis (marijuana, hashish), solvents (e.g., paint thinner), tranquilizers (e.g., valium), barbiturates, cocaine, stimulants (e.g., speed), hallucinogens (e.g., LSD) or narcotics (e.g., heroin). The questions do not include alcoholic beverages.\n\nPlease answer the questions in this survey. If you have difficulty with a statement, simply choose the best response possible.\n\nThese questions refer to drug use in the past 12 months. Please answer NO or YES to each question."
+          }
         }
       }
     },
@@ -2109,6 +3171,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Have you checked out \"discovery\"? There are lots of useful courses that can help you manage stress and anxiety!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Has revisado \"Descubrir\"? ¡Hay muchos cursos útiles que pueden ayudarte a manejar el estrés y la ansiedad!\n"
           }
         }
       }
@@ -2122,6 +3190,12 @@
             "state" : "new",
             "value" : "Drink in moderation"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bebiste con moderación\n"
+          }
         }
       }
     },
@@ -2132,6 +3206,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
+            "value" : "3."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "3."
           }
         }
@@ -2145,6 +3225,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Stay busy"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mantente ocupado\n"
           }
         }
       }
@@ -2176,6 +3262,12 @@
             "state" : "new",
             "value" : "If you're using the nicotine patch, try taking it off an hour before bedtime. Sometimes, nicotine from the patch can mess with your sleep."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si estás usando el parche de nicotina, trata de quitarlo una hora antes de acostarte. A veces, la nicotina del parche puede afectar a tu sueño.\n"
+          }
         }
       }
     },
@@ -2187,6 +3279,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "•    50% of fatal drownings and of homicides, and"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "• 50% de los ahogamientos fatales"
           }
         }
       }
@@ -2200,6 +3298,12 @@
             "state" : "new",
             "value" : "Men"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hombres"
+          }
         }
       }
     },
@@ -2211,6 +3315,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Take deep breaths"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Respira profundamente\n"
           }
         }
       }
@@ -2224,6 +3334,12 @@
             "state" : "new",
             "value" : "When you quit smoking, it's totally normal for your appetite to go up a bit. Your body might not burn calories as fast, and you might find yourself eating more, maybe because quitting can be a bit stressful, or you just want something to do with your hands and mouth. Plus, food might taste even better since your sense of smell and taste aren't dulled by smoke\n\nHere's what you can do to manage it:"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuando dejas de fumar, es totalmente normal que tu apetito aumente un poco. Tu cuerpo puede no quemar calorías tan rápido, y podrías encontrar que comes más, quizás porque dejar de fumar puede ser un poco estresante, o simplemente porque quieres algo con lo que ocupar tus manos y boca. Además, la comida podría saber aún mejor ya que tu sentido del olfato y del gusto no están                    \n                                                      Aquí tienes lo que puedes hacer para manejarlo:\n"
+          }
         }
       }
     },
@@ -2235,6 +3351,30 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "What is tobacco?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Qué es el tabaco?\n"
+          }
+        }
+      }
+    },
+    "Oqd-Yf-OJe.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"People who misuse alcohol may also have problems managing conditions such as diabetes, high blood pressure, pain, and sleep disorders.\"; ObjectID = \"Oqd-Yf-OJe\";",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "People who misuse alcohol may also have problems managing conditions such as diabetes, high blood pressure, pain, and sleep disorders."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "• Las personas que hacen un uso indebido del alcohol también pueden tener problemas para manejar condiciones como diabetes, hipertensión, dolor y trastornos del sueño.\n"
           }
         }
       }
@@ -2266,6 +3406,12 @@
             "state" : "new",
             "value" : "Drinking"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " moderado\n"
+          }
         }
       }
     },
@@ -2277,6 +3423,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Smoking"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De fumar\n"
           }
         }
       }
@@ -2320,6 +3472,12 @@
             "state" : "new",
             "value" : "Resources and tools to support\nyour journey"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recursos y herramientas para apoyarte en el camino\n"
+          }
         }
       }
     },
@@ -2332,6 +3490,12 @@
             "state" : "new",
             "value" : "When you first quit smoking, it's totally normal to feel a bit jumpy or restless. It's like your body is adjusting without nicotine, and it can affect not just your mind but the rest of you too.\n\nHere's how you can handle it:"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuando dejas de fumar por primera vez, es totalmente normal sentirse un poco nervioso o inquieto. Es como si tu cuerpo se estuviera ajustando a la falta de nicotina, y esto puede afectar no solo tu mente, sino también el resto de tu cuerpo.\n                                                      Aquí tienes cómo manejarlo:\n"
+          }
         }
       }
     },
@@ -2343,6 +3507,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Give yourself a break, especially in the first few days after quitting."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Date un respiro, especialmente en los primeros días después de dejar de fumar.\n"
           }
         }
       }
@@ -2373,6 +3543,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Resources"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Recursos"
           }
         }
       }
@@ -2410,6 +3586,12 @@
             "state" : "new",
             "value" : "Health problems"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Problemas de salud\n"
+          }
         }
       }
     },
@@ -2421,6 +3603,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "The 2020–2025 Dietary Guidelines recommend:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las Guías Dietéticas 2020-2025 recomiendan:\n"
           }
         }
       }
@@ -2434,6 +3622,12 @@
             "state" : "new",
             "value" : "When irritation hits, take a few deep breaths to calm yourself. You can find them in “exercise”."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuando te sientas irritado, toma unas cuantas respiraciones profundas para calmarte. Puedes encontrarlas en “ejercicio”.\n"
+          }
         }
       }
     },
@@ -2446,6 +3640,12 @@
             "state" : "new",
             "value" : "Complete"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completar"
+          }
         }
       }
     },
@@ -2457,6 +3657,24 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Drink counts calculator"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Contador de bebidas\n"
+          }
+        }
+      }
+    },
+    "Qsr-7w-txP.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"(Alcohol Use Disorder Identification Test)\"; ObjectID = \"Qsr-7w-txP\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "(Alcohol Use Disorder Identification Test)"
           }
         }
       }
@@ -2482,6 +3700,12 @@
             "state" : "new",
             "value" : "“I’m ready to quit”"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Estoy listo para dejarlo”\n"
+          }
         }
       }
     },
@@ -2493,6 +3717,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Complete"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completar"
           }
         }
       }
@@ -2506,6 +3736,12 @@
             "state" : "new",
             "value" : "NIAAA defines it as follows"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "El NIAAA lo define de la siguiente manera:\n"
+          }
         }
       }
     },
@@ -2517,6 +3753,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "any day or 8 drinks or more per week"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " cualquier día u 8 bebidas o más por semana\n"
           }
         }
       }
@@ -2530,6 +3772,12 @@
             "state" : "new",
             "value" : "Done"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hecho"
+          }
         }
       }
     },
@@ -2541,6 +3789,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "•    A significant number of sexual assaults."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "• Un número significativo de agresiones sexuales\n"
           }
         }
       }
@@ -2554,6 +3808,12 @@
             "state" : "new",
             "value" : "Get moving"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muévete"
+          }
         }
       }
     },
@@ -2565,6 +3825,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "If you have even tried to quit once in the past, you have some idea how it feels, the challenges you experienced, and what caused you to start smoking again. That means you’ve already tasted this journey and know how tricky it can be. There are small steps you can take now to help you quit for good and increase your chances of success. Learn the skills that will help you permanently achieve a tobacco-free life.\n\nIn the following sections, you can learn about recommended strategies for overcoming potential challenges you may encounter!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si has intentado dejarlo una vez en el pasado, tienes una idea de cómo se siente, los desafíos que experimentaste y qué te hizo empezar a fumar de nuevo. Eso significa que ya has probado este viaje y sabes lo complicado que puede ser. Hay pequeños pasos que puedes tomar ahora para ayudarte a dejarlo para siempre y aumentar tus posibilidades de éxito. Aprende habilidades que te ayudarán a lograr una vida libre de tabaco de manera permanente.\n                                                         En las siguientes secciones, puedes aprender sobre las estrategias recomendadas para superar los desafíos potenciales que puedas encontrar.\n"
           }
         }
       }
@@ -2590,6 +3856,12 @@
             "state" : "new",
             "value" : "Keep up the great work—you're laying the groundwork for a healthier, happier life!"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sigue con el excelente trabajo: ¡estás estableciendo las bases para una vida más saludable y feliz!\n"
+          }
         }
       }
     },
@@ -2601,6 +3873,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Alcohol-related mental dysfunction"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Disfunción mental relacionada con el alcohol\n"
           }
         }
       }
@@ -2614,6 +3892,12 @@
             "state" : "new",
             "value" : "These individuals tend to drink more, socialize with people who drink a lot, and develop a tolerance to alcohol (i.e., it takes more and more alcohol to feel or act intoxicated). As a result, they have an increased risk for developing AUD. Someone who misuses alcohol, especially over the long-term, can experience permanent liver, heart, or brain damage. And all people who drink, regardless of the amount, need to be aware that critical decision-making abilities and driving- related skills are already diminished long before a person shows physical signs of intoxication.\n"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Estas personas tienden a beber más, socializar con personas que beben mucho y desarrollar tolerancia al alcohol (es decir, se necesita cada vez más alcohol para sentirse o actuar intoxicado). Como resultado, tienen un mayor riesgo de desarrollar un trastorno por consumo de alcohol (TCA).\nAlguien que hace un uso indebido del alcohol, especialmente a largo plazo, puede experimentar daños permanentes en el hígado, el corazón o el cerebro. Y todas las personas que beben, independientemente de la cantidad, deben ser conscientes de que las habilidades para tomar decisiones relacionadas con el manejo de vehículos, ya están disminuidas mucho antes de que una persona muestre signos físicos de intoxicación.\n"
+          }
         }
       }
     },
@@ -2625,6 +3909,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Women"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mujeres"
           }
         }
       }
@@ -2638,6 +3928,12 @@
             "state" : "new",
             "value" : "Schedule the date when you will quit. Make it soon, preferably within a month, so you will still be excited to become tobacco-free. Cut back on your tobacco use by one cigarette every two days before you completely give up tobacco on your quit date. Aim to start quitting completely when you are down to at least 10 cigarettes per day."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Programa la fecha en la que dejarás de fumar. Hazlo pronto, preferiblemente dentro de un mes, para que sigas entusiasmado por liberarte del tabaco. Reduce tu consumo de tabaco disminuyendo un cigarro cada dos días antes de dejarlo completamente en la fecha que has establecido. Intenta comenzar a dejar de fumar por completo cuando hayas reducido a menos de 10 cigarrillos al día.\n"
+          }
         }
       }
     },
@@ -2649,6 +3945,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Most teens who smoke think they will quit in their 20s and actually don't until their 40s. Stopping smoking is about making a change and that is something we're not too good at, in fact smoking cessation can be a long journey of trying and relapsing, just like a long ride on a roller coaster. There is no magic solution or medication to transform one to a non-smoker overnight, though some people have the gene to be able to quit smoking or drinking without any struggles.\n\n\nSo what does this ride of change look like? There are 4 steps and helpful strategies you can take!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La mayoría de los adolescentes que fuman piensan que dejarán de fumar en sus 20s y en realidad no lo hacen hasta sus 40s. Dejar de fumar consiste en hacer un cambio, y eso es algo en lo que no somos muy buenos; de hecho, dejar de fumar puede ser un largo viaje de intentos y recaídas, como un largo viaje en una montaña rusa. No hay una solución mágica o medicamentos para transformarse en un no fumador de la noche a la mañana, aunque algunas personas tienen en sus genes, el poder para dejar de fumar o dejar de beber sin dificultades.\n                                                 ¿Entonces en qué consiste este viaje? Hay 4 etapas y también estrategias muy útiles que puedes seguir.\n"
           }
         }
       }
@@ -2662,6 +3964,12 @@
             "state" : "new",
             "value" : "Women"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mujeres"
+          }
         }
       }
     },
@@ -2674,6 +3982,12 @@
             "state" : "new",
             "value" : "Reduced cognitive function; negatively affects one’s attention, concentration, and processing speed, makes and perform tasks that require mental clarity and concentration."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " Reducción de la función cognitiva; afecta negativamente la atención, la concentración y la velocidad de procesamiento, lo que dificulta enfocarse, aprender nueva información y realizar tareas que requieren claridad mental y concentración.\n"
+          }
         }
       }
     },
@@ -2685,6 +3999,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Select the drink and quantity."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Selecciona la bebida y cantidad\n"
           }
         }
       }
@@ -2716,6 +4036,12 @@
             "state" : "new",
             "value" : "Focus on managing stress without turning to alcohol or quick fixes. Taking care of your body and mind will help you stay on track and reduce the urge to drink as a stress reliever."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Concéntrate en manejar el estrés sin recurrir al alcohol o soluciones rápidas. Cuidar de tu cuerpo y mente te ayudará a mantenerte en el camino y reducir el impulso de beber como una forma de aliviar el estrés.\n"
+          }
         }
       }
     },
@@ -2727,6 +4053,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Some signs of AUD are continuing to drink even though it is causing trouble with your family or at work, drinking more than you intended, having to drink more than before to get a desired effect, being unable to stop drinking after repeated attempts, or continuing to drink despite negative consequences. Signs of AUD may also include drinking to alleviate negative emotions such as feeling ”low” anxious, uneasy, unhappy, unwell, dissatisfied with life, or other negative emotions that were caused or worsened by alcohol misuse. Beyond these physical and mental health risks, frequent alcohol misuse also is linked with personal problems, such as losing one’s driver’s license or having relationship troubles."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "\nAlgunos signos del TCA son seguir bebiendo aunque esto cause problemas con la familia o el trabajo, beber más de lo que se tenía previsto, necesitar beber más que antes para lograr el efecto deseado, no poder dejar de beber después de varios intentos, o seguir bebiendo a pesar de las consecuencias negativas. Los signos del TCA también pueden incluir beber para aliviar emociones negativas, como sentirse \"deprimido\", ansioso, incómodo, infeliz, mal, insatisfecho con la vida u otras emociones negativas causadas o empeoradas por el abuso del alcohol.\nMás allá de estos riesgos para la salud física y mental, el abuso frecuente de alcohol también está relacionado con problemas personales, como perder la licencia de conducir o tener problemas en las relaciones interpersonales..\n"
           }
         }
       }
@@ -2740,6 +4072,12 @@
             "state" : "new",
             "value" : "about 65 percent of fatal falls."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ", 65% de las caídas fatales\n"
+          }
         }
       }
     },
@@ -2751,6 +4089,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Health problems"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Problemas de salud\n"
           }
         }
       }
@@ -2776,6 +4120,12 @@
             "state" : "new",
             "value" : "Depression and Anxiety"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Depresión y ansiedad\n"
+          }
         }
       }
     },
@@ -2787,6 +4137,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Moderate everyday drinking"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Consumo moderado diario\n"
           }
         }
       }
@@ -2800,6 +4156,12 @@
             "state" : "new",
             "value" : "A nicotine patch plus a lozenge (mints/cough drops) or gum is the most common combination and you can get them at any drug store."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Un parche de nicotina más una pastilla (mentas/pastillas para la tos) o chicles es la combinación más común y puedes encontrarlos en cualquier farmacia.\n"
+          }
         }
       }
     },
@@ -2811,6 +4173,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Stay active"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mantente activo\n"
           }
         }
       }
@@ -2842,6 +4210,12 @@
             "state" : "new",
             "value" : "Focus on eating"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enfócate en comer\n"
+          }
         }
       }
     },
@@ -2853,6 +4227,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Often these individuals are unaware that their body’s lower response to the intoxicating effects of alcohol isn’t protection from alcohol problems but instead is a reason for caution.\n"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A menudo, estas personas no son conscientes de que la menor respuesta de su cuerpo al alcohol no es una protección contra los problemas sino una razón para tener aún más cuidado.\n"
           }
         }
       }
@@ -2866,6 +4246,12 @@
             "state" : "new",
             "value" : "Complete"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completar"
+          }
         }
       }
     },
@@ -2877,6 +4263,30 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Tracking your smoking and drinking\nhabit"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seguimiento de tus hábitos de consumo del alcohol y cigarros\n"
+          }
+        }
+      }
+    },
+    "uBz-gc-B5m.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"uBz-gc-B5m\";",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "•"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "."
           }
         }
       }
@@ -2890,6 +4300,12 @@
             "state" : "new",
             "value" : "Up to 2 drinks per day"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : ": hasta 2 bebidas por día\n"
+          }
         }
       }
     },
@@ -2901,6 +4317,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Why is being able to \"hold your liquor\" \na concern?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Por qué la capacidad de auto-controlarse podría ser un problema?\n"
           }
         }
       }
@@ -2914,6 +4336,12 @@
             "state" : "new",
             "value" : "Moderate drinking"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Consumo moderado\n"
+          }
         }
       }
     },
@@ -2924,6 +4352,12 @@
         "en" : {
           "stringUnit" : {
             "state" : "new",
+            "value" : "0"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
             "value" : "0"
           }
         }
@@ -2968,6 +4402,12 @@
             "state" : "new",
             "value" : "Complete"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completar"
+          }
         }
       }
     },
@@ -2979,6 +4419,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "If you can, try not to do things that need a lot of focus right away."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si puedes, trata de no hacer cosas que requieran mucha concentración de inmediato.\n"
           }
         }
       }
@@ -2992,6 +4438,12 @@
             "state" : "new",
             "value" : "Alcohol use disorder (AUD)"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trastorno por consumo de alcohol (TCA)\n"
+          }
         }
       }
     },
@@ -3003,6 +4455,30 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Difficulty Concentrating"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dificultad para concentrarse\n"
+          }
+        }
+      }
+    },
+    "uxo-Hg-sa8.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Half of liver disease deaths in the United States are caused by alcohol, and alcohol-associated liver disease is increasing, particularly among women and young people. \"; ObjectID = \"uxo-Hg-sa8\";",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Half of liver disease deaths in the United States are caused by alcohol, and alcohol-associated liver disease is increasing, particularly among women and young people. "
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "• La mitad de las muertes por enfermedades hepáticas en los Estados Unidos son causadas por el alcohol.\n"
           }
         }
       }
@@ -3016,6 +4492,12 @@
             "state" : "new",
             "value" : "I’m proud of you for recognizing the need to control your drinking pattern! Acknowledging your drinking patterns is a crucial first step toward healthier habits."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Estoy orgulloso de ti por reconocer la necesidad de controlar tu patrón de consumo de alcohol! Reconocer tus patrones de bebida es un paso crucial hacia hábitos más saludables.\n"
+          }
         }
       }
     },
@@ -3027,6 +4509,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "•    31% of all fatal crashes in 2021."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "• 31% de todos los accidentes fatales en 2021\n"
           }
         }
       }
@@ -3040,6 +4528,12 @@
             "state" : "new",
             "value" : "Talk to someone"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Habla con alguien\n"
+          }
         }
       }
     },
@@ -3052,6 +4546,12 @@
             "state" : "new",
             "value" : "Yes"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si"
+          }
         }
       }
     },
@@ -3063,6 +4563,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "“I’m tobacco free”"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "“Estoy libre de tabaco”\n"
           }
         }
       }
@@ -3094,6 +4600,12 @@
             "state" : "new",
             "value" : "Mood swings and anxiety; alcohol is a “depressant” that leads to mood swings, irritability, and increased risk of developing depression and anxiety."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : " Cambios de humor y ansiedad: el alcohol es un \"depresivo\" que provoca cambios de humor, irritabilidad y un mayor riesgo de desarrollar depresión y ansiedad.\n"
+          }
         }
       }
     },
@@ -3105,6 +4617,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Let's see some of them."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veamos algunas de ellas.\n"
           }
         }
       }
@@ -3136,6 +4654,12 @@
             "state" : "new",
             "value" : "Days"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Días"
+          }
         }
       }
     },
@@ -3147,6 +4671,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Label"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Etiqueta"
           }
         }
       }
@@ -3160,6 +4690,12 @@
             "state" : "new",
             "value" : "Complete"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completar"
+          }
         }
       }
     },
@@ -3171,6 +4707,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Nicotine does things in your brain that make you feel good and more awake. It releases chemicals like dopamine, norepinephrine, and serotonin, which are responsible for those \"feeling good\" and \"being awake\" vibes. Nicotine also gives you a quick boost of endorphins, which can help you relax and ease any pains.\n\nThat's why some people, both adults and teens, use smoking to kind of \"reset\" their mood, emotions, and attention. Especially for those who struggle with anxiety or feeling down, smoking might be a way they try to make themselves feel better. But it's important to know that there are healthier ways to deal with these feelings."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La nicotina hace cosas en tu cerebro que te hacen sentir bien y más despierto. Libera químicos como la dopamina, norepinefrina y serotonina, que son los responsables de esas sensaciones de \"sentirse bien\" y \"estar despierto\". La nicotina también te da un rápido impulso de endorfinas, lo que puede ayudarte a relajarte y aliviar cualquier dolor.\n                                                        Por eso algunas personas, tanto adultos como adolescentes, fuman para \"reiniciar\" su estado de ánimo, emociones y atención. Especialmente para aquellos que luchan con la ansiedad y depresión, fumar podría ser una manera en la que intentan sentirse mejor. Pero es importante saber que hay formas más saludables de lidiar con estos sentimientos.\n"
           }
         }
       }
@@ -3184,6 +4726,12 @@
             "state" : "new",
             "value" : "Blackouts are gaps in a person’s memory for events that occurred while they were intoxicated. These gaps happen when a person drinks enough alcohol to temporarily block the transfer of memories from short- to long-term storage—known as memory consolidation—in a brain area called the hippocampus."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Las lagunas son pausas en la memoria de una persona sobre los eventos que ocurrieron mientras estaba intoxicada. Estas lagunas ocurren cuando una persona consume suficiente alcohol para bloquear temporalmente el traslado de recuerdos de la memoria a corto plazo a la memoria a largo plazo—conocido como consolidación de la memoria—en una área del cerebro llamada hipocampo.\n"
+          }
         }
       }
     },
@@ -3196,6 +4744,12 @@
             "state" : "new",
             "value" : "Would you like to know your drink counts?"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Te gustaría saber cuántas bebidas consumes?\n"
+          }
         }
       }
     },
@@ -3207,6 +4761,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Gives you the strongest chance for success of any single medicine."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Te da las mayores probabilidades de éxito entre todos los demás medicamentos disponibles.\n"
           }
         }
       }
@@ -3232,6 +4792,12 @@
             "state" : "new",
             "value" : "No TV, phones, or gadgets in bed. Make your bedroom quiet, dark, relaxing, and comfy.\nSkip heavy meals or alcohol right before bedtime."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nada de TV, teléfonos o gadgets en la cama. Haz que tu dormitorio sea tranquilo, oscuro, relajante y cómodo. Evita comidas pesadas o alcohol justo antes de acostarte.\n"
+          }
         }
       }
     },
@@ -3243,6 +4809,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Full version will be available soon!"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡La versión completa estará disponible pronto!\n"
           }
         }
       }
@@ -3256,6 +4828,12 @@
             "state" : "new",
             "value" : "Men:"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hombres"
+          }
         }
       }
     },
@@ -3267,6 +4845,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Move around:"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Muévete:\n"
           }
         }
       }
@@ -3280,6 +4864,12 @@
             "state" : "new",
             "value" : "Men"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hombres"
+          }
         }
       }
     },
@@ -3291,6 +4881,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Problematic drinking"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Consumo problemático\n"
           }
         }
       }
@@ -3304,6 +4900,12 @@
             "state" : "new",
             "value" : "Feeling grumpy is just your body adjusting to not having nicotine."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sentirse malhumorado es solo tu cuerpo ajustándose a la falta de nicotina.\n"
+          }
         }
       }
     },
@@ -3315,6 +4917,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Label"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Etiqueta"
           }
         }
       }
@@ -3328,6 +4936,24 @@
             "state" : "new",
             "value" : "1."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "1."
+          }
+        }
+      }
+    },
+    "XVg-MW-FNc.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"AUDIT\"; ObjectID = \"XVg-MW-FNc\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "AUDIT"
+          }
         }
       }
     },
@@ -3339,6 +4965,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Complete"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completar"
           }
         }
       }
@@ -3376,6 +5008,12 @@
             "state" : "new",
             "value" : "Save it to weekly summary journal entry"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar en el resumen semanal\n"
+          }
         }
       }
     },
@@ -3387,6 +5025,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Need to talk with someone?"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Necesitas hablar con alguien?\n"
           }
         }
       }
@@ -3400,6 +5044,12 @@
             "state" : "new",
             "value" : "After learning about drinking, which drinking habit applies to you?"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Después de aprender sobre el consumo de alcohol, ¿qué hábito de consumo se aplica a ti?\n"
+          }
         }
       }
     },
@@ -3411,6 +5061,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "When you eat, try to pay attention to what you're eating. Turn off the TV or put away your phone. Eating a bit slower and really savoring your food can help you notice when you're full."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cuando comas, trata de prestar atención a lo que estás comiendo. Apaga la televisión o guarda tu teléfono. Comer un poco más despacio y realmente saborear tu comida puede ayudarte a notar cuando estás lleno.\n"
           }
         }
       }
@@ -3424,6 +5080,12 @@
             "state" : "new",
             "value" : "Up to 4 or more drinks on"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hasta 4 o más bebidas "
+          }
         }
       }
     },
@@ -3435,6 +5097,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Alcohol use disorder (AUD)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trastorno por consumo de alcohol (TCA)\n"
           }
         }
       }
@@ -3448,6 +5116,12 @@
             "state" : "new",
             "value" : "Clean your house to remove the odour of tobacco from your clothes, furnitures and car."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Limpia tu casa para eliminar el olor a tabaco de tu ropa, muebles y coche.\n"
+          }
         }
       }
     },
@@ -3459,6 +5133,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Smart snacking"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aperitivos inteligentes\n"
           }
         }
       }
@@ -3472,6 +5152,12 @@
             "state" : "new",
             "value" : "Irritability and Mood Swings"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Irritabilidad y cambios de humor\n"
+          }
         }
       }
     },
@@ -3483,6 +5169,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "It’s OK to start nicotine patches, gum, or lozenges a week or two before you quit smoking. This can help you get ready and may cut down on your smoking. Starting medicine, especially the nicotine patch, before you quit may improve your chances of quitting successfully."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Está bien comenzar con parches, chicles o pastillas de nicotina una semana o dos antes de dejar de fumar. Esto puede ayudarte y puede reducir tu consumo de cigarrillos. Comenzar con medicamentos, especialmente el parche de nicotina, antes de dejar de fumar puede mejorar tus posibilidades de tener éxito.\n"
           }
         }
       }
@@ -3496,6 +5188,12 @@
             "state" : "new",
             "value" : "You’ve reached your quit date and committed yourself to a tobacco-free life.\n\nBe proud! Quit smoking is like a relationship breakup and going through some losses.. You might have to break up your routine a little bit to avoid certain places, friends, and start a new routine to distract yourself. The plan requires you to think about more than just quitting smoking, but changes to your lifestyle.\n\nThere are some keys to achieve a permanent tobacco-free life.\n\nWhat can you do?"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¡Siéntete orgulloso! Dejar de fumar es como la ruptura de una relación o perder a alguien muy querido. Puede que tengas que cambiar un poco tu rutina para evitar ciertos lugares, amigos, y comenzar una nueva rutina para distraerte. El plan requiere que pienses en más que solo dejar de fumar, sino en cambio                                                                                                   Hay algunas claves para lograr una vida libre de tabaco de forma permanente.\nen tu estilo de vida.\n                                                            ¿Qué puedes hacer?\n"
+          }
         }
       }
     },
@@ -3507,6 +5205,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Complete"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Completar"
           }
         }
       }

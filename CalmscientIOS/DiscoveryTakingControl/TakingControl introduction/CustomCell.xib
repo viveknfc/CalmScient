@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Lexend-SemiBold.ttf">
+            <string>Lexend-SemiBold</string>
+        </array>
         <array key="lexendregular.ttf">
             <string>Lexend-Regular</string>
-        </array>
-        <array key="lexendsemibold.ttf">
-            <string>Lexend-SemiBold</string>
         </array>
     </customFonts>
     <objects>
@@ -29,18 +29,18 @@
                         <rect key="frame" x="10" y="10" width="373" height="81"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rcz-UL-xKB">
-                                <rect key="frame" x="20" y="0.0" width="120" height="81"/>
-                                <fontDescription key="fontDescription" name="Lexend-SemiBold" family="Lexend" pointSize="18"/>
+                                <rect key="frame" x="20" y="0.0" width="135" height="81"/>
+                                <fontDescription key="fontDescription" name="Lexend-SemiBold" family="Lexend" pointSize="16"/>
                                 <color key="textColor" red="0.25882352939999997" green="0.25882352939999997" blue="0.25882352939999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7b4-o7-j92" customClass="LinearGradientButton" customModule="CalmscientIOS" customModuleProvider="target">
-                                <rect key="frame" x="148" y="20.666666666666671" width="215" height="40"/>
+                                <rect key="frame" x="163" y="22.666666666666664" width="200" height="36"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="4VT-Sk-ItP"/>
-                                    <constraint firstAttribute="width" constant="215" id="8vz-lJ-BDZ"/>
+                                    <constraint firstAttribute="height" constant="36" id="4VT-Sk-ItP"/>
+                                    <constraint firstAttribute="width" constant="200" id="8vz-lJ-BDZ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Doesn't apply to me">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -53,9 +53,12 @@
                                         <color key="value" name="GradientButtonColor1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                        <real key="value" value="20"/>
+                                        <real key="value" value="18"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="buttonTapped:" destination="AHz-SS-WId" eventType="touchUpInside" id="96G-ww-tJg"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="AppBackGroundColor"/>
@@ -86,7 +89,7 @@
     </objects>
     <designables>
         <designable name="7b4-o7-j92">
-            <size key="intrinsicContentSize" width="174" height="35"/>
+            <size key="intrinsicContentSize" width="145" height="31"/>
         </designable>
     </designables>
     <resources>

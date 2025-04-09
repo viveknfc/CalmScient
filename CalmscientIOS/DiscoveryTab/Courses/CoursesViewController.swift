@@ -40,6 +40,7 @@ class CoursesViewController: ViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("courses vc came ")
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
         
@@ -56,6 +57,12 @@ class CoursesViewController: ViewController {
         getCoursesData()
 
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("CoursesViewController is disappearing")
+    }
+
     
     //MARK: - Right Nave bar Button
     

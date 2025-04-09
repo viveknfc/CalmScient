@@ -9,7 +9,7 @@ import UIKit
 
 class APIService: UIViewController {
     
-    static var ProducitonURL = "https://calmscient.centralindia.cloudapp.azure.com:8090/"
+    static var ProducitonURL = "https://calmscient.in/api/" //"https://calmscient.centralindia.cloudapp.azure.com:8090/"
     
     static var BaseUrl = ProducitonURL
     
@@ -40,6 +40,8 @@ class APIService: UIViewController {
     
     static var SGetTakingControlIndex = "patients/api/v1/smokingcontrol/getTakingControlIndex"
     static var SBasicKnowledgeQuestions = "patients/api/v1/smokingcontrol/getBasicKnowledgeIndex"
+    
+    static var getTakingControlIntroData = "patients/api/v1/takingControl/getTakingControlIntroduction"
     
 
     //MARK: - user StartUp API Calling
@@ -192,6 +194,14 @@ class APIService: UIViewController {
     static func DeleteProfilePicAPICalling(_ view:UIViewController,params:[String:Int],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.ProfilePicDelet
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
+    //MARK: - GetTakingControlIntro
+    
+    static func getTakingControlIntroAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.getTakingControlIntroData
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
