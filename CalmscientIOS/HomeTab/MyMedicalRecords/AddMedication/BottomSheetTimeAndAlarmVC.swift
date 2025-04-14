@@ -124,6 +124,7 @@ class BottomSheetTimeAndAlarmVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.headingLabel.text = headingLabelString
+        
         timePicker.timeZone = Calendar.current.timeZone
         timePicker.layer.cornerRadius = 5
         timePicker.layer.masksToBounds = true
@@ -141,6 +142,7 @@ class BottomSheetTimeAndAlarmVC: UIViewController {
         } else {
             updateWithUserSelectedDefaults()
         }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -197,20 +199,7 @@ class BottomSheetTimeAndAlarmVC: UIViewController {
         timePicker.maximumDate = restrictedTimings[1]
         let alarmDate = scheduledObj.medicineTime.createDateFromTimeString()
         timePicker.setDate(alarmDate, animated: true)
-        //        let calendar = Calendar.current
-        //        if dayTimeValue == .Morning {
-        //            let midnight = calendar.startOfDay(for: alarmDate)
-        //            let noon = calendar.date(bySettingHour: 12, minute: 0, second: 0, of: alarmDate)!
-        //            timePicker.minimumDate = midnight
-        //            timePicker.maximumDate = noon
-        //        } else {
-        //            let noon = calendar.date(bySettingHour: 12, minute: 0, second: 0, of: Date())!
-        //            let endOfDay = calendar.date(bySettingHour: 23, minute: 59, second: 59, of: Date())!
-        //            timePicker.minimumDate = noon
-        //            timePicker.maximumDate = endOfDay
-        //
-        //        }
-        //
+
     }
     
     @IBAction func saveButtonAction(_ sender: UIButton) {

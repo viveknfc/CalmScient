@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Lexend-Bold.ttf">
+        <array key="lexendbold.ttf">
             <string>Lexend-Bold</string>
         </array>
     </customFonts>
@@ -79,9 +79,8 @@ For men:
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZEs-xs-wbt" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
-                                                <rect key="frame" x="253" y="836" width="120" height="40"/>
+                                                <rect key="frame" x="306" y="836" width="67" height="40"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="120" id="GAV-46-BKK"/>
                                                     <constraint firstAttribute="height" constant="40" id="jY9-pZ-gZg"/>
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>

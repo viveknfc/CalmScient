@@ -96,17 +96,17 @@ class Basicknowledge: ViewController, UITableViewDelegate, UITableViewDataSource
         }
         else if(indexPath.row == 5){
             let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
-            let vc = next.instantiateViewController(withIdentifier: "MyDrinkingHabitVC") as? MyDrinkingHabitVC
+            let vc = next.instantiateViewController(withIdentifier: "HoldYourLiquorVC") as? HoldYourLiquorVC
             let newData = basicData2[indexPath.row]
-            
+            vc?.sectionID7 = newData["sectionId"] as? Int
             vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
             self.navigationController?.pushViewController(vc!, animated: true)
         }
         else if(indexPath.row == 6){
             let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
-            let vc = next.instantiateViewController(withIdentifier: "HoldYourLiquorVC") as? HoldYourLiquorVC
-            let newData = basicData2[indexPath.row]
-            vc?.sectionID7 = newData["sectionId"] as? Int
+            let vc = next.instantiateViewController(withIdentifier: "MyDrinkingHabitVC") as? MyDrinkingHabitVC
+            _ = basicData2[indexPath.row]
+            
             vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
             self.navigationController?.pushViewController(vc!, animated: true)
         }

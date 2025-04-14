@@ -154,6 +154,9 @@ class UserIntroDayFeedbackViewController: ViewController {
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Specify the desired format
         let sampleTime = Date()
         print("the fetching time is", sampleTime)
+        
+        fetchDateTime() //for userintro in scene delegate
+        
         currentTime = dateFormatter.string(from: sampleTime)
         setupLanguage()
         
@@ -489,11 +492,13 @@ class UserIntroDayFeedbackViewController: ViewController {
 
         // Extract Date (yyyy-MM-dd)
         let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.current
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let dateString = dateFormatter.string(from: now)
 
         // Extract Time (HH:mm:ss)
         let timeFormatter = DateFormatter()
+        timeFormatter.timeZone = TimeZone.current
         timeFormatter.dateFormat = "HH:mm:ss"
         let timeString = timeFormatter.string(from: now)
 

@@ -124,13 +124,88 @@ extension DiscoveryMainViewController : UITableViewDataSource,UITableViewDelegat
             
         } else {
             
-            let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
-            let vc = next.instantiateViewController(withIdentifier: "TakingControlIndex") as? TakingControlIndex
-            vc?.title = AppHelper.getLocalizeString(str: "Taking control")
-            self.navigationController?.pushViewController(vc!, animated: true)
+            getTakingControlIndexAPICalling()
             
         }
         
     }
     
 }
+
+@available(iOS 16.0, *)
+extension DiscoveryMainViewController {
+    
+    //MARK: - GetTakingControlIndexAPICalling
+    
+        func getTakingControlIndexAPICalling() {
+            self.view.showToastActivity()
+            guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+                fatalError("Unable to found Application Shared Info")
+            }
+            
+            let formatter = DateFormatter()
+            formatter.dateFormat = "dd/MM/yyyy"
+            let currentDateString = formatter.string(from: Date())
+            
+            let params: [String: Any] = [
+                    "patientId": userInfo.patientID,
+                    "plId": userInfo.patientLocationID,
+                    "clientId": userInfo.clientID,
+                    "date": currentDateString
+                ]
+            
+            print("the Taking control API call params", params)
+            
+            APIService.getTakingControlIndexAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
+                
+                self.view.hideToastActivity()
+                self.parsetheDrinkingResponse(response: response)
+            }
+        }
+        
+    //MARK: - Parsing the Response
+        
+        func parsetheDrinkingResponse(response: AnyObject) {
+            self.view.hideToastActivity()
+
+            if let responseString = response as? String {
+                print("Response received from Get Drinking Data API calling is", responseString)
+            } else if let responseDict = response as? [String: Any] {
+                do {
+                    let jsonData = try JSONSerialization.data(withJSONObject: responseDict, options: [])
+                    let data = try JSONDecoder().decode(DrinkingTakingControlResponse.self, from: jsonData)
+
+                    // Access skipTutorialFlag from the first CourseList
+                    if let firstCourse = data.courseLists?.first {
+                        let skipTutorial = firstCourse.skipTutorialFlag ?? 0
+                        print("First course's skipTutorialFlag is: \(skipTutorial)")
+                        
+                        if skipTutorial == 1  {
+                            
+                            let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+                            let vc = next.instantiateViewController(withIdentifier: "TakingControlIndex") as? TakingControlIndex
+                            vc?.title = AppHelper.getLocalizeString(str: "Taking control")
+                            vc?.initialSegmentIndex = 0
+                            
+                            self.navigationController?.pushViewController(vc!, animated: true)
+                            
+        
+                        } else {
+                            
+                            let next = UIStoryboard(name: "TakingControllIntro", bundle: nil)
+                            let vc = next.instantiateViewController(withIdentifier: "TakingControllIntro") as? TakingControllIntro
+                            self.navigationController?.pushViewController(vc!, animated: true)
+                            
+                        }
+                    }
+
+                } catch {
+                    print("Error decoding JSON: \(error)")
+                }
+            } else {
+                print("Unsupported response type:", type(of: response))
+            }
+        }
+    
+}
+

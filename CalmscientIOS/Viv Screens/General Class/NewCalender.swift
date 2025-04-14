@@ -70,6 +70,7 @@ class NewCalender : UIView, UISheetPresentationControllerDelegate, NewPickerView
     
     private func updateMonthAndYearButtonTitle(for date: Date) {
         let dateFormatter = DateFormatter()
+        dateFormatter.locale = Locale(identifier: Utility.shared.getLocaleIdentifier())
         dateFormatter.dateFormat = "MMMM yyyy"
         let title = dateFormatter.string(from: date)
         
@@ -293,6 +294,7 @@ class PickerViewController: UIViewController {
 
         // Create a date picker
         datePicker = UIDatePicker()
+        datePicker.locale = Locale(identifier: Utility.shared.getLocaleIdentifier())
         datePicker.datePickerMode = .date
         if #available(iOS 14.0, *) {
             datePicker.preferredDatePickerStyle = .wheels

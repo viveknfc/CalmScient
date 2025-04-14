@@ -8,7 +8,7 @@
 // Profile
 
 "Profile" = "Perfil";
-"Version 1.0.1" = "Versión 1.0.5";
+"Version 1.0.1" = "Versión 1.0.7";
 
 
 // Login
@@ -284,6 +284,7 @@ Aquí hay recursos que pueden ayudarle a lograr su objetivo.";
 "Add Medications" = "Agregar medicamentos";
 "Are you sure you want to cancel?" = "¿Estás seguro de que quieres cancelar?";
 "Medications" = "Medicamentos";
+"Medication" = "Medicamento";
 "YES" = "SÍ";
 "NO" = "NO";
 "An Unknown error occured. Please check with Admin" = "Ocurrió un error desconocido. Por favor, consulta con el administrador";

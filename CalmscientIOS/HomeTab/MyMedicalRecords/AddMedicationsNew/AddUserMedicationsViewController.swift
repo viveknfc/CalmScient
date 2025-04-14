@@ -450,6 +450,7 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddNewMedicationSwitchTableCell", for: indexPath) as! AddNewMedicationSwitchTableCell
             cell.selectionStyle = .none
             cell.cellTitleLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "With Meal" : "Con la Comida."
+            cell.expiryLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Expiry Date" : "Con la Comida."
             
             if EditVc ?? false {
                 

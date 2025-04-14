@@ -13,20 +13,51 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
     var EditVc: Bool?
     var params: [String: Any] = [:]
     
+    //viv start
+    
     func didSelectDate(_ date: Date, indexPath: IndexPath?, isTimePicker: Bool) {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "en_US")
         dateFormatter.timeZone = TimeZone.current
         
+        let calendar = Calendar.current
+        let now = Date()
+
         if isTimePicker {
+            // Ensure dateTF has a selected date
+            guard let selectedDateText = self.dateTF.text else { return }
+            dateFormatter.dateFormat = "MM/dd/yyyy"
+            guard let selectedDate = dateFormatter.date(from: selectedDateText) else { return }
+
+            if calendar.isDateInToday(selectedDate) {
+                // If selected date is today, ensure time is now or in the future
+                if date < now {
+                    let msg = "Selected time is in the past for today"
+                    self.view.showToast(message: msg )
+                    print("Selected time is in the past for today. Ignoring.")
+                    return
+                }
+            }
+
             // Format time and update timeTF
-            dateFormatter.dateFormat = "hh:mm a"  // Example: "10:30 AM"
+            dateFormatter.dateFormat = "hh:mm a"
             let formattedTime = dateFormatter.string(from: date)
             self.timeTF.text = formattedTime
             print("The selected time is:", formattedTime)
+            
         } else {
+            // Ensure only today or future date is accepted
+            let startOfToday = calendar.startOfDay(for: now)
+            let startOfSelected = calendar.startOfDay(for: date)
+            if startOfSelected < startOfToday {
+                let msg = "Past dates are not allowed"
+                self.view.showToast(message: msg )
+                print("Past dates are not allowed. Ignoring.")
+                return
+            }
+            
             // Format date and update dateTF
-            dateFormatter.dateFormat = "MM/dd/yyyy"  // Example: "08/22/2024"
+            dateFormatter.dateFormat = "MM/dd/yyyy"
             let formattedDate = dateFormatter.string(from: date)
             self.dateTF.text = formattedDate
             print("The selected date is:", formattedDate)
@@ -445,7 +476,7 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
             print("Response received from Edit Save API calling is", responseString)
         } else if let responseDict = response as? [String: Any] {
 
-                if let responseMessage = responseDict["responseMessage"] as? String {
+                if let responseMessage = responseDict["message"] as? String {
                     
                     print("Response Message:", responseMessage)
                     
@@ -627,28 +658,37 @@ extension AddNewAppointmentViewController :  UITableViewDelegate, UITableViewDat
     
     @objc func textFieldDidChange(_ textField: UITextField) {
         guard textField == providerNameTF || textField == locationTF else { return }
-
         guard let text = textField.text else { return }
-        
+
         if text.isEmpty {
             if textField == providerNameTF {
-                filteredItems = providerData.compactMap { $0.firstName }  // Ensure non-nil strings
+                filteredItems = providerData.map { "\($0.firstName) \($0.lastName)" }
+                filteredID = providerData.map { $0.providerId }
             } else if textField == locationTF {
-                filteredItems = locationData.compactMap { $0.locationName }  // Ensure non-nil strings
+                filteredItems = locationData.map { $0.locationName }
+                filteredID = locationData.map { $0.locationId }
             }
             dropdownTableView.isHidden = false
             dropdownTableView.reloadData()
             return
         }
 
-        // Filter items based on input
         if textField == providerNameTF {
-            filteredItems = providerData.compactMap { $0.firstName }.filter { $0.lowercased().contains(text.lowercased()) }
+            let filtered = providerData.filter {
+                $0.firstName.lowercased().contains(text.lowercased()) ||
+                $0.lastName.lowercased().contains(text.lowercased()) ||
+                "\($0.firstName) \($0.lastName)".lowercased().contains(text.lowercased())
+            }
+            filteredItems = filtered.map { "\($0.firstName) \($0.lastName)" }
+            filteredID = filtered.map { $0.providerId }
         } else if textField == locationTF {
-            filteredItems = locationData.compactMap { $0.locationName }.filter { $0.lowercased().contains(text.lowercased()) }
+            let filtered = locationData.filter {
+                $0.locationName.lowercased().contains(text.lowercased())
+            }
+            filteredItems = filtered.map { $0.locationName }
+            filteredID = filtered.map { $0.locationId }
         }
 
-        // Show or hide tableView
         dropdownTableView.isHidden = filteredItems.isEmpty
         updateDropdownPosition(for: textField)
         dropdownTableView.reloadData()

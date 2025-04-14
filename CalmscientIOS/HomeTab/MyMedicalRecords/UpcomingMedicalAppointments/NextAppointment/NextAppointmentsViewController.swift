@@ -43,7 +43,6 @@ class NextAppointmentsViewController: ViewController, NCalendarToViewDelegate {
         nextAppointmentTableView.delegate = self
         nextAppointmentTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 150, right: 0)
 
-//        getMedicalAppointmentsData(forDate: selectedNewDate)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,15 +50,6 @@ class NextAppointmentsViewController: ViewController, NCalendarToViewDelegate {
         self.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Next appointments" : "Próximas citas"
         getMedicalAppointmentsData(forDate: selectedNewDate)
     }
-    
-//    func calendardidChangeBounds(newBounds: CGRect) {
-//        calenderHeightConstraint.constant = newBounds.height
-//    }
-//    
-//    func userSelectedNewDate(selectedDate: Date) {
-//        selectedNewDate = selectedDate
-//        getMedicalAppointmentsData(forDate: selectedNewDate)
-//    }
     
     func getMedicalAppointmentsData(forDate:Date) {
         currentWeekList = forDate.nextSevenDays()
@@ -138,9 +128,12 @@ class NextAppointmentsViewController: ViewController, NCalendarToViewDelegate {
     }
     
     @IBAction func didClickOnAddAppointments(_ sender: Any) {
-//        let next = UIStoryboard(name: "AddAppointments", bundle: nil)
-//        let vc = next.instantiateViewController(withIdentifier: "AddAppoinementsViewController") as? AddAppoinementsViewController
-//        self.navigationController?.pushViewController(vc!, animated: true)
+        
+        if selectedNewDate < Calendar.current.startOfDay(for: Date()) {
+            self.view.showToast(message: "Appointment cannot able to create in past days")
+            return
+        }
+        
         let next = UIStoryboard(name: "AddNewAppointment", bundle: nil)
         let vc = next.instantiateViewController(withIdentifier: "AddNewAppointmentViewController") as? AddNewAppointmentViewController
         self.navigationController?.pushViewController(vc!, animated: true)
@@ -172,7 +165,7 @@ extension NextAppointmentsViewController : UITableViewDataSource, UITableViewDel
                 cell.dateLabelHeight.constant = 20
                 cell.dateToAppointmentHeight.constant = 8
                 cell.cellIconImageView.image = UIImage(named: "appointmentIcon")
-                cell.forwardButton.isHidden = false
+                cell.forwardButton.isHidden = true
                 cell.forwardButton.setImage(UIImage(named: "MedicationsCellArrow"), for: .normal)
                 cell.editDeletButton.isHidden = true
                 cell.contentTextLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "No appointments" : "Sin citas"

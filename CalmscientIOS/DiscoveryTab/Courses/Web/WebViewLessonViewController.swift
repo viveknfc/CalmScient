@@ -158,7 +158,7 @@ class WebViewLessonViewController: ViewController, WKNavigationDelegate, WKScrip
 
         print("--------\(messageBody)-----------")
 
-        for (key, _) in messageBody {
+        for (key, msg) in messageBody {
             switch key {
                 
             case "1001":
@@ -181,6 +181,15 @@ class WebViewLessonViewController: ViewController, WKNavigationDelegate, WKScrip
                 }
                 self.navigationController?.isNavigationBarHidden = false
                 break
+                
+            case "1002":
+                print("key is 1002")
+                if msg as! String != "" {
+                    self.title = msg as? String
+                }
+                self.navigationController?.isNavigationBarHidden = false
+                break
+
 
             case "1100":
                 print("key is 1100")

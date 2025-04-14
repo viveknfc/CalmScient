@@ -95,7 +95,7 @@ class AppMainTabViewController: UITabBarController {
 
         print("the initial view value is ", isInitalView)
         let item1 = isInitalView ? navC : navCview
-        let icon1 = UITabBarItem(title: "Home", image: UIImage(named: "\(unselectedimages[0])"), selectedImage: UIImage(named: "\(selectedImages[0])")) //\(tabTitles[0])
+        let icon1 = UITabBarItem(title: "\(tabTitles[0])" , image: UIImage(named: "\(unselectedimages[0])"), selectedImage: UIImage(named: "\(selectedImages[0])")) //\(tabTitles[0]) //"Home"
         item1.tabBarItem = icon1
         tabVC.append(item1)
         print("Tab bar item title: \(item1.tabBarItem.title ?? "No title")")

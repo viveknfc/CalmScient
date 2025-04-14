@@ -519,7 +519,7 @@
     },
     "5EI-LO-2nE.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Daily drink counts\"; ObjectID = \"5EI-LO-2nE\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2283,7 +2283,7 @@
     },
     "I0E-jG-CNU.text" : {
       "comment" : "Class = \"UILabel\"; text = \"0 days\"; ObjectID = \"I0E-jG-CNU\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3447,7 +3447,7 @@
     },
     "pcg-PZ-mJH.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Your daily drink\"; ObjectID = \"pcg-PZ-mJH\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -4347,7 +4347,7 @@
     },
     "ugw-41-hOz.text" : {
       "comment" : "Class = \"UILabel\"; text = \"0\"; ObjectID = \"ugw-41-hOz\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {

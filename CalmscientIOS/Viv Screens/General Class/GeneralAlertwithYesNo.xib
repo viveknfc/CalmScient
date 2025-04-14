@@ -36,13 +36,13 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gf8-Y8-5an" userLabel="Main" customClass="FontLM14" customModule="CalmscientIOS" customModuleProvider="target">
-                            <rect key="frame" x="10" y="140" width="333" height="20.333333333333343"/>
+                            <rect key="frame" x="10" y="140" width="313" height="20.333333333333343"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pxe-a3-5qB" userLabel="Sub" customClass="FontLR12" customModule="CalmscientIOS" customModuleProvider="target">
-                            <rect key="frame" x="10" y="180.33333333333331" width="333" height="20.333333333333343"/>
+                            <rect key="frame" x="10" y="180.33333333333331" width="313" height="20.333333333333343"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
                             <nil key="highlightedColor"/>
@@ -68,6 +68,9 @@
                                     <color key="value" name="GradientButtonColor2"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="okButtonTapped:" destination="JkI-dJ-nHW" eventType="touchUpInside" id="MXr-Vn-ztH"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yD9-Zi-SWr" userLabel="cancelButton" customClass="LinearGradientButton" customModule="CalmscientIOS" customModuleProvider="target">
                             <rect key="frame" x="171.66666666666666" y="220.66666666666663" width="99.999999999999972" height="40"/>
@@ -90,6 +93,9 @@
                                     <color key="value" name="GradientButtonColor2"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="dismissButtonTapped:" destination="JkI-dJ-nHW" eventType="touchUpInside" id="j5z-bx-dkw"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -104,7 +110,7 @@
                         <constraint firstItem="0ns-rR-623" firstAttribute="top" secondItem="pxe-a3-5qB" secondAttribute="bottom" constant="20" id="JLL-Nt-mWU"/>
                         <constraint firstItem="ccQ-Ms-msI" firstAttribute="centerX" secondItem="1e4-ZZ-6Su" secondAttribute="centerX" id="MBG-mh-RDZ"/>
                         <constraint firstItem="ccQ-Ms-msI" firstAttribute="top" secondItem="1e4-ZZ-6Su" secondAttribute="top" constant="20" id="Nvw-Cx-PM1"/>
-                        <constraint firstItem="gf8-Y8-5an" firstAttribute="trailing" secondItem="1e4-ZZ-6Su" secondAttribute="trailing" constant="10" id="WbB-1k-jM2"/>
+                        <constraint firstAttribute="trailing" secondItem="gf8-Y8-5an" secondAttribute="trailing" constant="10" id="WbB-1k-jM2"/>
                         <constraint firstItem="gf8-Y8-5an" firstAttribute="top" secondItem="ccQ-Ms-msI" secondAttribute="bottom" constant="20" id="azk-gL-oNA"/>
                         <constraint firstItem="gf8-Y8-5an" firstAttribute="leading" secondItem="1e4-ZZ-6Su" secondAttribute="leading" constant="10" id="kwV-o1-nto"/>
                     </constraints>

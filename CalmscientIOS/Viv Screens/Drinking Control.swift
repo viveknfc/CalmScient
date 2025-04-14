@@ -55,6 +55,8 @@ class DrinkingControl: UIViewController, NCalendarToViewDelegate { //CalendarToV
     
     @IBOutlet weak var goalTypeLbl1: UILabel!
     @IBOutlet weak var goalTypeLbl2: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -113,7 +115,7 @@ class DrinkingControl: UIViewController, NCalendarToViewDelegate { //CalendarToV
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissInfoView))
         tapGesture.cancelsTouchesInView = false // Allow other views to receive touches
         self.view.addGestureRecognizer(tapGesture)
-        
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -302,26 +304,16 @@ extension DrinkingControl {
                     // Access skipTutorialFlag from the first CourseList
                     if let firstCourse = data.courseLists?.first {
                         let skipTutorial = firstCourse.skipTutorialFlag ?? 0
-                        print("First course's skipTutorialFlag is: \(skipTutorial)")
-                        
-                        if skipTutorial == 1  {
+                        print("First course's skipTutorialFlag from drinking control is: \(skipTutorial)")
                             
                             // Access goal details
                             if let indexes = data.index, indexes.count >= 2 {
-                                self.goalTypeLbl1.text = indexes[0].goalType
+                                self.goalTypeLbl1.text = indexes[0].goalType ?? ""
                                 self.leftBoxLabel.text = "\(indexes[0].goal ?? 0)"
-                                self.goalTypeLbl2.text = indexes[1].goalType
+                                self.goalTypeLbl2.text = indexes[1].goalType ?? ""
                                 self.rightBoxLabel.text = "\(indexes[1].goal ?? 0)"
                             }
                             
-        
-                        } else {
-                            
-                            let next = UIStoryboard(name: "TakingControllIntro", bundle: nil)
-                            let vc = next.instantiateViewController(withIdentifier: "TakingControllIntro") as? TakingControllIntro
-                            self.navigationController?.pushViewController(vc!, animated: true)
-                            
-                        }
                     }
 
                 } catch {

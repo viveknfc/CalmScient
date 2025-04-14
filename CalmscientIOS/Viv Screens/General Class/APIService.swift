@@ -42,6 +42,7 @@ class APIService: UIViewController {
     static var SBasicKnowledgeQuestions = "patients/api/v1/smokingcontrol/getBasicKnowledgeIndex"
     
     static var getTakingControlIntroData = "patients/api/v1/takingControl/getTakingControlIntroduction"
+    static var saveTakingControlIntroData = "patients/api/v1/takingControl/saveTakingControlIntroduction"
     
 
     //MARK: - user StartUp API Calling
@@ -202,6 +203,14 @@ class APIService: UIViewController {
     static func getTakingControlIntroAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.getTakingControlIntroData
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
+    //MARK: - SaveTakingControlIntro
+    
+    static func saveTakingControlIntroAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.saveTakingControlIntroData
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
     }
     

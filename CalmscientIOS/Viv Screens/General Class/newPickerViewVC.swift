@@ -33,6 +33,8 @@ class newPickerViewVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dateSelector.locale = Locale(identifier: Utility.shared.getLocaleIdentifier())
+        
         switch pickerMode {
         case .date:
             dateSelector.datePickerMode = .date

@@ -28,8 +28,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
-        //viv start
-        
         guard let windowScene = scene as? UIWindowScene else { return }
 
         // Initialize the window
@@ -49,55 +47,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         } else {
             print("❌ Could not cast to LaunchScreenVC")
         }
-        
-        //end
-        
-//        if (UserDefaults.standard.value(forKey: "rememberMe") as? Int == 1) {
-//            print("remember Me pressed before")
-//            
-//            guard let windowScene = scene as? UIWindowScene else { return }
-//
-//            // Initialize the window
-//            window = UIWindow(windowScene: windowScene)
-//            let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
-//            if let splashVC = storyboard.instantiateViewController(withIdentifier: "LaunchScreenVC") as? LaunchScreenVC {
-//                window?.rootViewController = splashVC
-//                window?.makeKeyAndVisible()
-//                print("✅ Splash screen loaded from TakingControl storyboard")
-//                
-//            } else {
-//                print("❌ Failed to load SplashViewController")
-//                return
-//            }
-//
-//            print("Splash screen is set as rootViewController")
-//            
-//            let (loginDetails, tokenResponse) = UserDefaultsHelper.retrieveLoginDetailsFromUserDefaults()
-//
-//            if let loginDetails = loginDetails, let tokenResponse = tokenResponse {
-//                // Populate shared info
-//                ApplicationSharedInfo.shared.loginResponse = loginDetails
-//                ApplicationSharedInfo.shared.tokenResponse = tokenResponse
-//
-//                    self.userStartUpAPICall()
-//                
-//
-//            }
-//            else {
-//                // If no login details are found, navigate to Login screen
-//                navigateToLogin()
-//            }
-//                 
-//        } else {
-//            guard let windowScene = (scene as? UIWindowScene) else { return }
-//            window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-//            window?.windowScene = windowScene
-//            let homeController = UIStoryboard(name: "LoginVC", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-//            let navC = UINavigationController(rootViewController: homeController)
-//            navC.navigationBar.isHidden = true
-//            window?.rootViewController = navC
-//            window?.makeKeyAndVisible()
-//        }
   
         
         if let isDarkMode = UserDefaults.standard.value(forKey: "isDarkMode") as? Bool {

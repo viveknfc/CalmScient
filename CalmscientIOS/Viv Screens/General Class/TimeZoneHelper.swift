@@ -19,6 +19,7 @@ class TimeZoneHelper {
             print("entered here")
             
             let dateFormatter = DateFormatter()
+            dateFormatter.timeZone = TimeZone.current
             dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
             
             if let savedDateTime = dateFormatter.date(from: "\(savedDateString) \(savedTimeString)") {
@@ -37,6 +38,7 @@ class TimeZoneHelper {
                     return true  // Outdated → return true
                 }
 
+                print("the zone bool is from time zone chnage is", savedZone != currentZone)
                 return savedZone != currentZone  // Return true if zones are different, false if same
             }
         }

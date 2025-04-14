@@ -166,69 +166,6 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
    
     }
     
-    //MARK: - Get Menu Items API Call
-    
-//    func geMenuItemsAPICalls() {
-//        
-//        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
-//            fatalError("Unable to found Application Shared Info")
-//        }
-//        self.view.showToastActivity()
-//        
-//        UserDefaults.standard.removeObject(forKey: "favoriteExcersises")
-//        getMeniItems(plId: userInfo.patientLocationID, patientId: userInfo.patientID, clientId: userInfo.clientID, parentId: 0) { [self] result in
-//            switch result {
-//            case .success(let data):
-//                // Convert data to JSON object and print it
-//                do {
-//                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-//                        if let jsonData = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted),
-//                           let jsonString = String(data: jsonData, encoding: .utf8) {
-//                            print("Json string -> \(jsonString)")  // Prints JSON in readable format
-//                        }
-//                        DispatchQueue.main.async {
-//                            
-////                            self.favorites = json["favorites"] as! [[String : Any]]
-//                            self.excersises = self.favorites.filter({ if let abc = $0["isFromExercises"], abc as! Int == 1 {
-//                                return true
-//                            } else {return false}})
-//                            var favExcercises: [ExcercisesModel] = []
-//                            
-//                            self.excersises.forEach {
-//                                if let isFav = $0["isFavorite"] as? Int, let screenCode = $0["screenCode"] as? Int {
-//                                    favExcercises.append(ExcercisesModel(isFav: isFav, screenCode: screenCode))
-//                                }}
-//
-//                                UserDefaults.standard.set(try? PropertyListEncoder().encode(favExcercises), forKey: "favoriteExcersises")
-//        
-//                            if self.favorites.isEmpty{
-//                                self.noFavsLabel.isHidden = false
-//                            }
-//                            else {
-//                                self.noFavsLabel.isHidden = true
-//                                print("self.favorites\(self.favorites)")
-//                                self.dashBoardCollectionView.reloadData()
-//                            }
-//                            self.view.hideToastActivity()
-//                            
-//                        }
-//                        
-//                    } else {
-//                        self.view.hideToastActivity()
-//                        print("Unable to convert data to JSON")
-//                    }
-//                    
-//                } catch {
-//                    self.view.hideToastActivity()
-//                    print("Error converting data to JSON: \(error)")
-//                }
-//            case .failure(let error):
-//                print("Error: \(error)")
-//            }
-//        }
-//        
-//    }
-    
     func setupLanguage() {
         
         languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")

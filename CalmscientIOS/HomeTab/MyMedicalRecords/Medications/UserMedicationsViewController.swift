@@ -98,50 +98,81 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         var calendar = Calendar.current
         calendar.timeZone = TimeZone(identifier: "UTC")!
         
-        if !calendar.isDate(selectedNewDate, inSameDayAs: Date()) {
-            print("the selected new date is",selectedNewDate,"and the date is", Date())
-            print("Dates are different")
-        } else {
-            print("Dates are the same")
+        let now = Date()
+        let today = calendar.startOfDay(for: now)
+        let selectedDay = calendar.startOfDay(for: selectedNewDate)
+
+        if let daysDifference = calendar.dateComponents([.day], from: selectedDay, to: today).day,
+           daysDifference >= 0 && daysDifference <= 4 {
+            
+            // 🕓 For today, apply future time restriction
+            if selectedDay == today {
+                
+                //viv start
+                
+                if selectedDay == today {
+                    // Get local hour (not in UTC)
+                    let localHour = Calendar.current.component(.hour, from: Date())
+
+                    switch buttonType {
+                    case .first:
+                        // Morning: allowed anytime today — no restriction
+                        break
+
+                    case .second:
+                        // Afternoon: only allowed if local time is 12 PM or later
+                        if localHour < 12 {
+                            print("⏰ Too early to mark afternoon dose. Local hour: \(localHour)")
+                            return
+                        }
+
+                    case .third:
+                        // Evening: only allowed if local time is 6 PM or later
+                        if localHour < 18 {
+                            print("⏰ Too early to mark evening dose. Local hour: \(localHour)")
+                            return
+                        }
+                    }
+                }
+
+                
+                //end
+
+            }
+
+            print("✅ Date is allowed for marking")
+
             guard let indexPath = self.medicationsTableView.indexPath(for: cell) else { return }
-            
-            print("Button tapped at row: \(indexPath.row), type: \(buttonType)")
-            
+
             let medicationDetails = medicationData[indexPath.row].medicationDetailsByDate.first?.medicalDetails
             let scheduledIndex = buttonType.scheduledIndex
-            
+
             let responseDate = medicationData[indexPath.row].date
-            
+
             if let scheduledTimes = medicationDetails?.scheduledTimeList[scheduledIndex].scheduledTimes.first {
                 
                 let pmtId = scheduledTimes.pmtId
                 let medicineTaken = (scheduledTimes.medicineTaken == "1") ? "0" : "1"
-                
-                let reponseTime = scheduledTimes.medicineTime
-                
+                let responseTime = scheduledTimes.medicineTime
+
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "MM/dd/yyyy"
                 dateFormatter.locale = Locale(identifier: "en_US_POSIX")
                 if let date = dateFormatter.date(from: responseDate) {
-                    
-                    
-                    // Convert date to required format
                     let outputFormatter = DateFormatter()
-                    outputFormatter.dateFormat = "yyyy-MM-dd" // Target format for date
-                    
+                    outputFormatter.dateFormat = "yyyy-MM-dd"
                     let formattedDate = outputFormatter.string(from: date)
-                    combinedDateTime = "\(formattedDate) \(reponseTime)" // Append time
-
+                    combinedDateTime = "\(formattedDate) \(responseTime)"
                 }
 
-                  // Call API with the updated medicineTaken value
                 callForMarkMedication(pmtId: pmtId, medicineTaken: medicineTaken, medicationdatetime: combinedDateTime)
-                
-              } else {
-                  print("No scheduledTimes found for button: \(buttonType)")
-              }
+            } else {
+                print("No scheduledTimes found for button: \(buttonType)")
+            }
+            
+        } else {
+            print("❌ Selected date is more than 5 days ago or in the future")
         }
-   
     }
     
     func callForMarkMedication(pmtId: String, medicineTaken: String, medicationdatetime: String) {
@@ -164,7 +195,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     
     func getresponseforMarkMedicationAPI(response:AnyObject)->() {
 
-        getMedicationsData(forDate: Date())
+        getMedicationsData(forDate: selectedNewDate) //Date()
         
         if let responseDict = response as? [String: Any],
            let responseCode = responseDict["responseCode"] as? Int,
@@ -285,7 +316,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         
         title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Medications" : "Medicación"
         self.tabBarController?.tabBar.isHidden = false;
-        self.tabBarController?.tabBar.selectedItem?.title = "Home"
+        self.tabBarController?.tabBar.selectedItem?.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Home" : "Inicio"//"Home"
         saveButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str:"Save"))
         getMedicationsData(forDate: Date())
     }

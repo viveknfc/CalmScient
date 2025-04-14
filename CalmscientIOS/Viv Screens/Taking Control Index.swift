@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-class TakingControlIndex: ViewController {
+class TakingControlIndex: UIViewController {
     
     @IBOutlet weak var takingSegmentControl: UISegmentedControl!
     @IBOutlet weak var containerView: UIView!
     
     @IBOutlet weak var barView: UIView!
-    
+    var initialSegmentIndex: Int = 0
     
     private var currentViewController: UIViewController?
 
@@ -42,15 +42,47 @@ class TakingControlIndex: ViewController {
                     self.barView.alpha = 1
                 }
         
-        switchToViewController(withIdentifier: "", sender: 0)
+        takingSegmentControl.selectedSegmentIndex = initialSegmentIndex
+        switchToViewController(withIdentifier: "", sender: initialSegmentIndex)
+        updateIndicatorPosition()
         
         self.navigationController?.navigationBar.isHidden = false
         if #available(iOS 16.0, *) {
             self.navigationController?.navigationItem.leftBarButtonItem?.isHidden = false
+            
+            //nav bar back button start
+            let backButtonImage = UIImage(named: "NavigationBack")?.withRenderingMode(.alwaysOriginal)
+
+            // Create a UIButton
+            let backButton = UIButton(type: .custom)
+            backButton.setImage(backButtonImage, for: .normal)
+            backButton.addTarget(self, action: #selector(backButtonOverrideAction), for: .touchUpInside)
+
+            // Set constraints to adjust the size
+            backButton.translatesAutoresizingMaskIntoConstraints = false
+            backButton.widthAnchor.constraint(equalToConstant: 32).isActive = true // Set desired width
+            backButton.heightAnchor.constraint(equalToConstant: 32).isActive = true // Set desired height
+
+            // Create a UIBarButtonItem using the UIButton
+            let backBarButtonItem = UIBarButtonItem(customView: backButton)
+            navigationItem.leftBarButtonItem = backBarButtonItem
+            
+            //end
+            
         } else {
             // Fallback on earlier versions
         }
+        
     }
+    
+    @objc func backButtonOverrideAction() {
+        if #available(iOS 16.0, *) {
+            let vc = UIStoryboard(name: "DiscoveryMainDashboard", bundle: nil).instantiateViewController(withIdentifier: "DiscoveryMainViewController") as! DiscoveryMainViewController
+            self.navigationController?.setViewControllers([vc], animated: true)
+        } else {
+            // Fallback on earlier versions
+        }
+        }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -61,6 +93,7 @@ class TakingControlIndex: ViewController {
         super.viewDidLayoutSubviews()
         updateIndicatorPosition()
     }
+
     
     @IBAction func segmentActionClicked(_ sender: UISegmentedControl) {
         switchToViewController(withIdentifier: "", sender: sender.selectedSegmentIndex)
@@ -85,7 +118,7 @@ class TakingControlIndex: ViewController {
         var newViewController: UIViewController?
 
         if sender == 0 {
-            newViewController = UIStoryboard(name: "Taking Control Index", bundle: nil).instantiateViewController(withIdentifier: "DrinkingControl")
+            newViewController = UIStoryboard(name: "Taking Control Index", bundle: nil).instantiateViewController(withIdentifier: "DrinkingControl")            
         } else {
             newViewController = UIStoryboard(name: "Taking Control Index", bundle: nil).instantiateViewController(withIdentifier: "SmokingControl")
         }
@@ -107,10 +140,7 @@ class TakingControlIndex: ViewController {
             currentViewController = newVC
         }
     }
-
-
-
-    
+  
 }
 
 extension UISegmentedControl {

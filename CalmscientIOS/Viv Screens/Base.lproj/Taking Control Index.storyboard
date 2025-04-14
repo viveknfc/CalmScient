@@ -420,21 +420,6 @@
             </objects>
             <point key="canvasLocation" x="3990" y="1265"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="5mz-cd-a1H">
-            <objects>
-                <viewController id="Rpt-MG-65o" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9yb-Mq-gru">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="F2O-l9-YNs"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yeP-Vu-siG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3253" y="1993"/>
-        </scene>
         <!--Smoking Basic Vc-->
         <scene sceneID="aA1-SO-fC0">
             <objects>
@@ -460,9 +445,8 @@
                                                         </constraints>
                                                     </tableView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="09y-3g-ktp" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="253" y="590" width="120" height="40"/>
+                                                        <rect key="frame" x="306" y="590" width="67" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="120" id="GBt-Q4-Gc7"/>
                                                             <constraint firstAttribute="height" constant="40" id="lLa-ML-Bim"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -564,10 +548,9 @@ Nicotine works on the brain in a way that makes it feel good and can become a ha
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2YV-2M-XfC" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="253" y="720" width="120" height="40"/>
+                                                        <rect key="frame" x="306" y="720" width="67" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="FUJ-wd-eYr"/>
-                                                            <constraint firstAttribute="width" constant="120" id="VJn-vX-FcD"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Complete"/>
@@ -684,9 +667,8 @@ E-cigarette aerosol generally contains fewer toxic chemicals than the deadly mix
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uM4-m4-vem" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="253" y="650" width="120" height="40"/>
+                                                        <rect key="frame" x="306" y="650" width="67" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="120" id="0NJ-Ml-ilu"/>
                                                             <constraint firstAttribute="height" constant="40" id="ffK-Kb-peM"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -790,7 +772,7 @@ That's why some people, both adults and teens, use smoking to kind of "reset" th
                                                         <rect key="frame" x="253" y="620" width="120" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="4cx-VL-cu0"/>
-                                                            <constraint firstAttribute="width" constant="120" id="MEk-TP-1nR"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="MEk-TP-1nR"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Complete"/>
@@ -894,7 +876,7 @@ So what does this ride of change look like? There are 4 steps and helpful strate
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n3s-Vv-UxV" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
                                                         <rect key="frame" x="253" y="680" width="120" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="120" id="Eig-fp-5aN"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="Eig-fp-5aN"/>
                                                             <constraint firstAttribute="height" constant="40" id="dut-27-a8W"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -989,7 +971,7 @@ But just so you know, thinking about quitting is already a first big step forwar
                                 <rect key="frame" x="253" y="758" width="120" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="cBr-Sq-NVs"/>
-                                    <constraint firstAttribute="width" constant="120" id="nX8-ZK-Typ"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="nX8-ZK-Typ"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Complete"/>
@@ -1064,7 +1046,7 @@ In the following sections, you can learn about recommended strategies for overco
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Bw-fV-7cK" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
                                                         <rect key="frame" x="253" y="860" width="120" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="120" id="heO-zX-rAt"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="heO-zX-rAt"/>
                                                             <constraint firstAttribute="height" constant="40" id="vXh-DY-WHK"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -2039,7 +2021,7 @@ What can you do?</string>
                                                         <rect key="frame" x="253" y="880" width="120" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="7hC-3i-pus"/>
-                                                            <constraint firstAttribute="width" constant="120" id="rBa-QI-I7b"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="rBa-QI-I7b"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Complete"/>
@@ -2156,7 +2138,7 @@ However, it’s always wise to be on guard</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="95S-X3-XV2" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
                                                         <rect key="frame" x="253" y="640" width="120" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="120" id="Ckm-h4-96K"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="Ckm-h4-96K"/>
                                                             <constraint firstAttribute="height" constant="40" id="Kwi-vw-G2D"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
@@ -2554,8 +2536,8 @@ However, it’s always wise to be on guard</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1nh-jK-EeZ" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
                                                         <rect key="frame" x="253" y="765.66666666666663" width="120" height="40"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="3uc-Pe-Zgr"/>
                                                             <constraint firstAttribute="height" constant="40" id="K7d-4m-KNR"/>
-                                                            <constraint firstAttribute="width" constant="120" id="bR9-7z-xbl"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Complete"/>
@@ -2747,7 +2729,7 @@ However, it’s always wise to be on guard</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QuK-sR-YTh" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
                                                         <rect key="frame" x="253" y="545" width="120" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="120" id="3AW-QX-Ebk"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="3AW-QX-Ebk"/>
                                                             <constraint firstAttribute="height" constant="40" id="9uk-yI-AJp"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -2887,7 +2869,7 @@ However, it’s always wise to be on guard</string>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VV2-8U-Ddg" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
                                 <rect key="frame" x="253" y="758" width="120" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="8ZM-qb-CcH"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="8ZM-qb-CcH"/>
                                     <constraint firstAttribute="height" constant="40" id="OqE-aW-cfs"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -2966,7 +2948,7 @@ However, it’s always wise to be on guard</string>
                                 <rect key="frame" x="253" y="758" width="120" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="1iV-mW-7WH"/>
-                                    <constraint firstAttribute="width" constant="120" id="lXJ-y9-Jag"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="lXJ-y9-Jag"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Complete"/>
@@ -3048,7 +3030,7 @@ However, it’s always wise to be on guard</string>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="grQ-rb-i1S" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
                                 <rect key="frame" x="253" y="758" width="120" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="G0O-kr-LRq"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="G0O-kr-LRq"/>
                                     <constraint firstAttribute="height" constant="40" id="P4T-KN-xwy"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -3134,7 +3116,7 @@ However, it’s always wise to be on guard</string>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Bp-dc-Fln" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
                                 <rect key="frame" x="253" y="758" width="120" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="f79-YE-oGl"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="f79-YE-oGl"/>
                                     <constraint firstAttribute="height" constant="40" id="ksD-eN-1Es"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -3235,7 +3217,7 @@ a concern?</string>
                                                         <rect key="frame" x="253" y="670" width="120" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="9zb-Rh-y4m"/>
-                                                            <constraint firstAttribute="width" constant="120" id="myx-eI-LDk"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="myx-eI-LDk"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Complete"/>
@@ -3616,7 +3598,7 @@ a concern?</string>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ifl-Bb-V3v" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
                                 <rect key="frame" x="253" y="758" width="120" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="Xpo-Yk-2Pj"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="Xpo-Yk-2Pj"/>
                                     <constraint firstAttribute="height" constant="40" id="eM3-U5-QGD"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -3692,7 +3674,7 @@ a concern?</string>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LXh-Bz-n9U" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
                                 <rect key="frame" x="253" y="758" width="120" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="WcY-l7-9j3"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="WcY-l7-9j3"/>
                                     <constraint firstAttribute="height" constant="40" id="YIo-H9-uWf"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -3770,7 +3752,7 @@ a concern?</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cwo-30-SDY" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
                                                         <rect key="frame" x="253" y="1055" width="120" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="120" id="mal-iS-MNB"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="mal-iS-MNB"/>
                                                             <constraint firstAttribute="height" constant="40" id="wtR-jG-y0L"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -3985,7 +3967,7 @@ a concern?</string>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2yg-c1-UVt" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
                                                         <rect key="frame" x="253" y="875" width="120" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="120" id="bZc-sr-Sh5"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="bZc-sr-Sh5"/>
                                                             <constraint firstAttribute="height" constant="40" id="rku-nM-MPz"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -4104,7 +4086,7 @@ a concern?</string>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hY2-Po-UnD" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
                                 <rect key="frame" x="253" y="758" width="120" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="120" id="i0F-Yw-MgB"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="i0F-Yw-MgB"/>
                                     <constraint firstAttribute="height" constant="40" id="pex-nv-PK5"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -4559,7 +4541,7 @@ your journey</string>
                                 <rect key="frame" x="253" y="758" width="120" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="Ph0-5V-s8H"/>
-                                    <constraint firstAttribute="width" constant="120" id="RVG-Og-4Qa"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="RVG-Og-4Qa"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Complete"/>
@@ -4630,7 +4612,7 @@ your journey</string>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nkb-69-EzE" userLabel="view1">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="200"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Daily drink counts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5EI-LO-2nE" customClass="FontLL14" customModule="CalmscientIOS" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5EI-LO-2nE" customClass="FontLL15" customModule="CalmscientIOS" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="10" width="156.66666666666666" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="w1H-cP-scV"/>
@@ -4648,8 +4630,8 @@ your journey</string>
                                                         <color key="textColor" name="VTextColor1"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your daily drink" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcg-PZ-mJH" customClass="FontLL14" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="206.66666666666663" y="9.9999999999999982" width="166.33333333333337" height="20.333333333333329"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcg-PZ-mJH" customClass="FontLL15" customModule="CalmscientIOS" customModuleProvider="target">
+                                                        <rect key="frame" x="206.66666666666663" y="20" width="166.33333333333337" height="0.0"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="VTextColor1"/>
                                                         <nil key="highlightedColor"/>
@@ -4673,8 +4655,8 @@ your journey</string>
                                                                     <constraint firstAttribute="height" constant="28" id="skY-1T-6He"/>
                                                                 </constraints>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugw-41-hOz" customClass="FontLM38" customModule="CalmscientIOS" customModuleProvider="target">
-                                                                <rect key="frame" x="78" y="30" width="10.333333333333329" height="20.333333333333329"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ugw-41-hOz" customClass="FontLM38" customModule="CalmscientIOS" customModuleProvider="target">
+                                                                <rect key="frame" x="83.333333333333329" y="40" width="0.0" height="0.0"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" name="VTextColor1"/>
                                                                 <nil key="highlightedColor"/>
@@ -4705,8 +4687,8 @@ your journey</string>
                                                                 <color key="textColor" red="0.5411764979" green="0.5411764979" blue="0.5411764979" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 days" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0E-jG-CNU" customClass="FontLM18" customModule="CalmscientIOS" customModuleProvider="target">
-                                                                <rect key="frame" x="47.999999999999993" y="37.333333333333343" width="108.33333333333331" height="20.333333333333329"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I0E-jG-CNU" customClass="FontLM18" customModule="CalmscientIOS" customModuleProvider="target">
+                                                                <rect key="frame" x="47.999999999999993" y="37.333333333333343" width="108.33333333333331" height="0.0"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" name="VTextColor1"/>
                                                                 <nil key="highlightedColor"/>
@@ -6614,7 +6596,7 @@ Depression is common because when you smoke a lot, your brain kind of switches o
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u0s-bE-o8F" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
                                                         <rect key="frame" x="253" y="640" width="120" height="40"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="width" constant="120" id="Igy-4p-yWa"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="Igy-4p-yWa"/>
                                                             <constraint firstAttribute="height" constant="40" id="War-iV-bV9"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
@@ -6756,7 +6738,7 @@ Depression is common because when you smoke a lot, your brain kind of switches o
                                                         <rect key="frame" x="253" y="1288" width="120" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="Bws-e0-8SB"/>
-                                                            <constraint firstAttribute="width" constant="120" id="HIb-5P-1zg"/>
+                                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="HIb-5P-1zg"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Complete"/>
@@ -6948,7 +6930,7 @@ Conduct a quick self-test with AUDIT above. Click on "Submit" at the end for an 
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIg-1K-rx9" userLabel="subContext1" customClass="FontLL14" customModule="CalmscientIOS" customModuleProvider="target">
                                                                 <rect key="frame" x="10" y="10" width="313" height="380"/>
-                                                                <mutableString key="text">"Drug use" refers to
+                                                                <string key="text">"Drug use" refers to
  
 1. the use of prescribed or over-the-counter drugs in excess of the directions, and 
 2. any non medical use of drugs.
@@ -6957,7 +6939,7 @@ The various classes of drugs may include cannabis (marijuana, hashish), solvents
 
 Please answer the questions in this survey. If you have difficulty with a statement, simply choose the best response possible.
 
-These questions refer to drug use in the past 12 months. Please answer NO or YES to each question.</mutableString>
+These questions refer to drug use in the past 12 months. Please answer NO or YES to each question.</string>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
@@ -6995,7 +6977,7 @@ These questions refer to drug use in the past 12 months. Please answer NO or YES
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gAR-KU-Lqf" userLabel="subContext1" customClass="FontLL14" customModule="CalmscientIOS" customModuleProvider="target">
                                                                 <rect key="frame" x="10" y="10" width="313" height="220"/>
-                                                                <mutableString key="text">The CAGE questionnaire for smoking (modified from the familiar CAGE questionnaire for alcoholism), the "four Cs" test and the Fagerström Test for Nicotine Dependence help diagnose nicotine dependence based on standard criteria. Additional questions can  be used to determine a patient's readiness to change and the nature of reinforcement the patient receives  from smoking. These tools can assist family physicians in guiding patients to quit smoking-the single most important thing smokers can do to improve their health.</mutableString>
+                                                                <string key="text">The CAGE questionnaire for smoking (modified from the familiar CAGE questionnaire for alcoholism), the "four Cs" test and the Fagerström Test for Nicotine Dependence help diagnose nicotine dependence based on standard criteria. Additional questions can  be used to determine a patient's readiness to change and the nature of reinforcement the patient receives  from smoking. These tools can assist family physicians in guiding patients to quit smoking-the single most important thing smokers can do to improve their health.</string>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
