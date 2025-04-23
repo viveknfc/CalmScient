@@ -18,16 +18,16 @@ class ProfileThemeTableViewCell: UITableViewCell {
     @IBOutlet weak var cellIconView: UIImageView!
     
     @IBOutlet weak var darkModeChangeButton: UIButton!
-    var switchValueChanged: ((Bool) -> Void)?
+//    var switchValueChanged: ((Bool) -> Void)?
     var darkModeChangeButtonAction: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        let isDarkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
-            darkModeSwitch.isOn = isDarkMode
-       
-        darkModeSwitch.addTarget(self, action: #selector(switchChanged(_:)), for: .valueChanged)
+//        let isDarkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
+//            darkModeSwitch.isOn = isDarkMode
+//       
+//        darkModeSwitch.addTarget(self, action: #selector(switchChanged(_:)), for: .valueChanged)
         
         darkModeChangeButton.addTarget(self, action: #selector(darkModeChangeButtonActionClicked), for: .touchUpInside)
 
@@ -38,12 +38,12 @@ class ProfileThemeTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    @objc private func switchChanged(_ sender: UISwitch) {
-        switchValueChanged?(sender.isOn)
-        
-        UserDefaults.standard.set(sender.isOn, forKey: "isDarkMode")
-       // setAppDarkMode(sender.isOn)
-    }
+//    @objc private func switchChanged(_ sender: UISwitch) {
+//        switchValueChanged?(sender.isOn)
+//        
+//        UserDefaults.standard.set(sender.isOn, forKey: "isDarkMode")
+//       // setAppDarkMode(sender.isOn)
+//    }
 
     @objc func darkModeChangeButtonActionClicked() {
         darkModeChangeButtonAction?()

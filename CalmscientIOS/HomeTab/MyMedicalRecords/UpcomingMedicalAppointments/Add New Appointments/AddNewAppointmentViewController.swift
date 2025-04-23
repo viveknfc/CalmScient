@@ -13,6 +13,13 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
     var EditVc: Bool?
     var params: [String: Any] = [:]
     
+    @IBOutlet weak var patientName: FontLR16!
+    @IBOutlet weak var providerrName: FontLR16!
+    @IBOutlet weak var location: FontLR16!
+    @IBOutlet weak var date: FontLR16!
+    @IBOutlet weak var time: FontLR16!
+    
+    
     //viv start
     
     func didSelectDate(_ date: Date, indexPath: IndexPath?, isTimePicker: Bool) {
@@ -105,7 +112,20 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = EditVc ?? false ? "Edit Appointment" : "Add Appointment"
+//        self.title = EditVc ?? false ? "Edit appointment" : "Add appointment"
+        
+        if EditVc ?? false {
+            self.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Edit appointment" : "Editar cita"
+        } else {
+            self.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Add appointment" : "Agregar nueva cita"
+        }
+        
+        addRedAsterisk(to: patientName)
+        addRedAsterisk(to: providerrName)
+        addRedAsterisk(to: location)
+        addRedAsterisk(to: date)
+        addRedAsterisk(to: time)
+        
         descriptionTV.text = placeholderText
         descriptionTV.textColor = UIColor.lightGray
         descriptionTV.delegate = self
@@ -178,6 +198,23 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
 
     }
 
+    //MARK: - For Adding astrik to labels
+    
+    func addRedAsterisk(to label: UILabel) {
+        guard let labelText = label.text else { return }
+
+        let attributedText = NSMutableAttributedString(string: labelText, attributes: [
+            .foregroundColor: label.textColor ?? UIColor.black
+        ])
+
+        let asterisk = NSAttributedString(string: " *", attributes: [
+            .foregroundColor: UIColor.red
+        ])
+
+        attributedText.append(asterisk)
+        label.attributedText = attributedText
+    }
+
     
     //MARK: - Drop down table
     
@@ -238,6 +275,8 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
         guard let dateText = dateTF.text?.trimmingCharacters(in: .whitespacesAndNewlines), !dateText.isEmpty,
               let selectedDate = dateFormatter.date(from: dateText) else {
             showGeneralAlert(
+                image: UIImage(named: "InfoIcon"),
+                imageSize: CGSize(width: 40, height: 40),
                 title: "Please enter a valid date.",
                 okButtonTitle: "Ok",
                 okAction: {
@@ -253,6 +292,8 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
         guard let timeText = timeTF.text?.trimmingCharacters(in: .whitespacesAndNewlines), !timeText.isEmpty,
               let selectedTime = dateFormatter.date(from: timeText) else {
             showGeneralAlert(
+                image: UIImage(named: "InfoIcon"),
+                imageSize: CGSize(width: 40, height: 40),
                 title: "Please enter a valid time.",
                 okButtonTitle: "Ok",
                 okAction: {
@@ -396,6 +437,8 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
         
         if patientName.isEmpty {
             showGeneralAlert(
+                image: UIImage(named: "InfoIcon"),
+                imageSize: CGSize(width: 40, height: 40),
                 title: "Patient Name cannot be empty.",
                 okButtonTitle: "Ok",
                 okAction: {
@@ -408,6 +451,8 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
         
         if providerFirstName.isEmpty {
             showGeneralAlert(
+                image: UIImage(named: "InfoIcon"),
+                imageSize: CGSize(width: 40, height: 40),
                 title: "Provider Name cannot be empty.",
                 okButtonTitle: "Ok",
                 okAction: {
@@ -420,6 +465,8 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
 
         if locationName.isEmpty {
             showGeneralAlert(
+                image: UIImage(named: "InfoIcon"),
+                imageSize: CGSize(width: 40, height: 40),
                 title: "Location Name cannot be empty.",
                 okButtonTitle: "Ok",
                 okAction: {

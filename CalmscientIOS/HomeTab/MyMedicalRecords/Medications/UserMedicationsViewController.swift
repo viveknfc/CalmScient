@@ -220,6 +220,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
             vc?.EditVc = true
             vc?.medicationData = medicationData[indexPath.row]
             vc?.refreshControlClosure = {[weak self] flag in
+                print("the selected new date is ",self?.selectedNewDate as Any)
                 self?.getMedicationsData(forDate: self?.selectedNewDate ?? Date())
             }
             self.navigationController?.pushViewController(vc!, animated: true)
@@ -318,7 +319,20 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         self.tabBarController?.tabBar.isHidden = false;
         self.tabBarController?.tabBar.selectedItem?.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Home" : "Inicio"//"Home"
         saveButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str:"Save"))
-        getMedicationsData(forDate: Date())
+        
+        let date = Calendar.current.startOfDay(for: Date())
+        getMedicationsData(forDate: convertToLocalTimeZone(date: date))
+        print("the date we are passing is", convertToLocalTimeZone(date: date))
+
+
+//        getMedicationsData(forDate: Date())
+    }
+    
+    func convertToLocalTimeZone(date: Date) -> Date {
+        let timeZone = TimeZone.current
+        let calendar = Calendar.current
+        let localDate = calendar.date(byAdding: .second, value: timeZone.secondsFromGMT(for: date), to: date)!
+        return localDate
     }
 
     
@@ -341,6 +355,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         utcCalendar.timeZone = TimeZone(identifier: "UTC")!
 
         let utcDate = utcCalendar.startOfDay(for: forDate) // Midnight in UTC
+        print("UTC date is getting as ", utcDate)
         
         var prepareRequestBodyParams:[String:Any] = [:]
         guard let loginResponse = ApplicationSharedInfo.shared.loginResponse else {

@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Lexend-Light.ttf">
+        <array key="lexendlight.ttf">
             <string>Lexend-Light</string>
         </array>
-        <array key="Lexend-Regular.ttf">
+        <array key="lexendregular.ttf">
             <string>Lexend-Regular</string>
         </array>
     </customFonts>
@@ -34,8 +34,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3XP-aI-I45">
                     <rect key="frame" x="0.0" y="59" width="393" height="366"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Journal entry add" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfm-Ie-zev">
-                            <rect key="frame" x="89.666666666666671" y="16" width="174.33333333333331" height="25"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add journal entry" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfm-Ie-zev">
+                            <rect key="frame" x="92.666666666666671" y="16" width="168.66666666666663" height="25"/>
                             <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="20"/>
                             <color key="textColor" name="424242Color"/>
                             <nil key="highlightedColor"/>

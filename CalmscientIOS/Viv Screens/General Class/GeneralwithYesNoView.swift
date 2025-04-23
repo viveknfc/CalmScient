@@ -14,7 +14,7 @@ class GeneralwithYesNoView: UIView {
         @IBOutlet weak var alertMainText: FontLM14!
         @IBOutlet weak var alertSubText: FontLR12!
         @IBOutlet weak var alertOkButton: LinearGradientButton!
-        @IBOutlet weak var alertCancelButton: LinearGradientButton!
+        @IBOutlet weak var alertCancelButton: UIButton!
         @IBOutlet weak var BGView: UIView!
         
         
@@ -41,6 +41,7 @@ class GeneralwithYesNoView: UIView {
         }
     }
 
+
     extension UIViewController {
         func showGeneralAlertYesNo(
             image: UIImage? = nil,
@@ -50,7 +51,9 @@ class GeneralwithYesNoView: UIView {
             okButtonTitle: String = "OK",
             cancelButtonTitle: String = "Cancel",
             okAction: (() -> Void)? = nil,
-            cancelAction: (() -> Void)? = nil
+            cancelAction: (() -> Void)? = nil,
+            titleFontSize: CGFloat? = nil,
+            subtitleFontSize: CGFloat? = nil
         ) {
             let alertView = Bundle.main.loadNibNamed("GeneralAlertwithYesNo", owner: self, options: nil)?.first as! GeneralwithYesNoView
 
@@ -72,6 +75,13 @@ class GeneralwithYesNoView: UIView {
             alertView.okAction = okAction
             alertView.cancelAction = cancelAction
 
+            // Set font sizes if provided
+            if let titleFontSize = titleFontSize {
+                alertView.alertMainText.font = alertView.alertMainText.font.withSize(titleFontSize)
+            }
+            if let subtitleFontSize = subtitleFontSize {
+                alertView.alertSubText.font = alertView.alertSubText.font.withSize(subtitleFontSize)
+            }
             
             if let alertImage = image {
                 alertView.alertImage.image = alertImage

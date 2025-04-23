@@ -50,7 +50,7 @@ class APIService: UIViewController {
     static func userStartUpAPICalling(_ view:UIViewController?,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.UserStartUpScreen
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
     //MARK: - Update Password API Calling
@@ -58,7 +58,7 @@ class APIService: UIViewController {
     static func updatePasswordAPICalling(_ view:UIViewController?,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.updatePassword
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
 
     //MARK: - Refresh API Calling
@@ -66,7 +66,7 @@ class APIService: UIViewController {
     static func refreshAPICalling(_ view:UIViewController?,params:[String:String],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.RefreshToken
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
     //MARK: - Delete Medication
@@ -74,7 +74,7 @@ class APIService: UIViewController {
     static func deletMedicationAPICalling(_ view:UIViewController,params:[String:Int],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.DeleteMedication
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
     //MARK: - Delete Appointment
@@ -82,7 +82,7 @@ class APIService: UIViewController {
     static func deleteAppointmentAPICalling(_ view:UIViewController,params:[String:Int],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.DeleteeAppointment
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
     //MARK: - Edit Appointment
@@ -90,7 +90,7 @@ class APIService: UIViewController {
     static func editSaveAppointmentAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.EditAppointment
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
     //MARK: - Save Appointment
@@ -98,7 +98,7 @@ class APIService: UIViewController {
     static func SaveAppointmentAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.SaveAppointment
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
     //MARK: - Smoking Get Taking COntrol
@@ -106,7 +106,7 @@ class APIService: UIViewController {
     static func SGetTakingControlAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.SGetTakingControlIndex
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
     //MARK: - Smoking Basic Know Question
@@ -114,7 +114,7 @@ class APIService: UIViewController {
     static func SBasicKQAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.SBasicKnowledgeQuestions
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
     //MARK: - Drinking Basic Know Question
@@ -122,7 +122,7 @@ class APIService: UIViewController {
     static func DBasicKQAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.DBasicKnowledgeQuestions
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
     //MARK: - Drinking Update Basic Know
@@ -130,7 +130,7 @@ class APIService: UIViewController {
     static func DUpdateBasicKAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.DUpdateBasicKnowledge
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
     //MARK: - Get Location Details in Appointment
@@ -138,7 +138,7 @@ class APIService: UIViewController {
     static func LocationDetailsAPICalling(_ view:UIViewController,params:[String:Int],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.LocationDetails
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
     //MARK: - Get Provider Details in Appointment
@@ -146,7 +146,7 @@ class APIService: UIViewController {
     static func ProviderDetailsAPICalling(_ view:UIViewController,params:[String:Int],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.ProviderDetails
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
     //MARK: - Mark Medication
@@ -154,7 +154,7 @@ class APIService: UIViewController {
     static func MarkMedicationAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.MarkMedication
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
     //MARK: - Add Journal
@@ -162,7 +162,7 @@ class APIService: UIViewController {
     static func AddJournalAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.AddJournal
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
     //MARK: - Add Journal
@@ -170,7 +170,7 @@ class APIService: UIViewController {
     static func GetJournalDataAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.GetJournalData
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
     //MARK: - Fetch Mood Screen Data
@@ -178,7 +178,7 @@ class APIService: UIViewController {
     static func FetchMoodScreenDataAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.FetchMoodScreenData
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
     //MARK: - Journal Data
@@ -186,7 +186,7 @@ class APIService: UIViewController {
     static func JournalDataAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.JournalData
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
 
@@ -195,7 +195,7 @@ class APIService: UIViewController {
     static func DeleteProfilePicAPICalling(_ view:UIViewController,params:[String:Int],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.ProfilePicDelet
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
     //MARK: - GetTakingControlIntro
@@ -203,7 +203,7 @@ class APIService: UIViewController {
     static func getTakingControlIntroAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.getTakingControlIntroData
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
     //MARK: - SaveTakingControlIntro
@@ -211,7 +211,7 @@ class APIService: UIViewController {
     static func saveTakingControlIntroAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.saveTakingControlIntroData
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
 
@@ -220,7 +220,7 @@ class APIService: UIViewController {
     static func getTakingControlIndexAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.GetTakingControlIndex
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
     //MARK: - Drinking GetTakingControlIndex
@@ -228,7 +228,7 @@ class APIService: UIViewController {
     static func createDrinkingCountAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.CreateDrinkTracking
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 45, parameterPlacement: parameterPlacement, callback: callBack)
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
 
     
@@ -266,10 +266,12 @@ class APIService: UIViewController {
                 return
             }
             request = URLRequest(url: finalURL)
+            request.timeoutInterval = TimeInterval(timeOut)
             request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization") //new
         
         case "body":
             request = URLRequest(url: url)
+            request.timeoutInterval = TimeInterval(timeOut)
             do {
                 request.httpBody = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
             } catch let error {
@@ -281,6 +283,7 @@ class APIService: UIViewController {
         
         case "header":
             request = URLRequest(url: url)
+            request.timeoutInterval = TimeInterval(timeOut)
             for (key, value) in params {
                 request.setValue("\(value)", forHTTPHeaderField: key)
 
@@ -294,9 +297,6 @@ class APIService: UIViewController {
         // Set the HTTP method
         request.httpMethod = method
         
-        // Add Authorization header
-//        request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization") // because of this api with header is not working - viv
-        
         // Add Content-Type header
         if parameterPlacement != "header" { // Avoid overwriting if params are headers
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -305,8 +305,6 @@ class APIService: UIViewController {
         print("Final request: \(request)")
         
         let sessionConfig = URLSessionConfiguration.default
-//        sessionConfig.timeoutIntervalForRequest = TimeInterval(timeOut)
-//        sessionConfig.timeoutIntervalForResource = TimeInterval(timeOut)
         let session = URLSession(configuration: sessionConfig)
         
         let task = session.dataTask(with: request) { (data, response, error) in

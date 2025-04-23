@@ -21,10 +21,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6sS-OJ-SZt">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="680"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ppO-8E-4a1">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="680"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="818"/>
                                                 <subviews>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Iec-SI-eiW">
                                                         <rect key="frame" x="0.0" y="0.0" width="393" height="600"/>
@@ -34,7 +34,7 @@
                                                         </constraints>
                                                     </tableView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2q7-3k-xAH" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="306" y="620" width="67" height="40"/>
+                                                        <rect key="frame" x="306" y="758" width="67" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="rfZ-5i-6fW"/>
                                                         </constraints>
@@ -50,7 +50,6 @@
                                                     <constraint firstItem="Iec-SI-eiW" firstAttribute="leading" secondItem="ppO-8E-4a1" secondAttribute="leading" id="HIo-4R-ZIu"/>
                                                     <constraint firstAttribute="bottom" secondItem="2q7-3k-xAH" secondAttribute="bottom" constant="20" id="WrK-ey-DG3"/>
                                                     <constraint firstItem="Iec-SI-eiW" firstAttribute="top" secondItem="ppO-8E-4a1" secondAttribute="top" id="cIv-4H-B3f"/>
-                                                    <constraint firstItem="2q7-3k-xAH" firstAttribute="top" secondItem="Iec-SI-eiW" secondAttribute="bottom" constant="20" id="fLI-7i-Yzk"/>
                                                     <constraint firstAttribute="trailing" secondItem="Iec-SI-eiW" secondAttribute="trailing" id="qLm-Qd-Qp6"/>
                                                     <constraint firstAttribute="trailing" secondItem="2q7-3k-xAH" secondAttribute="trailing" constant="20" id="t9x-Ol-T4x"/>
                                                 </constraints>
@@ -65,6 +64,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="6sS-OJ-SZt" firstAttribute="top" secondItem="bTy-g5-6sT" secondAttribute="top" id="0YN-A8-qyY"/>
+                                    <constraint firstItem="6sS-OJ-SZt" firstAttribute="bottom" secondItem="Der-xK-Bdi" secondAttribute="bottom" id="hBA-aP-BQb"/>
                                     <constraint firstItem="6sS-OJ-SZt" firstAttribute="width" secondItem="bTy-g5-6sT" secondAttribute="width" id="lVa-hT-NEi"/>
                                     <constraint firstAttribute="bottom" secondItem="6sS-OJ-SZt" secondAttribute="bottom" id="okc-x6-SlH"/>
                                     <constraint firstItem="6sS-OJ-SZt" firstAttribute="leading" secondItem="bTy-g5-6sT" secondAttribute="leading" id="tNa-o1-vMc"/>

@@ -8,7 +8,7 @@
 // Profile
 
 "Profile" = "Perfil";
-"Version 1.0.1" = "Versión 1.0.7";
+"Version 1.0.1" = "Versión 1.1.0";
 
 
 // Login
@@ -120,6 +120,8 @@ Defectos de nacimiento. La exposición prenatal al alcohol puede provocar daño 
 
 Estos individuos tienden a beber más, socializar con personas que beben mucho y desarrollar tolerancia al alcohol (es decir, se necesita cada vez más alcohol para sentirse o actuar intoxicado). Como resultado, tienen un mayor riesgo de desarrollar AUD. Alguien que abusa del alcohol, especialmente a largo plazo, puede sufrir daños permanentes en el hígado, el corazón o el cerebro. Y todas las personas que beben, independientemente de la cantidad, deben ser conscientes de que las capacidades críticas para tomar decisiones y las habilidades relacionadas con la conducción ya están disminuidas mucho antes de que una persona muestre signos físicos de intoxicación.
 ";
+
+"Drink counts calculator" = "Contador de bebidas";
 
 //drinkning habbit controller
 "How many days a week do you drink?" = "¿Cuántos días a la semana bebes?";
@@ -584,7 +586,7 @@ Pero, tienes el control total sobre la decisión respecto a tu hábito.
 "PHQ-9_by_date_range" = "PHQ-9 por rango de fechas";
 "GAD_by_date_range" = "GAD-7 por rango de fechas";
 "Audit_by_date_range" = "AUDIT por rango de fechas";
-"Dast_by_date_range" = "DAST por rango de fechas";
+"Dast_by_date_range" = "DAST-10 por rango de fechas";
 "More_sleep_needed" = "Se necesita más sueño";
 "Average_sleep_score" = "Puntuación promedio de sueño";
 "Most_hours_slept" = "Mayor número de horas dormidas";

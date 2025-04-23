@@ -198,7 +198,7 @@ extension NeedToTalkViewController : UITableViewDataSource,UITableViewDelegate {
                     cell.desTextView.isScrollEnabled = false
 
                     let attributedString = NSMutableAttributedString(string: eventContent, attributes: [
-                                .font: UIFont(name: Fonts().lexendRegular, size: 12) ?? UIFont.systemFont(ofSize: 12),
+                                .font: UIFont(name: Fonts().lexendRegular, size: 14) ?? UIFont.systemFont(ofSize: 14),
                                 .foregroundColor: UIColor.black
                             ])
                     

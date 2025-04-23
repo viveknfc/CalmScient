@@ -62,7 +62,7 @@ class UserEntryYesOrNoCell: UITableViewCell, UITextViewDelegate {
             }
         }
     }
-    private var instance:UserStartupScreenDayData!
+    var instance:UserStartupScreenDayData!
     
     override func awakeFromNib() {
         super.awakeFromNib()

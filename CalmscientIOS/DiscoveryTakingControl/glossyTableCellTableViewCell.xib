@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -42,10 +43,9 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="cellExpansion"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L80-LL-93t">
-                                <rect key="frame" x="57" y="15.999999999999998" width="259" height="28.333333333333329"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L80-LL-93t">
+                                <rect key="frame" x="57" y="15.999999999999998" width="260.33333333333331" height="28.333333333333329"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="259" id="TOa-Dq-hVJ"/>
                                     <constraint firstAttribute="height" constant="28.329999999999998" id="vNs-FO-Gfh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
@@ -55,6 +55,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="bfV-zC-f8O" firstAttribute="leading" secondItem="L80-LL-93t" secondAttribute="trailing" constant="5" id="25l-QP-bWt"/>
                             <constraint firstAttribute="height" constant="55" id="67b-Ud-Jkp"/>
                             <constraint firstAttribute="width" constant="344" id="6t2-VN-YdF"/>
                             <constraint firstItem="L80-LL-93t" firstAttribute="leading" secondItem="mvf-og-wl3" secondAttribute="trailing" constant="15" id="OGe-FE-eIp"/>
@@ -75,7 +76,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="yUP-dk-LdZ" secondAttribute="bottom" constant="5" id="0aD-fa-Y3y"/>
                     <constraint firstItem="yUP-dk-LdZ" firstAttribute="leading" secondItem="De9-ry-LZh" secondAttribute="leading" id="PdA-XT-eHp"/>
@@ -109,5 +110,8 @@
         <namedColor name="medicationscelldefaulttextcolor">
             <color red="0.43137254901960786" green="0.41960784313725491" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
+        <systemColor name="tertiarySystemGroupedBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>

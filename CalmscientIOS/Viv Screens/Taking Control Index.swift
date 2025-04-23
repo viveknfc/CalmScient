@@ -17,6 +17,8 @@ class TakingControlIndex: UIViewController {
     var initialSegmentIndex: Int = 0
     
     private var currentViewController: UIViewController?
+    
+    var shouldPopBack: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,13 +78,17 @@ class TakingControlIndex: UIViewController {
     }
     
     @objc func backButtonOverrideAction() {
-        if #available(iOS 16.0, *) {
-            let vc = UIStoryboard(name: "DiscoveryMainDashboard", bundle: nil).instantiateViewController(withIdentifier: "DiscoveryMainViewController") as! DiscoveryMainViewController
-            self.navigationController?.setViewControllers([vc], animated: true)
+        if shouldPopBack {
+            self.navigationController?.popViewController(animated: true)
         } else {
-            // Fallback on earlier versions
+            if #available(iOS 16.0, *) {
+                let vc = UIStoryboard(name: "DiscoveryMainDashboard", bundle: nil).instantiateViewController(withIdentifier: "DiscoveryMainViewController") as! DiscoveryMainViewController
+                self.navigationController?.setViewControllers([vc], animated: true)
+            } else {
+                // Fallback on earlier versions
+            }
         }
-        }
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

@@ -45,6 +45,12 @@ class WebViewLessonViewController: ViewController, WKNavigationDelegate, WKScrip
         disableZoom()
         self.navigationController?.toolbar.isHidden = true
         // Do any additional setup after loading the view.
+        
+        //viv start
+        
+
+        
+        //end
     }
     
     deinit {
@@ -168,16 +174,16 @@ class WebViewLessonViewController: ViewController, WKNavigationDelegate, WKScrip
                 if index == 2 {
                     print("key 1001 index value 2 clicked complete button")
                     hasAlreadyPopped = true
-//                    DispatchQueue.main.async {
-//                        self.navigationController?.popViewController(animated: true)
-//                    }
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
                 } else if index == 3 {
                     print("key 1001 index value 3 clicked complete button")
                     self.title = "Your results"
                     hasAlreadyPopped = true
-//                    DispatchQueue.main.async {
-//                        self.navigationController?.popViewController(animated: true)
-//                    }
+                    DispatchQueue.main.async {
+                        self.navigationController?.popViewController(animated: true)
+                    }
                 }
                 self.navigationController?.isNavigationBarHidden = false
                 break
@@ -224,6 +230,7 @@ class WebViewLessonViewController: ViewController, WKNavigationDelegate, WKScrip
                 let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
                 if let vc = next.instantiateViewController(withIdentifier: "TakingControlIndex") as? TakingControlIndex {
                     vc.title = AppHelper.getLocalizeString(str: "Taking control")
+                    vc.shouldPopBack = true
                     self.navigationController?.pushViewController(vc, animated: true)
                 }
                 break

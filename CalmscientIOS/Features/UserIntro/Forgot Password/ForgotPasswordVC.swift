@@ -17,9 +17,7 @@ class ForgotPasswordVC: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.navigationController?.isNavigationBarHidden = false
-        
-        addCustomBackbutton()
+
         forgotPasswordNameLbl.font = UIFont(name:Fonts().lexendMedium, size: 20.0)
         descriptionLbl.font = UIFont(name:Fonts().lexendLight, size: 16.0)
         emailPhoneNumberLbl.font = UIFont(name:Fonts().lexendLight, size: 14.0)
@@ -30,21 +28,10 @@ class ForgotPasswordVC: ViewController {
         let attrButtonName = NSAttributedString(string: "Reset Password", attributes: multipleAttributes)
         self.resetPasswordButton.titleLabel?.attributedText = attrButtonName
         
-    }
-    
-    func addCustomBackbutton(){
-        let backButton = UIButton(frame: CGRect(x: 0, y: 0, width: 25, height: 25))
-        backButton.setImage(UIImage(named: "BackArrow.png"), for: .normal)
-        backButton.addTarget(self, action: #selector(backAction), for: .touchUpInside)
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
-    }
-    
-    @objc func backAction () {
-        // do the magic
-        self.navigationController?.popViewController(animated: true)
-        // self.navigationController?.isNavigationBarHidden = true
+        title = "Forgot password"
         
     }
+
     func generateOTP(emailId: String, completion: @escaping (Result<Data, Error>) -> Void){
         // Define the URL
         guard let url = URL(string: "\(baseURLString)identity/api/v1/settings/generateOTP") else {
@@ -143,9 +130,6 @@ class ForgotPasswordVC: ViewController {
         }
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-    }
     override func viewWillAppear(_ animated: Bool) {
         setupLanguage()
     }

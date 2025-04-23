@@ -1420,17 +1420,17 @@ Pay careful attention to the following video.</string>
                                                 <rect key="frame" x="0.0" y="1057.6666666666667" width="393" height="340"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fav" translatesAutoresizingMaskIntoConstraints="NO" id="sy2-wa-WhG">
-                                                        <rect key="frame" x="335" y="8" width="41" height="41"/>
+                                                        <rect key="frame" x="335" y="69.666666666666515" width="41" height="41"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="41" id="Tnk-QE-mfs"/>
                                                             <constraint firstAttribute="height" constant="41" id="nD6-FP-zP0"/>
                                                         </constraints>
                                                     </imageView>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="odp-Zy-Eed">
-                                                        <rect key="frame" x="8" y="301" width="377" height="31"/>
+                                                        <rect key="frame" x="8" y="270" width="377" height="31"/>
                                                     </slider>
                                                     <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jFB-vW-39q">
-                                                        <rect key="frame" x="340.66666666666669" y="266" width="30" height="30"/>
+                                                        <rect key="frame" x="340.66666666666669" y="235" width="30" height="30"/>
                                                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="Dap-W5-gxC"/>
@@ -1438,7 +1438,7 @@ Pay careful attention to the following video.</string>
                                                         </constraints>
                                                     </view>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="maximise" translatesAutoresizingMaskIntoConstraints="NO" id="H0f-f7-TXU">
-                                                        <rect key="frame" x="343.66666666666669" y="269" width="24" height="24"/>
+                                                        <rect key="frame" x="343.66666666666669" y="238" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="D4a-NW-4S8"/>
                                                             <constraint firstAttribute="width" constant="24" id="krV-zR-qEo"/>
@@ -1455,17 +1455,17 @@ Pay careful attention to the following video.</string>
                                                 <color key="backgroundColor" name="AppViewContentColor"/>
                                                 <constraints>
                                                     <constraint firstItem="hG3-8U-hT5" firstAttribute="centerX" secondItem="fHa-Ar-jy1" secondAttribute="centerX" id="199-ID-7pg"/>
+                                                    <constraint firstItem="sy2-wa-WhG" firstAttribute="centerY" secondItem="fHa-Ar-jy1" secondAttribute="centerY" constant="-80" id="9yz-y2-UFX"/>
                                                     <constraint firstItem="hG3-8U-hT5" firstAttribute="centerY" secondItem="fHa-Ar-jy1" secondAttribute="centerY" id="BWr-zr-yTz"/>
                                                     <constraint firstAttribute="trailing" secondItem="sy2-wa-WhG" secondAttribute="trailing" constant="17" id="Cn8-Oh-qMw"/>
                                                     <constraint firstItem="jFB-vW-39q" firstAttribute="centerX" secondItem="H0f-f7-TXU" secondAttribute="centerX" id="KRL-Cn-nHq"/>
                                                     <constraint firstItem="H0f-f7-TXU" firstAttribute="centerX" secondItem="sy2-wa-WhG" secondAttribute="centerX" id="Nf6-nc-GmE"/>
-                                                    <constraint firstAttribute="bottom" secondItem="odp-Zy-Eed" secondAttribute="bottom" constant="9" id="Xu9-2C-y5D"/>
+                                                    <constraint firstItem="H0f-f7-TXU" firstAttribute="centerY" secondItem="fHa-Ar-jy1" secondAttribute="centerY" constant="80" id="PI4-je-ZNl"/>
                                                     <constraint firstItem="jFB-vW-39q" firstAttribute="centerY" secondItem="H0f-f7-TXU" secondAttribute="centerY" id="YGr-h5-xFa"/>
                                                     <constraint firstAttribute="height" constant="340" id="YJ9-w7-L0p"/>
-                                                    <constraint firstItem="odp-Zy-Eed" firstAttribute="top" secondItem="H0f-f7-TXU" secondAttribute="bottom" constant="8" symbolic="YES" id="cYw-jX-wha"/>
+                                                    <constraint firstItem="odp-Zy-Eed" firstAttribute="top" secondItem="jFB-vW-39q" secondAttribute="bottom" constant="5" id="fNv-au-WVf"/>
                                                     <constraint firstAttribute="trailing" secondItem="odp-Zy-Eed" secondAttribute="trailing" constant="10" id="k4m-oF-SDc"/>
                                                     <constraint firstItem="odp-Zy-Eed" firstAttribute="leading" secondItem="fHa-Ar-jy1" secondAttribute="leading" constant="10" id="nGk-7b-vIQ"/>
-                                                    <constraint firstItem="sy2-wa-WhG" firstAttribute="top" secondItem="fHa-Ar-jy1" secondAttribute="top" constant="8" id="oAH-zB-WyG"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="div-kJ-a5x">
@@ -2039,7 +2039,7 @@ Pay careful attention to the following video.</string>
                                                 <rect key="frame" x="0.0" y="1099" width="393" height="340"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fav" translatesAutoresizingMaskIntoConstraints="NO" id="TzY-PM-OIr">
-                                                        <rect key="frame" x="332" y="8" width="41" height="41"/>
+                                                        <rect key="frame" x="332" y="69.333333333333258" width="41" height="41"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="41" id="4m3-fE-DQc"/>
                                                             <constraint firstAttribute="width" constant="41" id="IsC-RF-FAI"/>
@@ -2053,10 +2053,10 @@ Pay careful attention to the following video.</string>
                                                         </constraints>
                                                     </imageView>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="c84-oN-ucO">
-                                                        <rect key="frame" x="8" y="300" width="377" height="31"/>
+                                                        <rect key="frame" x="8" y="267" width="377" height="31"/>
                                                     </slider>
                                                     <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gc6-ZO-YgB">
-                                                        <rect key="frame" x="337.66666666666669" y="265" width="30" height="30"/>
+                                                        <rect key="frame" x="337.66666666666669" y="235" width="30" height="30"/>
                                                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="30" id="9ol-j9-pGJ"/>
@@ -2064,7 +2064,7 @@ Pay careful attention to the following video.</string>
                                                         </constraints>
                                                     </view>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="maximise" translatesAutoresizingMaskIntoConstraints="NO" id="ZgA-8z-PVE">
-                                                        <rect key="frame" x="340.66666666666669" y="268" width="24" height="24"/>
+                                                        <rect key="frame" x="340.66666666666669" y="238" width="24" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="idg-YG-Wz5"/>
                                                             <constraint firstAttribute="width" constant="24" id="zK1-2r-QCI"/>
@@ -2074,13 +2074,13 @@ Pay careful attention to the following video.</string>
                                                 <color key="backgroundColor" name="AppViewContentColor"/>
                                                 <constraints>
                                                     <constraint firstItem="ZgA-8z-PVE" firstAttribute="centerX" secondItem="TzY-PM-OIr" secondAttribute="centerX" id="3T1-hl-6h8"/>
-                                                    <constraint firstItem="TzY-PM-OIr" firstAttribute="top" secondItem="aJW-TX-BnS" secondAttribute="top" constant="8" id="CPe-f1-jr2"/>
-                                                    <constraint firstItem="c84-oN-ucO" firstAttribute="top" secondItem="ZgA-8z-PVE" secondAttribute="bottom" constant="8" id="EAF-dF-Xah"/>
-                                                    <constraint firstAttribute="bottom" secondItem="c84-oN-ucO" secondAttribute="bottom" constant="10" id="Fee-BX-Pir"/>
+                                                    <constraint firstItem="c84-oN-ucO" firstAttribute="top" secondItem="ZgA-8z-PVE" secondAttribute="bottom" constant="5" id="EAF-dF-Xah"/>
                                                     <constraint firstItem="gc6-ZO-YgB" firstAttribute="centerY" secondItem="ZgA-8z-PVE" secondAttribute="centerY" id="RV9-XR-z8b"/>
                                                     <constraint firstItem="c84-oN-ucO" firstAttribute="leading" secondItem="aJW-TX-BnS" secondAttribute="leading" constant="10" id="Rv7-uF-PFU"/>
+                                                    <constraint firstItem="ZgA-8z-PVE" firstAttribute="centerY" secondItem="aJW-TX-BnS" secondAttribute="centerY" constant="80" id="U7L-Mu-lfe"/>
                                                     <constraint firstItem="UhL-BT-mlY" firstAttribute="centerY" secondItem="aJW-TX-BnS" secondAttribute="centerY" id="UBV-Kb-PTh"/>
                                                     <constraint firstAttribute="trailing" secondItem="TzY-PM-OIr" secondAttribute="trailing" constant="20" id="UY3-Mm-fxS"/>
+                                                    <constraint firstItem="TzY-PM-OIr" firstAttribute="centerY" secondItem="aJW-TX-BnS" secondAttribute="centerY" constant="-80" id="dGH-yz-QHW"/>
                                                     <constraint firstAttribute="height" constant="340" id="ee9-3R-o12"/>
                                                     <constraint firstAttribute="trailing" secondItem="c84-oN-ucO" secondAttribute="trailing" constant="10" id="nR9-lf-STq"/>
                                                     <constraint firstItem="UhL-BT-mlY" firstAttribute="centerX" secondItem="aJW-TX-BnS" secondAttribute="centerX" id="xdZ-x2-rgx"/>
@@ -2519,7 +2519,7 @@ Pay careful attention to the following video.</string>
                                                 <rect key="frame" x="0.0" y="994" width="393" height="340"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fav" translatesAutoresizingMaskIntoConstraints="NO" id="9Nx-St-dQ9">
-                                                        <rect key="frame" x="332" y="8" width="41" height="41"/>
+                                                        <rect key="frame" x="332" y="69.666666666666742" width="41" height="41"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="41" id="bYF-bs-9yp"/>
                                                             <constraint firstAttribute="height" constant="41" id="stZ-Ba-V6p"/>
@@ -2533,7 +2533,7 @@ Pay careful attention to the following video.</string>
                                                         </constraints>
                                                     </imageView>
                                                     <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uXE-t3-vdn">
-                                                        <rect key="frame" x="346" y="265" width="30" height="30"/>
+                                                        <rect key="frame" x="346" y="235" width="30" height="30"/>
                                                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="30" id="MNr-la-hR1"/>
@@ -2541,7 +2541,7 @@ Pay careful attention to the following video.</string>
                                                         </constraints>
                                                     </view>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="maximise" translatesAutoresizingMaskIntoConstraints="NO" id="sg3-Bb-dK4">
-                                                        <rect key="frame" x="349" y="268" width="24" height="24"/>
+                                                        <rect key="frame" x="349" y="238" width="24" height="24"/>
                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="24" id="JpF-3h-N12"/>
@@ -2549,20 +2549,20 @@ Pay careful attention to the following video.</string>
                                                         </constraints>
                                                     </imageView>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="OTI-Da-2TL">
-                                                        <rect key="frame" x="8" y="300" width="377" height="31"/>
+                                                        <rect key="frame" x="8" y="267" width="377" height="31"/>
                                                     </slider>
                                                 </subviews>
                                                 <color key="backgroundColor" name="AppViewContentColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="bottom" secondItem="OTI-Da-2TL" secondAttribute="bottom" constant="10" id="8WR-9b-48V"/>
                                                     <constraint firstItem="uXE-t3-vdn" firstAttribute="centerX" secondItem="sg3-Bb-dK4" secondAttribute="centerX" id="A1T-ad-N59"/>
                                                     <constraint firstItem="Mcu-Si-ug0" firstAttribute="centerX" secondItem="vjQ-Td-omE" secondAttribute="centerX" id="Hq4-dX-UVo"/>
-                                                    <constraint firstItem="OTI-Da-2TL" firstAttribute="top" secondItem="sg3-Bb-dK4" secondAttribute="bottom" constant="8" id="Jbt-CZ-CHI"/>
+                                                    <constraint firstItem="OTI-Da-2TL" firstAttribute="top" secondItem="sg3-Bb-dK4" secondAttribute="bottom" constant="5" id="Jbt-CZ-CHI"/>
                                                     <constraint firstAttribute="trailing" secondItem="9Nx-St-dQ9" secondAttribute="trailing" constant="20" id="LXp-jE-4JJ"/>
                                                     <constraint firstAttribute="trailing" secondItem="sg3-Bb-dK4" secondAttribute="trailing" constant="20" id="M3y-HE-Y7A"/>
                                                     <constraint firstItem="Mcu-Si-ug0" firstAttribute="centerY" secondItem="vjQ-Td-omE" secondAttribute="centerY" id="MbP-wE-vX2"/>
+                                                    <constraint firstItem="9Nx-St-dQ9" firstAttribute="centerY" secondItem="vjQ-Td-omE" secondAttribute="centerY" constant="-80" id="Mlg-SE-Vbo"/>
+                                                    <constraint firstItem="sg3-Bb-dK4" firstAttribute="centerY" secondItem="vjQ-Td-omE" secondAttribute="centerY" constant="80" id="NQd-2N-56R"/>
                                                     <constraint firstAttribute="trailing" secondItem="OTI-Da-2TL" secondAttribute="trailing" constant="10" id="PR7-ew-ddz"/>
-                                                    <constraint firstItem="9Nx-St-dQ9" firstAttribute="top" secondItem="vjQ-Td-omE" secondAttribute="top" constant="8" id="Q0N-33-uYk"/>
                                                     <constraint firstItem="uXE-t3-vdn" firstAttribute="centerY" secondItem="sg3-Bb-dK4" secondAttribute="centerY" id="aYp-pN-V5h"/>
                                                     <constraint firstItem="OTI-Da-2TL" firstAttribute="leading" secondItem="vjQ-Td-omE" secondAttribute="leading" constant="10" id="iwv-40-e11"/>
                                                     <constraint firstAttribute="height" constant="340" id="p4u-g7-bGJ"/>

@@ -14,7 +14,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sleep Disturbances"
+            "value" : "Trastornos de sueño"
           }
         }
       }
@@ -122,7 +122,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Después de dejar de fumar, podrías encontrar un poco difícil dormir bien al principio. Pero no te preocupes, ¡esto mejora con el tiempo! Si realmente te está molestando, habla con tu médico; ellos pueden ayudarte. Porque si estás muy cansado por no dormir bien, puede ser más difícil mantenerte libre del cigarrillo.\n                                                      Aquí tienes cómo manejarlo:\n"
+            "value" : "Después de dejar de fumar, podrías encontrar un poco difícil dormir bien al principio. Pero no te preocupes, ¡esto mejora con el tiempo! Si realmente te está molestando, habla con tu médico; ellos pueden ayudarte. Porque si estás muy cansado por no dormir bien, puede ser más difícil mantenerte libre del cigarrillo.  Aquí tienes cómo manejarlo:\n"
           }
         }
       }
@@ -170,19 +170,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completar"
-          }
-        }
-      }
-    },
-    "1q0-M6-edK.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Monthly Goal\"; ObjectID = \"1q0-M6-edK\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Monthly Goal"
+            "value" : "Finalizar"
           }
         }
       }
@@ -338,7 +326,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completar"
+            "value" : "Finalizar"
           }
         }
       }
@@ -356,7 +344,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completar"
+            "value" : "Finalizar"
           }
         }
       }
@@ -566,7 +554,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completar"
+            "value" : "Finalizar"
           }
         }
       }
@@ -878,7 +866,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completar"
+            "value" : "Finalizar"
           }
         }
       }
@@ -896,7 +884,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completar"
+            "value" : "Finalizar"
           }
         }
       }
@@ -950,7 +938,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : " 30% de los suicidios\n\n"
+            "value" : " • 30% de los suicidios\n\n"
           }
         }
       }
@@ -1130,7 +1118,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "• Problemas de memoria; el alcohol puede afectar tanto la memoria a corto como a largo plazo. Puede provocar desmayos (no recordar los eventos que ocurrieron mientras se está intoxicado).\n"
+            "value" : "Problemas de memoria; el alcohol puede afectar tanto la memoria a corto como a largo plazo. Puede provocar desmayos (no recordar los eventos que ocurrieron mientras se está intoxicado).\n"
           }
         }
       }
@@ -1226,7 +1214,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Los cigarrillos electrónicos tienen muchos nombres, como \"e-cigs,\" \"vapes\" o \"lapiceros de vapeo.\" Pueden parecer cigarrillos normales o incluso parecer otras cosas como USBs o lapiceros                                                                                Estos dispositivos funcionan con baterías y permiten a las personas inhalar algo llamado aerosol. El vapeo se hizo popular porque algunos pensaron que podría ser una opción menos dañina en comparación con fumar cigarrillos normales.                                   Dentro de ese aerosol, generalmente hay nicotina (aunque no siempre), sabores y algunos otros químicos. Los dispositivos pueden ser recargables, desechables o venir con tanques de recarga.\n¿Es más seguro que el tabaco?\nEl aerosol de los cigarrillos electrónicos generalmente contiene menos químicos tóxicos que la mortal mezcla de 7,000 químicos en el humo de los cigarrillos normales. Sin embargo, el aerosol de los cigarrillos electrónicos no es inofensivo. Puede contener sustancias nocivas y potencialmente dañinas, incluyendo nicotina, metales pesados como el plomo, compuestos orgánicos volátiles y agentes cancerígenos.\n"
+            "value" : "Los cigarrillos electrónicos tienen muchos nombres, como \"e-cigs,\" \"vapes\" o \"lapiceros de vapeo.\" Pueden parecer cigarrillos normales o incluso parecer otras cosas como USBs o lapiceros. Estos dispositivos funcionan con baterías y permiten a las personas inhalar algo llamado aerosol. El vapeo se hizo popular porque algunos pensaron que podría ser una opción menos dañina en comparación con fumar cigarrillos normales.   Dentro de ese aerosol, generalmente hay nicotina (aunque no siempre), sabores y algunos otros químicos. Los dispositivos pueden ser recargables, desechables o venir con tanques de recarga.  ¿Es más seguro que el tabaco?  El aerosol de los cigarrillos electrónicos generalmente contiene menos químicos tóxicos que la mortal mezcla de 7,000 químicos en el humo de los cigarrillos normales. Sin embargo, el aerosol de los cigarrillos electrónicos no es inofensivo. Puede contener sustancias nocivas y potencialmente dañinas, incluyendo nicotina, metales pesados como el plomo, compuestos orgánicos volátiles y agentes cancerígenos.\n"
           }
         }
       }
@@ -1370,7 +1358,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completar"
+            "value" : "Finalizar"
           }
         }
       }
@@ -1436,7 +1424,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "El tabaco proviene de las hojas de la planta Nicotiana y se utiliza en cosas como cigarrillos, puros y tabaco de mascar. Lo principal en el tabaco es la nicotina, una sustancia natural que puede ser adictiva y afectar tu cerebro.\n                                                  Cuando las personas fuman cigarrillos, inhalan más de 7,000 químicos, y la nicotina es la que hace que fumar sea adictivo. También se añaden otros químicos para que el humo tenga mejor sabor y para que la nicotina se absorba más fácilmente.\n                                                           Cada vez que alguien fuma un cigarrillo, recibe aproximadamente 1-2 miligramos de nicotina, que llega rápidamente a su cerebro y hace que su corazón lata más rápido, aumenta su presión arterial y acelera su respiración. Es como un impulso rápido de energía, pero puede convertirse en un hábito.\n                                                        Los cigarrillos están diseñados para que alguien que fuma regularmente reciba alrededor de 200 \"dosis\" de nicotina en su cerebro cada día. Otros productos de tabaco, como el tabaco de mascar, también contienen nicotina. Algunas personas usan cigarrillos electrónicos para obtener nicotina sin todos los químicos adicionales en el humo del tabaco.\n                                                          La nicotina actúa en el cerebro de manera que te hace sentir bien y puede convertirse en un hábito porque brinda una sensación de placer. Por eso es importante entender qué contiene el tabaco y que efectos puede tener en tu cuerpo y cerebro.\n"
+            "value" : "El tabaco proviene de las hojas de la planta Nicotiana y se utiliza en cosas como cigarrillos, puros y tabaco de mascar. Lo principal en el tabaco es la nicotina, una sustancia natural que puede ser adictiva y afectar tu cerebro.  Cuando las personas fuman cigarrillos, inhalan más de 7,000 químicos, y la nicotina es la que hace que fumar sea adictivo. También se añaden otros químicos para que el humo tenga mejor sabor y para que la nicotina se absorba más fácilmente.  Cada vez que alguien fuma un cigarrillo, recibe aproximadamente 1-2 miligramos de nicotina, que llega rápidamente a su cerebro y hace que su corazón lata más rápido, aumenta su presión arterial y acelera su respiración. Es como un impulso rápido de energía, pero puede convertirse en un hábito.  Los cigarrillos están diseñados para que alguien que fuma regularmente reciba alrededor de 200 \"dosis\" de nicotina en su cerebro cada día. Otros productos de tabaco, como el tabaco de mascar, también contienen nicotina. Algunas personas usan cigarrillos electrónicos para obtener nicotina sin todos los químicos adicionales en el humo del tabaco.  La nicotina actúa en el cerebro de manera que te hace sentir bien y puede convertirse en un hábito porque brinda una sensación de placer. Por eso es importante entender qué contiene el tabaco y que efectos puede tener en tu cuerpo y cerebro.\n"
           }
         }
       }
@@ -1791,7 +1779,7 @@
     },
     "fqr-h2-E3e.text" : {
       "comment" : "Class = \"UILabel\"; text = \"counts\"; ObjectID = \"fqr-h2-E3e\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2018,7 +2006,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completar"
+            "value" : "Finalizar"
           }
         }
       }
@@ -2150,7 +2138,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completar"
+            "value" : "Finalizar"
           }
         }
       }
@@ -2168,7 +2156,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ahora eres un no fumador y estás tratando de mantenerte así. Cuando hacemos cambios, es fundamental meditar sobre cuán importante es este cambio para ti y cuán seguro te sientes al hacer este cambio. Debes prestar atención a cómo se siente tu mente, cuerpo y tu regulación emocional, cómo cambió tu actitud y qué has comenzado a hacer para cuidarte mejor.\n                                                  Pensar en ello te ayuda a no retroceder a tu antigua relación con el cigarrillo.\n                                                    Ahora sabes qué esperar en este viaje. No te tomará por sorpresa cuando tengas altibajos en este camino. Recuerda que todo se trata de idear una estrategia que funcione para ti, no de tu fuerza de voluntad.\n                                                        ¿Ya estás fuera de peligro? Muchas personas quieren saber cuánto tiempo pasará para que la posibilidad de volver al tabaco deje de ser una preocupación. La recaída ocurre con más frecuencia en el primer mes a tres meses después de dejar de fumar.                                                                      Sin embargo, siempre es prudente estar alerta.\n               "
+            "value" : "Ahora eres un no fumador y estás tratando de mantenerte así. Cuando hacemos cambios, es fundamental meditar sobre cuán importante es este cambio para ti y cuán seguro te sientes al hacer este cambio. Debes prestar atención a cómo se siente tu mente, cuerpo y tu regulación emocional, cómo cambió tu actitud y qué has comenzado a hacer para cuidarte mejor.  Pensar en ello te ayuda a no retroceder a tu antigua relación con el cigarrillo.  Ahora sabes qué esperar en este viaje. No te tomará por sorpresa cuando tengas altibajos en este camino. Recuerda que todo se trata de idear una estrategia que funcione para ti, no de tu fuerza de voluntad.  ¿Ya estás fuera de peligro? Muchas personas quieren saber cuánto tiempo pasará para que la posibilidad de volver al tabaco deje de ser una preocupación. La recaída ocurre con más frecuencia en el primer mes a tres meses después de dejar de fumar.                                                                      Sin embargo, siempre es prudente estar alerta.\n               "
           }
         }
       }
@@ -2204,7 +2192,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Celebra estar libre de tabaco por:\n• 3 días                                                 • 7 días\n• 2 semanas\n• 1 mes\n• 3 meses\n• 6 meses\n• 1 año\n"
+            "value" : "Celebra estar libre de tabaco por:  • 3 días • 7 días • 2 semanas • 1 mes • 3 meses • 6 meses • 1 año\n"
           }
         }
       }
@@ -2258,7 +2246,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completar"
+            "value" : "Finalizar"
           }
         }
       }
@@ -2324,7 +2312,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completar"
+            "value" : "Finalizar"
           }
         }
       }
@@ -2486,7 +2474,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completar"
+            "value" : "Finalizar"
           }
         }
       }
@@ -2612,7 +2600,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completar"
+            "value" : "Finalizar"
           }
         }
       }
@@ -2768,7 +2756,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Justo después de dejar de fumar, puede que te sea difícil concentrarte. No te preocupes, le pasa a mucha gente.\n                                                       Aquí tienes lo que puedes hacer:\n"
+            "value" : "Justo después de dejar de fumar, puede que te sea difícil concentrarte. No te preocupes, le pasa a mucha gente.  Aquí tienes lo que puedes hacer:\n"
           }
         }
       }
@@ -2996,7 +2984,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completar"
+            "value" : "Finalizar"
           }
         }
       }
@@ -3064,6 +3052,12 @@
             "state" : "new",
             "value" : "How much money have you saved by quitting tobacco?How are you rewarding yourself?"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "¿Cuánto dinero has ahorrado al dejar el tabaco? ¿Cómo te estás recompensando?"
+          }
         }
       }
     },
@@ -3080,7 +3074,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completar"
+            "value" : "Finalizar"
           }
         }
       }
@@ -3110,7 +3104,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completar"
+            "value" : "Finalizar"
           }
         }
       }
@@ -3146,7 +3140,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Aproximadamente el 75% de los fumadores quieren dejarlo, pero el 25% no está interesado. Quizás estás pensando en ello, pero no estás del todo listo para actuar. Aunque los cigarrillos son caros, todavía disfrutas de fumar. También puedes sentirte presionado porque la gente a tu alrededor fuma en los breaks del trabajo o vives con alguien que también fuma.\n                                                                           Pero para que lo sepas, pensar en dejarlo ya es un primer gran paso hacia el cambio. Es normal sentirse intimidado. Nadie quiere fallar. Pero piensa en esto: si va a ser un desafío hoy y también será un desafío en 5 años, ¿por qué no hacerlo ahora sin gastar más dinero en cigarrillos?\n\n"
+            "value" : "Aproximadamente el 75% de los fumadores quieren dejarlo, pero el 25% no está interesado. Quizás estás pensando en ello, pero no estás del todo listo para actuar. Aunque los cigarrillos son caros, todavía disfrutas de fumar. También puedes sentirte presionado porque la gente a tu alrededor fuma en los breaks del trabajo o vives con alguien que también fuma.  Pero para que lo sepas, pensar en dejarlo ya es un primer gran paso hacia el cambio. Es normal sentirse intimidado. Nadie quiere fallar. Pero piensa en esto: si va a ser un desafío hoy y también será un desafío en 5 años, ¿por qué no hacerlo ahora sin gastar más dinero en cigarrillos?\n\n"
           }
         }
       }
@@ -3237,7 +3231,7 @@
     },
     "NuI-qg-DrV.text" : {
       "comment" : "Class = \"UILabel\"; text = \"limit\"; ObjectID = \"NuI-qg-DrV\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3338,7 +3332,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cuando dejas de fumar, es totalmente normal que tu apetito aumente un poco. Tu cuerpo puede no quemar calorías tan rápido, y podrías encontrar que comes más, quizás porque dejar de fumar puede ser un poco estresante, o simplemente porque quieres algo con lo que ocupar tus manos y boca. Además, la comida podría saber aún mejor ya que tu sentido del olfato y del gusto no están                    \n                                                      Aquí tienes lo que puedes hacer para manejarlo:\n"
+            "value" : "Cuando dejas de fumar, es totalmente normal que tu apetito aumente un poco. Tu cuerpo puede no quemar calorías tan rápido, y podrías encontrar que comes más, quizás porque dejar de fumar puede ser un poco estresante, o simplemente porque quieres algo con lo que ocupar tus manos y boca. Además, la comida podría saber aún mejor ya que tu sentido del olfato y del gusto no están  Aquí tienes lo que puedes hacer para manejarlo:\n"
           }
         }
       }
@@ -3494,7 +3488,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cuando dejas de fumar por primera vez, es totalmente normal sentirse un poco nervioso o inquieto. Es como si tu cuerpo se estuviera ajustando a la falta de nicotina, y esto puede afectar no solo tu mente, sino también el resto de tu cuerpo.\n                                                      Aquí tienes cómo manejarlo:\n"
+            "value" : "Cuando dejas de fumar por primera vez, es totalmente normal sentirse un poco nervioso o inquieto. Es como si tu cuerpo se estuviera ajustando a la falta de nicotina, y esto puede afectar no solo tu mente, sino también el resto de tu cuerpo.  Aquí tienes cómo manejarlo:\n"
           }
         }
       }
@@ -3561,6 +3555,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Many people think smoking relieves stress. However, Nicotine does something interesting in your brain – it releases a chemical called dopamine. Dopamine is like a happiness signal and makes you feel good. Some people with depression have low levels of dopamine, so they might smoke to get a quick boost. \n\nBut here's the problem... once your brain gets used to nicotine boosters, it will cry for more smoking when it is not getting enough nicotine. Thus, your concentration goes down, your heart beats faster, and you get more anxious and stressed.\n\nAs a result, you smoke to reduce your nicotine stress, not your real stress. This is a vicious cycle that affects your anxiety and mood.\n\nDepression is common because when you smoke a lot, your brain kind of switches off its own way of making dopamine. So, in the long run, your brain has less dopamine that affects your mood."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mucha gente piensa que fumar alivia el estrés. Sin embargo, la nicotina hace algo interesante en el cerebro: libera una sustancia química llamada dopamina. La dopamina es como una señal de felicidad y te hace sentir bien. Algunas personas con depresión tienen niveles bajos de dopamina, por lo que es posible que fumen para obtener un impulso rápido.\n\r\nPero aquí está el problema... una vez que su cerebro se acostumbra a los potenciadores de nicotina, llorará por fumar más cuando no obtenga suficiente nicotina. Por lo tanto, tu concentración disminuye, tu corazón late más rápido y te vuelves más ansioso y estresado.\n\r\nComo resultado, usted fuma para reducir su estrés por nicotina, no su estrés real. Este es un círculo vicioso que afecta su ansiedad y su estado de ánimo.\n\r\nLa depresión es común porque cuando fumas mucho, tu cerebro apaga su propia forma de producir dopamina. Entonces, a la larga, tu cerebro tiene menos dopamina que afecta tu estado de ánimo.\n "
           }
         }
       }
@@ -3644,7 +3644,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completar"
+            "value" : "Finalizar"
           }
         }
       }
@@ -3722,7 +3722,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completar"
+            "value" : "Finalizar"
           }
         }
       }
@@ -3830,7 +3830,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Si has intentado dejarlo una vez en el pasado, tienes una idea de cómo se siente, los desafíos que experimentaste y qué te hizo empezar a fumar de nuevo. Eso significa que ya has probado este viaje y sabes lo complicado que puede ser. Hay pequeños pasos que puedes tomar ahora para ayudarte a dejarlo para siempre y aumentar tus posibilidades de éxito. Aprende habilidades que te ayudarán a lograr una vida libre de tabaco de manera permanente.\n                                                         En las siguientes secciones, puedes aprender sobre las estrategias recomendadas para superar los desafíos potenciales que puedas encontrar.\n"
+            "value" : "Si has intentado dejarlo una vez en el pasado, tienes una idea de cómo se siente, los desafíos que experimentaste y qué te hizo empezar a fumar de nuevo. Eso significa que ya has probado este viaje y sabes lo complicado que puede ser. Hay pequeños pasos que puedes tomar ahora para ayudarte a dejarlo para siempre y aumentar tus posibilidades de éxito. Aprende habilidades que te ayudarán a lograr una vida libre de tabaco de manera permanente.  En las siguientes secciones, puedes aprender sobre las estrategias recomendadas para superar los desafíos potenciales que puedas encontrar.\n"
           }
         }
       }
@@ -3950,7 +3950,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La mayoría de los adolescentes que fuman piensan que dejarán de fumar en sus 20s y en realidad no lo hacen hasta sus 40s. Dejar de fumar consiste en hacer un cambio, y eso es algo en lo que no somos muy buenos; de hecho, dejar de fumar puede ser un largo viaje de intentos y recaídas, como un largo viaje en una montaña rusa. No hay una solución mágica o medicamentos para transformarse en un no fumador de la noche a la mañana, aunque algunas personas tienen en sus genes, el poder para dejar de fumar o dejar de beber sin dificultades.\n                                                 ¿Entonces en qué consiste este viaje? Hay 4 etapas y también estrategias muy útiles que puedes seguir.\n"
+            "value" : "La mayoría de los adolescentes que fuman piensan que dejarán de fumar en sus 20s y en realidad no lo hacen hasta sus 40s. Dejar de fumar consiste en hacer un cambio, y eso es algo en lo que no somos muy buenos; de hecho, dejar de fumar puede ser un largo viaje de intentos y recaídas, como un largo viaje en una montaña rusa. No hay una solución mágica o medicamentos para transformarse en un no fumador de la noche a la mañana, aunque algunas personas tienen en sus genes, el poder para dejar de fumar o dejar de beber sin dificultades.  ¿Entonces en qué consiste este viaje? Hay 4 etapas y también estrategias muy útiles que puedes seguir.\n"
           }
         }
       }
@@ -4076,7 +4076,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : ", 65% de las caídas fatales\n"
+            "value" : "65% de las caídas fatales\n"
           }
         }
       }
@@ -4250,7 +4250,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completar"
+            "value" : "Finalizar"
           }
         }
       }
@@ -4406,7 +4406,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completar"
+            "value" : "Finalizar"
           }
         }
       }
@@ -4694,7 +4694,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completar"
+            "value" : "Finalizar"
           }
         }
       }
@@ -4712,7 +4712,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "La nicotina hace cosas en tu cerebro que te hacen sentir bien y más despierto. Libera químicos como la dopamina, norepinefrina y serotonina, que son los responsables de esas sensaciones de \"sentirse bien\" y \"estar despierto\". La nicotina también te da un rápido impulso de endorfinas, lo que puede ayudarte a relajarte y aliviar cualquier dolor.\n                                                        Por eso algunas personas, tanto adultos como adolescentes, fuman para \"reiniciar\" su estado de ánimo, emociones y atención. Especialmente para aquellos que luchan con la ansiedad y depresión, fumar podría ser una manera en la que intentan sentirse mejor. Pero es importante saber que hay formas más saludables de lidiar con estos sentimientos.\n"
+            "value" : "La nicotina hace cosas en tu cerebro que te hacen sentir bien y más despierto. Libera químicos como la dopamina, norepinefrina y serotonina, que son los responsables de esas sensaciones de \"sentirse bien\" y \"estar despierto\". La nicotina también te da un rápido impulso de endorfinas, lo que puede ayudarte a relajarte y aliviar cualquier dolor.  Por eso algunas personas, tanto adultos como adolescentes, fuman para \"reiniciar\" su estado de ánimo, emociones y atención. Especialmente para aquellos que luchan con la ansiedad y depresión, fumar podría ser una manera en la que intentan sentirse mejor. Pero es importante saber que hay formas más saludables de lidiar con estos sentimientos.\n"
           }
         }
       }
@@ -4970,7 +4970,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completar"
+            "value" : "Finalizar"
           }
         }
       }
@@ -5192,7 +5192,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "¡Siéntete orgulloso! Dejar de fumar es como la ruptura de una relación o perder a alguien muy querido. Puede que tengas que cambiar un poco tu rutina para evitar ciertos lugares, amigos, y comenzar una nueva rutina para distraerte. El plan requiere que pienses en más que solo dejar de fumar, sino en cambio                                                                                                   Hay algunas claves para lograr una vida libre de tabaco de forma permanente.\nen tu estilo de vida.\n                                                            ¿Qué puedes hacer?\n"
+            "value" : "¡Siéntete orgulloso! Dejar de fumar es como la ruptura de una relación o perder a alguien muy querido. Puede que tengas que cambiar un poco tu rutina para evitar ciertos lugares, amigos, y comenzar una nueva rutina para distraerte. El plan requiere que pienses en más que solo dejar de fumar, sino en cambio                                                                                                   Hay algunas claves para lograr una vida libre de tabaco de forma permanente.\nen tu estilo de vida.   Hay algunas claves para lograr una vida libre de tabaco de forma permanente.  ¿Qué puedes hacer?\n"
           }
         }
       }
@@ -5210,7 +5210,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Completar"
+            "value" : "Finalizar"
           }
         }
       }

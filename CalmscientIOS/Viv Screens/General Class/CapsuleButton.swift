@@ -40,14 +40,19 @@ class CapsuleButton1: UIButton {
             self.setTitle(UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Complete" : "Completo", for: .normal)
         }
 
-        
-//        self.backgroundColor = #colorLiteral(red: 0.429181397, green: 0.4192816615, blue: 0.7016126513, alpha: 1)
-//        self.setTitleColor(.white, for: .normal) // Static title color
-//        self.titleLabel?.font = UIFont(name: Fonts().lexendMedium, size: 14) // Static font
-//        self.layer.cornerRadius = 20 // Capsule shape
-//        self.clipsToBounds = true
-//        self.contentEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20) // Optional padding
-//        let title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Complete" : "Completo"
-//        self.setTitle(title, for: .normal)
     }
+    
+    func updateTitleForLanguage() {
+        let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+        let title = selectedLanguageID == 1 ? "Complete" : "Finalizar"
+
+        if #available(iOS 15.0, *) {
+            var updatedConfig = self.configuration ?? UIButton.Configuration.filled()
+            updatedConfig.title = title
+            self.configuration = updatedConfig
+        } else {
+            self.setTitle(title, for: .normal)
+        }
+    }
+
 }

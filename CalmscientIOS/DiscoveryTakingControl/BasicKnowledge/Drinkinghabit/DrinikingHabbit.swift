@@ -29,6 +29,8 @@ class DrinikingHabbit: ViewController {
     var answerId : Int?
     var basicData: [[String: Any]] = []
     var sectionID66: Int?
+    
+    var countIncr: String?
  
     override func viewWillAppear(_ animated: Bool) {
         headerLabel.text = AppHelper.getLocalizeString(str: "Now let’s see what drinking habits do you have")
@@ -425,6 +427,7 @@ extension DrinikingHabbit: UICollectionViewDataSource, UICollectionViewDelegate,
             return UICollectionViewCell()
         }
         let drink = drinks[indexPath.row]
+        print("Full drink object:", drink)
         if let eventName = drink["drinkName"] as? String {
             cell.drinksTitle.text = eventName
         }
@@ -442,12 +445,16 @@ extension DrinikingHabbit: UICollectionViewDataSource, UICollectionViewDelegate,
             cell.quantityLabel.text  = totalCount.stringValue
         }
         
+        countIncr = drink["incrementCount"] as? String ?? "0"
+        cell.drinkIncrementLabel.text = countIncr
+        print("the increment count is", drink["incrementCount"] ?? "999", "-",countIncr as Any)
+        
         cell.minusButtonAction = { [weak self, weak cell] in
             guard let self = self, let cell = cell else { return }
             if var count = Int(cell.quantityLabel.text ?? "0"), count > 0 {
-                count -= 1
+                count -= Int(countIncr!) ?? 0 // 1
                 
-                self.totalQuantitySum -= 1
+                self.totalQuantitySum -= Int(countIncr!) ?? 0 //1
                 
                 cell.quantityLabel.text = "\(count)"
                 
@@ -467,9 +474,9 @@ extension DrinikingHabbit: UICollectionViewDataSource, UICollectionViewDelegate,
         cell.plusButtonAction = { [weak self, weak cell] in
             guard let self = self, let cell = cell else { return }
             if var count = Int(cell.quantityLabel.text ?? "0") {
-                count += 1
+                count += Int(countIncr!) ?? 0 // 1
                 
-                self.totalQuantitySum += 1
+                self.totalQuantitySum += Int(countIncr!) ?? 0 // 1
                 
                 cell.quantityLabel.text = "\(count)"
                 

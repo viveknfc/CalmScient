@@ -61,7 +61,7 @@ public enum WeeklySummaryItems:String {
           case .WeeklySummarySummaryOfAudit:
               return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Summary of AUDIT" : "Resumen de AUDIT"
           case .WeeklySummarySummaryOfDast:
-              return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Summary of DAST" : "Resumen de DAST"
+              return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Summary of DAST-10" : "Resumen de DAST-10"
           case .WeeklySummaryProgressOnCourseWork:
               return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Progress on course work" : "Progreso en el trabajo del curso"
           case .WeeklySummaryJournalEntry:

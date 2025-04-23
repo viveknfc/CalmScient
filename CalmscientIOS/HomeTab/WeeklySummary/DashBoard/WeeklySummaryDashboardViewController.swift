@@ -9,7 +9,7 @@ import UIKit
 
 class WeeklySummaryDashboardViewController: ViewController {
     var collectionItems:[WeeklySummaryItems] = [.WeeklySummarySummaryOfMood,.WeeklySummarySummaryOfSleep,.WeeklySummarySummaryOfPHQ9,.WeeklySummarySummaryOfGAD,.WeeklySummarySummaryOfAudit,.WeeklySummarySummaryOfDast,.WeeklySummaryProgressOnCourseWork,.WeeklySummaryJournalEntry]
-    var spanishCollection:[String] = ["Resumen del Estado de Ánimo","Resumen del Sueño","Resumen del PHQ-9","Resumen del GAD","Resumen de la Auditoría","Resumen del DAST","Progreso en el Trabajo del Curso","Entrada del Diario"]
+    var spanishCollection:[String] = ["Resumen del Estado de Ánimo","Resumen del Sueño","Resumen del PHQ-9","Resumen del GAD","Resumen de la Auditoría","Resumen del DAST-10","Progreso en el Trabajo del Curso","Entrada del Diario"]
     private lazy var dashboardCollectionView:UICollectionView = {
         let customFlowLayout:CustomCollectionViewLayout = CustomCollectionViewLayout()
         let cellWidth = self.view.bounds.width - 42

@@ -8,14 +8,14 @@
 import UIKit
 
 @available(iOS 16.0, *)
-class DiscoveryMainViewController: UIViewController{
+class DiscoveryMainViewController: ViewController{
     var tutorialFlag : Int?
     
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
-        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Discovery" : "Descubrir"
         super.viewDidLoad()
+    
 
         tableView.register(UINib(nibName: "MyMedicalRecordsCell", bundle: nil), forCellReuseIdentifier: "MyMedicalRecordsCell")
         tableView.dataSource = self
@@ -42,6 +42,7 @@ class DiscoveryMainViewController: UIViewController{
     @objc func profileButtonPressed() {
 
         let userProfileViewController = UIStoryboard(name: "UserProfile", bundle: nil).instantiateViewController(withIdentifier: "UserProfileViewController") as! UserProfileViewController
+        userProfileViewController.shouldPopBack = true
         self.navigationController?.pushViewController(userProfileViewController, animated: true)
         }
     
@@ -50,6 +51,15 @@ class DiscoveryMainViewController: UIViewController{
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationItem.leftBarButtonItem = nil
 
+        let selectedLanguageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+        let titleText = selectedLanguageId == 1 ? "Discovery" : "Descubrir"
+
+        let titleLabel = UILabel()
+        titleLabel.text = titleText
+        titleLabel.font = UIFont(name: Fonts().lexendMedium, size: 18)
+        titleLabel.textColor = .label // or any color you want
+        navigationItem.titleView = titleLabel
+        
         tableView.reloadData()
     }
     

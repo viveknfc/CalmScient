@@ -12,9 +12,13 @@ class ChallengingtoQuitVC: ViewController, UITableViewDelegate, UITableViewDataS
     @IBOutlet weak var tableView: UITableView!
     var sectionID4: Int?
     
+    var data: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+    data = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? edata : sdata
+        
     tableView.register(UINib(nibName: "CapsuleStyleCell", bundle: nil), forCellReuseIdentifier: "CapsuleCell")
     tableView.delegate = self
     tableView.dataSource = self
@@ -27,7 +31,10 @@ class ChallengingtoQuitVC: ViewController, UITableViewDelegate, UITableViewDataS
         }
     }
     
-    let data = ["“I’m thinking about quitting”", "“Getting ready to quit”", "“Quitting”", "“Staying smoke-free”"]
+    let edata = ["“I’m thinking about quitting”", "“Getting ready to quit”", "“Quitting”", "“Staying smoke-free”"]
+    
+    let sdata = ["“Estoy pensando en dejarlo”", "“Preparándote para dejar de fumar”", "“Dejar de fumar”", "“Mantenerse libre de fumar”"]
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         data.count

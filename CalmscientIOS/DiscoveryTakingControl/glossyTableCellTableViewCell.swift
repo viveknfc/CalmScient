@@ -42,7 +42,8 @@ class glossyTableCellTableViewCell: UITableViewCell {
            super.layoutSubviews()
 
            // Apply shadow to backGroundView after the layout is set
-        contentView.applyShadow()
+//        backGroundView.applyShadow() //contentView
+        
        }
     @objc func plusButtonTapped() {
         // Execute the closure when the button is tapped

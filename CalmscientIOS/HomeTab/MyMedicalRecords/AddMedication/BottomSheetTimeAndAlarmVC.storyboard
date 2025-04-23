@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="lexendmedium.ttf">
+        <array key="Lexend-Medium.ttf">
             <string>Lexend-Medium</string>
         </array>
-        <array key="lexendregular.ttf">
+        <array key="Lexend-Regular.ttf">
             <string>Lexend-Regular</string>
         </array>
     </customFonts>
@@ -42,6 +42,20 @@
                                             <action selector="saveButtonAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="2El-B2-Q2w"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ThR-W3-cZj">
+                                        <rect key="frame" x="8" y="17.666666666666671" width="35" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="MS2-h0-bj6"/>
+                                            <constraint firstAttribute="width" constant="35" id="Pmq-kE-Ib5"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" backgroundImage="closeIcon">
+                                            <color key="titleColor" name="Color"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="closeButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="enf-fR-DVq"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Update Time &amp; Alarm" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9Y-tM-PkC">
                                         <rect key="frame" x="88.333333333333329" y="23" width="213.33333333333337" height="24"/>
                                         <constraints>
@@ -56,6 +70,8 @@
                                 <constraints>
                                     <constraint firstItem="G9Y-tM-PkC" firstAttribute="centerY" secondItem="kjC-8G-APb" secondAttribute="centerY" id="6KO-ih-mb3"/>
                                     <constraint firstItem="G9Y-tM-PkC" firstAttribute="centerX" secondItem="kjC-8G-APb" secondAttribute="centerX" id="DgM-tN-0Pj"/>
+                                    <constraint firstItem="ThR-W3-cZj" firstAttribute="centerY" secondItem="kjC-8G-APb" secondAttribute="centerY" id="Qkg-Kg-KyK"/>
+                                    <constraint firstItem="ThR-W3-cZj" firstAttribute="leading" secondItem="kjC-8G-APb" secondAttribute="leading" constant="8" id="Zcl-ai-TJg"/>
                                     <constraint firstAttribute="height" constant="70" id="guR-K9-fIw"/>
                                     <constraint firstItem="lns-Ik-BvO" firstAttribute="centerY" secondItem="G9Y-tM-PkC" secondAttribute="centerY" id="y7K-I2-Qki"/>
                                     <constraint firstAttribute="trailing" secondItem="lns-Ik-BvO" secondAttribute="trailing" constant="8" id="yiY-z4-Hc6"/>
@@ -102,6 +118,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="closeButton" destination="ThR-W3-cZj" id="qv2-Rt-9Au"/>
                         <outlet property="headingLabel" destination="G9Y-tM-PkC" id="0j7-eG-2pK"/>
                         <outlet property="saveButton" destination="lns-Ik-BvO" id="LQ4-s5-f9m"/>
                         <outlet property="tableView" destination="2Fo-qK-kE6" id="ZiL-OI-uXq"/>
@@ -115,6 +132,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="closeIcon" width="32.333332061767578" height="33"/>
         <image name="saveRightMark" width="41.666667938232422" height="41"/>
         <namedColor name="AppBackGroundColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

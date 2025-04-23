@@ -7,13 +7,13 @@
 
 import UIKit
 
-class DrinkingCountVC: ViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, DrinkingCountCellDelegate {
+class DrinkingCountVC: ViewController, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout  {  //DrinkingCountCellDelegate
     
     @IBOutlet weak var mainCollectionView: UICollectionView!
     @IBOutlet weak var totalCount: FontLR12!
     @IBOutlet weak var totalCountView: UIView!
     @IBOutlet weak var saveButton: UIButton!
-    var noOfQuantityAlcohol: Int = 0
+    var noOfQuantityAlcohol: Double = 0
     var drinks: [[String: Any]] = []
     var alcoholData: [[String: Any]] = []
     var alcoholRequest = [Alcohol]()
@@ -24,7 +24,7 @@ class DrinkingCountVC: ViewController, UICollectionViewDataSource, UICollectionV
         }
     }
     
-    var totalCount1: Int = 0 {
+    var totalCount1: Double = 0 {
             didSet {
                 // Update the total count label whenever the total changes
                 totalCount.text = "\(totalCount1)"
@@ -74,7 +74,7 @@ class DrinkingCountVC: ViewController, UICollectionViewDataSource, UICollectionV
                             self.view.hideToastActivity()
                             if let totalCount = json["totalCount"] as? NSNumber {
                                 self.totalCount.text = totalCount.stringValue
-                                noOfQuantityAlcohol = Int(truncating: totalCount)
+                                noOfQuantityAlcohol = Double(truncating: totalCount)
                             }
                             var newDate = json["date"] as? String
                             newDate = self.getCurrentDateString()
@@ -111,14 +111,14 @@ class DrinkingCountVC: ViewController, UICollectionViewDataSource, UICollectionV
         saveButtonEnabled = true
     }
     
-    func didUpdateCountValue(changeType: CountChangeType) {
-         switch changeType {
-         case .increase:
-             totalCount1 += 1
-         case .decrease:
-             totalCount1 -= 1
-         }
-     }
+//    func didUpdateCountValue(changeType: CountChangeType) {
+//         switch changeType {
+//         case .increase:
+//             totalCount1 += 1
+//         case .decrease:
+//             totalCount1 -= 1
+//         }
+//     }
     
     // MARK: - UICollectionViewDataSource
     
@@ -131,24 +131,12 @@ class DrinkingCountVC: ViewController, UICollectionViewDataSource, UICollectionV
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        guard let cell = mainCollectionView.dequeueReusableCell(withReuseIdentifier: "DrinkingCountCell", for: indexPath) as? DrinkingCountCell else {
-//            fatalError("Unable to dequeue CustomCollectionViewCell")
-//        }
-//        
-//        cell.delegate = self
-//        
-//        let item = data[indexPath.item]
-//        cell.countImage.image = UIImage(named: item.countImageName)
-//        cell.countLabel.text = item.countLabelText
-//        cell.centreImage.image = UIImage(named: item.centreImageName)
-//        cell.centreLabel.text = item.centreLabelText
-//        
-//        return cell
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DrinksTrackerCollectionCell", for: indexPath) as? DrinksTrackerCollectionCell else {
             return UICollectionViewCell()
         }
         let drink = drinks[indexPath.row]
+        print("Full drink object:", drink)
         if let eventName = drink["drinkName"] as? String {
             cell.drinksTitle.text = eventName
         }
@@ -167,19 +155,31 @@ class DrinkingCountVC: ViewController, UICollectionViewDataSource, UICollectionV
             cell.rightCountView.isHidden = totalCount == 0 ? true : false
             
         }
+        
+        var countIncr: Double = 0.0
+        if let num = drink["incrementCount"] as? NSNumber {
+            countIncr = num.doubleValue
+        } else if let str = drink["incrementCount"] as? String {
+            countIncr = Double(str) ?? 0.0
+        }
+        cell.drinkIncrementLabel.text = "\(countIncr)"
+        print("the increment count is", drink["incrementCount"] ?? "?", "-", countIncr)
+
         cell.minusButtonAction = { [weak self, weak cell] in
             guard let self = self, let cell = cell else { return }
-            if var count = Int(cell.quantityLabel.text ?? "0"), count > 0 {
-                count -= 1
+            if var count = Double(cell.quantityLabel.text ?? "0"), count > 0 {
+                count -= countIncr // 1
                 cell.rightCountView.isHidden = count == 0 ? true : false
-                self.totalCount1 -= 1
-                
-                cell.quantityLabel.text = "\(count)"
+                self.totalCount1 -= countIncr // 1
+                print("from minus action total count value is",totalCount1)
+//                cell.quantityLabel.text = "\(count)"
+                cell.quantityLabel.text = String(format: "%.1f", count)
                 
                 self.drinks[indexPath.row]["quantity"] = NSNumber(value: count)
                 
-                totalCount.text = String(self.totalCount1 + noOfQuantityAlcohol)
-               
+//                totalCount.text = String(self.totalCount1 + noOfQuantityAlcohol)
+                let finalTotal = Double(self.totalCount1 + noOfQuantityAlcohol)
+                totalCount.text = String(format: "%.1f", finalTotal)
                 
                 self.saveButtonEnabled = false
                 
@@ -194,16 +194,24 @@ class DrinkingCountVC: ViewController, UICollectionViewDataSource, UICollectionV
         
         cell.plusButtonAction = { [weak self, weak cell] in
             guard let self = self, let cell = cell else { return }
-            if var count = Int(cell.quantityLabel.text ?? "0") {
-                count += 1
+            if var count = Double(cell.quantityLabel.text ?? "0") {
+                count += countIncr // 1
                 
-                self.totalCount1 += 1
+                self.totalCount1 += countIncr // 1
+                print("from plus action total count value is",totalCount1)
                 
-                cell.quantityLabel.text = "\(count)"
+//                cell.quantityLabel.text = "\(count)"
+                cell.quantityLabel.text = String(format: "%.1f", count)
                 
                 self.drinks[indexPath.row]["quantity"] = NSNumber(value: count)
                 
-                totalCount.text = String(self.totalCount1 + noOfQuantityAlcohol)
+                print("the total count is",totalCount1, "+", noOfQuantityAlcohol)
+//                totalCount.text = String(self.totalCount1 + noOfQuantityAlcohol)
+                let finalTotal = Double(self.totalCount1 + noOfQuantityAlcohol)
+                totalCount.text = String(format: "%.1f", finalTotal)
+
+                
+                
                 cell.rightCountView.isHidden = totalCount.text == "0" ? true : false
                 self.saveButtonEnabled = false
                 
@@ -213,9 +221,8 @@ class DrinkingCountVC: ViewController, UICollectionViewDataSource, UICollectionV
                 }
             }
         }
-        
-//
-        print(self.totalCount1)
+    
+        print("Total count value is ",self.totalCount1)
         
         return cell
     }
@@ -301,7 +308,7 @@ extension DrinkingCountVC {
         dateFormatter.dateFormat = "MM/dd/yyyy"
         return dateFormatter.string(from: Date())
     }
-    func addOrUpdateAlcoholData(drinkId: Int, newQuantity: Int, flag: String) {
+    func addOrUpdateAlcoholData(drinkId: Int, newQuantity: Double, flag: String) {
         let currentDate = getCurrentDateString()
 
         if let index = alcoholData.firstIndex(where: { $0["drinkId"] as? Int == drinkId }) {

@@ -224,7 +224,7 @@ class MedicationAlarm: Codable {
     var pmtId: String = "0"
     var medicineTaken: String? //new
     var alarmEnabled: String?
-    var alarmInterval: String = ""
+    var alarmInterval: String = "" //"05"
     var `repeat`: [String] = []
     
     var alarmDate: String?

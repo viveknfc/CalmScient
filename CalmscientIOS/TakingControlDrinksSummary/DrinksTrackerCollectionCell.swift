@@ -21,6 +21,9 @@ class DrinksTrackerCollectionCell: UICollectionViewCell {
     
     var plusButtonAction: (() -> Void)?
     
+    @IBOutlet weak var drinkIncrementLabel: FontLL8!
+    @IBOutlet weak var drinkIncrementImage: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         

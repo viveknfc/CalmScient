@@ -36,11 +36,11 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         setupLanguage()
 
        
-//       userNameTextField.text = "masa@calmscient.com"
-//       passwordTextField.text = "CDMrVgjdM5"
+       userNameTextField.text = "masa@calmscient.com"
+       passwordTextField.text = "CDMrVgjdM5"
         
-       userNameTextField.text = "chandra.p@gmail.com"
-       passwordTextField.text = "chandra@1234"
+//       userNameTextField.text = "chandra.p@gmail.com"
+//       passwordTextField.text = "chandra@1234"
         
 //       userNameTextField.text = "william@gmail.com"
 //       passwordTextField.text = "william@1234"
@@ -75,11 +75,6 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         self.forgotPasswordLabel.addGestureRecognizer(tapGesture)
         
         self.createAnAccountLabel.isHidden = true
-        
-//        self.createAnAccountLabel.isUserInteractionEnabled = true
-//        let createAccountTapGesture = UITapGestureRecognizer(target: self, action: #selector(createAnAccountGesture(tapGestureRecognizer:)))
-//        createAccountTapGesture.numberOfTapsRequired = 1
-//        self.createAnAccountLabel.addGestureRecognizer(createAccountTapGesture)
         
         languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
         let termsAndConditions = (languageId == 0 ? 1 : languageId  ) == 1 ? "Accept Terms and Conditions" : "Aceptar Términos y Condiciones"
@@ -132,7 +127,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = true
+        self.navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     
@@ -146,10 +141,15 @@ class LoginVC: UIViewController,UITextFieldDelegate {
     
     @objc func forgotPasswordGesture(tapGestureRecognizer: UITapGestureRecognizer)
     {
-        self.navigationController?.navigationBar.isHidden = false
+        print("forgot passwrod clicked")
+        self.navigationController?.setNavigationBarHidden(false, animated: true)
         let next = UIStoryboard(name: "ForgotPasswordVC", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "ForgotPasswordVC") as? ForgotPasswordVC
-        self.navigationController?.pushViewController(vc!, animated: true)
+        guard let vc = next.instantiateViewController(withIdentifier: "ForgotPasswordVC") as? ForgotPasswordVC else {
+            print("❌ Failed to instantiate ForgotPasswordVC")
+            return
+        }
+
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func createAnAccountGesture(tapGestureRecognizer: UITapGestureRecognizer)

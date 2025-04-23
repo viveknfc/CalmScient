@@ -16,7 +16,7 @@ class ManagingAnxietyBeginScreen: ViewController {
     @IBOutlet weak var areYouReadyLbl: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "The Discovery" : "The Discovery"
+        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "The Discovery" : "El Descubrimiento"
         managingTextView.font = UIFont(name: Fonts().lexendLight, size: 16)
         calmsLabels.font = UIFont(name: Fonts().lexendMedium, size: 16)
         letsBeginButton.titleLabel?.font = UIFont(name: Fonts().lexendSemiBold, size: 18)

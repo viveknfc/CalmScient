@@ -11,12 +11,16 @@ class ReadyToQuitVC: ViewController, UITableViewDelegate, UITableViewDataSource 
     
     @IBOutlet weak var tableView: UITableView!
     
+    var data: [String] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.register(UINib(nibName: "CapsuleStyleCell", bundle: nil), forCellReuseIdentifier: "CapsuleCell")
         tableView.delegate = self
         tableView.dataSource = self
+        
+        data = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? edata : sdata
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,7 +30,9 @@ class ReadyToQuitVC: ViewController, UITableViewDelegate, UITableViewDataSource 
         }
     }
     
-    let data = ["Nicotine cravings", "Irritability and mood swings", "Difficulty concentrating", "Increased appetite and weight gain", "Sleep disturbances", "Depression and anxiety", "Feeling jumpy or restless"]
+    let edata = ["Nicotine cravings", "Irritability and mood swings", "Difficulty concentrating", "Increased appetite and weight gain", "Sleep disturbances", "Depression and anxiety", "Feeling jumpy or restless"]
+    
+    let sdata = ["Deseos de nicotina", "Irritabilidad y cambios de humor", "Dificultad para concentrarse", "Aumento del apetito y aumento de peso", "Trastornos de sueño", "Depresión y ansiedad", "Sentirse nervioso o inquieto"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         data.count

@@ -11,6 +11,7 @@ class SmokingBasicVc: ViewController, UITableViewDelegate, UITableViewDataSource
     
     @IBOutlet weak var tableView: UITableView!
     
+    var data: [String] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +30,7 @@ class SmokingBasicVc: ViewController, UITableViewDelegate, UITableViewDataSource
         getBasicKnowledgeQuestions ()
     }
     
-    let data = ["What is tobacco?", "How is vaping safer than tobacco?", "Why does smoking seem to relax me?", "Why is it challenging to quit?", "How does smoking affect your mental health?", "My smoking habit"]
+//    let data = ["What is tobacco?", "How is vaping safer than tobacco?", "Why does smoking seem to relax me?", "Why is it challenging to quit?", "How does smoking affect your mental health?", "My smoking habit"]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
@@ -98,9 +99,11 @@ class SmokingBasicVc: ViewController, UITableViewDelegate, UITableViewDataSource
         }
         
         let params: [String: Any] = [
-            "plId": userInfo.patientLocationID,
+            "patientId": userInfo.patientID,
             "clientId": userInfo.clientID,
         ]
+        
+        print("the input param for the smoking basic is", params)
 
         APIService.SBasicKQAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
             self.getresponseforBasicKnowAPI(response: response)
@@ -117,7 +120,7 @@ class SmokingBasicVc: ViewController, UITableViewDelegate, UITableViewDataSource
            let indexArray = responseDict["index"] as? [[String: Any]] {
             
             print("Response from Smoking Basic Knowledge API:", indexArray)
-//            basicData2 = indexArray
+            data = indexArray.compactMap { $0["sectionName"] as? String }
             tableView.reloadData()
             
         } else {

@@ -74,6 +74,8 @@ class UserIntroDayFeedbackViewController: ViewController {
     var mediTaken: String?
     var journalText: String?
     
+    var isJournalClearedByUser = false
+    
     var SpendTime: Int?{
         didSet {
             feedbackTableView.reloadData()
@@ -85,6 +87,8 @@ class UserIntroDayFeedbackViewController: ViewController {
             feedbackTableView.reloadData()
         }
     }
+
+
     
     var plId: Int = ApplicationSharedInfo.shared.loginResponse?.patientLocationID ?? 0
     var clientId: Int = ApplicationSharedInfo.shared.loginResponse?.clientID ?? 0
@@ -386,10 +390,29 @@ class UserIntroDayFeedbackViewController: ViewController {
                         userDayWiseData.timeSpendAnswer = cell.getUpdatedData4SpendHours()
                     } else if let cell = cell as? UserEntrySleepHoursCell {
                         let updatedSleepHours = cell.getUpdatedData() ?? 1
+                        print("the updatedSleepHours is", updatedSleepHours)
+//                        let sleepAns = sleepData[updatedSleepHours-1]
+//                        userDayWiseData.sleepAnswer = Int(sleepAns) //updatedSleepHours
                         
-                        let sleepAns = sleepData[updatedSleepHours-1]
+                        // Check if updatedSleepHours is within range
+                        if updatedSleepHours > 0 && updatedSleepHours <= sleepData.count {
+                            let sleepAns = sleepData[updatedSleepHours - 1]
+                            userDayWiseData.sleepAnswer = Int(sleepAns)
+                        } 
+                        else if updatedSleepHours <= 0 || updatedSleepHours > sleepData.count {
+                            showGeneralAlert(
+                                image: UIImage(named: "InfoIcon"),
+                                imageSize: CGSize(width: 60, height: 60),
+                                title: "Please fill all mandatory fields.",
+                                okButtonTitle: "Ok",
+                                okAction: {},
+                                dismissAction: {}
+                            )
+                            return
+                        }
+
                         
-                        userDayWiseData.sleepAnswer = Int(sleepAns) //updatedSleepHours
+                        
                     } else if let cell = cell as? UserEntryYesOrNoCell {
                         let journalEntry = cell.getUpdatedJournalData()
                         userDayWiseData.medicineAnswer = cell.getUpdatedToggleData()
@@ -410,7 +433,23 @@ class UserIntroDayFeedbackViewController: ViewController {
             guard let moodId = userDayWiseData.moodAnswer,
                           let sleepHours = userDayWiseData.sleepAnswer,
                           let journal = userDayWiseData.journalAnswer, !journal.isEmpty else {
-                self.view.makeToast("Please fill all mandatory fields.", position: .center)
+//                self.view.makeToast("Please fill all mandatory fields.", position: .center)
+                
+                let alertText = "Please fill all mandatory fields."
+                
+                showGeneralAlert(
+                    image: UIImage(named: "InfoIcon"),
+                    imageSize: CGSize(width: 60, height: 60),
+                    title: alertText,
+                    okButtonTitle: "Ok",
+                    okAction: {
+                        print("Retry action triggered")
+                    },
+                    dismissAction: {
+                        print("Dismiss action triggered")
+                    }
+                )
+                
                         return
                     }
                     let medicineFlag = userDayWiseData.medicineAnswer
@@ -426,7 +465,23 @@ class UserIntroDayFeedbackViewController: ViewController {
             guard let moodId = userDayWiseData.moodAnswer,
                          let spendTime = userDayWiseData.timeSpendAnswer, !spendTime.isEmpty,
                          let journal = userDayWiseData.journalAnswer, !journal.isEmpty else {
-                self.view.makeToast("Please fill all mandatory fields.", position: .center)
+//                self.view.makeToast("Please fill all mandatory fields.", position: .center)
+                
+                let alertText = "Please fill all mandatory fields."
+                
+                showGeneralAlert(
+                    image: UIImage(named: "InfoIcon"),
+                    imageSize: CGSize(width: 60, height: 60),
+                    title: alertText,
+                    okButtonTitle: "Ok",
+                    okAction: {
+                        print("Retry action triggered")
+                    },
+                    dismissAction: {
+                        print("Dismiss action triggered")
+                    }
+                )
+                
                        return
                    }
                     let medicineFlag = userDayWiseData.medicineAnswer
@@ -585,9 +640,13 @@ extension UserIntroDayFeedbackViewController : UITableViewDataSource,UITableView
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellType.getCellIdentifier(), for: indexPath) as? UserIntroSelectionTableCell else {
                 return UITableViewCell()
             }
+            cell.isFromAPISetup = true
             cell.selectedIndex = ((selectedCell ?? -1))
+            cell.apiSelectedIndex = ((selectedCell ?? -1))
             cell.spendIndex = ((SpendTime ?? -1))
+            cell.isFromAPISetup = false
             
+            cell.delegate = self
             cell.updateUIWithCellInstance(instance: userDayWiseData, cellType: cellType)
             return cell
         case .UserIntroSleepCell:
@@ -602,13 +661,18 @@ extension UserIntroDayFeedbackViewController : UITableViewDataSource,UITableView
                 return UITableViewCell()
             }
             
+            cell.instance = userDayWiseData
+            
             if let mediTaken = mediTaken, !mediTaken.isEmpty {
                 cell.toggleValue = mediTaken == "No" ? 0 : 1
                 cell.toggleImageView.tag = mediTaken == "No" ? -1 : 1
 //                feedbackTableView.reloadRows(at: [indexPath], with: .automatic)
             }
-            if let journalText = journalText, !journalText.isEmpty {
+            if !isJournalClearedByUser, let journalText = journalText, !journalText.isEmpty {
+                
                 cell.journalTextView.text = journalText
+            } else {
+                cell.journalTextView.text = ""
             }
             cell.updateUIWithCellInstance(instance: userDayWiseData, cellType: cellType)
             cell.configureJournalView(isJournalView: cellType == .UserEntryJournalCell)
@@ -652,5 +716,47 @@ extension UIView {
         return nil
     }
 }
+
+@available(iOS 16.0, *)
+extension UserIntroDayFeedbackViewController: UserIntroSelectionDelegate {
+    func didChangeSelectedIndex() {
+        if let journalText = journalText, !journalText.isEmpty {
+            showCustomClearJournalAlert()
+        } else {
+            // No journal text to clear, proceed without alert
+            print("No journal data to clear")
+        }
+    }
+    
+    func showCustomClearJournalAlert() {
+        // Show the custom alert with Yes/No options
+        self.showGeneralAlertYesNo(
+            image: UIImage(named: "question2"),
+            imageSize: CGSize(width: 40, height: 40),
+            title: "", //Clear Journal Data
+            subTitle: "Are you sure you want to change the mood?", //Do you want to clear the journal data?
+            okButtonTitle: "Yes",
+            cancelButtonTitle: "No",
+            okAction: {
+                // Clear the journal text when the user selects Yes
+                self.journalText = nil
+                self.isJournalClearedByUser = true
+                self.clearJournalDataInCell()
+                print("Journal data cleared")
+            }, cancelAction: {
+                // Simply print that the journal is not cleared
+                print("Journal data not cleared")
+            }, subtitleFontSize: 14
+        )
+    }
+    
+    func clearJournalDataInCell() {
+        // Reload the journal cell to clear its content
+        if let journalIndex = cellData.firstIndex(of: .UserEntryJournalCell) {
+            feedbackTableView.reloadRows(at: [IndexPath(row: journalIndex, section: 0)], with: .automatic)
+        }
+    }
+}
+
 
 

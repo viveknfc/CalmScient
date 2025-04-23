@@ -141,6 +141,8 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
         
         guard let email = emailTF.text, !email.isEmpty else {
             showGeneralAlert(
+                image: UIImage(named: "InfoIcon"),
+                imageSize: CGSize(width: 40, height: 40),
                 title: "Email is required.",
                 okButtonTitle: "Ok",
                 okAction: {
@@ -153,6 +155,8 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
 
         guard let oldPassword = oldPasswordTF.text, !oldPassword.isEmpty else {
             showGeneralAlert(
+                image: UIImage(named: "InfoIcon"),
+                imageSize: CGSize(width: 40, height: 40),
                 title: "Old password is required.",
                 okButtonTitle: "Ok",
                 okAction: {
@@ -167,6 +171,8 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
 
         guard let newPassword = newPasswordTF.text, !newPassword.isEmpty else {
             showGeneralAlert(
+                image: UIImage(named: "InfoIcon"),
+                imageSize: CGSize(width: 40, height: 40),
                 title: "New password is required.",
                 okButtonTitle: "Ok",
                 okAction: {
@@ -179,6 +185,8 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
         
         guard NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: newPassword) else {
             showGeneralAlert(
+                image: UIImage(named: "InfoIcon"),
+                imageSize: CGSize(width: 40, height: 40),
                 title: "Your password must be at least eight characters long and include at least one special character and one number.",
                 okButtonTitle: "Ok",
                 okAction: { },
@@ -189,6 +197,8 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
 
         guard let confirmNewPassword = confirmPasswordTF.text, !confirmNewPassword.isEmpty else {
             showGeneralAlert(
+                image: UIImage(named: "InfoIcon"),
+                imageSize: CGSize(width: 40, height: 40),
                 title: "Confirm password is required.",
                 okButtonTitle: "Ok",
                 okAction: {
@@ -201,6 +211,8 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
 
         guard newPassword == confirmNewPassword else {
             showGeneralAlert(
+                image: UIImage(named: "InfoIcon"),
+                imageSize: CGSize(width: 40, height: 40),
                 title: "New password and confirm password must be the same.",
                 okButtonTitle: "Ok",
                 okAction: {
@@ -237,6 +249,8 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
                     print("Response Message:", responseMessage)
                     
                     showGeneralAlert(
+                        image: UIImage(named: "InfoIcon"),
+                        imageSize: CGSize(width: 40, height: 40),
                         title: responseMessage,
                         okButtonTitle: "Ok",
                         okAction: {

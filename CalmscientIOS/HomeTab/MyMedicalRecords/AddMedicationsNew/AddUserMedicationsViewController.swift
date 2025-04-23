@@ -47,7 +47,11 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
         else {
           medicationTimeData[index].alarmEnabled = status
                         if status == "1" {
+                            print("here active")
                             medicationTimeData[index].isDefault = 0 //1
+                        } else {
+                            print("here inactive")
+                            medicationTimeData[index].isDefault = 1
                         }
         }
         
@@ -341,7 +345,22 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
         let detailsMatch:[Int:String] = [0:name,1:provider,2:dosage,3:direction]
         for (idx,detailEntered) in userEnteredDetails.enumerated() {
             if detailEntered.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                self.userAddMedicationsTableView.showToast(message: "\(pleaseEnter) \(detailsMatch[idx]!)!", point: CGPoint(x: self.view.frame.width / 2, y: self.view.frame.height / 2 - 50))
+//                self.userAddMedicationsTableView.showToast(message: "\(pleaseEnter) \(detailsMatch[idx]!)!", point: CGPoint(x: self.view.frame.width / 2, y: self.view.frame.height / 2 - 50))
+                
+                let alertText = "\(pleaseEnter) \(detailsMatch[idx]!)"
+                showGeneralAlert(
+                    image: UIImage(named: "InfoIcon"),
+                    imageSize: CGSize(width: 40, height: 40),
+                    title: alertText,
+                    okButtonTitle: "Ok",
+                    okAction: {
+                        print("OK action triggered")
+                    },
+                    dismissAction: {
+                        print("Dismiss action triggered")
+                    }
+                )
+                
                 return false
             }
         }
@@ -403,25 +422,29 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
 
             switch indexPath.row % 4 {
             case 0:
-                cell.titleLabel.text = AppHelper.getLocalizeString(str: "Medication")
+//                cell.titleLabel.text = AppHelper.getLocalizeString(str: "Medication")
+                cell.titleLabel.attributedText = setRequiredTitle(AppHelper.getLocalizeString(str: "Medication"))
                 cell.cellType = .MedicationName
                 if EditVc ?? false, userEnteredDetails[indexPath.row].isEmpty {
                     userEnteredDetails[indexPath.row] = medication ?? ""
                 }
             case 1:
-                cell.titleLabel.text = AppHelper.getLocalizeString(str: "Provider")
+//                cell.titleLabel.text = AppHelper.getLocalizeString(str: "Provider")
+                cell.titleLabel.attributedText = setRequiredTitle(AppHelper.getLocalizeString(str: "Provider"))
                 cell.cellType = .MedicationProvider
                 if EditVc ?? false, userEnteredDetails[indexPath.row].isEmpty {
                     userEnteredDetails[indexPath.row] = providerName ?? ""
                 }
             case 2:
-                cell.titleLabel.text = AppHelper.getLocalizeString(str: "Dosage")
+//                cell.titleLabel.text = AppHelper.getLocalizeString(str: "Dosage")
+                cell.titleLabel.attributedText = setRequiredTitle(AppHelper.getLocalizeString(str: "Dosage"))
                 cell.cellType = .MedicationDosage
                 if EditVc ?? false, userEnteredDetails[indexPath.row].isEmpty {
                     userEnteredDetails[indexPath.row] = dosage ?? ""
                 }
             case 3:
-                cell.titleLabel.text = AppHelper.getLocalizeString(str: "Direction")
+//                cell.titleLabel.text = AppHelper.getLocalizeString(str: "Direction")
+                cell.titleLabel.attributedText = setRequiredTitle(AppHelper.getLocalizeString(str: "Direction"))
                 cell.cellType = .MedicationDirection
                 if EditVc ?? false, userEnteredDetails[indexPath.row].isEmpty {
                     userEnteredDetails[indexPath.row] = direction ?? ""
@@ -450,7 +473,7 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddNewMedicationSwitchTableCell", for: indexPath) as! AddNewMedicationSwitchTableCell
             cell.selectionStyle = .none
             cell.cellTitleLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "With Meal" : "Con la Comida."
-            cell.expiryLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Expiry Date" : "Con la Comida."
+            cell.expiryLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Expiry Date" : "Fecha de vencimiento"
             
             if EditVc ?? false {
                 
@@ -524,6 +547,17 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
         }
 
     }
+    
+    //MARK: - For Mandatory astrik
+    
+    func setRequiredTitle(_ title: String) -> NSAttributedString {
+        let attributedString = NSMutableAttributedString(string: title, attributes: [.foregroundColor: UIColor.label])
+        let asterisk = NSAttributedString(string: " *", attributes: [.foregroundColor: UIColor.red])
+        attributedString.append(asterisk)
+        return attributedString
+    }
+    
+ //END
     
     func didSelectDate(_ date: Date, indexPath: IndexPath?, isTimePicker: Bool) {
         

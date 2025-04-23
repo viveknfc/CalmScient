@@ -58,13 +58,14 @@ class NewCalender : UIView, UISheetPresentationControllerDelegate, NewPickerView
     private func setupCalenderView() {
         customCalender.allowsMultipleSelection = false
         customCalender.scope = .week
+        customCalender.rowHeight = 42 // Default is ~32; increase to fit icon + label nicely
         customCalender.delegate = self
         customCalender.dataSource = self
         customCalender.today = nil
         customCalender.select(Date())
         customCalender.locale = Locale(identifier: Utility.shared.getLocaleIdentifier())
         customCalender.backgroundColor = UIColor(named: "VCalenderBg")//UIColor(red: 232/255, green: 231/255, blue: 244/255, alpha: 1.0)
-        
+
         updateMonthAndYearButtonTitle(for: customCalender.currentPage)
     }
     
@@ -225,16 +226,16 @@ extension NewCalender : FSCalendarDelegate, FSCalendarDataSource, FSCalendarDele
        }
     
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, imageOffsetFor date: Date) -> CGPoint {
-        return CGPoint(x: 0, y: 3)
+        return CGPoint(x: 0, y: 5)
     }
 
     
     func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
         // Update the height by adding 50 to the current height of the bounds
-        self.customCalender.frame.size.height = bounds.height + 50
+        self.customCalender.frame.size.height = bounds.height + 60
         
         // Create a new CGRect with the updated height
-        let newHeight = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.width, height: bounds.height + 50)
+        let newHeight = CGRect(x: bounds.origin.x, y: bounds.origin.y, width: bounds.width, height: bounds.height + 60)
         
         // Pass the updated CGRect to the delegate
         calendarToViewDelegate?.NcalendardidChangeBounds(newBounds: newHeight)

@@ -17,6 +17,7 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var resourceTableView: UITableView!
     var basicData2: [Course]?
     
+    var resourceData: [(String, String, UIImage)] = []
     
     override func viewDidLoad() {
         leftBox.layer.cornerRadius = 12
@@ -24,6 +25,8 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
         
         rightBox.layer.cornerRadius = 12
         rightBox.layer.masksToBounds = true
+        
+        resourceData = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? eresourceData : sresourceData
         
         tableView.register(UINib(nibName: "IndexBasicTableCell", bundle: nil), forCellReuseIdentifier: "smokingBasicCell")
 
@@ -34,6 +37,7 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
         
         resourceTableView.delegate = self
         resourceTableView.dataSource = self
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -48,7 +52,9 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
     
     let data = [("Basic knowledge", UIImage(named: "check") ?? UIImage()), ("Make a plan", UIImage(named: "check") ?? UIImage()), ("Stay focused", UIImage(named: "check") ?? UIImage()), ("My progress", UIImage(named: "check") ?? UIImage())]
     
-    let resourceData = [("Work your strengths", "Do something you're good at to build self-confidence, then tackle a tougher task.", UIImage(named: "Maskgroup") ?? UIImage()), ("Breathing exercises", "Let’s use breathing exercises to support your journey. They help reduce stress and cravings, and provide a calming distraction..", UIImage(named: "BreathingTechnic") ?? UIImage()), ("Managing anxiety course", "Anxiety can trigger drinking and smoking, but healthy coping strategies help you to stay strong", UIImage(named: "img1") ?? UIImage()), ("Screenings", "Let’s set a goal to screen for depression, anxiety, and alcohol and smoking regularly, as these can support your success", UIImage(named: "Screening_Cell") ?? UIImage())]
+    let eresourceData = [("Work your strengths", "Do something you're good at to build self-confidence, then tackle a tougher task.", UIImage(named: "Maskgroup") ?? UIImage()), ("Breathing exercises", "Let’s use breathing exercises to support your journey. They help reduce stress and cravings, and provide a calming distraction..", UIImage(named: "BreathingTechnic") ?? UIImage()), ("Managing anxiety course", "Anxiety can trigger drinking and smoking, but healthy coping strategies help you to stay strong", UIImage(named: "img1") ?? UIImage()), ("Screenings", "Let’s set a goal to screen for depression, anxiety, and alcohol and smoking regularly, as these can support your success", UIImage(named: "Screening_Cell") ?? UIImage())]
+    
+    let sresourceData = [("Work your strengths", "Do something you're good at to build self-confidence, then tackle a tougher task.", UIImage(named: "Maskgroup") ?? UIImage()), ("Ejercicios de respiración", "Usemos ejercicios de respiración para apoyar tu viaje. Ayudan a reducir el estrés, los antojos, y proporcionan calma.", UIImage(named: "BreathingTechnic") ?? UIImage()), ("Curso de manejo de la ansiedad", "La ansiedad puede desencadenar el consumo de alcohol y tabaco, pero hay estrategias saludables que pueden ayuda", UIImage(named: "img1") ?? UIImage()), ("Evaluaciones", "Establezcamos metas para analizar la depresión, ansiedad, alcohol y tabaco de forma regular, esto puede apoyar tu éxito", UIImage(named: "Screening_Cell") ?? UIImage())]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.tableView {
@@ -89,6 +95,8 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
                   return cell
               } else if tableView == self.resourceTableView {
                   let cell = tableView.dequeueReusableCell(withIdentifier: "SmokingResourceCell", for: indexPath) as! SmokingIndexResourceTableViewCell
+                  
+                  cell.selectionStyle = .none
                   
                   let content = resourceData[indexPath.row].0
                   let desc = resourceData[indexPath.row].1
@@ -131,8 +139,16 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
                 vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
                 self.navigationController?.pushViewController(vc!, animated: true)
                 
+            } else {
+                let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
+                if let customAlertVC = storyboard.instantiateViewController(withIdentifier: "FullComingSoonVC") as? FullComingSoonVC {
+                    customAlertVC.modalPresentationStyle = .overFullScreen
+                    customAlertVC.modalTransitionStyle = .crossDissolve
+                    self.present(customAlertVC, animated: true, completion: nil)
+                }
             }
         } else if tableView == self.resourceTableView {
+            print("resource table clicked")
             if indexPath.row == 0 {
                 
             } else if indexPath.row == 1 {
@@ -146,10 +162,20 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
             } else if indexPath.row == 3 {
                 let next = UIStoryboard(name: "ScreeningListVC", bundle: nil)
                 let vc = next.instantiateViewController(withIdentifier: "ScreeningListVC") as? ScreeningListVC
+                vc?.isComingFromParticularVC = true
                 self.navigationController?.pushViewController(vc!, animated: true)
             }
         }
         
+    }
+    
+    //MARK: - Need to talk button
+    
+    @IBAction func needToTalkButtonClicked(_ sender: Any) {
+        let next = UIStoryboard(name: "NeedToTalkViewController", bundle: nil)
+                let vc = next.instantiateViewController(withIdentifier: "NeedToTalkViewController") as? NeedToTalkViewController
+                vc?.title = "Emergency resource"
+                self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     //MARK: - Basic Knowledge API Call

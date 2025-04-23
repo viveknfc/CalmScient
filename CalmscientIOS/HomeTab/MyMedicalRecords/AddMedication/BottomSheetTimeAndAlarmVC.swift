@@ -18,6 +18,9 @@ class BottomSheetTimeAndAlarmVC: UIViewController {
     
     @IBOutlet weak var timeLbl: UILabel!
     
+    @IBOutlet weak var closeButton: UIButton!
+    
+    
     
     weak var instanceObj:ScheduledTimeList?
     weak var newMedicationInstance:MedicationAlarm?
@@ -276,6 +279,9 @@ class BottomSheetTimeAndAlarmVC: UIViewController {
         
     }
     
+    @IBAction func closeButtonPressed(_ sender: Any) {
+        self.dismiss(animated: true)
+    }
     
     
 }

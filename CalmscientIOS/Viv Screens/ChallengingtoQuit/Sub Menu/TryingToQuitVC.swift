@@ -12,7 +12,10 @@ class TryingToQuitVC: ViewController {
     @IBOutlet weak var bulletinLabels: FontLL15!
     
     let bullet = "•  " // Bullet with spacing
-    let items = [
+    
+    var items: [String] = []
+    
+    let eitems = [
         "Do something to stay active at home",
         "Call or visit a friend or family member",
         "Brush your teeth",
@@ -22,8 +25,20 @@ class TryingToQuitVC: ViewController {
         "Switch to coffee with less caffeine or decaf products"
     ]
 
+    let sitems = [
+        "Haz algo para mantenerte activo en casa",
+        "Llama o visita a un amigo o familiar",
+        "Cepíllate los dientes",
+        "Juega con una mascota",
+        "Update your contact list on your cell phone",
+        "Prueba un nuevo pasatiempo",
+        "Cambia a café con menos cafeína o productos descafeinados"
+    ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        items = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? eitems : sitems
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.firstLineHeadIndent = 0 // First line starts normally
@@ -43,6 +58,8 @@ class TryingToQuitVC: ViewController {
         bulletinLabels.attributedText = attributedString
 
         // Do any additional setup after loading the view.
+        
+        
     }
     
     

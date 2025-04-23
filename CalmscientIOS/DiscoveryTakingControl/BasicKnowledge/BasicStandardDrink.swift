@@ -78,6 +78,7 @@ class BasicStandardDrink: ViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setupLanguage()
+        completeButton.updateTitleForLanguage()
     }
     
     func labelText() {

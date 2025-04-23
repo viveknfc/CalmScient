@@ -44,6 +44,7 @@ class Moderation: ViewController {
         self.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
         headerLabel.text = AppHelper.getLocalizeString(str: "When is drinking in moderation still too much?")
         fontConfigaration()
+        completeButton.updateTitleForLanguage()
     }
     
     func fontConfigaration(){

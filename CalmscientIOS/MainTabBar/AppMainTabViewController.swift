@@ -169,7 +169,7 @@ class TestViewController4: UIViewController {
         print("item 1 loaded")
         
         // Load the image
-        guard let image = UIImage(named: "comingsoon.png") else {
+        guard let image = UIImage(named: "rewardImg") else { //comingsoon.png
             print("Image not found")
             return
         }

@@ -239,13 +239,13 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
                                 // Sort the data
                                 self.filtereddailyData = self.dailyData.sorted { (dict1, dict2) in
                                     if let sno1 = dict1["sno"] as? Int, let sno2 = dict2["sno"] as? Int {
-                                        return sno1 > sno2 // Descending order
+                                        return sno1 < sno2 // Asending order, previously it was >
                                     }
                                     return false
                                 }
 
                                 // Print sno values after sorting
-                                let afterSorting = self.filtereddailyData.compactMap { $0["sno"] as? Int }
+//                                let afterSorting = self.filtereddailyData.compactMap { $0["sno"] as? Int }
 //                                print("After Sorting: \(afterSorting)")
 
 
@@ -832,7 +832,25 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
         },completion: nil)
     }
     
-    func saveAction(updatedText: String) {
+    func saveAction(updatedText: String, initialText: String) {
+        print("save journal entru clicked from journal entry vc")
+        // Check if updatedText is empty or just whitespace
+        if updatedText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || updatedText == initialText {
+            let alertText = "Please enter journal details"
+            showGeneralAlert(
+                image: UIImage(named: "InfoIcon"),
+                imageSize: CGSize(width: 40, height: 40),
+                title: alertText,
+                okButtonTitle: "Ok",
+                okAction: {
+                    print("OK action triggered")
+                },
+                dismissAction: {
+                    print("Dismiss action triggered")
+                }
+            )
+            return
+        }
         
         guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
             fatalError("Unable to found Application Shared Info")
@@ -942,7 +960,7 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
                        // Sort the data
                        self.filtereddailyData = self.dailyData.sorted { (dict1, dict2) in
                            if let sno1 = dict1["sno"] as? Int, let sno2 = dict2["sno"] as? Int {
-                               return sno1 > sno2 // Descending order
+                               return sno1 < sno2 // ealier  > Descending order
                            }
                            return false
                        }

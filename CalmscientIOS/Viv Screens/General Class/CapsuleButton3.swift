@@ -29,7 +29,7 @@ class CapsuleButton3: UIButton {
         self.layer.cornerRadius = 20 // Capsule shape
         self.clipsToBounds = true
         self.contentEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20) // Optional padding
-        let title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Go back" : "Go back"
+        let title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Go back" : "Volver"
         self.setTitle(title, for: .normal)
     }
 }

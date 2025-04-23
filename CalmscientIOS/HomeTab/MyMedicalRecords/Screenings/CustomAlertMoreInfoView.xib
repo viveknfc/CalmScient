@@ -58,9 +58,9 @@ Stamford University</string>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PO4-SV-OgO" customClass="LinearGradientButton" customModule="CalmscientIOS" customModuleProvider="target">
-                    <rect key="frame" x="114.66666666666669" y="306" width="100" height="40"/>
+                    <rect key="frame" x="89.666666666666686" y="306" width="150" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="100" id="YCD-St-aGK"/>
+                        <constraint firstAttribute="width" constant="150" id="YCD-St-aGK"/>
                         <constraint firstAttribute="height" constant="40" id="lvF-eJ-o7E"/>
                     </constraints>
                     <state key="normal" title="Button"/>

@@ -78,6 +78,7 @@ class UserMedicalRecordsViewController: ViewController {
     @objc func profileButtonPressed() {
 
         let userProfileViewController = UIStoryboard(name: "UserProfile", bundle: nil).instantiateViewController(withIdentifier: "UserProfileViewController") as! UserProfileViewController
+        userProfileViewController.shouldPopBack = true
         self.navigationController?.pushViewController(userProfileViewController, animated: true)
         }
 }

@@ -9,7 +9,7 @@ import UIKit
 
 protocol JournalEntryEditViewActions:AnyObject {
     func closeAction()
-    func saveAction(updatedText:String)
+    func saveAction(updatedText:String, initialText: String)
 }
 
 class JournalEntryEditView: UIView, UITextViewDelegate {
@@ -63,7 +63,7 @@ class JournalEntryEditView: UIView, UITextViewDelegate {
     }
     
     @IBAction func didClickOnUpdateAction(_ sender: Any) {
-        journalEntryEditActionDelegate?.saveAction(updatedText: journalTextView.text)
+        journalEntryEditActionDelegate?.saveAction(updatedText: journalTextView.text, initialText: initialText)
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {

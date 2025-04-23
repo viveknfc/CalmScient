@@ -52,7 +52,7 @@ class BasicknowledgeVideo: ViewController {
         questionLbl.text =  AppHelper.getLocalizeString(str: "DRINKING_CONTROL_Consequence_What_Happens_To_Your_Brain_When_You_Drink")
         
         subtitleLbl.text = AppHelper.getLocalizeString(str:"Let’s watch the videos ")
-        
+        completeButton.updateTitleForLanguage()
     }
     
     @IBAction func maximiseButtonAction(_ sender: Any) {

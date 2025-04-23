@@ -14,6 +14,8 @@ class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSour
     var selectedRowIndex : Int?
     var sectionID6: Int?
     
+    var data: [(String, UIImage, [String], Bool)] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +25,9 @@ class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSour
         smokingTableView.delegate = self
         smokingTableView.dataSource = self
         // Do any additional setup after loading the view.
+        
+        data = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? edata : sdata
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -32,12 +37,19 @@ class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
-    var data = [
+    var edata = [
         ("Thinking about quitting", UIImage(named: "check") ?? UIImage(), ["You are considering it but haven't made a decision yet.\n\nThat's perfectly ok! We will guide you through the benefits of quitting smoking, and then you can decide if you'd like to create a plan for quitting.\nMove to Make a plan."], false),
         ("Getting ready to quit", UIImage(named: "check") ?? UIImage(), ["You've decided to quit smoking.\n\nGreat decision! We will guide you on how to create a solid plan and help you stay focused on your journey.\nMove to Make a plan."], false),
         ("Quitting", UIImage(named: "check") ?? UIImage(), ["You've already started or set a date to quit smoking.\n\nThat's great! We will help you create a strategic plan and stay focused on your goal.\nMove to Make a plan."], false),
         ("Staying smoke-free", UIImage(named: "check") ?? UIImage(), ["You're focusing on avoiding relapse and keeping up your progress.\n\nThat's fantastic. It's important not to let your guard down. We will be here to support you to stay strong.\nMove to Make a plan to register the day you started quitting smoking, then you can use Stay focused."], false)
     ]
+    
+    var sdata = [
+            ("Está pensando en dejar de fumar", UIImage(named: "check") ?? UIImage(), ["Lo está considerando pero aún no ha tomado una decisión.\n\n¡Está perfectamente bien! Lo guiaremos a través de los beneficios de dejar de fumar y luego podrá decidir si desea crear un plan para dejar de fumar.\nPase a hacer un plan."], false),
+            ("Preparándose para dejar de fumar", UIImage(named: "check") ?? UIImage(), ["Has decidido dejar de fumar.\n\n¡Excelente decisión! Te guiaremos sobre cómo crear un plan sólido y te ayudaremos a mantenerte concentrado en tu viaje.\nPasa a hacer un plan."], false),
+            ("Dejar de fumar", UIImage(named: "check") ?? UIImage(), ["Ya comenzó o fijó una fecha para dejar de fumar.\n\n¡Eso es genial! Lo ayudaremos a crear un plan estratégico y mantenerse enfocado en su objetivo.\nPase a hacer un plan."], false),
+            ("Permanecer libre de humo", UIImage(named: "check") ?? UIImage(), ["Te estás concentrando en evitar recaídas y mantener tu progreso.\n\nEso es fantástico. Es importante no bajar la guardia. Estaremos aquí para ayudarte a mantenerte fuerte.\nPasa a Haz un plan para registrar el día en que empezaste a dejar de fumar, luego podrás usar Mantente enfocado."], false)
+        ]
 
     
     @IBAction func yesButtonPressede(_ sender: Any) {
@@ -81,8 +93,7 @@ class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSour
             print(response)
             self.view.hideToastActivity()
             if let responseDict = response as? [String: Any],
-               let statusResponse = responseDict["statusResponse"] as? [String: Any],
-               let responseMessage = statusResponse["responseMessage"] as? String {
+               let responseMessage = responseDict["responseMessage"] as? String {
                 print(responseMessage)
                 self.showSuccessAlert(successContent: responseMessage, centreImage: nil, okButtonAction: {
                     

@@ -18,6 +18,7 @@ class SmokingRelaxVC: ViewController {
     }
 
     @IBAction func completeButtonPressed(_ sender: Any) {
+        completeButtonAPICall()
     }
     
     //MARK: - Complete Button API Call

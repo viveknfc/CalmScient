@@ -18,16 +18,18 @@ class LaunchScreenVC: UIViewController {
         super.viewDidLoad()
 
         print("🔥 LaunchScreenVC viewDidLoad called")
+//        view.backgroundColor = .white
+//        launchGif.backgroundColor = .clear
 
         do {
             print("🎬 Loading GIF in viewDidLoad")
-            let gif = try UIImage(gifName: "launchGifWhite.gif")
+            let gif = try UIImage(gifName: "whiteGif.gif") //launchGifWhite.gif
             launchGif.setGifImage(gif, loopCount: -1)
         } catch {
             print("❌ Failed to load GIF: \(error)")
         }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { //+ 2.0
             print("🕒 Timer (from viewDidLoad) done, proceeding to next screen")
             self.sceneDelegate?.proceedAfterSplashScreen()
         }

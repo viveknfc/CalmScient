@@ -7,7 +7,7 @@
 */
 
 "Profile" = "Profile";
-"Version 1.0.1" = "Version 1.0.7";
+"Version 1.0.1" = "Version 1.1.0";
 "Username" = "Username";
 "Password" = "Password";
 "Forgot Password?" = "Forgot Password?";
@@ -29,6 +29,7 @@
 
 "standard drink description2" = "Each beverage portrayed above represents one standard drink (or one alcoholic drink equivalent), defined in the United States as any beverage containing 0.6 oz or 14 grams of pure alcohol. The percentage of pure alcohol, expressed here as alcohol by volume (alc/vol), varies within and across beverage types. Although the standard drink amounts are helpful for following health guidelines, they may not reflect customary serving sizes";
 
+"Drink counts calculator" = "Drink counts calculator";
 
 //us guide lines
 "What are the U.S. guidelines for drinking?" = "What are the U.S. guidelines for drinking?";
@@ -583,7 +584,7 @@ Ready?";
 "PHQ-9_by_date_range" = "PHQ-9 by date range";
 "GAD_by_date_range" = "GAD-7 by date range";
 "Audit_by_date_range" = "AUDIT by date range";
-"Dast_by_date_range" = "DAST by date range";
+"Dast_by_date_range" = "DAST-10 by date range";
 "More_sleep_needed" = "More sleep needed";
 "Average_sleep_score" = "Average sleep score";
 "Most_hours_slept" = "Most hours slept";

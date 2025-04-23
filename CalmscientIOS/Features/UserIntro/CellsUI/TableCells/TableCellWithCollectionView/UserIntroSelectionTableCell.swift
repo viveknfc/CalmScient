@@ -7,12 +7,18 @@
 
 import UIKit
 
+protocol UserIntroSelectionDelegate: AnyObject {
+    func didChangeSelectedIndex()
+}
+
 class UserIntroSelectionTableCell: UITableViewCell {
     
     @IBOutlet weak var borderContainerView: UIView!
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var tableCellCollectionView: UICollectionView!
+    
+    private var shouldNotifyDelegate = false
     
     private var cellType:UserEntryDayFeedbackTableCell! {
         didSet {
@@ -39,11 +45,31 @@ class UserIntroSelectionTableCell: UITableViewCell {
          }
     }
     private var instance:UserStartupScreenDayData!
+    
+    weak var delegate: UserIntroSelectionDelegate?
+    var isFromAPISetup = false
+    
+    var apiSelectedIndex = -1
+
     var selectedIndex = -1 {
+        willSet {
+            // Determine if delegate should be notified
+            if newValue != selectedIndex && newValue != apiSelectedIndex {
+                shouldNotifyDelegate = true
+            } else {
+                shouldNotifyDelegate = false
+            }
+        }
         didSet {
             tableCellCollectionView.reloadData()
+
+            if !isFromAPISetup, shouldNotifyDelegate {
+                delegate?.didChangeSelectedIndex()
+            }
         }
     }
+
+
     
     var spendIndex = -1 {
         didSet {

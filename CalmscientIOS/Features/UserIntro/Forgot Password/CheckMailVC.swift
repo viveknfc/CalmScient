@@ -11,12 +11,7 @@ class CheckMailVC: ViewController {
     
     @IBOutlet weak var instructionLbl: UILabel!
     @IBOutlet weak var checkMailLbl: UILabel!
-    
-    //    @IBOutlet weak var codeTF1: UITextField!
-    //    @IBOutlet weak var codeTF2: UITextField!
-    //    @IBOutlet weak var codeTF3: UITextField!
-    //    @IBOutlet weak var codeTF4: UITextField!
-    
+
     @IBOutlet var digitFields: [UITextField]!
     
     @IBOutlet weak var verifyCodeButton: CapsuleButton!
@@ -31,6 +26,7 @@ class CheckMailVC: ViewController {
         digitFields.forEach {
             configureDigitField($0)
         }
+        title = "Verification"
     }
     
     

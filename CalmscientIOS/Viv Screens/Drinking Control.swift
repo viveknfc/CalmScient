@@ -24,6 +24,9 @@ class DrinkingControl: UIViewController, NCalendarToViewDelegate { //CalendarToV
     @IBOutlet weak var leftBoxLabel: FontLM38!
     @IBOutlet weak var rightBoxLabel: FontLM18!
     
+    @IBOutlet weak var rightBoxTitle: FontLR15!
+    
+    
     @IBOutlet weak var infoButton: UIButton!
     
     @IBOutlet weak var calenderView2: UIView!
@@ -63,10 +66,10 @@ class DrinkingControl: UIViewController, NCalendarToViewDelegate { //CalendarToV
         makeAPlan.isEnabled = true
         makeAPlan.setBorderColor(.lightGray)
         makeAPlan.setTitleColor(.lightGray)
-        stayFocussed.isEnabled = false
+        stayFocussed.isEnabled = true
         stayFocussed.setBorderColor(.lightGray)
         stayFocussed.setTitleColor(.lightGray)
-        myProgress.isEnabled = false
+        myProgress.isEnabled = true
         myProgress.setBorderColor(.lightGray)
         myProgress.setTitleColor(.lightGray)
         
@@ -185,6 +188,12 @@ class DrinkingControl: UIViewController, NCalendarToViewDelegate { //CalendarToV
     
     @IBAction func drinkTrackerClicked(_ sender: Any) {
         print("drink tarcker button pressed")
+        let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
+        if let customAlertVC = storyboard.instantiateViewController(withIdentifier: "FullComingSoonVC") as? FullComingSoonVC {
+            customAlertVC.modalPresentationStyle = .overFullScreen
+            customAlertVC.modalTransitionStyle = .crossDissolve
+            self.present(customAlertVC, animated: true, completion: nil)
+        }
     }
     
     //MARK: - Event Tracker Button Clicked
@@ -192,6 +201,12 @@ class DrinkingControl: UIViewController, NCalendarToViewDelegate { //CalendarToV
     
     @IBAction func eventTrackerButtonPressed(_ sender: Any) {
         print("event tarcker button pressed")
+        let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
+        if let customAlertVC = storyboard.instantiateViewController(withIdentifier: "FullComingSoonVC") as? FullComingSoonVC {
+            customAlertVC.modalPresentationStyle = .overFullScreen
+            customAlertVC.modalTransitionStyle = .crossDissolve
+            self.present(customAlertVC, animated: true, completion: nil)
+        }
     }
     
     //MARK: - Need to Talk button Pressed
@@ -199,6 +214,10 @@ class DrinkingControl: UIViewController, NCalendarToViewDelegate { //CalendarToV
     
     @IBAction func needToTalkButtonPressed(_ sender: Any) {
         print("need to talk button pressed")
+        let next = UIStoryboard(name: "NeedToTalkViewController", bundle: nil)
+                let vc = next.instantiateViewController(withIdentifier: "NeedToTalkViewController") as? NeedToTalkViewController
+                vc?.title = "Emergency resource"
+                self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     //MARK: - Basic Knowledge button Pressed
@@ -218,6 +237,29 @@ class DrinkingControl: UIViewController, NCalendarToViewDelegate { //CalendarToV
     //MARK: - Make A Plan Button
     
     @IBAction func makeAPlanButtonPressed(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
+        if let customAlertVC = storyboard.instantiateViewController(withIdentifier: "FullComingSoonVC") as? FullComingSoonVC {
+            customAlertVC.modalPresentationStyle = .overFullScreen
+            customAlertVC.modalTransitionStyle = .crossDissolve
+            self.present(customAlertVC, animated: true, completion: nil)
+        }
+    }
+    
+    //MARK: - Stay focussed Button Clicked
+    
+    @IBAction func stayFocussedButtonClicked(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
+        if let customAlertVC = storyboard.instantiateViewController(withIdentifier: "FullComingSoonVC") as? FullComingSoonVC {
+            customAlertVC.modalPresentationStyle = .overFullScreen
+            customAlertVC.modalTransitionStyle = .crossDissolve
+            self.present(customAlertVC, animated: true, completion: nil)
+        }
+    }
+    
+    //MARK: - My Progress Button Clicked
+    
+    
+    @IBAction func myProgressButtoonClicked(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
         if let customAlertVC = storyboard.instantiateViewController(withIdentifier: "FullComingSoonVC") as? FullComingSoonVC {
             customAlertVC.modalPresentationStyle = .overFullScreen
@@ -246,13 +288,15 @@ class DrinkingControl: UIViewController, NCalendarToViewDelegate { //CalendarToV
     @IBAction func screeningButton(_ sender: Any) {
         let next = UIStoryboard(name: "ScreeningListVC", bundle: nil)
         let vc = next.instantiateViewController(withIdentifier: "ScreeningListVC") as? ScreeningListVC
+        vc?.isComingFromParticularVC = true
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     @IBAction func drinkCountButton(_ sender: Any) {
         let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
         let vc = next.instantiateViewController(withIdentifier: "DrinkingCountVC") as? DrinkingCountVC
-        vc?.title = AppHelper.getLocalizeString(str: "Drink counts calculator")
+        vc?.title = AppHelper.getLocalizeString(str: "Drink counts calculator") //Contador de bebidas
+
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     
@@ -305,13 +349,17 @@ extension DrinkingControl {
                     if let firstCourse = data.courseLists?.first {
                         let skipTutorial = firstCourse.skipTutorialFlag ?? 0
                         print("First course's skipTutorialFlag from drinking control is: \(skipTutorial)")
-                            
+                           
                             // Access goal details
                             if let indexes = data.index, indexes.count >= 2 {
                                 self.goalTypeLbl1.text = indexes[0].goalType ?? ""
+                                
+                                print("the left label is \(indexes[0].goal ?? 0)")
+                                
                                 self.leftBoxLabel.text = "\(indexes[0].goal ?? 0)"
                                 self.goalTypeLbl2.text = indexes[1].goalType ?? ""
                                 self.rightBoxLabel.text = "\(indexes[1].goal ?? 0)"
+                                self.rightBoxTitle.text = indexes[1].goalDescription ?? ""
                             }
                             
                     }

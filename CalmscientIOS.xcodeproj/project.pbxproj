@@ -427,7 +427,6 @@
 		4C7FA3822D7EB2EF00143612 /* NewAppointmentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7FA37F2D7EB2EF00143612 /* NewAppointmentTableViewCell.swift */; };
 		4C7FA3842D7F19AE00143612 /* DrinkingTakingControlResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C7FA3832D7F19AE00143612 /* DrinkingTakingControlResponse.swift */; };
 		4C8099402D79B47D009648CB /* AddNewAppointmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C80993F2D79B47D009648CB /* AddNewAppointmentViewController.swift */; };
-		4C80994E2D79BBC8009648CB /* AddNewAppointment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4C80994D2D79BBC8009648CB /* AddNewAppointment.storyboard */; };
 		6B5789C72C7C3C7500EFB8FF /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6B5789C62C7C3C7500EFB8FF /* bell.mp3 */; };
 		6B5CC41C2C673C14007DDEE5 /* UserStartUpScreenDayDataSpanish.json in Resources */ = {isa = PBXBuildFile; fileRef = 6B5CC41B2C673C14007DDEE5 /* UserStartUpScreenDayDataSpanish.json */; };
 		6B75829C2C6B9A62008EB4EF /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B75829B2C6B9A61008EB4EF /* Header.swift */; };
@@ -444,6 +443,7 @@
 		C21BD59A2D2C44AC005BA00D /* KeyChainFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BD5992D2C44AB005BA00D /* KeyChainFile.swift */; };
 		C21BD59B2D2C48A7005BA00D /* Pods_CalmscientIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4269D638E194B1C11CF122B0 /* Pods_CalmscientIOS.framework */; };
 		C21BD59C2D2C48A7005BA00D /* Pods_CalmscientIOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4269D638E194B1C11CF122B0 /* Pods_CalmscientIOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C22228312DB901B700A4CBC2 /* whiteGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = C22228302DB901B700A4CBC2 /* whiteGif.gif */; };
 		C226A5722D0844B40080397A /* HoldYourLiquorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C226A5712D0844B40080397A /* HoldYourLiquorVC.swift */; };
 		C226A5762D089AAA0080397A /* VivTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C226A5752D089AAA0080397A /* VivTableViewCell.xib */; };
 		C226A5782D08A3260080397A /* VivCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C226A5772D08A3260080397A /* VivCustomTableViewCell.swift */; };
@@ -498,7 +498,6 @@
 		C29822402D13426600541886 /* CapsuleButton2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C298223F2D13426600541886 /* CapsuleButton2.swift */; };
 		C29E597E2D9435020068FDD7 /* MyDrinkingHabitRefDoc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E597D2D9435020068FDD7 /* MyDrinkingHabitRefDoc.swift */; };
 		C2A293E52D2CFB2800666D25 /* NicotinCarvingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A293E42D2CFB2700666D25 /* NicotinCarvingVC.swift */; };
-		C2A7F2242DA3C60D00E41D5A /* launchGifWhite.gif in Resources */ = {isa = PBXBuildFile; fileRef = C2A7F2232DA3C60D00E41D5A /* launchGifWhite.gif */; };
 		C2A7F2262DA4E7B300E41D5A /* scheduleAlarmNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A7F2252DA4E7B300E41D5A /* scheduleAlarmNotification.swift */; };
 		C2ADB3B82D1A68CC00157631 /* FontLR16.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADB3B72D1A68CC00157631 /* FontLR16.swift */; };
 		C2ADB3BA2D1A6AE800157631 /* ProfileTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADB3B92D1A6AE800157631 /* ProfileTextField.swift */; };
@@ -535,6 +534,7 @@
 		C2EED5E22CFA6797005C1E1F /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EED5E12CFA6797005C1E1F /* CustomView.swift */; };
 		C2EED5E42CFA69B0005C1E1F /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EED5E32CFA69B0005C1E1F /* ImageView.swift */; };
 		C2EED5E62CFA6CB8005C1E1F /* FontLR12.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EED5E52CFA6CB8005C1E1F /* FontLR12.swift */; };
+		C2FA22CD2DAF9A5700241D6E /* AddNewAppointment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2FA22CF2DAF9A5700241D6E /* AddNewAppointment.storyboard */; };
 		C2FA57FA2D71E80B0093568A /* FontLM20.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FA57F92D71E80B0093568A /* FontLM20.swift */; };
 		C2FC40F02D118F6800D9ED37 /* FontLL14.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FC40EF2D118F6800D9ED37 /* FontLL14.swift */; };
 		C2FDECB02D267897005EE6BA /* ThinkingAbtQuitingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FDECAF2D267897005EE6BA /* ThinkingAbtQuitingVC.swift */; };
@@ -990,7 +990,6 @@
 		4C7FA3802D7EB2EF00143612 /* NewAppointmentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewAppointmentTableViewCell.xib; sourceTree = "<group>"; };
 		4C7FA3832D7F19AE00143612 /* DrinkingTakingControlResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkingTakingControlResponse.swift; sourceTree = "<group>"; };
 		4C80993F2D79B47D009648CB /* AddNewAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAppointmentViewController.swift; sourceTree = "<group>"; };
-		4C80994D2D79BBC8009648CB /* AddNewAppointment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddNewAppointment.storyboard; sourceTree = "<group>"; };
 		6B5789C62C7C3C7500EFB8FF /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
 		6B5CC41B2C673C14007DDEE5 /* UserStartUpScreenDayDataSpanish.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UserStartUpScreenDayDataSpanish.json; sourceTree = "<group>"; };
 		6B75829B2C6B9A61008EB4EF /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
@@ -1006,6 +1005,7 @@
 		C20245E82D1F37B1001CBDDC /* SmokingRelaxVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokingRelaxVC.swift; sourceTree = "<group>"; };
 		C202E1EC2D931BE300DACB21 /* LaunchScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
 		C21BD5992D2C44AB005BA00D /* KeyChainFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainFile.swift; sourceTree = "<group>"; };
+		C22228302DB901B700A4CBC2 /* whiteGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = whiteGif.gif; sourceTree = "<group>"; };
 		C226A5712D0844B40080397A /* HoldYourLiquorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldYourLiquorVC.swift; sourceTree = "<group>"; };
 		C226A5752D089AAA0080397A /* VivTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VivTableViewCell.xib; sourceTree = "<group>"; };
 		C226A5772D08A3260080397A /* VivCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VivCustomTableViewCell.swift; sourceTree = "<group>"; };
@@ -1059,7 +1059,6 @@
 		C298223F2D13426600541886 /* CapsuleButton2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CapsuleButton2.swift; sourceTree = "<group>"; };
 		C29E597D2D9435020068FDD7 /* MyDrinkingHabitRefDoc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDrinkingHabitRefDoc.swift; sourceTree = "<group>"; };
 		C2A293E42D2CFB2700666D25 /* NicotinCarvingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicotinCarvingVC.swift; sourceTree = "<group>"; };
-		C2A7F2232DA3C60D00E41D5A /* launchGifWhite.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = launchGifWhite.gif; sourceTree = "<group>"; };
 		C2A7F2252DA4E7B300E41D5A /* scheduleAlarmNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scheduleAlarmNotification.swift; sourceTree = "<group>"; };
 		C2ADB3B72D1A68CC00157631 /* FontLR16.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLR16.swift; sourceTree = "<group>"; };
 		C2ADB3B92D1A6AE800157631 /* ProfileTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextField.swift; sourceTree = "<group>"; };
@@ -1097,6 +1096,8 @@
 		C2EED5E12CFA6797005C1E1F /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		C2EED5E32CFA69B0005C1E1F /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		C2EED5E52CFA6CB8005C1E1F /* FontLR12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLR12.swift; sourceTree = "<group>"; };
+		C2FA22CE2DAF9A5700241D6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AddNewAppointment.storyboard; sourceTree = "<group>"; };
+		C2FA22D02DAF9A5700241D6E /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/AddNewAppointment.xcstrings; sourceTree = "<group>"; };
 		C2FA57F92D71E80B0093568A /* FontLM20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLM20.swift; sourceTree = "<group>"; };
 		C2FC40EF2D118F6800D9ED37 /* FontLL14.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLL14.swift; sourceTree = "<group>"; };
 		C2FDECAF2D267897005EE6BA /* ThinkingAbtQuitingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThinkingAbtQuitingVC.swift; sourceTree = "<group>"; };
@@ -1648,7 +1649,7 @@
 				431C24862C47E77A00909C24 /* weeklySummaryImage.png */,
 				43AB773F2C63DBC800740BA6 /* weeklySummay1.png */,
 				43508AD82C4A70AD000B5645 /* comingsoon.png */,
-				C2A7F2232DA3C60D00E41D5A /* launchGifWhite.gif */,
+				C22228302DB901B700A4CBC2 /* whiteGif.gif */,
 				C281E48F2D9FF22200589224 /* LaunchGifFile.gif */,
 				43508AEA2C4D7F63000B5645 /* docpic.png */,
 				43508ACE2C48F0B4000B5645 /* pause.png */,
@@ -2428,7 +2429,7 @@
 			isa = PBXGroup;
 			children = (
 				4C80993F2D79B47D009648CB /* AddNewAppointmentViewController.swift */,
-				4C80994D2D79BBC8009648CB /* AddNewAppointment.storyboard */,
+				C2FA22CF2DAF9A5700241D6E /* AddNewAppointment.storyboard */,
 				4C7FA37E2D7EB2A400143612 /* NewAppointmentTableViewCell */,
 			);
 			path = "Add New Appointments";
@@ -2727,6 +2728,7 @@
 				43A08DB42C3EE5F20082F47B /* Lexend-ExtraBold.ttf in Resources */,
 				4A35FE022BF9B11A00D71B14 /* CoursesCollectionViewCell.xib in Resources */,
 				4AD5D15C2BD7A6C100E4C945 /* AddAppointments.storyboard in Resources */,
+				C22228312DB901B700A4CBC2 /* whiteGif.gif in Resources */,
 				4A6DCA1F2BE1EBDD00F2EB7C /* ChartViewHeaderTableCell.xib in Resources */,
 				4A0853A92C21684B00202C02 /* InfoAlertCell.xib in Resources */,
 				4A65C3392BD685B300809222 /* ColorAssets.xcassets in Resources */,
@@ -2811,7 +2813,7 @@
 				4A65C3322BD6859800809222 /* lexendsemibold.ttf in Resources */,
 				4AD5D1052BD7A60E00E4C945 /* MainTabAssets.xcassets in Resources */,
 				4AD5D1552BD7A6C100E4C945 /* UserMedicationsTableCell.xib in Resources */,
-				4C80994E2D79BBC8009648CB /* AddNewAppointment.storyboard in Resources */,
+				C2FA22CD2DAF9A5700241D6E /* AddNewAppointment.storyboard in Resources */,
 				4A0853B52C21684B00202C02 /* AlcholFreeCell.xib in Resources */,
 				43A08DB82C3EE5F20082F47B /* Lexend-Medium.ttf in Resources */,
 				4A03EB262BDC0E74006AE8C4 /* AddNewMedicationSwitchTableCell.xib in Resources */,
@@ -2841,7 +2843,6 @@
 				43AB773E2C62E8C800740BA6 /* ExcercisesAssets.xcassets in Resources */,
 				4A967FC22BD6892800FCE646 /* LandingVC.storyboard in Resources */,
 				4A7B04742BDCE2370052BBB8 /* ScreeningQuestions.storyboard in Resources */,
-				C2A7F2242DA3C60D00E41D5A /* launchGifWhite.gif in Resources */,
 				C23043492D10263F001E152B /* DrinkingCountCell.xib in Resources */,
 				4AD5D1502BD7A6C100E4C945 /* HomeTabFavoritesCollectionViewCell.xib in Resources */,
 				4A0853D52C23C0A600202C02 /* DrinksTrackerCollectionCell.xib in Resources */,
@@ -3326,6 +3327,15 @@
 				C2ADB3C02D1A966600157631 /* mul */,
 			);
 			name = "Taking Control Index.storyboard";
+			sourceTree = "<group>";
+		};
+		C2FA22CF2DAF9A5700241D6E /* AddNewAppointment.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C2FA22CE2DAF9A5700241D6E /* Base */,
+				C2FA22D02DAF9A5700241D6E /* mul */,
+			);
+			name = AddNewAppointment.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

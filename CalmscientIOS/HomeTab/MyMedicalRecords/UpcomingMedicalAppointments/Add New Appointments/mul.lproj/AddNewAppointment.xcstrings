@@ -1,0 +1,168 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "5g2-ac-8Wx.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Cancel\"; ObjectID = \"5g2-ac-8Wx\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Cancel"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancelar"
+          }
+        }
+      }
+    },
+    "d6D-vS-FTq.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Patient name\"; ObjectID = \"d6D-vS-FTq\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Patient name"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre de paciente"
+          }
+        }
+      }
+    },
+    "HHN-kK-ANC.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Location\"; ObjectID = \"HHN-kK-ANC\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Location"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ubicación"
+          }
+        }
+      }
+    },
+    "JSU-ZP-pLJ.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Date\"; ObjectID = \"JSU-ZP-pLJ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Date"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fehca"
+          }
+        }
+      }
+    },
+    "oXN-tu-oLQ.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Appointment Detail\"; ObjectID = \"oXN-tu-oLQ\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Appointment Detail"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Detalle de la cita"
+          }
+        }
+      }
+    },
+    "Ril-du-ddO.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Time\"; ObjectID = \"Ril-du-ddO\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Time"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hora"
+          }
+        }
+      }
+    },
+    "wIW-sN-9dN.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Save\"; ObjectID = \"wIW-sN-9dN\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Save"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar"
+          }
+        }
+      }
+    },
+    "yKX-2w-kko.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Send an Alert Notification\"; ObjectID = \"yKX-2w-kko\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Send an Alert Notification"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enviar la notificación"
+          }
+        }
+      }
+    },
+    "yNe-nC-AWP.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Provider name\"; ObjectID = \"yNe-nC-AWP\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Provider name"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nombre de proveedor"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

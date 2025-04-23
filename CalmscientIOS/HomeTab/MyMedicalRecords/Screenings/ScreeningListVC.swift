@@ -13,6 +13,8 @@ class ScreeningListVC: ViewController {
     let screeningRequest = ScreeningListRequestForm()
     @IBOutlet weak var screeningListTable: UITableView!
     
+    var isComingFromParticularVC = false
+    
     var screeningData:[Screening] = [] {
         didSet {
             self.screeningListTable.reloadSections(IndexSet(integer: 0), with: .fade)
@@ -50,10 +52,14 @@ class ScreeningListVC: ViewController {
     }
     
     @objc func backButtonOverrideAction() {
-        let next = UIStoryboard(name: "UserMedicalRecords", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "UserMedicalRecordsViewController") as? UserMedicalRecordsViewController
-        self.navigationController?.pushViewController(vc!, animated: true)
-    
+        if isComingFromParticularVC {
+            self.navigationController?.popViewController(animated: true)
+        } else {
+            let next = UIStoryboard(name: "UserMedicalRecords", bundle: nil)
+            if let vc = next.instantiateViewController(withIdentifier: "UserMedicalRecordsViewController") as? UserMedicalRecordsViewController {
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
         }
     
     override func viewWillAppear(_ animated: Bool) {

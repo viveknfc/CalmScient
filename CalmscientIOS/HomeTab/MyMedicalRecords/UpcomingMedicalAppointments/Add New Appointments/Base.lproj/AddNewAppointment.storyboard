@@ -416,15 +416,20 @@
                     </view>
                     <connections>
                         <outlet property="appointmentStackVW" destination="5kv-2v-9Jb" id="mEk-Oa-MAo"/>
+                        <outlet property="date" destination="JSU-ZP-pLJ" id="vs1-VU-XmN"/>
                         <outlet property="dateTF" destination="8BA-UB-dj6" id="Coq-Rr-uWa"/>
                         <outlet property="descriptionTV" destination="ZQe-mW-eqE" id="tUi-PM-3Hn"/>
+                        <outlet property="location" destination="HHN-kK-ANC" id="2lb-H6-f0X"/>
                         <outlet property="locationTF" destination="PzU-c9-FLQ" id="jwW-6z-fMf"/>
                         <outlet property="locationVW" destination="OTe-F2-Yux" id="DEQ-bj-fTZ"/>
                         <outlet property="notificationBtn" destination="DVL-mb-G7v" id="mkM-IX-hPT"/>
+                        <outlet property="patientName" destination="d6D-vS-FTq" id="S63-8o-dzE"/>
                         <outlet property="patientNameTF" destination="CXo-6P-zBm" id="NLt-Lh-iuX"/>
                         <outlet property="patientNameVW" destination="v2t-Q9-wNL" id="PyE-Wn-rgF"/>
                         <outlet property="providerNameTF" destination="Mv1-pv-RxZ" id="ceC-NX-oCj"/>
                         <outlet property="providerNameVW" destination="FNg-BD-wSK" id="53Y-n1-iiD"/>
+                        <outlet property="providerrName" destination="yNe-nC-AWP" id="rm0-Pr-VmS"/>
+                        <outlet property="time" destination="Ril-du-ddO" id="AZE-58-b6P"/>
                         <outlet property="timeTF" destination="cNS-3R-toy" id="GQ7-Ix-vo1"/>
                     </connections>
                 </viewController>

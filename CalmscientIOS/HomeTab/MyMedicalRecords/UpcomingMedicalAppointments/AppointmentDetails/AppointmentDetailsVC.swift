@@ -31,7 +31,7 @@ class AppointmentDetailsVC: ViewController {
     var medicalAppointment:MedicalAppointmentDetailsByDate? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Appointment Details"
+        self.title = "Appointment details"
         doctorIconView.layer.cornerRadius = doctorIconView.frame.height / 2
         guard let appointDetails = medicalAppointment else {
             return

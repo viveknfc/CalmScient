@@ -38,10 +38,10 @@ class newPickerViewVC: UIViewController {
         switch pickerMode {
         case .date:
             dateSelector.datePickerMode = .date
-            titleLabel.text = "Please Select Date"
+            titleLabel.text = "Please select date"
         case .time:
             dateSelector.datePickerMode = .time
-            titleLabel.text = "Please Select Time"
+            titleLabel.text = "Please select time"
         }
         
         if let minimumDate = minimumDate {

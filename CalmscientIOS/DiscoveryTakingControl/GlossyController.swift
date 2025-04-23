@@ -110,12 +110,12 @@ class GlossyController: ViewController,  UITableViewDataSource, UITableViewDeleg
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-            return 1
+            return termsData.count //1
         }
         
         // There is just one row in every section
         func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-            return termsData.count
+            return 1 //termsData.count
         }
         
         // Set the spacing between sections
@@ -129,6 +129,7 @@ class GlossyController: ViewController,  UITableViewDataSource, UITableViewDeleg
             headerView.backgroundColor = UIColor.clear
             return headerView
         }
+
     
     
 //    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -142,13 +143,13 @@ class GlossyController: ViewController,  UITableViewDataSource, UITableViewDeleg
         let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
                    
         if languageId == 1 {
-            let termData = termsData[indexPath.row]
+            let termData = termsData[indexPath.section] //indexPath.row
             cell.titleLabel?.text = termData.term
             cell.summaryLabel.text = termData.summary
             cell.roundLabel.text = String(termData.term.prefix(1)).uppercased()
         }
         else {
-            let termData1 = termsData1[indexPath.row]
+            let termData1 = termsData1[indexPath.section] //indexPath.row
             cell.titleLabel?.text = termData1.term1
             cell.summaryLabel.text = termData1.summary1
             cell.roundLabel.text = String(termData1.term1.prefix(1)).uppercased()

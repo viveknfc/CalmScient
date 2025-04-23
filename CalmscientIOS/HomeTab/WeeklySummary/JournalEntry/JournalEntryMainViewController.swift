@@ -7,7 +7,7 @@
 
 import UIKit
 
-class JournalEntryMainViewController: ViewController, PopOverActionDelegate, AlertViewActionProtocol, JournalEntryEditViewActions, CalendarToViewDelegate {
+class JournalEntryMainViewController: ViewController, PopOverActionDelegate, AlertViewActionProtocol, CalendarToViewDelegate { //JournalEntryEditViewActions
     
     fileprivate var deleteAlertBackGroundView:UIView?
     fileprivate var editJournalBackGroundView:UIView?
@@ -22,11 +22,11 @@ class JournalEntryMainViewController: ViewController, PopOverActionDelegate, Ale
         return popOverVC
     }()
     
-    fileprivate lazy var editJournalView:JournalEntryEditView = {
-        let journalEntryEditView = JournalEntryEditView(frame: .zero)
-        journalEntryEditView.journalEntryEditActionDelegate = self
-        return journalEntryEditView
-    }()
+//    fileprivate lazy var editJournalView:JournalEntryEditView = {
+//        let journalEntryEditView = JournalEntryEditView(frame: .zero)
+////        journalEntryEditView.journalEntryEditActionDelegate = self
+//        return journalEntryEditView
+//    }()
     
     fileprivate lazy var deleteAlertView:CustomImageAlertView = {
         let deleteAlertView = CustomImageAlertView(frame: .zero)
@@ -125,7 +125,7 @@ class JournalEntryMainViewController: ViewController, PopOverActionDelegate, Ale
         if index == 2 {
             showDeleteAlertMessageView()
         } else {
-            self.showEditJournalView()
+//            self.showEditJournalView()
         }
     }
     
@@ -159,31 +159,32 @@ class JournalEntryMainViewController: ViewController, PopOverActionDelegate, Ale
     }
     
     //MARK: - JournalEntryEditViewActions
-    func closeAction() {
-       closeJournalView()
-    }
+//    func closeAction() {
+//       closeJournalView()
+//    }
     
-    func saveAction(updatedText: String) {
-        UIView.transition(with: self.view, duration: 0.25, options: .transitionCrossDissolve, animations: {
-            self.editJournalView.removeFromSuperview()
-            self.editJournalBackGroundView?.removeFromSuperview()
-            self.editJournalBackGroundView = nil
-            self.navigationController?.navigationBar.layer.zPosition = 0
-            
-        }, completion: {_ in 
-            self.showSuccessMessageView()
-        })
-    }
-    
-    func closeJournalView() {
-        UIView.transition(with: self.view, duration: 0.25, options: .transitionCrossDissolve, animations: {
-            self.editJournalView.removeFromSuperview()
-            self.editJournalBackGroundView?.removeFromSuperview()
-            self.editJournalBackGroundView = nil
-            self.navigationController?.navigationBar.layer.zPosition = 0
-            
-        },completion: nil)
-    }
+//    func saveAction(updatedText: String) {
+//        print("save journal entru clicked from journal entry main vc")
+//        UIView.transition(with: self.view, duration: 0.25, options: .transitionCrossDissolve, animations: {
+//            self.editJournalView.removeFromSuperview()
+//            self.editJournalBackGroundView?.removeFromSuperview()
+//            self.editJournalBackGroundView = nil
+//            self.navigationController?.navigationBar.layer.zPosition = 0
+//            
+//        }, completion: {_ in 
+//            self.showSuccessMessageView()
+//        })
+//    }
+//    
+//    func closeJournalView() {
+//        UIView.transition(with: self.view, duration: 0.25, options: .transitionCrossDissolve, animations: {
+//            self.editJournalView.removeFromSuperview()
+//            self.editJournalBackGroundView?.removeFromSuperview()
+//            self.editJournalBackGroundView = nil
+//            self.navigationController?.navigationBar.layer.zPosition = 0
+//            
+//        },completion: nil)
+//    }
 }
 
 extension JournalEntryMainViewController : EditActionProtocol, UIPopoverPresentationControllerDelegate {
@@ -216,24 +217,24 @@ extension JournalEntryMainViewController : EditActionProtocol, UIPopoverPresenta
         return .none
     }
     
-    fileprivate func showEditJournalView() {
-        editJournalBackGroundView = UIView(frame: .zero)
-        editJournalBackGroundView?.frame = self.view.frame
-        editJournalBackGroundView?.backgroundColor = UIColor.darkGray.withAlphaComponent(0.8)
-        editJournalBackGroundView?.addSubview(editJournalView)
-        editJournalView.translatesAutoresizingMaskIntoConstraints = false
-        UIView.transition(with: self.view, duration: 0.5, options: .transitionCrossDissolve, animations: {
-            self.navigationController?.navigationBar.layer.zPosition = -1
-            self.view.addSubview(self.editJournalBackGroundView!)
-            self.editJournalView.journalTextView.becomeFirstResponder()
-        }, completion: nil)
-        editJournalView.layer.cornerRadius = 5
-        editJournalView.layer.masksToBounds = true
-        editJournalView.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        editJournalView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-        editJournalView.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
-        editJournalView.heightAnchor.constraint(equalToConstant: self.view.frame.height * 0.5).isActive = true
-    }
+//    fileprivate func showEditJournalView() {
+//        editJournalBackGroundView = UIView(frame: .zero)
+//        editJournalBackGroundView?.frame = self.view.frame
+//        editJournalBackGroundView?.backgroundColor = UIColor.darkGray.withAlphaComponent(0.8)
+//        editJournalBackGroundView?.addSubview(editJournalView)
+//        editJournalView.translatesAutoresizingMaskIntoConstraints = false
+//        UIView.transition(with: self.view, duration: 0.5, options: .transitionCrossDissolve, animations: {
+//            self.navigationController?.navigationBar.layer.zPosition = -1
+//            self.view.addSubview(self.editJournalBackGroundView!)
+//            self.editJournalView.journalTextView.becomeFirstResponder()
+//        }, completion: nil)
+//        editJournalView.layer.cornerRadius = 5
+//        editJournalView.layer.masksToBounds = true
+//        editJournalView.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+//        editJournalView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+//        editJournalView.widthAnchor.constraint(equalToConstant: self.view.frame.width).isActive = true
+//        editJournalView.heightAnchor.constraint(equalToConstant: self.view.frame.height * 0.5).isActive = true
+//    }
     
     fileprivate func showSuccessMessageView() {
         successAlertBackGroundView = UIView(frame: .zero)

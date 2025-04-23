@@ -72,8 +72,9 @@
                                 <action selector="okButtonTapped:" destination="JkI-dJ-nHW" eventType="touchUpInside" id="MXr-Vn-ztH"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yD9-Zi-SWr" userLabel="cancelButton" customClass="LinearGradientButton" customModule="CalmscientIOS" customModuleProvider="target">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yD9-Zi-SWr" userLabel="cancelButton">
                             <rect key="frame" x="171.66666666666666" y="220.66666666666663" width="99.999999999999972" height="40"/>
+                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="100" id="OMO-tW-GCy"/>
                                 <constraint firstAttribute="height" constant="40" id="aIG-1u-iM9"/>
@@ -81,16 +82,12 @@
                             <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" title="Button"/>
+                            <state key="normal" title="Button">
+                                <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
                             <userDefinedRuntimeAttributes>
-                                <userDefinedRuntimeAttribute type="color" keyPath="topGradientColor">
-                                    <color key="value" name="GradientButtonColor1"/>
-                                </userDefinedRuntimeAttribute>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <integer key="value" value="20"/>
-                                </userDefinedRuntimeAttribute>
-                                <userDefinedRuntimeAttribute type="color" keyPath="bottomGradientColor">
-                                    <color key="value" name="GradientButtonColor2"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>

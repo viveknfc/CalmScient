@@ -169,6 +169,7 @@ extension NextAppointmentsViewController : UITableViewDataSource, UITableViewDel
                 cell.forwardButton.setImage(UIImage(named: "MedicationsCellArrow"), for: .normal)
                 cell.editDeletButton.isHidden = true
                 cell.contentTextLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "No appointments" : "Sin citas"
+                cell.contentTextLabel.textColor = .black
                 return cell
                 
             case .medicalAppointment(let appointment):

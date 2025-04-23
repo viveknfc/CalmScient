@@ -25,14 +25,45 @@ class Basicknowledge: ViewController, UITableViewDelegate, UITableViewDataSource
             tableView.register(UINib(nibName: "CustomCheckboxCell", bundle: nil), forCellReuseIdentifier: "CustomCheckboxCell")
             tableView.estimatedRowHeight = 104.0
             tableView.rowHeight = UITableView.automaticDimension
+            
+            //nav bar back button start
+            let backButtonImage = UIImage(named: "NavigationBack")?.withRenderingMode(.alwaysOriginal)
+
+            // Create a UIButton
+            let backButton = UIButton(type: .custom)
+            backButton.setImage(backButtonImage, for: .normal)
+            backButton.addTarget(self, action: #selector(backButtonOverrideAction), for: .touchUpInside)
+
+            // Set constraints to adjust the size
+            backButton.translatesAutoresizingMaskIntoConstraints = false
+            backButton.widthAnchor.constraint(equalToConstant: 32).isActive = true // Set desired width
+            backButton.heightAnchor.constraint(equalToConstant: 32).isActive = true // Set desired height
+
+            // Create a UIBarButtonItem using the UIButton
+            let backBarButtonItem = UIBarButtonItem(customView: backButton)
+            navigationItem.leftBarButtonItem = backBarButtonItem
+            
+            //end
 
         }
 
     override func viewWillAppear(_ animated: Bool) {
         
         getBasicKnowledgeQuestions()
+        completeButton.updateTitleForLanguage()
 
     }
+    
+    @objc func backButtonOverrideAction() {
+
+        let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+        let vc = next.instantiateViewController(withIdentifier: "TakingControlIndex") as? TakingControlIndex
+        vc?.title = AppHelper.getLocalizeString(str: "Taking control")
+        vc?.initialSegmentIndex = 0
+        
+        self.navigationController?.pushViewController(vc!, animated: true)
+        
+        }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return basicData2.count
@@ -155,7 +186,13 @@ class Basicknowledge: ViewController, UITableViewDelegate, UITableViewDataSource
     //MARK: - Complete Button Pressed
     
     @IBAction func completeButtonPressed(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+//        self.navigationController?.popViewController(animated: true)
+        let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+        let vc = next.instantiateViewController(withIdentifier: "TakingControlIndex") as? TakingControlIndex
+        vc?.title = AppHelper.getLocalizeString(str: "Taking control")
+        vc?.initialSegmentIndex = 0
+        
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
 

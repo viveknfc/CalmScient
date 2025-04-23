@@ -89,7 +89,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     //MARK: - First API Call if remember ME
     
-    func userStartUpAPICall() {
+    func userStartUpAPICall(retryCount: Int = 0) {
         
         guard let loginResponse = ApplicationSharedInfo.shared.loginResponse,
               let tokenResponse = ApplicationSharedInfo.shared.tokenResponse else {
@@ -120,13 +120,17 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         if let rootVC = window?.rootViewController {
             APIService.userStartUpAPICalling(rootVC, params: params, method: "POST", accessToken: tokenResponse.accessToken, acces: false, parameterPlacement: "body") { response in
                 DispatchQueue.main.async {
-//                    self.handleUserStartUpResponse(response: response as! [String : Any])
                     if let dictResponse = response as? [String: Any] {
                         self.handleUserStartUpResponse(response: dictResponse)
                     } else {
-                        // Handle unexpected response type
-                        print("Unexpected response format: \(response)")
-                        // Optionally show alert or handle gracefully
+                        print("API call failed or timed out. Retry count: \(retryCount)")
+                        if retryCount == 0 {
+                            // Retry once
+                            self.userStartUpAPICall(retryCount: 1)
+                        } else {
+                            // On second failure, go to dashboard
+                            self.navigateToDashboard()
+                        }
                     }
                 }
             }
@@ -151,6 +155,21 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
     }
 
+    //END
+    
+    //MARK: - Retry API Call Alert
+    
+    func showRetryAlert(on viewController: UIViewController, message: String = "The request timed out. Please try again.") {
+        let alert = UIAlertController(title: "Oops!", message: message, preferredStyle: .alert)
+        
+        alert.addAction(UIAlertAction(title: "Retry", style: .default, handler: { _ in
+            self.userStartUpAPICall()
+        }))
+
+        viewController.present(alert, animated: true, completion: nil)
+    }
+    
+    //END
     
     func checkForSavedLogin() {
         let (loginDetails, tokenResponse) = UserDefaultsHelper.retrieveLoginDetailsFromUserDefaults()
@@ -232,16 +251,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             UIView.transition(with: window, duration: 0.5, options: options, animations: nil, completion: nil)
         }
     
-//    private func navigateToUserIntro() {
-//        guard let windowScene = (UIApplication.shared.connectedScenes.first as? UIWindowScene) else { return }
-//        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-//        window?.windowScene = windowScene
-//        let homeController = UIStoryboard(name: "UserIntro", bundle: nil).instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as! UserIntroDayFeedbackViewController
-//        let navC = UINavigationController(rootViewController: homeController)
-//        window?.rootViewController = navC
-//        window?.makeKeyAndVisible()
-//    }
-    
     private func navigateToUserIntro() {
         guard let window = self.window else {
             print("❌ Window is nil, cannot navigate to User Intro")
@@ -261,18 +270,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             print("❌ Failed to load UserIntroDayFeedbackViewController")
         }
     }
-
-    
-//    private func navigateToLogin() {
-//        guard let windowScene = (UIApplication.shared.connectedScenes.first as? UIWindowScene) else { return }
-//        window = UIWindow(frame: windowScene.coordinateSpace.bounds)
-//        window?.windowScene = windowScene
-//        let homeController = UIStoryboard(name: "LoginVC", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-//        let navC = UINavigationController(rootViewController: homeController)
-//        navC.navigationBar.isHidden = true
-//        window?.rootViewController = navC
-//        window?.makeKeyAndVisible()
-//    }
     
     private func navigateToLogin() {
         guard let window = self.window else {
