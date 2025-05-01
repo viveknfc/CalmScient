@@ -148,7 +148,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="createAnAccountLabel" destination="LKc-Ue-D8k" id="nqE-5f-fSz"/>
                         <outlet property="forgotPasswordLabel" destination="aUn-1C-xU1" id="BAT-Nk-hDh"/>
                         <outlet property="loginButton" destination="nrj-Is-1fd" id="Tmh-dv-ZLJ"/>
                         <outlet property="passwordLabel" destination="AlQ-kq-Lq2" id="K0Y-6s-ciA"/>
@@ -156,6 +155,7 @@
                         <outlet property="selectionButton" destination="dXf-ex-MOA" id="gKi-6b-3b4"/>
                         <outlet property="userNameLabel" destination="wK1-PD-6px" id="8ia-QK-eEs"/>
                         <outlet property="userNameTextField" destination="Wse-Ol-MLE" id="reI-vw-5FW"/>
+                        <outlet property="validateLicenseKeyLabel" destination="LKc-Ue-D8k" id="nqE-5f-fSz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

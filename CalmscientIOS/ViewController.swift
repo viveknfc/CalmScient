@@ -28,6 +28,13 @@ class ViewController: UIViewController {
         // Create a UIBarButtonItem using the UIButton
         let backBarButtonItem = UIBarButtonItem(customView: backButton)
         navigationItem.leftBarButtonItem = backBarButtonItem
+        
+        if let customFont = UIFont(name: Fonts().lexendMedium, size: 18) {
+            navigationController?.navigationBar.titleTextAttributes = [
+                NSAttributedString.Key.font: customFont,
+                NSAttributedString.Key.foregroundColor: UIColor.black // or a custom color
+            ]
+        }
 
     }
     

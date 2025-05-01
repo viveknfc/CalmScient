@@ -95,7 +95,7 @@ class NeedToTalkViewController: ViewController {
             }
         }
         self.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "Emergency resources" : "Recursos de emergencia."
-        let attributes: [NSAttributedString.Key: Any] = [.font: UIFont(name: Fonts().lexendSemiBold, size: 20)!,]
+        let attributes: [NSAttributedString.Key: Any] = [.font: UIFont(name: Fonts().lexendMedium, size: 18)!,]
         navigationController?.navigationBar.titleTextAttributes = attributes
         needToTalkTableView.reloadData()
         // Do any additional setup after loading the view.

@@ -87,7 +87,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="1349"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Gps-TH-RDe">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1120"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1000"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aDl-If-yy1" userLabel="First Container">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="140"/>
@@ -209,7 +209,7 @@
                                                 </prototypes>
                                             </tableView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bjg-re-YSc">
-                                                <rect key="frame" x="0.0" y="380" width="393" height="740"/>
+                                                <rect key="frame" x="0.0" y="380" width="393" height="620"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resources" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZw-b2-aPT" customClass="FontLR18" customModule="CalmscientIOS" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="10" width="353" height="30"/>
@@ -221,10 +221,10 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NHM-qS-Jk8">
-                                                        <rect key="frame" x="0.0" y="40" width="393" height="620"/>
+                                                        <rect key="frame" x="0.0" y="40" width="393" height="500"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="620" id="gG2-xt-OnP"/>
+                                                            <constraint firstAttribute="height" constant="500" id="gG2-xt-OnP"/>
                                                         </constraints>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sKl-hV-UWU" customClass="SmokingIndexResourceTableViewCell" customModule="CalmscientIOS" customModuleProvider="target">
@@ -238,7 +238,7 @@
                                                         </prototypes>
                                                     </tableView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yjx-ZK-Im2" customClass="LinearGradientButton" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="680" width="353" height="40"/>
+                                                        <rect key="frame" x="20" y="560" width="353" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="5Nz-oW-kDu"/>
                                                         </constraints>
@@ -1597,7 +1597,7 @@ Here are some ways to handle it:</string>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Irritability and Mood Swings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zgM-l1-z7C" userLabel="Title 1" customClass="FontLM16" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="55" width="333" height="20"/>
+                                                        <rect key="frame" x="15" y="55" width="323" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="8ZX-Zc-0ke"/>
                                                         </constraints>
@@ -1606,7 +1606,7 @@ Here are some ways to handle it:</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a2R-j5-tcO" userLabel="subContext1" customClass="FontLL15" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="85" width="328" height="180"/>
+                                                        <rect key="frame" x="15" y="85" width="323" height="180"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="180" id="2kH-4F-slm"/>
                                                         </constraints>
@@ -1618,7 +1618,7 @@ Here's how to deal with it:</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remind yourself it's normal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AoK-ym-LPN" userLabel="Title 2" customClass="FontLM16" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="275" width="333" height="20"/>
+                                                        <rect key="frame" x="15" y="275" width="323" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="EUY-Yx-HjD"/>
                                                         </constraints>
@@ -1627,7 +1627,7 @@ Here's how to deal with it:</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Feeling grumpy is just your body adjusting to not having nicotine." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xJm-oJ-twy" userLabel="subContext2" customClass="FontLL15" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="305" width="328" height="50"/>
+                                                        <rect key="frame" x="15" y="305" width="323" height="50"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="CnJ-hC-0dj"/>
                                                         </constraints>
@@ -1636,7 +1636,7 @@ Here's how to deal with it:</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Take deep breaths" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODL-RW-783" userLabel="Title 3" customClass="FontLM16" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="365" width="333" height="20"/>
+                                                        <rect key="frame" x="15" y="365" width="323" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="mEv-DI-GoT"/>
                                                         </constraints>
@@ -1645,7 +1645,7 @@ Here's how to deal with it:</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When irritation hits, take a few deep breaths to calm yourself. You can find them in “exercise”." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfa-dc-NdK" userLabel="subContext3" customClass="FontLL15" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="395" width="328" height="80"/>
+                                                        <rect key="frame" x="15" y="395" width="323" height="80"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="80" id="chl-4b-aSx"/>
                                                         </constraints>
@@ -1654,7 +1654,7 @@ Here's how to deal with it:</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Remember why you quit" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auN-gl-GXP" userLabel="Title 4" customClass="FontLM16" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="485" width="333" height="20"/>
+                                                        <rect key="frame" x="15" y="485" width="323" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="XSP-3M-5Tv"/>
                                                         </constraints>
@@ -1663,7 +1663,7 @@ Here's how to deal with it:</string>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Think about why you decided to quit. It's a great motivator to push through the grumpy moments." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iij-Vm-hwB" userLabel="subContext4" customClass="FontLL15" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="10" y="515" width="328" height="80"/>
+                                                        <rect key="frame" x="15" y="515" width="323" height="80"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="80" id="mBT-fj-q1V"/>
                                                         </constraints>
@@ -1684,33 +1684,33 @@ Here's how to deal with it:</string>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="ODL-RW-783" firstAttribute="leading" secondItem="oYM-57-ikd" secondAttribute="leading" constant="10" id="0WV-9X-2Aw"/>
+                                                    <constraint firstItem="ODL-RW-783" firstAttribute="leading" secondItem="oYM-57-ikd" secondAttribute="leading" constant="15" id="0WV-9X-2Aw"/>
                                                     <constraint firstAttribute="trailing" secondItem="Qfa-dc-NdK" secondAttribute="trailing" constant="15" id="8Fq-la-D18"/>
-                                                    <constraint firstItem="a2R-j5-tcO" firstAttribute="leading" secondItem="oYM-57-ikd" secondAttribute="leading" constant="10" id="E7t-pD-bOb"/>
-                                                    <constraint firstItem="auN-gl-GXP" firstAttribute="leading" secondItem="oYM-57-ikd" secondAttribute="leading" constant="10" id="FuP-7k-Fo8"/>
+                                                    <constraint firstItem="a2R-j5-tcO" firstAttribute="leading" secondItem="oYM-57-ikd" secondAttribute="leading" constant="15" id="E7t-pD-bOb"/>
+                                                    <constraint firstItem="auN-gl-GXP" firstAttribute="leading" secondItem="oYM-57-ikd" secondAttribute="leading" constant="15" id="FuP-7k-Fo8"/>
                                                     <constraint firstAttribute="trailing" secondItem="1BE-rE-4v6" secondAttribute="trailing" constant="20" id="K4z-pN-SdW"/>
                                                     <constraint firstItem="1BE-rE-4v6" firstAttribute="top" secondItem="oYM-57-ikd" secondAttribute="top" constant="20" id="M0g-yB-obA"/>
-                                                    <constraint firstItem="xJm-oJ-twy" firstAttribute="leading" secondItem="oYM-57-ikd" secondAttribute="leading" constant="10" id="PvH-5g-Jnx"/>
-                                                    <constraint firstAttribute="trailing" secondItem="zgM-l1-z7C" secondAttribute="trailing" constant="10" id="S46-Df-PYC"/>
-                                                    <constraint firstItem="zgM-l1-z7C" firstAttribute="leading" secondItem="oYM-57-ikd" secondAttribute="leading" constant="10" id="SF9-iI-f8t"/>
+                                                    <constraint firstItem="xJm-oJ-twy" firstAttribute="leading" secondItem="oYM-57-ikd" secondAttribute="leading" constant="15" id="PvH-5g-Jnx"/>
+                                                    <constraint firstAttribute="trailing" secondItem="zgM-l1-z7C" secondAttribute="trailing" constant="15" id="S46-Df-PYC"/>
+                                                    <constraint firstItem="zgM-l1-z7C" firstAttribute="leading" secondItem="oYM-57-ikd" secondAttribute="leading" constant="15" id="SF9-iI-f8t"/>
                                                     <constraint firstAttribute="trailing" secondItem="a2R-j5-tcO" secondAttribute="trailing" constant="15" id="TfI-FJ-zlq"/>
                                                     <constraint firstItem="a2R-j5-tcO" firstAttribute="top" secondItem="zgM-l1-z7C" secondAttribute="bottom" constant="10" id="Ubb-1N-zUZ"/>
-                                                    <constraint firstItem="AoK-ym-LPN" firstAttribute="leading" secondItem="oYM-57-ikd" secondAttribute="leading" constant="10" id="UiW-TO-X5X"/>
-                                                    <constraint firstAttribute="trailing" secondItem="ODL-RW-783" secondAttribute="trailing" constant="10" id="Xgb-xY-J0c"/>
+                                                    <constraint firstItem="AoK-ym-LPN" firstAttribute="leading" secondItem="oYM-57-ikd" secondAttribute="leading" constant="15" id="UiW-TO-X5X"/>
+                                                    <constraint firstAttribute="trailing" secondItem="ODL-RW-783" secondAttribute="trailing" constant="15" id="Xgb-xY-J0c"/>
                                                     <constraint firstItem="zgM-l1-z7C" firstAttribute="top" secondItem="1BE-rE-4v6" secondAttribute="bottom" constant="10" id="bTb-Rn-RY6"/>
                                                     <constraint firstItem="art-6k-gfP" firstAttribute="top" secondItem="Iij-Vm-hwB" secondAttribute="bottom" constant="10" id="dtT-v2-Jdc"/>
                                                     <constraint firstAttribute="trailing" secondItem="art-6k-gfP" secondAttribute="trailing" constant="20" id="euA-yK-qSI"/>
                                                     <constraint firstItem="Iij-Vm-hwB" firstAttribute="top" secondItem="auN-gl-GXP" secondAttribute="bottom" constant="10" id="fe0-sE-0Z4"/>
-                                                    <constraint firstItem="Qfa-dc-NdK" firstAttribute="leading" secondItem="oYM-57-ikd" secondAttribute="leading" constant="10" id="fkv-pN-eIy"/>
+                                                    <constraint firstItem="Qfa-dc-NdK" firstAttribute="leading" secondItem="oYM-57-ikd" secondAttribute="leading" constant="15" id="fkv-pN-eIy"/>
                                                     <constraint firstItem="AoK-ym-LPN" firstAttribute="top" secondItem="a2R-j5-tcO" secondAttribute="bottom" constant="10" id="h7i-Ds-rjs"/>
                                                     <constraint firstAttribute="trailing" secondItem="Iij-Vm-hwB" secondAttribute="trailing" constant="15" id="kvc-GM-T0J"/>
-                                                    <constraint firstItem="Iij-Vm-hwB" firstAttribute="leading" secondItem="oYM-57-ikd" secondAttribute="leading" constant="10" id="lYU-qC-Yan"/>
+                                                    <constraint firstItem="Iij-Vm-hwB" firstAttribute="leading" secondItem="oYM-57-ikd" secondAttribute="leading" constant="15" id="lYU-qC-Yan"/>
                                                     <constraint firstAttribute="trailing" secondItem="xJm-oJ-twy" secondAttribute="trailing" constant="15" id="nv7-6O-UZt"/>
                                                     <constraint firstItem="auN-gl-GXP" firstAttribute="top" secondItem="Qfa-dc-NdK" secondAttribute="bottom" constant="10" id="pmr-vt-nLR"/>
                                                     <constraint firstItem="Qfa-dc-NdK" firstAttribute="top" secondItem="ODL-RW-783" secondAttribute="bottom" constant="10" id="ui6-ld-zTA"/>
-                                                    <constraint firstAttribute="trailing" secondItem="auN-gl-GXP" secondAttribute="trailing" constant="10" id="vT1-28-jba"/>
+                                                    <constraint firstAttribute="trailing" secondItem="auN-gl-GXP" secondAttribute="trailing" constant="15" id="vT1-28-jba"/>
                                                     <constraint firstItem="xJm-oJ-twy" firstAttribute="top" secondItem="AoK-ym-LPN" secondAttribute="bottom" constant="10" id="xgR-ig-oTL"/>
-                                                    <constraint firstAttribute="trailing" secondItem="AoK-ym-LPN" secondAttribute="trailing" constant="10" id="xnv-ZI-udk"/>
+                                                    <constraint firstAttribute="trailing" secondItem="AoK-ym-LPN" secondAttribute="trailing" constant="15" id="xnv-ZI-udk"/>
                                                     <constraint firstItem="ODL-RW-783" firstAttribute="top" secondItem="xJm-oJ-twy" secondAttribute="bottom" constant="10" id="zDh-yj-qmE"/>
                                                     <constraint firstAttribute="bottom" secondItem="art-6k-gfP" secondAttribute="bottom" constant="20" id="zFp-Et-Txh"/>
                                                 </constraints>
@@ -3393,6 +3393,7 @@ a concern?</string>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="zet-hv-kdb"/>
                                                         </constraints>
+                                                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Drink counts calculator">
                                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -4214,7 +4215,7 @@ a concern?</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="gAj-ot-bUe">
-                                <rect key="frame" x="20" y="195.66666666666669" width="353" height="552.33333333333326"/>
+                                <rect key="frame" x="20" y="195.66666666666669" width="353" height="592.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="8" minimumInteritemSpacing="8" id="TEb-6A-eCJ">
                                     <size key="itemSize" width="128" height="200"/>
@@ -4271,7 +4272,7 @@ a concern?</string>
                             <constraint firstItem="ECr-wF-Z7J" firstAttribute="centerX" secondItem="2EI-SM-XZg" secondAttribute="centerX" id="aao-gB-DLj"/>
                             <constraint firstItem="PfZ-6N-8PX" firstAttribute="trailing" secondItem="skJ-s6-3fg" secondAttribute="trailing" constant="20" id="bRm-UH-Swu"/>
                             <constraint firstItem="PfZ-6N-8PX" firstAttribute="bottom" secondItem="Eiv-5H-Zk1" secondAttribute="bottom" constant="10" id="gNq-E7-h8p"/>
-                            <constraint firstItem="Eiv-5H-Zk1" firstAttribute="top" secondItem="gAj-ot-bUe" secondAttribute="bottom" constant="20" id="nb5-S9-zi5"/>
+                            <constraint firstItem="Eiv-5H-Zk1" firstAttribute="bottom" secondItem="gAj-ot-bUe" secondAttribute="bottom" constant="20" id="nb5-S9-zi5"/>
                             <constraint firstItem="9Ti-Yg-mwU" firstAttribute="top" secondItem="PfZ-6N-8PX" secondAttribute="top" constant="20" id="oh0-CB-4Oi"/>
                             <constraint firstItem="2EI-SM-XZg" firstAttribute="centerY" secondItem="9Ti-Yg-mwU" secondAttribute="centerY" constant="-5" id="q0F-QD-hyH"/>
                             <constraint firstItem="skJ-s6-3fg" firstAttribute="top" secondItem="KMG-r3-DAQ" secondAttribute="bottom" constant="20" id="rta-6z-6IO"/>
@@ -4303,7 +4304,7 @@ a concern?</string>
                                 <color key="backgroundColor" red="0.33725494150000002" green="0.33725494150000002" blue="0.33725494150000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IZC-3w-hYi" customClass="RoundedView" customModule="CalmscientIOS" customModuleProvider="target">
-                                <rect key="frame" x="20" y="136" width="353" height="580"/>
+                                <rect key="frame" x="20" y="91" width="353" height="670"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Coming Soon!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MOy-cQ-XNZ" customClass="FontLM25" customModule="CalmscientIOS" customModuleProvider="target">
                                         <rect key="frame" x="20" y="20" width="313" height="40"/>
@@ -4334,22 +4335,22 @@ in full version?</string>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BeerWine" translatesAutoresizingMaskIntoConstraints="NO" id="16t-0D-zEu" userLabel="image1">
-                                        <rect key="frame" x="141.66666666666666" y="190" width="30" height="30"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BeerWine1" translatesAutoresizingMaskIntoConstraints="NO" id="16t-0D-zEu" userLabel="image1">
+                                        <rect key="frame" x="106.66666666666669" y="190" width="60" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="34j-gO-OHq"/>
-                                            <constraint firstAttribute="height" constant="30" id="fgS-Yu-3nL"/>
+                                            <constraint firstAttribute="width" constant="60" id="34j-gO-OHq"/>
+                                            <constraint firstAttribute="height" constant="60" id="fgS-Yu-3nL"/>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cigar" translatesAutoresizingMaskIntoConstraints="NO" id="IKM-DV-HEv" userLabel="image2">
-                                        <rect key="frame" x="181.66666666666666" y="190" width="30" height="30"/>
+                                        <rect key="frame" x="186.66666666666666" y="190" width="60" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="8t1-VS-PHj"/>
-                                            <constraint firstAttribute="height" constant="30" id="h23-B2-nQw"/>
+                                            <constraint firstAttribute="width" constant="60" id="8t1-VS-PHj"/>
+                                            <constraint firstAttribute="height" constant="60" id="h23-B2-nQw"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u70-3k-3cv" customClass="FontLL15" customModule="CalmscientIOS" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="230" width="313" height="60"/>
+                                        <rect key="frame" x="20" y="260" width="313" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="w6S-I2-mYe"/>
                                         </constraints>
@@ -4360,14 +4361,14 @@ habit</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NotePad" translatesAutoresizingMaskIntoConstraints="NO" id="vIy-vb-ByH" userLabel="image3">
-                                        <rect key="frame" x="161.66666666666666" y="300" width="30" height="30"/>
+                                        <rect key="frame" x="146.66666666666666" y="330" width="60" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="G7o-wH-EOO"/>
-                                            <constraint firstAttribute="width" constant="30" id="Xif-vA-zSv"/>
+                                            <constraint firstAttribute="height" constant="60" id="G7o-wH-EOO"/>
+                                            <constraint firstAttribute="width" constant="60" id="Xif-vA-zSv"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0H7-09-fBf" customClass="FontLL15" customModule="CalmscientIOS" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="340" width="313" height="60"/>
+                                        <rect key="frame" x="20" y="400" width="313" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="UYv-xe-afJ"/>
                                         </constraints>
@@ -4378,14 +4379,14 @@ your drinking and smoking habit</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Badeg" translatesAutoresizingMaskIntoConstraints="NO" id="wz4-OE-JnL" userLabel="image4">
-                                        <rect key="frame" x="161.66666666666666" y="410" width="30" height="30"/>
+                                        <rect key="frame" x="146.66666666666666" y="470" width="60" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="Fbp-Zy-udc"/>
-                                            <constraint firstAttribute="height" constant="30" id="WAz-GH-sXb"/>
+                                            <constraint firstAttribute="width" constant="60" id="Fbp-Zy-udc"/>
+                                            <constraint firstAttribute="height" constant="60" id="WAz-GH-sXb"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHS-92-IHt" customClass="FontLL15" customModule="CalmscientIOS" customModuleProvider="target">
-                                        <rect key="frame" x="20" y="450" width="313" height="60"/>
+                                        <rect key="frame" x="20" y="540" width="313" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="YWl-WC-2HH"/>
                                         </constraints>
@@ -4396,7 +4397,7 @@ your journey</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sG-dX-uZZ" customClass="CapsuleButton2" customModule="CalmscientIOS" customModuleProvider="target">
-                                        <rect key="frame" x="294" y="530" width="39" height="30"/>
+                                        <rect key="frame" x="294" y="620" width="39" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="Wi8-sx-mYN"/>
                                         </constraints>
@@ -4415,7 +4416,7 @@ your journey</string>
                                     <constraint firstItem="wz4-OE-JnL" firstAttribute="centerX" secondItem="IZC-3w-hYi" secondAttribute="centerX" id="8zp-i5-NgJ"/>
                                     <constraint firstItem="WYf-lw-dFE" firstAttribute="leading" secondItem="IZC-3w-hYi" secondAttribute="leading" constant="20" id="FEn-sN-kLh"/>
                                     <constraint firstItem="WYf-lw-dFE" firstAttribute="top" secondItem="MOy-cQ-XNZ" secondAttribute="bottom" constant="20" id="Ghc-i3-BaN"/>
-                                    <constraint firstItem="IKM-DV-HEv" firstAttribute="centerX" secondItem="IZC-3w-hYi" secondAttribute="centerX" constant="20" id="IBS-A4-UBg"/>
+                                    <constraint firstItem="IKM-DV-HEv" firstAttribute="centerX" secondItem="IZC-3w-hYi" secondAttribute="centerX" constant="40" id="IBS-A4-UBg"/>
                                     <constraint firstAttribute="bottom" secondItem="8sG-dX-uZZ" secondAttribute="bottom" constant="20" id="K2N-UG-Lcg"/>
                                     <constraint firstItem="pHS-92-IHt" firstAttribute="top" secondItem="wz4-OE-JnL" secondAttribute="bottom" constant="10" id="VY8-u4-RNL"/>
                                     <constraint firstItem="16t-0D-zEu" firstAttribute="top" secondItem="Dgl-B7-KEZ" secondAttribute="bottom" constant="10" id="akf-1w-Yxp"/>
@@ -4436,7 +4437,7 @@ your journey</string>
                                     <constraint firstAttribute="trailing" secondItem="u70-3k-3cv" secondAttribute="trailing" constant="20" id="uT6-YX-TNF"/>
                                     <constraint firstItem="vIy-vb-ByH" firstAttribute="centerX" secondItem="IZC-3w-hYi" secondAttribute="centerX" id="w3E-vQ-pA7"/>
                                     <constraint firstItem="8sG-dX-uZZ" firstAttribute="top" secondItem="pHS-92-IHt" secondAttribute="bottom" constant="20" id="wcC-Pl-ZK9"/>
-                                    <constraint firstItem="16t-0D-zEu" firstAttribute="centerX" secondItem="IZC-3w-hYi" secondAttribute="centerX" constant="-20" id="yyC-nn-qfv"/>
+                                    <constraint firstItem="16t-0D-zEu" firstAttribute="centerX" secondItem="IZC-3w-hYi" secondAttribute="centerX" constant="-40" id="yyC-nn-qfv"/>
                                     <constraint firstItem="MOy-cQ-XNZ" firstAttribute="top" secondItem="IZC-3w-hYi" secondAttribute="top" constant="20" id="z2U-DX-eRi"/>
                                 </constraints>
                             </view>
@@ -4634,7 +4635,7 @@ your journey</string>
                                 <rect key="frame" x="0.0" y="59" width="393" height="1163"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Mh8-2p-dff">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="2400"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1720"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nkb-69-EzE" userLabel="view1">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="215"/>
@@ -4802,6 +4803,7 @@ your journey</string>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="8Wa-sh-PlH"/>
                                                         </constraints>
+                                                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="16"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Basic knowledge"/>
@@ -4814,6 +4816,7 @@ your journey</string>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="26X-yy-hKe"/>
                                                         </constraints>
+                                                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="16"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Make a plan"/>
                                                         <connections>
@@ -4825,6 +4828,7 @@ your journey</string>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="bPi-XF-VNP"/>
                                                         </constraints>
+                                                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="16"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Stay focused"/>
                                                         <connections>
@@ -4836,6 +4840,7 @@ your journey</string>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="DOg-7o-IlW"/>
                                                         </constraints>
+                                                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="16"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="My progress"/>
                                                         <connections>
@@ -4948,92 +4953,36 @@ your journey</string>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EN3-ec-q1P" userLabel="view4">
-                                                <rect key="frame" x="0.0" y="900" width="393" height="1500"/>
+                                                <rect key="frame" x="0.0" y="900" width="393" height="820"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resources" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3Y-cA-pO7" customClass="FontLR18" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="0.0" width="80" height="590"/>
+                                                        <rect key="frame" x="20" y="0.0" width="80" height="20"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="20" id="p1G-wg-o9k"/>
+                                                        </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1qP-TX-7S6" userLabel="workYourStrenghtsView" customClass="RoundedView2" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="610" width="353" height="140"/>
-                                                        <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Maskgroup" translatesAutoresizingMaskIntoConstraints="NO" id="wOl-DY-5uB" userLabel="mainbg" customClass="RoundedImageView" customModule="CalmscientIOS" customModuleProvider="target">
-                                                                <rect key="frame" x="10" y="10" width="156.66666666666666" height="120"/>
-                                                            </imageView>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="lSv-Ci-dMW" userLabel="video">
-                                                                <rect key="frame" x="72.333333333333329" y="54" width="32" height="32"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="32" id="tRb-vg-KMV"/>
-                                                                    <constraint firstAttribute="width" constant="32" id="zvu-l0-G83"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Work your strengths" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gkL-QT-cgz" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
-                                                                <rect key="frame" x="181.66666666666663" y="10" width="161.33333333333337" height="20"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="20" id="MVX-F4-QWg"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <color key="textColor" red="0.42745098040000001" green="0.41960784309999999" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do something you're good at to build self-confidence, then tackle a tougher task." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BcZ-fs-hOz" customClass="FontLL12" customModule="CalmscientIOS" customModuleProvider="target">
-                                                                <rect key="frame" x="181.66666666666663" y="40" width="161.33333333333337" height="60"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="60" id="bRh-1f-bIM"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                <nil key="textColor"/>
-                                                                <nil key="highlightedColor"/>
-                                                            </label>
-                                                        </subviews>
-                                                        <color key="backgroundColor" name="VBottomBox"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="gkL-QT-cgz" secondAttribute="trailing" constant="10" id="5Hq-PC-KGt"/>
-                                                            <constraint firstAttribute="bottom" secondItem="wOl-DY-5uB" secondAttribute="bottom" constant="10" id="5ni-a1-1Zb"/>
-                                                            <constraint firstItem="lSv-Ci-dMW" firstAttribute="centerY" secondItem="wOl-DY-5uB" secondAttribute="centerY" id="7wQ-1T-Dgw"/>
-                                                            <constraint firstAttribute="height" constant="140" id="8R2-Ga-b7Y"/>
-                                                            <constraint firstItem="gkL-QT-cgz" firstAttribute="top" secondItem="1qP-TX-7S6" secondAttribute="top" constant="10" id="AwS-o7-tHX"/>
-                                                            <constraint firstItem="wOl-DY-5uB" firstAttribute="leading" secondItem="1qP-TX-7S6" secondAttribute="leading" constant="10" id="DV4-9k-p2C"/>
-                                                            <constraint firstItem="BcZ-fs-hOz" firstAttribute="leading" secondItem="gkL-QT-cgz" secondAttribute="leading" id="Gai-yJ-qMW"/>
-                                                            <constraint firstItem="gkL-QT-cgz" firstAttribute="leading" secondItem="1qP-TX-7S6" secondAttribute="centerX" constant="5" id="NAG-3g-8vU"/>
-                                                            <constraint firstItem="BcZ-fs-hOz" firstAttribute="top" secondItem="gkL-QT-cgz" secondAttribute="bottom" constant="10" id="NQ3-QO-LEw"/>
-                                                            <constraint firstItem="lSv-Ci-dMW" firstAttribute="centerX" secondItem="wOl-DY-5uB" secondAttribute="centerX" id="ad4-RH-lXc"/>
-                                                            <constraint firstAttribute="centerX" secondItem="wOl-DY-5uB" secondAttribute="trailing" constant="10" id="eyX-SV-EY1"/>
-                                                            <constraint firstItem="gkL-QT-cgz" firstAttribute="trailing" secondItem="BcZ-fs-hOz" secondAttribute="trailing" id="q6b-Md-B0C"/>
-                                                            <constraint firstItem="wOl-DY-5uB" firstAttribute="top" secondItem="1qP-TX-7S6" secondAttribute="top" constant="10" id="vIq-3w-UCv"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jm2-JJ-e4a" userLabel="workYourStrengthButton">
-                                                        <rect key="frame" x="20" y="610" width="353" height="140"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="140" id="zx8-Lx-Dok"/>
-                                                        </constraints>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <connections>
-                                                            <action selector="workYourStrengthButton:" destination="Ogw-qI-A96" eventType="touchUpInside" id="rjK-KE-F3Y"/>
-                                                        </connections>
-                                                    </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tVc-Y5-LSf" userLabel="BreathingExerciseView" customClass="RoundedView2" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="770" width="353" height="160"/>
+                                                        <rect key="frame" x="20" y="40" width="353" height="160"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BreathingTechnic" translatesAutoresizingMaskIntoConstraints="NO" id="jfA-2Z-d8b" customClass="RoundedImageView" customModule="CalmscientIOS" customModuleProvider="target">
                                                                 <rect key="frame" x="10" y="10" width="156.66666666666666" height="140"/>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breathing exercises" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sY2-IH-kqh" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
-                                                                <rect key="frame" x="181.66666666666663" y="10" width="151.33333333333337" height="40"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Breathing exercises" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sY2-IH-kqh" customClass="FontLR16" customModule="CalmscientIOS" customModuleProvider="target">
+                                                                <rect key="frame" x="181.66666666666663" y="10" width="151.33333333333337" height="20"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="40" id="N5W-k3-TD9"/>
+                                                                    <constraint firstAttribute="height" constant="20" id="N5W-k3-TD9"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.42745098040000001" green="0.41960784309999999" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWb-Uq-N7p" customClass="FontLL12" customModule="CalmscientIOS" customModuleProvider="target">
-                                                                <rect key="frame" x="181.66666666666663" y="55" width="151.33333333333337" height="90"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWb-Uq-N7p" customClass="FontLL14" customModule="CalmscientIOS" customModuleProvider="target">
+                                                                <rect key="frame" x="181.66666666666663" y="35" width="151.33333333333337" height="110"/>
                                                                 <constraints>
-                                                                    <constraint firstAttribute="height" constant="90" id="ssP-UC-0rr"/>
+                                                                    <constraint firstAttribute="height" constant="110" id="ssP-UC-0rr"/>
                                                                 </constraints>
                                                                 <string key="text">Let’s use breathing exercises to support your journey. They help reduce stress and cravings, and provide a calming distraction..</string>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -5057,7 +5006,7 @@ your journey</string>
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wuF-oT-eue" userLabel="BreathingExerciseButton">
-                                                        <rect key="frame" x="20" y="770" width="353" height="160"/>
+                                                        <rect key="frame" x="20" y="40" width="353" height="160"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="160" id="X5K-I3-Jml"/>
                                                         </constraints>
@@ -5067,12 +5016,12 @@ your journey</string>
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IBB-S8-I0P" userLabel="ManagingAnxietyView" customClass="RoundedView2" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="950" width="353" height="150"/>
+                                                        <rect key="frame" x="20" y="220" width="353" height="160"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img1" translatesAutoresizingMaskIntoConstraints="NO" id="mWn-SF-CRC" customClass="RoundedImageView" customModule="CalmscientIOS" customModuleProvider="target">
-                                                                <rect key="frame" x="10" y="10" width="156.66666666666666" height="130"/>
+                                                                <rect key="frame" x="10" y="10" width="156.66666666666666" height="140"/>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Managing anxiety" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHU-KI-ESo" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Managing anxiety" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHU-KI-ESo" customClass="FontLR16" customModule="CalmscientIOS" customModuleProvider="target">
                                                                 <rect key="frame" x="186.66666666666663" y="10" width="146.33333333333337" height="20"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="20" id="ec8-bA-1Pe"/>
@@ -5081,13 +5030,13 @@ your journey</string>
                                                                 <color key="textColor" red="0.42745098040000001" green="0.41960784309999999" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="course" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V79-Dz-miI" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="course" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V79-Dz-miI" customClass="FontLR16" customModule="CalmscientIOS" customModuleProvider="target">
                                                                 <rect key="frame" x="186.66666666666666" y="28" width="52" height="20.333333333333329"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.42745098040000001" green="0.41960784309999999" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anxiety can trigger drinking and smoking, but healthy coping strategies help you to stay strong" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VC5-py-w02" customClass="FontLL12" customModule="CalmscientIOS" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Anxiety can trigger drinking and smoking, but healthy coping strategies help you to stay strong" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VC5-py-w02" customClass="FontLL14" customModule="CalmscientIOS" customModuleProvider="target">
                                                                 <rect key="frame" x="186.66666666666663" y="53.333333333333258" width="146.33333333333337" height="90"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="90" id="gFd-BO-xjZ"/>
@@ -5106,7 +5055,7 @@ your journey</string>
                                                             <constraint firstItem="VC5-py-w02" firstAttribute="leading" secondItem="UHU-KI-ESo" secondAttribute="leading" id="OG3-MG-u2V"/>
                                                             <constraint firstAttribute="bottom" secondItem="mWn-SF-CRC" secondAttribute="bottom" constant="10" id="YLC-9V-RTL"/>
                                                             <constraint firstItem="VC5-py-w02" firstAttribute="top" secondItem="V79-Dz-miI" secondAttribute="bottom" constant="5" id="cNm-3J-PXR"/>
-                                                            <constraint firstAttribute="height" constant="150" id="e0c-kq-iJo"/>
+                                                            <constraint firstAttribute="height" constant="160" id="e0c-kq-iJo"/>
                                                             <constraint firstItem="UHU-KI-ESo" firstAttribute="leading" secondItem="IBB-S8-I0P" secondAttribute="centerX" constant="10" id="eBJ-Gy-H7b"/>
                                                             <constraint firstItem="mWn-SF-CRC" firstAttribute="leading" secondItem="IBB-S8-I0P" secondAttribute="leading" constant="10" id="g2Q-zq-dvz"/>
                                                             <constraint firstItem="UHU-KI-ESo" firstAttribute="top" secondItem="IBB-S8-I0P" secondAttribute="top" constant="10" id="hlF-VP-5Je"/>
@@ -5115,9 +5064,9 @@ your journey</string>
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pcy-yl-5LT" userLabel="MnagingAnxietyButton">
-                                                        <rect key="frame" x="20" y="950" width="353" height="150"/>
+                                                        <rect key="frame" x="20" y="220" width="353" height="160"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="150" id="vi8-AP-ArL"/>
+                                                            <constraint firstAttribute="height" constant="160" id="vi8-AP-ArL"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <connections>
@@ -5125,12 +5074,12 @@ your journey</string>
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DOt-RN-bQi" userLabel="screeningView" customClass="RoundedView2" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="1120" width="353" height="140"/>
+                                                        <rect key="frame" x="20" y="400" width="353" height="160"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Screening_Cell" translatesAutoresizingMaskIntoConstraints="NO" id="6ie-r8-CdL" customClass="RoundedImageView" customModule="CalmscientIOS" customModuleProvider="target">
-                                                                <rect key="frame" x="10" y="10" width="156.66666666666666" height="120"/>
+                                                                <rect key="frame" x="10" y="10" width="156.66666666666666" height="140"/>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Screenings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nm-2v-avJ" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Screenings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8nm-2v-avJ" customClass="FontLR16" customModule="CalmscientIOS" customModuleProvider="target">
                                                                 <rect key="frame" x="186.66666666666663" y="10" width="146.33333333333337" height="20"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="20" id="0DK-zO-eIA"/>
@@ -5139,8 +5088,8 @@ your journey</string>
                                                                 <color key="textColor" red="0.42745098040000001" green="0.41960784309999999" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let’s set a goal to screen for depression, anxiety, and alcohol and smoking regularly, as these can support your success" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvY-rL-Zad" customClass="FontLL12" customModule="CalmscientIOS" customModuleProvider="target">
-                                                                <rect key="frame" x="186.66666666666663" y="25" width="146.33333333333337" height="110"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let’s set a goal to screen for depression, anxiety, and alcohol and smoking regularly, as these can support your success" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tvY-rL-Zad" customClass="FontLL14" customModule="CalmscientIOS" customModuleProvider="target">
+                                                                <rect key="frame" x="186.66666666666663" y="35" width="146.33333333333337" height="110"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="110" id="RCp-gq-ZnP"/>
                                                                 </constraints>
@@ -5155,19 +5104,19 @@ your journey</string>
                                                             <constraint firstAttribute="bottom" secondItem="6ie-r8-CdL" secondAttribute="bottom" constant="10" id="8ot-uV-7ts"/>
                                                             <constraint firstItem="6ie-r8-CdL" firstAttribute="top" secondItem="DOt-RN-bQi" secondAttribute="top" constant="10" id="CBy-07-juV"/>
                                                             <constraint firstItem="6ie-r8-CdL" firstAttribute="leading" secondItem="DOt-RN-bQi" secondAttribute="leading" constant="10" id="CFB-CK-L1r"/>
-                                                            <constraint firstAttribute="height" constant="140" id="MM9-hn-78X"/>
+                                                            <constraint firstAttribute="height" constant="160" id="MM9-hn-78X"/>
                                                             <constraint firstItem="8nm-2v-avJ" firstAttribute="top" secondItem="DOt-RN-bQi" secondAttribute="top" constant="10" id="Q7z-QP-1UB"/>
                                                             <constraint firstItem="8nm-2v-avJ" firstAttribute="leading" secondItem="DOt-RN-bQi" secondAttribute="centerX" constant="10" id="RCs-Ic-Ozi"/>
                                                             <constraint firstAttribute="trailing" secondItem="8nm-2v-avJ" secondAttribute="trailing" constant="20" id="V2W-2b-YZD"/>
                                                             <constraint firstItem="8nm-2v-avJ" firstAttribute="trailing" secondItem="tvY-rL-Zad" secondAttribute="trailing" id="eio-2P-gOW"/>
                                                             <constraint firstItem="tvY-rL-Zad" firstAttribute="leading" secondItem="8nm-2v-avJ" secondAttribute="leading" id="fhV-Al-GGD"/>
-                                                            <constraint firstItem="tvY-rL-Zad" firstAttribute="top" secondItem="8nm-2v-avJ" secondAttribute="bottom" constant="-5" id="gxM-kY-87R"/>
+                                                            <constraint firstItem="tvY-rL-Zad" firstAttribute="top" secondItem="8nm-2v-avJ" secondAttribute="bottom" constant="5" id="gxM-kY-87R"/>
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j3a-iY-lGC" userLabel="screeningButton">
-                                                        <rect key="frame" x="20" y="1120" width="353" height="140"/>
+                                                        <rect key="frame" x="20" y="400" width="353" height="160"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="140" id="aL9-OR-ocx"/>
+                                                            <constraint firstAttribute="height" constant="160" id="aL9-OR-ocx"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <connections>
@@ -5175,12 +5124,12 @@ your journey</string>
                                                         </connections>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ND5-ob-WoY" userLabel="drinkCOuntView" customClass="RoundedView2" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="1280" width="353" height="140"/>
+                                                        <rect key="frame" x="20" y="580" width="353" height="160"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DrinkCount" translatesAutoresizingMaskIntoConstraints="NO" id="Myw-CL-ZvS" customClass="RoundedImageView" customModule="CalmscientIOS" customModuleProvider="target">
-                                                                <rect key="frame" x="10" y="10" width="156.66666666666666" height="120"/>
+                                                                <rect key="frame" x="10" y="10" width="156.66666666666666" height="140"/>
                                                             </imageView>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drink counts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmi-g8-vE8" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Drink counts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmi-g8-vE8" customClass="FontLR16" customModule="CalmscientIOS" customModuleProvider="target">
                                                                 <rect key="frame" x="186.66666666666663" y="10" width="146.33333333333337" height="20"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="20" id="J70-ri-Ifi"/>
@@ -5189,14 +5138,14 @@ your journey</string>
                                                                 <color key="textColor" red="0.42745098040000001" green="0.41960784309999999" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="calculator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5p-g0-6Xv" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="calculator" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5p-g0-6Xv" customClass="FontLR16" customModule="CalmscientIOS" customModuleProvider="target">
                                                                 <rect key="frame" x="186.66666666666666" y="25" width="74.666666666666657" height="20.333333333333329"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                 <color key="textColor" red="0.42745098040000001" green="0.41960784309999999" blue="0.68235294120000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use this calculator to plan to control your drinking habit." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQg-Wx-L1Z" customClass="FontLL12" customModule="CalmscientIOS" customModuleProvider="target">
-                                                                <rect key="frame" x="186.66666666666663" y="45.333333333333485" width="146.33333333333337" height="60"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use this calculator to plan to control your drinking habit." lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQg-Wx-L1Z" customClass="FontLL14" customModule="CalmscientIOS" customModuleProvider="target">
+                                                                <rect key="frame" x="186.66666666666663" y="45.333333333333258" width="146.33333333333337" height="60"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="0vV-bK-UtK"/>
                                                                 </constraints>
@@ -5214,7 +5163,7 @@ your journey</string>
                                                             <constraint firstItem="Myw-CL-ZvS" firstAttribute="top" secondItem="ND5-ob-WoY" secondAttribute="top" constant="10" id="8ZQ-LV-Kdm"/>
                                                             <constraint firstItem="l5p-g0-6Xv" firstAttribute="top" secondItem="jmi-g8-vE8" secondAttribute="bottom" constant="-5" id="DAy-99-PK3"/>
                                                             <constraint firstAttribute="trailing" secondItem="jmi-g8-vE8" secondAttribute="trailing" constant="20" id="KRJ-vE-tUr"/>
-                                                            <constraint firstAttribute="height" constant="140" id="Rpr-Ut-kTf"/>
+                                                            <constraint firstAttribute="height" constant="160" id="Rpr-Ut-kTf"/>
                                                             <constraint firstAttribute="centerX" secondItem="Myw-CL-ZvS" secondAttribute="trailing" constant="10" id="ScE-zb-KoQ"/>
                                                             <constraint firstItem="jmi-g8-vE8" firstAttribute="top" secondItem="ND5-ob-WoY" secondAttribute="top" constant="10" id="UeA-SI-1Jg"/>
                                                             <constraint firstItem="l5p-g0-6Xv" firstAttribute="leading" secondItem="jmi-g8-vE8" secondAttribute="leading" id="Wud-n4-Agd"/>
@@ -5223,9 +5172,9 @@ your journey</string>
                                                         </constraints>
                                                     </view>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j7B-N3-Lwy" userLabel="drinkCountButton">
-                                                        <rect key="frame" x="20" y="1280" width="353" height="140"/>
+                                                        <rect key="frame" x="20" y="580" width="353" height="160"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="140" id="fEy-eO-P4b"/>
+                                                            <constraint firstAttribute="height" constant="160" id="fEy-eO-P4b"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <connections>
@@ -5233,7 +5182,7 @@ your journey</string>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FB4-N7-Gbx" customClass="LinearGradientButton" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="25" y="1440" width="343" height="40"/>
+                                                        <rect key="frame" x="25" y="760" width="343" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="TKh-sb-0av"/>
                                                         </constraints>
@@ -5256,17 +5205,14 @@ your journey</string>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="1qP-TX-7S6" secondAttribute="trailing" constant="20" id="0tI-wB-ngc"/>
                                                     <constraint firstItem="DOt-RN-bQi" firstAttribute="leading" secondItem="EN3-ec-q1P" secondAttribute="leading" constant="20" id="1h5-fM-fMl"/>
                                                     <constraint firstAttribute="trailing" secondItem="pcy-yl-5LT" secondAttribute="trailing" constant="20" id="2nT-RS-Ia6"/>
                                                     <constraint firstAttribute="trailing" secondItem="IBB-S8-I0P" secondAttribute="trailing" constant="20" id="6k5-Or-aGG"/>
                                                     <constraint firstItem="DOt-RN-bQi" firstAttribute="top" secondItem="IBB-S8-I0P" secondAttribute="bottom" constant="20" id="84M-CP-W0L"/>
                                                     <constraint firstAttribute="trailing" secondItem="tVc-Y5-LSf" secondAttribute="trailing" constant="20" id="99K-kq-C8h"/>
-                                                    <constraint firstAttribute="trailing" secondItem="jm2-JJ-e4a" secondAttribute="trailing" constant="20" id="CfH-NP-Slf"/>
                                                     <constraint firstItem="j7B-N3-Lwy" firstAttribute="top" secondItem="DOt-RN-bQi" secondAttribute="bottom" constant="20" id="CwL-bv-R8i"/>
                                                     <constraint firstItem="IBB-S8-I0P" firstAttribute="top" secondItem="tVc-Y5-LSf" secondAttribute="bottom" constant="20" id="EDc-A2-34W"/>
                                                     <constraint firstItem="IBB-S8-I0P" firstAttribute="leading" secondItem="EN3-ec-q1P" secondAttribute="leading" constant="20" id="Ed2-60-WRQ"/>
-                                                    <constraint firstItem="jm2-JJ-e4a" firstAttribute="leading" secondItem="EN3-ec-q1P" secondAttribute="leading" constant="20" id="GA2-EF-CkQ"/>
                                                     <constraint firstItem="ND5-ob-WoY" firstAttribute="top" secondItem="DOt-RN-bQi" secondAttribute="bottom" constant="20" id="H0M-1x-EEY"/>
                                                     <constraint firstAttribute="trailing" secondItem="DOt-RN-bQi" secondAttribute="trailing" constant="20" id="K6Q-8u-o8c"/>
                                                     <constraint firstAttribute="trailing" secondItem="j7B-N3-Lwy" secondAttribute="trailing" constant="20" id="KIP-YB-RgF"/>
@@ -5280,18 +5226,15 @@ your journey</string>
                                                     <constraint firstItem="ND5-ob-WoY" firstAttribute="leading" secondItem="EN3-ec-q1P" secondAttribute="leading" constant="20" id="QA9-4W-7dg"/>
                                                     <constraint firstItem="b3Y-cA-pO7" firstAttribute="top" secondItem="EN3-ec-q1P" secondAttribute="top" id="QSP-tX-8AI"/>
                                                     <constraint firstItem="pcy-yl-5LT" firstAttribute="top" secondItem="tVc-Y5-LSf" secondAttribute="bottom" constant="20" id="Qq2-hz-HQ3"/>
-                                                    <constraint firstItem="wuF-oT-eue" firstAttribute="top" secondItem="1qP-TX-7S6" secondAttribute="bottom" constant="20" id="RlO-Un-KE8"/>
+                                                    <constraint firstItem="wuF-oT-eue" firstAttribute="top" secondItem="b3Y-cA-pO7" secondAttribute="bottom" constant="20" id="RlO-Un-KE8"/>
                                                     <constraint firstAttribute="trailing" secondItem="ND5-ob-WoY" secondAttribute="trailing" constant="20" id="Vfp-UC-ffo"/>
                                                     <constraint firstItem="wuF-oT-eue" firstAttribute="leading" secondItem="EN3-ec-q1P" secondAttribute="leading" constant="20" id="XEu-1h-Sn5"/>
                                                     <constraint firstItem="tVc-Y5-LSf" firstAttribute="leading" secondItem="EN3-ec-q1P" secondAttribute="leading" constant="20" id="cSC-qC-O50"/>
                                                     <constraint firstItem="FB4-N7-Gbx" firstAttribute="top" secondItem="j7B-N3-Lwy" secondAttribute="bottom" constant="20" id="kUG-Qr-dcG"/>
                                                     <constraint firstAttribute="trailing" secondItem="j3a-iY-lGC" secondAttribute="trailing" constant="20" id="nQD-QO-4j3"/>
-                                                    <constraint firstItem="tVc-Y5-LSf" firstAttribute="top" secondItem="1qP-TX-7S6" secondAttribute="bottom" constant="20" id="osY-Ws-XL4"/>
+                                                    <constraint firstItem="tVc-Y5-LSf" firstAttribute="top" secondItem="b3Y-cA-pO7" secondAttribute="bottom" constant="20" id="osY-Ws-XL4"/>
                                                     <constraint firstAttribute="trailing" secondItem="wuF-oT-eue" secondAttribute="trailing" constant="20" id="qKU-pB-l9e"/>
                                                     <constraint firstItem="b3Y-cA-pO7" firstAttribute="leading" secondItem="EN3-ec-q1P" secondAttribute="leading" constant="20" id="sOi-ya-FNY"/>
-                                                    <constraint firstItem="jm2-JJ-e4a" firstAttribute="top" secondItem="b3Y-cA-pO7" secondAttribute="bottom" constant="20" id="spp-iu-Mi0"/>
-                                                    <constraint firstItem="1qP-TX-7S6" firstAttribute="top" secondItem="b3Y-cA-pO7" secondAttribute="bottom" constant="20" id="t27-32-h8O"/>
-                                                    <constraint firstItem="1qP-TX-7S6" firstAttribute="leading" secondItem="EN3-ec-q1P" secondAttribute="leading" constant="20" id="wF1-Zr-Yor"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -6831,10 +6774,11 @@ Depression is common because when you smoke a lot, your brain kind of switches o
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Nq5-OA-8Lc">
-                                <rect key="frame" x="0.0" y="326" width="393" height="200"/>
+                                <rect key="frame" x="56.666666666666657" y="356" width="280" height="140"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="cPb-DX-t4P"/>
+                                    <constraint firstAttribute="height" constant="140" id="cPb-DX-t4P"/>
+                                    <constraint firstAttribute="width" constant="280" id="xec-Cn-RIK"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -6843,8 +6787,6 @@ Depression is common because when you smoke a lot, your brain kind of switches o
                         <constraints>
                             <constraint firstItem="d1Q-Ti-f5f" firstAttribute="trailing" secondItem="3NU-Qo-2Sf" secondAttribute="trailing" id="00G-7S-Yt4"/>
                             <constraint firstItem="Nq5-OA-8Lc" firstAttribute="centerX" secondItem="Qzk-aM-klk" secondAttribute="centerX" id="0KU-Y0-sxJ"/>
-                            <constraint firstItem="Nq5-OA-8Lc" firstAttribute="leading" secondItem="d1Q-Ti-f5f" secondAttribute="leading" id="7Hs-Dh-MnT"/>
-                            <constraint firstItem="d1Q-Ti-f5f" firstAttribute="trailing" secondItem="Nq5-OA-8Lc" secondAttribute="trailing" id="KRh-Gg-MZR"/>
                             <constraint firstItem="Nq5-OA-8Lc" firstAttribute="centerY" secondItem="Qzk-aM-klk" secondAttribute="centerY" id="nuH-6D-zDZ"/>
                             <constraint firstAttribute="bottom" secondItem="3NU-Qo-2Sf" secondAttribute="bottom" id="vF6-lE-F8B"/>
                             <constraint firstItem="3NU-Qo-2Sf" firstAttribute="top" secondItem="Qzk-aM-klk" secondAttribute="top" id="x8a-gn-zv7"/>
@@ -6858,6 +6800,121 @@ Depression is common because when you smoke a lot, your brain kind of switches o
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eqb-de-FV0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="10691" y="483"/>
+        </scene>
+        <!--Settings AlarmVC-->
+        <scene sceneID="Azk-2O-Uq8">
+            <objects>
+                <viewController storyboardIdentifier="settingsAlarmVC" id="9FG-aR-ram" customClass="settingsAlarmVC" customModule="CalmscientIOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yuN-on-foe">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarm settings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tA9-X0-UjE" customClass="FontLM16" customModule="CalmscientIOS" customModuleProvider="target">
+                                <rect key="frame" x="141.66666666666666" y="79" width="110" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1zA-KC-YDa">
+                                <rect key="frame" x="20" y="79" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Poa-da-2SO"/>
+                                    <constraint firstAttribute="width" constant="30" id="w0Q-wI-AZa"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="closeIcon"/>
+                                <connections>
+                                    <action selector="cancelButtonPressed:" destination="9FG-aR-ram" eventType="touchUpInside" id="DMY-GU-VSt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n75-Qd-H1F">
+                                <rect key="frame" x="343" y="79" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="ZP6-Ch-jfj"/>
+                                    <constraint firstAttribute="width" constant="30" id="jNp-kQ-ZrJ"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" image="saveRightMark"/>
+                                <connections>
+                                    <action selector="okButtonPressed:" destination="9FG-aR-ram" eventType="touchUpInside" id="OBY-A0-fie"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can customize how early the alarm should go on" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrI-aq-CgL" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
+                                <rect key="frame" x="71.666666666666686" y="100" width="250" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="5tH-38-yPN"/>
+                                    <constraint firstAttribute="width" constant="250" id="u4K-dJ-kgD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7N5-U2-xRR">
+                                <rect key="frame" x="0.0" y="165" width="393" height="300"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="6De-Rx-l88"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="5" reuseIdentifier="AlarmCell" id="J2z-nw-MkN">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="47"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J2z-nw-MkN" id="DwJ-Zm-npW">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="47"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhX-TR-85e" customClass="FontLL14" customModule="CalmscientIOS" customModuleProvider="target">
+                                                    <rect key="frame" x="40" y="13" width="313" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="d2Q-pN-EhS">
+                                                    <rect key="frame" x="355" y="14.666666666666664" width="18" height="18"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="18" id="EZ5-TV-JTY"/>
+                                                        <constraint firstAttribute="height" constant="18" id="OxL-FL-a6h"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="YhX-TR-85e" secondAttribute="bottom" constant="2" id="0ic-YN-34J"/>
+                                                <constraint firstItem="YhX-TR-85e" firstAttribute="top" secondItem="DwJ-Zm-npW" secondAttribute="topMargin" constant="2" id="EpJ-dS-Ha7"/>
+                                                <constraint firstItem="d2Q-pN-EhS" firstAttribute="centerY" secondItem="DwJ-Zm-npW" secondAttribute="centerY" id="FRH-ZM-Uo2"/>
+                                                <constraint firstItem="YhX-TR-85e" firstAttribute="leading" secondItem="DwJ-Zm-npW" secondAttribute="leadingMargin" constant="20" id="RDz-IR-YF5"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="YhX-TR-85e" secondAttribute="trailing" constant="20" id="nLe-hN-DAR"/>
+                                                <constraint firstAttribute="trailing" secondItem="d2Q-pN-EhS" secondAttribute="trailing" constant="20" id="tkj-eh-Mxx"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="5" minY="0.0" maxX="5" maxY="0.0"/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TRf-VM-Ssd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tA9-X0-UjE" firstAttribute="centerX" secondItem="yuN-on-foe" secondAttribute="centerX" id="4xC-gt-EIq"/>
+                            <constraint firstItem="7N5-U2-xRR" firstAttribute="top" secondItem="nrI-aq-CgL" secondAttribute="bottom" constant="5" id="BSE-9A-u3G"/>
+                            <constraint firstItem="nrI-aq-CgL" firstAttribute="top" secondItem="tA9-X0-UjE" secondAttribute="bottom" id="KOV-Rz-vfk"/>
+                            <constraint firstItem="n75-Qd-H1F" firstAttribute="top" secondItem="TRf-VM-Ssd" secondAttribute="top" constant="20" id="M5L-ih-l0C"/>
+                            <constraint firstItem="TRf-VM-Ssd" firstAttribute="trailing" secondItem="n75-Qd-H1F" secondAttribute="trailing" constant="20" id="MWg-TU-SqH"/>
+                            <constraint firstItem="7N5-U2-xRR" firstAttribute="leading" secondItem="TRf-VM-Ssd" secondAttribute="leading" id="efE-o4-qZL"/>
+                            <constraint firstItem="TRf-VM-Ssd" firstAttribute="trailing" secondItem="7N5-U2-xRR" secondAttribute="trailing" id="jfc-7M-iOC"/>
+                            <constraint firstItem="1zA-KC-YDa" firstAttribute="centerY" secondItem="n75-Qd-H1F" secondAttribute="centerY" id="jiZ-Ed-knb"/>
+                            <constraint firstItem="tA9-X0-UjE" firstAttribute="top" secondItem="TRf-VM-Ssd" secondAttribute="top" constant="20" id="seR-r0-Vnk"/>
+                            <constraint firstItem="nrI-aq-CgL" firstAttribute="centerX" secondItem="yuN-on-foe" secondAttribute="centerX" id="wwH-4P-9k9"/>
+                            <constraint firstItem="1zA-KC-YDa" firstAttribute="leading" secondItem="TRf-VM-Ssd" secondAttribute="leading" constant="20" id="zGi-dR-Yg3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="okButton" destination="n75-Qd-H1F" id="dOS-gM-NlI"/>
+                        <outlet property="settingsAlarmTable" destination="7N5-U2-xRR" id="afl-KI-4y2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YX0-On-ddM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="11451" y="482"/>
         </scene>
         <!--Info ButtonVC-->
         <scene sceneID="qRS-YV-QG1">
@@ -7114,29 +7171,30 @@ These questions refer to drug use in the past 12 months. Please answer NO or YES
             <size key="intrinsicContentSize" width="203" height="31"/>
         </designable>
         <designable name="qO9-3T-NfG">
-            <size key="intrinsicContentSize" width="158" height="30"/>
+            <size key="intrinsicContentSize" width="169" height="31"/>
         </designable>
     </designables>
     <resources>
         <image name="Badeg" width="30.333333969116211" height="30.333333969116211"/>
         <image name="BeerWine" width="10.666666984558105" height="10.666666984558105"/>
+        <image name="BeerWine1" width="91" height="91"/>
         <image name="BreathingTechnic" width="370" height="246"/>
         <image name="Cigar" width="30.333333969116211" height="30.333333969116211"/>
         <image name="DrinkCount" width="154.66667175292969" height="120"/>
         <image name="FolderIn" width="10.666666984558105" height="10.666666984558105"/>
         <image name="InfoIcon" width="25.666666030883789" height="25.666666030883789"/>
-        <image name="Maskgroup" width="154.66667175292969" height="120"/>
         <image name="NotePad" width="30.333333969116211" height="30.333333969116211"/>
         <image name="Screening_Cell" width="400" height="170"/>
         <image name="calenderi" width="10.666666984558105" height="10.666666984558105"/>
+        <image name="check" width="30" height="30"/>
         <image name="circle.fill" catalog="system" width="128" height="123"/>
         <image name="closeIcon" width="32.333332061767578" height="33"/>
         <image name="comingsoon.png" width="534" height="309"/>
         <image name="eventTracker" width="14.666666984558105" height="14.666666984558105"/>
         <image name="forwardArrow" width="41" height="41"/>
         <image name="img1" width="392" height="162"/>
-        <image name="play" width="100" height="100"/>
         <image name="purse" width="10.666666984558105" height="10.666666984558105"/>
+        <image name="saveRightMark" width="41.666667938232422" height="41"/>
         <image name="spotlight" width="46" height="46"/>
         <namedColor name="6E6BB3ColorOnly">
             <color red="0.43137254901960786" green="0.41960784313725491" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

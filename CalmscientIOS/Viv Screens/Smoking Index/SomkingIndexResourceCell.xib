@@ -23,7 +23,7 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Mask" translatesAutoresizingMaskIntoConstraints="NO" id="mvX-yy-EEA" customClass="RoundedImageView" customModule="CalmscientIOS" customModuleProvider="target">
                                 <rect key="frame" x="10" y="10" width="248" height="180"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9d8-VS-JuD" userLabel="headingLabel" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9d8-VS-JuD" userLabel="headingLabel" customClass="FontLR16" customModule="CalmscientIOS" customModuleProvider="target">
                                 <rect key="frame" x="278" y="10" width="248" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="2b9-q8-rgz"/>
@@ -32,7 +32,7 @@
                                 <color key="textColor" red="0.42882183190000001" green="0.41974490879999998" blue="0.68238306049999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMC-mL-xsS" customClass="FontLL12" customModule="CalmscientIOS" customModuleProvider="target">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMC-mL-xsS" customClass="FontLL14" customModule="CalmscientIOS" customModuleProvider="target">
                                 <rect key="frame" x="278" y="50" width="248" height="140"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>

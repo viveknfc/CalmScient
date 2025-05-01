@@ -1159,18 +1159,6 @@
         }
       }
     },
-    "BcZ-fs-hOz.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Do something you're good at to build self-confidence, then tackle a tougher task.\"; ObjectID = \"BcZ-fs-hOz\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Do something you're good at to build self-confidence, then tackle a tougher task."
-          }
-        }
-      }
-    },
     "beN-65-v47.text" : {
       "comment" : "Class = \"UILabel\"; text = \"CAGE\"; ObjectID = \"beN-65-v47\";",
       "extractionState" : "extracted_with_value",
@@ -1923,18 +1911,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "¡Estoy orgulloso de ti por reconocer la necesidad de trabajar en tu consumo excesivo de alcohol! Reconocer que tus patrones de consumo son un problema, es un paso crucial hacia una vida más saludable.\n"
-          }
-        }
-      }
-    },
-    "gkL-QT-cgz.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Work your strengths\"; ObjectID = \"gkL-QT-cgz\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Work your strengths"
           }
         }
       }
@@ -3211,6 +3187,18 @@
         }
       }
     },
+    "nrI-aq-CgL.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"You can customize how early the alarm should go on\"; ObjectID = \"nrI-aq-CgL\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "You can customize how early the alarm should go on"
+          }
+        }
+      }
+    },
     "nSW-eD-GnN.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Stay busy\"; ObjectID = \"nSW-eD-GnN\";",
       "extractionState" : "extracted_with_value",
@@ -4059,6 +4047,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "\nAlgunos signos del TCA son seguir bebiendo aunque esto cause problemas con la familia o el trabajo, beber más de lo que se tenía previsto, necesitar beber más que antes para lograr el efecto deseado, no poder dejar de beber después de varios intentos, o seguir bebiendo a pesar de las consecuencias negativas. Los signos del TCA también pueden incluir beber para aliviar emociones negativas, como sentirse \"deprimido\", ansioso, incómodo, infeliz, mal, insatisfecho con la vida u otras emociones negativas causadas o empeoradas por el abuso del alcohol.\nMás allá de estos riesgos para la salud física y mental, el abuso frecuente de alcohol también está relacionado con problemas personales, como perder la licencia de conducir o tener problemas en las relaciones interpersonales..\n"
+          }
+        }
+      }
+    },
+    "tA9-X0-UjE.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Alarm settings\"; ObjectID = \"tA9-X0-UjE\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Alarm settings"
           }
         }
       }
@@ -5013,6 +5013,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Guardar en el resumen semanal\n"
+          }
+        }
+      }
+    },
+    "YhX-TR-85e.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"YhX-TR-85e\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Label"
           }
         }
       }

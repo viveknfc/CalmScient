@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class TakingControlIndex: UIViewController {
+class TakingControlIndex: ViewController {
     
     @IBOutlet weak var takingSegmentControl: UISegmentedControl!
     @IBOutlet weak var containerView: UIView!
@@ -93,6 +93,13 @@ class TakingControlIndex: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
+
+        let titleLabel = UILabel()
+        titleLabel.text = AppHelper.getLocalizeString(str: "Taking control")
+        titleLabel.font = UIFont(name: Fonts().lexendMedium, size: 18)
+        titleLabel.textColor = .label // or any color you want
+        navigationItem.titleView = titleLabel
+        
     }
     
     override func viewDidLayoutSubviews() {

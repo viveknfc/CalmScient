@@ -411,6 +411,8 @@ extension HomeTabDashboardViewController : UICollectionViewDelegateFlowLayout, U
         }
         if let isFromExcercise = selectedFavorite["isFromExercises"] as? Int, isFromExcercise == 1, let screenCode = selectedFavorite["screenCode"] as? Int  {
             let storyboard = UIStoryboard(name: "Excercises", bundle: nil)
+            print("the screen code is",screenCode)
+            print("is from excerise value is ",isFromExcercise)
             let excerciseType = ExcercisesTypeEnum(rawValue: screenCode)
             
             // Push to the destination view controller

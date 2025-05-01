@@ -119,9 +119,8 @@
                                     <constraint firstItem="Rru-9T-LhV" firstAttribute="top" secondItem="gK3-WH-vae" secondAttribute="top" constant="10" id="qGc-ri-R7y"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gPC-1f-kLK">
+                            <tableView clipsSubviews="YES" tag="2" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="28" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gPC-1f-kLK">
                                 <rect key="frame" x="9" y="189" width="377" height="561"/>
-                                <color key="backgroundColor" name="AppBackGroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="Y6W-OH-hqX" id="cTQ-Hd-4uj"/>
                                     <outlet property="delegate" destination="Y6W-OH-hqX" id="lts-aS-z59"/>
@@ -203,9 +202,6 @@
                                     <buttonConfiguration key="configuration" style="plain" title="Done">
                                         <color key="baseForegroundColor" name="blackAndWhite"/>
                                     </buttonConfiguration>
-                                    <connections>
-                                        <action selector="okButtomClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ool-wI-hzi"/>
-                                    </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HaM-Mw-HAm">
                                     <rect key="frame" x="318" y="3" width="67" height="34.333333333333336"/>

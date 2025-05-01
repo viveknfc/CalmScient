@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="lexendregular.ttf">
+        <array key="Lexend-Regular.ttf">
             <string>Lexend-Regular</string>
         </array>
     </customFonts>
@@ -28,23 +28,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="327"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mood by Date Range" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VKv-mo-JEf">
-                                <rect key="frame" x="16" y="12" width="153.66666666666666" height="19"/>
-                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
-                                <color key="textColor" name="424242Color"/>
+                                <rect key="frame" x="16" y="12" width="164" height="20"/>
+                                <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="16"/>
+                                <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hAU-z7-PBz">
-                                <rect key="frame" x="16" y="39" width="361" height="280"/>
+                                <rect key="frame" x="16" y="40" width="361" height="279"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="efg-RP-k7V">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="280"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="279"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Csc-az-pzG" customClass="LineChartView" customModule="DGCharts">
-                                                <rect key="frame" x="0.0" y="0.0" width="361" height="280"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="361" height="279"/>
                                                 <color key="backgroundColor" name="AppViewContentColor"/>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dw-GM-hlg" customClass="BarChartView" customModule="DGCharts">
-                                                <rect key="frame" x="8" y="8" width="345" height="264"/>
+                                                <rect key="frame" x="8" y="8" width="345" height="263"/>
                                                 <color key="backgroundColor" name="AppViewContentColor"/>
                                             </view>
                                         </subviews>
@@ -100,9 +100,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <namedColor name="424242Color">
-            <color red="0.25900000333786011" green="0.25900000333786011" blue="0.25900000333786011" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="AppViewContentColor">
             <color red="0.98431372549019602" green="0.98431372549019602" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

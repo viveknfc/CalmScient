@@ -25,7 +25,7 @@ class SleepSummaryTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         bgView.applyShadow()
-        titleLbl.font = UIFont(name: Fonts().lexendRegular, size: 14)
+        titleLbl.font = UIFont(name: Fonts().lexendRegular, size: 16)
         titleLbl.text = AppHelper.getLocalizeString(str: "Average_sleep_score")
         progressView.subviews.forEach { subview in
             subview.layer.masksToBounds = true

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="lexendmedium.ttf">
+        <array key="Lexend-Medium.ttf">
             <string>Lexend-Medium</string>
         </array>
-        <array key="lexendregular.ttf">
+        <array key="Lexend-Regular.ttf">
             <string>Lexend-Regular</string>
         </array>
     </customFonts>
@@ -33,20 +33,29 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GOs-Ff-pDJ">
                                 <rect key="frame" x="0.0" y="0.0" width="464" height="99"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="afternoonSun" translatesAutoresizingMaskIntoConstraints="NO" id="0cL-og-pJB">
-                                        <rect key="frame" x="219.66666666666666" y="37" width="25" height="25"/>
-                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9bd-rW-nch">
+                                        <rect key="frame" x="15" y="37" width="25" height="25"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="25" id="ZmY-3u-Mco"/>
+                                            <constraint firstAttribute="width" constant="25" id="hZq-PS-VYk"/>
+                                        </constraints>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" image="CellSelectionImage"/>
+                                        <connections>
+                                            <action selector="alarmSelectionButtonClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="E6T-0u-gCh"/>
+                                        </connections>
+                                    </button>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yxb-LP-D0H">
-                                        <rect key="frame" x="14" y="14" width="193.66666666666666" height="71"/>
+                                        <rect key="frame" x="65" y="14" width="52" height="71"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Morning" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yxl-8r-XcY">
-                                                <rect key="frame" x="0.0" y="0.0" width="193.66666666666666" height="16.333333333333332"/>
+                                                <rect key="frame" x="0.0" y="12.333333333333334" width="52" height="16.333333333333329"/>
                                                 <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="13"/>
                                                 <color key="textColor" name="MedicationCellTitleColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8 AM" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9ra-Ii-Xoe">
-                                                <rect key="frame" x="0.0" y="46" width="49" height="25"/>
+                                                <rect key="frame" x="0.0" y="30" width="49" height="41"/>
                                                 <fontDescription key="fontDescription" name="Lexend-Medium" family="Lexend" pointSize="20"/>
                                                 <color key="textColor" name="MedicationsCellSubtitleColor"/>
                                                 <nil key="highlightedColor"/>
@@ -54,72 +63,63 @@
                                         </subviews>
                                         <color key="backgroundColor" name="AppViewContentColor"/>
                                         <constraints>
+                                            <constraint firstItem="Yxl-8r-XcY" firstAttribute="centerY" secondItem="Yxb-LP-D0H" secondAttribute="centerY" constant="-15" id="1gZ-ss-cS1"/>
                                             <constraint firstAttribute="bottom" secondItem="9ra-Ii-Xoe" secondAttribute="bottom" id="66a-tN-ikP"/>
                                             <constraint firstAttribute="trailing" secondItem="Yxl-8r-XcY" secondAttribute="trailing" id="B3f-TQ-kUj"/>
                                             <constraint firstItem="9ra-Ii-Xoe" firstAttribute="leading" secondItem="Yxb-LP-D0H" secondAttribute="leading" id="d6K-SN-t7g"/>
-                                            <constraint firstItem="Yxl-8r-XcY" firstAttribute="top" secondItem="Yxb-LP-D0H" secondAttribute="top" id="nmC-dg-uPR"/>
+                                            <constraint firstItem="9ra-Ii-Xoe" firstAttribute="centerY" secondItem="Yxb-LP-D0H" secondAttribute="centerY" constant="15" id="lj0-6Z-b9y"/>
                                             <constraint firstItem="Yxl-8r-XcY" firstAttribute="leading" secondItem="Yxb-LP-D0H" secondAttribute="leading" id="rKZ-Zq-D6U"/>
                                         </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k66-HY-1If">
-                                        <rect key="frame" x="256.66666666666669" y="14" width="193.33333333333331" height="71"/>
+                                        <rect key="frame" x="232" y="14" width="218" height="71"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="07:50 AM" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FSk-Fj-qsw">
-                                                <rect key="frame" x="98" y="46" width="90" height="25"/>
-                                                <fontDescription key="fontDescription" name="Lexend-Medium" family="Lexend" pointSize="20"/>
-                                                <color key="textColor" name="MedicationsCellSubtitleColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aj4-nX-EWD">
-                                                <rect key="frame" x="98" y="0.0" width="95.333333333333314" height="45"/>
+                                                <rect key="frame" x="109" y="0.0" width="109" height="71"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XD6-o3-q3D">
-                                                        <rect key="frame" x="0.0" y="0.0" width="35.333333333333336" height="45"/>
+                                                        <rect key="frame" x="37" y="12.666666666666664" width="35.333333333333343" height="15.666666666666664"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <color key="textColor" name="MedicationCellTitleColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ToggleSwitch_No" translatesAutoresizingMaskIntoConstraints="NO" id="oxR-3k-jeH">
-                                                        <rect key="frame" x="47.333333333333314" y="0.0" width="48" height="45"/>
+                                                        <rect key="frame" x="30.666666666666686" y="38" width="48" height="25"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="48" id="G8K-GP-1OL"/>
+                                                            <constraint firstAttribute="height" constant="25" id="yvf-cb-bfh"/>
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" name="AppViewContentColor"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="oxR-3k-jeH" secondAttribute="trailing" id="1jH-jT-INz"/>
-                                                    <constraint firstItem="oxR-3k-jeH" firstAttribute="leading" secondItem="XD6-o3-q3D" secondAttribute="trailing" constant="12" id="Byw-4T-K3K"/>
-                                                    <constraint firstItem="XD6-o3-q3D" firstAttribute="top" secondItem="aj4-nX-EWD" secondAttribute="top" id="ENa-Ic-tGc"/>
-                                                    <constraint firstItem="XD6-o3-q3D" firstAttribute="leading" secondItem="aj4-nX-EWD" secondAttribute="leading" id="Qwx-rN-xKE"/>
-                                                    <constraint firstAttribute="bottom" secondItem="XD6-o3-q3D" secondAttribute="bottom" id="XXT-21-QOE"/>
-                                                    <constraint firstAttribute="bottom" secondItem="oxR-3k-jeH" secondAttribute="bottom" id="f6E-Rj-g8X"/>
-                                                    <constraint firstItem="oxR-3k-jeH" firstAttribute="top" secondItem="aj4-nX-EWD" secondAttribute="top" id="mSC-QI-Ro9"/>
+                                                    <constraint firstItem="XD6-o3-q3D" firstAttribute="centerY" secondItem="aj4-nX-EWD" secondAttribute="centerY" constant="-15" id="U6X-gA-Nq4"/>
+                                                    <constraint firstItem="oxR-3k-jeH" firstAttribute="centerY" secondItem="aj4-nX-EWD" secondAttribute="centerY" constant="15" id="UXh-Vl-NuD"/>
+                                                    <constraint firstItem="oxR-3k-jeH" firstAttribute="centerX" secondItem="aj4-nX-EWD" secondAttribute="centerX" id="X99-Yf-CgG"/>
+                                                    <constraint firstItem="XD6-o3-q3D" firstAttribute="centerX" secondItem="aj4-nX-EWD" secondAttribute="centerX" id="mwU-xH-koF"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                         <color key="backgroundColor" name="AppViewContentColor"/>
                                         <constraints>
-                                            <constraint firstItem="FSk-Fj-qsw" firstAttribute="top" secondItem="aj4-nX-EWD" secondAttribute="bottom" constant="1" id="69t-88-KTe"/>
-                                            <constraint firstAttribute="bottom" secondItem="FSk-Fj-qsw" secondAttribute="bottom" id="IJf-UR-bjr"/>
-                                            <constraint firstItem="FSk-Fj-qsw" firstAttribute="leading" secondItem="aj4-nX-EWD" secondAttribute="leading" id="Sxt-Kp-4KJ"/>
-                                            <constraint firstItem="aj4-nX-EWD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="k66-HY-1If" secondAttribute="leading" constant="12" id="Vm6-Ii-lJ9"/>
+                                            <constraint firstItem="aj4-nX-EWD" firstAttribute="centerY" secondItem="k66-HY-1If" secondAttribute="centerY" id="Fu0-tq-LaO"/>
+                                            <constraint firstItem="aj4-nX-EWD" firstAttribute="top" secondItem="k66-HY-1If" secondAttribute="top" id="ZVC-TG-1Ws"/>
                                             <constraint firstAttribute="trailing" secondItem="aj4-nX-EWD" secondAttribute="trailing" id="cQ4-a6-ann"/>
-                                            <constraint firstItem="aj4-nX-EWD" firstAttribute="top" secondItem="k66-HY-1If" secondAttribute="top" id="g8i-Sn-nFJ"/>
+                                            <constraint firstAttribute="bottom" secondItem="aj4-nX-EWD" secondAttribute="bottom" id="gV5-mX-ZJq"/>
+                                            <constraint firstItem="aj4-nX-EWD" firstAttribute="leading" secondItem="k66-HY-1If" secondAttribute="centerX" id="oep-XR-Goc"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" name="AppViewContentColor"/>
                                 <constraints>
-                                    <constraint firstItem="Yxb-LP-D0H" firstAttribute="leading" secondItem="GOs-Ff-pDJ" secondAttribute="leading" constant="14" id="9PF-G1-v8L"/>
-                                    <constraint firstItem="0cL-og-pJB" firstAttribute="centerX" secondItem="GOs-Ff-pDJ" secondAttribute="centerX" id="B1V-TX-xrv"/>
+                                    <constraint firstItem="Yxb-LP-D0H" firstAttribute="leading" secondItem="9bd-rW-nch" secondAttribute="trailing" constant="25" id="9PF-G1-v8L"/>
+                                    <constraint firstItem="9bd-rW-nch" firstAttribute="leading" secondItem="GOs-Ff-pDJ" secondAttribute="leading" constant="15" id="BPl-DI-o1X"/>
+                                    <constraint firstItem="9bd-rW-nch" firstAttribute="centerY" secondItem="GOs-Ff-pDJ" secondAttribute="centerY" id="GBF-Zh-Q1D"/>
                                     <constraint firstAttribute="bottom" secondItem="Yxb-LP-D0H" secondAttribute="bottom" constant="14" id="HfH-EI-SFE"/>
-                                    <constraint firstItem="k66-HY-1If" firstAttribute="leading" secondItem="0cL-og-pJB" secondAttribute="trailing" constant="12" id="Lv7-Ze-1cX"/>
-                                    <constraint firstItem="0cL-og-pJB" firstAttribute="centerY" secondItem="GOs-Ff-pDJ" secondAttribute="centerY" id="OM6-vU-HJg"/>
                                     <constraint firstItem="Yxb-LP-D0H" firstAttribute="top" secondItem="GOs-Ff-pDJ" secondAttribute="top" constant="14" id="VrC-6a-hpP"/>
                                     <constraint firstAttribute="trailing" secondItem="k66-HY-1If" secondAttribute="trailing" constant="14" id="cdc-Tw-lCT"/>
                                     <constraint firstAttribute="bottom" secondItem="k66-HY-1If" secondAttribute="bottom" constant="14" id="f08-Vk-Cgh"/>
-                                    <constraint firstItem="0cL-og-pJB" firstAttribute="leading" secondItem="Yxb-LP-D0H" secondAttribute="trailing" constant="12" id="qNU-xw-6gg"/>
+                                    <constraint firstItem="k66-HY-1If" firstAttribute="leading" secondItem="GOs-Ff-pDJ" secondAttribute="centerX" id="fgW-Ie-t3E"/>
                                     <constraint firstItem="k66-HY-1If" firstAttribute="top" secondItem="GOs-Ff-pDJ" secondAttribute="top" constant="14" id="rTb-V6-kWy"/>
                                 </constraints>
                             </view>
@@ -144,19 +144,18 @@
             <connections>
                 <outlet property="borderView" destination="GOs-Ff-pDJ" id="X5r-7b-1f0"/>
                 <outlet property="cellSwitchImageView" destination="oxR-3k-jeH" id="QSN-nx-bUj"/>
-                <outlet property="dayTimeImageView" destination="0cL-og-pJB" id="kZt-sn-2my"/>
                 <outlet property="leftContentLabel" destination="9ra-Ii-Xoe" id="b8S-l1-wpO"/>
                 <outlet property="leftTitleLabel" destination="Yxl-8r-XcY" id="JCZ-xq-c1e"/>
-                <outlet property="rightContentLabel" destination="FSk-Fj-qsw" id="r13-8T-Gys"/>
                 <outlet property="rightTitleLabel" destination="XD6-o3-q3D" id="dPd-Ja-8Eh"/>
                 <outlet property="shadowView" destination="az0-1d-WSs" id="8hY-xK-jMR"/>
+                <outlet property="timeSelectionButton" destination="9bd-rW-nch" id="mg8-2p-04R"/>
             </connections>
             <point key="canvasLocation" x="27.480916030534349" y="13.028169014084508"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="CellSelectionImage" width="29" height="29"/>
         <image name="ToggleSwitch_No" width="90.666664123535156" height="48"/>
-        <image name="afternoonSun" width="25" height="25"/>
         <namedColor name="AppViewContentColor">
             <color red="0.98431372549019602" green="0.98431372549019602" blue="0.99607843137254903" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

@@ -166,12 +166,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="deleteButton" destination="1zb-II-CmE" id="HEO-ZR-1gP"/>
                         <outlet property="directionLabel" destination="Wjj-xs-fPg" id="kB2-Ed-zdW"/>
                         <outlet property="directionsValue" destination="XYj-37-PZW" id="vWO-4B-Sle"/>
                         <outlet property="doctorTitle" destination="fKp-lG-Svv" id="GWZ-VZ-G7i"/>
                         <outlet property="dosageLabel" destination="Wgz-2k-qzE" id="nuy-Aa-Zba"/>
                         <outlet property="dosageValue" destination="iIU-aE-R7I" id="cbt-da-NPG"/>
                         <outlet property="dosageView" destination="xh3-nJ-76D" id="BdJ-6k-3Ni"/>
+                        <outlet property="editButton" destination="ds1-MN-4X1" id="JKP-Sm-53q"/>
                         <outlet property="medicationsDetailsTableView" destination="g09-U8-Dcr" id="HH6-4H-O3F"/>
                         <outlet property="medicineTitle" destination="RcA-dn-ka9" id="oct-hA-cXA"/>
                         <outlet property="scrennTitleView" destination="iG8-EF-9hc" id="c5W-2R-H1J"/>

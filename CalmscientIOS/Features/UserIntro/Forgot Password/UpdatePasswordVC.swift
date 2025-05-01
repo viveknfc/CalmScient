@@ -196,9 +196,13 @@ class UpdatePasswordVC: ViewController,UITextFieldDelegate {
                             DispatchQueue.main.async { [self] in
                                 print(json)
                                 
-                                self.view.hideToastActivity()
-                                self.view.bringSubviewToFront(updateView)
-                                updateView.isHidden = false
+                                self.showSuccessAlert(successContent: "Updated successfully", centreImage: nil, okButtonAction: {
+                                    
+                                })
+                                
+//                                self.view.hideToastActivity()
+//                                self.view.bringSubviewToFront(updateView)
+//                                updateView.isHidden = false
                             }
                             
                         } else {
@@ -221,36 +225,36 @@ class UpdatePasswordVC: ViewController,UITextFieldDelegate {
         
     }
     
-    private func addAlertView(title: String? , contentText: String?) {
-        customAlertBackgroundView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
-        customAlertBackgroundView?.frame = self.view.frame
-        var customAlertView:CustomAlertView? = CustomAlertView(frame: .zero)
-        customAlertBackgroundView?.contentView.addSubview(customAlertView!)
-        customAlertView?.translatesAutoresizingMaskIntoConstraints = false
-        customAlertView?.titleLabel.text = title
-        customAlertView?.contentLabel.text = contentText
-        customAlertView?.okAction = { [weak self] in
-            guard let self = self else {
-                return
-            }
-            UIView.transition(with: self.view, duration: 0.25, options: .transitionCrossDissolve, animations: {
-                customAlertView?.removeFromSuperview()
-                self.customAlertBackgroundView?.removeFromSuperview()
-                customAlertView = nil
-                self.customAlertBackgroundView = nil
-            }, completion: nil)
-        }
-        
-        UIView.transition(with: self.view, duration: 0.5, options: .transitionCrossDissolve, animations: {
-            self.view.addSubview(self.customAlertBackgroundView!)
-
-            }, completion: nil)
-        customAlertView?.layer.cornerRadius = 10
-        customAlertView?.layer.masksToBounds = true
-        customAlertView?.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        customAlertView?.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor).isActive = true
-        customAlertView?.widthAnchor.constraint(equalToConstant: self.view.frame.width * 0.9).isActive = true
-        customAlertView?.heightAnchor.constraint(equalToConstant: self.view.frame.height * 0.35).isActive = true
-    
-    }
+//    private func addAlertView(title: String? , contentText: String?) {
+//        customAlertBackgroundView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
+//        customAlertBackgroundView?.frame = self.view.frame
+//        var customAlertView:CustomAlertView? = CustomAlertView(frame: .zero)
+//        customAlertBackgroundView?.contentView.addSubview(customAlertView!)
+//        customAlertView?.translatesAutoresizingMaskIntoConstraints = false
+//        customAlertView?.titleLabel.text = title
+//        customAlertView?.contentLabel.text = contentText
+//        customAlertView?.okAction = { [weak self] in
+//            guard let self = self else {
+//                return
+//            }
+//            UIView.transition(with: self.view, duration: 0.25, options: .transitionCrossDissolve, animations: {
+//                customAlertView?.removeFromSuperview()
+//                self.customAlertBackgroundView?.removeFromSuperview()
+//                customAlertView = nil
+//                self.customAlertBackgroundView = nil
+//            }, completion: nil)
+//        }
+//        
+//        UIView.transition(with: self.view, duration: 0.5, options: .transitionCrossDissolve, animations: {
+//            self.view.addSubview(self.customAlertBackgroundView!)
+//
+//            }, completion: nil)
+//        customAlertView?.layer.cornerRadius = 10
+//        customAlertView?.layer.masksToBounds = true
+//        customAlertView?.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+//        customAlertView?.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor).isActive = true
+//        customAlertView?.widthAnchor.constraint(equalToConstant: self.view.frame.width * 0.9).isActive = true
+//        customAlertView?.heightAnchor.constraint(equalToConstant: self.view.frame.height * 0.35).isActive = true
+//    
+//    }
 }

@@ -26,6 +26,12 @@ class GeneralwithYesNoView: UIView {
             BGView.isUserInteractionEnabled = false
             alertView.layer.cornerRadius = 16
             alertView.clipsToBounds = true
+            
+            alertCancelButton.layer.borderColor = #colorLiteral(red: 0.4635629654, green: 0.505692482, blue: 0.7547530532, alpha: 1)
+            alertCancelButton.layer.borderWidth = 1.0
+            alertCancelButton.layer.cornerRadius = 20 // Optional: to match style
+            alertCancelButton.clipsToBounds = true
+            
         }
 
         @IBAction func okButtonTapped(_ sender: UIButton) {

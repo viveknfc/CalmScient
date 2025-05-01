@@ -17,7 +17,7 @@ class DrinkingCountVC: ViewController, UICollectionViewDataSource, UICollectionV
     var drinks: [[String: Any]] = []
     var alcoholData: [[String: Any]] = []
     var alcoholRequest = [Alcohol]()
-    var saveButtonEnabled: Bool = false {
+    var saveButtonEnabled: Bool = true {
         didSet {
             saveButton.isHidden = saveButtonEnabled
            // saveButton.alpha = saveButtonEnabled ? 1.0 : 0.5 // Optional: Visual feedback for disabled state
@@ -181,7 +181,7 @@ class DrinkingCountVC: ViewController, UICollectionViewDataSource, UICollectionV
                 let finalTotal = Double(self.totalCount1 + noOfQuantityAlcohol)
                 totalCount.text = String(format: "%.1f", finalTotal)
                 
-                self.saveButtonEnabled = false
+                self.saveButtonEnabled = true
                 
                 if let drinkId = drink["drinkId"] as? Int {
                     self.addOrUpdateAlcoholData(drinkId: drinkId, newQuantity: count, flag: "U")
@@ -213,7 +213,7 @@ class DrinkingCountVC: ViewController, UICollectionViewDataSource, UICollectionV
                 
                 
                 cell.rightCountView.isHidden = totalCount.text == "0" ? true : false
-                self.saveButtonEnabled = false
+                self.saveButtonEnabled = true
                 
                 if let drinkId = drink["drinkId"] as? Int {
                     let flag = count == 1 ? "I" : "U"

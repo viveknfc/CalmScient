@@ -107,6 +107,27 @@ class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSour
     
     
     @IBAction func completeButtonPresseed(_ sender: Any) {
+        
+        guard selectedRowIndex != nil else {
+            
+            let alertText = "Please select the stage that applies to you."
+            
+            showGeneralAlert(
+                image: UIImage(named: "InfoIcon"),
+                imageSize: CGSize(width: 60, height: 60),
+                title: alertText,
+                okButtonTitle: "Ok",
+                okAction: {
+                    print("Retry action triggered")
+                },
+                dismissAction: {
+                    print("Dismiss action triggered")
+                }
+            )
+            return
+        }
+
+        
         showGeneralAlert(
             title: "We will guide you to create a strategic plan in Taking control full version.",
             okButtonTitle: "Ok",

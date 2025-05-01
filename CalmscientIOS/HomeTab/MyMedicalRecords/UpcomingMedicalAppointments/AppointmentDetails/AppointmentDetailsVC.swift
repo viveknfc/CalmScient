@@ -79,7 +79,7 @@ class AppointmentDetailsVC: ViewController {
                 UserDefaults.standard.set("es", forKey: "Language")
             }
         dataAndTimeLabel.text = AppHelper.getLocalizeString(str:"Date and Time")
-        self.title = AppHelper.getLocalizeString(str:"Appointment Details")
+        self.title = AppHelper.getLocalizeString(str:"Appointment details")
         contactLabel.text =  AppHelper.getLocalizeString(str:"Contact")
         addressLabel.text = AppHelper.getLocalizeString(str:"Address")
         appointmentDetalLabel.text = AppHelper.getLocalizeString(str:"Appointment Detail")

@@ -56,6 +56,7 @@ class ProfilePrivacyViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        NotificationCenter.default.post(name: Notification.Name("RemoveDimmingView"), object: nil)
         onScheetClosed?()
     }
     
@@ -81,6 +82,7 @@ class ProfilePrivacyViewController: UIViewController {
     }
     
     @IBAction func didClickOnClose(_ sender: UIButton) {
+        NotificationCenter.default.post(name: Notification.Name("RemoveDimmingView"), object: nil)
         dismiss(animated: true)
     }
     func getPatientPrivacy(plId: Int, patientId: Int, clientId: Int, bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void) {

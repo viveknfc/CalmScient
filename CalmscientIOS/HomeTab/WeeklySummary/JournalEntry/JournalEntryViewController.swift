@@ -8,29 +8,6 @@
 import UIKit
 
 class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEntryEditViewActions, NewPickerViewDelegate, UISheetPresentationControllerDelegate {
-    func didSelectDate(_ date: Date, indexPath: IndexPath?, isTimePicker: Bool) {
-        let calendar = Calendar.current
-        let resetDate = calendar.startOfDay(for: date)
-        
-        // Format the selected date as a string
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
-        
-        dateFormatter.locale = Locale(identifier: "en_US")  // Set the locale
-        dateFormatter.timeZone = TimeZone.current
-
-        let formattedDate = dateFormatter.string(from: resetDate)
-        print("The formatted date is:", formattedDate)
-        print("The selected date is:", date)
-        
-        journalDataFunc(date: formattedDate)
-    }
-    
-    func didDismissPicker() {
-        removeDimmingView()
-    }
-    
-    
   
     @IBOutlet weak var datePickerView: UIDatePicker!
     @IBOutlet weak var discoveryButton: UIButton!
@@ -54,8 +31,6 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
     var filtereddiscoverData: [[String: Any]] = []
     var totalData: [[String: Any]] = []
     var buttonTag : Int = 1
-    var dateString : String = ""
-    var dateString1 : String = ""
     @IBOutlet var pickerBackView: UIView!
     var nomedications = UILabel()
     var nomedications1 = UILabel()
@@ -65,6 +40,10 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
     var expandedIndexPaths: Set<IndexPath> = []
     
     var dimmingView: UIView?
+    
+    var journalDataByDate: [String: [[String: Any]]] = [:]
+    var sortedDates: [String] = []
+    var cachedHeaderView: UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -90,7 +69,7 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
         searchTF.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: searchTF.frame.height))
         searchTF.leftViewMode = .always
         
-//        // Optional: Add a light gradient background
+        // Optional: Add a light gradient background
         let gradientLayer = CAGradientLayer()
         gradientLayer.frame = searchTF.bounds
         gradientLayer.colors = [UIColor.white.withAlphaComponent(0).cgColor, UIColor.white.withAlphaComponent(0).cgColor]
@@ -106,13 +85,6 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
 
         searchTF.rightView = iconContainer
         searchTF.rightViewMode = .always
-        calendarDoneBtn.setTitle(AppHelper.getLocalizeString(str: "Done"), for: .normal)
-        calendarCloseBtn.setTitle(AppHelper.getLocalizeString(str: "Close"), for: .normal)
-        
-        calenderBGView.layer.cornerRadius = 18
-        calenderBGView.layer.masksToBounds = true
-        calenderBGView.layer.borderColor = UIColor.gray.cgColor
-        calenderBGView.layer.borderWidth = 1
         
         journalTableView.register(UINib(nibName: "quizTableViewCell", bundle: nil), forCellReuseIdentifier: "quizTableViewCell")
         journalTableView.delegate = self
@@ -125,8 +97,11 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
 
         pickerBackView.translatesAutoresizingMaskIntoConstraints = false
         
-        if let window = UIApplication.shared.keyWindow {
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let window = windowScene.windows.first(where: \.isKeyWindow) {
+
             window.addSubview(pickerBackView)
+            
             NSLayoutConstraint.activate([
                 pickerBackView.leadingAnchor.constraint(equalTo: window.leadingAnchor),
                 pickerBackView.trailingAnchor.constraint(equalTo: window.trailingAnchor),
@@ -187,100 +162,15 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
                 ])
         self.nomedications2.isHidden = true
         
-        
-        
-        self.view.showToastActivity()
-        
-        let currentDate = Date()
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "MM/dd/yyyy" // Adjust the format as needed
-                 dateString = dateFormatter.string(from: currentDate)
-        
-        print("dateString===\(dateString)")
-        
-        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
-            fatalError("Unable to found Application Shared Info")
-        }
-        getJournalEntryData(plId: userInfo.patientLocationID, patientId: userInfo.patientID, clientId: userInfo.clientID, fromDate: "",entry: "", bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken) { [self] result in
-            switch result {
-            case .success(let data):
-                // Convert data to JSON object and print it
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        DispatchQueue.main.async {
-                            print("getJournalEntryData===\(json)")
+        journalDataFunc(date: "")
 
-                            self.view.hideToastActivity()
-                            
-                            if let quiz1 = json["quiz"] as? [[String: Any]] {
-                                self.quizData = quiz1
-                                print("self.quizData==\(self.quizData)")
-                                self.filteredQuizData = self.quizData
-                                if self.filteredQuizData.isEmpty {
-                                    self.nomedications.isHidden = false
-                                }
-                                else{
-                                    self.nomedications.isHidden = true
-                                }
-                                self.journalTableView.reloadData()
-
-                            } else {
-                                print("providerDetails key is missing or not a dictionary")
-                            }
-                            if let dailyJournal1 = json["dailyJournal"] as? [[String: Any]] {
-                                self.dailyData = dailyJournal1
-//                                print("self.dailyData==\(self.dailyData)")
-//                                self.filtereddailyData = self.dailyData
-                                
-                                // Print sno values before sorting
-                                let beforeSorting = self.dailyData.compactMap { $0["sno"] as? Int }
-//                                print("Before Sorting: \(beforeSorting)")
-
-                                // Sort the data
-                                self.filtereddailyData = self.dailyData.sorted { (dict1, dict2) in
-                                    if let sno1 = dict1["sno"] as? Int, let sno2 = dict2["sno"] as? Int {
-                                        return sno1 < sno2 // Asending order, previously it was >
-                                    }
-                                    return false
-                                }
-
-                                // Print sno values after sorting
-//                                let afterSorting = self.filtereddailyData.compactMap { $0["sno"] as? Int }
-//                                print("After Sorting: \(afterSorting)")
-
-
-                            } else {
-                                print("providerDetails key is missing or not a dictionary")
-                            }
-                            if let discoveryExercises1 = json["discoveryExercises"] as? [[String: Any]] {
-                                self.discoverData = discoveryExercises1
-                                self.filtereddiscoverData = self.discoverData
-                                print("self.discoverData==\(self.discoverData)")
-
-
-                            } else {
-                                print("providerDetails key is missing or not a dictionary")
-                            }
-                            
-                        }
-                        
-                    } else {
-                        print("Unable to convert data to JSON")
-                    }
-                } catch {
-                    print("Error converting data to JSON: \(error)")
-                }
-            case .failure(let error):
-                print("Error: \(error)")
-            }
-        }
         let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
             let title1 = languageId == 1 ? "Quiz" : "Prueba"
             quizButton.setTitle(title1, for: .normal)
         let title2 = languageId == 1 ? "Daily journal" : "diario"
         dailyButton.setTitle(title2, for: .normal)
         
-        let title3 = languageId == 1 ? "Discovery\nExcercise" : "Ejercicio de descubrimiento"
+        let title3 = languageId == 1 ? "Discovery \nExcercise" : "Ejercicio de descubrimiento"
         discoveryButton.setTitle(title3, for: .normal)
         discoveryButton.titleLabel?.numberOfLines = 2
         discoveryButton.titleLabel?.textAlignment = .center
@@ -330,24 +220,16 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
-
-        //setupLanguage()
-        
-        let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            let title1 = languageId == 1 ? "Quiz" : "Prueba"
-            quizButton.setTitle(title1, for: .normal)
-        let title2 = languageId == 1 ? "Daily Journals" : "diario"
-        dailyButton.setTitle(title2, for: .normal)
-        
-        let title3 = languageId == 1 ? "Discovery Excercise" : "Ejercicio de descubrimiento"
-        discoveryButton.setTitle(title3, for: .normal)
     }
+    
     override func viewDidDisappear(_ animated: Bool) {
         pickerBackView.isHidden = true
     }
+    
     override func viewWillDisappear(_ animated: Bool) {
         pickerBackView.isHidden = true
     }
+    
     func setupLanguage() {
         
             let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
@@ -359,10 +241,88 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
             }
         
         needToTalkButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str:"Need to talk with someone?"))
-      
-       
-
+ 
         }
+    
+    //MARK: - Calendar date selection
+    
+    func didSelectDate(_ date: Date, indexPath: IndexPath?, isTimePicker: Bool) {
+        let calendar = Calendar.current
+        let resetDate = calendar.startOfDay(for: date)
+        
+        // Format the selected date as a string
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        
+        dateFormatter.locale = Locale(identifier: "en_US")  // Set the locale
+        dateFormatter.timeZone = TimeZone.current
+
+        let formattedDate = dateFormatter.string(from: resetDate)
+        print("The formatted date is:", formattedDate)
+        print("The selected date is:", date)
+        
+        journalDataFunc(date: formattedDate)
+    }
+    
+    func didDismissPicker() {
+        removeDimmingView()
+    }
+    
+    //MARK: - Group Journal Data
+    
+    func groupFilteredJournalData() {
+        journalDataByDate.removeAll()
+        sortedDates.removeAll()
+
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        inputFormatter.locale = Locale(identifier: "en_US_POSIX")
+        
+        let displayFormatter = DateFormatter()
+        displayFormatter.dateFormat = "yyyy-MM-dd"
+
+        for entry in filtereddailyData {
+//            print("Raw createdAt:", entry["createdAt"] ?? "nil", "Type:", type(of: entry["createdAt"] ?? "nil"))
+            var formattedDate: String?
+
+            if let rawDateStr = entry["createdAt"] as? String,
+                      let parsedDate = inputFormatter.date(from: rawDateStr) {
+                formattedDate = displayFormatter.string(from: parsedDate)
+            }
+            
+            if let formattedDate = formattedDate {
+                if journalDataByDate[formattedDate] != nil {
+                    journalDataByDate[formattedDate]?.append(entry)
+                } else {
+                    journalDataByDate[formattedDate] = [entry]
+                }
+            } else {
+                print("Could not process createdAt for entry:", entry)
+            }
+        }
+
+
+        sortedDates = journalDataByDate.keys.sorted(by: { $0 > $1 })
+    }
+    
+    //MARK: - Format for Time
+    
+    func formatDateTime2(_ isoDateString: String) -> String {
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        inputFormatter.locale = Locale(identifier: "en_US_POSIX")
+
+        let outputFormatter = DateFormatter()
+        outputFormatter.dateFormat = "hh:mm a" // e.g., 08:30 AM
+        outputFormatter.locale = Locale(identifier: "en_US_POSIX")
+
+        if let date = inputFormatter.date(from: isoDateString) {
+            return outputFormatter.string(from: date)
+        } else {
+            return isoDateString // fallback
+        }
+    }
+
     
     //MARK: - Add Button Pressed
     
@@ -428,6 +388,7 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
                 return title1 < title2
             }
             
+            groupFilteredJournalData()
             journalTableView.reloadData()
             
         }
@@ -496,11 +457,8 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
                 self.quizData = quiz1
 
                 self.filteredQuizData = self.quizData
-                if self.filteredQuizData.isEmpty {
-                    self.nomedications.isHidden = false
-                }
-                else{
-                    self.nomedications.isHidden = true
+                if self.buttonTag == 1 {
+                    self.nomedications.isHidden = !self.filteredQuizData.isEmpty
                 }
                 self.journalTableView.reloadData()
                    }
@@ -508,15 +466,30 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
             if let dailyJournal1 = responseDict["dailyJournal"] as? [[String: Any]] {
                 self.dailyData = dailyJournal1
 
+//                print("the daily journal showing is",dailyJournal1)
+                
                 self.filtereddailyData = self.dailyData
+     
+                groupFilteredJournalData()
+                
+                if self.buttonTag == 2 {
+                    self.nomedications.isHidden = !self.filtereddailyData.isEmpty
+                }
 
                 self.journalTableView.reloadData()
             }
             
             if let discoveryExercises1 = responseDict["discoveryExercises"] as? [[String: Any]] {
                 self.discoverData = discoveryExercises1
+
+                print("the discovery data showing is",discoveryExercises1)
+                
                 self.filtereddiscoverData = self.discoverData
 
+                if self.buttonTag == 3 {
+                    self.nomedications.isHidden = !self.filtereddiscoverData.isEmpty
+                }
+                
                 self.journalTableView.reloadData()
             }
             self.view.hideToastActivity()
@@ -527,97 +500,27 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
     }
     
     //END
-    
-    @IBAction func okButtomClicked(_ sender: Any) {
-        pickerBackView.isHidden = true
-        let selectedDate = datePickerView.date
-        
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
-        dateString1 = dateFormatter.string(from: selectedDate)
-    //  print(dateString)
-        
-        self.view.showToastActivity()
-        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
-            fatalError("Unable to found Application Shared Info")
-        }
-        getJournalEntryData(plId: userInfo.patientLocationID, patientId: userInfo.patientID, clientId: userInfo.clientID, fromDate: dateString1,entry: "", bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken) { [self] result in
-            switch result {
-            case .success(let data):
-                // Convert data to JSON object and print it
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                        DispatchQueue.main.async {
-                            print("getJournalEntryData===\(json)")
 
-                            self.view.hideToastActivity()
-                            
-                            if let quiz1 = json["quiz"] as? [[String: Any]] {
-                                self.quizData = quiz1
-                               // print("self.quizData==\(self.quizData)")
-                                self.filteredQuizData = self.quizData
-                                if self.filteredQuizData.isEmpty {
-                                    self.nomedications.isHidden = false
-                                }
-                                else{
-                                    self.nomedications.isHidden = true
-                                }
-                                self.journalTableView.reloadData()
-
-                            } else {
-                                print("providerDetails key is missing or not a dictionary")
-                            }
-                            if let dailyJournal1 = json["dailyJournal"] as? [[String: Any]] {
-                                self.dailyData = dailyJournal1
-
-                                self.filtereddailyData = self.dailyData
-
-                                self.journalTableView.reloadData()
-                            } else {
-                                print("providerDetails key is missing or not a dictionary")
-                            }
-                            if let discoveryExercises1 = json["discoveryExercises"] as? [[String: Any]] {
-                                self.discoverData = discoveryExercises1
-                                self.filtereddiscoverData = self.discoverData
-
-                                self.journalTableView.reloadData()
-                            } else {
-                                print("providerDetails key is missing or not a dictionary")
-                            }
-                            
-                        }
-                        
-                    } else {
-                        print("Unable to convert data to JSON")
-                    }
-                } catch {
-                    print("Error converting data to JSON: \(error)")
-                }
-            case .failure(let error):
-                print("Error: \(error)")
-            }
-        }
-    }
     @IBAction func calenderButtonTapped(_ sender: Any) {
-//        datePickerView.tintColor = UIColor.green
-//        self.view.bringSubviewToFront(pickerBackView)
-//        print("calenderButtonTapped")
-//        pickerBackView.isHidden = false
         
         let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
         guard let vc = storyboard.instantiateViewController(withIdentifier: "newPickerViewVC") as? newPickerViewVC else {
             fatalError("Could not instantiate view controller with identifier 'newPickerViewVC'")
         }
         vc.delegate = self
+        vc.pickerMode = .date
+        vc.maximumDate = Date() // ✅ This restricts future dates
         
         // Add dimming view
-        if let window = UIApplication.shared.windows.first(where: \.isKeyWindow) {
+        if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+           let window = windowScene.windows.first(where: \.isKeyWindow) {
             let dimmingView = UIView(frame: window.bounds)
             dimmingView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
             dimmingView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             window.addSubview(dimmingView)
             self.dimmingView = dimmingView
         }
+
         
         // Configure bottom sheet presentation
         if #available(iOS 15.0, *) {
@@ -639,7 +542,6 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
         }
         
         vc.isModalInPresentation = true
-
         self.present(vc, animated: true, completion: nil)
         
     }
@@ -651,9 +553,12 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
     
     @IBAction func quizButtonTapped(_ sender: Any) {
         buttonTag = 1
+        
         journalTableView.register(UINib(nibName: "quizTableViewCell", bundle: nil), forCellReuseIdentifier: "quizTableViewCell")
         journalTableView.delegate = self
         journalTableView.dataSource = self
+        
+        
         journalTableView.reloadData()
         
         [discoveryButton, dailyButton].forEach { $0?.isSelected = false }
@@ -672,7 +577,7 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
         else{
             self.nomedications.isHidden = true
         }
-        self.journalTableView.reloadData()
+        
     }
     @IBAction func dailyButtonTapped(_ sender: Any) {
         buttonTag = 2
@@ -680,7 +585,6 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
         journalTableView.register(UINib(nibName: "JournalEntryCollapsedTableCell", bundle: nil), forCellReuseIdentifier: "JournalEntryCollapsedTableCell")
         journalTableView.delegate = self
         journalTableView.dataSource = self
-        journalTableView.reloadData()
         
         [discoveryButton, quizButton].forEach { $0?.isSelected = false }
         dailyButton.isSelected = true
@@ -698,6 +602,11 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
         else{
             self.nomedications1.isHidden = true
         }
+        
+        // ✅ Important: Fill journalDataByDate and sortedDates
+        filtereddailyData = dailyData // show all when no search
+        groupFilteredJournalData()
+        
         self.journalTableView.reloadData()
         
     }
@@ -727,60 +636,7 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
         }
         self.journalTableView.reloadData()
     }
-    func getJournalEntryData(plId: Int, patientId: Int, clientId: Int, fromDate: String,entry: String,bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void) {
-        
-        guard let url = URL(string: "\(baseURLString)patients/api/v1/patientDetails/getPatientJournalByPatientIdForMobile") else {
-            print("Invalid URL")
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer \(bearerToken)", forHTTPHeaderField: "Authorization")
-        
-        // Define the JSON payload
-        let payload: [String: Any] = [
-            "patientLocationId":plId ,
-            "fromDate": fromDate,
-            "patientId": patientId,
-            "clientId": clientId,
-            "entry":entry
-        ]
-        
-        print("payload\(payload)")
-        // Convert the payload to JSON data
-        do {
-            let jsonData = try JSONSerialization.data(withJSONObject: payload, options: [])
-            request.httpBody = jsonData
-            //print(jsonData)
-        } catch {
-            print("Error converting payload to JSON: \(error)")
-            completion(.failure(error))
-            return
-        }
-        
-        // Create the URLSession data task
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                print("Error with request: \(error)")
-                completion(.failure(error))
-                return
-            }
-            
-            guard let data = data else {
-                print("No data received")
-                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
-                return
-            }
-            
-            // If needed, handle the response here
-            completion(.success(data))
-        }
-        
-        // Start the data task
-        task.resume()
-    }
+
     
     //MARK: - For Journal Edit View
     
@@ -791,15 +647,6 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
         let journalEntryEditView = JournalEntryEditView(frame: .zero)
         journalEntryEditView.journalEntryEditActionDelegate = self
         return journalEntryEditView
-    }()
-    
-    fileprivate lazy var successAlertView:CustomImageAlertView = {
-        let successAlertView = CustomImageAlertView(frame: .zero)
-//        deleteAlertView.contentLabel.text = "Journal entry data is updated successfully."
-//        deleteAlertView.titleLabel.text = "Success"
-        successAlertView.cancelButton.isHidden = true
-        successAlertView.okButton.isHidden = true
-        return successAlertView
     }()
     
     fileprivate func showEditJournalView() {
@@ -933,7 +780,7 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
         
         print("the Get Journal API call params", params)
         
-        APIService.GetJournalDataAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") {  [self] response in
+        APIService.JournalDataAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") {  [self] response in
             // Your closure code here
             getresponseforGetJournalDataAPI(response: response)
         }
@@ -956,7 +803,7 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
                        }
                        
                        self.dailyData = dailyJournal
-                       
+
                        // Sort the data
                        self.filtereddailyData = self.dailyData.sorted { (dict1, dict2) in
                            if let sno1 = dict1["sno"] as? Int, let sno2 = dict2["sno"] as? Int {
@@ -964,8 +811,7 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
                            }
                            return false
                        }
-                       
-//                       self.filtereddailyData = self.dailyData
+                       groupFilteredJournalData()
                        self.journalTableView.reloadData()
                        
                    } else {
@@ -980,46 +826,64 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
     }
     
     //END
-    
-    fileprivate func showSuccessMessageView() {
-        successAlertBackGroundView = UIView(frame: .zero)
-        successAlertBackGroundView?.frame = self.view.frame
-        successAlertBackGroundView?.backgroundColor = UIColor.darkGray.withAlphaComponent(0.8)
-        successAlertBackGroundView?.addSubview(successAlertView)
-        successAlertView.translatesAutoresizingMaskIntoConstraints = false
-        UIView.transition(with: self.view, duration: 0.5, options: .transitionCrossDissolve, animations: {
-            self.navigationController?.navigationBar.layer.zPosition = -1
-            self.view.addSubview(self.successAlertBackGroundView!)
-        }, completion:{_ in
-            DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: {
-                UIView.transition(with: self.view, duration: 0.5, options: .transitionCrossDissolve, animations: {
-                    self.successAlertView.removeFromSuperview()
-                    self.successAlertBackGroundView?.removeFromSuperview()
-                    self.successAlertBackGroundView = nil
-                    self.navigationController?.navigationBar.layer.zPosition = 0
-                }, completion: nil)
-            })
-        } )
-        successAlertView.layer.cornerRadius = 10
-        successAlertView.layer.masksToBounds = true
-        successAlertView.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        successAlertView.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor).isActive = true
-        successAlertView.widthAnchor.constraint(equalToConstant: self.view.frame.width * 0.9).isActive = true
-        successAlertView.heightAnchor.constraint(equalToConstant: self.view.frame.height * 0.3).isActive = true
-    }
 
 }
 extension JournalEntryViewController : UITableViewDataSource,UITableViewDelegate {
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if buttonTag == 2 {
+            print("📌 Number of sections: \(sortedDates.count)")
+            return sortedDates.count
+        }
+        return 1
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if buttonTag == 1 {
             return filteredQuizData.count
     }
         if buttonTag == 2 {
-            return filtereddailyData.count
+            let dateKey = sortedDates[section]
+            return journalDataByDate[dateKey]?.count ?? 0
         }
         if buttonTag == 3 {
             return filtereddiscoverData.count
+        }
+        return 0
+    }
+
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        if buttonTag != 2 || section >= sortedDates.count { return nil }
+
+        let label = UILabel()
+        label.text = formatDateTime1(sortedDates[section])
+        label.font = UIFont(name: "Lexend-Regular", size: 14.0) ?? UIFont.systemFont(ofSize: 14.0)
+        label.textColor = .black
+        label.backgroundColor = .clear
+        label.textAlignment = .left
+        label.translatesAutoresizingMaskIntoConstraints = false
+
+        let headerView = UIView()
+        headerView.backgroundColor = .systemBackground
+        headerView.addSubview(label)
+
+        NSLayoutConstraint.activate([
+            label.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 16),
+            label.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -16),
+            label.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 4),
+            label.bottomAnchor.constraint(equalTo: headerView.bottomAnchor, constant: -4)
+        ])
+
+        return headerView
+    }
+
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if buttonTag == 1 || buttonTag == 3 {
+            return 0
+        } else if buttonTag == 2 {
+            return 20
         }
         return 0
     }
@@ -1049,25 +913,32 @@ extension JournalEntryViewController : UITableViewDataSource,UITableViewDelegate
             
             return cell
         } 
+        
         else if buttonTag == 2 {
-            print("daily jounerel")
+            let dateKey = sortedDates[indexPath.section]
+            guard let events = journalDataByDate[dateKey],
+                  indexPath.row < events.count else {
+                return UITableViewCell()
+            }
 
-            //viv start
+            let event = events[indexPath.row]
 
             if expandedIndexPaths.contains(indexPath) {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "JournalEntryExpandedTableCell", for: indexPath) as? JournalEntryExpandedTableCell else {
                     return UITableViewCell()
                 }
-                
+
                 cell.selectionStyle = .none
-                let event = filtereddailyData[indexPath.row]
+
                 if let eventName = event["createdAt"] as? String {
-                    cell.titleLabel.text = formatDateTime1(eventName)
+                    cell.titleLabel.text = formatDateTime2(eventName)
                 }
-                if let createdAt = event["entry"] as? String {
-                    cell.journalTextLabel.text = createdAt
+                if let entryText = event["entry"] as? String {
+                    cell.journalTextLabel.text = entryText
                 }
+
                 cell.bulletinLabel.text = ""
+
                 cell.cellExpansionClosure = { [weak self] shouldCollapse in
                     guard let self = self else { return }
                     if shouldCollapse {
@@ -1075,20 +946,22 @@ extension JournalEntryViewController : UITableViewDataSource,UITableViewDelegate
                     }
                     tableView.reloadRows(at: [indexPath], with: .automatic)
                 }
+
                 return cell
             } else {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "JournalEntryCollapsedTableCell", for: indexPath) as? JournalEntryCollapsedTableCell else {
                     return UITableViewCell()
                 }
+
                 cell.selectionStyle = .none
-                let event = filtereddailyData[indexPath.row]
+
                 if let eventName = event["createdAt"] as? String {
-                    cell.titleLabel.text = formatDateTime1(eventName)
+                    cell.titleLabel.text = formatDateTime2(eventName)
                 }
-                if let createdAt = event["entry"] as? String {
-                    cell.subTitleLabel.text = createdAt
+                if let entryText = event["entry"] as? String {
+                    cell.subTitleLabel.text = entryText
                 }
-                
+
                 cell.cellExpansionClosure = { [weak self] shouldExpand in
                     guard let self = self else { return }
                     if shouldExpand {
@@ -1096,13 +969,12 @@ extension JournalEntryViewController : UITableViewDataSource,UITableViewDelegate
                     }
                     tableView.reloadRows(at: [indexPath], with: .automatic)
                 }
+
                 return cell
             }
-
         }
+
         else if buttonTag == 3 {
-            
-            //viv start
 
             if expandedIndexPaths.contains(indexPath) {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: "JournalEntryExpandedTableCell", for: indexPath) as? JournalEntryExpandedTableCell else {
@@ -1113,7 +985,7 @@ extension JournalEntryViewController : UITableViewDataSource,UITableViewDelegate
                 let event = filtereddiscoverData[indexPath.row]
                 
                 if let eventName = event["createdAt"] as? String {
-                    cell.titleLabel.text = formatDateTime1(eventName)
+                    cell.titleLabel.text = formatDateTime3(eventName)
                 }
                 
                 if let createdAt = event["entry"] as? String {
@@ -1172,7 +1044,7 @@ extension JournalEntryViewController : UITableViewDataSource,UITableViewDelegate
                 cell.selectionStyle = .none
                 let event = filtereddiscoverData[indexPath.row]
                 if let eventName = event["createdAt"] as? String {
-                    cell.titleLabel.text = formatDateTime1(eventName)
+                    cell.titleLabel.text = formatDateTime3(eventName)
                 }
                 if let createdAt = event["entry"] as? String {
                     cell.subTitleLabel.text = createdAt
@@ -1186,8 +1058,7 @@ extension JournalEntryViewController : UITableViewDataSource,UITableViewDelegate
                 }
                 return cell
             }
-            
-            //END
+
 
         }
         else {
@@ -1195,11 +1066,6 @@ extension JournalEntryViewController : UITableViewDataSource,UITableViewDelegate
             //cell.textLabel?.text = "Default cell"
             return cell
         }
-    }
-    
-    func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-        print("Will select row: \(indexPath.row)")
-        return indexPath
     }
 
 
@@ -1254,6 +1120,7 @@ extension JournalEntryViewController : UITableViewDataSource,UITableViewDelegate
         return 150
        
     }
+    
     func formatDateTime(_ dateTime: String) -> String? {
            let inputFormatter = DateFormatter()
            inputFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
@@ -1266,6 +1133,7 @@ extension JournalEntryViewController : UITableViewDataSource,UITableViewDelegate
            }
            return nil
        }
+    
     func formatDateTime1(_ dateTime: String) -> String? {
            let inputFormatter = DateFormatter()
            inputFormatter.dateFormat = "yyyy-MM-dd"
@@ -1278,6 +1146,21 @@ extension JournalEntryViewController : UITableViewDataSource,UITableViewDelegate
            }
            return nil
        }
+    
+    func formatDateTime3(_ dateTime: String) -> String? {
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        inputFormatter.locale = Locale(identifier: "en_US_POSIX")
+
+        let outputFormatter = DateFormatter()
+        outputFormatter.dateFormat = "MM/dd/yyyy" // You can change this to "dd-MM-yyyy" or "MMM d, yyyy"
+
+        if let date = inputFormatter.date(from: dateTime) {
+            return outputFormatter.string(from: date)
+        }
+        return nil
+    }
+
     func setFormattedCountLabel(score: Int, total: Int) {
            let scoreString = "\(score)"
            let totalString = "\(total)"

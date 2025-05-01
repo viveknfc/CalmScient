@@ -224,14 +224,18 @@ class MindfulBreathing: ViewController {
     
     @objc func playPauseTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
+        
+        if let thumbnail = videoView.viewWithTag(999) {
+            thumbnail.removeFromSuperview()
+        }
 
             if isPlaying {
                 
                 player.pause()
                 bringControlsToFront()
-                playPauseImage.image = UIImage(named: "pause")
+                playPauseImage.image = UIImage(named: "play")
             } else {
-                playPauseImage.image = UIImage(named: "Play")
+                playPauseImage.image = UIImage(named: "pause")
                 
                 guard let player = player else { return }
                 avController.modalPresentationStyle = .fullScreen
@@ -311,6 +315,9 @@ class MindfulBreathing: ViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         playerLayer.frame = videoView.bounds
+        if let thumbnail = videoView.viewWithTag(999) {
+            thumbnail.frame = videoView.bounds
+        }
         bringControlsToFront()
     }
     
@@ -322,6 +329,22 @@ class MindfulBreathing: ViewController {
                playerLayer.frame = videoView.bounds
                playerLayer.videoGravity = .resizeAspect
                videoView.layer.addSublayer(playerLayer)
+        
+        // Add thumbnail image aligned with playerLayer (video area)
+        if let thumbnail = UIImage(named: "thumbnail") {
+            let imageView = UIImageView(image: thumbnail)
+            imageView.contentMode = .scaleAspectFit
+            imageView.clipsToBounds = true
+            imageView.tag = 999
+            imageView.isUserInteractionEnabled = false
+
+            // Match playerLayer's visible bounds
+            imageView.frame = playerLayer.bounds
+            imageView.center = playerLayer.position  // Align in case layer is centered inside videoView
+
+            videoView.addSubview(imageView)
+        }
+        
         videoView.bringSubviewToFront(playPauseImage)
         videoView.bringSubviewToFront(favImg)
         videoView.bringSubviewToFront(maximiseImg)

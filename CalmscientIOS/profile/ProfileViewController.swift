@@ -228,6 +228,8 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
         
         let params: [String: Any] = ["emailId": email, "userId": userID, "oldPassword": oldPassword, "newPassword": newPassword, "confirmNewPassword": confirmNewPassword]
         
+        print("param for update password is ",params)
+        
         self.view.showToastActivity()
         APIService.updatePasswordAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
             self.getresponseforUpdatePasswordAPI(response: response)
@@ -248,16 +250,9 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
                     
                     print("Response Message:", responseMessage)
                     
-                    showGeneralAlert(
-                        image: UIImage(named: "InfoIcon"),
-                        imageSize: CGSize(width: 40, height: 40),
-                        title: responseMessage,
-                        okButtonTitle: "Ok",
-                        okAction: {
-
-                        },
-                        showDismissButton: false
-                    )
+                    self.showSuccessAlert(successContent: responseMessage, centreImage: nil, okButtonAction: {
+                        
+                    })
                     
 //                    self.view.showToast(message: responseMessage)
                     
@@ -301,10 +296,10 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
 //        profileTitle.font = UIFont(name: Fonts().lexendMedium, size: 19)
 //        profileTitle.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Profile" : "Perfil"
         
-        firstName.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "First Name" : "Nombre"
+        firstName.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "First name" : "Nombre"
         firstName.font = UIFont(name: Fonts().lexendRegular, size: 14)
         firstNameTextField.font = UIFont(name: Fonts().lexendRegular, size: 14)
-        lastName.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Last Name" : "Apellido"
+        lastName.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Last name" : "Apellido"
         lastName.font =  UIFont(name: Fonts().lexendRegular, size: 14)
         lastNameTextfield.font = UIFont(name: Fonts().lexendRegular, size: 14)
         emailLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Email" : "Correo electrónico"

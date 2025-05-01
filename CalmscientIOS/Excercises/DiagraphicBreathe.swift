@@ -178,14 +178,17 @@ class DiagraphicBreathe: ViewController {
     @objc func playPauseTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
 
+        if let thumbnail = videoView.viewWithTag(999) {
+            thumbnail.removeFromSuperview()
+        }
+        
             if isPlaying {
                 player.pause()
-                playPauseImg.image = UIImage(named: "pause")
+                playPauseImg.image = UIImage(named: "play")
                 
             } else {
+                playPauseImg.image = UIImage(named: "pause")
                 player.play()
-                playPauseImg.image = UIImage(named: "Play")
-                
 
             }
         bringControlsToFront()
@@ -219,6 +222,9 @@ class DiagraphicBreathe: ViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         playerLayer.frame = videoView.bounds
+        if let thumbnail = videoView.viewWithTag(999) {
+            thumbnail.frame = videoView.bounds
+        }
         bringControlsToFront()
     }
     
@@ -229,6 +235,22 @@ class DiagraphicBreathe: ViewController {
                playerLayer.frame = videoView.bounds
                playerLayer.videoGravity = .resizeAspect
                videoView.layer.addSublayer(playerLayer)
+        
+        // Add thumbnail image aligned with playerLayer (video area)
+        if let thumbnail = UIImage(named: "thumbnail") {
+            let imageView = UIImageView(image: thumbnail)
+            imageView.contentMode = .scaleAspectFit
+            imageView.clipsToBounds = true
+            imageView.tag = 999
+            imageView.isUserInteractionEnabled = false
+
+            // Match playerLayer's visible bounds
+            imageView.frame = playerLayer.bounds
+            imageView.center = playerLayer.position  // Align in case layer is centered inside videoView
+
+            videoView.addSubview(imageView)
+        }
+        
                videoView.bringSubviewToFront(playPauseImg)
         videoView.bringSubviewToFront(favImg)
         videoView.bringSubviewToFront(maximiseImg)

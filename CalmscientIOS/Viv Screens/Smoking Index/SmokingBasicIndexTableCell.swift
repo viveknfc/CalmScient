@@ -9,7 +9,7 @@ import UIKit
 
 class SmokingBasicIndexTableCell: UITableViewCell {
 
-    @IBOutlet weak var cellContentText: FontLL14!
+    @IBOutlet weak var cellContentText: FontLR16!
     @IBOutlet weak var ticckImage: UIImageView!
     @IBOutlet weak var outlineView: CurvedOutlineView!
     
@@ -29,8 +29,8 @@ class SmokingBasicIndexTableCell: UITableViewCell {
             self.cellContentText.textColor = #colorLiteral(red: 0.429181397, green: 0.4192816615, blue: 0.7016126513, alpha: 1)
             self.outlineView.setBorderColor(#colorLiteral(red: 0.429181397, green: 0.4192816615, blue: 0.7016126513, alpha: 1))
         } else {
-            self.cellContentText.textColor = .gray
-            self.outlineView.setBorderColor(.gray)
+            self.cellContentText.textColor = .lightGray
+            self.outlineView.setBorderColor(.lightGray)
         }
     }
 

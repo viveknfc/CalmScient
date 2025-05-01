@@ -129,10 +129,10 @@ class NextAppointmentsViewController: ViewController, NCalendarToViewDelegate {
     
     @IBAction func didClickOnAddAppointments(_ sender: Any) {
         
-        if selectedNewDate < Calendar.current.startOfDay(for: Date()) {
-            self.view.showToast(message: "Appointment cannot able to create in past days")
-            return
-        }
+//        if selectedNewDate < Calendar.current.startOfDay(for: Date()) {
+//            self.view.showToast(message: "Appointment cannot able to create in past days")
+//            return
+//        }
         
         let next = UIStoryboard(name: "AddNewAppointment", bundle: nil)
         let vc = next.instantiateViewController(withIdentifier: "AddNewAppointmentViewController") as? AddNewAppointmentViewController

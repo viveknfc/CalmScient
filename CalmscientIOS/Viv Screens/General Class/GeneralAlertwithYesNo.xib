@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Lexend-Regular.ttf">
+        <array key="lexendregular.ttf">
             <string>Lexend-Regular</string>
         </array>
     </customFonts>
@@ -48,7 +48,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ns-rR-623" userLabel="okButton" customClass="LinearGradientButton" customModule="CalmscientIOS" customModuleProvider="target">
-                            <rect key="frame" x="61.666666666666671" y="220.66666666666663" width="100.00000000000001" height="40"/>
+                            <rect key="frame" x="171.66666666666666" y="220.66666666666663" width="99.999999999999972" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="100" id="XTp-zc-P9J"/>
                                 <constraint firstAttribute="height" constant="40" id="dAL-Lb-lP8"/>
@@ -73,8 +73,8 @@
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yD9-Zi-SWr" userLabel="cancelButton">
-                            <rect key="frame" x="171.66666666666666" y="220.66666666666663" width="99.999999999999972" height="40"/>
-                            <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <rect key="frame" x="61.666666666666671" y="220.66666666666663" width="100.00000000000001" height="40"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="100" id="OMO-tW-GCy"/>
                                 <constraint firstAttribute="height" constant="40" id="aIG-1u-iM9"/>
@@ -84,6 +84,7 @@
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                             <state key="normal" title="Button">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="titleShadowColor" red="0.38823529411764707" green="0.41960784313725491" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
                             </state>
                             <userDefinedRuntimeAttributes>
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -98,9 +99,9 @@
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="0ns-rR-623" secondAttribute="bottom" constant="20" id="1Hg-qu-1r1"/>
-                        <constraint firstItem="0ns-rR-623" firstAttribute="trailing" secondItem="1e4-ZZ-6Su" secondAttribute="centerX" constant="-5" id="2WJ-a7-gCu"/>
+                        <constraint firstItem="0ns-rR-623" firstAttribute="leading" secondItem="1e4-ZZ-6Su" secondAttribute="centerX" constant="5" id="2WJ-a7-gCu"/>
                         <constraint firstItem="pxe-a3-5qB" firstAttribute="top" secondItem="gf8-Y8-5an" secondAttribute="bottom" constant="20" id="4Fx-sq-l6A"/>
-                        <constraint firstItem="yD9-Zi-SWr" firstAttribute="leading" secondItem="1e4-ZZ-6Su" secondAttribute="centerX" constant="5" id="6L7-em-UnN"/>
+                        <constraint firstItem="yD9-Zi-SWr" firstAttribute="trailing" secondItem="1e4-ZZ-6Su" secondAttribute="centerX" constant="-5" id="6L7-em-UnN"/>
                         <constraint firstItem="pxe-a3-5qB" firstAttribute="leading" secondItem="gf8-Y8-5an" secondAttribute="leading" id="9by-5e-nXa"/>
                         <constraint firstItem="gf8-Y8-5an" firstAttribute="trailing" secondItem="pxe-a3-5qB" secondAttribute="trailing" id="GoM-SO-9NR"/>
                         <constraint firstItem="yD9-Zi-SWr" firstAttribute="centerY" secondItem="0ns-rR-623" secondAttribute="centerY" id="Ivf-uP-1fN"/>
@@ -139,9 +140,6 @@
     </objects>
     <designables>
         <designable name="0ns-rR-623">
-            <size key="intrinsicContentSize" width="49" height="31"/>
-        </designable>
-        <designable name="yD9-Zi-SWr">
             <size key="intrinsicContentSize" width="49" height="31"/>
         </designable>
     </designables>

@@ -196,22 +196,44 @@ class ChartViewTableCell: UITableViewCell {
         let maxYValue = self.graphData.map { $0.yValue }.max() ?? 0
 
         // Adjust granularity based on max Y value
-        if maxYValue > 20 {
-            leftAxis.granularity = 3
-        } else if maxYValue > 10 {
-            leftAxis.granularity = 2
-        } else {
-            leftAxis.granularity = 1
-        }
-
+//        if maxYValue > 20 {
+//            leftAxis.granularity = 3
+//        } else if maxYValue > 10 {
+//            leftAxis.granularity = 2
+//        } else {
+//            leftAxis.granularity = 1
+//        }
+//
+//        
+//        if (self.graphData.count > 0) {
+//            leftAxis.labelCount = self.getYAxisMaximumValue()
+//            leftAxis.axisMaximum = Double(self.getYAxisMaximumValue())
+//            leftAxis.axisMinimum = 0
+//        } else {
+//            leftAxis.labelCount = 0
+//        }
         
-        if (self.graphData.count > 0) {
-            leftAxis.labelCount = self.getYAxisMaximumValue()
-            leftAxis.axisMaximum = Double(self.getYAxisMaximumValue())
+        if self.graphData.count > 0 {
+            let granularity: Double
+            if maxYValue > 20 {
+                granularity = 3
+            } else if maxYValue > 10 {
+                granularity = 2
+            } else {
+                granularity = 1
+            }
+            
+            leftAxis.granularity = granularity
+            leftAxis.granularityEnabled = true
+
+            let adjustedMaxY = ceil(Double(maxYValue) / granularity) * granularity
+            leftAxis.axisMaximum = adjustedMaxY
             leftAxis.axisMinimum = 0
+            leftAxis.labelCount = Int((adjustedMaxY / granularity) + 1)
         } else {
             leftAxis.labelCount = 0
         }
+
         
         leftAxis.gridLineDashLengths = [2, 2]
         leftAxis.drawBottomYLabelEntryEnabled = false
@@ -240,7 +262,7 @@ class ChartViewTableCell: UITableViewCell {
                                              insets: UIEdgeInsets(top: 8, left: 8, bottom: 20, right: 8),xAxisValueFormatter: XAxisLineChartFormatter(graphData: graphDataValues), data: graphDataValues)
         marker.chartView = lineChartView
         marker.minimumSize = CGSize(width: 100, height: 45)
-//        lineChartView.marker = marker
+        lineChartView.marker = marker
         lineChartView.fitScreen()
         lineChartView.extraRightOffset = 20
         lineChartView.extraLeftOffset = 20

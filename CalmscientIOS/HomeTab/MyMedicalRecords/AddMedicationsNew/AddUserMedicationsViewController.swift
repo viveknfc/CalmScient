@@ -24,6 +24,25 @@ fileprivate enum AddUserMedicationsCellDef:String {
 }
 
 class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationControllerDelegate, UISheetPresentationControllerDelegate, MedicationsDetailTableCellDelegate, NewPickerViewDelegate {
+    
+    func deleteSaveSwitch(for cell: MedicationsDetailTableCell, isSelected: Bool, at index: Int) {
+        let status = isSelected ? 0 : 1
+        if EditVc ?? false {
+            
+            if let presetAlarm = presetAlarm, presetAlarm.indices.contains(index) {
+                let alarmData = presetAlarm[index]
+                
+                alarmData.isDefault = status
+
+            }
+            
+        }
+        
+        else {
+          medicationTimeData[index].isDefault = status
+        }
+    }
+    
     func didChangeSwitchState(for cell: MedicationsDetailTableCell, isSelected: Bool, at index: Int) {
                 // Capture the state change and send it to the backend
                 let status = isSelected ? "1" : "0"
@@ -56,6 +75,7 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
         }
         
     }
+    
     
     
     var dimmingView: UIView?
@@ -387,7 +407,7 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
         switch cellType {
         case .MedicationsDetailCell:
             let cell = tableView.dequeueReusableCell(withIdentifier: "MedicationsDetailTableCell", for: indexPath) as! MedicationsDetailTableCell
-            cell.dayTimeImageView.image = UIImage(named: "\(imageNames[Int.random(in: 0..<imageNames.count)])")
+//            cell.dayTimeImageView.image = UIImage(named: "\(imageNames[Int.random(in: 0..<imageNames.count)])")
             
             if EditVc ?? false {
                 let indexNumber = indexPath.row - alarmCellStartIndex
@@ -422,28 +442,24 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
 
             switch indexPath.row % 4 {
             case 0:
-//                cell.titleLabel.text = AppHelper.getLocalizeString(str: "Medication")
                 cell.titleLabel.attributedText = setRequiredTitle(AppHelper.getLocalizeString(str: "Medication"))
                 cell.cellType = .MedicationName
                 if EditVc ?? false, userEnteredDetails[indexPath.row].isEmpty {
                     userEnteredDetails[indexPath.row] = medication ?? ""
                 }
             case 1:
-//                cell.titleLabel.text = AppHelper.getLocalizeString(str: "Provider")
                 cell.titleLabel.attributedText = setRequiredTitle(AppHelper.getLocalizeString(str: "Provider"))
                 cell.cellType = .MedicationProvider
                 if EditVc ?? false, userEnteredDetails[indexPath.row].isEmpty {
                     userEnteredDetails[indexPath.row] = providerName ?? ""
                 }
             case 2:
-//                cell.titleLabel.text = AppHelper.getLocalizeString(str: "Dosage")
                 cell.titleLabel.attributedText = setRequiredTitle(AppHelper.getLocalizeString(str: "Dosage"))
                 cell.cellType = .MedicationDosage
                 if EditVc ?? false, userEnteredDetails[indexPath.row].isEmpty {
                     userEnteredDetails[indexPath.row] = dosage ?? ""
                 }
             case 3:
-//                cell.titleLabel.text = AppHelper.getLocalizeString(str: "Direction")
                 cell.titleLabel.attributedText = setRequiredTitle(AppHelper.getLocalizeString(str: "Direction"))
                 cell.cellType = .MedicationDirection
                 if EditVc ?? false, userEnteredDetails[indexPath.row].isEmpty {

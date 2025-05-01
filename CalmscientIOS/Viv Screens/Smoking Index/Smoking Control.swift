@@ -52,9 +52,9 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
     
     let data = [("Basic knowledge", UIImage(named: "check") ?? UIImage()), ("Make a plan", UIImage(named: "check") ?? UIImage()), ("Stay focused", UIImage(named: "check") ?? UIImage()), ("My progress", UIImage(named: "check") ?? UIImage())]
     
-    let eresourceData = [("Work your strengths", "Do something you're good at to build self-confidence, then tackle a tougher task.", UIImage(named: "Maskgroup") ?? UIImage()), ("Breathing exercises", "Let’s use breathing exercises to support your journey. They help reduce stress and cravings, and provide a calming distraction..", UIImage(named: "BreathingTechnic") ?? UIImage()), ("Managing anxiety course", "Anxiety can trigger drinking and smoking, but healthy coping strategies help you to stay strong", UIImage(named: "img1") ?? UIImage()), ("Screenings", "Let’s set a goal to screen for depression, anxiety, and alcohol and smoking regularly, as these can support your success", UIImage(named: "Screening_Cell") ?? UIImage())]
+    let eresourceData = [("Breathing exercises", "Let’s use breathing exercises to support your journey. They help reduce stress and cravings, and provide a calming distraction..", UIImage(named: "BreathingTechnic") ?? UIImage()), ("Managing anxiety course", "Anxiety can trigger drinking and smoking, but healthy coping strategies help you to stay strong", UIImage(named: "img1") ?? UIImage()), ("Screenings", "Let’s set a goal to screen for depression, anxiety, and alcohol and smoking regularly, as these can support your success", UIImage(named: "Screening_Cell") ?? UIImage())] //("Work your strengths", "Do something you're good at to build self-confidence, then tackle a tougher task.", UIImage(named: "Maskgroup") ?? UIImage())
     
-    let sresourceData = [("Work your strengths", "Do something you're good at to build self-confidence, then tackle a tougher task.", UIImage(named: "Maskgroup") ?? UIImage()), ("Ejercicios de respiración", "Usemos ejercicios de respiración para apoyar tu viaje. Ayudan a reducir el estrés, los antojos, y proporcionan calma.", UIImage(named: "BreathingTechnic") ?? UIImage()), ("Curso de manejo de la ansiedad", "La ansiedad puede desencadenar el consumo de alcohol y tabaco, pero hay estrategias saludables que pueden ayuda", UIImage(named: "img1") ?? UIImage()), ("Evaluaciones", "Establezcamos metas para analizar la depresión, ansiedad, alcohol y tabaco de forma regular, esto puede apoyar tu éxito", UIImage(named: "Screening_Cell") ?? UIImage())]
+    let sresourceData = [("Ejercicios de respiración", "Usemos ejercicios de respiración para apoyar tu viaje. Ayudan a reducir el estrés, los antojos, y proporcionan calma.", UIImage(named: "BreathingTechnic") ?? UIImage()), ("Curso de manejo de la ansiedad", "La ansiedad puede desencadenar el consumo de alcohol y tabaco, pero hay estrategias saludables que pueden ayuda", UIImage(named: "img1") ?? UIImage()), ("Evaluaciones", "Establezcamos metas para analizar la depresión, ansiedad, alcohol y tabaco de forma regular, esto puede apoyar tu éxito", UIImage(named: "Screening_Cell") ?? UIImage())] //("Work your strengths", "Do something you're good at to build self-confidence, then tackle a tougher task.", UIImage(named: "Maskgroup") ?? UIImage()),
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.tableView {
@@ -116,7 +116,7 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
         if tableView == self.tableView {
                    return 60
                } else if tableView == self.resourceTableView {
-                   return 150 // Default row height
+                   return 180 // Default row height
                }
                return 0
     }
@@ -150,16 +150,14 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
         } else if tableView == self.resourceTableView {
             print("resource table clicked")
             if indexPath.row == 0 {
-                
-            } else if indexPath.row == 1 {
                 let storyboard = UIStoryboard(name: "Excercises", bundle: nil)
                 let destinationVC = storyboard.instantiateViewController(withIdentifier: "BreathingTechnique") as! BreathingTechnique
                 self.navigationController?.pushViewController(destinationVC, animated: true)
-            } else if indexPath.row == 2 {
+            } else if indexPath.row == 1 {
                 let next = UIStoryboard(name: "ManagingAnxietyBeginScreen", bundle: nil)
                 let vc = next.instantiateViewController(withIdentifier: "ManagingAnxietyBeginScreen") as? ManagingAnxietyBeginScreen
                 self.navigationController?.pushViewController(vc!, animated: true)
-            } else if indexPath.row == 3 {
+            } else if indexPath.row == 2 {
                 let next = UIStoryboard(name: "ScreeningListVC", bundle: nil)
                 let vc = next.instantiateViewController(withIdentifier: "ScreeningListVC") as? ScreeningListVC
                 vc?.isComingFromParticularVC = true

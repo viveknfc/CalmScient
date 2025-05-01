@@ -21,7 +21,7 @@ class UserRegistrationViewController: UIViewController {
     
     var buttonState1: SelectionButtonState = .dafault
     var buttonState2: SelectionButtonState = .dafault
-    
+    var window: UIWindow?
     
     var navController: UINavigationController?
     private var customAlertBackgroundView:UIVisualEffectView?
@@ -80,63 +80,116 @@ class UserRegistrationViewController: UIViewController {
     
    
     @IBAction func didClickOnSubmitButton(_ sender: UIButton) {
-
-        addAlertView()
-        
-    }
-    
-    private func addAlertView() {
-        customAlertBackgroundView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
-        customAlertBackgroundView?.frame = self.view.frame
-        var customAlertView:CustomAlertView? = CustomAlertView(frame: .zero)
-        customAlertBackgroundView?.contentView.addSubview(customAlertView!)
-        customAlertView?.translatesAutoresizingMaskIntoConstraints = false
-        customAlertView?.okAction = { [weak self] in
-            guard let self = self else {
+            
+            // 1. Check if license key is empty
+            guard let license = licenseTextField.text, !license.trimmingCharacters(in: .whitespaces).isEmpty else {
+                showGeneralAlert(
+                    image: UIImage(named: "InfoIcon"),
+                    imageSize: CGSize(width: 40, height: 40),
+                    title: "Please enter the license key",
+                    okButtonTitle: "Ok",
+                    okAction: {},
+                    showDismissButton: false
+                )
                 return
             }
-            UIView.transition(with: self.view, duration: 0.25, options: .transitionCrossDissolve, animations: {
-                customAlertView?.removeFromSuperview()
-                self.customAlertBackgroundView?.removeFromSuperview()
-                customAlertView = nil
-                self.customAlertBackgroundView = nil
-            }, completion: nil)
-            self.navigateToCreateAccount()
+            
+            // 2. Check if checkboxes are selected
+            if buttonState1 != .selected {
+                showGeneralAlert(
+                    image: UIImage(named: "InfoIcon"),
+                    imageSize: CGSize(width: 40, height: 40),
+                    title: "Please confirm that you have read and understood the license",
+                    okButtonTitle: "Ok",
+                    okAction: {},
+                    showDismissButton: false
+                )
+                return
+            }
+
+            if buttonState2 != .selected {
+                showGeneralAlert(
+                    image: UIImage(named: "InfoIcon"),
+                    imageSize: CGSize(width: 40, height: 40),
+                    title: "Please agree to share your information with the medical provider",
+                    okButtonTitle: "Ok",
+                    okAction: {},
+                    showDismissButton: false
+                )
+                return
+            }
+
+            // 3. All good — proceed with API call
+            let params: [String: String] = ["licenseKey": license]
+            print("the license key param is ",license)
+            
+            self.view.showToastActivity()
+            APIService.validateLicenseKeyAPICalling(
+                self,
+                params: params,
+                method: "POST",
+                accessToken: "",
+                acces: true,
+                parameterPlacement: "body"
+            ) { response in
+                self.getresponseforsubmitAPI(response: response)
+            }
         }
-        
-        UIView.transition(with: self.view, duration: 0.5, options: .transitionCrossDissolve, animations: {
-            self.view.addSubview(self.customAlertBackgroundView!)
 
-            }, completion: nil)
-        customAlertView?.layer.cornerRadius = 10
-        customAlertView?.layer.masksToBounds = true
-        customAlertView?.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-        customAlertView?.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor).isActive = true
-        customAlertView?.widthAnchor.constraint(equalToConstant: self.view.frame.width * 0.9).isActive = true
-        customAlertView?.heightAnchor.constraint(equalToConstant: 345).isActive = true //self.view.frame.height * 0.30
-         
-
-    }
     
-    func navigateToCreateAccount(){
-
-//        let next = UIStoryboard(name: "CreateAccountVC", bundle: nil)
-//        let vc = next.instantiateViewController(withIdentifier: "CreateAccountVC") as? CreateAccountVC
-//        self.navigationController?.pushViewController(vc!, animated: true)
+    //MARK: - Submit API response
+    
+    func getresponseforsubmitAPI(response: AnyObject) {
+        self.view.hideToastActivity()
         
-        let storyboard = UIStoryboard(name: "UserIntro", bundle: nil)
-            let homeViewController = storyboard.instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as! UserIntroDayFeedbackViewController
-        homeViewController.afternoonVC = true
-        let titleS = ApplicationSharedInfo.shared.loginResponse?.firstName ?? ""
-        homeViewController.titleString = "\(titleS)"
-        UserDefaults.standard.set("\(titleS)", forKey: "titleString")
-            // Wrap the home view controller in a navigation controller if needed
-            navController = UINavigationController(rootViewController: homeViewController)
-        
-        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
-            sceneDelegate.changeRootViewController(to: navController!)
+        if let responseString = response as? String {
+            print("Response received from validate API calling is", responseString)
+            
+        } else if let responseDict = response as? [String: Any] {
+            print("The validate API response is", responseDict)
+            
+            if let statusResponse = responseDict["statusResponse"] as? [String: Any],
+               let responseCode = statusResponse["responseCode"] as? Int,
+               let responseMessage = statusResponse["responseMessage"] as? String {
+                
+                if responseCode == 200 {
+                    self.showSuccessAlert(successContent: responseMessage, centreImage: nil, okButtonAction: {
+                        self.navigateToCreateAccount()
+                    })
+                } else {
+                    self.showGeneralAlert(
+                        image: UIImage(named: "InfoIcon"),
+                        imageSize: CGSize(width: 40, height: 40),
+                        title: responseMessage,
+                        okButtonTitle: "Ok",
+                        okAction: {
+                            self.navigateToCreateAccount()
+                        },
+                        showDismissButton: false
+                    )
+                }
+            } else {
+                print("Invalid statusResponse format.")
+            }
+            
+        } else {
+            print("Unsupported response type: \(type(of: response))")
         }
-        
+    }
+
+    
+    //END
+    
+    func navigateToCreateAccount() {
+        let homeController = UIStoryboard(name: "LoginVC", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+        let navC = UINavigationController(rootViewController: homeController)
+        navC.navigationBar.isHidden = true
+
+        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
+           let window = sceneDelegate.window {
+            window.rootViewController = navC
+            window.makeKeyAndVisible()
+        }
     }
     
 

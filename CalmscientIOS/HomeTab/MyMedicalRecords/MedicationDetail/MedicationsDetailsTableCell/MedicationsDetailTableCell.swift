@@ -9,6 +9,8 @@ import UIKit
 
 protocol MedicationsDetailTableCellDelegate: AnyObject {
     func didChangeSwitchState(for cell: MedicationsDetailTableCell, isSelected: Bool, at index: Int)
+    
+    func deleteSaveSwitch(for cell: MedicationsDetailTableCell, isSelected: Bool, at index: Int)
 }
 
 class MedicationsDetailTableCell: UITableViewCell {
@@ -24,6 +26,9 @@ class MedicationsDetailTableCell: UITableViewCell {
     @IBOutlet weak var rightTitleLabel: UILabel!
     var cellIndex : Int?
     @IBOutlet weak var cellSwitchImageView: UIImageView!
+    
+    @IBOutlet weak var timeSelectionButton: UIButton!
+    var isAlarmSelected = false
     
     private var defaultImage = UIImage(named: "ToggleSwitch_No")
     private var selectedImage = UIImage(named: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "ToggleSwitch_Yes" : "ToggleSwitch_Si")
@@ -53,6 +58,7 @@ class MedicationsDetailTableCell: UITableViewCell {
     @IBAction func didTapOnSelectionButton(_ sender: UITapGestureRecognizer) {
         if buttonState == .dafault {
                    buttonState = .selected
+            
                } else {
                    buttonState = .dafault
                }
@@ -101,6 +107,36 @@ class MedicationsDetailTableCell: UITableViewCell {
                    print(response?.responseMessage ?? "")
                }
     }
+    
+    //MARK: - Alarm Delete / Select Button
+    
+    @IBAction func alarmSelectionButtonClicked(_ sender: Any) {
+        
+        print("alarm delete select button pressed")
+        isAlarmSelected.toggle() // flip true <-> false
+        
+        let imageName = isAlarmSelected ? "CellSelectionImage" : "cellUnselectedImage"
+        timeSelectionButton.setImage(UIImage(named: imageName), for: .normal)
+        
+        
+        guard let scheduleAlarm = medicationAlarmInstance?.scheduledTimes.first else {
+            //for newly created medication
+            
+            if let index = cellIndex{
+                delegate?.deleteSaveSwitch(for: self, isSelected: isAlarmSelected, at: index)
+            }
+     
+            return
+        }
+        if isAlarmSelected {
+            scheduleAlarm.isDefault = 0
+        } else {
+            scheduleAlarm.isDefault = 1
+        }
+    
+    }
+    
+    //END
     
     func deleteAlarmNotification(identifier: String) {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
@@ -240,11 +276,11 @@ class MedicationsDetailTableCell: UITableViewCell {
             guard let medicineTimeShortForm = scheduledTime.medicineTime.getDayTimeFromDate(formatter: "HH:mm:ss", includeTimeZone: true) else {
                 return
             }
-            self.dayTimeImageView.image = dayTypeMatch.getIconImage()
+//            self.dayTimeImageView.image = dayTypeMatch.getIconImage()
             leftTitleLabel.text = getTimeStr(timeStr: dayTypeMatch.rawValue)
             rightTitleLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Alarm" : "Alarma"
             leftContentLabel.text = medicineTimeShortForm
-            rightContentLabel.text = alarmDayTypeShortForm
+//            rightContentLabel.text = alarmDayTypeShortForm
         }
     
     func getTimeStr(timeStr:String) -> String{
@@ -261,15 +297,25 @@ class MedicationsDetailTableCell: UITableViewCell {
         func updateCellData(medicationAlarm:MedicationAlarm) {
             if medicationAlarm.alarmEnabled == "1" {
                 buttonState = .selected
+                medicationAlarm.isDefault = 0
             } else {
                 buttonState = .dafault
             }
+            
+            let imageName = medicationAlarm.isDefault == 0 ? "CellSelectionImage" : "cellUnselectedImage"
+            isAlarmSelected = medicationAlarm.isDefault == 0 ? true : false
+            if let image = UIImage(named: imageName) {
+                timeSelectionButton.setImage(image, for: .normal)
+            } else {
+                print("⚠️ Image not found: \(imageName)")
+            }
+            
             self.cellSwitchImageView.image = self.currentImage
-            self.dayTimeImageView.image = medicationAlarm.getDayTime().getIconImage()
+//            self.dayTimeImageView.image = medicationAlarm.getDayTime().getIconImage()
             leftTitleLabel.text = getTimeStr(timeStr:medicationAlarm.getDayTime().rawValue)
             rightTitleLabel.text =  UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Alarm" : "Alarma"
             leftContentLabel.text = medicationAlarm.getMedicineTimeWithAMorPM()
-            rightContentLabel.text =  medicationAlarm.getAlarmTimeWithAMOrPM()
+//            rightContentLabel.text =  medicationAlarm.getAlarmTimeWithAMOrPM()
         }
     
 }

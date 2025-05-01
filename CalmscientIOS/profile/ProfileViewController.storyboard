@@ -32,7 +32,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4vL-Z1-3w7" userLabel="fristNameview">
                                                 <rect key="frame" x="15" y="10" width="363" height="80"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLQ-e0-e9b">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lLQ-e0-e9b">
                                                         <rect key="frame" x="8" y="8" width="347" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="6cZ-qN-fGb"/>
@@ -173,7 +173,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q1u-dd-Opd" userLabel="lastNameview">
                                                 <rect key="frame" x="15" y="90" width="363" height="80"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxB-JY-gCq">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sxB-JY-gCq">
                                                         <rect key="frame" x="8" y="8" width="347" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="20" id="IhV-Zv-98Y"/>
@@ -211,13 +211,13 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Elc-gi-11r" customClass="RoundedView2" customModule="CalmscientIOS" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="350" width="353" height="355"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tnr-I3-DHx" customClass="FontLM14" customModule="CalmscientIOS" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tnr-I3-DHx" customClass="FontLM14" customModule="CalmscientIOS" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="10" width="136.66666666666666" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Old Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfd-zD-Pmw" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Old password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qfd-zD-Pmw" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="51" width="104.33333333333333" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="AppLightTextColor"/>
@@ -239,7 +239,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKt-z3-lRh" userLabel="new password" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hKt-z3-lRh" userLabel="new password" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="133" width="112" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="AppLightTextColor"/>
@@ -253,7 +253,7 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0O-nk-ryU" userLabel="confirm password" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c0O-nk-ryU" userLabel="confirm password" customClass="FontLR15" customModule="CalmscientIOS" customModuleProvider="target">
                                                         <rect key="frame" x="10" y="209" width="138.66666666666666" height="21"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="AppLightTextColor"/>
@@ -265,7 +265,7 @@
                                                             <constraint firstAttribute="height" constant="40" id="lJc-D3-3ma"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Update Password"/>
+                                                        <state key="normal" title="Update password"/>
                                                         <connections>
                                                             <action selector="updatePasswordButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="v5k-pD-avP"/>
                                                         </connections>
@@ -368,7 +368,7 @@
     </scenes>
     <designables>
         <designable name="63Q-WV-8oX">
-            <size key="intrinsicContentSize" width="52" height="31"/>
+            <size key="intrinsicContentSize" width="48" height="30"/>
         </designable>
     </designables>
     <resources>

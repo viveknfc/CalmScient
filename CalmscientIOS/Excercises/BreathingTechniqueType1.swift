@@ -177,14 +177,18 @@ class BreathingTechniqueType1: ViewController {
     
     @objc func playPauseTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
+        
+        if let thumbnail = videoView.viewWithTag(999) {
+            thumbnail.removeFromSuperview()
+        }
 
             if isPlaying {
                 player.pause()
-                playPauseImage.image = UIImage(named: "pause")
+                playPauseImage.image = UIImage(named: "play")
                 
             } else {
                 player.play()
-                playPauseImage.image = UIImage(named: "Play")
+                playPauseImage.image = UIImage(named: "pause")
 
             }
             bringControlsToFront()
@@ -225,6 +229,9 @@ class BreathingTechniqueType1: ViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         playerLayer.frame = videoView.bounds
+        if let thumbnail = videoView.viewWithTag(999) {
+            thumbnail.frame = videoView.bounds
+        }
         bringControlsToFront()
     }
     
@@ -283,12 +290,28 @@ class BreathingTechniqueType1: ViewController {
         playerLayer.frame = videoView.bounds
         playerLayer.videoGravity = .resizeAspect //resizeAspectFill
         videoView.layer.addSublayer(playerLayer)
+        
+        // Add thumbnail image aligned with playerLayer (video area)
+        if let thumbnail = UIImage(named: "thumbnail") {
+            let imageView = UIImageView(image: thumbnail)
+            imageView.contentMode = .scaleAspectFit
+            imageView.clipsToBounds = true
+            imageView.tag = 999
+            imageView.isUserInteractionEnabled = false
+
+            // Match playerLayer's visible bounds
+            imageView.frame = playerLayer.bounds
+            imageView.center = playerLayer.position  // Align in case layer is centered inside videoView
+
+            videoView.addSubview(imageView)
+        }
+        
         videoView.bringSubviewToFront(playPauseImage)
         videoView.bringSubviewToFront(favImg)
         videoView.bringSubviewToFront(maximiseImg)
         videoView.bringSubviewToFront(progressBar)
-               player.pause()
-               addPeriodicTimeObserver()
+        player.pause()
+        addPeriodicTimeObserver()
         bringControlsToFront()
     }
 

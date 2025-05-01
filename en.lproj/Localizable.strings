@@ -7,14 +7,14 @@
 */
 
 "Profile" = "Profile";
-"Version 1.0.1" = "Version 1.1.0";
+"Version 1.0.1" = "Version 1.1.1";
 "Username" = "Username";
 "Password" = "Password";
 "Forgot Password?" = "Forgot Password?";
 "Create an New account" = "Create an New account";
 
 //create account
-"First Name" = "First Name";
+"First Name" = "First name";
 "Last Name" = "Last Name";
 "Email" = "Email";
 "Phone Number" = "Phone Number";
@@ -321,9 +321,9 @@ Here are resources that can assist you in achieving your goal?";
 //appointmenr details vc
 "Date and Time" = "Date and Time";
 "Invalid Date" = "Invalid Date";
-"Appointment Details" = "Appointment Details";
+"Appointment Details" = "Appointment details";
 "Contact" = "Contact";
-"Appointment Detail" = "Appointment Detail";
+"Appointment Detail" = "Appointment detail";
 "Address" = "Address";
 
 

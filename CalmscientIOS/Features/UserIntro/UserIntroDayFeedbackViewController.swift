@@ -65,6 +65,7 @@ class UserIntroDayFeedbackViewController: ViewController {
     private let GoodEveningTitle = "Good evening!"
     
     var GreetingTitle: String?
+    var alertText: String?
     
     private let userDayWiseData:UserStartupScreenDayData? = UserStartupScreenDayData.getStartUpScreenData()
     
@@ -137,6 +138,13 @@ class UserIntroDayFeedbackViewController: ViewController {
                 let eveGreet = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Good evening" : "¡Buenas noches"
                 GreetingTitle = "\(eveGreet) \(titleString)!"
             }
+        }
+        
+        let language = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+        if language == 1 {
+            alertText = "Please fill all mandatory fields."
+        } else {
+            alertText = "Por favor, completa todos los campos obligatorios."
         }
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
@@ -403,7 +411,7 @@ class UserIntroDayFeedbackViewController: ViewController {
                             showGeneralAlert(
                                 image: UIImage(named: "InfoIcon"),
                                 imageSize: CGSize(width: 60, height: 60),
-                                title: "Please fill all mandatory fields.",
+                                title: alertText ?? "",
                                 okButtonTitle: "Ok",
                                 okAction: {},
                                 dismissAction: {}
@@ -433,14 +441,13 @@ class UserIntroDayFeedbackViewController: ViewController {
             guard let moodId = userDayWiseData.moodAnswer,
                           let sleepHours = userDayWiseData.sleepAnswer,
                           let journal = userDayWiseData.journalAnswer, !journal.isEmpty else {
-//                self.view.makeToast("Please fill all mandatory fields.", position: .center)
                 
-                let alertText = "Please fill all mandatory fields."
+            
                 
                 showGeneralAlert(
                     image: UIImage(named: "InfoIcon"),
                     imageSize: CGSize(width: 60, height: 60),
-                    title: alertText,
+                    title: alertText ?? "",
                     okButtonTitle: "Ok",
                     okAction: {
                         print("Retry action triggered")
@@ -465,14 +472,13 @@ class UserIntroDayFeedbackViewController: ViewController {
             guard let moodId = userDayWiseData.moodAnswer,
                          let spendTime = userDayWiseData.timeSpendAnswer, !spendTime.isEmpty,
                          let journal = userDayWiseData.journalAnswer, !journal.isEmpty else {
-//                self.view.makeToast("Please fill all mandatory fields.", position: .center)
                 
-                let alertText = "Please fill all mandatory fields."
+              
                 
                 showGeneralAlert(
                     image: UIImage(named: "InfoIcon"),
                     imageSize: CGSize(width: 60, height: 60),
-                    title: alertText,
+                    title: alertText ?? "",
                     okButtonTitle: "Ok",
                     okAction: {
                         print("Retry action triggered")
@@ -732,9 +738,9 @@ extension UserIntroDayFeedbackViewController: UserIntroSelectionDelegate {
         // Show the custom alert with Yes/No options
         self.showGeneralAlertYesNo(
             image: UIImage(named: "question2"),
-            imageSize: CGSize(width: 40, height: 40),
+            imageSize: CGSize(width: 60, height: 60),
             title: "", //Clear Journal Data
-            subTitle: "Are you sure you want to change the mood?", //Do you want to clear the journal data?
+            subTitle: "Would you like to update your mood?", //Do you want to clear the journal data?
             okButtonTitle: "Yes",
             cancelButtonTitle: "No",
             okAction: {

@@ -1,7 +1,7 @@
 {
   "wish": "¡Buenas noches!",
   "moodData": {
-    "moodQuestion": "¿Cómo estuvo tu día?",
+    "moodQuestion": "¿Cómo te ha ido?",
     "options": [
       {
         "optionType": "MALO",

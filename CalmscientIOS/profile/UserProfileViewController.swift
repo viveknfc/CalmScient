@@ -25,7 +25,7 @@ fileprivate enum ProfileTableCells : String {
     }
 }
 
-class UserProfileViewController: ViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate, UISheetPresentationControllerDelegate{
+class UserProfileViewController: ViewController, UIImagePickerControllerDelegate & UINavigationControllerDelegate, UISheetPresentationControllerDelegate, SettingsAlarmDelegate{
     
     
     var dimmingView: UIView?
@@ -40,6 +40,7 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
     var profileIconList: [String] = []
     var cellTitleList: [String] = []
     var licenseKey : String = ""
+    var alarmValue: Int = 0
     
     fileprivate let tableRows:[ProfileTableCells] = [.ProfileDefaultTableViewCell,
                                                      
@@ -48,9 +49,10 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
                                                      .ProfileDefaultTableViewCell,
                                                      .ProfileDefaultTableViewCell,
                                                      .ProfileDefaultTableViewCell,
+                                                     .ProfileDefaultTableViewCell,
                                                      .LogoutTableViewCell
                             ] //.ProfileThemeTableViewCell,
-    fileprivate let profileSvgIcons = ["profile_svg","theme_svg","language_svg","privacy_svg","notification_svg","license_svg","helpNsupport_svg","logout_svg"]
+    fileprivate let profileSvgIcons = ["profile_svg","language_svg","privacy_svg","alarm_svg","notification_svg","license_svg","helpNsupport_svg","logout_svg"] //"theme_svg"
     
     var shouldPopBack: Bool = false
     
@@ -96,7 +98,7 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
                 print("Error: \(error)")
             }
         }
-
+        
         profileTableView.reloadData()
         
         
@@ -127,6 +129,13 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
         
         //end
 
+        NotificationCenter.default.addObserver(self, selector: #selector(removeDimmingView), name: Notification.Name("RemoveDimmingView"), object: nil)
+    }
+    
+    @objc func removeDimmingView() {
+        dimmingView?.removeFromSuperview()
+        dimmingView = nil
+        print("Dimming view removed via notification.")
     }
     
     @objc func backButtonOverrideAction() {
@@ -160,6 +169,8 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
         }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
+        
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -178,14 +189,29 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
                     self.view.hideToastActivity()
                     
                     if let imageUrlString = settings["profileImage"] as? String, let url = URL(string: imageUrlString) {
-                        DispatchQueue.global().async {
-                            if let data = try? Data(contentsOf: url) {
+                        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                            if let data = data, error == nil {
                                 DispatchQueue.main.async {
-                                     self.profileIcon.image = UIImage(data: data)
+                                    self.profileIcon.image = UIImage(data: data)
+                                }
+                            } else {
+                                print("Failed to load profile image: \(error?.localizedDescription ?? "No error info")")
+                            }
+                        }
+                        task.resume()
+                    }
+                    
+                    if let imageUrlString = settings["profileImage"] as? String, let url = URL(string: imageUrlString) {
+                        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+                            if let data = data, let image = UIImage(data: data) {
+                                DispatchQueue.main.async {
+                                    self.profileIcon.image = image
                                 }
                             }
                         }
+                        task.resume()
                     }
+
                     if let profileIcon = settings["profileIcon"] as? String {
                         self.profileIconList.append(profileIcon)
                     }
@@ -213,6 +239,12 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
                     if let privacyTitle = settings["privacyTitle"] as? String {
                         self.cellTitleList.append(privacyTitle)
                     }
+                    if let alarmSetting = settings["alarmDuration"] as? Int {
+                        let alarmTitle = "Alarm settings"
+                        self.alarmValue = alarmSetting
+                        self.cellTitleList.append(alarmTitle)
+                    }
+
                     if let notificationIcon = settings["notificationIcon"] as? String {
                         self.profileIconList.append(notificationIcon)
                     }
@@ -637,6 +669,13 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
         
     }
     
+    //MARK: - Settings Delegate
+    
+    func didUpdateAlarmValue(_ newValue: Int) {
+        self.alarmValue = newValue
+        // Optionally reload table or other UI
+    }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]) {
         // Dismiss the image picker
         picker.dismiss(animated: true, completion: nil)
@@ -738,7 +777,7 @@ private func setAppDarkMode(_ isDarkMode: Bool) {
 }
 func uploadProfileImage( patientId: Int, clientId: Int, fileData: Data, fileName: String, bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void) {
     // Define the URL
-    guard let url = URL(string: "http://20.197.5.97:8083/identity/api/v1/settings/uploadProfileImage") else {
+    guard let url = URL(string: "https://calmscient.in/api/identity/api/v1/settings/uploadProfileImage") else {
         print("Invalid URL")
         return
     }
@@ -925,11 +964,11 @@ extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate
             
         case .ProfileLanguageTableViewCell:
             let cell = tableView.dequeueReusableCell(withIdentifier: data.rawValue, for: indexPath) as! ProfileLanguageTableViewCell
-            let imageUrlString = profileIconList[indexPath.row]
-            if let url = URL(string: imageUrlString) {
-                DispatchQueue.global().async {
-                    if let data = try? Data(contentsOf: url) {
-                        DispatchQueue.main.async {
+//            let imageUrlString = profileIconList[indexPath.row]
+//            if let url = URL(string: imageUrlString) {
+//                DispatchQueue.global().async {
+//                    if let data = try? Data(contentsOf: url) {
+//                        DispatchQueue.main.async {
 //                            cell.cellIconView.image = UIImage(data: data)
                             cell.cellIconView.image = UIImage(named: self.profileSvgIcons[indexPath.row])
                             cell.languagesArray = self.languagesData
@@ -964,11 +1003,11 @@ extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate
                             }
                             
                             
-                        }
-                    }
-                }
-                
-            }
+//                        }
+//                    }
+//                }
+//                
+//            }
             print("-4-4-4-4-4--4")
             print(cellTitleList[indexPath.row])
             cell.cellTitleLabel.text = cellTitleList[indexPath.row]
@@ -978,20 +1017,20 @@ extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate
             
         case .LogoutTableViewCell:
             let cell = tableView.dequeueReusableCell(withIdentifier: data.rawValue, for: indexPath) as! LogoutTableViewCell
-            let imageUrlString = profileIconList[indexPath.row]
-            if let url = URL(string: imageUrlString) {
-                DispatchQueue.global().async {
-                    if let data = try? Data(contentsOf: url) {
-                        DispatchQueue.main.async {
+            cell.cellIconView.image = UIImage(named: self.profileSvgIcons[indexPath.row])
+//            let imageUrlString = profileIconList[indexPath.row]
+//            if let url = URL(string: imageUrlString) {
+//                DispatchQueue.global().async {
+//                    if let data = try? Data(contentsOf: url) {
+//                        DispatchQueue.main.async {
 //                            cell.cellIconView.image = UIImage(data: data)
-                            cell.cellIconView.image = UIImage(named: self.profileSvgIcons[indexPath.row])
-                        }
-                    }
-                }
-            }
+//                            
+//                        }
+//                    }
+//                }
+//            }
             cell.cellTitleLabel.text = cellTitleList[indexPath.row]
             return cell
-
         }
     }
     
@@ -1008,42 +1047,86 @@ extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate
             vc?.title = AppHelper.getLocalizeString(str: "Profile")
             self.navigationController?.pushViewController(vc!, animated: true)
         }
-        if indexPath.row == 3 {
+        if indexPath.row == 2 {
 
             let next = UIStoryboard(name: "ProfilePrivacy", bundle: nil)
             guard let viewControllerToPresent = next.instantiateViewController(withIdentifier: "ProfilePrivacyViewController") as? ProfilePrivacyViewController else {
                 return
             }
+            
+            addDimmingView()
+            
+            if let sheet = viewControllerToPresent.sheetPresentationController {
+                sheet.detents = [
+                    UISheetPresentationController.Detent.medium(),
+                    UISheetPresentationController.Detent.large()
+                ]
+                sheet.largestUndimmedDetentIdentifier = UISheetPresentationController.Detent.Identifier.medium
+                sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+                sheet.prefersEdgeAttachedInCompactHeight = true
+                sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+                sheet.prefersGrabberVisible = true
+            }
+
 
             // Create a dimming view and add it to the window
-            if let window = UIApplication.shared.keyWindow {
-                let dimmingView = UIView(frame: window.bounds)
-                dimmingView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-                dimmingView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-                window.addSubview(dimmingView)
-                self.dimmingView = dimmingView // Store the reference
-            }
-
-            viewControllerToPresent.onScheetClosed = { [weak self] in
-                self?.dimmingView?.removeFromSuperview()
-            }
-
-            if #available(iOS 15.0, *) {
-                if let sheet = viewControllerToPresent.sheetPresentationController {
-                    sheet.detents = [.medium(), .large()]
-                    sheet.largestUndimmedDetentIdentifier = .medium
-                    sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-                    sheet.prefersEdgeAttachedInCompactHeight = true
-                    sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
-                    sheet.delegate = self // To handle delegate methods and adjust dimming view
-                }
-            } else {
-                // Fallback on earlier versions
-            }
+//            if let window = UIApplication.shared.keyWindow {
+//                let dimmingView = UIView(frame: window.bounds)
+//                dimmingView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+//                dimmingView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//                window.addSubview(dimmingView)
+//                self.dimmingView = dimmingView // Store the reference
+//            }
+//
+//            viewControllerToPresent.onScheetClosed = { [weak self] in
+//                self?.dimmingView?.removeFromSuperview()
+//            }
+//
+//            if #available(iOS 15.0, *) {
+//                if let sheet = viewControllerToPresent.sheetPresentationController {
+//                    sheet.detents = [.medium(), .large()]
+//                    sheet.largestUndimmedDetentIdentifier = .medium
+//                    sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+//                    sheet.prefersEdgeAttachedInCompactHeight = true
+//                    sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+//                    sheet.delegate = self // To handle delegate methods and adjust dimming view
+//                }
+//            } else {
+//                // Fallback on earlier versions
+//            }
 
             present(viewControllerToPresent, animated: true, completion: nil)
 
         }
+        
+        if indexPath.row == 3 {
+            let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
+            guard let settingsVC = storyboard.instantiateViewController(withIdentifier: "settingsAlarmVC") as? settingsAlarmVC else {
+                return
+            }
+            
+            settingsVC.selectedIndex = alarmValue
+            settingsVC.delegate = self
+            
+            // Add custom dimming view
+            addDimmingView()
+            
+                if let sheet = settingsVC.sheetPresentationController {
+                    sheet.detents = [
+                        UISheetPresentationController.Detent.medium(),
+                        UISheetPresentationController.Detent.large()
+                    ]
+                    sheet.largestUndimmedDetentIdentifier = UISheetPresentationController.Detent.Identifier.medium
+                    sheet.prefersScrollingExpandsWhenScrolledToEdge = false
+                    sheet.prefersEdgeAttachedInCompactHeight = true
+                    sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
+                    sheet.prefersGrabberVisible = true
+                }
+//            settingsVC.presentationController?.delegate = self
+            present(settingsVC, animated: true, completion: nil)
+        }
+
+        
         if indexPath.row == 5 {
             let alert = UIAlertController(title:UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "License Key" : "Clave de Licencia", message: self.licenseKey, preferredStyle: UIAlertController.Style.alert)
             
@@ -1096,11 +1179,26 @@ extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate
             // Present the alert
             present(alertController, animated: true, completion: nil)
             //  }
-            
-            
-            
+   
         }
         
+    }
+    
+    //MARK: - Adding dimming view
+    
+    func addDimmingView() {
+        if dimmingView == nil {
+            if let windowScene = UIApplication.shared.connectedScenes
+                .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene,
+               let window = windowScene.windows.first(where: { $0.isKeyWindow }) {
+
+                dimmingView = UIView(frame: window.bounds)
+                dimmingView?.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+                dimmingView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                window.addSubview(dimmingView!)
+                print("Dimming view added.")
+            }
+        }
     }
     
     func clearFavorites() {
@@ -1136,4 +1234,22 @@ extension UITableViewCell {
         return view as? UITableView
     }
 }
+
+//extension UserProfileViewController: UIAdaptivePresentationControllerDelegate {
+//    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+//        print("presentationControllerDidDismiss called")
+//        if let dimmingView = self.dimmingView {
+//            dimmingView.removeFromSuperview()
+//            self.dimmingView = nil
+//            print("Dimming view removed in presentationControllerDidDismiss.")
+//        }
+//    }
+//}
+//
+//private struct AssociatedKeys {
+//    static var dimmingView: UInt8 = 0
+//}
+
+
+
 

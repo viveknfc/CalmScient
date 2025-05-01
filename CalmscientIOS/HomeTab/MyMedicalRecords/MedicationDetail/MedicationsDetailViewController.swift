@@ -23,6 +23,9 @@ class MedicationsDetailViewController: ViewController, UISheetPresentationContro
     @IBOutlet weak var directionsValue: UILabel!
     @IBOutlet weak var dosageValue: UILabel!
     
+    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak var deleteButton: UIButton!
+    
     weak var medicineDetails:MedicineDetails? = nil {
         didSet {
             guard let details = medicineDetails?.medicationDetailsByDate.first?.medicalDetails else {
@@ -76,6 +79,8 @@ class MedicationsDetailViewController: ViewController, UISheetPresentationContro
         medicineTitle.text = details.medicineName
         dosageValue.text = details.medicineDosage
         directionsValue.text = details.directions
+        
+        setupButtonShadows()
     }
     
     
@@ -90,6 +95,19 @@ class MedicationsDetailViewController: ViewController, UISheetPresentationContro
     
     override func viewWillAppear(_ animated: Bool) {
         tableTitleLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Schedule Time & Alarm" : "Programar Hora y Alarma"
+    }
+    
+    private func setupButtonShadows() {
+        addShadow(to: editButton)
+        addShadow(to: deleteButton)
+    }
+
+    private func addShadow(to button: UIButton) {
+        button.layer.shadowColor = UIColor.black.cgColor
+        button.layer.shadowOpacity = 0.5
+        button.layer.shadowOffset = CGSize(width: 0, height: 2)
+        button.layer.shadowRadius = 4
+        button.layer.masksToBounds = false
     }
     
     //MARK: - Edit Button Action

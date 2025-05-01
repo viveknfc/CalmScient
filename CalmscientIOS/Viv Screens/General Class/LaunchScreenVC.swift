@@ -29,7 +29,7 @@ class LaunchScreenVC: UIViewController {
             print("❌ Failed to load GIF: \(error)")
         }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) { //+ 2.0
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { //+ 2.0
             print("🕒 Timer (from viewDidLoad) done, proceeding to next screen")
             self.sceneDelegate?.proceedAfterSplashScreen()
         }

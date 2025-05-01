@@ -17,7 +17,6 @@ class APIService: UIViewController {
     static var DeleteMedication = "patients/api/v1/medications/deleteMedication"
     static var MarkMedication = "patients/api/v1/medications/markMedication"
     static var AddJournal = "patients/api/v1/patientDetails/addPatientJournalEntry"
-    static var GetJournalData = "patients/api/v1/patientDetails/getPatientJournalByPatientIdForMobile"
     static var FetchMoodScreenData = "patients/api/v1/patientDetails/getPatientStartupScreen"
     static var JournalData = "patients/api/v1/patientDetails/getPatientJournalByPatientIdForMobile"
 
@@ -44,7 +43,26 @@ class APIService: UIViewController {
     static var getTakingControlIntroData = "patients/api/v1/takingControl/getTakingControlIntroduction"
     static var saveTakingControlIntroData = "patients/api/v1/takingControl/saveTakingControlIntroduction"
     
+    static var validateLicenseKey = "identity/api/v1/license/validateLicenseKey"
+    static var alarmSettings = "identity/api/v1/settings/saveAlarmDurationTime"
+    
 
+    //MARK: - Validate License Key API Calling
+    
+    static func validateLicenseKeyAPICalling(_ view:UIViewController?,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.validateLicenseKey
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
+    //MARK: - Alarm Settings API Calling
+    
+    static func alarmSettingsAPICalling(_ view:UIViewController?,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.alarmSettings
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
     //MARK: - user StartUp API Calling
     
     static func userStartUpAPICalling(_ view:UIViewController?,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
@@ -165,14 +183,6 @@ class APIService: UIViewController {
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
-    //MARK: - Add Journal
-    
-    static func GetJournalDataAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
-        
-        let urlString = APIService.BaseUrl+APIService.GetJournalData
-        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
-    }
-    
     //MARK: - Fetch Mood Screen Data
     
     static func FetchMoodScreenDataAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
@@ -279,7 +289,10 @@ class APIService: UIViewController {
                 callback("Error serializing body parameters: \(error.localizedDescription)" as AnyObject)
                 return
             }
-            request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")//new
+//            request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")//new
+            if !accessToken.isEmpty {
+                request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+            }
         
         case "header":
             request = URLRequest(url: url)

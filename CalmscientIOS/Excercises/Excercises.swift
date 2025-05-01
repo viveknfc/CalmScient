@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 
-class Excercises: UIViewController {
+class Excercises: ViewController {
     
     
     @IBOutlet weak var excercisesCollection: UICollectionView!
@@ -48,7 +48,7 @@ class Excercises: UIViewController {
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationItem.hidesBackButton = true
         self.navigationItem.leftBarButtonItem = nil
-        setupLanguage()
+        
         if let layout = excercisesCollection.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
             let spacing: CGFloat = 10
@@ -57,8 +57,6 @@ class Excercises: UIViewController {
             layout.minimumInteritemSpacing = spacing
                                 layout.minimumLineSpacing = spacing
                             }
-        
-        self.title = titleStr;
 
         self.excercisesCollection.clipsToBounds = false
         
@@ -87,7 +85,14 @@ class Excercises: UIViewController {
 
         self.navigationItem.leftBarButtonItem = nil
         setupLanguage()
-        self.title = titleStr;
+//        self.title = titleStr;
+        
+        let titleLabel = UILabel()
+        titleLabel.text = titleStr
+        titleLabel.font = UIFont(name: Fonts().lexendMedium, size: 18)
+        titleLabel.textColor = .label // or any color you want
+        navigationItem.titleView = titleLabel
+        
         excercisesCollection.reloadData()
         
     }

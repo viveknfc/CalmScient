@@ -20,7 +20,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
     @IBOutlet weak var selectionButton: SelectionButton!
     @IBOutlet weak var loginButton: LinearGradientButton!
     
-    @IBOutlet weak var createAnAccountLabel: UILabel!
+    @IBOutlet weak var validateLicenseKeyLabel: UILabel!
     var languageId : Int?
     var isFirstLaunch: Bool?
     
@@ -34,10 +34,9 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         isFirstLaunch = UserDefaults.standard.bool(forKey: "isFirstLaunch")
         
         setupLanguage()
-
        
-       userNameTextField.text = "masa@calmscient.com"
-       passwordTextField.text = "CDMrVgjdM5"
+//       userNameTextField.text = "masa@calmscient.com"
+//       passwordTextField.text = "CDMrVgjdM5"
         
 //       userNameTextField.text = "chandra.p@gmail.com"
 //       passwordTextField.text = "chandra@1234"
@@ -48,8 +47,8 @@ class LoginVC: UIViewController,UITextFieldDelegate {
 //          userNameTextField.text = "sravanthi@gmail.com"
 //          passwordTextField.text = "sravanthi@1234"
         
-//          userNameTextField.text = "nehav@gmail.com"
-//          passwordTextField.text = "neha@1010"
+          userNameTextField.text = "giddalurisaikumar@gmail.com"
+          passwordTextField.text = "Test@123"
         
         userNameTextField.delegate = self
         userNameTextField.layer.borderColor = UIColor(named: "AppBorderColor")?.cgColor
@@ -74,7 +73,10 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         tapGesture.numberOfTapsRequired = 1
         self.forgotPasswordLabel.addGestureRecognizer(tapGesture)
         
-        self.createAnAccountLabel.isHidden = true
+        self.validateLicenseKeyLabel.isHidden = false
+        let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(validateLicenseGesture(tapGestureRecognizer:)))
+        tapGesture2.numberOfTapsRequired = 1
+        self.validateLicenseKeyLabel.addGestureRecognizer(tapGesture2)
         
         languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
         let termsAndConditions = (languageId == 0 ? 1 : languageId  ) == 1 ? "Accept Terms and Conditions" : "Aceptar Términos y Condiciones"
@@ -113,16 +115,16 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         forgotPasswordLabel.attributedText = attributedText
         
        
-        let createAccountAttributedText = NSMutableAttributedString(string:  (languageId == 0 ? 1 : languageId  ) == 1 ?  "Create a new account" : "Crea una cuenta nueva", attributes: [.font: UIFont(name: Fonts().lexendLight, size: 14.0)!, .foregroundColor:UIColor(named: "MainTextColor") ?? UIColor.white, .underlineStyle : NSUnderlineStyle.single.rawValue, .underlineColor:UIColor(named: "MainTextColor") ?? UIColor.white])
-        createAnAccountLabel.attributedText = createAccountAttributedText
+        let validateLicenseAttributedText = NSMutableAttributedString(string:  (languageId == 0 ? 1 : languageId  ) == 1 ?  "Validate your license key" : "Validate your license key", attributes: [.font: UIFont(name: Fonts().lexendLight, size: 14.0)!, .foregroundColor:UIColor(named: "MainTextColor") ?? UIColor.white, .underlineStyle : NSUnderlineStyle.single.rawValue, .underlineColor:UIColor(named: "MainTextColor") ?? UIColor.white])
+        validateLicenseKeyLabel.attributedText = validateLicenseAttributedText
         
         
         self.loginButton.setAttributedTitleWithGradientDefaults(title: (languageId == 0 ? 1 : languageId  ) == 1 ?  "Login" : "Login")
         selectionButton.contentLabel.text = (languageId == 0 ? 1 : languageId  ) == 1 ? "Accept Terms & Conditions" : "Aceptar Términos y Condiciones"
         userNameLabel.text = AppHelper.getLocalizeString(str: "Username")
         passwordLabel.text = AppHelper.getLocalizeString(str: "Password")
-        createAnAccountLabel.text = (languageId == 0 ? 1 : languageId  ) == 1 ? "Create a new account" : "Crea una cuenta nueva"
-        forgotPasswordLabel.text = (languageId == 0 ? 1 : languageId  ) == 1 ?  "Forgot password?" : "¿Has olvidado tu contraseña?"
+
+//        forgotPasswordLabel.text = (languageId == 0 ? 1 : languageId  ) == 1 ?  "Forgot password?" : "¿Has olvidado tu contraseña?"
         
         }
     override func viewWillAppear(_ animated: Bool) {
@@ -152,12 +154,17 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func createAnAccountGesture(tapGestureRecognizer: UITapGestureRecognizer)
+    @objc func validateLicenseGesture(tapGestureRecognizer: UITapGestureRecognizer)
     {
-//        self.navigationController?.navigationBar.isHidden = false
-//        let next = UIStoryboard(name: "CreateAccountVC", bundle: nil)
-//        let vc = next.instantiateViewController(withIdentifier: "CreateAccountVC") as? CreateAccountVC
-//        self.navigationController?.pushViewController(vc!, animated: true)
+        let storyboard = UIStoryboard(name: "UserRegistration", bundle: nil)
+            let registrationViewController = storyboard.instantiateViewController(withIdentifier: "UserRegistrationViewController") as! UserRegistrationViewController
+
+        self.navController = UINavigationController(rootViewController: registrationViewController)
+        UserDefaults.standard.set(true, forKey: "isFirstLaunch")
+        
+        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+            sceneDelegate.changeRootViewController(to: self.navController!)
+        }
     }
     
     
@@ -254,28 +261,29 @@ class LoginVC: UIViewController,UITextFieldDelegate {
                             UserDefaultsHelper.saveLoginDetailsToUserDefaults(loginDetails: loginResponse.loginDetails, tokenResponse: loginResponse.tokenResponse)
                             
                             UserDefaults.standard.set("\(loginResponse.loginDetails.firstName)", forKey: "titleString")
+                            self.userStartUpAPICall ()
                             
-                            if !(self.isFirstLaunch ?? true) {
-                                
-                                print("this is the first launch")
-                                
-                                let storyboard = UIStoryboard(name: "UserRegistration", bundle: nil)
-                                    let registrationViewController = storyboard.instantiateViewController(withIdentifier: "UserRegistrationViewController") as! UserRegistrationViewController
-
-                                self.navController = UINavigationController(rootViewController: registrationViewController)
-                                UserDefaults.standard.set(true, forKey: "isFirstLaunch")
-                                
-                                if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
-                                    sceneDelegate.changeRootViewController(to: self.navController!)
-                                }
-                                
-                            } else {
-                                
-                                print("this is not the first launch")
-                                
-                                self.userStartUpAPICall ()
-                                
-                            }
+//                            if !(self.isFirstLaunch ?? true) {
+//                                
+//                                print("this is the first launch")
+//                                
+//                                let storyboard = UIStoryboard(name: "UserRegistration", bundle: nil)
+//                                    let registrationViewController = storyboard.instantiateViewController(withIdentifier: "UserRegistrationViewController") as! UserRegistrationViewController
+//
+//                                self.navController = UINavigationController(rootViewController: registrationViewController)
+//                                UserDefaults.standard.set(true, forKey: "isFirstLaunch")
+//                                
+//                                if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+//                                    sceneDelegate.changeRootViewController(to: self.navController!)
+//                                }
+//                                
+//                            } else {
+//                                
+//                                print("this is not the first launch")
+//                                
+//                                self.userStartUpAPICall ()
+//                                
+//                            }
    
 
 

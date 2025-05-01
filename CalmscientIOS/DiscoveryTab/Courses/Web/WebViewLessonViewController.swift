@@ -78,6 +78,16 @@ class WebViewLessonViewController: ViewController, WKNavigationDelegate, WKScrip
         navigationItem.leftBarButtonItem = nil
         navigationItem.rightBarButtonItem = nil
         navigationItem.hidesBackButton = false
+        
+//        let stopMediaScript = """
+//            var videos = document.querySelectorAll('video');
+//            videos.forEach(video => video.pause());
+//
+//            var audios = document.querySelectorAll('audio');
+//            audios.forEach(audio => audio.pause());
+//        """
+//        webView.evaluateJavaScript(stopMediaScript, completionHandler: nil)
+        
     }
     
     func configureCustomBackButton() {
@@ -113,35 +123,69 @@ class WebViewLessonViewController: ViewController, WKNavigationDelegate, WKScrip
     }
     
     @objc func backButtonTapped() {
-        print("back button tap fucntion called")
-        let javascript = "onAbortCourseGotoIndex();"
-        
-        webView.evaluateJavaScript(javascript) { [weak self] (result, error) in
-            guard let self = self else { return }
+        print("back button tap function called")
 
-            if let error = error {
-                print("JavaScript error: \(error)")
+        // Step 1: Remove webView from the view
+        webView.removeFromSuperview()
+
+        // Step 2: Stop loading and destroy it
+        webView.navigationDelegate = nil
+        webView.uiDelegate = nil
+        webView.stopLoading()
+        webView = nil  // This will deallocate and stop all media
+
+        // Step 3: Navigate back
+        if index == 2 || index == 3 {
+            if index == 3 {
+                self.title = "Your results"
             }
-
-            // Here we simulate the messageBody that might contain "1001" key
-            // Normally, this would come from your JS message handler
-            let messageBody: [String: Any] = ["1001": "turn off loading and go to index"]
-
-            for keyValuePair in messageBody {
-                if keyValuePair.key == "1001" {
-                    // index 3 - last page (quiz)
-                    if self.index == 2 {
-                        self.navigationController?.popViewController(animated: true)
-                    } else if self.index == 3 {
-                        self.title = "Your results"
-                        self.navigationController?.popViewController(animated: true)
-                    }
-                }else if (keyValuePair.key == "1100"){
-                    print("web page loaded with valid session")
-                }
-            }
+            self.navigationController?.popViewController(animated: true)
         }
     }
+
+    
+//    @objc func backButtonTapped() {
+//        print("back button tap fucntion called")
+////        let javascript = "onAbortCourseGotoIndex();"
+//        
+//        let stopMediaScript = """
+//            document.querySelectorAll('audio, video').forEach(el => {
+//                el.pause();
+//                el.currentTime = 0;
+//                el.src = '';
+//                el.load();
+//            });
+//            if (typeof onAbortCourseGotoIndex === 'function') {
+//                onAbortCourseGotoIndex();
+//            }
+//        """
+//        
+//        webView.evaluateJavaScript(stopMediaScript) { [weak self] (result, error) in
+//            guard let self = self else { return }
+//
+//            if let error = error {
+//                print("JavaScript error: \(error)")
+//            }
+//
+//            // Here we simulate the messageBody that might contain "1001" key
+//            // Normally, this would come from your JS message handler
+//            let messageBody: [String: Any] = ["1001": "turn off loading and go to index"]
+//
+//            for keyValuePair in messageBody {
+//                if keyValuePair.key == "1001" {
+//                    // index 3 - last page (quiz)
+//                    if self.index == 2 {
+//                        self.navigationController?.popViewController(animated: true)
+//                    } else if self.index == 3 {
+//                        self.title = "Your results"
+//                        self.navigationController?.popViewController(animated: true)
+//                    }
+//                }else if (keyValuePair.key == "1100"){
+//                    print("web page loaded with valid session")
+//                }
+//            }
+//        }
+//    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureCustomBackButton()

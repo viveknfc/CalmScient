@@ -528,6 +528,7 @@
 		C2D3EE412D475EF9008A49D2 /* CustomDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3EE402D475EF9008A49D2 /* CustomDropDown.swift */; };
 		C2D48F6C2D9676420058677F /* GeneralAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2D48F6B2D9676420058677F /* GeneralAlertView.xib */; };
 		C2D48F6E2D96782D0058677F /* GeneralAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D48F6D2D96782D0058677F /* GeneralAlert.swift */; };
+		C2D7A1C02DBC1D1600860A86 /* settingsAlarmVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D7A1BF2DBC1D1600860A86 /* settingsAlarmVC.swift */; };
 		C2E111CF2D89D81F00FF5358 /* FavouritesGeneralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E111CE2D89D81F00FF5358 /* FavouritesGeneralManager.swift */; };
 		C2E534092D192670009D2477 /* ThemeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E534082D192670009D2477 /* ThemeManager.swift */; };
 		C2EED5DE2CFA3D18005C1E1F /* CurvedOutlineButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EED5DD2CFA3D18005C1E1F /* CurvedOutlineButton.swift */; };
@@ -1090,6 +1091,7 @@
 		C2D3EE402D475EF9008A49D2 /* CustomDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDown.swift; sourceTree = "<group>"; };
 		C2D48F6B2D9676420058677F /* GeneralAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralAlertView.xib; sourceTree = "<group>"; };
 		C2D48F6D2D96782D0058677F /* GeneralAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAlert.swift; sourceTree = "<group>"; };
+		C2D7A1BF2DBC1D1600860A86 /* settingsAlarmVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = settingsAlarmVC.swift; sourceTree = "<group>"; };
 		C2E111CE2D89D81F00FF5358 /* FavouritesGeneralManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesGeneralManager.swift; sourceTree = "<group>"; };
 		C2E534082D192670009D2477 /* ThemeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeManager.swift; sourceTree = "<group>"; };
 		C2EED5DD2CFA3D18005C1E1F /* CurvedOutlineButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedOutlineButton.swift; sourceTree = "<group>"; };
@@ -2499,6 +2501,7 @@
 				C22E9F952D2281B500600715 /* ChallengingtoQuit */,
 				C2B8E98C2D81BB99003962A7 /* SmokingAffectMentalHealthVC.swift */,
 				C2CFEF702D81CABE00192126 /* MySmokingHabitVC.swift */,
+				C2D7A1BF2DBC1D1600860A86 /* settingsAlarmVC.swift */,
 			);
 			path = "Viv Screens";
 			sourceTree = "<group>";
@@ -3078,6 +3081,7 @@
 				C2E111CF2D89D81F00FF5358 /* FavouritesGeneralManager.swift in Sources */,
 				4A65C2F82BD6852C00809222 /* ViewController.swift in Sources */,
 				C2948E232CFF5EC600D6FC55 /* CapsuleButton.swift in Sources */,
+				C2D7A1C02DBC1D1600860A86 /* settingsAlarmVC.swift in Sources */,
 				C2AEBC592D0C468700B65DBB /* ModerateDrinkingVC.swift in Sources */,
 				4AD5D1522BD7A6C100E4C945 /* DashboardMainTableCell.swift in Sources */,
 				4A65C32F2BD6859800809222 /* UIUtility.swift in Sources */,

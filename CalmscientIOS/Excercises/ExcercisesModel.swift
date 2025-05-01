@@ -15,12 +15,12 @@ enum ExcercisesTypeEnum: Int {
     case movementDance
     case movementRunning
     case mindfulBodyMovement
-    case dummy1
-    case breathingTechnique
+    case dummy1 // Movement Dance added for this dummy viv
+    case progressive//breathingTechnique
     case breathingTechnique1
     case breathingTechnique2
     case breathingTechnique3
-    case progressive
+    case breathingTechnique//progressive
     
     var storyboardID: String {
         switch self {
@@ -49,7 +49,7 @@ enum ExcercisesTypeEnum: Int {
         case .breathingTechnique3:
             return "DiagraphicBreathe"
         case .dummy1:
-            return ""
+            return "MovementDance"
         }
     }
     
@@ -80,7 +80,7 @@ enum ExcercisesTypeEnum: Int {
         case .breathingTechnique3:
             return "Diaphragmatic breathing exercise"
         case .dummy1:
-            return ""
+            return "MovementDance"
         }
     }
         

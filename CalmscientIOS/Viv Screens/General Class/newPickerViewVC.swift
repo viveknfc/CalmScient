@@ -27,6 +27,7 @@ class newPickerViewVC: UIViewController {
     weak var delegate: NewPickerViewDelegate?
     var indexPath: IndexPath?
     var minimumDate: Date?
+    var maximumDate: Date?
     
     var pickerMode: PickerMode = .date // Default mode
     
@@ -46,6 +47,10 @@ class newPickerViewVC: UIViewController {
         
         if let minimumDate = minimumDate {
             dateSelector.minimumDate = minimumDate
+           }
+        
+        if let maximumDate = maximumDate {
+            dateSelector.maximumDate = maximumDate
            }
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))

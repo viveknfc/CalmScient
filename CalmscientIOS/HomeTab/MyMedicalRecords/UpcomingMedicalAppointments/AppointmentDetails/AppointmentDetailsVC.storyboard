@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_0" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Lexend-Medium.ttf">
+            <string>Lexend-Medium</string>
+        </array>
         <array key="lexendlight.ttf">
             <string>Lexend-Light</string>
-        </array>
-        <array key="lexendmedium.ttf">
-            <string>Lexend-Medium</string>
         </array>
         <array key="lexendregular.ttf">
             <string>Lexend-Regular</string>
@@ -177,8 +177,8 @@
                                                 <color key="textColor" red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="South Frederic Av 489" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tvh-dv-qXI">
-                                                <rect key="frame" x="16" y="45" width="370" height="21"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="South Frederic Av 489" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tvh-dv-qXI">
+                                                <rect key="frame" x="16" y="45" width="318" height="21"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="21" id="5TI-eo-gI0"/>
                                                 </constraints>
@@ -186,6 +186,15 @@
                                                 <color key="textColor" name="MainTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2dW-Cs-bAb">
+                                                <rect key="frame" x="344" y="30" width="30" height="30"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="30" id="HuL-eQ-LXL"/>
+                                                    <constraint firstAttribute="width" constant="30" id="RxM-kj-NJu"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="location_svg"/>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
@@ -193,7 +202,9 @@
                                             <constraint firstItem="zMK-5H-0yh" firstAttribute="top" secondItem="ySm-zd-7JE" secondAttribute="top" constant="22" id="4aT-tL-EJI"/>
                                             <constraint firstItem="Tvh-dv-qXI" firstAttribute="top" secondItem="zMK-5H-0yh" secondAttribute="bottom" constant="2" id="5nC-OM-wn4"/>
                                             <constraint firstAttribute="trailing" secondItem="zMK-5H-0yh" secondAttribute="trailing" constant="8" id="6Rz-LK-6OO"/>
-                                            <constraint firstAttribute="trailing" secondItem="Tvh-dv-qXI" secondAttribute="trailing" constant="8" id="C9j-64-RjN"/>
+                                            <constraint firstItem="2dW-Cs-bAb" firstAttribute="centerY" secondItem="ySm-zd-7JE" secondAttribute="centerY" id="Am9-Js-u5t"/>
+                                            <constraint firstItem="2dW-Cs-bAb" firstAttribute="leading" secondItem="Tvh-dv-qXI" secondAttribute="trailing" constant="10" id="C9j-64-RjN"/>
+                                            <constraint firstAttribute="trailing" secondItem="2dW-Cs-bAb" secondAttribute="trailing" constant="20" id="HOU-zL-yH4"/>
                                             <constraint firstItem="Tvh-dv-qXI" firstAttribute="leading" secondItem="ySm-zd-7JE" secondAttribute="leading" constant="16" id="oH4-sM-x9l"/>
                                             <constraint firstAttribute="height" constant="90" id="vkL-gr-KER"/>
                                         </constraints>
@@ -282,6 +293,7 @@
     </scenes>
     <resources>
         <image name="doctorWithSteth" width="17.333333969116211" height="28"/>
+        <image name="location_svg" width="43" height="42"/>
         <namedColor name="AppBackGroundColor">
             <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

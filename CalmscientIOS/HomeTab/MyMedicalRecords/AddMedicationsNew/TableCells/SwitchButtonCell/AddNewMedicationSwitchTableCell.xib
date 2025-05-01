@@ -24,13 +24,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="With Meals" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRx-kM-JaV">
-                        <rect key="frame" x="18" y="10" width="85.666666666666671" height="20"/>
+                        <rect key="frame" x="18" y="10.000000000000002" width="79.666666666666671" height="18.666666666666671"/>
                         <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="16"/>
                         <color key="textColor" name="424242Color"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xG3-EF-sz9" customClass="SwitchButton" customModule="CalmscientIOS" customModuleProvider="target">
-                        <rect key="frame" x="11" y="34" width="80" height="40"/>
+                        <rect key="frame" x="11" y="32.666666666666664" width="80" height="39.999999999999993"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="bL2-6E-FUV"/>
                             <constraint firstAttribute="width" constant="80" id="vVD-Xq-Ns5"/>
@@ -42,13 +42,13 @@
                         </userDefinedRuntimeAttributes>
                     </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expiry Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gic-Rs-DOZ" customClass="FontLR16" customModule="CalmscientIOS" customModuleProvider="target">
-                        <rect key="frame" x="18" y="84" width="330" height="20.333333333333329"/>
+                        <rect key="frame" x="18" y="82.666666666666671" width="330" height="20.333333333333329"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" name="424242Color"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sbm-L4-ZSy" customClass="TextFieldWithPadding" customModule="CalmscientIOS" customModuleProvider="target">
-                        <rect key="frame" x="18" y="108.33333333333333" width="348" height="34.999999999999986"/>
+                        <rect key="frame" x="18" y="107" width="348" height="35"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="35" id="LkP-sF-KIY"/>
                         </constraints>
@@ -57,14 +57,14 @@
                         <textInputTraits key="textInputTraits"/>
                     </textField>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendarIcon" translatesAutoresizingMaskIntoConstraints="NO" id="jKq-Qm-Uic">
-                        <rect key="frame" x="341" y="118.33333333333333" width="15" height="14.999999999999986"/>
+                        <rect key="frame" x="341" y="117" width="15" height="15"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="15" id="Iil-qH-Kha"/>
                             <constraint firstAttribute="height" constant="15" id="N56-CC-g9k"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Schedule Time &amp; Alarm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RSq-tX-yV3">
-                        <rect key="frame" x="16" y="163.33333333333334" width="203" height="22.666666666666657"/>
+                        <rect key="frame" x="16" y="162" width="188" height="21"/>
                         <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="18"/>
                         <color key="textColor" name="424242Color"/>
                         <nil key="highlightedColor"/>

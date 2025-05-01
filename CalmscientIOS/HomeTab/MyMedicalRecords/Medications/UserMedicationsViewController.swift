@@ -315,7 +315,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         
-        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Medications" : "Medicación"
+        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Medications" : "Medicamento"
         self.tabBarController?.tabBar.isHidden = false;
         self.tabBarController?.tabBar.selectedItem?.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Home" : "Inicio"//"Home"
         saveButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str:"Save"))
@@ -481,13 +481,16 @@ extension UserMedicationsViewController : UITableViewDataSource,UITableViewDeleg
             cell.subTitleLabel.alpha = 0.5
             cell.titleLabel.alpha = 0.5
             cell.expiredLabel.isHidden = false
-            cell.borderView.backgroundColor = #colorLiteral(red: 0.8557285666, green: 0.8665012121, blue: 0.866311729, alpha: 1)
+            cell.borderView.backgroundColor = #colorLiteral(red: 0.9607843757, green: 0.9607843757, blue: 0.9607843757, alpha: 1)
             cell.timeLabel.alpha = 0.5
+            cell.amTaken.alpha = 0.5
             cell.AMImage.alpha = 0.5
             cell.pmTimeLabel.alpha = 0.5
+            cell.pmTaken.alpha = 0.5
             cell.PMImage.alpha = 0.5
             cell.AFImage.alpha = 0.5
             cell.afTimeLabel.alpha = 0.5
+            cell.afTaken.alpha = 0.5
 
             cell.amButton.isUserInteractionEnabled = false
             cell.pmButton.isUserInteractionEnabled = false
@@ -504,11 +507,14 @@ extension UserMedicationsViewController : UITableViewDataSource,UITableViewDeleg
             cell.expiredLabel.isHidden = true
             cell.dropDownButton.isUserInteractionEnabled = true
             cell.timeLabel.alpha = 1
+            cell.amTaken.alpha = 1
             cell.AMImage.alpha = 1
             cell.pmTimeLabel.alpha = 1
             cell.PMImage.alpha = 1
+            cell.pmTaken.alpha = 1
             cell.AFImage.alpha = 1
             cell.afTimeLabel.alpha = 1
+            cell.afTaken.alpha = 1
             cell.dropDownButton.alpha = 1.0
             
             cell.amButton.isUserInteractionEnabled = true

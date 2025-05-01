@@ -74,18 +74,18 @@
       }
     },
     "oXN-tu-oLQ.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Appointment Detail\"; ObjectID = \"oXN-tu-oLQ\";",
+      "comment" : "Class = \"UILabel\"; text = \"Appointment detail\"; ObjectID = \"oXN-tu-oLQ\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Appointment Detail"
+            "value" : "Appointment detail"
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Detalle de la cita"
           }
         }
@@ -128,18 +128,18 @@
       }
     },
     "yKX-2w-kko.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Send an Alert Notification\"; ObjectID = \"yKX-2w-kko\";",
+      "comment" : "Class = \"UILabel\"; text = \"Send an alert notification\"; ObjectID = \"yKX-2w-kko\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringUnit" : {
             "state" : "new",
-            "value" : "Send an Alert Notification"
+            "value" : "Send an alert notification"
           }
         },
         "es" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "Enviar la notificación"
           }
         }

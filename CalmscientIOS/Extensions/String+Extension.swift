@@ -167,7 +167,7 @@ extension String {
                 if includeTimeZone {
                     let formattedHour = String(format: "%02d", hour)
                     let formattedMinute = String(format: "%02d", minute)
-                    let ampm = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "AM" : "a. m."
+                    let ampm = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "AM" : "AM" //a. m.
                     return "\(formattedHour):\(formattedMinute) \(ampm)"
                 } else {
                     return DayTimeValue.Morning.rawValue 
@@ -179,7 +179,7 @@ extension String {
                     }
                     let formattedHour = String(format: "%02d", hour)
                     let formattedMinute = String(format: "%02d", minute)
-                    let ampm = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "PM" : "p. m."
+                    let ampm = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "PM" : "PM" //p. m.
                     return "\(formattedHour):\(formattedMinute) \(ampm)"
                 } else {
                     return DayTimeValue.Afternoon.rawValue
@@ -191,7 +191,7 @@ extension String {
                     }
                     let formattedHour = String(format: "%02d", hour)
                     let formattedMinute = String(format: "%02d", minute)
-                    let ampm = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "PM" : "p. m."
+                    let ampm = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "PM" : "PM" //p. m.
                     return "\(formattedHour):\(formattedMinute) \(ampm)"
                 } else {
                     return DayTimeValue.Evening.rawValue

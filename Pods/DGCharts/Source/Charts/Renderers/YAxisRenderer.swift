@@ -132,8 +132,12 @@ open class YAxisRenderer: NSObject, AxisRenderer
         let to = axis.isDrawTopYLabelEntryEnabled ? axis.entryCount : (axis.entryCount - 1)
         
         let xOffset = axis.labelXOffset
+        let safeFrom = max(0, min(from, positions.count))
+        let safeTo = max(0, min(to, positions.count))
         
-        for i in from..<to
+        guard safeFrom < safeTo else { return }
+        
+        for i in safeFrom..<safeTo
         {
             let text = axis.getFormattedLabel(i)
             context.drawText(text,

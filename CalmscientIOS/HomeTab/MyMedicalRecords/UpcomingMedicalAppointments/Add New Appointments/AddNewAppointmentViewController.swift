@@ -18,6 +18,9 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
     @IBOutlet weak var location: FontLR16!
     @IBOutlet weak var date: FontLR16!
     @IBOutlet weak var time: FontLR16!
+ 
+    @IBOutlet weak var saveButton: LinearGradientButton!
+    @IBOutlet weak var cancelButton: BorderShadowButton!
     
     
     //viv start
@@ -110,6 +113,8 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
     var dateTimeforParam = String()
     var alert = Int()
     
+    var alerts: [(TimeInterval, String, String)] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.title = EditVc ?? false ? "Edit appointment" : "Add appointment"
@@ -118,6 +123,20 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
             self.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Edit appointment" : "Editar cita"
         } else {
             self.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Add appointment" : "Agregar nueva cita"
+        }
+        
+        let language = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+        
+        if language == 1 {
+            alerts = [
+                (86400, "Upcoming Appointment", "Don’t forget your medical appointment tomorrow."),
+                (7200, "Upcoming Appointment", "Your medical appointment is in 2 hours.")
+            ]
+        } else {
+            alerts = [
+                (86400, "Próxima cita", "No olvides tu cita médica de mañana."),
+                (7200, "Próxima cita", "Tu cita médica es en 2 horas.")
+            ]
         }
         
         addRedAsterisk(to: patientName)
@@ -195,6 +214,11 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
             alert = 0
             
         }
+        
+        let font = UIFont(name: "Lexend-Regular", size: 15)
+
+        saveButton.titleLabel?.font = font
+        cancelButton.titleLabel?.font = font
 
     }
 
@@ -351,24 +375,28 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
 
         self.view.hideToastActivity()
         
-        if let responseData = try? JSONSerialization.data(withJSONObject: response, options: []) {
-            do {
-                let decodedResponse = try JSONDecoder().decode(ProviderResponse.self, from: responseData)
-                
-                DispatchQueue.main.async {
-                    self.providerData = decodedResponse.providerList
-                    print("✅ Decoded provider list count:", self.providerData.count)
-                    print("Provider name", self.providerData.first?.firstName ?? "UNKNOWN")
-                    self.dropdownTableView.reloadData()
-                }
-                // Use decodedResponse.locationDetails in your dropdown
-            } catch {
-                print("Decoding error:", error)
+        // Check if the response is a valid Dictionary (JSON object)
+        guard let json = response as? [String: Any] else {
+            print("❌ Invalid response format or error object:", response)
+            return
+        }
+
+        do {
+            let responseData = try JSONSerialization.data(withJSONObject: json, options: [])
+            let decodedResponse = try JSONDecoder().decode(ProviderResponse.self, from: responseData)
+
+            DispatchQueue.main.async {
+                self.providerData = decodedResponse.providerList
+                print("✅ Decoded provider list count:", self.providerData.count)
+                print("Provider name", self.providerData.first?.firstName ?? "UNKNOWN")
+                self.dropdownTableView.reloadData()
             }
-        } else {
-            print("Invalid response format")
+
+        } catch {
+            print("❌ Decoding error:", error)
         }
     }
+
 
     
     //MARK: - Location Details API Response
@@ -438,8 +466,8 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
         if patientName.isEmpty {
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
-                imageSize: CGSize(width: 40, height: 40),
-                title: "Patient Name cannot be empty.",
+                imageSize: CGSize(width: 60, height: 60),
+                title: "Patient name cannot be empty.",
                 okButtonTitle: "Ok",
                 okAction: {
 
@@ -452,8 +480,8 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
         if providerFirstName.isEmpty {
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
-                imageSize: CGSize(width: 40, height: 40),
-                title: "Provider Name cannot be empty.",
+                imageSize: CGSize(width: 60, height: 60),
+                title: "Provider name cannot be empty.",
                 okButtonTitle: "Ok",
                 okAction: {
 
@@ -466,8 +494,8 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
         if locationName.isEmpty {
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
-                imageSize: CGSize(width: 40, height: 40),
-                title: "Location Name cannot be empty.",
+                imageSize: CGSize(width: 60, height: 60),
+                title: "Location name cannot be empty.",
                 okButtonTitle: "Ok",
                 okAction: {
 
@@ -530,12 +558,9 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
                     self.showSuccessAlert(successContent: responseMessage, centreImage: nil, okButtonAction: {
                         
                         if self.alert == 1 {
-                            let alerts: [(TimeInterval, String, String)] = [
-                                (86400, "Upcoming Appointment", "Don’t forget your medical appointment tomorrow."),
-                                (7200, "Upcoming Appointment", "Your medical appointment is in 2 hours.")
-                            ]
 
-                            for (offset, title, body) in alerts {
+
+                            for (offset, title, body) in self.alerts {
                                 scheduleAlarmNotification(
                                     dateTimeString: self.dateTimeforParam,
                                     dateFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
@@ -562,7 +587,7 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
     
     //MARK: - Date / Time Picker Function
     
-    func openPicker(pickerMode: PickerMode) {
+    func openPicker(pickerMode: PickerMode, minimumDate: Date? = nil) {
         guard let parentViewController = self.findViewController() else {
             print("No parent view controller found")
             return
@@ -575,6 +600,7 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
         
         vc.delegate = self
         vc.pickerMode = pickerMode // Set mode (date or time)
+        vc.minimumDate = minimumDate
 
         if #available(iOS 15.0, *) {
             if let sheet = vc.sheetPresentationController {
@@ -604,7 +630,7 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
     
     @IBAction func dateBtnAction(){
         
-        openPicker(pickerMode: .date)
+        openPicker(pickerMode: .date, minimumDate: Date())
         
     }
     
