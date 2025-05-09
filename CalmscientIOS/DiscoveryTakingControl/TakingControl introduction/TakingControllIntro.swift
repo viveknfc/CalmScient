@@ -38,7 +38,7 @@ class TakingControllIntro: UIViewController,UITableViewDelegate,UITableViewDataS
         tableView.dataSource = self
         tableView.delegate = self
         
-        title = "Taking control introduction"
+        title = AppHelper.getLocalizeString(str: "Taking control introduction")
         self.navigationItem.hidesBackButton = true
         
         tableView.register(UINib(nibName: "CustomCell", bundle: nil), forCellReuseIdentifier: "CustomCell")

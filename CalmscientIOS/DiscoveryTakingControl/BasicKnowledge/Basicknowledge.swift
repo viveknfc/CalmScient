@@ -44,13 +44,18 @@ class Basicknowledge: ViewController, UITableViewDelegate, UITableViewDataSource
             navigationItem.leftBarButtonItem = backBarButtonItem
             
             //end
+            
+            let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+            let title = selectedLanguageID == 1 ? "Complete" : "Finalizar"
+            completeButton.setTitle(title, for: .normal)
+            completeButton.titleLabel?.font = UIFont(name: Fonts().lexendLight, size: 14)
 
         }
 
     override func viewWillAppear(_ animated: Bool) {
         
         getBasicKnowledgeQuestions()
-        completeButton.updateTitleForLanguage()
+//        completeButton.updateTitleForLanguage()
 
     }
     
@@ -169,7 +174,11 @@ class Basicknowledge: ViewController, UITableViewDelegate, UITableViewDataSource
     //MARK: - Basic Knowledge API Response
     
     func getresponseforBasicKnowAPI(response: Any) {
-        self.view.hideToastActivity()
+        
+        DispatchQueue.main.async {
+            self.view.hideToastActivity()
+        }
+        
         
         if let responseDict = response as? [String: Any],
            let indexArray = responseDict["index"] as? [[String: Any]] {

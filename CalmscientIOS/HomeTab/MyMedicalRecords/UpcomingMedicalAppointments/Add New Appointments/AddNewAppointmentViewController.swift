@@ -113,6 +113,10 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
     var dateTimeforParam = String()
     var alert = Int()
     
+    var providerAlert = String()
+    var locationAlert = String()
+    var patientAlert = String()
+    
     var alerts: [(TimeInterval, String, String)] = []
     
     override func viewDidLoad() {
@@ -132,11 +136,17 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
                 (86400, "Upcoming Appointment", "Don’t forget your medical appointment tomorrow."),
                 (7200, "Upcoming Appointment", "Your medical appointment is in 2 hours.")
             ]
+            providerAlert = "Provider name cannot be empty"
+            locationAlert = "Location name cannot be empty"
+            patientAlert = "Patient name cannot be empty"
         } else {
             alerts = [
                 (86400, "Próxima cita", "No olvides tu cita médica de mañana."),
                 (7200, "Próxima cita", "Tu cita médica es en 2 horas.")
             ]
+            providerAlert = "El nombre del proveedor no puede estar vacío"
+            locationAlert = "El nombre de la ubicación no puede estar vacío"
+            patientAlert = "El nombre del paciente no puede estar vacío"
         }
         
         addRedAsterisk(to: patientName)
@@ -467,7 +477,7 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 60, height: 60),
-                title: "Patient name cannot be empty.",
+                title: patientAlert,
                 okButtonTitle: "Ok",
                 okAction: {
 
@@ -481,7 +491,7 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 60, height: 60),
-                title: "Provider name cannot be empty.",
+                title: providerAlert,
                 okButtonTitle: "Ok",
                 okAction: {
 
@@ -495,7 +505,7 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 60, height: 60),
-                title: "Location name cannot be empty.",
+                title: locationAlert,
                 okButtonTitle: "Ok",
                 okAction: {
 

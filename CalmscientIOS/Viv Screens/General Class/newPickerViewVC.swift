@@ -39,10 +39,10 @@ class newPickerViewVC: UIViewController {
         switch pickerMode {
         case .date:
             dateSelector.datePickerMode = .date
-            titleLabel.text = "Please select date"
+            titleLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Please select date" : "Por favor, seleccione la fecha"
         case .time:
             dateSelector.datePickerMode = .time
-            titleLabel.text = "Please select time"
+            titleLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Please select time" : "Por favor, seleccione la hora"
         }
         
         if let minimumDate = minimumDate {

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -33,21 +33,22 @@
                                 <color key="textColor" name="MainTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBG-WR-Qc6" customClass="CapsuleButton" customModule="CalmscientIOS" customModuleProvider="target">
-                                <rect key="frame" x="30" y="371.33333333333331" width="333" height="45"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBG-WR-Qc6" customClass="LinearGradientButton" customModule="CalmscientIOS" customModuleProvider="target">
+                                <rect key="frame" x="30" y="371.33333333333331" width="333" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="oI3-Qp-9tb"/>
+                                    <constraint firstAttribute="height" constant="40" id="oI3-Qp-9tb"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="filled" title="Verify Code">
-                                    <color key="baseBackgroundColor" name="AppThemeColor"/>
-                                </buttonConfiguration>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Verify Code"/>
                                 <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="topGradientColor">
-                                        <color key="value" name="AppThemeColor"/>
+                                        <color key="value" name="GradientButtonColor1"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="color" keyPath="bottomGradientColor">
-                                        <color key="value" name="AppThemeColor"/>
+                                        <color key="value" name="GradientButtonColor2"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
@@ -55,7 +56,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Haven’t got the email yet? Resend email" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kth-lk-KDW">
-                                <rect key="frame" x="30" y="446.33333333333331" width="333" height="50"/>
+                                <rect key="frame" x="30" y="441.33333333333331" width="333" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="IPu-94-wSc"/>
                                 </constraints>
@@ -164,14 +165,17 @@
     </scenes>
     <designables>
         <designable name="tBG-WR-Qc6">
-            <size key="intrinsicContentSize" width="113" height="34.333333333333336"/>
+            <size key="intrinsicContentSize" width="94" height="34"/>
         </designable>
     </designables>
     <resources>
         <image name="RectangleText" width="58" height="58"/>
         <image name="waveBackground" width="420" height="207"/>
-        <namedColor name="AppThemeColor">
-            <color red="0.43137254901960786" green="0.41960784313725491" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="GradientButtonColor1">
+            <color red="0.42745098039215684" green="0.41960784313725491" blue="0.70196078431372544" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="GradientButtonColor2">
+            <color red="0.17254901960784313" green="0.20000000000000001" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="MainTextColor">
             <color red="0.25882352941176473" green="0.25882352941176473" blue="0.25882352941176473" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

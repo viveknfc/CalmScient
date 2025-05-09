@@ -99,6 +99,24 @@ class NeedToTalkViewController: ViewController {
         navigationController?.navigationBar.titleTextAttributes = attributes
         needToTalkTableView.reloadData()
         // Do any additional setup after loading the view.
+        
+        // Enable interaction
+        phoneNumber.isUserInteractionEnabled = true
+        
+        // Add tap gesture
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(callPhoneNumber))
+        phoneNumber.addGestureRecognizer(tapGesture)
+        
+    }
+    
+    @objc func callPhoneNumber() {
+        guard let number = phoneNumber.text,
+              let url = URL(string: "tel://\(number.filter { $0.isNumber })"),
+              UIApplication.shared.canOpenURL(url) else {
+            // Optionally handle invalid number or error
+            return
+        }
+        UIApplication.shared.open(url)
     }
     
     func setupLanguage() {

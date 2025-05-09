@@ -21,11 +21,18 @@ class JournalEntryEditView: UIView, UITextViewDelegate {
     
     weak var journalEntryEditActionDelegate:JournalEntryEditViewActions?
     var editingIndexPath:IndexPath = IndexPath(row: 0, section: 0)
-    lazy var initialText:String = "Add your Journal Here" {
-        didSet {
-            journalTextView.text = initialText
-        }
-    }
+    
+    var initialText: String = ""
+    
+//    lazy var initialText: String = {
+//        let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+//        return selectedLanguageID == 1 ? "Add your Journal Here" : "Agregue su registro del diario aquí"
+//    }() {
+//        didSet {
+//            journalTextView.text = initialText
+//        }
+//    }
+
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         loadViewFromNib(nibName: "JournalEntryEditView")
@@ -39,13 +46,20 @@ class JournalEntryEditView: UIView, UITextViewDelegate {
     }
     
     private func updateTextView() {
+        let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
         self.journalTextView.layer.borderColor = UIColor(named: "UserRegistrationTextViewBorderColor")?.cgColor
         self.journalTextView.backgroundColor = UIColor(named: "UserRegistrationTextViewBackgroundColor")
         self.journalTextView.layer.borderWidth = 1.0
         self.journalTextView.layer.cornerRadius = 4
-        self.updateButton.setAttributedTitleWithGradientDefaults(title: "Add")
+        let updateTitle = selectedLanguageID == 1 ? "Add" : "Agregar"
+        self.updateButton.setAttributedTitleWithGradientDefaults(title: updateTitle)
         self.journalTextView.textContainerInset = UIEdgeInsets(top: 15, left: 16, bottom: 15, right: 10)
+        
+        self.initialText = selectedLanguageID == 1 ? "Add your journal here" : "Agregue su registro del diario aquí"
+        journalTextView.text = initialText
         self.journalTextView.delegate = self
+
+        entryTitleLabel.text = selectedLanguageID == 1 ? "Add journal entry" : "Agregar registro del diario"
         
     }
     

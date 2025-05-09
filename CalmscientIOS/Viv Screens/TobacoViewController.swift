@@ -35,8 +35,10 @@ class TobacoViewController: ViewController {
             "patientId": userInfo.patientID,
             "sectionId":sectionID1 ?? 0
         ]
+        
+        print("param of tobacco vc is", params)
 
-        APIService.DUpdateBasicKAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
+        APIService.SUpdateBasicKAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
             self.getresponseforBasicKnowAPI(response: response)
         }
     }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class UpdatePasswordVC: ViewController,UITextFieldDelegate {
+class UpdatePasswordVC: UIViewController,UITextFieldDelegate {
     @IBOutlet var updateView: UIView!
     
     @IBOutlet weak var updateImage: UIImageView!
@@ -22,7 +22,7 @@ class UpdatePasswordVC: ViewController,UITextFieldDelegate {
     @IBOutlet weak var showPasswordBtn: UIButton!
     @IBOutlet weak var showConfirmPasswordBtn: UIButton!
     
-    @IBOutlet weak var updatePasswordButton: CapsuleButton!
+    @IBOutlet weak var updatePasswordButton: LinearGradientButton!
     private var customAlertBackgroundView:UIVisualEffectView?
     var updateEmailString = ""
     override func viewDidLoad() {
@@ -65,10 +65,13 @@ class UpdatePasswordVC: ViewController,UITextFieldDelegate {
         updateView.isHidden = true
         passwordTF.delegate = self
         confirmPasswordTF.delegate = self
+        
+        self.title = "Update password"
+        self.navigationItem.hidesBackButton = true
     }
     func updateForgetPassword(emailId: String,newPassword: String,confirmPasword: String, completion: @escaping (Result<Data, Error>) -> Void){
         // Define the URL
-        guard let url = URL(string: "http://20.197.5.97:8083/identity/api/v1/settings/forgetPassword") else {
+        guard let url = URL(string: "https://calmscient.in/api/identity/api/v1/settings/forgetPassword") else {
             print("Invalid URL")
             return
         }
@@ -197,7 +200,21 @@ class UpdatePasswordVC: ViewController,UITextFieldDelegate {
                                 print(json)
                                 
                                 self.showSuccessAlert(successContent: "Updated successfully", centreImage: nil, okButtonAction: {
-                                    
+                                    if #available(iOS 16.0, *) {
+                                        let homeController = UIStoryboard(name: "LoginVC", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+                                        let navC = UINavigationController(rootViewController: homeController)
+                                        navC.navigationBar.isHidden = true
+
+                                        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
+                                           let window = sceneDelegate.window {
+                                            window.rootViewController = navC
+                                            window.makeKeyAndVisible()
+                                        }
+                                    } else {
+                                        // Fallback on earlier versions
+                                        print("Login movement stopped here")
+                                    }
+
                                 })
                                 
 //                                self.view.hideToastActivity()

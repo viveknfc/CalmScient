@@ -8,7 +8,7 @@
 // Profile
 
 "Profile" = "Perfil";
-"Version 1.0.1" = "Versión 1.1.1";
+"Version 1.0.1" = "Versión 1.1.3";
 
 
 // Login
@@ -183,7 +183,7 @@ Estos individuos tienden a beber más, socializar con personas que beben mucho y
 //discovery main view controller
 "Managing Anxiety" = "Manejando la ansiedad";
 "Managing Stress" = "Manejando el estrés";
-"Taking Control" = "Tomando el control";
+"Taking control" = "Tomando el control";
 
 //custom alert view
 "Your License key has
@@ -547,6 +547,13 @@ Pay careful attention to the following video." = "Ahora, vamos a sumergirnos en 
 El alcohol es un factor en:";
 
 //MARK: SMOKING CONTROL
+
+//Delete Medication
+
+"Confirm Deletion" = "¿Estás seguro?";
+"Are you sure you want to delete this medication?" = "¿Quieres eliminar este medicamento?";
+"Yes" = "Sí";
+"No" = "No";
 
 /*  Introduction  */
 "DRINKING_CONTROL_Intro" = "Hablemos sobre el alcohol y las drogas. No tomará mucho de tu tiempo. ¡Lo prometo!

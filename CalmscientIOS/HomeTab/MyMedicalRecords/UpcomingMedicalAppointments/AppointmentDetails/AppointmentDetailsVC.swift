@@ -31,7 +31,7 @@ class AppointmentDetailsVC: ViewController {
     var medicalAppointment:MedicalAppointmentDetailsByDate? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Appointment details"
+//        self.title = "Appointment details"
         doctorIconView.layer.cornerRadius = doctorIconView.frame.height / 2
         guard let appointDetails = medicalAppointment else {
             return
@@ -79,7 +79,7 @@ class AppointmentDetailsVC: ViewController {
                 UserDefaults.standard.set("es", forKey: "Language")
             }
         dataAndTimeLabel.text = AppHelper.getLocalizeString(str:"Date and Time")
-        self.title = AppHelper.getLocalizeString(str:"Appointment details")
+        self.title = AppHelper.getLocalizeString(str:"Appointment Details")
         contactLabel.text =  AppHelper.getLocalizeString(str:"Contact")
         addressLabel.text = AppHelper.getLocalizeString(str:"Address")
         appointmentDetalLabel.text = AppHelper.getLocalizeString(str:"Appointment Detail")

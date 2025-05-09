@@ -73,6 +73,9 @@ class BreathingTechniqueType1: ViewController {
     
     @IBOutlet weak var completeButton: UIButton!
     
+    @IBOutlet weak var forwardButton: UIButton!
+    @IBOutlet weak var backwardButton: UIButton!
+    
     override func viewDidLoad() {
         
         self.view.backgroundColor = .white
@@ -135,6 +138,10 @@ class BreathingTechniqueType1: ViewController {
         setFavImage()
         let favImgTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(favImgTapped(sender:)))
         favImg.addGestureRecognizer(favImgTapGestureRecognizer)
+        
+        let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+        let title = selectedLanguageID == 1 ? "Complete" : "Finalizar"
+        completeButton.setTitle(title, for: .normal)
     }
     
     func uiLabelsSetup(){
@@ -310,11 +317,31 @@ class BreathingTechniqueType1: ViewController {
         videoView.bringSubviewToFront(favImg)
         videoView.bringSubviewToFront(maximiseImg)
         videoView.bringSubviewToFront(progressBar)
+        videoView.bringSubviewToFront(forwardButton)
+        videoView.bringSubviewToFront(backwardButton)
+
         player.pause()
         addPeriodicTimeObserver()
         bringControlsToFront()
     }
-
+    
+    @IBAction func playerForwardButtonPressed(_ sender: Any) {
+        guard let player = player, let duration = player.currentItem?.duration else { return }
+        let currentTime = CMTimeGetSeconds(player.currentTime())
+        let durationSeconds = CMTimeGetSeconds(duration)
+        let newTime = min(currentTime + 10, durationSeconds)
+        player.seek(to: CMTime(seconds: newTime, preferredTimescale: 600))
+    }
+    
+    
+    @IBAction func playerBackwardButtonPressed(_ sender: Any) {
+        guard let player = player else { return }
+        let currentTime = CMTimeGetSeconds(player.currentTime())
+        let newTime = max(currentTime - 10, 0)
+        player.seek(to: CMTime(seconds: newTime, preferredTimescale: 600))
+    }
+    
+    
     func setupProgressBar() {
         progressBar.value = 0
         progressBar.addTarget(self, action: #selector(sliderValueChanged(_:)), for: .valueChanged)

@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Lexend-Medium.ttf">
+        <array key="lexendmedium.ttf">
             <string>Lexend-Medium</string>
         </array>
-        <array key="Lexend-Regular.ttf">
+        <array key="lexendregular.ttf">
             <string>Lexend-Regular</string>
         </array>
     </customFonts>
@@ -79,6 +79,9 @@
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZVc-JN-chQ">
                                 <rect key="frame" x="16" y="152" width="358" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="YaA-es-0JR"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="15"/>
                                 <color key="textColor" name="MainTextColor"/>
                                 <nil key="highlightedColor"/>
@@ -94,8 +97,11 @@
                                 </connections>
                             </datePicker>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2Fo-qK-kE6">
-                                <rect key="frame" x="0.0" y="337" width="390" height="473"/>
+                                <rect key="frame" x="0.0" y="337" width="390" height="0.0"/>
                                 <color key="backgroundColor" name="AppBackGroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" id="2Uh-4b-8bY"/>
+                                </constraints>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>

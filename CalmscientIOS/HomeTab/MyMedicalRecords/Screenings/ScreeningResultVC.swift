@@ -32,6 +32,10 @@ class ScreeningResultVC: ViewController {
     @IBOutlet weak var scoreMarkedLabel: UILabel!
     
     @IBOutlet weak var totalscoreLabelText: UILabel!
+    
+    var isComingFromParticularVC = false
+    var isComingFromParticularVC1 = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -68,9 +72,27 @@ class ScreeningResultVC: ViewController {
     }
     
     @objc func backButtonOverrideAction() {
-        let next = UIStoryboard(name: "ScreeningListVC", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "ScreeningListVC") as? ScreeningListVC
-        self.navigationController?.pushViewController(vc!, animated: true)
+        
+        if isComingFromParticularVC {
+            let next = UIStoryboard(name: "ScreeningListVC", bundle: nil)
+            let vc = next.instantiateViewController(withIdentifier: "ScreeningListVC") as? ScreeningListVC
+            if isComingFromParticularVC {
+                vc?.isComingFromParticularVC = true
+            }
+            self.navigationController?.pushViewController(vc!, animated: true)
+        } else if isComingFromParticularVC1 {
+            let next = UIStoryboard(name: "ScreeningListVC", bundle: nil)
+            let vc = next.instantiateViewController(withIdentifier: "ScreeningListVC") as? ScreeningListVC
+            if isComingFromParticularVC1 {
+                vc?.isComingFromParticularVC1 = true
+            }
+            self.navigationController?.pushViewController(vc!, animated: true)
+        } else {
+            let next = UIStoryboard(name: "ScreeningListVC", bundle: nil)
+            let vc = next.instantiateViewController(withIdentifier: "ScreeningListVC") as? ScreeningListVC
+
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
     
         }
     
@@ -136,6 +158,7 @@ class ScreeningResultVC: ViewController {
                 if let _ = error {
                     self.view.showToast(message: "An Unknown error occured. Please check with Admin")
                 } else if let response = response {
+                    print("the screening result is \(self.screeningResult?.score ?? 101)")
                     self.screeningResult = response.screeningResults
                     self.totalScoreLbl.text = "\(self.screeningResult?.total ?? 0)"
                     self.scoreLbl.text =  "\(self.screeningResult?.score ?? 0)"

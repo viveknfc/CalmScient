@@ -45,9 +45,13 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: true)
         }
-        
         TakingControlData ()
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("Frame:", self.view.frame)
     }
     
     let data = [("Basic knowledge", UIImage(named: "check") ?? UIImage()), ("Make a plan", UIImage(named: "check") ?? UIImage()), ("Stay focused", UIImage(named: "check") ?? UIImage()), ("My progress", UIImage(named: "check") ?? UIImage())]
@@ -160,7 +164,7 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
             } else if indexPath.row == 2 {
                 let next = UIStoryboard(name: "ScreeningListVC", bundle: nil)
                 let vc = next.instantiateViewController(withIdentifier: "ScreeningListVC") as? ScreeningListVC
-                vc?.isComingFromParticularVC = true
+                vc?.isComingFromParticularVC1 = true
                 self.navigationController?.pushViewController(vc!, animated: true)
             }
         }

@@ -41,6 +41,7 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
     var cellTitleList: [String] = []
     var licenseKey : String = ""
     var alarmValue: Int = 0
+    var alarmTile: String = ""
     
     fileprivate let tableRows:[ProfileTableCells] = [.ProfileDefaultTableViewCell,
                                                      
@@ -63,6 +64,7 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
         
         self.navigationController?.isNavigationBarHidden = false
         self.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Settings" : "Ajustes"
+        self.alarmTile = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Alarm settings" : "Configuración de la alarma"
         setupView()
         setupTableView()
         setupLanguage()
@@ -180,111 +182,111 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
             presentingVC.dimmingView?.removeFromSuperview()
         }
     }
-    func handleUserProfileResponse(data: Data) {
-        do {
-            if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-               let settings = json["settings"] as? [String: Any] {
-                DispatchQueue.main.async {
-                    print("getUserProfile,\(json)")
-                    self.view.hideToastActivity()
-                    
-                    if let imageUrlString = settings["profileImage"] as? String, let url = URL(string: imageUrlString) {
-                        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-                            if let data = data, error == nil {
-                                DispatchQueue.main.async {
-                                    self.profileIcon.image = UIImage(data: data)
-                                }
-                            } else {
-                                print("Failed to load profile image: \(error?.localizedDescription ?? "No error info")")
-                            }
-                        }
-                        task.resume()
-                    }
-                    
-                    if let imageUrlString = settings["profileImage"] as? String, let url = URL(string: imageUrlString) {
-                        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-                            if let data = data, let image = UIImage(data: data) {
-                                DispatchQueue.main.async {
-                                    self.profileIcon.image = image
-                                }
-                            }
-                        }
-                        task.resume()
-                    }
-
-                    if let profileIcon = settings["profileIcon"] as? String {
-                        self.profileIconList.append(profileIcon)
-                    }
-                    if let profileTitle = settings["profileTitle"] as? String {
-                        self.cellTitleList.append(profileTitle)
-                    }
-                    if let themeDetails = settings["themeDetails"] as? [String: Any] {
-                        if let themeIcon = themeDetails["themeIcon"] as? String {
-//                            self.profileIconList.append(themeIcon)
-                        }
-                        if let themeTitle = themeDetails["themeTitle"] as? String {
-//                            self.cellTitleList.append(themeTitle)
-                        }
-                    }
-                    if let languageIcon = settings["languageIcon"] as? String {
-                        self.profileIconList.append(languageIcon)
-                    }
-                    if let languageTitle = settings["languageTitle"] as? String {
-                        self.cellTitleList.append(languageTitle)
-                    }
-                    
-                    if let privacyIcon = settings["privacyIcon"] as? String {
-                        self.profileIconList.append(privacyIcon)
-                    }
-                    if let privacyTitle = settings["privacyTitle"] as? String {
-                        self.cellTitleList.append(privacyTitle)
-                    }
-                    if let alarmSetting = settings["alarmDuration"] as? Int {
-                        let alarmTitle = "Alarm settings"
-                        self.alarmValue = alarmSetting
-                        self.cellTitleList.append(alarmTitle)
-                    }
-
-                    if let notificationIcon = settings["notificationIcon"] as? String {
-                        self.profileIconList.append(notificationIcon)
-                    }
-                    if let notificationTitle = settings["notificationTitle"] as? String {
-                        self.cellTitleList.append(notificationTitle)
-                    }
-                    if let licenseDetails = settings["licenseDetails"] as? [String: Any] {
-                        if let licenseIcon = licenseDetails["licenseIcon"] as? String {
-                            self.profileIconList.append(licenseIcon)
-                        }
-                        if let licenseTitle = licenseDetails["licenseTitle"] as? String {
-                            self.cellTitleList.append(licenseTitle)
-                        }
-                        self.licenseKey = licenseDetails["licenseKey"] as! String
-                    }
-                    if let helpIcon = settings["helpIcon"] as? String {
-                        self.profileIconList.append(helpIcon)
-                    }
-                    if let helpTitle = settings["helpTitle"] as? String {
-                        self.cellTitleList.append(helpTitle)
-                    }
-                    if let logoutIcon = settings["logoutIcon"] as? String {
-                        self.profileIconList.append(logoutIcon)
-                    }
-                    if let logoutTitle = settings["logoutTitle"] as? String {
-                        self.cellTitleList.append(logoutTitle)
-                    }
-                    
-                    // Reload table view or perform any UI updates
-                    print("profileIconList:\(self.profileIconList)")
-                    print("cellTitleList:\(self.cellTitleList)")
-                    self.profileTableView.reloadData()
-                }
-            } else {
-                print("Unable to convert data to JSON")
-            }
-        } catch {
-            print("Error converting data to JSON: \(error)")
-        }
-    }
+//    func handleUserProfileResponse(data: Data) {
+//        do {
+//            if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+//               let settings = json["settings"] as? [String: Any] {
+//                DispatchQueue.main.async {
+//                    print("getUserProfile,\(json)")
+//                    self.view.hideToastActivity()
+//                    
+//                    if let imageUrlString = settings["profileImage"] as? String, let url = URL(string: imageUrlString) {
+//                        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+//                            if let data = data, error == nil {
+//                                DispatchQueue.main.async {
+//                                    self.profileIcon.image = UIImage(data: data)
+//                                }
+//                            } else {
+//                                print("Failed to load profile image: \(error?.localizedDescription ?? "No error info")")
+//                            }
+//                        }
+//                        task.resume()
+//                    }
+//                    
+//                    if let imageUrlString = settings["profileImage"] as? String, let url = URL(string: imageUrlString) {
+//                        let task = URLSession.shared.dataTask(with: url) { data, response, error in
+//                            if let data = data, let image = UIImage(data: data) {
+//                                DispatchQueue.main.async {
+//                                    self.profileIcon.image = image
+//                                }
+//                            }
+//                        }
+//                        task.resume()
+//                    }
+//
+//                    if let profileIcon = settings["profileIcon"] as? String {
+//                        self.profileIconList.append(profileIcon)
+//                    }
+//                    if let profileTitle = settings["profileTitle"] as? String {
+//                        self.cellTitleList.append(profileTitle)
+//                    }
+//                    if let themeDetails = settings["themeDetails"] as? [String: Any] {
+//                        if let themeIcon = themeDetails["themeIcon"] as? String {
+////                            self.profileIconList.append(themeIcon)
+//                        }
+//                        if let themeTitle = themeDetails["themeTitle"] as? String {
+////                            self.cellTitleList.append(themeTitle)
+//                        }
+//                    }
+//                    if let languageIcon = settings["languageIcon"] as? String {
+//                        self.profileIconList.append(languageIcon)
+//                    }
+//                    if let languageTitle = settings["languageTitle"] as? String {
+//                        self.cellTitleList.append(languageTitle)
+//                    }
+//                    
+//                    if let privacyIcon = settings["privacyIcon"] as? String {
+//                        self.profileIconList.append(privacyIcon)
+//                    }
+//                    if let privacyTitle = settings["privacyTitle"] as? String {
+//                        self.cellTitleList.append(privacyTitle)
+//                    }
+//                    if let alarmSetting = settings["alarmDuration"] as? Int {
+//                        let alarmTitle = "Alarm settings"
+//                        self.alarmValue = alarmSetting
+//                        self.cellTitleList.append(alarmTitle)
+//                    }
+//
+//                    if let notificationIcon = settings["notificationIcon"] as? String {
+//                        self.profileIconList.append(notificationIcon)
+//                    }
+//                    if let notificationTitle = settings["notificationTitle"] as? String {
+//                        self.cellTitleList.append(notificationTitle)
+//                    }
+//                    if let licenseDetails = settings["licenseDetails"] as? [String: Any] {
+//                        if let licenseIcon = licenseDetails["licenseIcon"] as? String {
+//                            self.profileIconList.append(licenseIcon)
+//                        }
+//                        if let licenseTitle = licenseDetails["licenseTitle"] as? String {
+//                            self.cellTitleList.append(licenseTitle)
+//                        }
+//                        self.licenseKey = licenseDetails["licenseKey"] as! String
+//                    }
+//                    if let helpIcon = settings["helpIcon"] as? String {
+//                        self.profileIconList.append(helpIcon)
+//                    }
+//                    if let helpTitle = settings["helpTitle"] as? String {
+//                        self.cellTitleList.append(helpTitle)
+//                    }
+//                    if let logoutIcon = settings["logoutIcon"] as? String {
+//                        self.profileIconList.append(logoutIcon)
+//                    }
+//                    if let logoutTitle = settings["logoutTitle"] as? String {
+//                        self.cellTitleList.append(logoutTitle)
+//                    }
+//                    
+//                    // Reload table view or perform any UI updates
+//                    print("profileIconList:\(self.profileIconList)")
+//                    print("cellTitleList:\(self.cellTitleList)")
+//                    self.profileTableView.reloadData()
+//                }
+//            } else {
+//                print("Unable to convert data to JSON")
+//            }
+//        } catch {
+//            print("Error converting data to JSON: \(error)")
+//        }
+//    }
     func updateUserLanguage(patientId: Int, clientId: Int, languageId: Int,bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void) {
         // Define the URL
         guard let url = URL(string: "\(baseURLString)identity/api/v1/settings/updateUserLanguage") else {
@@ -344,67 +346,67 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
         // Start the data task
         task.resume()
     }
-    func getUserProfile(plId: Int, patientId: Int, clientId: Int, bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void) {
-        // Define the URL
-        guard let url = URL(string: "\(baseURLString)identity/api/v1/settings/getUserProfile") else {
-            print("Invalid URL")
-            return
-        }
-        
-        // Create the request
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer \(bearerToken)", forHTTPHeaderField: "Authorization")
-        
-        
-        // Define the JSON payload
-        let payload: [String: Any] = [
-            "plId": plId,
-            "patientId": patientId,
-            "clientId": clientId,
-        ]
-        
-        print("the poayload for profile pic is", payload)
-        
-        do {
-            let jsonData = try JSONSerialization.data(withJSONObject: payload, options: [])
-            request.httpBody = jsonData
-            print(jsonData)
-        } catch {
-            print("Error converting payload to JSON: \(error)")
-            completion(.failure(error))
-            return
-        }
-        
-        // Create the URLSession data task
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            if let error = error {
-                print("Error with request: \(error)")
-                completion(.failure(error))
-                return
-            }
-            
-            guard let data = data else {
-                print("No data received")
-                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
-                return
-            }
-            do {
-                _ = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
-                //  print("Response JSON: \(jsonResponse)")
-            } catch {
-                print("Error parsing JSON response: \(error)")
-                completion(.failure(error))
-                return
-            }
-            // If needed, handle the response here
-            completion(.success(data))
-        }
-        
-        // Start the data task
-        task.resume()
-    }
+//    func getUserProfile(plId: Int, patientId: Int, clientId: Int, bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void) {
+//        // Define the URL
+//        guard let url = URL(string: "\(baseURLString)identity/api/v1/settings/getUserProfile") else {
+//            print("Invalid URL")
+//            return
+//        }
+//        
+//        // Create the request
+//        var request = URLRequest(url: url)
+//        request.httpMethod = "POST"
+//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+//        request.setValue("Bearer \(bearerToken)", forHTTPHeaderField: "Authorization")
+//        
+//        
+//        // Define the JSON payload
+//        let payload: [String: Any] = [
+//            "plId": plId,
+//            "patientId": patientId,
+//            "clientId": clientId,
+//        ]
+//        
+//        print("the poayload for profile pic is", payload)
+//        
+//        do {
+//            let jsonData = try JSONSerialization.data(withJSONObject: payload, options: [])
+//            request.httpBody = jsonData
+//            print(jsonData)
+//        } catch {
+//            print("Error converting payload to JSON: \(error)")
+//            completion(.failure(error))
+//            return
+//        }
+//        
+//        // Create the URLSession data task
+//        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+//            if let error = error {
+//                print("Error with request: \(error)")
+//                completion(.failure(error))
+//                return
+//            }
+//            
+//            guard let data = data else {
+//                print("No data received")
+//                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
+//                return
+//            }
+//            do {
+//                _ = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
+//                //  print("Response JSON: \(jsonResponse)")
+//            } catch {
+//                print("Error parsing JSON response: \(error)")
+//                completion(.failure(error))
+//                return
+//            }
+//            // If needed, handle the response here
+//            completion(.success(data))
+//        }
+//        
+//        // Start the data task
+//        task.resume()
+//    }
     func getUserTheme(patientId: Int, clientId: Int, bearerToken: String,dark: Int, completion: @escaping (Result<Data, Error>) -> Void) {
         // Define the URL
         guard let url = URL(string: "\(baseURLString)identity/api/v1/settings/updatePatientTheme") else {
@@ -657,17 +659,123 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
         guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
             fatalError("Unable to found Application Shared Info")
         }
-        getUserProfile(plId: userInfo.patientLocationID, patientId: userInfo.patientID, clientId: userInfo.clientID,bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken){ [self] result in
-            switch result {
-            case .success(let data):
-                handleUserProfileResponse(data: data)
-            case .failure(let error):
-                print("Error: \(error)")
-            }
+        
+        let payload: [String: Any] = [
+            "plId": userInfo.patientLocationID,
+            "patientId": userInfo.patientID,
+            "clientId": userInfo.clientID,
+        ]
+        self.view.showToastActivity()
+        
+//        getUserProfile(plId: userInfo.patientLocationID, patientId: userInfo.patientID, clientId: userInfo.clientID,bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken){ [self] result in
+//            switch result {
+//            case .success(let data):
+//                handleUserProfileResponse(data: data)
+//            case .failure(let error):
+//                print("Error: \(error)")
+//            }
+            
+//        }
+        
+        APIService.profilePicAPICalling(
+            self,
+            params: payload,
+            method: "POST",
+            accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken,
+            acces: false,
+            parameterPlacement: "body"
+        ) { response in
+            self.handleUserProfileResponse1(response: response)
             
         }
         
     }
+    
+    //MARK: - Profile Pic API Response
+    
+    func handleUserProfileResponse1(response: AnyObject) -> () {
+        DispatchQueue.main.async {
+            self.view.hideToastActivity()
+        }
+        
+        if let responseString = response as? String {
+            print("Response received from Profile API is:", responseString)
+        } else if let responseDict = response as? [String: Any] {
+            print("Parsed Profile API Response:", responseDict)
+            
+            guard let settings = responseDict["settings"] as? [String: Any] else {
+                print("Settings not found in response")
+                return
+            }
+
+            // Load profile image
+            if let imageUrlString = settings["profileImage"] as? String,
+               let url = URL(string: imageUrlString) {
+                URLSession.shared.dataTask(with: url) { data, response, error in
+                    if let data = data, let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self.profileIcon.image = image
+                        }
+                    } else {
+                        print("Failed to load profile image: \(error?.localizedDescription ?? "No error info")")
+                    }
+                }.resume()
+            }
+            
+            // PROFILE
+            if let title = settings["profileTitle"] as? String {
+                self.cellTitleList.append(title)
+            }
+
+            // LANGUAGE
+            if let title = settings["languageTitle"] as? String {
+                self.cellTitleList.append(title)
+            }
+
+            // PRIVACY
+            if let title = settings["privacyTitle"] as? String {
+                self.cellTitleList.append(title)
+            }
+
+            // ALARM
+            if let alarmDuration = settings["alarmDuration"] as? Int {
+                self.alarmValue = alarmDuration
+                self.cellTitleList.append("Alarm settings")
+            }
+
+            // NOTIFICATIONS
+            if let title = settings["notificationTitle"] as? String {
+                self.cellTitleList.append(title)
+            }
+
+            // LICENSE
+            if let licenseDetails = settings["licenseDetails"] as? [String: Any] {
+                if let title = licenseDetails["licenseTitle"] as? String {
+                    self.cellTitleList.append(title)
+                }
+                self.licenseKey = licenseDetails["licenseKey"] as? String ?? ""
+            }
+
+            // HELP & SUPPORT
+            if let title = settings["helpTitle"] as? String {
+                self.cellTitleList.append(title)
+            }
+
+            // LOGOUT
+            if let title = settings["logoutTitle"] as? String {
+                self.cellTitleList.append(title)
+            }
+
+
+            // Reload the table
+            DispatchQueue.main.async {
+                self.profileTableView.reloadData()
+            }
+        } else {
+            print("Unsupported response type:", type(of: response))
+        }
+    }
+
     
     //MARK: - Settings Delegate
     

@@ -123,7 +123,7 @@ extension MyDrinkingHabitVC {
         
         guard selectedRowIndex != nil else {
             
-            let alertText = "Please select the stage that applies to you."
+            let alertText = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Please select the stage that applies to you." : "Por favor, seleccione la etapa que le corresponde"
             
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
@@ -219,7 +219,7 @@ extension MyDrinkingHabitVC {
             vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
             self.navigationController?.pushViewController(vc!, animated: true)
         } else {
-            let alertText = "Please select the stage that applies to you."
+            let alertText = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Please select the stage that applies to you." : "Por favor, seleccione la etapa que le corresponde"
             
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),

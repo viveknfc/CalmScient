@@ -130,13 +130,13 @@ class MedicationsDetailViewController: ViewController, UISheetPresentationContro
     //MARK: - Delete Button Action
     
     @IBAction func deleteButtonPressed(_ sender: Any) {
-        let alertController = UIAlertController(title: "Confirm Deletion",
-                                                        message: "Are you sure you want to delete this medication?",
+        let alertController = UIAlertController(title: AppHelper.getLocalizeString(str: "Confirm Deletion"),
+                                                        message: AppHelper.getLocalizeString(str: "Are you sure you want to delete this medication?"),
                                                         preferredStyle: .alert)
                 
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let cancelAction = UIAlertAction(title: AppHelper.getLocalizeString(str: "No"), style: .cancel, handler: nil)
 cancelAction.setValue(#colorLiteral(red: 0.431, green: 0.420, blue: 0.702, alpha: 1), forKey: "titleTextColor")
-                let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+                let deleteAction = UIAlertAction(title: AppHelper.getLocalizeString(str: "Yes"), style: .destructive) { _ in
                     self.deleteMedication()
                 }
                 

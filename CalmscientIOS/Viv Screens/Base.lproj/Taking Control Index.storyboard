@@ -87,7 +87,7 @@
                                 <rect key="frame" x="0.0" y="59" width="393" height="1349"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Gps-TH-RDe">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1000"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="1050"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aDl-If-yy1" userLabel="First Container">
                                                 <rect key="frame" x="0.0" y="0.0" width="393" height="140"/>
@@ -209,7 +209,7 @@
                                                 </prototypes>
                                             </tableView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bjg-re-YSc">
-                                                <rect key="frame" x="0.0" y="380" width="393" height="620"/>
+                                                <rect key="frame" x="0.0" y="380" width="393" height="670"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resources" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZw-b2-aPT" customClass="FontLR18" customModule="CalmscientIOS" customModuleProvider="target">
                                                         <rect key="frame" x="20" y="10" width="353" height="30"/>
@@ -221,10 +221,10 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NHM-qS-Jk8">
-                                                        <rect key="frame" x="0.0" y="40" width="393" height="500"/>
+                                                        <rect key="frame" x="0.0" y="40" width="393" height="550"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="500" id="gG2-xt-OnP"/>
+                                                            <constraint firstAttribute="height" constant="550" id="gG2-xt-OnP"/>
                                                         </constraints>
                                                         <prototypes>
                                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="sKl-hV-UWU" customClass="SmokingIndexResourceTableViewCell" customModule="CalmscientIOS" customModuleProvider="target">
@@ -238,7 +238,7 @@
                                                         </prototypes>
                                                     </tableView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yjx-ZK-Im2" customClass="LinearGradientButton" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="560" width="353" height="40"/>
+                                                        <rect key="frame" x="20" y="610" width="353" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="5Nz-oW-kDu"/>
                                                         </constraints>
@@ -4397,8 +4397,9 @@ your journey</string>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8sG-dX-uZZ" customClass="CapsuleButton2" customModule="CalmscientIOS" customModuleProvider="target">
-                                        <rect key="frame" x="294" y="620" width="39" height="30"/>
+                                        <rect key="frame" x="233" y="620" width="100" height="30"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="NBf-YK-jSh"/>
                                             <constraint firstAttribute="height" constant="30" id="Wi8-sx-mYN"/>
                                         </constraints>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -6857,14 +6858,14 @@ Depression is common because when you smoke a lot, your brain kind of switches o
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="5" reuseIdentifier="AlarmCell" id="J2z-nw-MkN">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="47"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="47.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J2z-nw-MkN" id="DwJ-Zm-npW">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="47"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="47.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhX-TR-85e" customClass="FontLL14" customModule="CalmscientIOS" customModuleProvider="target">
-                                                    <rect key="frame" x="40" y="13" width="313" height="21"/>
+                                                    <rect key="frame" x="40" y="12.999999999999998" width="313" height="21.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

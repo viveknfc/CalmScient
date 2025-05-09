@@ -15,6 +15,7 @@ class TakingControlIndex: ViewController {
     
     @IBOutlet weak var barView: UIView!
     var initialSegmentIndex: Int = 0
+    private var hasSwitchedViewControllerOnce = false
     
     private var currentViewController: UIViewController?
     
@@ -45,7 +46,7 @@ class TakingControlIndex: ViewController {
                 }
         
         takingSegmentControl.selectedSegmentIndex = initialSegmentIndex
-        switchToViewController(withIdentifier: "", sender: initialSegmentIndex)
+//        switchToViewController(withIdentifier: "", sender: initialSegmentIndex)
         updateIndicatorPosition()
         
         self.navigationController?.navigationBar.isHidden = false
@@ -104,6 +105,12 @@ class TakingControlIndex: ViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+        
+        if !hasSwitchedViewControllerOnce {
+            switchToViewController(withIdentifier: "", sender: initialSegmentIndex)
+            hasSwitchedViewControllerOnce = true
+        }
+        
         updateIndicatorPosition()
     }
 

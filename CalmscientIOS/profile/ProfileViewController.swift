@@ -226,7 +226,7 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
         // Proceed with further processing if all validations pass
 
         
-        let params: [String: Any] = ["emailId": email, "userId": userID, "oldPassword": oldPassword, "newPassword": newPassword, "confirmNewPassword": confirmNewPassword]
+        let params: [String: Any] = ["emailId": email, "userId": userID, "oldPassword": oldPassword, "newPassword": newPassword, "confirmNewPassword": confirmNewPassword, "patientId": userInfo.patientID, "clientId": userInfo.clientID]
         
         print("param for update password is ",params)
         

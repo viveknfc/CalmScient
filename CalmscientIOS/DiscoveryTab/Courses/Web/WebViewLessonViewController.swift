@@ -125,23 +125,47 @@ class WebViewLessonViewController: ViewController, WKNavigationDelegate, WKScrip
     @objc func backButtonTapped() {
         print("back button tap function called")
 
-        // Step 1: Remove webView from the view
-        webView.removeFromSuperview()
-
-        // Step 2: Stop loading and destroy it
-        webView.navigationDelegate = nil
-        webView.uiDelegate = nil
-        webView.stopLoading()
-        webView = nil  // This will deallocate and stop all media
-
-        // Step 3: Navigate back
-        if index == 2 || index == 3 {
-            if index == 3 {
-                self.title = "Your results"
+        let stopMediaAndNotifyScript = """
+            document.querySelectorAll('audio, video').forEach(el => {
+                el.pause();
+                el.currentTime = 0;
+                el.src = '';
+                el.load();
+            });
+            if (typeof onAbortCourseGotoIndex === 'function') {
+                onAbortCourseGotoIndex();
             }
-            self.navigationController?.popViewController(animated: true)
+        """
+
+        // Step 1: Execute JS to notify and stop media
+        webView.evaluateJavaScript(stopMediaAndNotifyScript) { [weak self] (result, error) in
+            guard let self = self else { return }
+
+            if let error = error {
+                print("JavaScript error: \(error)")
+            } else {
+                print("JavaScript executed successfully")
+            }
+
+            // Step 2: Remove webView from the view
+            self.webView.removeFromSuperview()
+
+            // Step 3: Stop loading and destroy it
+            self.webView.navigationDelegate = nil
+            self.webView.uiDelegate = nil
+            self.webView.stopLoading()
+            self.webView = nil  // Deallocate and stop media
+
+            // Step 4: Navigate back
+            if self.index == 2 || self.index == 3 {
+                if self.index == 3 {
+                    self.title = "Your results"
+                }
+                self.navigationController?.popViewController(animated: true)
+            }
         }
     }
+
 
     
 //    @objc func backButtonTapped() {

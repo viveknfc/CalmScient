@@ -127,8 +127,27 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
                             }
                     } else {
                         print("Token refresh failed")
-                        self.view.showToast(message: "Token refresh failed")
+//                        self.view.showToast(message: "Token refresh failed")
                         // Handle failure (e.g., logout user, show alert)
+                        
+                        let next = UIStoryboard(name: "LoginVC", bundle: nil)
+                        UserDefaults.standard.set(0, forKey: "rememberMe")
+                        
+                        UserDefaultsHelper.clearLoginDetailsFromUserDefaults()
+                        ApplicationSharedInfo.shared.loginResponse = nil
+                        ApplicationSharedInfo.shared.tokenResponse = nil
+                        
+                        // Add your code to handle the "Yes" action here
+                        if #available(iOS 16.0, *) {
+                            if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+                                let newViewController = next.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+                                let navController = UINavigationController(rootViewController: newViewController)
+                                sceneDelegate.changeRootViewController(to: navController)
+                            }
+                        } else {
+                            // Fallback on earlier versions
+                        }
+                        
                     }
                 }
             }
@@ -218,8 +237,15 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
             return
         }
         
+        let startTime = Date()
+        
         // Create the URLSession data task
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            let endTime = Date()
+            let responseTIme = endTime.timeIntervalSince(startTime)
+            print("the response TIme taking for Fav API from home dashboard is: \(responseTIme) seconds")
+            
             if let error = error {
                 print("Error with request: \(error)")
                 completion(.failure(error))
@@ -268,8 +294,15 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
             return
         }
         
+        let startTime = Date()
+        
         // Create the URLSession data task
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            
+            let endTime = Date()
+            let responseTIme = endTime.timeIntervalSince(startTime)
+            print("the response TIme taking for login VC is: \(responseTIme) seconds")
+            
             if let error = error {
                 print("Error with request: \(error)")
                 completion(.failure(error))

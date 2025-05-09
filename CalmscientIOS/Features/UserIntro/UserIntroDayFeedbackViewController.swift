@@ -162,10 +162,10 @@ class UserIntroDayFeedbackViewController: ViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.timeZone = TimeZone.current //TimeZone(abbreviation: "GMT")
         dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Specify the desired format
         let sampleTime = Date()
-        print("the fetching time is", sampleTime)
+        print("the fetching time in local is ", sampleTime)
         
         fetchDateTime() //for userintro in scene delegate
         
@@ -181,8 +181,23 @@ class UserIntroDayFeedbackViewController: ViewController {
                          self.fetchAPIFunc()
                      } else {
                          print("Token refresh failed")
-                         self.view.showToast(message: "Token refresh failed")
+//                         self.view.showToast(message: "Token refresh failed")
                          // Handle failure (e.g., logout user, show alert)
+                         
+                         let next = UIStoryboard(name: "LoginVC", bundle: nil)
+                         UserDefaults.standard.set(0, forKey: "rememberMe")
+                         
+                         UserDefaultsHelper.clearLoginDetailsFromUserDefaults()
+                         ApplicationSharedInfo.shared.loginResponse = nil
+                         ApplicationSharedInfo.shared.tokenResponse = nil
+
+                             if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+                                 let newViewController = next.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+                                 let navController = UINavigationController(rootViewController: newViewController)
+                                 sceneDelegate.changeRootViewController(to: navController)
+                             }
+
+                         
                      }
                  }
              }
@@ -264,6 +279,7 @@ class UserIntroDayFeedbackViewController: ViewController {
     //MARK: - Fetch Mood Screen Data from API
     
     func fetchAPIFunc() {
+        
         let params:[String:Any] = ["patientLocationId": plId, "clientId": clientId, "patientId": patientId, "time": currentTime!]
         print("the input param for fetch api is", params)
         feedbackTableView.showToastActivity()
@@ -283,19 +299,19 @@ class UserIntroDayFeedbackViewController: ViewController {
         if let responseString = response as? String {
             print("Response received from Fetch API calling is", responseString)
             
-            // Show alert with retry button
-                   let alertController = UIAlertController(title: "Error",
-                                                           message: "Failed to fetch data. Would you like to retry?",
-                                                           preferredStyle: .alert)
-                   
-                   alertController.addAction(UIAlertAction(title: "Retry", style: .default, handler: { _ in
-                       // Call the API again or reload the view
-                       self.viewWillAppear(true)
-                   }))
-                   
-                   alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-                   
-                   self.present(alertController, animated: true)
+            DispatchQueue.main.async {
+                let alertController = UIAlertController(title: "Error",
+                                                        message: "Failed to fetch data. Would you like to retry?",
+                                                        preferredStyle: .alert)
+                
+                alertController.addAction(UIAlertAction(title: "Retry", style: .default, handler: { _ in
+                    self.viewWillAppear(true)
+                }))
+                
+                alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                
+                self.present(alertController, animated: true)
+            }
             
         }
         else if let responseDict = response as? [String: Any] {
@@ -340,7 +356,9 @@ class UserIntroDayFeedbackViewController: ViewController {
                print("Failed to decode UserStartupScreenDayData:", error)
            }
  
-            feedbackTableView.reloadData()
+            DispatchQueue.main.async {
+                self.feedbackTableView.reloadData()
+            }
             
         }
         else {

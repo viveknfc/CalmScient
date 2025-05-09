@@ -235,13 +235,13 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     func didTapDeleteButton(in cell: UITableViewCell) {
         if let indexPath = self.medicationsTableView.indexPath(for: cell) {
             
-            let alertController = UIAlertController(title: "Confirm Deletion",
-                                                            message: "Are you sure you want to delete this medication?",
+            let alertController = UIAlertController(title: AppHelper.getLocalizeString(str: "Confirm Deletion"),
+                                                            message: AppHelper.getLocalizeString(str: "Are you sure you want to delete this medication?"),
                                                             preferredStyle: .alert)
                     
-                    let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+                    let cancelAction = UIAlertAction(title: AppHelper.getLocalizeString(str: "No"), style: .cancel, handler: nil)
             cancelAction.setValue(#colorLiteral(red: 0.431, green: 0.420, blue: 0.702, alpha: 1), forKey: "titleTextColor") // Hex: #6e6bb3
-                    let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+                    let deleteAction = UIAlertAction(title: AppHelper.getLocalizeString(str: "Yes"), style: .destructive) { _ in
                         self.deleteMedication(at: indexPath)
                     }
                     
@@ -379,15 +379,23 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         NetworkAPIRequest.sendRequest(request: requestURL) { [weak self](response: MedicationDetailsResponse?, failureResponse: FailureResponse?, error: Error?) in
             
             print("vivek here", response as Any)
+            print("failureResponse here", failureResponse as Any)
+            print("error here", error?.localizedDescription ?? "nil")
+            
             DispatchQueue.main.async {
                 guard let self = self else {
                     return
                 }
                 if let err = error {
                     self.view.hideToastActivity()
-                    self.view.showToast(message: err.localizedDescription)
-                    
-                } else if let response = response {
+
+                    if (err as NSError).code == NSURLErrorTimedOut {
+                        self.view.showToast(message: "Request timed out. Please try again.")
+                    } else {
+                        self.view.showToast(message: err.localizedDescription)
+                    }
+                }
+                else if let response = response {
                     print("the response code is ", response.response.responseCode)
                     if response.response.responseCode == 200 {
                         // Update medicationData and reload the table

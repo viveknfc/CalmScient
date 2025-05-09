@@ -22,8 +22,7 @@ class UserRegistrationViewController: UIViewController {
     var buttonState1: SelectionButtonState = .dafault
     var buttonState2: SelectionButtonState = .dafault
     var window: UIWindow?
-    
-    var navController: UINavigationController?
+
     private var customAlertBackgroundView:UIVisualEffectView?
     
     override func viewDidLoad() {
@@ -42,7 +41,7 @@ class UserRegistrationViewController: UIViewController {
  
         self.submitButton.setAttributedTitleWithGradientDefaults(title: "Submit")
         self.userLicenseTextView.textContainerInset = UIEdgeInsets(top: 15, left: 16, bottom: 15, right: 10)
-        self.navigationController?.isNavigationBarHidden = true
+        self.navigationController?.isNavigationBarHidden = false
         
         updateButtonImage1()
         updateButtonImage2()
@@ -51,11 +50,37 @@ class UserRegistrationViewController: UIViewController {
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
+        
+        //nav bar back button start
+        let backButtonImage = UIImage(named: "NavigationBack")?.withRenderingMode(.alwaysOriginal)
+
+        // Create a UIButton
+        let backButton = UIButton(type: .custom)
+        backButton.setImage(backButtonImage, for: .normal)
+        backButton.addTarget(self, action: #selector(backButtonOverrideAction), for: .touchUpInside)
+
+        // Set constraints to adjust the size
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.widthAnchor.constraint(equalToConstant: 32).isActive = true // Set desired width
+        backButton.heightAnchor.constraint(equalToConstant: 32).isActive = true // Set desired height
+
+        // Create a UIBarButtonItem using the UIButton
+        let backBarButtonItem = UIBarButtonItem(customView: backButton)
+        navigationItem.leftBarButtonItem = backBarButtonItem
+        
+        //end
+        
     }
     
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
+    
+    @objc func backButtonOverrideAction() {
+        print("back button pressed from user regiastration screen")
+            self.navigationController?.popViewController(animated: true)
+    
+        }
     
     //CHeck Box
     

@@ -87,6 +87,11 @@ class TouchButterflyHug: ViewController {
     
         }
     
+    
+    @IBAction func backButtonBottom(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Touch and the butterfly hug" : "Tacto y el Abrazo de Mariposa"
         setupLanguage()

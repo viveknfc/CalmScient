@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="lexendbold.ttf">
+        <array key="Lexend-Bold.ttf">
             <string>Lexend-Bold</string>
         </array>
         <array key="lexendsemibold.ttf">
@@ -29,8 +29,11 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" bounces="NO" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qfn-q3-KTZ">
                                 <rect key="frame" x="0.0" y="70" width="393" height="748"/>
                                 <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="VJR-k4-xR0">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="799"/>
+                                    </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What’s a standard drink" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3FB-fJ-OYE">
-                                        <rect key="frame" x="20" y="2" width="361" height="22.666666666666668"/>
+                                        <rect key="frame" x="20" y="2" width="353" height="22.666666666666668"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="22.670000000000002" id="xaQ-QX-cTG"/>
                                         </constraints>
@@ -39,7 +42,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bO-eD-udY">
-                                        <rect key="frame" x="20" y="39" width="361" height="180"/>
+                                        <rect key="frame" x="20" y="39" width="353" height="180"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="180" id="M0U-zR-PQ1"/>
                                         </constraints>
@@ -49,20 +52,20 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nsI-Cm-mvi">
-                                        <rect key="frame" x="20" y="239" width="361" height="222"/>
+                                        <rect key="frame" x="20" y="239" width="353" height="222"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6tN-lT-E8e">
-                                                <rect key="frame" x="8" y="8" width="345" height="204"/>
+                                                <rect key="frame" x="8" y="8" width="337" height="204"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="LiO-Sb-fKC">
-                                                        <rect key="frame" x="110" y="8" width="125" height="118"/>
+                                                        <rect key="frame" x="110" y="8" width="117" height="118"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="118" id="19U-RL-bu7"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kK-ln-4s0">
-                                                        <rect key="frame" x="8" y="134" width="329" height="62"/>
+                                                        <rect key="frame" x="8" y="134" width="321" height="62"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="62" id="vkC-2H-Mfs"/>
                                                         </constraints>
@@ -108,7 +111,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MTf-I6-dGL">
-                                        <rect key="frame" x="351" y="340" width="34" height="34"/>
+                                        <rect key="frame" x="343" y="340" width="34" height="34"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="34" id="P99-6c-Hqa"/>
                                             <constraint firstAttribute="width" constant="34" id="uVx-dg-Sf8"/>
@@ -120,11 +123,10 @@
                                         </connections>
                                     </button>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ubw-MM-CXg">
-                                        <rect key="frame" x="20" y="479" width="361" height="248"/>
+                                        <rect key="frame" x="20" y="479" width="353" height="248"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="248" id="YcN-sA-Ogb"/>
-                                            <constraint firstAttribute="width" constant="361" id="y2O-sK-sgg"/>
                                         </constraints>
                                         <string key="text">Each beverage portrayed above represents one standard drink (or one alcoholic drink equivalent), defined in the United States as any beverage containing 0.6 oz or 14 grams of pure alcohol. The percentage of pure alcohol, expressed here as alcohol by volume (alc/vol), varies within and across beverage types. Although the standard drink amounts are helpful for following health guidelines, they may not reflect customary serving sizes</string>
                                         <color key="textColor" name="AppointmentsTextColor"/>
@@ -146,24 +148,29 @@
                                 <color key="backgroundColor" name="AppBackGroundColor"/>
                                 <constraints>
                                     <constraint firstItem="nsI-Cm-mvi" firstAttribute="top" secondItem="0bO-eD-udY" secondAttribute="bottom" constant="20" id="56f-uV-h1a"/>
-                                    <constraint firstItem="C0d-LD-gla" firstAttribute="trailing" secondItem="z6W-X6-773" secondAttribute="trailing" constant="20" id="7hj-Dg-aG3"/>
                                     <constraint firstItem="3FB-fJ-OYE" firstAttribute="trailing" secondItem="ubw-MM-CXg" secondAttribute="trailing" id="9Om-lu-r24"/>
                                     <constraint firstItem="0bO-eD-udY" firstAttribute="trailing" secondItem="3FB-fJ-OYE" secondAttribute="trailing" id="BPr-hm-XZy"/>
                                     <constraint firstItem="3FB-fJ-OYE" firstAttribute="leading" secondItem="0bO-eD-udY" secondAttribute="leading" id="C9d-b7-EFn"/>
                                     <constraint firstItem="z6W-X6-773" firstAttribute="top" secondItem="ubw-MM-CXg" secondAttribute="bottomMargin" constant="20" id="Gdh-d6-QJg"/>
                                     <constraint firstItem="ubw-MM-CXg" firstAttribute="top" secondItem="nsI-Cm-mvi" secondAttribute="bottom" constant="18" id="LSl-sx-qOr"/>
+                                    <constraint firstItem="VJR-k4-xR0" firstAttribute="top" secondItem="qfn-q3-KTZ" secondAttribute="top" id="ND5-2T-uwO"/>
                                     <constraint firstItem="6a3-HU-WsO" firstAttribute="leading" secondItem="qfn-q3-KTZ" secondAttribute="leading" constant="16" id="OMK-pA-xky"/>
                                     <constraint firstAttribute="trailing" secondItem="3FB-fJ-OYE" secondAttribute="trailing" constant="20" id="OMX-6d-E1u"/>
                                     <constraint firstItem="MTf-I6-dGL" firstAttribute="top" secondItem="0bO-eD-udY" secondAttribute="bottom" constant="121" id="Pi3-nr-wZR"/>
                                     <constraint firstItem="6a3-HU-WsO" firstAttribute="top" secondItem="0bO-eD-udY" secondAttribute="bottom" constant="121" id="T90-em-fiF"/>
                                     <constraint firstItem="3FB-fJ-OYE" firstAttribute="leading" secondItem="ubw-MM-CXg" secondAttribute="leading" id="Y5N-E5-rE2"/>
                                     <constraint firstItem="0bO-eD-udY" firstAttribute="top" secondItem="3FB-fJ-OYE" secondAttribute="bottom" constant="14.33" id="Y7b-NN-423"/>
+                                    <constraint firstAttribute="trailing" secondItem="VJR-k4-xR0" secondAttribute="trailing" id="YUL-8Z-AXn"/>
+                                    <constraint firstItem="VJR-k4-xR0" firstAttribute="width" secondItem="qfn-q3-KTZ" secondAttribute="width" id="acg-rE-Irn"/>
                                     <constraint firstItem="nsI-Cm-mvi" firstAttribute="leading" secondItem="3FB-fJ-OYE" secondAttribute="leading" id="cya-VO-lAp"/>
                                     <constraint firstItem="3FB-fJ-OYE" firstAttribute="top" secondItem="qfn-q3-KTZ" secondAttribute="top" constant="2" id="d6B-h3-IEq"/>
+                                    <constraint firstAttribute="bottom" secondItem="VJR-k4-xR0" secondAttribute="bottom" id="fNQ-Rp-b7y"/>
                                     <constraint firstItem="3FB-fJ-OYE" firstAttribute="leading" secondItem="qfn-q3-KTZ" secondAttribute="leading" constant="20" id="gvB-tL-Hem"/>
                                     <constraint firstAttribute="bottom" secondItem="z6W-X6-773" secondAttribute="bottom" constant="20" id="m56-u9-w1Y"/>
                                     <constraint firstItem="3FB-fJ-OYE" firstAttribute="trailing" secondItem="nsI-Cm-mvi" secondAttribute="trailing" id="qPf-pr-ats"/>
+                                    <constraint firstItem="VJR-k4-xR0" firstAttribute="leading" secondItem="qfn-q3-KTZ" secondAttribute="leading" id="qTZ-FU-SDo"/>
                                     <constraint firstAttribute="trailing" secondItem="MTf-I6-dGL" secondAttribute="trailing" constant="16" id="rxq-AN-OXD"/>
+                                    <constraint firstItem="3FB-fJ-OYE" firstAttribute="trailing" secondItem="z6W-X6-773" secondAttribute="trailing" id="uxR-cH-Pha"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="JGp-aj-zwc"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="C0d-LD-gla"/>
@@ -173,8 +180,8 @@
                         <color key="backgroundColor" name="AppBackGroundColor"/>
                         <constraints>
                             <constraint firstItem="qfn-q3-KTZ" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="LeF-Xu-8Ra"/>
-                            <constraint firstItem="qfn-q3-KTZ" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="ReZ-d2-Pe7"/>
-                            <constraint firstItem="qfn-q3-KTZ" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="TrV-B7-wXa"/>
+                            <constraint firstItem="qfn-q3-KTZ" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailing" id="ReZ-d2-Pe7"/>
+                            <constraint firstItem="qfn-q3-KTZ" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="TrV-B7-wXa"/>
                             <constraint firstItem="qfn-q3-KTZ" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="11" id="yj3-Jx-zJ0"/>
                         </constraints>
                     </view>

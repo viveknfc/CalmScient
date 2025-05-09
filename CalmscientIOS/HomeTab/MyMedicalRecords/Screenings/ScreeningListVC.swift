@@ -14,6 +14,7 @@ class ScreeningListVC: ViewController {
     @IBOutlet weak var screeningListTable: UITableView!
     
     var isComingFromParticularVC = false
+    var isComingFromParticularVC1 = false
     
     var screeningData:[Screening] = [] {
         didSet {
@@ -53,14 +54,29 @@ class ScreeningListVC: ViewController {
     
     @objc func backButtonOverrideAction() {
         if isComingFromParticularVC {
-            self.navigationController?.popViewController(animated: true)
-        } else {
+            let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+            let vc = next.instantiateViewController(withIdentifier: "TakingControlIndex") as? TakingControlIndex
+            vc?.title = AppHelper.getLocalizeString(str: "Taking control")
+            vc?.initialSegmentIndex = 0
+            
+            self.navigationController?.pushViewController(vc!, animated: true)
+        } else if isComingFromParticularVC1 {
+            let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+            let vc = next.instantiateViewController(withIdentifier: "TakingControlIndex") as? TakingControlIndex
+            vc?.title = AppHelper.getLocalizeString(str: "Taking control")
+            vc?.initialSegmentIndex = 1
+            
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
+        
+        else {
             let next = UIStoryboard(name: "UserMedicalRecords", bundle: nil)
             if let vc = next.instantiateViewController(withIdentifier: "UserMedicalRecordsViewController") as? UserMedicalRecordsViewController {
                 self.navigationController?.pushViewController(vc, animated: true)
             }
         }
-        }
+    }
+
     
     override func viewWillAppear(_ animated: Bool) {
 //        self.view.showToastActivity()
@@ -133,6 +149,11 @@ extension ScreeningListVC: UITableViewDelegate, UITableViewDataSource{
                 let next = UIStoryboard(name: "ScreeningResultVC", bundle: nil)
                 let vc = next.instantiateViewController(withIdentifier: "ScreeningResultVC") as? ScreeningResultVC
                 vc?.selectedScreening = obj
+                if isComingFromParticularVC {
+                    vc?.isComingFromParticularVC = true
+                } else if isComingFromParticularVC1 {
+                    vc?.isComingFromParticularVC1 = true
+                }
                 self.navigationController?.pushViewController(vc!, animated: true)
             }
             self.navigationController?.pushViewController(vc!, animated: true)

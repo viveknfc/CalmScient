@@ -45,6 +45,8 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
     var sortedDates: [String] = []
     var cachedHeaderView: UIView?
     
+    var currentTime: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         datePickerView.locale = Locale(identifier: Utility.shared.getLocaleIdentifier())
@@ -311,10 +313,12 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
         let inputFormatter = DateFormatter()
         inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         inputFormatter.locale = Locale(identifier: "en_US_POSIX")
+//        inputFormatter.timeZone = TimeZone(abbreviation: "GMT")
 
         let outputFormatter = DateFormatter()
         outputFormatter.dateFormat = "hh:mm a" // e.g., 08:30 AM
         outputFormatter.locale = Locale(identifier: "en_US_POSIX")
+        outputFormatter.timeZone = TimeZone.current
 
         if let date = inputFormatter.date(from: isoDateString) {
             return outputFormatter.string(from: date)
@@ -681,9 +685,18 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
     
     func saveAction(updatedText: String, initialText: String) {
         print("save journal entru clicked from journal entry vc")
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone.current
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Specify the desired format
+        let sampleTime = Date()
+        print("the fetching time in local from inside journal entry is ", sampleTime)
+        
+        currentTime = dateFormatter.string(from: sampleTime)
+        
         // Check if updatedText is empty or just whitespace
         if updatedText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || updatedText == initialText {
-            let alertText = "Please enter journal details"
+            let alertText = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Please enter journal details" : "Por favor, ingrese los detalles del diario"
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 40, height: 40),
@@ -708,7 +721,8 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
                 "entry": updatedText,
                 "plId": userInfo.patientLocationID,
                 "clientId": userInfo.clientID,
-                "entryType": "daily_journal"
+                "entryType": "daily_journal",
+                "createdAt": currentTime!
                 // Add other necessary parameters here
             ]
         

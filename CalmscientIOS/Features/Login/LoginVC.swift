@@ -35,8 +35,8 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         
         setupLanguage()
        
-//       userNameTextField.text = "masa@calmscient.com"
-//       passwordTextField.text = "CDMrVgjdM5"
+       userNameTextField.text = "masa@calmscient.com"
+       passwordTextField.text = "CDMrVgjdM5"
         
 //       userNameTextField.text = "chandra.p@gmail.com"
 //       passwordTextField.text = "chandra@1234"
@@ -47,8 +47,8 @@ class LoginVC: UIViewController,UITextFieldDelegate {
 //          userNameTextField.text = "sravanthi@gmail.com"
 //          passwordTextField.text = "sravanthi@1234"
         
-          userNameTextField.text = "giddalurisaikumar@gmail.com"
-          passwordTextField.text = "Test@123"
+//          userNameTextField.text = "giddalurisaikumar@gmail.com"
+//          passwordTextField.text = "Test@123"
         
         userNameTextField.delegate = self
         userNameTextField.layer.borderColor = UIColor(named: "AppBorderColor")?.cgColor
@@ -157,16 +157,23 @@ class LoginVC: UIViewController,UITextFieldDelegate {
     @objc func validateLicenseGesture(tapGestureRecognizer: UITapGestureRecognizer)
     {
         let storyboard = UIStoryboard(name: "UserRegistration", bundle: nil)
-            let registrationViewController = storyboard.instantiateViewController(withIdentifier: "UserRegistrationViewController") as! UserRegistrationViewController
+        let registrationViewController = storyboard.instantiateViewController(withIdentifier: "UserRegistrationViewController") as! UserRegistrationViewController
 
+        registrationViewController.navigationItem.title = ""
         self.navController = UINavigationController(rootViewController: registrationViewController)
+        
         UserDefaults.standard.set(true, forKey: "isFirstLaunch")
         
-        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
-            sceneDelegate.changeRootViewController(to: self.navController!)
+        if let navigationController = self.navigationController {
+            navigationController.pushViewController(registrationViewController, animated: true)
+        } else {
+            print("Navigation Controller not available")
         }
+        
+//        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+//            sceneDelegate.changeRootViewController(to: self.navController!)
+//        }
     }
-    
     
     @IBAction func didClickOnLoginButton(_ sender: UIButton) {
         
@@ -217,7 +224,15 @@ class LoginVC: UIViewController,UITextFieldDelegate {
             print("Error: Unable to serialize parameters")
             return
         }
+        
+        let startTime = Date()
+        
         let task = URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+                
+                let endTime = Date()
+                let responseTIme = endTime.timeIntervalSince(startTime)
+                print("the response TIme taking for login VC is: \(responseTIme) seconds")
+            
             guard let self = self else {
                 return
             }
@@ -261,29 +276,22 @@ class LoginVC: UIViewController,UITextFieldDelegate {
                             UserDefaultsHelper.saveLoginDetailsToUserDefaults(loginDetails: loginResponse.loginDetails, tokenResponse: loginResponse.tokenResponse)
                             
                             UserDefaults.standard.set("\(loginResponse.loginDetails.firstName)", forKey: "titleString")
-                            self.userStartUpAPICall ()
                             
-//                            if !(self.isFirstLaunch ?? true) {
-//                                
-//                                print("this is the first launch")
-//                                
-//                                let storyboard = UIStoryboard(name: "UserRegistration", bundle: nil)
-//                                    let registrationViewController = storyboard.instantiateViewController(withIdentifier: "UserRegistrationViewController") as! UserRegistrationViewController
-//
-//                                self.navController = UINavigationController(rootViewController: registrationViewController)
-//                                UserDefaults.standard.set(true, forKey: "isFirstLaunch")
-//                                
-//                                if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
-//                                    sceneDelegate.changeRootViewController(to: self.navController!)
-//                                }
-//                                
-//                            } else {
-//                                
-//                                print("this is not the first launch")
-//                                
-//                                self.userStartUpAPICall ()
-//                                
-//                            }
+                            
+                            let loginCount = loginResponse.loginDetails.loginCount
+                            
+                            if loginCount == 1 {
+                                let storyboard = UIStoryboard(name: "UpdatePasswordVC", bundle: nil)
+                                if let vc = storyboard.instantiateViewController(withIdentifier: "UpdatePasswordVC") as? UpdatePasswordVC {
+                                    vc.updateEmailString = loginResponse.loginDetails.email
+                                    let nav = UINavigationController(rootViewController: vc)
+                                    if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+                                        sceneDelegate.changeRootViewController(to: nav)
+                                    }
+                                }
+                            } else {
+                                self.userStartUpAPICall ()
+                            }
    
 
 

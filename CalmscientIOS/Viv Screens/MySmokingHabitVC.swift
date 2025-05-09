@@ -56,7 +56,7 @@ class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSour
         
         guard selectedRowIndex != nil else {
             
-            let alertText = "Please select the stage that applies to you."
+            let alertText = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Please select the stage that applies to you." : "Por favor, seleccione la etapa que le corresponde"
             
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
@@ -110,7 +110,7 @@ class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSour
         
         guard selectedRowIndex != nil else {
             
-            let alertText = "Please select the stage that applies to you."
+            let alertText = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Please select the stage that applies to you." : "Por favor, seleccione la etapa que le corresponde"
             
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
@@ -129,7 +129,7 @@ class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSour
 
         
         showGeneralAlert(
-            title: "We will guide you to create a strategic plan in Taking control full version.",
+            title: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "We will guide you to create a strategic plan in Taking control full version." : "Le guiaremos para crear un plan estratégico en la versión completa de Taking Control.",
             okButtonTitle: "Ok",
             okAction: {
                 self.completeButtonAPICall()
@@ -200,7 +200,7 @@ class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSour
             "sectionId":sectionID6 ?? 0
         ]
 
-        APIService.DUpdateBasicKAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
+        APIService.SUpdateBasicKAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
             self.getresponseforBasicKnowAPI(response: response)
         }
     }

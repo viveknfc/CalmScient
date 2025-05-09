@@ -414,7 +414,7 @@ class ScreeningSuccessResults: Codable {
     let patientID: Int
     let firstName: String
     let lastName: String
-    let patientAccountNumber: Int
+    let patientAccountNumber: String
     let screeningName: String
     let screeningId: Int
     let screeningDate: String
@@ -445,7 +445,7 @@ class ScreeningSuccessResults: Codable {
         patientID = try container.decode(Int.self, forKey: .patientID)
         firstName = try container.decode(String.self, forKey: .firstName)
         lastName = try container.decode(String.self, forKey: .lastName)
-        patientAccountNumber = try container.decode(Int.self, forKey: .patientAccountNumber)
+        patientAccountNumber = try container.decode(String.self, forKey: .patientAccountNumber)
         screeningName = try container.decode(String.self, forKey: .screeningName)
         screeningId = try container.decode(Int.self, forKey: .screeningId)
         screeningDate = try container.decode(String.self, forKey: .screeningDate)

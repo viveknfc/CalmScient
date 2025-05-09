@@ -14,7 +14,7 @@ class CheckMailVC: ViewController {
 
     @IBOutlet var digitFields: [UITextField]!
     
-    @IBOutlet weak var verifyCodeButton: CapsuleButton!
+    @IBOutlet weak var verifyCodeButton: LinearGradientButton!
     @IBOutlet weak var resendMailLbl: UILabel!
     let emailID = "xxxxxxxxxx@gmail.com"
     let resendmailText = "Resend email"

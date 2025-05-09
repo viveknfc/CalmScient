@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseCrashlytics
 
 class APIService: UIViewController {
     
@@ -39,12 +40,15 @@ class APIService: UIViewController {
     
     static var SGetTakingControlIndex = "patients/api/v1/smokingcontrol/getTakingControlIndex"
     static var SBasicKnowledgeQuestions = "patients/api/v1/smokingcontrol/getBasicKnowledgeIndex"
+    static var SUpdateBasicKnowledge = "patients/api/v1/smokingcontrol/updateBasicKnowledgeIndex"
     
     static var getTakingControlIntroData = "patients/api/v1/takingControl/getTakingControlIntroduction"
     static var saveTakingControlIntroData = "patients/api/v1/takingControl/saveTakingControlIntroduction"
     
     static var validateLicenseKey = "identity/api/v1/license/validateLicenseKey"
     static var alarmSettings = "identity/api/v1/settings/saveAlarmDurationTime"
+    
+    static var profilePic = "identity/api/v1/settings/getUserProfile"
     
 
     //MARK: - Validate License Key API Calling
@@ -60,6 +64,14 @@ class APIService: UIViewController {
     static func alarmSettingsAPICalling(_ view:UIViewController?,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.alarmSettings
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
+    //MARK: - Profile Pic API Calling
+    
+    static func profilePicAPICalling(_ view:UIViewController?,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.profilePic
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
@@ -148,6 +160,14 @@ class APIService: UIViewController {
     static func DUpdateBasicKAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.DUpdateBasicKnowledge
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
+    //MARK: - Smoking Update Basic Know
+    
+    static func SUpdateBasicKAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.SUpdateBasicKnowledge
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
@@ -259,6 +279,7 @@ class APIService: UIViewController {
         var request: URLRequest
         
         guard let url = URL(string: urlString) else {
+            Crashlytics.crashlytics().log("Invalid URL: \(urlString)")
             callback("Error: Invalid URL" as AnyObject)
             return
         }
@@ -285,8 +306,9 @@ class APIService: UIViewController {
             do {
                 request.httpBody = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
             } catch let error {
-                print("Error serializing body parameters: \(error.localizedDescription)")
-                callback("Error serializing body parameters: \(error.localizedDescription)" as AnyObject)
+                let message = "Error serializing body parameters: \(error.localizedDescription)"
+                Crashlytics.crashlytics().log(message)
+                callback(message as AnyObject)
                 return
             }
 //            request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")//new
@@ -315,25 +337,39 @@ class APIService: UIViewController {
             request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         }
         
+        Crashlytics.crashlytics().setCustomValue(urlString, forKey: "api_url")
+        Crashlytics.crashlytics().setCustomValue(method, forKey: "http_method")
+        Crashlytics.crashlytics().setCustomValue(params.description, forKey: "parameters")
+        
         print("Final request: \(request)")
         
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig)
         
+        let startTime = Date()
+        
         let task = session.dataTask(with: request) { (data, response, error) in
+            
+            let endTime = Date()
+            let responseTIme = endTime.timeIntervalSince(startTime)
+            print("the response TIme taking is: \(responseTIme) seconds")
+            
             if let error = error {
-                print("Error: \(error.localizedDescription)")
-                OperationQueue.main.addOperation {
-                    callback("Error: \(error.localizedDescription)" as AnyObject)
+                
+                let nsError = error as NSError
+                if nsError.code == NSURLErrorTimedOut {
+                    Crashlytics.crashlytics().log("Timeout error for URL: \(urlString)")
+                } else {
+                    Crashlytics.crashlytics().log("Network error: \(error.localizedDescription)")
                 }
+                
+                callback("Error: \(error.localizedDescription)" as AnyObject)
                 return
             }
-            
+
             guard let httpResponse = response as? HTTPURLResponse else {
-                print("Error: Invalid response")
-                OperationQueue.main.addOperation {
-                    callback("Error: Invalid response" as AnyObject)
-                }
+                Crashlytics.crashlytics().log("Invalid HTTPURLResponse for URL: \(urlString)")
+                callback("Error: Invalid response" as AnyObject)
                 return
             }
             
@@ -351,30 +387,32 @@ class APIService: UIViewController {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
                     let errorMessage = (json as? [String: Any])?["message"] as? String ?? "Unknown error"
-                    print("API response for status code \(httpResponse.statusCode): \(errorMessage)")
-                    OperationQueue.main.addOperation {
-                        callback("Error: \(errorMessage)" as AnyObject)
-                    }
+                    Crashlytics.crashlytics().log("API \(urlString) returned status code \(httpResponse.statusCode) — Error: \(errorMessage)")
+                    callback("Error: \(errorMessage)" as AnyObject)
                 } catch let error {
-                    print("Error parsing error response JSON: \(error.localizedDescription)")
-                    OperationQueue.main.addOperation {
-                        callback("Error parsing error response JSON: \(error.localizedDescription)" as AnyObject)
-                    }
+                    Crashlytics.crashlytics().log("Error parsing error JSON for URL: \(urlString) — \(error.localizedDescription)")
+                    callback("Error parsing error response JSON: \(error.localizedDescription)" as AnyObject)
                 }
                 return
             }
             
             do {
                 let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                
+                if let dict = json as? [String: Any], dict.isEmpty {
+                    Crashlytics.crashlytics().log("API \(urlString) returned empty dictionary.")
+                } else if json is NSNull {
+                    Crashlytics.crashlytics().log("API \(urlString) returned null.")
+                }
+                
                 OperationQueue.main.addOperation {
                     callback(json as AnyObject)
                 }
             } catch let error {
-                print("Error parsing JSON: \(error.localizedDescription)")
-                OperationQueue.main.addOperation {
-                    callback("Error parsing JSON: \(error.localizedDescription)" as AnyObject)
-                }
+                Crashlytics.crashlytics().log("JSON parse error for URL \(urlString): \(error.localizedDescription)")
+                callback("Error parsing JSON: \(error.localizedDescription)" as AnyObject)
             }
+
         }
         
         task.resume()

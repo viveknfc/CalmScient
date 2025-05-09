@@ -156,34 +156,34 @@ class BasicStandardDrink: ViewController {
                let imageUrlString = drink["imageUrl"] as? String,
                let url = URL(string: imageUrlString) {
 
-                DispatchQueue.global().async {
-                    if let data = try? Data(contentsOf: url), let image = UIImage(data: data) {
-                        DispatchQueue.main.async {
-                            tempTitles[index] = title
-                            tempImages[index] = image
-                            loadedCount += 1
-                            
-                            if loadedCount == filteredDrinks.count {
-                                // Now update your main arrays in correct order
-                                self.titles = tempTitles
-                                self.images = tempImages.compactMap { $0 }
-                                self.updateContent()
-                                self.activityIndicator.stopAnimating()
+                    URLSession.shared.dataTask(with: url) { data, response, error in
+                        if let data = data, let image = UIImage(data: data) {
+                            DispatchQueue.main.async {
+                                tempTitles[index] = title
+                                tempImages[index] = image
+                                loadedCount += 1
+
+                                if loadedCount == filteredDrinks.count {
+                                    self.titles = tempTitles
+                                    self.images = tempImages.compactMap { $0 }
+                                    self.updateContent()
+                                    self.activityIndicator.stopAnimating()
+                                }
+                            }
+                        } else {
+                            DispatchQueue.main.async {
+                                print("Failed to load image from URL: \(url)")
+                                loadedCount += 1
+                                if loadedCount == filteredDrinks.count {
+                                    self.titles = tempTitles
+                                    self.images = tempImages.compactMap { $0 }
+                                    self.updateContent()
+                                    self.activityIndicator.stopAnimating()
+                                }
                             }
                         }
-                    } else {
-                        DispatchQueue.main.async {
-                            print("Failed to load image from URL: \(url)")
-                            loadedCount += 1
-                            if loadedCount == filteredDrinks.count {
-                                self.titles = tempTitles
-                                self.images = tempImages.compactMap { $0 }
-                                self.updateContent()
-                                self.activityIndicator.stopAnimating()
-                            }
-                        }
-                    }
-                }
+                    }.resume()
+
             } else {
                 print("Invalid data: \(drink)")
             }

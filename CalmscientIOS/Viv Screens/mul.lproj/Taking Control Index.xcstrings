@@ -310,6 +310,12 @@
             "state" : "new",
             "value" : "Complete"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Finalizar"
+          }
         }
       }
     },
@@ -3196,6 +3202,12 @@
             "state" : "new",
             "value" : "You can customize how early the alarm should go on"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Puedes configurar con cuánta anticipación sonará la alarma"
+          }
         }
       }
     },
@@ -4059,6 +4071,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Alarm settings"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Configuración de alarma"
           }
         }
       }

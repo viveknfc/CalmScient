@@ -108,7 +108,7 @@ class ChallengingtoQuitVC: ViewController, UITableViewDelegate, UITableViewDataS
             "sectionId":sectionID4 ?? 0
         ]
 
-        APIService.DUpdateBasicKAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
+        APIService.SUpdateBasicKAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
             self.getresponseforBasicKnowAPI(response: response)
         }
     }

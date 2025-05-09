@@ -114,8 +114,8 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        saveButton.setAttributedTitleWithGradientDefaults(title: "Save")
-        cancelButton.setAttributedTitleWithGradientDefaults(title: "Cancel")
+//        saveButton.setAttributedTitleWithGradientDefaults(title: "Save")
+//        cancelButton.setAttributedTitleWithGradientDefaults(title: "Cancel")
         
         userAddMedicationsTableView.tableFooterView = tableFooter
         tableFooter.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 80)
@@ -185,23 +185,25 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
         super.viewDidAppear(animated)
 //        self.scrollTableViewToBottom()
     }
+    
     func setupLanguage() {
+        let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
         
-        if self.title == nil {
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        self.title = AppHelper.getLocalizeString(str:"Add Medications")
-        saveStr = AppHelper.getLocalizeString(str: "Save")
-        saveButton.setAttributedTitleWithGradientDefaults(title:AppHelper.getLocalizeString(str:saveStr))
-        cancelButton.setAttributedTitleWithGradientDefaults(title:AppHelper.getLocalizeString(str: "Cancel"))
+        if languageId == 1 {
+            UserDefaults.standard.set("en", forKey: "Language")
+        } else if languageId == 2 {
+            UserDefaults.standard.set("es", forKey: "Language")
         }
 
+        if self.title == nil {
+            self.title = AppHelper.getLocalizeString(str:"Add Medications")
         }
+        
+        saveStr = AppHelper.getLocalizeString(str: "Save")
+        print("save button now is", saveStr)
+        saveButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str: saveStr))
+        cancelButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str: "Cancel"))
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -713,6 +715,7 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
         guard let vc = next.instantiateViewController(withIdentifier: "BottomSheetTimeAndAlarmVC") as? BottomSheetTimeAndAlarmVC else {
             fatalError("Could not instantiate view controller with identifier 'BottomSheetTimeAndAlarmVC'")
         }
+        
         vc.isNewMedicationCreation = true
         vc.newMedicationInstance = instance
         vc.onScheetClosed = { [weak self] in
@@ -757,6 +760,9 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
         } else {
             // Fallback on earlier versions
         }
+        
+        vc.loadViewIfNeeded()
+        vc.tableView.isHidden = true
 
         present(vc, animated: true, completion: nil)
 

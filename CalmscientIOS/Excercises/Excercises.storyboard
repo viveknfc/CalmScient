@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -115,14 +116,14 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FkG-WJ-wVe" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
-                                        <rect key="frame" x="310" y="18" width="63" height="41"/>
+                                        <rect key="frame" x="343" y="18" width="30" height="41"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="41" id="31H-3I-f0K"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="tintColor" red="0.42882183190000001" green="0.41974490879999998" blue="0.68238306049999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Complete">
+                                        <state key="normal">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -744,6 +745,18 @@ When you are feeling upset, ungrounded, agitated or irritable, try giving yourse
                                                     <constraint firstAttribute="width" constant="2" id="cej-d7-A44"/>
                                                 </constraints>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xzh-Xy-Qxg">
+                                                <rect key="frame" x="31" y="744.66666666666663" width="41" height="41"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="41" id="5dt-4x-Uxh"/>
+                                                    <constraint firstAttribute="height" constant="41" id="Dsj-aa-PGL"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="back"/>
+                                                <connections>
+                                                    <action selector="backButtonBottom:" destination="gOx-DA-AAo" eventType="touchUpInside" id="cyW-U0-5La"/>
+                                                </connections>
+                                            </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fwu-6K-2D1" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
                                                 <rect key="frame" x="310" y="744.66666666666663" width="63" height="41"/>
                                                 <constraints>
@@ -775,11 +788,13 @@ When you are feeling upset, ungrounded, agitated or irritable, try giving yourse
                                             <constraint firstItem="VtP-U4-iit" firstAttribute="centerY" secondItem="GVW-aE-w3G" secondAttribute="centerY" id="TNE-Y3-oQV"/>
                                             <constraint firstAttribute="bottom" secondItem="Fwu-6K-2D1" secondAttribute="bottom" constant="20" id="UhH-YZ-FYf"/>
                                             <constraint firstItem="JGZ-5v-Ovt" firstAttribute="leading" secondItem="Xie-2k-0Aj" secondAttribute="leading" constant="10" id="YTj-zf-BYy"/>
+                                            <constraint firstItem="Xzh-Xy-Qxg" firstAttribute="leading" secondItem="wIS-va-S09" secondAttribute="trailing" constant="10" id="Ydu-36-ATx"/>
                                             <constraint firstItem="wIS-va-S09" firstAttribute="top" secondItem="JGZ-5v-Ovt" secondAttribute="top" id="ZcQ-Y2-xnb"/>
                                             <constraint firstItem="Sjh-JB-dre" firstAttribute="centerX" secondItem="wIS-va-S09" secondAttribute="centerX" id="bnu-58-DrW"/>
                                             <constraint firstItem="VtP-U4-iit" firstAttribute="centerX" secondItem="JGZ-5v-Ovt" secondAttribute="centerX" id="cbH-ws-zWp"/>
                                             <constraint firstItem="GVW-aE-w3G" firstAttribute="leading" secondItem="AQj-nQ-yN5" secondAttribute="leading" id="d9x-eI-Hvs"/>
                                             <constraint firstItem="Sjh-JB-dre" firstAttribute="centerX" secondItem="VtP-U4-iit" secondAttribute="centerX" id="eNW-R1-Hlg"/>
+                                            <constraint firstItem="Xzh-Xy-Qxg" firstAttribute="centerY" secondItem="Fwu-6K-2D1" secondAttribute="centerY" id="jfn-vx-tWv"/>
                                             <constraint firstAttribute="trailing" secondItem="Fwu-6K-2D1" secondAttribute="trailing" constant="20" id="n0T-7o-fAw"/>
                                             <constraint firstItem="JGZ-5v-Ovt" firstAttribute="centerY" secondItem="AQj-nQ-yN5" secondAttribute="centerY" id="p5u-PX-NSm"/>
                                             <constraint firstItem="AQj-nQ-yN5" firstAttribute="top" secondItem="Xie-2k-0Aj" secondAttribute="top" constant="19" id="qz6-Li-kxR"/>
@@ -1451,19 +1466,53 @@ Pay careful attention to the following video.</string>
                                                             <constraint firstAttribute="height" constant="42" id="LmA-ZX-g0r"/>
                                                         </constraints>
                                                     </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HFA-WY-cLx" userLabel="forward">
+                                                        <rect key="frame" x="277.66666666666669" y="154" width="32" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="32" id="5do-Xi-qnw"/>
+                                                            <constraint firstAttribute="width" constant="32" id="JWD-sg-G5I"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal">
+                                                            <imageReference key="image" image="goforward.10" catalog="system" symbolScale="large"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="playerForwardButtonPressed:" destination="JOq-h8-ucy" eventType="touchUpInside" id="cG8-15-tt9"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="znN-JJ-Y3B" userLabel="Backward">
+                                                        <rect key="frame" x="83.666666666666671" y="154" width="32" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="32" id="1ar-DX-Fg3"/>
+                                                            <constraint firstAttribute="width" constant="32" id="Nqm-VQ-KAd"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal">
+                                                            <imageReference key="image" image="goforward.10" catalog="system" symbolScale="large"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="playerBackwardButtonPressed:" destination="JOq-h8-ucy" eventType="touchUpInside" id="aD4-At-oaL"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" name="AppViewContentColor"/>
                                                 <constraints>
                                                     <constraint firstItem="hG3-8U-hT5" firstAttribute="centerX" secondItem="fHa-Ar-jy1" secondAttribute="centerX" id="199-ID-7pg"/>
+                                                    <constraint firstItem="hG3-8U-hT5" firstAttribute="leading" secondItem="znN-JJ-Y3B" secondAttribute="trailing" constant="60" id="2fg-Fg-zdE"/>
                                                     <constraint firstItem="sy2-wa-WhG" firstAttribute="centerY" secondItem="fHa-Ar-jy1" secondAttribute="centerY" constant="-80" id="9yz-y2-UFX"/>
                                                     <constraint firstItem="hG3-8U-hT5" firstAttribute="centerY" secondItem="fHa-Ar-jy1" secondAttribute="centerY" id="BWr-zr-yTz"/>
                                                     <constraint firstAttribute="trailing" secondItem="sy2-wa-WhG" secondAttribute="trailing" constant="17" id="Cn8-Oh-qMw"/>
+                                                    <constraint firstItem="HFA-WY-cLx" firstAttribute="leading" secondItem="hG3-8U-hT5" secondAttribute="trailing" constant="60" id="DoB-Wx-vKZ"/>
                                                     <constraint firstItem="jFB-vW-39q" firstAttribute="centerX" secondItem="H0f-f7-TXU" secondAttribute="centerX" id="KRL-Cn-nHq"/>
                                                     <constraint firstItem="H0f-f7-TXU" firstAttribute="centerX" secondItem="sy2-wa-WhG" secondAttribute="centerX" id="Nf6-nc-GmE"/>
                                                     <constraint firstItem="H0f-f7-TXU" firstAttribute="centerY" secondItem="fHa-Ar-jy1" secondAttribute="centerY" constant="80" id="PI4-je-ZNl"/>
                                                     <constraint firstItem="jFB-vW-39q" firstAttribute="centerY" secondItem="H0f-f7-TXU" secondAttribute="centerY" id="YGr-h5-xFa"/>
                                                     <constraint firstAttribute="height" constant="340" id="YJ9-w7-L0p"/>
                                                     <constraint firstItem="odp-Zy-Eed" firstAttribute="top" secondItem="jFB-vW-39q" secondAttribute="bottom" constant="5" id="fNv-au-WVf"/>
+                                                    <constraint firstItem="HFA-WY-cLx" firstAttribute="centerY" secondItem="fHa-Ar-jy1" secondAttribute="centerY" id="gjW-jt-udl"/>
+                                                    <constraint firstItem="znN-JJ-Y3B" firstAttribute="centerY" secondItem="fHa-Ar-jy1" secondAttribute="centerY" id="iYg-9x-2Ye"/>
                                                     <constraint firstAttribute="trailing" secondItem="odp-Zy-Eed" secondAttribute="trailing" constant="10" id="k4m-oF-SDc"/>
                                                     <constraint firstItem="odp-Zy-Eed" firstAttribute="leading" secondItem="fHa-Ar-jy1" secondAttribute="leading" constant="10" id="nGk-7b-vIQ"/>
                                                 </constraints>
@@ -1571,6 +1620,7 @@ Pay careful attention to the following video.</string>
                     </view>
                     <size key="freeformSize" width="393" height="2000"/>
                     <connections>
+                        <outlet property="backwardButton" destination="znN-JJ-Y3B" id="Bng-MF-BIz"/>
                         <outlet property="bottomDescLabel" destination="div-kJ-a5x" id="4X6-GO-loS"/>
                         <outlet property="bottomDescriptionLbl" destination="div-kJ-a5x" id="sQ9-Da-yWK"/>
                         <outlet property="completeButton" destination="JBR-Lx-Lyy" id="jlb-T8-TFp"/>
@@ -1580,6 +1630,7 @@ Pay careful attention to the following video.</string>
                         <outlet property="dot4View" destination="tuy-sL-u1i" id="akq-Lw-he9"/>
                         <outlet property="dot5View" destination="V0S-1P-QVs" id="Lgc-uB-C6J"/>
                         <outlet property="favImg" destination="sy2-wa-WhG" id="gMa-fB-1Bx"/>
+                        <outlet property="forwardButton" destination="HFA-WY-cLx" id="lPJ-2a-Dpl"/>
                         <outlet property="maximiseImg" destination="H0f-f7-TXU" id="ogh-bQ-NQO"/>
                         <outlet property="playPauseImage" destination="hG3-8U-hT5" id="me0-xe-RxW"/>
                         <outlet property="preparationDescLabel" destination="W13-29-2LU" id="vAq-dU-EnY"/>
@@ -2055,6 +2106,36 @@ Pay careful attention to the following video.</string>
                                                     <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="c84-oN-ucO">
                                                         <rect key="frame" x="8" y="267" width="377" height="31"/>
                                                     </slider>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="90f-IO-604" userLabel="forward">
+                                                        <rect key="frame" x="277.66666666666669" y="154" width="32" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="32" id="AaN-ei-aNl"/>
+                                                            <constraint firstAttribute="height" constant="32" id="Q1G-8b-4ty"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal">
+                                                            <imageReference key="image" image="goforward.10" catalog="system" symbolScale="large"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="forwardButtonPressed:" destination="pbA-Aa-v4S" eventType="touchUpInside" id="CLA-uu-IEY"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ru-9Z-MXR" userLabel="Backward">
+                                                        <rect key="frame" x="83.666666666666671" y="154" width="32" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="32" id="JcF-xL-cKw"/>
+                                                            <constraint firstAttribute="height" constant="32" id="iH2-yD-5Qq"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal">
+                                                            <imageReference key="image" image="goforward.10" catalog="system" symbolScale="large"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="backwardButtonPressed:" destination="pbA-Aa-v4S" eventType="touchUpInside" id="FsC-iG-yAK"/>
+                                                        </connections>
+                                                    </button>
                                                     <view alpha="0.59999999999999998" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gc6-ZO-YgB">
                                                         <rect key="frame" x="337.66666666666669" y="235" width="30" height="30"/>
                                                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
@@ -2074,12 +2155,16 @@ Pay careful attention to the following video.</string>
                                                 <color key="backgroundColor" name="AppViewContentColor"/>
                                                 <constraints>
                                                     <constraint firstItem="ZgA-8z-PVE" firstAttribute="centerX" secondItem="TzY-PM-OIr" secondAttribute="centerX" id="3T1-hl-6h8"/>
+                                                    <constraint firstItem="90f-IO-604" firstAttribute="centerY" secondItem="UhL-BT-mlY" secondAttribute="centerY" id="6h5-gu-G5b"/>
                                                     <constraint firstItem="c84-oN-ucO" firstAttribute="top" secondItem="ZgA-8z-PVE" secondAttribute="bottom" constant="5" id="EAF-dF-Xah"/>
                                                     <constraint firstItem="gc6-ZO-YgB" firstAttribute="centerY" secondItem="ZgA-8z-PVE" secondAttribute="centerY" id="RV9-XR-z8b"/>
                                                     <constraint firstItem="c84-oN-ucO" firstAttribute="leading" secondItem="aJW-TX-BnS" secondAttribute="leading" constant="10" id="Rv7-uF-PFU"/>
+                                                    <constraint firstItem="90f-IO-604" firstAttribute="leading" secondItem="UhL-BT-mlY" secondAttribute="trailing" constant="60" id="RxH-KR-StL"/>
                                                     <constraint firstItem="ZgA-8z-PVE" firstAttribute="centerY" secondItem="aJW-TX-BnS" secondAttribute="centerY" constant="80" id="U7L-Mu-lfe"/>
                                                     <constraint firstItem="UhL-BT-mlY" firstAttribute="centerY" secondItem="aJW-TX-BnS" secondAttribute="centerY" id="UBV-Kb-PTh"/>
                                                     <constraint firstAttribute="trailing" secondItem="TzY-PM-OIr" secondAttribute="trailing" constant="20" id="UY3-Mm-fxS"/>
+                                                    <constraint firstItem="4ru-9Z-MXR" firstAttribute="centerY" secondItem="aJW-TX-BnS" secondAttribute="centerY" id="XfO-js-Nxc"/>
+                                                    <constraint firstItem="UhL-BT-mlY" firstAttribute="leading" secondItem="4ru-9Z-MXR" secondAttribute="trailing" constant="60" id="Yhy-k9-NWO"/>
                                                     <constraint firstItem="TzY-PM-OIr" firstAttribute="centerY" secondItem="aJW-TX-BnS" secondAttribute="centerY" constant="-80" id="dGH-yz-QHW"/>
                                                     <constraint firstAttribute="height" constant="340" id="ee9-3R-o12"/>
                                                     <constraint firstAttribute="trailing" secondItem="c84-oN-ucO" secondAttribute="trailing" constant="10" id="nR9-lf-STq"/>
@@ -2211,6 +2296,7 @@ Pay careful attention to the following video.</string>
                     </view>
                     <size key="freeformSize" width="393" height="2000"/>
                     <connections>
+                        <outlet property="backwardButton" destination="4ru-9Z-MXR" id="ETq-wi-Pib"/>
                         <outlet property="bottomDescLabel" destination="VnO-zY-t8F" id="J6c-hM-13r"/>
                         <outlet property="completeButton" destination="NNu-Kv-BRo" id="ddb-mx-u0n"/>
                         <outlet property="dot1View" destination="psV-tH-zcV" id="2oe-cT-KP7"/>
@@ -2220,6 +2306,7 @@ Pay careful attention to the following video.</string>
                         <outlet property="dot5" destination="wVE-v3-IQv" id="Cm1-WM-fTE"/>
                         <outlet property="dot6View" destination="lnX-H2-fjZ" id="c9M-Ja-S7Q"/>
                         <outlet property="favImg" destination="TzY-PM-OIr" id="26w-2u-ct4"/>
+                        <outlet property="forwardButton" destination="90f-IO-604" id="hKU-AT-6nC"/>
                         <outlet property="maximiseImg" destination="ZgA-8z-PVE" id="jlS-Q6-TyD"/>
                         <outlet property="playPauseImage" destination="UhL-BT-mlY" id="T01-Mt-RRR"/>
                         <outlet property="preparationDesLabel" destination="d7H-pN-LJh" id="51P-1J-B0b"/>
@@ -2525,6 +2612,36 @@ Pay careful attention to the following video.</string>
                                                             <constraint firstAttribute="height" constant="41" id="stZ-Ba-V6p"/>
                                                         </constraints>
                                                     </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6rp-sv-PCD" userLabel="forward">
+                                                        <rect key="frame" x="277.66666666666669" y="154" width="32" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="32" id="EkM-yK-d5f"/>
+                                                            <constraint firstAttribute="height" constant="32" id="Xqx-Fm-XNp"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal">
+                                                            <imageReference key="image" image="goforward.10" catalog="system" symbolScale="large"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="forwardButtonPressed:" destination="bod-fo-FWV" eventType="touchUpInside" id="bw4-fe-yTI"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bdv-mz-Hum" userLabel="Backward">
+                                                        <rect key="frame" x="83.666666666666671" y="154" width="32" height="32"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="32" id="gWh-gk-pd7"/>
+                                                            <constraint firstAttribute="height" constant="32" id="wxy-en-xa9"/>
+                                                        </constraints>
+                                                        <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal">
+                                                            <imageReference key="image" image="goforward.10" catalog="system" symbolScale="large"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="backwardButtonPressed:" destination="bod-fo-FWV" eventType="touchUpInside" id="VhG-Yp-zE3"/>
+                                                        </connections>
+                                                    </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="play" translatesAutoresizingMaskIntoConstraints="NO" id="Mcu-Si-ug0">
                                                         <rect key="frame" x="175.66666666666666" y="149" width="42" height="42"/>
                                                         <constraints>
@@ -2555,17 +2672,21 @@ Pay careful attention to the following video.</string>
                                                 <color key="backgroundColor" name="AppViewContentColor"/>
                                                 <constraints>
                                                     <constraint firstItem="uXE-t3-vdn" firstAttribute="centerX" secondItem="sg3-Bb-dK4" secondAttribute="centerX" id="A1T-ad-N59"/>
+                                                    <constraint firstItem="6rp-sv-PCD" firstAttribute="leading" secondItem="Mcu-Si-ug0" secondAttribute="trailing" constant="60" id="DUU-15-chE"/>
                                                     <constraint firstItem="Mcu-Si-ug0" firstAttribute="centerX" secondItem="vjQ-Td-omE" secondAttribute="centerX" id="Hq4-dX-UVo"/>
                                                     <constraint firstItem="OTI-Da-2TL" firstAttribute="top" secondItem="sg3-Bb-dK4" secondAttribute="bottom" constant="5" id="Jbt-CZ-CHI"/>
                                                     <constraint firstAttribute="trailing" secondItem="9Nx-St-dQ9" secondAttribute="trailing" constant="20" id="LXp-jE-4JJ"/>
                                                     <constraint firstAttribute="trailing" secondItem="sg3-Bb-dK4" secondAttribute="trailing" constant="20" id="M3y-HE-Y7A"/>
                                                     <constraint firstItem="Mcu-Si-ug0" firstAttribute="centerY" secondItem="vjQ-Td-omE" secondAttribute="centerY" id="MbP-wE-vX2"/>
                                                     <constraint firstItem="9Nx-St-dQ9" firstAttribute="centerY" secondItem="vjQ-Td-omE" secondAttribute="centerY" constant="-80" id="Mlg-SE-Vbo"/>
+                                                    <constraint firstItem="6rp-sv-PCD" firstAttribute="centerY" secondItem="Mcu-Si-ug0" secondAttribute="centerY" id="N4m-Qd-raX"/>
                                                     <constraint firstItem="sg3-Bb-dK4" firstAttribute="centerY" secondItem="vjQ-Td-omE" secondAttribute="centerY" constant="80" id="NQd-2N-56R"/>
                                                     <constraint firstAttribute="trailing" secondItem="OTI-Da-2TL" secondAttribute="trailing" constant="10" id="PR7-ew-ddz"/>
                                                     <constraint firstItem="uXE-t3-vdn" firstAttribute="centerY" secondItem="sg3-Bb-dK4" secondAttribute="centerY" id="aYp-pN-V5h"/>
+                                                    <constraint firstItem="Bdv-mz-Hum" firstAttribute="centerY" secondItem="Mcu-Si-ug0" secondAttribute="centerY" id="fV6-VQ-DMr"/>
                                                     <constraint firstItem="OTI-Da-2TL" firstAttribute="leading" secondItem="vjQ-Td-omE" secondAttribute="leading" constant="10" id="iwv-40-e11"/>
                                                     <constraint firstAttribute="height" constant="340" id="p4u-g7-bGJ"/>
+                                                    <constraint firstItem="Mcu-Si-ug0" firstAttribute="leading" secondItem="Bdv-mz-Hum" secondAttribute="trailing" constant="60" id="qsW-d7-9CD"/>
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CFT-jg-4YQ">
@@ -2674,6 +2795,7 @@ Pay careful attention to the following video.</string>
                     </view>
                     <size key="freeformSize" width="393" height="2000"/>
                     <connections>
+                        <outlet property="backwardButton" destination="Bdv-mz-Hum" id="0y9-ti-xhF"/>
                         <outlet property="bottomDescLabel" destination="CFT-jg-4YQ" id="9xH-A9-W70"/>
                         <outlet property="completeButton" destination="bRd-k4-m9R" id="rSz-8B-kDT"/>
                         <outlet property="dot1View" destination="XDm-Xs-Xn8" id="lMy-sC-FxL"/>
@@ -2682,6 +2804,7 @@ Pay careful attention to the following video.</string>
                         <outlet property="dot4View" destination="Fst-q2-zCV" id="PB6-Bd-aAo"/>
                         <outlet property="dot5View" destination="L4G-MF-TqB" id="KW7-Tf-QSp"/>
                         <outlet property="favImg" destination="9Nx-St-dQ9" id="LQW-OS-1mY"/>
+                        <outlet property="forwardButton" destination="6rp-sv-PCD" id="6PX-rd-XI7"/>
                         <outlet property="maximiseImg" destination="sg3-Bb-dK4" id="nXc-fS-e8Q"/>
                         <outlet property="playPauseImg" destination="Mcu-Si-ug0" id="1Fe-4k-58k"/>
                         <outlet property="preparationDescLabel" destination="4aB-92-vzz" id="BvR-i8-Jgg"/>
@@ -2726,6 +2849,7 @@ Pay careful attention to the following video.</string>
         <image name="fav" width="82" height="82"/>
         <image name="forwardAudio" width="55" height="45"/>
         <image name="front" width="82" height="82"/>
+        <image name="goforward.10" catalog="system" width="119" height="128"/>
         <image name="handOverToHeart" width="1260" height="804"/>
         <image name="maximise" width="24" height="24"/>
         <image name="mindful" width="555" height="375"/>

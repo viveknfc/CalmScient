@@ -13,7 +13,7 @@ class ForgotPasswordVC: ViewController {
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var emailOrNumberTF: customUITextField!
     @IBOutlet weak var emailPhoneNumberLbl: UILabel!
-    @IBOutlet weak var resetPasswordButton: CapsuleButton!
+    @IBOutlet weak var resetPasswordButton: LinearGradientButton!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.

@@ -37,6 +37,12 @@ class settingsAlarmVC: UIViewController, UITableViewDataSource, UITableViewDeleg
 
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.post(name: Notification.Name("RemoveDimmingView"), object: nil)
+    }
+
+    
     @IBAction func okButtonPressed(_ sender: Any) {
         
         guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
