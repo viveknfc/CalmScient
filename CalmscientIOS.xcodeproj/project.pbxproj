@@ -457,6 +457,11 @@
 		C230434B2D105D3C001E152B /* FontLL8.swift in Sources */ = {isa = PBXBuildFile; fileRef = C230434A2D105D3C001E152B /* FontLL8.swift */; };
 		C230434D2D10903B001E152B /* FontLM14.swift in Sources */ = {isa = PBXBuildFile; fileRef = C230434C2D10903B001E152B /* FontLM14.swift */; };
 		C237E9C72D30586000E895FA /* newPickerViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C237E9C62D30586000E895FA /* newPickerViewVC.swift */; };
+		C23A2A632DD1CD9700F36781 /* VTakingControlIntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A2A622DD1CD9700F36781 /* VTakingControlIntroVC.swift */; };
+		C23A2A662DD1CFA700F36781 /* TakincontrolIntroCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23A2A652DD1CFA700F36781 /* TakincontrolIntroCell.xib */; };
+		C23A2A682DD1D33D00F36781 /* takinccontrolintroTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A2A672DD1D33D00F36781 /* takinccontrolintroTC.swift */; };
+		C23A2A6A2DD2101E00F36781 /* IntroSecondPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A2A692DD2101E00F36781 /* IntroSecondPageVC.swift */; };
+		C23A2A6C2DD25CDE00F36781 /* TakingIntroLastVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A2A6B2DD25CDE00F36781 /* TakingIntroLastVC.swift */; };
 		C23B71672DA6B47A006CCFE4 /* InfoButtonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B71662DA6B47A006CCFE4 /* InfoButtonVC.swift */; };
 		C23B71692DA6C4BC006CCFE4 /* GeneralwithYesNoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B71682DA6C4BC006CCFE4 /* GeneralwithYesNoView.swift */; };
 		C23B716B2DA6E46D006CCFE4 /* getTakingControlIntroDataModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23B716A2DA6E46D006CCFE4 /* getTakingControlIntroDataModal.swift */; };
@@ -1023,6 +1028,11 @@
 		C230434A2D105D3C001E152B /* FontLL8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLL8.swift; sourceTree = "<group>"; };
 		C230434C2D10903B001E152B /* FontLM14.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLM14.swift; sourceTree = "<group>"; };
 		C237E9C62D30586000E895FA /* newPickerViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newPickerViewVC.swift; sourceTree = "<group>"; };
+		C23A2A622DD1CD9700F36781 /* VTakingControlIntroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VTakingControlIntroVC.swift; sourceTree = "<group>"; };
+		C23A2A652DD1CFA700F36781 /* TakincontrolIntroCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TakincontrolIntroCell.xib; sourceTree = "<group>"; };
+		C23A2A672DD1D33D00F36781 /* takinccontrolintroTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = takinccontrolintroTC.swift; sourceTree = "<group>"; };
+		C23A2A692DD2101E00F36781 /* IntroSecondPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroSecondPageVC.swift; sourceTree = "<group>"; };
+		C23A2A6B2DD25CDE00F36781 /* TakingIntroLastVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakingIntroLastVC.swift; sourceTree = "<group>"; };
 		C23B71662DA6B47A006CCFE4 /* InfoButtonVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoButtonVC.swift; sourceTree = "<group>"; };
 		C23B71682DA6C4BC006CCFE4 /* GeneralwithYesNoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralwithYesNoView.swift; sourceTree = "<group>"; };
 		C23B716A2DA6E46D006CCFE4 /* getTakingControlIntroDataModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getTakingControlIntroDataModal.swift; sourceTree = "<group>"; };
@@ -2485,12 +2495,25 @@
 			path = ChallengingtoQuit;
 			sourceTree = "<group>";
 		};
+		C23A2A642DD1CF1500F36781 /* TakingControlIntro */ = {
+			isa = PBXGroup;
+			children = (
+				C23A2A622DD1CD9700F36781 /* VTakingControlIntroVC.swift */,
+				C23A2A652DD1CFA700F36781 /* TakincontrolIntroCell.xib */,
+				C23A2A672DD1D33D00F36781 /* takinccontrolintroTC.swift */,
+				C23A2A692DD2101E00F36781 /* IntroSecondPageVC.swift */,
+				C23A2A6B2DD25CDE00F36781 /* TakingIntroLastVC.swift */,
+			);
+			path = TakingControlIntro;
+			sourceTree = "<group>";
+		};
 		C26AA7A02CF85BAB00F9A424 /* Viv Screens */ = {
 			isa = PBXGroup;
 			children = (
 				C2ADB3BF2D1A966600157631 /* Taking Control Index.storyboard */,
 				C28D0E272D006BDB00517693 /* Consequence */,
 				C28D0E262D006B9900517693 /* General Class */,
+				C23A2A642DD1CF1500F36781 /* TakingControlIntro */,
 				C26AA7A32CF85E1600F9A424 /* Taking Control Index.swift */,
 				C26AA7A52CF8642500F9A424 /* Drinking Control.swift */,
 				4C7FA3832D7F19AE00143612 /* DrinkingTakingControlResponse.swift */,
@@ -2777,6 +2800,7 @@
 				4A6ACC6F2BDD00BA00C5D02D /* QuestionHeaderView.xib in Resources */,
 				4A967FC92BD6892800FCE646 /* UserEntrySleepHoursCell.xib in Resources */,
 				433E538B2C45604000A37E84 /* ProfileLanguage1CollectionViewCell.xib in Resources */,
+				C23A2A662DD1CFA700F36781 /* TakincontrolIntroCell.xib in Resources */,
 				4A8045E12BD91EC20054A120 /* AddMedications.xcassets in Resources */,
 				C2D48F6C2D9676420058677F /* GeneralAlertView.xib in Resources */,
 				4A178C962C0572F100371517 /* WebViewLesson.storyboard in Resources */,
@@ -3010,6 +3034,7 @@
 				43AB77512C64511C00740BA6 /* MindfulNess.swift in Sources */,
 				4A0853DB2C23C0A600202C02 /* EventsTrackersViewController.swift in Sources */,
 				4A98BFDB2BF675E600C9D043 /* ProfileThemeTableViewCell.swift in Sources */,
+				C23A2A632DD1CD9700F36781 /* VTakingControlIntroVC.swift in Sources */,
 				C2AEBC5D2D0C5AF400B65DBB /* Modarate3VC.swift in Sources */,
 				4AC1F44A2BF2865E002F5E44 /* MedicationsAPICodables.swift in Sources */,
 				4A0E1F9A2BE69D07008389C4 /* Router.swift in Sources */,
@@ -3026,6 +3051,7 @@
 				4A404C5D2BF6712B000790C8 /* ProfileDefaultTableViewCell.swift in Sources */,
 				432EBE212C2BF49F000BB69A /* ChangeCell.swift in Sources */,
 				432EBE2B2C2BF49F000BB69A /* TellUsCell.swift in Sources */,
+				C23A2A6C2DD25CDE00F36781 /* TakingIntroLastVC.swift in Sources */,
 				4A0853BA2C21684B00202C02 /* CustomHeaderView.swift in Sources */,
 				431C24772C469B7300909C24 /* AppHelper.swift in Sources */,
 				4AD5D1632BD7A6C100E4C945 /* NextAppointmentsViewController.swift in Sources */,
@@ -3047,6 +3073,7 @@
 				43A08D852C34EB340082F47B /* WhatToExpectViewController.swift in Sources */,
 				4A65C3372BD6859800809222 /* Utility.swift in Sources */,
 				4A9C78CA2BD6D1E90076AEE2 /* CustomOvalCollectionViewCell.swift in Sources */,
+				C23A2A6A2DD2101E00F36781 /* IntroSecondPageVC.swift in Sources */,
 				4A0E1F3C2BE467F4008389C4 /* UserLoginInfo.swift in Sources */,
 				4A8044812BD91E370054A120 /* BottomSheetTimeAndAlarmVC.swift in Sources */,
 				4AFA67712BFA03B2001197C9 /* CourseAPICodables.swift in Sources */,
@@ -3248,6 +3275,7 @@
 				4A0E1F9E2BEB3C44008389C4 /* NetworkAPIRequest.swift in Sources */,
 				4A0853A62C21684B00202C02 /* InfoAlert.swift in Sources */,
 				4A87C14B2C011D3E004E04CC /* WeeklySummaryAPICodables.swift in Sources */,
+				C23A2A682DD1D33D00F36781 /* takinccontrolintroTC.swift in Sources */,
 				4AD5D1532BD7A6C100E4C945 /* HomeTabDashboardViewController.swift in Sources */,
 				4AD5D1022BD7A60E00E4C945 /* AppMainTabViewController.swift in Sources */,
 				4A0853D82C23C0A600202C02 /* EventsTrackersTableViewCell.swift in Sources */,

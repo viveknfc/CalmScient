@@ -202,8 +202,12 @@ extension DiscoveryMainViewController {
         
                         } else {
                             
-                            let next = UIStoryboard(name: "TakingControllIntro", bundle: nil)
-                            let vc = next.instantiateViewController(withIdentifier: "TakingControllIntro") as? TakingControllIntro
+//                            let next = UIStoryboard(name: "TakingControllIntro", bundle: nil)
+//                            let vc = next.instantiateViewController(withIdentifier: "TakingControllIntro") as? TakingControllIntro
+//                            self.navigationController?.pushViewController(vc!, animated: true)
+                            
+                            let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+                            let vc = next.instantiateViewController(withIdentifier: "VTakingControlIntroVC") as? VTakingControlIntroVC
                             self.navigationController?.pushViewController(vc!, animated: true)
                             
                         }

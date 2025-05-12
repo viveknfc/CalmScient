@@ -19,6 +19,18 @@
         }
       }
     },
+    "0Cb-gF-yzn.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Notify to PCP\"; ObjectID = \"0Cb-gF-yzn\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Notify to PCP"
+          }
+        }
+      }
+    },
     "0H7-09-fBf.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Personalized action plan to control\\nyour drinking and smoking habit\"; ObjectID = \"0H7-09-fBf\";",
       "extractionState" : "extracted_with_value",
@@ -355,6 +367,18 @@
         }
       }
     },
+    "3Ht-Iy-prI.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Your points\"; ObjectID = \"3Ht-Iy-prI\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Your points"
+          }
+        }
+      }
+    },
     "3KT-P5-Ju5.text" : {
       "comment" : "Class = \"UILabel\"; text = \"alcohol misuse?\"; ObjectID = \"3KT-P5-Ju5\";",
       "extractionState" : "extracted_with_value",
@@ -663,6 +687,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "After going through a basic knowledge about smoking, which stage do you think you are at?"
+          }
+        }
+      }
+    },
+    "7Sw-ii-Uat.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"0\"; ObjectID = \"7Sw-ii-Uat\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "0"
           }
         }
       }
@@ -1423,6 +1459,18 @@
         }
       }
     },
+    "Dg2-Xo-PNd.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Interpretation: \\nOne or more “Yes” responses is regarded as a positive screening test, indication possible substance use and need for further evaluation. \"; ObjectID = \"Dg2-Xo-PNd\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Interpretation: \nOne or more “Yes” responses is regarded as a positive screening test, indication possible substance use and need for further evaluation. "
+          }
+        }
+      }
+    },
     "dge-gw-QtH.text" : {
       "comment" : "Class = \"UILabel\"; text = \"•\"; ObjectID = \"dge-gw-QtH\";",
       "extractionState" : "extracted_with_value",
@@ -1803,6 +1851,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Muerte y lesiones\n"
+          }
+        }
+      }
+    },
+    "fSp-x3-Tem.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Submit\"; ObjectID = \"fSp-x3-Tem\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Submit"
           }
         }
       }
@@ -2497,6 +2557,30 @@
         }
       }
     },
+    "JFk-gA-fL9.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"AUDIT\"; ObjectID = \"JFk-gA-fL9\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "AUDIT"
+          }
+        }
+      }
+    },
+    "Jfn-wm-9Ce.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Positive\"; ObjectID = \"Jfn-wm-9Ce\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Positive"
+          }
+        }
+      }
+    },
     "JKh-eQ-Ihg.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Alcohol-free day\"; ObjectID = \"JKh-eQ-Ihg\";",
       "extractionState" : "extracted_with_value",
@@ -2773,6 +2857,18 @@
         }
       }
     },
+    "L0S-20-7Ep.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Smoking Coach\"; ObjectID = \"L0S-20-7Ep\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Smoking Coach"
+          }
+        }
+      }
+    },
     "l5p-g0-6Xv.text" : {
       "comment" : "Class = \"UILabel\"; text = \"calculator\"; ObjectID = \"l5p-g0-6Xv\";",
       "extractionState" : "extracted_with_value",
@@ -2823,6 +2919,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Es importante reflexionar sobre tus hábitos de consumo, especialmente durante eventos sociales, y considerar cómo puedes disfrutar de esos momentos sin excederte. Al dar pequeños pasos para reducir tu consumo, empezarás a ver los beneficios tanto para tu salud como para tus relaciones.\n"
+          }
+        }
+      }
+    },
+    "LKH-vS-ag5.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"LKH-vS-ag5\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Label"
           }
         }
       }
@@ -3073,6 +3181,18 @@
         }
       }
     },
+    "MYK-UQ-tAp.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Drinking Coach\"; ObjectID = \"MYK-UQ-tAp\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Drinking Coach"
+          }
+        }
+      }
+    },
     "n3s-Vv-UxV.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Complete\"; ObjectID = \"n3s-Vv-UxV\";",
       "extractionState" : "extracted_with_value",
@@ -3135,6 +3255,18 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "\"Drug use\" refers to\n \n1. the use of prescribed or over-the-counter drugs in excess of the directions, and \n2. any non medical use of drugs.\n\nThe various classes of drugs may include cannabis (marijuana, hashish), solvents (e.g., paint thinner), tranquilizers (e.g., valium), barbiturates, cocaine, stimulants (e.g., speed), hallucinogens (e.g., LSD) or narcotics (e.g., heroin). The questions do not include alcoholic beverages.\n\nPlease answer the questions in this survey. If you have difficulty with a statement, simply choose the best response possible.\n\nThese questions refer to drug use in the past 12 months. Please answer NO or YES to each question."
+          }
+        }
+      }
+    },
+    "nIQ-fW-CF2.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"smoking and drug use\"; ObjectID = \"nIQ-fW-CF2\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "smoking and drug use"
           }
         }
       }
@@ -3529,6 +3661,18 @@
         }
       }
     },
+    "PuW-pH-Zq7.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"DAST-10\"; ObjectID = \"PuW-pH-Zq7\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "DAST-10"
+          }
+        }
+      }
+    },
     "pZw-b2-aPT.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Resources\"; ObjectID = \"pZw-b2-aPT\";",
       "extractionState" : "extracted_with_value",
@@ -3663,6 +3807,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Contador de bebidas\n"
+          }
+        }
+      }
+    },
+    "QP3-Yk-Bkd.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"QP3-Yk-Bkd\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Label"
           }
         }
       }
@@ -4147,6 +4303,18 @@
         }
       }
     },
+    "TLz-sl-flr.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"TLz-sl-flr\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Label"
+          }
+        }
+      }
+    },
     "Ton-bC-Ji6.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Moderate everyday drinking\"; ObjectID = \"Ton-bC-Ji6\";",
       "extractionState" : "extracted_with_value",
@@ -4269,6 +4437,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Finalizar"
+          }
+        }
+      }
+    },
+    "u1q-s9-wdt.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"If you answered YES to any of the four questions, please take the applicable follow-up test.\"; ObjectID = \"u1q-s9-wdt\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "If you answered YES to any of the four questions, please take the applicable follow-up test."
           }
         }
       }
@@ -4717,6 +4897,18 @@
         }
       }
     },
+    "vya-BG-mzO.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"For alcohol use\"; ObjectID = \"vya-BG-mzO\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "For alcohol use"
+          }
+        }
+      }
+    },
     "w7e-B9-Y9Y.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Nicotine does things in your brain that make you feel good and more awake. It releases chemicals like dopamine, norepinephrine, and serotonin, which are responsible for those \\\"feeling good\\\" and \\\"being awake\\\" vibes. Nicotine also gives you a quick boost of endorphins, which can help you relax and ease any pains.\\n\\nThat's why some people, both adults and teens, use smoking to kind of \\\"reset\\\" their mood, emotions, and attention. Especially for those who struggle with anxiety or feeling down, smoking might be a way they try to make themselves feel better. But it's important to know that there are healthier ways to deal with these feelings.\"; ObjectID = \"w7e-B9-Y9Y\";",
       "extractionState" : "extracted_with_value",
@@ -4993,6 +5185,18 @@
         }
       }
     },
+    "y6m-fQ-P9f.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"y6m-fQ-P9f\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Label"
+          }
+        }
+      }
+    },
     "YcH-0w-ona.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Drinking is associated with a number of health problems and can make certain chronic health problems worse. \"; ObjectID = \"YcH-0w-ona\";",
       "extractionState" : "extracted_with_value",
@@ -5031,6 +5235,18 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Guardar en el resumen semanal\n"
+          }
+        }
+      }
+    },
+    "YG7-dY-XZg.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"YG7-dY-XZg\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Label"
           }
         }
       }
