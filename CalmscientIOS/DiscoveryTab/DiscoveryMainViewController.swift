@@ -190,7 +190,7 @@ extension DiscoveryMainViewController {
                         let skipTutorial = firstCourse.skipTutorialFlag ?? 0
                         print("First course's skipTutorialFlag is: \(skipTutorial)")
                         
-                        if skipTutorial == 0  { //1
+                        if skipTutorial == 1  { //0
                             
                             let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
                             let vc = next.instantiateViewController(withIdentifier: "TakingControlIndex") as? TakingControlIndex
@@ -202,13 +202,13 @@ extension DiscoveryMainViewController {
         
                         } else {
                             
-//                            let next = UIStoryboard(name: "TakingControllIntro", bundle: nil)
-//                            let vc = next.instantiateViewController(withIdentifier: "TakingControllIntro") as? TakingControllIntro
-//                            self.navigationController?.pushViewController(vc!, animated: true)
-                            
-                            let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
-                            let vc = next.instantiateViewController(withIdentifier: "VTakingControlIntroVC") as? VTakingControlIntroVC
+                            let next = UIStoryboard(name: "TakingControllIntro", bundle: nil)
+                            let vc = next.instantiateViewController(withIdentifier: "TakingControllIntro") as? TakingControllIntro
                             self.navigationController?.pushViewController(vc!, animated: true)
+                            
+//                            let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+//                            let vc = next.instantiateViewController(withIdentifier: "VTakingControlIntroVC") as? VTakingControlIntroVC
+//                            self.navigationController?.pushViewController(vc!, animated: true)
                             
                         }
                     }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C58E3D0D76D550F12EB55C4 /* Pods_CalmscientIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5C42DCE48AE7884CCA2E42 /* Pods_CalmscientIOS.framework */; };
 		431C24172C46624D00909C24 /* DashboardHomeTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 431C24162C46624D00909C24 /* DashboardHomeTab.storyboard */; };
 		431C24742C46992B00909C24 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 431C24722C46992B00909C24 /* Localizable.strings */; };
 		431C24772C469B7300909C24 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431C24762C469B7300909C24 /* AppHelper.swift */; };
@@ -441,8 +442,6 @@
 		C20245E92D1F37B1001CBDDC /* SmokingRelaxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20245E82D1F37B1001CBDDC /* SmokingRelaxVC.swift */; };
 		C202E1ED2D931BE300DACB21 /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C202E1EC2D931BE300DACB21 /* LaunchScreenVC.swift */; };
 		C21BD59A2D2C44AC005BA00D /* KeyChainFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BD5992D2C44AB005BA00D /* KeyChainFile.swift */; };
-		C21BD59B2D2C48A7005BA00D /* Pods_CalmscientIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4269D638E194B1C11CF122B0 /* Pods_CalmscientIOS.framework */; };
-		C21BD59C2D2C48A7005BA00D /* Pods_CalmscientIOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4269D638E194B1C11CF122B0 /* Pods_CalmscientIOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		C22228312DB901B700A4CBC2 /* whiteGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = C22228302DB901B700A4CBC2 /* whiteGif.gif */; };
 		C226A5722D0844B40080397A /* HoldYourLiquorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C226A5712D0844B40080397A /* HoldYourLiquorVC.swift */; };
 		C226A5762D089AAA0080397A /* VivTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C226A5752D089AAA0080397A /* VivTableViewCell.xib */; };
@@ -559,7 +558,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				C21BD59C2D2C48A7005BA00D /* Pods_CalmscientIOS.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -567,7 +565,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		4269D638E194B1C11CF122B0 /* Pods_CalmscientIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalmscientIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C444166053ECD1D5D36EA00 /* Pods-CalmscientIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalmscientIOS.release.xcconfig"; path = "Target Support Files/Pods-CalmscientIOS/Pods-CalmscientIOS.release.xcconfig"; sourceTree = "<group>"; };
 		431C24152C46624D00909C24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DashboardHomeTab.storyboard; sourceTree = "<group>"; };
 		431C24182C46624D00909C24 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/DashboardHomeTab.xcstrings; sourceTree = "<group>"; };
 		431C241A2C4662A300909C24 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -999,11 +997,11 @@
 		4C7FA3802D7EB2EF00143612 /* NewAppointmentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewAppointmentTableViewCell.xib; sourceTree = "<group>"; };
 		4C7FA3832D7F19AE00143612 /* DrinkingTakingControlResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkingTakingControlResponse.swift; sourceTree = "<group>"; };
 		4C80993F2D79B47D009648CB /* AddNewAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAppointmentViewController.swift; sourceTree = "<group>"; };
+		56E23A8A2D9B9218EC519A59 /* Pods-CalmscientIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalmscientIOS.debug.xcconfig"; path = "Target Support Files/Pods-CalmscientIOS/Pods-CalmscientIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		6B5789C62C7C3C7500EFB8FF /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
 		6B5CC41B2C673C14007DDEE5 /* UserStartUpScreenDayDataSpanish.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UserStartUpScreenDayDataSpanish.json; sourceTree = "<group>"; };
 		6B75829B2C6B9A61008EB4EF /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
 		6BE9FE6C2C6F7C1800178B92 /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
-		991DCC1992BA60CFDCD66731 /* Pods-CalmscientIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalmscientIOS.debug.xcconfig"; path = "Target Support Files/Pods-CalmscientIOS/Pods-CalmscientIOS.debug.xcconfig"; sourceTree = "<group>"; };
 		A39EF4642CC381DB003A89A0 /* ExcercisesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcercisesRepository.swift; sourceTree = "<group>"; };
 		A39EF4662CC3C63C003A89A0 /* ExcercisesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcercisesModel.swift; sourceTree = "<group>"; };
 		A3B8827A2CC7B3DF003C5133 /* SleepSummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepSummaryTableViewCell.swift; sourceTree = "<group>"; };
@@ -1120,7 +1118,7 @@
 		C2FDECB12D267EB9005EE6BA /* ReadyToQuitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyToQuitVC.swift; sourceTree = "<group>"; };
 		C2FDECB32D26940E005EE6BA /* TryingToQuitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryingToQuitVC.swift; sourceTree = "<group>"; };
 		C2FDECB52D269C9E005EE6BA /* TobaccoFreeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TobaccoFreeVC.swift; sourceTree = "<group>"; };
-		CABDF56706F6907473BB8C82 /* Pods-CalmscientIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalmscientIOS.release.xcconfig"; path = "Target Support Files/Pods-CalmscientIOS/Pods-CalmscientIOS.release.xcconfig"; sourceTree = "<group>"; };
+		CE5C42DCE48AE7884CCA2E42 /* Pods_CalmscientIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalmscientIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1128,10 +1126,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C21BD59B2D2C48A7005BA00D /* Pods_CalmscientIOS.framework in Frameworks */,
 				C2F400622DC89FC100481C5D /* FirebaseCrashlytics in Frameworks */,
 				C23BD4E52DA1202A00283907 /* SwiftyGif in Frameworks */,
 				C2F400602DC898B400481C5D /* FirebaseAnalytics in Frameworks */,
+				3C58E3D0D76D550F12EB55C4 /* Pods_CalmscientIOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1141,8 +1139,8 @@
 		3BADB94C2BBA9017AAB75ADF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				991DCC1992BA60CFDCD66731 /* Pods-CalmscientIOS.debug.xcconfig */,
-				CABDF56706F6907473BB8C82 /* Pods-CalmscientIOS.release.xcconfig */,
+				56E23A8A2D9B9218EC519A59 /* Pods-CalmscientIOS.debug.xcconfig */,
+				0C444166053ECD1D5D36EA00 /* Pods-CalmscientIOS.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1633,7 +1631,7 @@
 				4A65C2F22BD6852C00809222 /* CalmscientIOS */,
 				4A65C2F12BD6852C00809222 /* Products */,
 				3BADB94C2BBA9017AAB75ADF /* Pods */,
-				6184F34205A8E8BAD2A8E4A5 /* Frameworks */,
+				B23D767572A2EA06C5C5C713 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2454,14 +2452,6 @@
 			path = "Add New Appointments";
 			sourceTree = "<group>";
 		};
-		6184F34205A8E8BAD2A8E4A5 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				4269D638E194B1C11CF122B0 /* Pods_CalmscientIOS.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		A3B882792CC7B3AB003C5133 /* SleepSummaryTableViewCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -2469,6 +2459,14 @@
 				A3B8827B2CC7B3DF003C5133 /* SleepSummaryTableViewCell.xib */,
 			);
 			name = SleepSummaryTableViewCell;
+			sourceTree = "<group>";
+		};
+		B23D767572A2EA06C5C5C713 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CE5C42DCE48AE7884CCA2E42 /* Pods_CalmscientIOS.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		C20245E12D1E7FC4001CBDDC /* Smoking Index */ = {
@@ -2648,13 +2646,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A65C3042BD6852D00809222 /* Build configuration list for PBXNativeTarget "CalmscientIOS" */;
 			buildPhases = (
-				FD1C39EEE3C187F937E90DCF /* [CP] Check Pods Manifest.lock */,
+				2F36CFD25F6E744C73D1CAE1 /* [CP] Check Pods Manifest.lock */,
 				4A65C2EC2BD6852C00809222 /* Sources */,
 				4A65C2ED2BD6852C00809222 /* Frameworks */,
 				4A65C2EE2BD6852C00809222 /* Resources */,
-				3CBFAAB498086FA0D9D1014A /* [CP] Embed Pods Frameworks */,
 				C21BD59D2D2C48A7005BA00D /* Embed Frameworks */,
 				C2F400632DC8AC1400481C5D /* ShellScript */,
+				ED962CDFD8D78BBA0C6083AC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2932,21 +2930,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3CBFAAB498086FA0D9D1014A /* [CP] Embed Pods Frameworks */ = {
+		2F36CFD25F6E744C73D1CAE1 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CalmscientIOS/Pods-CalmscientIOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CalmscientIOS/Pods-CalmscientIOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-CalmscientIOS-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CalmscientIOS/Pods-CalmscientIOS-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C2F400632DC8AC1400481C5D /* ShellScript */ = {
@@ -2971,26 +2974,21 @@
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
 		};
-		FD1C39EEE3C187F937E90DCF /* [CP] Check Pods Manifest.lock */ = {
+		ED962CDFD8D78BBA0C6083AC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-CalmscientIOS/Pods-CalmscientIOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CalmscientIOS-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-CalmscientIOS/Pods-CalmscientIOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CalmscientIOS/Pods-CalmscientIOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -3458,7 +3456,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -3513,7 +3511,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -3525,7 +3523,7 @@
 		};
 		4A65C3052BD6852D00809222 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 991DCC1992BA60CFDCD66731 /* Pods-CalmscientIOS.debug.xcconfig */;
+			baseConfigurationReference = 56E23A8A2D9B9218EC519A59 /* Pods-CalmscientIOS.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -3533,8 +3531,8 @@
 				CODE_SIGN_ENTITLEMENTS = CalmscientIOS/CalmscientIOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.2;
-				DEVELOPMENT_TEAM = F7P87PL667;
+				CURRENT_PROJECT_VERSION = 1.0;
+				DEVELOPMENT_TEAM = LJ9NVW4F46;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CalmscientIOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CalmscientIOS;
@@ -3550,8 +3548,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.calmscient.com;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.calmscient.co;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -3566,7 +3564,7 @@
 		};
 		4A65C3062BD6852D00809222 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CABDF56706F6907473BB8C82 /* Pods-CalmscientIOS.release.xcconfig */;
+			baseConfigurationReference = 0C444166053ECD1D5D36EA00 /* Pods-CalmscientIOS.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -3574,8 +3572,8 @@
 				CODE_SIGN_ENTITLEMENTS = CalmscientIOS/CalmscientIOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2.2;
-				DEVELOPMENT_TEAM = F7P87PL667;
+				CURRENT_PROJECT_VERSION = 1.0;
+				DEVELOPMENT_TEAM = LJ9NVW4F46;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CalmscientIOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CalmscientIOS;
@@ -3591,8 +3589,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.calmscient.com;
+				MARKETING_VERSION = 1.0.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.calmscient.co;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
