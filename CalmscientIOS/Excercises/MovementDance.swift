@@ -14,7 +14,7 @@ class MovementDance: ViewController {
     @IBOutlet weak var descriptionLbl: UILabel!
     @IBOutlet weak var favImg: UIImageView!
     
-    @IBOutlet weak var completeButton: UIButton!
+    @IBOutlet weak var completeButton: CapsuleButton1!
     
     
     var isFav: Int = 0

@@ -70,38 +70,67 @@ class WeeklySummaryGraphViewController: ViewController {
                 return
             }
             self?.chartData = responseData
-            print("the chart data is", self?.chartData ?? "")
+            if let chartData = self?.chartData {
+                for data in chartData {
+                    print("ChartData - xValue: \(data.xValue), yValue: \(data.yValue), additionalInfo: \(data.additionalInfo ?? "nil"), graphType: \(data.graphDataType)")
+                }
+            }
+
             self?.tableView.reloadData()
         }
     }
 
     private func prepareBarChartData(data:[GraphData]) -> [GraphData] {
         
-        let badData:[GraphData] = data.filter { obj in
-            return obj.additionalInfo?.lowercased().trimmingCharacters(in: .whitespaces) == "BAD".lowercased()
+        let normalizedData = data.map { graph in
+            var modifiedGraph = graph
+            print("the graph name is ",graph.additionalInfo as Any)
+            modifiedGraph.additionalInfo = normalizeMood(graph.additionalInfo)
+            return modifiedGraph
         }
-        let couldbeBetterData:[GraphData] = data.filter { obj in
-            return obj.additionalInfo?.lowercased().trimmingCharacters(in: .whitespaces) == "COULD BE BETTER".lowercased()
-        }
-        let fairData = data.filter { obj in
-            return obj.additionalInfo?.lowercased().trimmingCharacters(in: .whitespaces) == "FAIR".lowercased()
-        }
-        let goodData = data.filter { obj in
-            return obj.additionalInfo?.lowercased().trimmingCharacters(in: .whitespaces) == "GOOD".lowercased()
-        }
-        let excellentData = data.filter { obj in
-            return obj.additionalInfo?.lowercased().trimmingCharacters(in: .whitespaces) == "EXCELLENT".lowercased()
-        }
-        var preparedData:[GraphData] = []
 
-        preparedData.append(GraphData(yAxisValue: badData.count, xAxisValue: "VBAD", additionalInfo: "BAD", graphType: .WeeklySummarySummaryOfMood))
-        preparedData.append(GraphData(yAxisValue: couldbeBetterData.count , xAxisValue: "COULD BE BETTER", additionalInfo: "COULD BE BETTER", graphType: .WeeklySummarySummaryOfMood))
-        preparedData.append(GraphData(yAxisValue: fairData.count, xAxisValue: "FAIR", additionalInfo: "FAIR", graphType: .WeeklySummarySummaryOfMood))
-        preparedData.append(GraphData(yAxisValue: goodData.count, xAxisValue: "GOOD", additionalInfo: "GOOD", graphType: .WeeklySummarySummaryOfMood))
-        preparedData.append(GraphData(yAxisValue: excellentData.count, xAxisValue: "EXCELLENT", additionalInfo: "EXCELLENT", graphType: .WeeklySummarySummaryOfMood))
+        let badCount = normalizedData.filter { $0.additionalInfo == "BAD" }.count
+        let couldBeBetterCount = normalizedData.filter { $0.additionalInfo == "COULD BE BETTER" }.count
+        let fairCount = normalizedData.filter { $0.additionalInfo == "FAIR" }.count
+        let goodCount = normalizedData.filter { $0.additionalInfo == "GOOD" }.count
+        let excellentCount = normalizedData.filter { $0.additionalInfo == "EXCELLENT" }.count
+        
+        var preparedData: [GraphData] = []
+        
+        // Use numeric xAxis values expected by MoodAxisFormatter
+        preparedData.append(GraphData(yAxisValue: badCount, xAxisValue: "1", additionalInfo: "BAD", graphType: .WeeklySummarySummaryOfMood))
+        preparedData.append(GraphData(yAxisValue: couldBeBetterCount, xAxisValue: "2", additionalInfo: "COULD BE BETTER", graphType: .WeeklySummarySummaryOfMood))
+        preparedData.append(GraphData(yAxisValue: fairCount, xAxisValue: "3", additionalInfo: "FAIR", graphType: .WeeklySummarySummaryOfMood))
+        preparedData.append(GraphData(yAxisValue: goodCount, xAxisValue: "4", additionalInfo: "GOOD", graphType: .WeeklySummarySummaryOfMood))
+        preparedData.append(GraphData(yAxisValue: excellentCount, xAxisValue: "5", additionalInfo: "EXCELLENT", graphType: .WeeklySummarySummaryOfMood))
         
         return preparedData
     }
+    
+    private func normalizeMood(_ value: String?) -> String? {
+//        guard let value = value?.lowercased().trimmingCharacters(in: .whitespacesAndNewlines) else { return nil }
+
+        guard let value = value?
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .folding(options: .diacriticInsensitive, locale: .current)
+            .lowercased() else { return nil }
+        
+        switch value {
+        case "excellent", "excelente":
+            return "EXCELLENT"
+        case "good", "bueno":
+            return "GOOD"
+        case "fair", "justo", "masomenos", "mas o menos":
+            return "FAIR"
+        case "could be better", "could be\nbetter", "podría ser mejor", "podría ser\nmejor":
+            return "COULD BE BETTER"
+        case "bad", "mal":
+            return "BAD"
+        default:
+            return nil
+        }
+    }
+
 
 }
 

@@ -143,7 +143,7 @@ class NeedToTalkViewController: ViewController {
             print("Invalid URL")
             return
         }
-   // https://calmscient.centralindia.cloudapp.azure.com:8090/identity/api/v1/settings/getNeedToTalkWithSomeoneDetails
+
         // Create the request
         var request = URLRequest(url: url)
         request.httpMethod = "POST"

@@ -17,7 +17,7 @@ class HandOverYourHeart: ViewController {
     
     @IBOutlet weak var favImg: UIImageView!
     
-    @IBOutlet weak var completeButton: UIButton!
+    @IBOutlet weak var completeButton: CapsuleButton1!
     
     var isFav: Int = 0
     var favExcercises:[ExcercisesModel] = []

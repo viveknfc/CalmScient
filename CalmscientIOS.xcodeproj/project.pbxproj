@@ -442,6 +442,7 @@
 		C20245E92D1F37B1001CBDDC /* SmokingRelaxVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C20245E82D1F37B1001CBDDC /* SmokingRelaxVC.swift */; };
 		C202E1ED2D931BE300DACB21 /* LaunchScreenVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C202E1EC2D931BE300DACB21 /* LaunchScreenVC.swift */; };
 		C21BD59A2D2C44AC005BA00D /* KeyChainFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BD5992D2C44AB005BA00D /* KeyChainFile.swift */; };
+		C21C6D5A2DD4E23E009120F8 /* TakingcontrolfirstscreenStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21C6D592DD4E23E009120F8 /* TakingcontrolfirstscreenStruct.swift */; };
 		C22228312DB901B700A4CBC2 /* whiteGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = C22228302DB901B700A4CBC2 /* whiteGif.gif */; };
 		C226A5722D0844B40080397A /* HoldYourLiquorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C226A5712D0844B40080397A /* HoldYourLiquorVC.swift */; };
 		C226A5762D089AAA0080397A /* VivTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C226A5752D089AAA0080397A /* VivTableViewCell.xib */; };
@@ -483,9 +484,9 @@
 		C26AA7B62CF8E0F900F9A424 /* FontLR15.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26AA7B52CF8E0F900F9A424 /* FontLR15.swift */; };
 		C26E59E32D8D405000CC2443 /* AppointmentLocationModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26E59E22D8D405000CC2443 /* AppointmentLocationModal.swift */; };
 		C275E3912D0212FD00E7513D /* ConSub5VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275E3902D0212FD00E7513D /* ConSub5VC.swift */; };
-		C2815F6D2D2C174B00B2A640 /* SuccessAlertVIew.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2815F6C2D2C174B00B2A640 /* SuccessAlertVIew.xib */; };
 		C2815F6F2D2C1A0900B2A640 /* SuccessAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2815F6E2D2C1A0900B2A640 /* SuccessAlertView.swift */; };
 		C281E4902D9FF22200589224 /* LaunchGifFile.gif in Resources */ = {isa = PBXBuildFile; fileRef = C281E48F2D9FF22200589224 /* LaunchGifFile.gif */; };
+		C285B50D2DDC75C500AECD9B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C285B50C2DDC75C500AECD9B /* GoogleService-Info.plist */; };
 		C28D0E292D006BFB00517693 /* ConsequenceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28D0E282D006BFB00517693 /* ConsequenceVC.swift */; };
 		C28D0E2B2D00948A00517693 /* FontLL12.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28D0E2A2D00948A00517693 /* FontLL12.swift */; };
 		C28D0E2D2D00B16000517693 /* ConSub1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28D0E2C2D00B16000517693 /* ConSub1VC.swift */; };
@@ -503,6 +504,7 @@
 		C29E597E2D9435020068FDD7 /* MyDrinkingHabitRefDoc.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29E597D2D9435020068FDD7 /* MyDrinkingHabitRefDoc.swift */; };
 		C2A293E52D2CFB2800666D25 /* NicotinCarvingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A293E42D2CFB2700666D25 /* NicotinCarvingVC.swift */; };
 		C2A7F2262DA4E7B300E41D5A /* scheduleAlarmNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2A7F2252DA4E7B300E41D5A /* scheduleAlarmNotification.swift */; };
+		C2AC16B52DDE0FD000BFE160 /* SuccessAlertVIew.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2AC16B72DDE0FD000BFE160 /* SuccessAlertVIew.xib */; };
 		C2ADB3B82D1A68CC00157631 /* FontLR16.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADB3B72D1A68CC00157631 /* FontLR16.swift */; };
 		C2ADB3BA2D1A6AE800157631 /* ProfileTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADB3B92D1A6AE800157631 /* ProfileTextField.swift */; };
 		C2ADB3BC2D1A7E7800157631 /* CurvedOutlineButton1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2ADB3BB2D1A7E7800157631 /* CurvedOutlineButton1.swift */; };
@@ -539,7 +541,6 @@
 		C2EED5E22CFA6797005C1E1F /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EED5E12CFA6797005C1E1F /* CustomView.swift */; };
 		C2EED5E42CFA69B0005C1E1F /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EED5E32CFA69B0005C1E1F /* ImageView.swift */; };
 		C2EED5E62CFA6CB8005C1E1F /* FontLR12.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EED5E52CFA6CB8005C1E1F /* FontLR12.swift */; };
-		C2F400522DC88D1100481C5D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C2F400512DC88D1100481C5D /* GoogleService-Info.plist */; };
 		C2F400602DC898B400481C5D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C2F4005F2DC898B400481C5D /* FirebaseAnalytics */; };
 		C2F400622DC89FC100481C5D /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = C2F400612DC89FC100481C5D /* FirebaseCrashlytics */; };
 		C2FA22CD2DAF9A5700241D6E /* AddNewAppointment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2FA22CF2DAF9A5700241D6E /* AddNewAppointment.storyboard */; };
@@ -1012,6 +1013,7 @@
 		C20245E82D1F37B1001CBDDC /* SmokingRelaxVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokingRelaxVC.swift; sourceTree = "<group>"; };
 		C202E1EC2D931BE300DACB21 /* LaunchScreenVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenVC.swift; sourceTree = "<group>"; };
 		C21BD5992D2C44AB005BA00D /* KeyChainFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainFile.swift; sourceTree = "<group>"; };
+		C21C6D592DD4E23E009120F8 /* TakingcontrolfirstscreenStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakingcontrolfirstscreenStruct.swift; sourceTree = "<group>"; };
 		C22228302DB901B700A4CBC2 /* whiteGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = whiteGif.gif; sourceTree = "<group>"; };
 		C226A5712D0844B40080397A /* HoldYourLiquorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldYourLiquorVC.swift; sourceTree = "<group>"; };
 		C226A5752D089AAA0080397A /* VivTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VivTableViewCell.xib; sourceTree = "<group>"; };
@@ -1052,9 +1054,9 @@
 		C26AA7B52CF8E0F900F9A424 /* FontLR15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLR15.swift; sourceTree = "<group>"; };
 		C26E59E22D8D405000CC2443 /* AppointmentLocationModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentLocationModal.swift; sourceTree = "<group>"; };
 		C275E3902D0212FD00E7513D /* ConSub5VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConSub5VC.swift; sourceTree = "<group>"; };
-		C2815F6C2D2C174B00B2A640 /* SuccessAlertVIew.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SuccessAlertVIew.xib; sourceTree = "<group>"; };
 		C2815F6E2D2C1A0900B2A640 /* SuccessAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessAlertView.swift; sourceTree = "<group>"; };
 		C281E48F2D9FF22200589224 /* LaunchGifFile.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = LaunchGifFile.gif; sourceTree = "<group>"; };
+		C285B50C2DDC75C500AECD9B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C28D0E282D006BFB00517693 /* ConsequenceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsequenceVC.swift; sourceTree = "<group>"; };
 		C28D0E2A2D00948A00517693 /* FontLL12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLL12.swift; sourceTree = "<group>"; };
 		C28D0E2C2D00B16000517693 /* ConSub1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConSub1VC.swift; sourceTree = "<group>"; };
@@ -1072,6 +1074,8 @@
 		C29E597D2D9435020068FDD7 /* MyDrinkingHabitRefDoc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyDrinkingHabitRefDoc.swift; sourceTree = "<group>"; };
 		C2A293E42D2CFB2700666D25 /* NicotinCarvingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicotinCarvingVC.swift; sourceTree = "<group>"; };
 		C2A7F2252DA4E7B300E41D5A /* scheduleAlarmNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = scheduleAlarmNotification.swift; sourceTree = "<group>"; };
+		C2AC16B62DDE0FD000BFE160 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/SuccessAlertVIew.xib; sourceTree = "<group>"; };
+		C2AC16B82DDE0FD000BFE160 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/SuccessAlertVIew.xcstrings; sourceTree = "<group>"; };
 		C2ADB3B72D1A68CC00157631 /* FontLR16.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLR16.swift; sourceTree = "<group>"; };
 		C2ADB3B92D1A6AE800157631 /* ProfileTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTextField.swift; sourceTree = "<group>"; };
 		C2ADB3BB2D1A7E7800157631 /* CurvedOutlineButton1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurvedOutlineButton1.swift; sourceTree = "<group>"; };
@@ -1109,7 +1113,6 @@
 		C2EED5E12CFA6797005C1E1F /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		C2EED5E32CFA69B0005C1E1F /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		C2EED5E52CFA6CB8005C1E1F /* FontLR12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLR12.swift; sourceTree = "<group>"; };
-		C2F400512DC88D1100481C5D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C2FA22CE2DAF9A5700241D6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AddNewAppointment.storyboard; sourceTree = "<group>"; };
 		C2FA22D02DAF9A5700241D6E /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/AddNewAppointment.xcstrings; sourceTree = "<group>"; };
 		C2FA57F92D71E80B0093568A /* FontLM20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLM20.swift; sourceTree = "<group>"; };
@@ -1683,7 +1686,7 @@
 				4A65C31E2BD6857600809222 /* GenericUIComponents */,
 				4A65C31C2BD6856C00809222 /* HealthAppLaunchScreen.storyboard */,
 				4A65C2F32BD6852C00809222 /* AppDelegate.swift */,
-				C2F400512DC88D1100481C5D /* GoogleService-Info.plist */,
+				C285B50C2DDC75C500AECD9B /* GoogleService-Info.plist */,
 				6B5789C62C7C3C7500EFB8FF /* bell.mp3 */,
 				4A65C2F52BD6852C00809222 /* SceneDelegate.swift */,
 				4A967F8B2BD6892800FCE646 /* Features */,
@@ -2501,6 +2504,7 @@
 				C23A2A672DD1D33D00F36781 /* takinccontrolintroTC.swift */,
 				C23A2A692DD2101E00F36781 /* IntroSecondPageVC.swift */,
 				C23A2A6B2DD25CDE00F36781 /* TakingIntroLastVC.swift */,
+				C21C6D592DD4E23E009120F8 /* TakingcontrolfirstscreenStruct.swift */,
 			);
 			path = TakingControlIntro;
 			sourceTree = "<group>";
@@ -2551,7 +2555,7 @@
 				C2B823392D1D3EF200FC1291 /* CurvedOutlineView.swift */,
 				C249D13B2D26F4CE009EE005 /* NewCalender.swift */,
 				C249D13D2D26F6E7009EE005 /* NewCalender.xib */,
-				C2815F6C2D2C174B00B2A640 /* SuccessAlertVIew.xib */,
+				C2AC16B72DDE0FD000BFE160 /* SuccessAlertVIew.xib */,
 				C2815F6E2D2C1A0900B2A640 /* SuccessAlertView.swift */,
 				C21BD5992D2C44AB005BA00D /* KeyChainFile.swift */,
 				C25576982D2E56DE008E9D2F /* APIService.swift */,
@@ -2715,7 +2719,7 @@
 				4A0853A52C21684B00202C02 /* CustomCell.xib in Resources */,
 				4AA5922A2BDF6912001FE6B3 /* JournalEntryMain.storyboard in Resources */,
 				4A0853DE2C23C0A600202C02 /* SummaryViewController.storyboard in Resources */,
-				C2815F6D2D2C174B00B2A640 /* SuccessAlertVIew.xib in Resources */,
+				C2AC16B52DDE0FD000BFE160 /* SuccessAlertVIew.xib in Resources */,
 				4A0853B22C21684B00202C02 /* VideoController.storyboard in Resources */,
 				4AD5D1572BD7A6C100E4C945 /* UserMedications.storyboard in Resources */,
 				4A08537D2C21684B00202C02 /* SaveCell.xib in Resources */,
@@ -2805,6 +2809,7 @@
 				4A65C33B2BD685E500809222 /* AppAssets.xcassets in Resources */,
 				C2B823382D1D3D6700FC1291 /* IndexBasicTableCell.xib in Resources */,
 				4A6DCA192BE1E6D400F2EB7C /* LineChartViewAssets.xcassets in Resources */,
+				C285B50D2DDC75C500AECD9B /* GoogleService-Info.plist in Resources */,
 				4AD5D1602BD7A6C100E4C945 /* NextAppointments.storyboard in Resources */,
 				4A0853822C21684B00202C02 /* DrinikingHabbit.storyboard in Resources */,
 				4A0853C42C22F0C100202C02 /* TakingControlAssets.xcassets in Resources */,
@@ -2829,7 +2834,6 @@
 				4A65C3332BD6859800809222 /* lexendlight.ttf in Resources */,
 				4A80447C2BD91E370054A120 /* AddMedicationVC.storyboard in Resources */,
 				4A967FC32BD6892800FCE646 /* UserEntrySleepCell.xib in Resources */,
-				C2F400522DC88D1100481C5D /* GoogleService-Info.plist in Resources */,
 				4A6ACC762BDD702200C5D02D /* WeeklySummaryDashboard.storyboard in Resources */,
 				4AD5D1692BD7A6C100E4C945 /* ScreeningResultVC.storyboard in Resources */,
 				4A0853772C21684B00202C02 /* ButtonsCell.xib in Resources */,
@@ -3129,6 +3133,7 @@
 				4A6DCA1E2BE1EBDD00F2EB7C /* ChartViewHeaderTableCell.swift in Sources */,
 				C26AA7B42CF8DF8800F9A424 /* FontLR18.swift in Sources */,
 				4A35FE012BF9B11A00D71B14 /* CoursesCollectionViewCell.swift in Sources */,
+				C21C6D5A2DD4E23E009120F8 /* TakingcontrolfirstscreenStruct.swift in Sources */,
 				432EBE192C2BF49F000BB69A /* DefineMakeCell.swift in Sources */,
 				4A967FBB2BD6892800FCE646 /* CustomAlertView.swift in Sources */,
 				C20245E52D1EB02A001CBDDC /* TobacoViewController.swift in Sources */,
@@ -3382,6 +3387,15 @@
 				431C241A2C4662A300909C24 /* en */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C2AC16B72DDE0FD000BFE160 /* SuccessAlertVIew.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C2AC16B62DDE0FD000BFE160 /* Base */,
+				C2AC16B82DDE0FD000BFE160 /* mul */,
+			);
+			name = SuccessAlertVIew.xib;
 			sourceTree = "<group>";
 		};
 		C2ADB3BF2D1A966600157631 /* Taking Control Index.storyboard */ = {

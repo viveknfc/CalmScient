@@ -58,7 +58,14 @@ class UserEntryYesOrNoCell: UITableViewCell, UITextViewDelegate {
             } else {
                 let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
                 
-                self.titleLabel.text = languageId == 1 ? instance.medicineData?.medicineQuestion : "¿Tomaste tus medicamentos esta mañana?"
+                if UserDefaults.standard.bool(forKey: "Morning") {
+                    print("viv u r setting text from here")
+                    self.titleLabel.text = AppHelper.getLocalizeString(str: "Did_you_take_your_meds_this_morning")
+                } else {
+                    self.titleLabel.text = AppHelper.getLocalizeString(str: "Did_you_take_your_meds")
+                }
+//                self.titleLabel.text = languageId == 1 ? instance.medicineData?.medicineQuestion : "¿Tomaste tus medicamentos esta mañana?"
+
             }
         }
     }

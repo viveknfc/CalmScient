@@ -100,6 +100,8 @@ class UserIntroDayFeedbackViewController: ViewController {
     
     let sleepData = ["3","4","5","6","7","8","9","10","11"]
     
+    var medicineFlagString: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -394,10 +396,13 @@ class UserIntroDayFeedbackViewController: ViewController {
         }
         switch dayTime {
         case .Morning, .Afternoon:
+            UserDefaults.standard.set(true, forKey: "Morning")
+//            return [.UserMoodHoursCell,.UserEntryTimeSpendCell,.UserEntryMedicineCell,.UserEntryJournalCell]
             return [.UserMoodHoursCell,.UserIntroSleepCell,.UserEntryMedicineCell, .UserEntryJournalCell]
 //        case .Afternoon:
 //            return [.UserMoodHoursCell]
         case .Evening:
+            UserDefaults.standard.set(false, forKey: "Morning")
 //            return [.UserMoodHoursCell,.UserIntroSleepCell,.UserEntryMedicineCell, .UserEntryJournalCell]
             return [.UserMoodHoursCell,.UserEntryTimeSpendCell,.UserEntryMedicineCell,.UserEntryJournalCell]
         }
@@ -430,7 +435,7 @@ class UserIntroDayFeedbackViewController: ViewController {
                                 image: UIImage(named: "InfoIcon"),
                                 imageSize: CGSize(width: 60, height: 60),
                                 title: alertText ?? "",
-                                okButtonTitle: "Ok",
+                                okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                                 okAction: {},
                                 dismissAction: {}
                             )
@@ -451,7 +456,7 @@ class UserIntroDayFeedbackViewController: ViewController {
 
         
         let answers = PatientLog()
-        var medicineFlagString: String?
+        
         
         switch dayTime {
         case .Morning, .Afternoon:
@@ -466,7 +471,7 @@ class UserIntroDayFeedbackViewController: ViewController {
                     image: UIImage(named: "InfoIcon"),
                     imageSize: CGSize(width: 60, height: 60),
                     title: alertText ?? "",
-                    okButtonTitle: "Ok",
+                    okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                     okAction: {
                         print("Retry action triggered")
                     },
@@ -497,7 +502,7 @@ class UserIntroDayFeedbackViewController: ViewController {
                     image: UIImage(named: "InfoIcon"),
                     imageSize: CGSize(width: 60, height: 60),
                     title: alertText ?? "",
-                    okButtonTitle: "Ok",
+                    okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                     okAction: {
                         print("Retry action triggered")
                     },
@@ -545,8 +550,9 @@ class UserIntroDayFeedbackViewController: ViewController {
                                if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
                                    guard let window = sceneDelegate.window else { return }
                                    let homeController = UIStoryboard(name: "AppTabBar", bundle: nil).instantiateViewController(withIdentifier: "AppMainTabViewController") as! AppMainTabViewController
-                                   homeController.isInitalView = (medicineFlagString == "0")
-                                   print("the medicineFlagString",medicineFlagString ?? "none")
+//                                   homeController.isInitalView = (self.medicineFlagString == "0")
+                                   homeController.isInitalView = ((self.medicineFlagString ?? "0") == "0")
+                                   print("the medicineFlagString",self.medicineFlagString ?? "none")
                                    print("the initial view value is",homeController.isInitalView)
                                    window.rootViewController = homeController
                                    window.makeKeyAndVisible()
@@ -758,9 +764,9 @@ extension UserIntroDayFeedbackViewController: UserIntroSelectionDelegate {
             image: UIImage(named: "question2"),
             imageSize: CGSize(width: 60, height: 60),
             title: "", //Clear Journal Data
-            subTitle: "Would you like to update your mood?", //Do you want to clear the journal data?
-            okButtonTitle: "Yes",
-            cancelButtonTitle: "No",
+            subTitle: AppHelper.getLocalizeString(str: "Would you like to update your mood?"),
+            okButtonTitle: AppHelper.getLocalizeString(str: "YES"),
+            cancelButtonTitle: AppHelper.getLocalizeString(str: "NO"),
             okAction: {
                 // Clear the journal text when the user selects Yes
                 self.journalText = nil

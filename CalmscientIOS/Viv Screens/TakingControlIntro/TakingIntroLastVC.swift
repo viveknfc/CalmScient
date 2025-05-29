@@ -79,6 +79,12 @@ class TakingIntroLastVC: ViewController {
     
     
     @IBAction func drinkingciachButtonPressed(_ sender: Any) {
+        let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+        let vc = next.instantiateViewController(withIdentifier: "TakingControlIndex") as? TakingControlIndex
+        vc?.title = AppHelper.getLocalizeString(str: "Taking control")
+        vc?.initialSegmentIndex = 0
+        
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     @IBAction func pcpButtonPressed(_ sender: Any) {
@@ -86,11 +92,22 @@ class TakingIntroLastVC: ViewController {
     
     
     @IBAction func smokingButton(_ sender: Any) {
+        let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+        let vc = next.instantiateViewController(withIdentifier: "TakingControlIndex") as? TakingControlIndex
+        vc?.title = AppHelper.getLocalizeString(str: "Taking control")
+        vc?.initialSegmentIndex = 1
+        
+        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     
     @IBAction func checkBoxPressed(_ sender: UIButton) {
         sender.isSelected.toggle()
+        
+        if sender.isSelected {
+            saveTakingControlIntroAPICalling()
+        }
+        
     }
     
     
@@ -111,5 +128,53 @@ class TakingIntroLastVC: ViewController {
             shadowRadius: 2
         )
     }
+    
+    //MARK: - Save Taking Control Intro Data API Calling
+    
+    func saveTakingControlIntroAPICalling() {
+        self.view.showToastActivity()
+        
+        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+            fatalError("Unable to found Application Shared Info")
+        }
+        
+        let params: [String: Any] = [
+            "clientId": userInfo.clientID,
+            "patientId": userInfo.patientID,
+            "plId": userInfo.patientLocationID,
+            "introductionFlag": NSNull(),
+            "auditFlag": NSNull(),
+            "dastFlag": NSNull(),
+            "cageFlag": NSNull(),
+            "tutorialFlag": 0
+        ]
+        
+        print("param for saveTakingControlIntroAPICalling while check box is, ", params)
+
+        APIService.saveTakingControlIntroAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
+            self.getresponseforDontShowTakingControlIntroAPI(response: response)
+        }
+    }
+    
+    //MARK: - Save Taking Control Intro Data API Response
+    
+    func getresponseforDontShowTakingControlIntroAPI(response: Any) {
+        self.view.hideToastActivity()
+        
+        if let responseDict = response as? [String: Any],
+           let statusResponse = responseDict["statusResponse"] as? [String: Any],
+           let responseMessage = statusResponse["responseMessage"] as? String {
+
+            // ✅ Show success alert with extracted message
+//            self.showSuccessAlert(successContent: responseMessage, centreImage: nil, okButtonAction: {
+//
+//            })
+
+        } else {
+            print("Invalid response format or missing keys.")
+        }
+    }
+
+    //END
 
 }

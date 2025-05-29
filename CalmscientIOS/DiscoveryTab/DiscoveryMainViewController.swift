@@ -23,6 +23,7 @@ class DiscoveryMainViewController: ViewController{
         tableView.separatorStyle = .none
 
         self.navigationItem.leftBarButtonItem = nil
+        self.navigationItem.hidesBackButton = true
         
         // Do any additional setup after loading the view.
         let button: UIButton = UIButton(type: UIButton.ButtonType.custom)
@@ -42,7 +43,7 @@ class DiscoveryMainViewController: ViewController{
     @objc func profileButtonPressed() {
 
         let userProfileViewController = UIStoryboard(name: "UserProfile", bundle: nil).instantiateViewController(withIdentifier: "UserProfileViewController") as! UserProfileViewController
-        userProfileViewController.shouldPopBack = true
+        UserDefaults.standard.set(true, forKey: "shouldPopToDis")
         self.navigationController?.pushViewController(userProfileViewController, animated: true)
         }
     
@@ -50,9 +51,10 @@ class DiscoveryMainViewController: ViewController{
         setupLanguage()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         self.navigationItem.leftBarButtonItem = nil
+        self.navigationItem.hidesBackButton = true
 
         let selectedLanguageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-        let titleText = selectedLanguageId == 1 ? "Discovery" : "Descubrir"
+        let titleText = selectedLanguageId == 1 ? "Discovery" : "Descubrimiento"
 
         let titleLabel = UILabel()
         titleLabel.text = titleText
@@ -190,27 +192,24 @@ extension DiscoveryMainViewController {
                         let skipTutorial = firstCourse.skipTutorialFlag ?? 0
                         print("First course's skipTutorialFlag is: \(skipTutorial)")
                         
-                        if skipTutorial == 1  { //0
+//                        if skipTutorial == 1  { //0
                             
                             let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
                             let vc = next.instantiateViewController(withIdentifier: "TakingControlIndex") as? TakingControlIndex
                             vc?.title = AppHelper.getLocalizeString(str: "Taking control")
                             vc?.initialSegmentIndex = 0
+                            vc?.moveToIntro = skipTutorial == 1
                             
                             self.navigationController?.pushViewController(vc!, animated: true)
                             
         
-                        } else {
-                            
-                            let next = UIStoryboard(name: "TakingControllIntro", bundle: nil)
-                            let vc = next.instantiateViewController(withIdentifier: "TakingControllIntro") as? TakingControllIntro
-                            self.navigationController?.pushViewController(vc!, animated: true)
-                            
+//                        } else {
+//                            
 //                            let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
 //                            let vc = next.instantiateViewController(withIdentifier: "VTakingControlIntroVC") as? VTakingControlIntroVC
 //                            self.navigationController?.pushViewController(vc!, animated: true)
-                            
-                        }
+//                            
+//                        }
                     }
 
                 } catch {

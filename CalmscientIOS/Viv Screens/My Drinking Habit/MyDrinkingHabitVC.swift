@@ -13,6 +13,7 @@ class MyDrinkingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var tableView: UITableView!
     
     var selectedRowIndex : Int?
+    var sectionID6: Int?
     
     var data: [(String, UIImage, [String], Bool)] = []
     
@@ -60,7 +61,7 @@ class MyDrinkingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSou
     var sdata = [
         ("Consumo moderado", UIImage(named: "check") ?? UIImage(), ["Siempre bebes siguiendo el estándar de consumo moderado.", "Puedes comprometerte sin esfuerzo a un plan sin alcohol durante una semana o un mes.", "Puedes elegir beber o no, aunque las personas a tu alrededor estén bebiendo"], false),
         ("Consumo moderado diario", UIImage(named: "check") ?? UIImage(), ["Siempre bebes siguiendo el estándar de consumo moderado, pero me cuesta tener un día sin alcohol.", "Bebes a diario como ayuda para dormir o para relajarte.", "Anhelas tomar un trago después del trabajo o por la noche, y te irritas cuando no puedes hacerlo."], false),
-        ("Consumo excesivo social / de fines de semana", UIImage(named: "check") ?? UIImage(), ["El consumo ocasional de alcohol te mueve a hacer cosas que normalmente no harías o que van en contra de tu juicio cuando estás sobrio, como conducir bajo los efectos del alcohol.", "A menudo buscas los efectos que alteran el estado de ánimo (el \("subidón")) o usas el alcohol como un mecanismo de afrontamiento, a veces en aislamiento.", "Te pones a la defensiva cuando alguien intenta limitar tu consumo o te pide que dejes de beber.", "¿Recuerdas? El consumo excesivo ocasional (binge drinking) es: Hombres: hasta 5 o más bebidas dentro de las 2 horas Mujeres: hasta 4 o más bebidas dentro de las 2 horas"], false),
+        ("Consumo excesivo social / de fines de semana", UIImage(named: "check") ?? UIImage(), ["El consumo ocasional de alcohol te mueve a hacer cosas que normalmente no harías o que van en contra de tu juicio cuando estás sobrio, como conducir bajo los efectos del alcohol.", "A menudo buscas los efectos que alteran el estado de ánimo (el subidón) o usas el alcohol como un mecanismo de afrontamiento, a veces en aislamiento.", "Te pones a la defensiva cuando alguien intenta limitar tu consumo o te pide que dejes de beber.", "¿Recuerdas? El consumo excesivo ocasional (binge drinking) es: Hombres: hasta 5 o más bebidas dentro de las 2 horas Mujeres: hasta 4 o más bebidas dentro de las 2 horas"], false),
         ("Consumo problemático", UIImage(named: "check") ?? UIImage(), ["Beber hasta emborracharse", "Ir a trabajar borracho o beber durante el trabajo", "Conducir bajo los efectos del alcohol o haber conducido borracho.", "Meterse en problemas con la ley o sufrir lesiones debido al consumo de alcohol.", "Hacer algo bajo la influencia del alcohol que no harían de otra manera.", "Tener problemas en la escuela, con las relaciones sociales o con los miembros de la familia a causa del consumo de alcohol.", "Usar el alcohol para disminuir la ansiedad o la tristeza.", "Mentir o intentar ocultar los hábitos de consumo de alcohol.", "Necesitar más alcohol para sentir sus efectos.", "Sentirse irritable, resentido o irrazonable cuando no se bebe."], false)
     ]
     
@@ -129,7 +130,7 @@ extension MyDrinkingHabitVC {
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 60, height: 60),
                 title: alertText,
-                okButtonTitle: "Ok",
+                okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {
                     print("Retry action triggered")
                 },
@@ -144,12 +145,18 @@ extension MyDrinkingHabitVC {
             fatalError("Unable to found Application Shared Info")
         }
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Specify the desired format
+        let currentDate = Date()
+        let formattedDate = dateFormatter.string(from: currentDate)
+        
         let params: [String: Any] = [
                 "patientId": userInfo.patientID,
                 "entry": data[selectedRowIndex ?? 0].0,
                 "plId": userInfo.patientLocationID,
                 "clientId": userInfo.clientID,
-                "entryType": "discovery_exercise"
+                "entryType": "discovery_exercise",
+                "createdAt": formattedDate
                 // Add other necessary parameters here
             ]
 
@@ -184,6 +191,7 @@ extension MyDrinkingHabitVC {
             let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
             let vc = next.instantiateViewController(withIdentifier: "ModerateDrinkingVC") as? ModerateDrinkingVC
             vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
+            vc?.sectionID = sectionID6
             self.navigationController?.pushViewController(vc!, animated: true)
         }
         else if selectedRowIndex == 1 {
@@ -195,6 +203,7 @@ extension MyDrinkingHabitVC {
             let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
             let vc = next.instantiateViewController(withIdentifier: "Modarate2VC") as? Modarate2VC
             vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
+            vc?.sectionID = sectionID6
             self.navigationController?.pushViewController(vc!, animated: true)
         }
         else if selectedRowIndex == 2 {
@@ -206,6 +215,7 @@ extension MyDrinkingHabitVC {
             let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
             let vc = next.instantiateViewController(withIdentifier: "Modarate3VC") as? Modarate3VC
             vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
+            vc?.sectionID = sectionID6
             self.navigationController?.pushViewController(vc!, animated: true)
         }
         else if selectedRowIndex == 3 {
@@ -217,6 +227,7 @@ extension MyDrinkingHabitVC {
             let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
             let vc = next.instantiateViewController(withIdentifier: "Modarate4VC") as? Modarate4VC
             vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
+            vc?.sectionID = sectionID6
             self.navigationController?.pushViewController(vc!, animated: true)
         } else {
             let alertText = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Please select the stage that applies to you." : "Por favor, seleccione la etapa que le corresponde"
@@ -225,7 +236,7 @@ extension MyDrinkingHabitVC {
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 60, height: 60),
                 title: alertText,
-                okButtonTitle: "Ok",
+                okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {
                     print("Retry action triggered")
                 },

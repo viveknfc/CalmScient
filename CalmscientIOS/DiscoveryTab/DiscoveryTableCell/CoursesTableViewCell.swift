@@ -126,7 +126,8 @@ extension CoursesTableViewCell: UICollectionViewDelegateFlowLayout, UICollection
         let language = String(languageName.prefix(2)).lowercased()
         
         let darkThemeValue = darkTheme == 0 ? false : true
-        let courseURLString = "https://calmscient.in/courses/?courseName=\(courseName1)&lessonId=\(course.lessonId)&chapterId=\(lesson.chapterId)&language=\(language)&darkMode=\(darkThemeValue)" //  "http://192.168.1.19:4200/?courseName=\(courseName1)&lessonId=\(course.lessonId)&chapterId=\(lesson.chapterId)&language=\(language)&darkMode=\(darkThemeValue)" 
+        let validURL = APIService.Url4Courses
+        let courseURLString = "\(validURL)?courseName=\(courseName1)&lessonId=\(course.lessonId)&chapterId=\(lesson.chapterId)&language=\(language)&darkMode=\(darkThemeValue)"
         print(courseURLString)
         return courseURLString
     }

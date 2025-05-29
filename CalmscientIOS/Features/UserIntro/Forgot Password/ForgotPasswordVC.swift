@@ -28,7 +28,7 @@ class ForgotPasswordVC: ViewController {
         let attrButtonName = NSAttributedString(string: "Reset Password", attributes: multipleAttributes)
         self.resetPasswordButton.titleLabel?.attributedText = attrButtonName
         
-        title = "Forgot password"
+//        title = "Forgot password"
         
     }
 

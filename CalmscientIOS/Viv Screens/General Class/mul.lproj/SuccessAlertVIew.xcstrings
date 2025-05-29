@@ -1,0 +1,42 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "aYe-Sk-0oc.text" : {
+      "comment" : "Class = \"UILabel\"; text = \"You saved your mood successfully\"; ObjectID = \"aYe-Sk-0oc\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "You saved your mood successfully"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardaste tu estado de ánimo con éxito"
+          }
+        }
+      }
+    },
+    "r4p-8f-K0g.normalTitle" : {
+      "comment" : "Class = \"UIButton\"; normalTitle = \"Ok\"; ObjectID = \"r4p-8f-K0g\";",
+      "extractionState" : "extracted_with_value",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Ok"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guardar"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.0"
+}

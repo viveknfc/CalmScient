@@ -142,7 +142,8 @@ class Basicknowledge: ViewController, UITableViewDelegate, UITableViewDataSource
             let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
             let vc = next.instantiateViewController(withIdentifier: "MyDrinkingHabitVC") as? MyDrinkingHabitVC
             _ = basicData2[indexPath.row]
-            
+            let newData = basicData2[indexPath.row]
+            vc?.sectionID6 = newData["sectionId"] as? Int
             vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
             self.navigationController?.pushViewController(vc!, animated: true)
         }

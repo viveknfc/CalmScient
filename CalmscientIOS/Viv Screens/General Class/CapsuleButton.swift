@@ -21,7 +21,8 @@ class CapsuleButton1: UIButton {
     }
 
     private func setupAppearance() {
-        let title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Complete" : "Finalizar"
+        let title = getLocalizedTitle()
+        print(UIFont(name: Fonts().lexendLight, size: 16) ?? "Font not found")
         let font = UIFont(name: Fonts().lexendLight, size: 16) ?? UIFont.systemFont(ofSize: 16)
 
         if #available(iOS 15.0, *) {
@@ -31,13 +32,11 @@ class CapsuleButton1: UIButton {
             config.cornerStyle = .capsule
             config.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20)
 
-            // Set attributed title with font
-            let attributedString = NSAttributedString(string: title, attributes: [
-                .font: font,
-                .foregroundColor: UIColor.white
-            ])
-            config.attributedTitle = AttributedString(attributedString)
+            var attributedTitle = AttributedString(title)
+            attributedTitle.font = font
+            attributedTitle.foregroundColor = .white
 
+            config.attributedTitle = attributedTitle
             self.configuration = config
         } else {
             self.backgroundColor = #colorLiteral(red: 0.429181397, green: 0.4192816615, blue: 0.7016126513, alpha: 1)
@@ -50,21 +49,27 @@ class CapsuleButton1: UIButton {
     }
 
     func updateTitleForLanguage() {
-        let title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Complete" : "Finalizar"
+        let title = getLocalizedTitle()
         let font = UIFont(name: Fonts().lexendMedium, size: 14) ?? UIFont.systemFont(ofSize: 14)
 
         if #available(iOS 15.0, *) {
             var updatedConfig = self.configuration ?? UIButton.Configuration.filled()
-            let attributedString = NSAttributedString(string: title, attributes: [
-                .font: font,
-                .foregroundColor: UIColor.white
-            ])
-            updatedConfig.attributedTitle = AttributedString(attributedString)
+
+            var attributedTitle = AttributedString(title)
+            attributedTitle.font = font
+            attributedTitle.foregroundColor = .white
+
+            updatedConfig.attributedTitle = attributedTitle
             self.configuration = updatedConfig
         } else {
             self.setTitle(title, for: .normal)
             self.titleLabel?.font = font
         }
     }
+
+    private func getLocalizedTitle() -> String {
+        return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Complete" : "Finalizar"
+    }
 }
+
 

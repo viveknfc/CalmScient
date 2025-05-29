@@ -45,7 +45,7 @@ extension UIViewController {
         image: UIImage? = nil,
         imageSize: CGSize? = nil,
         title: String,
-        okButtonTitle: String = "OK",
+        okButtonTitle: String = AppHelper.getLocalizeString(str: "Ok"),
         okAction: (() -> Void)? = nil,
         dismissAction: (() -> Void)? = nil,
         showDismissButton: Bool = true

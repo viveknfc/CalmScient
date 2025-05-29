@@ -28,7 +28,14 @@ class UserIntroSelectionTableCell: UITableViewCell {
              
              var labelText: String
              if cellType == .UserMoodHoursCell {
-                 labelText = (languageId == 0 ? 1 : languageId) == 1 ? instance.moodData?.moodQuestion ?? "" : "¿Cómo te ha ido?"
+                 
+                 if UserDefaults.standard.bool(forKey: "Morning") {
+                     print("viv u r setting text for UserMoodHoursCell from here")
+                     labelText = (languageId == 0 ? 1 : languageId) == 1 ? instance.moodData?.moodQuestion ?? "" : "Qué tal tu ánimo?" 
+                 } else {
+                     labelText = (languageId == 0 ? 1 : languageId) == 1 ? instance.moodData?.moodQuestion ?? "" : "¿Cómo estuvo tu estado de ánimo hoy?"
+                 }
+
              } else {
                  labelText = (languageId == 0 ? 1 : languageId) == 1 ? instance.timeSpendData?.timeSpendQuestion ?? "" : "¿Con quién pasaste tiempo?"
              }

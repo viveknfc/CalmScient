@@ -38,17 +38,20 @@ class LoginVC: UIViewController,UITextFieldDelegate {
 //       userNameTextField.text = "masa@calmscient.com"
 //       passwordTextField.text = "CDMrVgjdM5"
         
-//       userNameTextField.text = "chandra.p@gmail.com"
-//       passwordTextField.text = "chandra@1234"
+//       userNameTextField.text = "john.doe@example.com"
+//       passwordTextField.text = "Test@345"
         
 //       userNameTextField.text = "william@gmail.com"
 //       passwordTextField.text = "william@1234"
         
-//          userNameTextField.text = "sravanthi@gmail.com"
-//          passwordTextField.text = "sravanthi@1234"
+//          userNameTextField.text = "sureshbabus@nfcsolutionsusa.com"
+//          passwordTextField.text = "Nfc@123"
         
-//          userNameTextField.text = "giddalurisaikumar@gmail.com"
-//          passwordTextField.text = "Test@123"
+//          userNameTextField.text = "simhachalamb@nfcsolutionsusa.com"
+//          passwordTextField.text = "Simha@1234"
+        
+//        userNameTextField.text = "vivekl@nfcsolutionsusa.com"
+//        passwordTextField.text = "Test@1234"
         
         userNameTextField.delegate = self
         userNameTextField.layer.borderColor = UIColor(named: "AppBorderColor")?.cgColor
@@ -111,7 +114,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         
         
         
-        let attributedText = NSMutableAttributedString(string: (languageId == 0 ? 1 : languageId  ) == 1 ?  "Forgot Password?" : "¿Has olvidado tu contraseña?", attributes: [.font: UIFont(name: Fonts().lexendLight, size: 14.0)!, .foregroundColor:UIColor(named: "MainTextColor") ?? UIColor.white, .underlineStyle : NSUnderlineStyle.single.rawValue, .underlineColor:UIColor(named: "MainTextColor") ?? UIColor.white])
+        let attributedText = NSMutableAttributedString(string: (languageId == 0 ? 1 : languageId  ) == 1 ?  "Forgot Password?" : "¿Olvidaste la contrasňa?", attributes: [.font: UIFont(name: Fonts().lexendLight, size: 14.0)!, .foregroundColor:UIColor(named: "MainTextColor") ?? UIColor.white, .underlineStyle : NSUnderlineStyle.single.rawValue, .underlineColor:UIColor(named: "MainTextColor") ?? UIColor.white])
         forgotPasswordLabel.attributedText = attributedText
         
        
@@ -276,7 +279,20 @@ class LoginVC: UIViewController,UITextFieldDelegate {
                             UserDefaultsHelper.saveLoginDetailsToUserDefaults(loginDetails: loginResponse.loginDetails, tokenResponse: loginResponse.tokenResponse)
                             
                             UserDefaults.standard.set("\(loginResponse.loginDetails.firstName)", forKey: "titleString")
+                            UserDefaults.standard.set("\(loginResponse.loginDetails.languageId)", forKey: "SelectedLanguageID")
                             
+                            self.languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+                            print("the language id after login is getting as ", self.languageId as Any)
+                            
+                            if self.languageId == 1 {
+                                UserDefaults.standard.set("en", forKey: "appLanguage")
+                                Bundle.setLanguage("en")
+                            }
+                            if self.languageId == 2 {
+                                UserDefaults.standard.set("es", forKey: "appLanguage")
+                                Bundle.setLanguage("es")
+                                
+                            }
                             
                             let loginCount = loginResponse.loginDetails.loginCount
                             
@@ -460,10 +476,14 @@ extension UIView {
     
     public func hideToastActivity() {
         print("hideToastActivity() called")
-        self.isUserInteractionEnabled = true
-        self.hideAllToasts(includeActivity: true)
-
+        
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.isUserInteractionEnabled = true
+            self.hideAllToasts(includeActivity: true)
+        }
     }
-    
+
+  
 }
 

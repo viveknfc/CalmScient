@@ -8,7 +8,7 @@
 // Profile
 
 "Profile" = "Perfil";
-"Version 1.0.1" = "Versión 1.1.3";
+"Version 1.0.1" = "Versión 1.1.6";
 
 
 // Login
@@ -296,12 +296,12 @@ Aquí hay recursos que pueden ayudarle a lograr su objetivo.";
 "Name" = "Nombre";
 "Provider" = "Proveedor";
 "Dosage" = "Dosis";
-"Direction" = "Instrucciones";
+"Direction" = "Instrucción";
 "Add Time & Alarm" = "Agregar Hora y Alarma";
 
 // add medication vc
 "Add Medications" = "Agregar medicamentos";
-"With Meal" = "Con Comida";
+"With Meal" = "Con alimentos";
 "Morning" = "Mañana";
 "08:00AM" = "08:00AM";
 "07:50AM" = "07:50AM";
@@ -393,13 +393,18 @@ Cuando te sientas molesto, descentrado, agitado o irritable, intenta darte un ab
 
 "HOW TO DO IT" = "CÓMO HACERLO";
 
-"Interlock your thumbs to form a butterfly shape" = "Entrecruza tus pulgares para formar una forma de mariposa";
+"Interlock your thumbs to form a butterfly shape" = "Entrecruza tus pulgares para formar una forma de mariposa:";
 
-"Place both hands over your chest, and alternate tapping your middle finger just below your collarbone" = "Coloca ambas manos sobre tu pecho y alterna tocando con tu dedo medio justo debajo de la clavícula";
+"Place both hands over your chest, and alternate tapping your middle finger just below your collarbone" = "Coloca ambas manos sobre tu pecho y alterna tocando con tu dedo medio justo debajo de la clavícula:";
 
-"Breathe slowly and deeply (abdominal breathing) while you mentally observe what is going through your mind and body thoughts, images, sounds, odors, feelings, and physical sensation." = "Respira lenta y profundamente (respiración abdominal) mientras observas mentalmente lo que pasa por tu mente y cuerpo: pensamientos, imágenes, sonidos, olores, sentimientos y sensaciones físicas.";
+"Breathe slowly and deeply (abdominal breathing) while you mentally observe what is going through your mind and body thoughts, images, sounds, odors, feelings, and physical sensation." = "Respira lenta y profundamente (respiración abdominal) mientras observas mentalmente lo que pasando por tu mente y cuerpo: pensamientos, imágenes, sonidos, olores, sentimientos y sensaciones físicas.";
 
 "Hand over your heart" = "Mano sobre tu corazón";
+
+"Your medical appointment is in 2 hours" = "Tu cita médica es en 2 horas.";
+"Don’t forget your medical appointment tomorrow" = "Próxima cita: No olvides tu cita médica de mañana.";
+"Upcoming Appointment" = "Próximas Cita Médicas";
+"Would you like to update your mood?" = "¿Quieres actualizar tu estado de ánimo?";
 
 "Movement: running" = "Movimiento: correr";
 
@@ -423,7 +428,7 @@ Cuando te sientas molesto, descentrado, agitado o irritable, intenta darte un ab
 //4-7-8 breathing
 "4-7-8 Breathing excercise" = "Ejercicio de respiración 4-7-8";
 "Preparation" = "Preparación";
-"First find a comfortable seated position. Ensure that you are at ease before beginning the rhythmic breathing pattern.\n\nPlace the tip of your tongue gently against the tissue just behind your top front teeth" = "Primero encuentra una posición cómoda para sentarte. Asegúrate de estar a gusto antes de comenzar el patrón de respiración rítmica.\n\nColoca la punta de tu lengua suavemente contra el tejido justo detrás de tus dientes frontales superiores";
+"First find a comfortable seated position. Ensure that you are at ease before beginning the rhythmic breathing pattern.\n\nPlace the tip of your tongue gently against the tissue just behind your top front teeth" = "Primero encuentra una posición cómoda para sentarte. Asegúrate de estar a gusto antes de comenzar el patrón de respiración rítmica.\n\nColoca la punta de tu lengua suavemente contra el tejido justo detrás de tus dientes frontales superiores.";
 
 "Let’s learn how to do the 4-7-8 breathing exercise." = "Aprendamos cómo hacer el ejercicio de respiración 4-7-8.";
 
@@ -460,11 +465,11 @@ Cuando te sientas molesto, descentrado, agitado o irritable, intenta darte un ab
 
 "Step 3: Focus on the breath" = "Paso 3: Enfócate en la respiración";
 
-"Once settled into the pattern, focus on the breath coming in through the nose and out through the mouth" = "Una vez que te acomodes en el patrón, enfócate en la respiración que entra por la nariz y sale por la boca";
+"Once settled into the pattern, focus on the breath coming in through the nose and out through the mouth" = "Una vez que te acomodes en el patrón, enfócate en la respiración que entra por la nariz y sale por la boca.";
 
 "Step 4: Focus on the tummy" = "Paso 4: Enfócate en el abdomen";
 
-"Notice the rise and fall of the tummy as the breath come in and out" = "Observa cómo sube y baja el abdomen mientras la respiración entra y sale";
+"Notice the rise and fall of the tummy as the breath come in and out" = "Observa cómo sube y baja el abdomen mientras la respiración entra y sale.";
 
 "Step 5: Focus on the mind" = "Paso 5: Enfócate en la mente";
 
@@ -521,6 +526,8 @@ Pay careful attention to the following video." = "Ahora, vamos a sumergirnos en 
 "Time" = "Hora";
 "Information" = "Información";
 "Screening" = "Cribado";
+"Ok" = "Guardar";
+"Cancel" = "Cancelar";
 
 //ManagingScreen
 "So be determined to dedicate time to following along and completing the exercises. Each section has interesting and informative content that is designed to keep you actively thinking about your specific challenges. But, like taking a road trip to an unknown destination, you’ll need to be committed to following the map! It may be a little more work than you’re used to, but it will absolutely pay off in the end." = " Así que esté decidido a dedicar tiempo a seguir y completar los ejercicios. Cada sección tiene contenido interesante e informativo diseñado para mantenerlo pensando activamente en sus desafíos específicos. Pero, al igual que hacer un viaje por carretera a un destino desconocido, ¡deberás comprometerte a seguir el mapa! Puede que suponga un poco más de trabajo del que estás acostumbrado, pero al final dará sus frutos.";
@@ -552,6 +559,7 @@ El alcohol es un factor en:";
 
 "Confirm Deletion" = "¿Estás seguro?";
 "Are you sure you want to delete this medication?" = "¿Quieres eliminar este medicamento?";
+"Are you sure you want to delete this appointment?" = "¿Estás seguro de que deseas eliminar esta cita?";
 "Yes" = "Sí";
 "No" = "No";
 
@@ -600,8 +608,11 @@ Pero, tienes el control total sobre la decisión respecto a tu hábito.
 "Average_hours_slept" = "Promedio de horas dormidas";
 "Least_hours_slept" = "Menor número de horas dormidas";
 "How_is_your_mood_right_now" = "Cómo está tu estado de ánimo en este momento?";
-"How_was_your_day" = "Cómo fue tu día?";
+"How_was_your_day" = "¿Cómo te ha ido?";
 "How's_your_mood_so_far" = "¿Cómo está tu estado de ánimo hasta ahora?";
 "Close" = "Cerrar";
 "Done" = "Hecho";
 "Benefits_of_mindful_walking" = "¿Cuáles son los beneficios de caminar conscientemente?";
+
+"Did_you_take_your_meds_this_morning" = "¿Tomaste tus medicamentos esta mañana?";
+"Did_you_take_your_meds" = "Tomaste tu medicamento?";

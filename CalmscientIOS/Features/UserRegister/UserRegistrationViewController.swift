@@ -11,7 +11,6 @@ class UserRegistrationViewController: UIViewController {
 
     @IBOutlet weak var licenseTextLabel: UILabel!
     @IBOutlet weak var licenseTextField: customUITextField!
-    @IBOutlet weak var userLicenseTextView: UITextView!
     @IBOutlet weak var submitButton: LinearGradientButton!
     
     @IBOutlet weak var firstCheck: UIButton!
@@ -33,14 +32,8 @@ class UserRegistrationViewController: UIViewController {
         licenseTextField.backgroundColor = UIColor(named: "MainViewBackground")
         licenseTextField.font = UIFont(name: Fonts().lexendLight, size: 16.0)
         licenseTextField.textColor = UIColor(named: "MainTextColor")
-        self.userLicenseTextView.layer.borderColor = UIColor(named: "UserRegistrationTextViewBorderColor")?.cgColor
-        self.userLicenseTextView.backgroundColor = UIColor(named: "UserRegistrationTextViewBackgroundColor")
-        self.userLicenseTextView.layer.borderWidth = 1.0
-        self.userLicenseTextView.layer.cornerRadius = 4
-        self.userLicenseTextView.isEditable = false
  
         self.submitButton.setAttributedTitleWithGradientDefaults(title: "Submit")
-        self.userLicenseTextView.textContainerInset = UIEdgeInsets(top: 15, left: 16, bottom: 15, right: 10)
         self.navigationController?.isNavigationBarHidden = false
         
         updateButtonImage1()
@@ -112,7 +105,7 @@ class UserRegistrationViewController: UIViewController {
                     image: UIImage(named: "InfoIcon"),
                     imageSize: CGSize(width: 40, height: 40),
                     title: "Please enter the license key",
-                    okButtonTitle: "Ok",
+                    okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                     okAction: {},
                     showDismissButton: false
                 )
@@ -125,7 +118,7 @@ class UserRegistrationViewController: UIViewController {
                     image: UIImage(named: "InfoIcon"),
                     imageSize: CGSize(width: 40, height: 40),
                     title: "Please confirm that you have read and understood the license",
-                    okButtonTitle: "Ok",
+                    okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                     okAction: {},
                     showDismissButton: false
                 )
@@ -137,7 +130,7 @@ class UserRegistrationViewController: UIViewController {
                     image: UIImage(named: "InfoIcon"),
                     imageSize: CGSize(width: 40, height: 40),
                     title: "Please agree to share your information with the medical provider",
-                    okButtonTitle: "Ok",
+                    okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                     okAction: {},
                     showDismissButton: false
                 )
@@ -186,7 +179,7 @@ class UserRegistrationViewController: UIViewController {
                         image: UIImage(named: "InfoIcon"),
                         imageSize: CGSize(width: 40, height: 40),
                         title: responseMessage,
-                        okButtonTitle: "Ok",
+                        okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                         okAction: {
                             self.navigateToCreateAccount()
                         },

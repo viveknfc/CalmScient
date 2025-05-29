@@ -56,6 +56,7 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
     fileprivate let profileSvgIcons = ["profile_svg","language_svg","privacy_svg","alarm_svg","notification_svg","license_svg","helpNsupport_svg","logout_svg"] //"theme_svg"
     
     var shouldPopBack: Bool = false
+    var shouldPopToDis: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,7 +65,7 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
         
         self.navigationController?.isNavigationBarHidden = false
         self.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Settings" : "Ajustes"
-        self.alarmTile = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Alarm settings" : "Configuración de la alarma"
+        self.alarmTile = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Alarm settings" : "Configuración de alarma"
         setupView()
         setupTableView()
         setupLanguage()
@@ -132,6 +133,9 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
         //end
 
         NotificationCenter.default.addObserver(self, selector: #selector(removeDimmingView), name: Notification.Name("RemoveDimmingView"), object: nil)
+        
+        shouldPopToDis = UserDefaults.standard.bool(forKey: "shouldPopToDis") //UserDefaults.standard.removeObject(forKey: "shouldPopToDis")
+        print("value of shouldPopToDis is", shouldPopToDis)
     }
     
     @objc func removeDimmingView() {
@@ -144,6 +148,18 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
         
         if shouldPopBack {
             self.navigationController?.popViewController(animated: true)
+        }
+        else if shouldPopToDis {
+            print("Navigating to Discovery main from settings")
+            
+            let storyboard = UIStoryboard(name: "DiscoveryMainDashboard", bundle: nil)
+            if #available(iOS 16.0, *) {
+                if let homeTabVC = storyboard.instantiateViewController(withIdentifier: "DiscoveryMainViewController") as? DiscoveryMainViewController {
+                    self.navigationController?.pushViewController(homeTabVC, animated: true)
+                }
+            } else {
+                // Fallback on earlier versions
+            }
         }
         else {
             print("Navigating to Home Tab Dashboard from settings")
@@ -173,6 +189,19 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
         self.navigationController?.navigationBar.isHidden = false
         
         
+        if let customFont = UIFont(name: Fonts().lexendMedium, size: 18) {
+            let appearance = UINavigationBarAppearance()
+            appearance.configureWithOpaqueBackground()
+            
+            appearance.titleTextAttributes = [
+                .font: customFont,
+                .foregroundColor: UIColor.black
+            ]
+
+            navigationController?.navigationBar.standardAppearance = appearance
+            navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        }
+        
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -182,111 +211,7 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
             presentingVC.dimmingView?.removeFromSuperview()
         }
     }
-//    func handleUserProfileResponse(data: Data) {
-//        do {
-//            if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-//               let settings = json["settings"] as? [String: Any] {
-//                DispatchQueue.main.async {
-//                    print("getUserProfile,\(json)")
-//                    self.view.hideToastActivity()
-//                    
-//                    if let imageUrlString = settings["profileImage"] as? String, let url = URL(string: imageUrlString) {
-//                        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-//                            if let data = data, error == nil {
-//                                DispatchQueue.main.async {
-//                                    self.profileIcon.image = UIImage(data: data)
-//                                }
-//                            } else {
-//                                print("Failed to load profile image: \(error?.localizedDescription ?? "No error info")")
-//                            }
-//                        }
-//                        task.resume()
-//                    }
-//                    
-//                    if let imageUrlString = settings["profileImage"] as? String, let url = URL(string: imageUrlString) {
-//                        let task = URLSession.shared.dataTask(with: url) { data, response, error in
-//                            if let data = data, let image = UIImage(data: data) {
-//                                DispatchQueue.main.async {
-//                                    self.profileIcon.image = image
-//                                }
-//                            }
-//                        }
-//                        task.resume()
-//                    }
-//
-//                    if let profileIcon = settings["profileIcon"] as? String {
-//                        self.profileIconList.append(profileIcon)
-//                    }
-//                    if let profileTitle = settings["profileTitle"] as? String {
-//                        self.cellTitleList.append(profileTitle)
-//                    }
-//                    if let themeDetails = settings["themeDetails"] as? [String: Any] {
-//                        if let themeIcon = themeDetails["themeIcon"] as? String {
-////                            self.profileIconList.append(themeIcon)
-//                        }
-//                        if let themeTitle = themeDetails["themeTitle"] as? String {
-////                            self.cellTitleList.append(themeTitle)
-//                        }
-//                    }
-//                    if let languageIcon = settings["languageIcon"] as? String {
-//                        self.profileIconList.append(languageIcon)
-//                    }
-//                    if let languageTitle = settings["languageTitle"] as? String {
-//                        self.cellTitleList.append(languageTitle)
-//                    }
-//                    
-//                    if let privacyIcon = settings["privacyIcon"] as? String {
-//                        self.profileIconList.append(privacyIcon)
-//                    }
-//                    if let privacyTitle = settings["privacyTitle"] as? String {
-//                        self.cellTitleList.append(privacyTitle)
-//                    }
-//                    if let alarmSetting = settings["alarmDuration"] as? Int {
-//                        let alarmTitle = "Alarm settings"
-//                        self.alarmValue = alarmSetting
-//                        self.cellTitleList.append(alarmTitle)
-//                    }
-//
-//                    if let notificationIcon = settings["notificationIcon"] as? String {
-//                        self.profileIconList.append(notificationIcon)
-//                    }
-//                    if let notificationTitle = settings["notificationTitle"] as? String {
-//                        self.cellTitleList.append(notificationTitle)
-//                    }
-//                    if let licenseDetails = settings["licenseDetails"] as? [String: Any] {
-//                        if let licenseIcon = licenseDetails["licenseIcon"] as? String {
-//                            self.profileIconList.append(licenseIcon)
-//                        }
-//                        if let licenseTitle = licenseDetails["licenseTitle"] as? String {
-//                            self.cellTitleList.append(licenseTitle)
-//                        }
-//                        self.licenseKey = licenseDetails["licenseKey"] as! String
-//                    }
-//                    if let helpIcon = settings["helpIcon"] as? String {
-//                        self.profileIconList.append(helpIcon)
-//                    }
-//                    if let helpTitle = settings["helpTitle"] as? String {
-//                        self.cellTitleList.append(helpTitle)
-//                    }
-//                    if let logoutIcon = settings["logoutIcon"] as? String {
-//                        self.profileIconList.append(logoutIcon)
-//                    }
-//                    if let logoutTitle = settings["logoutTitle"] as? String {
-//                        self.cellTitleList.append(logoutTitle)
-//                    }
-//                    
-//                    // Reload table view or perform any UI updates
-//                    print("profileIconList:\(self.profileIconList)")
-//                    print("cellTitleList:\(self.cellTitleList)")
-//                    self.profileTableView.reloadData()
-//                }
-//            } else {
-//                print("Unable to convert data to JSON")
-//            }
-//        } catch {
-//            print("Error converting data to JSON: \(error)")
-//        }
-//    }
+
     func updateUserLanguage(patientId: Int, clientId: Int, languageId: Int,bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void) {
         // Define the URL
         guard let url = URL(string: "\(baseURLString)identity/api/v1/settings/updateUserLanguage") else {
@@ -346,67 +271,7 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
         // Start the data task
         task.resume()
     }
-//    func getUserProfile(plId: Int, patientId: Int, clientId: Int, bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void) {
-//        // Define the URL
-//        guard let url = URL(string: "\(baseURLString)identity/api/v1/settings/getUserProfile") else {
-//            print("Invalid URL")
-//            return
-//        }
-//        
-//        // Create the request
-//        var request = URLRequest(url: url)
-//        request.httpMethod = "POST"
-//        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-//        request.setValue("Bearer \(bearerToken)", forHTTPHeaderField: "Authorization")
-//        
-//        
-//        // Define the JSON payload
-//        let payload: [String: Any] = [
-//            "plId": plId,
-//            "patientId": patientId,
-//            "clientId": clientId,
-//        ]
-//        
-//        print("the poayload for profile pic is", payload)
-//        
-//        do {
-//            let jsonData = try JSONSerialization.data(withJSONObject: payload, options: [])
-//            request.httpBody = jsonData
-//            print(jsonData)
-//        } catch {
-//            print("Error converting payload to JSON: \(error)")
-//            completion(.failure(error))
-//            return
-//        }
-//        
-//        // Create the URLSession data task
-//        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-//            if let error = error {
-//                print("Error with request: \(error)")
-//                completion(.failure(error))
-//                return
-//            }
-//            
-//            guard let data = data else {
-//                print("No data received")
-//                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
-//                return
-//            }
-//            do {
-//                _ = try JSONSerialization.jsonObject(with: data, options: .mutableContainers)
-//                //  print("Response JSON: \(jsonResponse)")
-//            } catch {
-//                print("Error parsing JSON response: \(error)")
-//                completion(.failure(error))
-//                return
-//            }
-//            // If needed, handle the response here
-//            completion(.success(data))
-//        }
-//        
-//        // Start the data task
-//        task.resume()
-//    }
+
     func getUserTheme(patientId: Int, clientId: Int, bearerToken: String,dark: Int, completion: @escaping (Result<Data, Error>) -> Void) {
         // Define the URL
         guard let url = URL(string: "\(baseURLString)identity/api/v1/settings/updatePatientTheme") else {
@@ -666,16 +531,7 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
             "clientId": userInfo.clientID,
         ]
         self.view.showToastActivity()
-        
-//        getUserProfile(plId: userInfo.patientLocationID, patientId: userInfo.patientID, clientId: userInfo.clientID,bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken){ [self] result in
-//            switch result {
-//            case .success(let data):
-//                handleUserProfileResponse(data: data)
-//            case .failure(let error):
-//                print("Error: \(error)")
-//            }
-            
-//        }
+        print("param for user profile is",payload)
         
         APIService.profilePicAPICalling(
             self,
@@ -740,7 +596,9 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
             // ALARM
             if let alarmDuration = settings["alarmDuration"] as? Int {
                 self.alarmValue = alarmDuration
-                self.cellTitleList.append("Alarm settings")
+                print("the alarm duration is",self.alarmValue)
+                let alarmTitle = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Alarm settings" : "Configuración de alarma"
+                self.cellTitleList.append(alarmTitle)
             }
 
             // NOTIFICATIONS
@@ -885,7 +743,8 @@ private func setAppDarkMode(_ isDarkMode: Bool) {
 }
 func uploadProfileImage( patientId: Int, clientId: Int, fileData: Data, fileName: String, bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void) {
     // Define the URL
-    guard let url = URL(string: "https://calmscient.in/api/identity/api/v1/settings/uploadProfileImage") else {
+    let validURL = APIService.BaseUrl + "identity/api/v1/settings/uploadProfileImage" //"https://calmscient.in/api/identity/api/v1/settings/uploadProfileImage"
+    guard let url = URL(string: validURL) else {
         print("Invalid URL")
         return
     }
@@ -1176,33 +1035,6 @@ extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate
                 sheet.prefersGrabberVisible = true
             }
 
-
-            // Create a dimming view and add it to the window
-//            if let window = UIApplication.shared.keyWindow {
-//                let dimmingView = UIView(frame: window.bounds)
-//                dimmingView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-//                dimmingView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-//                window.addSubview(dimmingView)
-//                self.dimmingView = dimmingView // Store the reference
-//            }
-//
-//            viewControllerToPresent.onScheetClosed = { [weak self] in
-//                self?.dimmingView?.removeFromSuperview()
-//            }
-//
-//            if #available(iOS 15.0, *) {
-//                if let sheet = viewControllerToPresent.sheetPresentationController {
-//                    sheet.detents = [.medium(), .large()]
-//                    sheet.largestUndimmedDetentIdentifier = .medium
-//                    sheet.prefersScrollingExpandsWhenScrolledToEdge = false
-//                    sheet.prefersEdgeAttachedInCompactHeight = true
-//                    sheet.widthFollowsPreferredContentSizeWhenEdgeAttached = true
-//                    sheet.delegate = self // To handle delegate methods and adjust dimming view
-//                }
-//            } else {
-//                // Fallback on earlier versions
-//            }
-
             present(viewControllerToPresent, animated: true, completion: nil)
 
         }
@@ -1212,8 +1044,9 @@ extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate
             guard let settingsVC = storyboard.instantiateViewController(withIdentifier: "settingsAlarmVC") as? settingsAlarmVC else {
                 return
             }
-            
+            print("the alarm value passing from here is",alarmValue)
             settingsVC.selectedIndex = alarmValue
+            
             settingsVC.delegate = self
             
             // Add custom dimming view

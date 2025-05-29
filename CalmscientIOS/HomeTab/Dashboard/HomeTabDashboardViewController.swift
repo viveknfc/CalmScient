@@ -101,6 +101,7 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
     
     @IBAction func didClickOnProfile(_ sender: UIButton) {
         let userProfileViewController = UIStoryboard(name: "UserProfile", bundle: nil).instantiateViewController(withIdentifier: "UserProfileViewController") as! UserProfileViewController
+        UserDefaults.standard.removeObject(forKey: "shouldPopToDis")
         self.navigationController?.pushViewController(userProfileViewController, animated: true)
         
     }

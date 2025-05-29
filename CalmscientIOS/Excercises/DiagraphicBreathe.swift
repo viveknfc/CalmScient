@@ -59,7 +59,7 @@ class DiagraphicBreathe: ViewController {
     var autoHideTimer: Timer?
     var languageId :Int = 1
     
-    @IBOutlet weak var completeButton: UIButton!
+    @IBOutlet weak var completeButton: CapsuleButton1!
     
     @IBOutlet weak var forwardButton: UIButton!
     @IBOutlet weak var backwardButton: UIButton!
@@ -129,8 +129,7 @@ class DiagraphicBreathe: ViewController {
         setFonts()
         
         let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-        let title = selectedLanguageID == 1 ? "Complete" : "Finalizar"
-        completeButton.setTitle(title, for: .normal)
+
     }
     
     
@@ -340,8 +339,6 @@ class DiagraphicBreathe: ViewController {
         
         self.videoDesc.font = UIFont(name: Fonts().lexendLight, size: 15)
         self.bottomDescLabel.font = UIFont(name: Fonts().lexendLight, size: 15)
-        
-        completeButton.titleLabel?.font = UIFont(name: Fonts().lexendLight, size: 14)
    
     }
     

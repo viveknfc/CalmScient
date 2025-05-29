@@ -30,7 +30,7 @@ class TouchButterflyHug: ViewController {
     
     @IBOutlet weak var verticalBar: UIView!
     
-    @IBOutlet weak var completeButton: UIButton!
+    @IBOutlet weak var completeButton: CapsuleButton1!
     
     override func viewDidLoad() {
         

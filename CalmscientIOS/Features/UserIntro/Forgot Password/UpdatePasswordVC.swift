@@ -66,12 +66,13 @@ class UpdatePasswordVC: UIViewController,UITextFieldDelegate {
         passwordTF.delegate = self
         confirmPasswordTF.delegate = self
         
-        self.title = "Update password"
+//        self.title = "Update password"
         self.navigationItem.hidesBackButton = true
     }
     func updateForgetPassword(emailId: String,newPassword: String,confirmPasword: String, completion: @escaping (Result<Data, Error>) -> Void){
         // Define the URL
-        guard let url = URL(string: "https://calmscient.in/api/identity/api/v1/settings/forgetPassword") else {
+        let validURL = APIService.BaseUrl + "identity/api/v1/settings/forgetPassword" //"https://calmscient.in/api/identity/api/v1/settings/forgetPassword"
+        guard let url = URL(string: validURL) else {
             print("Invalid URL")
             return
         }

@@ -67,7 +67,7 @@ class ScreeningQuestionsViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let alertController = UIAlertController(title: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "Information": "Información", message: selectedScreening?.screeningReminder ?? "", preferredStyle: .alert)
-        let cancelAction =  UIAlertAction(title: "Ok", style: .default)
+        let cancelAction =  UIAlertAction(title: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "Ok": "Guardar", style: .default)
         alertController.addAction(cancelAction)
         // Present the alert
         self.present(alertController, animated: true, completion: nil)

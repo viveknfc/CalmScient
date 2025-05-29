@@ -7,7 +7,7 @@
 
 import Foundation
 
-public let baseURLString:String = "https://calmscient.in/api/" //"https://calmscient.centralindia.cloudapp.azure.com:8090/"
+public let baseURLString:String = APIService.BaseUrl //"https://calmscient.in/api/" //"https://calmscient.centralindia.cloudapp.azure.com:8090/"
 
 //MARK: - Screening List (Main Page)
 
@@ -420,7 +420,7 @@ class ScreeningSuccessResults: Codable {
     let screeningDate: String
     let score: Int
     let total: Int
-    let averageResult: String
+    let averageResult: String?
     let screeningReminder: String
     let assessmentId: Int
     
@@ -451,7 +451,7 @@ class ScreeningSuccessResults: Codable {
         screeningDate = try container.decode(String.self, forKey: .screeningDate)
         score = try container.decode(Int.self, forKey: .score)
         total = try container.decode(Int.self, forKey: .total)
-        averageResult = try container.decode(String.self, forKey: .averageResult)
+        averageResult = try container.decodeIfPresent(String.self, forKey: .averageResult)
         screeningReminder = try container.decode(String.self, forKey: .screeningReminder)
         assessmentId = try container.decode(Int.self, forKey: .assessmentId)
     }
@@ -468,7 +468,7 @@ class ScreeningSuccessResults: Codable {
         try container.encode(screeningDate, forKey: .screeningDate)
         try container.encode(score, forKey: .score)
         try container.encode(total, forKey: .total)
-        try container.encode(averageResult, forKey: .averageResult)
+        try container.encodeIfPresent(averageResult, forKey: .averageResult)
         try container.encode(screeningReminder, forKey: .screeningReminder)
         try container.encode(assessmentId, forKey: .assessmentId)
     }

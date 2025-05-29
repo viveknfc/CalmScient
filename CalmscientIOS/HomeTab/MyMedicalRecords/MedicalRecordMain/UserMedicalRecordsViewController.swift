@@ -79,6 +79,7 @@ class UserMedicalRecordsViewController: ViewController {
 
         let userProfileViewController = UIStoryboard(name: "UserProfile", bundle: nil).instantiateViewController(withIdentifier: "UserProfileViewController") as! UserProfileViewController
         userProfileViewController.shouldPopBack = true
+        UserDefaults.standard.removeObject(forKey: "shouldPopToDis")
         self.navigationController?.pushViewController(userProfileViewController, animated: true)
         }
 }

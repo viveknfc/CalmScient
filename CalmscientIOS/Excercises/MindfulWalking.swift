@@ -17,7 +17,7 @@ class MindfulWalking: ViewController {
     var player: AVPlayer?
     var isPlayerReady = false
     
-    @IBOutlet weak var completeButton: UIButton!
+    @IBOutlet weak var completeButton: CapsuleButton1!
     
     let stringsArr = [
         "Stress Reduction: Engaging in mindful walking can be an effective way to reduce stress and promote relaxation. By directing your attention to the physical sensations of walking, you create a mental break from everyday stressors. This practice activates the relaxation response in your body, leading to a calmer state of mind",

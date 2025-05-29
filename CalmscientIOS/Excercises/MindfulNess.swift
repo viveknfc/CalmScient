@@ -29,7 +29,7 @@ class MindfulNess: ViewController {
     
     @IBOutlet weak var stackHeight: NSLayoutConstraint!
     
-    @IBOutlet weak var completeButton: UIButton!
+    @IBOutlet weak var completeButton: CapsuleButton1!
     
     var languageId : Int = 1
     var isFav: Int = 0
@@ -157,7 +157,7 @@ class MindfulNess: ViewController {
                     
             text1.attributedText = combinedAttributedString//textArray[0]
             
-            let fulltxt2 = languageId == 1 ? "In either case, you are not focusing on the current situation and not in touch with the ‘here and now’.  This mode of operation is often referred to as automatic pilot." : "En cualquier caso, no te estás centrando en la situación actual ni en contacto con el 'aquí y ahora'. \n Este modo de operación a menudo se denomina piloto automático"
+            let fulltxt2 = languageId == 1 ? "In either case, you are not focusing on the current situation and not in touch with the ‘here and now’.  This mode of operation is often referred to as automatic pilot." : "En cualquier caso, no te estás centrando en la situación actual ni en contacto con el 'aquí y ahora'. \n Este modo de operación a menudo se denomina piloto automático."
             
                     // Create a mutable attributed string
                     let attributedString = NSMutableAttributedString(string: fulltxt2, attributes: attrs2)
@@ -189,7 +189,7 @@ class MindfulNess: ViewController {
                 
             ]
             
-            let fullString = languageId == 1 ? "Mindfulness is the opposite of automatic pilot. It is about experiencing the world that is firmly in the ‘here and now’. This is referred to as the being mode. It liberates you from automatic and unhelpful thoughts and responses." : "La atención plena es lo opuesto al piloto automático. Se trata de experimentar el mundo que está firmemente en el 'aquí y ahora'. Esto se conoce como el modo de ser. Te libera de pensamientos y respuestas automáticas e inútiles"
+            let fullString = languageId == 1 ? "Mindfulness is the opposite of automatic pilot. It is about experiencing the world that is firmly in the ‘here and now’. This is referred to as the being mode. It liberates you from automatic and unhelpful thoughts and responses." : "La atención plena es lo opuesto al piloto automático. Se trata de experimentar el mundo que está firmemente en el 'aquí y ahora'. Esto se conoce como el modo de ser. Te libera de pensamientos y respuestas automáticas e inútiles."
 
             // Create an NSMutableAttributedString with the entire string
             let attributedString = NSMutableAttributedString(string: fullString)
@@ -218,10 +218,10 @@ class MindfulNess: ViewController {
             imgView.image = imagesArray[2]
             stepsImgView.image = UIImage(named: "step3")
             imgView.contentMode = .scaleAspectFit
-            text2.text = languageId == 1 ? "When we allow our brain to enter automatic pilot mode too often, it can be at risk of being conditioned to be overly preoccupied about the future, past experiences or our emotions in negative ways. If we have fallen into this old and unhelpful habit, we can unlearn it and replace it with skills that help us resist ‘buying into’ automatic worry and anxiety. " : "Cuando permitimos que nuestro cerebro entre en modo piloto automático con demasiada frecuencia, podemos correr el riesgo de verse condicionado a estar demasiado preocupado por el futuro, las experiencias pasadas o nuestras emociones de manera negativa. Si hemos caído en este viejo e inútil hábito, podemos desaprenderlo y reemplazarlo con habilidades que nos ayuden a resistir la preocupación y la ansiedad automáticas"
+            text2.text = languageId == 1 ? "When we allow our brain to enter automatic pilot mode too often, it can be at risk of being conditioned to be overly preoccupied about the future, past experiences or our emotions in negative ways. If we have fallen into this old and unhelpful habit, we can unlearn it and replace it with skills that help us resist ‘buying into’ automatic worry and anxiety. " : "Cuando permitimos que nuestro cerebro entre en modo piloto automático con demasiada frecuencia, podemos correr el riesgo de verse condicionado a estar demasiado preocupado por el futuro, las experiencias pasadas o nuestras emociones de manera negativa. Si hemos caído en este viejo e inútil hábito, podemos desaprenderlo y reemplazarlo con habilidades que nos ayuden a resistir la preocupación y la ansiedad automáticas."
         }
         else if(counter == 3){
-            text1.text = languageId == 1 ? textArray[3] : "La atención plena nos recuerda que no tenemos que tomar el control inmediato, eliminar o arreglar las experiencias desagradables. En cambio, podemos identificar y participar activamente en algo que nos dé una sensación de seguridad y conexión"
+            text1.text = languageId == 1 ? textArray[3] : "La atención plena nos recuerda que no tenemos que tomar el control inmediato, eliminar o arreglar las experiencias desagradables. En cambio, podemos identificar y participar activamente en algo que nos dé una sensación de seguridad y conexión."
             text1.font = UIFont(name: Fonts().lexendLight, size: 15)!
             text2.text = ""
             imgView.contentMode = .scaleAspectFill
@@ -243,7 +243,7 @@ class MindfulNess: ViewController {
             stackHeight.constant = 41
             rightBtn.isHidden = true
             completeButton.isHidden = false
-            text1.text = languageId == 1 ? textArray[5] : "¿Qué ejercicios de atención plena le gustaría incluir en su rutina diaria? Calmscient puede recordarle algunas rutinas sencillas de atención plena que le ayudarán a mantenerse saludable"
+            text1.text = languageId == 1 ? textArray[5] : "¿Qué ejercicios de atención plena le gustaría incluir en su rutina diaria? Calmscient puede recordarle algunas rutinas sencillas de atención plena que le ayudarán a mantenerse saludable."
             text2.text = ""
             imgView.image = imagesArray[5]
             stepsImgView.image = UIImage(named: "step6")

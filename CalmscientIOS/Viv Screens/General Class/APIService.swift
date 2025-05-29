@@ -10,8 +10,10 @@ import FirebaseCrashlytics
 
 class APIService: UIViewController {
     
-    static var ProducitonURL = "https://calmscient.in/api/" //"https://calmscient.centralindia.cloudapp.azure.com:8090/"
+    static var ProducitonURL = "https://calmscient.in/api/"
+    static var DevURL = "http://147.93.41.160/api/"
     
+    static var Url4Courses = "https://calmscient.in/courses/" //"http://147.93.41.160/courses/"
     static var BaseUrl = ProducitonURL
     
     static var RefreshToken = "identity/api/v1/user/refreshToken"
@@ -50,12 +52,26 @@ class APIService: UIViewController {
     
     static var profilePic = "identity/api/v1/settings/getUserProfile"
     
+    static var ScreeningList4AssessmentId = "patients/api/v1/screening/getScreeningListForMobile"
+    static var TakingControlIntroFirstScreen = "patients/api/v1/screening/getScreeningQuestionnaireForMobile"
+    static var TakingControlIntroFirstAns = "patients/api/v1/screening/savePatientAnswersForMobile"
+    
+    static var generateOTP = "identity/api/v1/settings/generateOTP"
+    
 
     //MARK: - Validate License Key API Calling
     
     static func validateLicenseKeyAPICalling(_ view:UIViewController?,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.validateLicenseKey
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
+    //MARK: - Generate OTP API Calling
+    
+    static func generateOTPAPICalling(_ view:UIViewController?,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.generateOTP
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
@@ -144,6 +160,30 @@ class APIService: UIViewController {
     static func SBasicKQAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
         
         let urlString = APIService.BaseUrl+APIService.SBasicKnowledgeQuestions
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
+    //MARK: - Screening List Assesment ID API Calling
+    
+    static func screeningListAssessmentrIdAPICalling(_ view:UIViewController?,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.ScreeningList4AssessmentId
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
+    //MARK: - Taking control Intro First Screen API Calling
+    
+    static func takingccontrolIntrofirstscreenDataAPICalling(_ view:UIViewController?,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.TakingControlIntroFirstScreen
+        APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
+    //MARK: - Taking control Intro First Screen Answer API Calling
+    
+    static func takingccontrolIntrofirstscreenAnswerAPICalling(_ view:UIViewController?,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.TakingControlIntroFirstAns
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     

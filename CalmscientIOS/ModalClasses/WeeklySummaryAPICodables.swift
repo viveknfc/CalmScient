@@ -43,7 +43,7 @@ public enum CodableType {
 public class GraphData {
     let yValue:Int
     let xValue:String
-    let additionalInfo:String?
+    var additionalInfo:String?
     var graphDataType:WeeklySummaryItems
     
     init(yAxisValue: Int, xAxisValue: String, additionalInfo: String?, graphType:WeeklySummaryItems) {

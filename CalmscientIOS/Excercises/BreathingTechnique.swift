@@ -72,7 +72,7 @@ class BreathingTechnique: ViewController {
         }
     
     override func viewWillAppear(_ animated: Bool) {
-        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Breathing technique" : "técnica de respiración"
+        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Breathing technique" : "Técnica de respiración"
         setupLanguage()
         breathingExcercise478.applyShadow(shadowColor: (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ? .white : .black,shadowOpacity: (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ? 0.4 : 0.2)
         mindfulBreathingExcercise478.applyShadow(shadowColor: (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ? .white : .black,shadowOpacity: (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ? 0.4 : 0.2)

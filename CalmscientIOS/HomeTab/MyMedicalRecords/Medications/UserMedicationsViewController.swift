@@ -23,6 +23,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     
     @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
     var medicationData:[MedicineDetails] = []
+    var medicationToDelete: MedicalDetails?
     
     private var selectedNewDate: Date = {
         var utcCalendar = Calendar(identifier: .gregorian)
@@ -254,41 +255,94 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     }
     
     private func deleteMedication(at indexPath: IndexPath) {
-        
-        if let iD = medicationData[indexPath.row].medicationDetailsByDate.first?.medicalDetails.prescriptionID {
-            print("The ID is", iD)
+        // Store the full medication object
+        if let medicationDetails = medicationData[indexPath.row].medicationDetailsByDate.first {
+            self.medicationToDelete = medicationDetails.medicalDetails
+
+             let iD = medicationDetails.medicalDetails.prescriptionID
+                print("The ID is", iD)
+                
+                let params: [String: Int] = ["prescriptionID": iD]
+                
+                self.view.showToastActivity()
+                APIService.deletMedicationAPICalling(
+                    self,
+                    params: params,
+                    method: "POST",
+                    accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken,
+                    acces: false,
+                    parameterPlacement: "body"
+                ) { response in
+                    self.getresponsefordeleteMedicationAPI(response: response)
+                }
             
-            let params: [String: Int] = ["prescriptionID": iD]
-            
-            self.view.showToastActivity()
-            APIService.deletMedicationAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
-                self.getresponsefordeleteMedicationAPI(response: response)
-            }
         }
     }
-    
-    func getresponsefordeleteMedicationAPI(response:AnyObject)->() {
+
+    func getresponsefordeleteMedicationAPI(response: AnyObject) {
+        DispatchQueue.main.async {
+            self.view.hideToastActivity()
+        }
+
         if let responseString = response as? String {
             print("Response received from delete Medication API calling is", responseString)
         } else if let responseDict = response as? [String: Any] {
+            if let responseMessage = responseDict["responseMessage"] as? String,
+               let responseCode = responseDict["responseCode"] as? Int,
+               responseCode == 200 {
 
-                if let responseMessage = responseDict["responseMessage"] as? String {
-                    
-                    print("Response Message:", responseMessage)
-                    self.view.showToast(message: responseMessage)
-                    
-                    getMedicationsData(forDate: selectedNewDate)
-                       } else {
-                           print("Response Message not found or is not a string.")
-                       }
+                print("Response Message:", responseMessage)
+                self.view.showToast(message: responseMessage)
 
+                if let deletedMedication = self.medicationToDelete {
+                    for timeGroup in deletedMedication.scheduledTimeList {
+                        for alarmD in timeGroup.scheduledTimes {
+                            if alarmD.alarmEnabled == "1" {
+                                let alarmTime = alarmD.alarmTime
+                                let repeatStrings = alarmD.repeat
+
+                                let identifier = alarmTime.replacingOccurrences(of: " ", with: "_")
+
+                                let weekdayMap: [String: Int] = [
+                                    "Sun": 1, "Mon": 2, "Tue": 3, "Wed": 4, "Thu": 5, "Fri": 6, "Sat": 7,
+                                    "Dom": 1, "Lun": 2, "Mar": 3, "Mié": 4, "Jue": 5, "Vie": 6, "Sáb": 7
+                                ]
+                                let repeatDays = repeatStrings.compactMap { weekdayMap[$0] }
+
+                                deleteAlarmNotification(identifier: identifier, repeatDays: repeatDays)
+                            }
+                        }
+                    }
+                }
+
+                getMedicationsData(forDate: selectedNewDate)
+            } else {
+                print("Response Message not found or is not a string.")
+            }
         } else {
             print("Unsupported response type:", type(of: response))
         }
-
     }
+
     
     //End
+    
+    //MARK: - Delete Alarm
+    
+    func deleteAlarmNotification(identifier: String, repeatDays: [Int]) {
+        let center = UNUserNotificationCenter.current()
+        
+        if repeatDays.isEmpty {
+            center.removePendingNotificationRequests(withIdentifiers: [identifier])
+        } else {
+            let ids = repeatDays.map { "\(identifier)_\($0)" }
+            center.removePendingNotificationRequests(withIdentifiers: ids)
+        }
+        
+        print("Deleted alarm with identifier(s):", repeatDays.isEmpty ? identifier : repeatDays.map { "\(identifier)_\($0)" })
+    }
+    
+    //END
     
     
     @objc func backButtonOverrideAction() {
@@ -410,6 +464,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
                             let afterSorting = self.medicationData.flatMap { $0.medicationDetailsByDate }.map { $0.medicalDetails.medicationId }
                             print("After Sorting: \(afterSorting)")
 
+                        self.scheduleAlarm()
                         
                         print("the medication data count is",self.medicationData.count)
                         self.nomedications.isHidden = true
@@ -448,6 +503,118 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
             }
         }
     }
+    
+    //MARK: - Call to schedule alarm
+    
+    func scheduleAlarm() {
+        
+        for medication in self.medicationData {
+            for detail in medication.medicationDetailsByDate {
+                let medicalDetails = detail.medicalDetails
+                
+                for timeGroup in medicalDetails.scheduledTimeList {
+                    for alarm in timeGroup.scheduledTimes {
+                        // Check if alarm is enabled
+                        if alarm.alarmEnabled == "1" {
+                            let alarmTime = alarm.alarmTime // e.g., "2025-05-20 09:09:00"
+                            
+                            // Split into date and time
+                            let parts = alarmTime.split(separator: " ")
+                            guard parts.count == 2 else { continue }
+                            let datePart = String(parts[0])  // "2025-05-20"
+                            let timePart = String(parts[1])  // "09:09:00"
+                            
+                            let identifier = "\(datePart)_\(timePart)"
+                            
+                            // Extract hour and minute
+                            let timeComponents = timePart.split(separator: ":")
+                            guard timeComponents.count >= 2,
+                                  let hour = Int(timeComponents[0]),
+                                  let minute = Int(timeComponents[1]) else { continue }
+                            
+                            // Convert repeat string array to weekday integers
+                            let repeatStrings = alarm.repeat
+                            let weekdayMap: [String: Int] = [
+                                "Sun": 1, "Mon": 2, "Tue": 3, "Wed": 4,
+                                "Thu": 5, "Fri": 6, "Sat": 7,
+                                "Dom": 1, "Lun": 2, "Mar": 3, "Mié": 4, "Jue": 5, "Vie": 6, "Sáb": 7
+                            ]
+                            let repeatDays = repeatStrings.compactMap { weekdayMap[$0] }
+                            
+                            //Delete previous one
+                            deleteAlarmNotification(identifier: identifier, repeatDays: repeatDays)
+
+                            // Schedule alarm
+                            scheduleAlarmNotification(hour: hour, minute: minute, identifier: identifier, repeatDays: repeatDays)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    //MARK: - Schedule Alarm Functioon
+    
+    func scheduleAlarmNotification(hour: Int, minute: Int, identifier: String, repeatDays: [Int]) {
+        print("alarm schedule function called")
+        let content = UNMutableNotificationContent()
+        content.title = "Medication Alert"
+        content.body = "Please take your medication to stay healthy"
+        content.categoryIdentifier = "ALARM_CATEGORY"
+        content.interruptionLevel = .critical
+
+        content.sound = UNNotificationSound.criticalSoundNamed(
+            UNNotificationSoundName(rawValue: "bell.mp3")
+        )
+        
+        // Step 1: Get prior time from UserDefaults (in minutes)
+        let priorMinutes = UserDefaults.standard.integer(forKey: "alarmPriorMinutes") // default is 0 if not set
+        print("the prior min is", priorMinutes)
+        // Step 2: Create a DateComponents with the original hour and minute
+        var originalComponents = DateComponents()
+        originalComponents.hour = hour
+        originalComponents.minute = minute
+        
+        // Step 3: Use Calendar to subtract priorMinutes
+        let calendar = Calendar.current
+        if let originalDate = calendar.date(from: originalComponents),
+           let adjustedDate = calendar.date(byAdding: .minute, value: -priorMinutes, to: originalDate) {
+            
+            let adjustedComponents = calendar.dateComponents([.hour, .minute], from: adjustedDate)
+            let adjustedHour = adjustedComponents.hour ?? hour
+            let adjustedMinute = adjustedComponents.minute ?? minute
+            
+            if repeatDays.isEmpty {
+                var dateComponents = calendar.dateComponents([.year, .month, .day], from: Date())
+                dateComponents.hour = adjustedHour
+                dateComponents.minute = adjustedMinute
+                
+                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
+                let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+                UNUserNotificationCenter.current().add(request) { error in
+                    if let error = error {
+                        print("Error scheduling notification: \(error)")
+                    }
+                }
+            } else {
+                for day in repeatDays {
+                    var dateComponents = DateComponents()
+                    dateComponents.hour = adjustedHour
+                    dateComponents.minute = adjustedMinute
+                    dateComponents.weekday = day
+                    
+                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+                    let request = UNNotificationRequest(identifier: "\(identifier)_\(day)", content: content, trigger: trigger)
+                    UNUserNotificationCenter.current().add(request) { error in
+                        if let error = error {
+                            print("Error scheduling notification: \(error)")
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     
     //MARK: - Table Reload Smooth UI
     

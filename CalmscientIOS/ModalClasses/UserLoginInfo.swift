@@ -135,6 +135,7 @@ class LoginDetails: Codable {
     let providerID: Int?
     let providerName: String?
     let providerCode: String?
+    let languageId: Int
     
     enum CodingKeys: CodingKey {
         case patientID
@@ -158,6 +159,7 @@ class LoginDetails: Codable {
         case providerID
         case providerName
         case providerCode
+        case languageId
     }
     
     
@@ -184,6 +186,7 @@ class LoginDetails: Codable {
         try container.encode(self.providerID, forKey: .providerID)
         try container.encode(self.providerName, forKey: .providerName)
         try container.encode(self.providerCode, forKey: .providerCode)
+        try container.encode(self.languageId, forKey: .languageId)
     }
     
     required init(from decoder: any Decoder) throws {
@@ -209,6 +212,7 @@ class LoginDetails: Codable {
         self.providerID = try container.decodeIfPresent(Int.self, forKey: .providerID)
         self.providerName = try container.decodeIfPresent(String.self, forKey: .providerName)
         self.providerCode = try container.decodeIfPresent(String.self, forKey: .providerCode)
+        self.languageId = try container.decode(Int.self, forKey: .languageId)
     }
 }
 

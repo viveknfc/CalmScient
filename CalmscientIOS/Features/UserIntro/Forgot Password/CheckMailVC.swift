@@ -67,10 +67,42 @@ class CheckMailVC: ViewController {
     
     //MARK:- tappedOnLabel
     @objc func tappedOnresendMailLabel(_ gesture: UITapGestureRecognizer) {
-        guard let text = self.resendMailLbl.text else { return }
-        let emailidRange = (text as NSString).range(of: emailID)
-        if gesture.didTapAttributedTextInLabel(label: self.resendMailLbl, inRange: emailidRange) {
-            print("user tapped on email text")
+//        guard let text = self.resendMailLbl.text else { return }
+//        let emailidRange = (text as NSString).range(of: emailID)
+//        if gesture.didTapAttributedTextInLabel(label: self.resendMailLbl, inRange: emailidRange) {
+//            print("user tapped on email text")
+//        }
+        
+        let params: [String: String] = ["emailId": emailString]
+        print("the generate otp param is ",params)
+        
+        self.view.showToastActivity()
+        APIService.generateOTPAPICalling(
+            self,
+            params: params,
+            method: "POST",
+            accessToken: "",
+            acces: true,
+            parameterPlacement: "body"
+        ) { response in
+            self.getresponseforgenerateOTPAPI(response: response)
+        }
+        
+        
+    }
+    
+    //MARK: Generate OTP resposne
+    
+    func getresponseforgenerateOTPAPI(response: AnyObject) {
+        self.view.hideToastActivity()
+        
+        if let responseString = response as? String {
+            print("Response received from generate otp is", responseString)
+            
+        } else if let responseDict = response as? [String: Any] {
+            print("The generate otp API response is", responseDict)
+        } else {
+            print("Unsupported response type: \(type(of: response))")
         }
     }
     

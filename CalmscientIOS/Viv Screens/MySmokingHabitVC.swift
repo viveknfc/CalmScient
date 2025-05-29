@@ -62,7 +62,7 @@ class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSour
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 60, height: 60),
                 title: alertText,
-                okButtonTitle: "Ok",
+                okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {
                     print("Retry action triggered")
                 },
@@ -116,7 +116,7 @@ class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSour
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 60, height: 60),
                 title: alertText,
-                okButtonTitle: "Ok",
+                okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {
                     print("Retry action triggered")
                 },
@@ -130,7 +130,7 @@ class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSour
         
         showGeneralAlert(
             title: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "We will guide you to create a strategic plan in Taking control full version." : "Le guiaremos para crear un plan estratégico en la versión completa de Taking Control.",
-            okButtonTitle: "Ok",
+            okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
             okAction: {
                 self.completeButtonAPICall()
             },

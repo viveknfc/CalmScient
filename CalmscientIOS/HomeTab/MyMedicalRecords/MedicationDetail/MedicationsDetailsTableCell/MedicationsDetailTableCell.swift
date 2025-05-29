@@ -80,7 +80,7 @@ class MedicationsDetailTableCell: UITableViewCell {
                    scheduleAlarm.alarmEnabled = "0"
                    
                        //to disable alarm
-                       deleteAlarmNotification(identifier: scheduleAlarm.alarmTime)
+//                       deleteAlarmNotification(identifier: scheduleAlarm.alarmTime)
                    
                    
                } else {
@@ -138,10 +138,6 @@ class MedicationsDetailTableCell: UITableViewCell {
     
     //END
     
-    func deleteAlarmNotification(identifier: String) {
-        UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [identifier])
-    }
-    
     func convertDaysToNumbers(days: [String]) -> [Int] {
         let dayMapping: [String: Int] = [
             "Sun": 1,
@@ -155,41 +151,6 @@ class MedicationsDetailTableCell: UITableViewCell {
         
         let dayNumbers = days.compactMap { dayMapping[$0] }
         return dayNumbers
-    }
-    
-    func scheduleAlarmNotification(hour: Int, minute: Int, identifier: String, repeatDays: [Int]) {
-        let content = UNMutableNotificationContent()
-        content.title = "Medication Alert"
-        content.body = "Please take your medication to stay healthy"
-        content.categoryIdentifier = "ALARM_CATEGORY"
-        
-        if #available(iOS 15.0, *) {
-            content.interruptionLevel = .critical
-        } else {
-            // Fallback on earlier versions
-        }
-        
-        content.sound = UNNotificationSound.criticalSoundNamed(
-            UNNotificationSoundName(rawValue: "bell.mp3")
-        )
-        
-//        content.sound = UNNotificationSound.criticalSoundNamed(UNNotificationSoundName(rawValue: "bell.mp3"))
-        
-        for day in repeatDays {
-            var dateComponents = DateComponents()
-            dateComponents.hour = hour
-            dateComponents.minute = minute
-            dateComponents.weekday = day  // Sunday is 1, Monday is 2, ..., Saturday is 7
-            
-            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-            
-            let request = UNNotificationRequest(identifier: "\(identifier)_\(day)", content: content, trigger: trigger)
-            UNUserNotificationCenter.current().add(request) { error in
-                if let error = error {
-                    print("Error scheduling notification: \(error)")
-                }
-            }
-        }
     }
     
     override func prepareForReuse() {
@@ -234,38 +195,7 @@ class MedicationsDetailTableCell: UITableViewCell {
             guard let scheduledTime = data.scheduledTimes.first else {
                 return
             }
-            if scheduledTime.alarmEnabled == "1" {
-                buttonState = .selected
-                
-                ///////////////////////////////////////////////
-                // To add alarm if your tapped on swiitch to "yes" in medication configaration
-                ///////////////////////////////////////////////
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-                 
-                // Convert the string back to a Date object
-                if let date = dateFormatter.date(from: scheduledTime.alarmTime) {
-                    // Extract hour and minute using Calendar
-                    let calendar = Calendar.current
-                    let hour = calendar.component(.hour, from: date)
-                    let minute = calendar.component(.minute, from: date)
-                    
-                    print("Hour: \(hour), Minute: \(minute)")
-                    scheduleAlarmNotification(hour: hour, minute: minute, identifier: scheduledTime.alarmTime, repeatDays: convertDaysToNumbers(days: scheduledTime.repeat ))
-                } else {
-                    print("Invalid date format")
-                    
-                }
-                //////////////////////////////////////////////
-                ///
-                //////////////////////////////////////////////
-                
-            } else {
-                buttonState = .dafault
-                // to remove alarm if user tapped on swiitch to "No"
-                deleteAlarmNotification(identifier: scheduledTime.alarmTime)
-                
-            }
+
             self.cellSwitchImageView.image = self.currentImage
             guard let alarmDayType = scheduledTime.medicineTime.getDayTimeFromDate(formatter: "HH:mm:ss"), let alarmDayTypeShortForm = scheduledTime.alarmTime.getDayTimeFromDate(includeTimeZone:true) else {
                 return

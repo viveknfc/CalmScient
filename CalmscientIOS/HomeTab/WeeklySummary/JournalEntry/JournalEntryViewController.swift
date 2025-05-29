@@ -701,7 +701,7 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 40, height: 40),
                 title: alertText,
-                okButtonTitle: "Ok",
+                okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {
                     print("OK action triggered")
                 },

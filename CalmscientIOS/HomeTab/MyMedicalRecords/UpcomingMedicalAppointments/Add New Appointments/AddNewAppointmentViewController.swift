@@ -43,7 +43,16 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
                 // If selected date is today, ensure time is now or in the future
                 if date < now {
                     let msg = "Selected time is in the past for today"
-                    self.view.showToast(message: msg )
+                    
+                    showGeneralAlert(
+                        image: UIImage(named: "InfoIcon"),
+                        imageSize: CGSize(width: 60, height: 60),
+                        title: msg,
+                        okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
+                        okAction: {},
+                        showDismissButton: false
+                    )
+                    
                     print("Selected time is in the past for today. Ignoring.")
                     return
                 }
@@ -133,8 +142,8 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
         
         if language == 1 {
             alerts = [
-                (86400, "Upcoming Appointment", "Don’t forget your medical appointment tomorrow."),
-                (7200, "Upcoming Appointment", "Your medical appointment is in 2 hours.")
+                (86400, AppHelper.getLocalizeString(str: "Upcoming Appointment"), AppHelper.getLocalizeString(str: "Don’t forget your medical appointment tomorrow")),
+                (7200, AppHelper.getLocalizeString(str: "Upcoming Appointment"), AppHelper.getLocalizeString(str: "Your medical appointment is in 2 hours"))
             ]
             providerAlert = "Provider name cannot be empty"
             locationAlert = "Location name cannot be empty"
@@ -156,7 +165,7 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
         addRedAsterisk(to: time)
         
         descriptionTV.text = placeholderText
-        descriptionTV.textColor = UIColor.lightGray
+        descriptionTV.textColor = UIColor.black
         descriptionTV.delegate = self
         
         setupDropdownTable()
@@ -312,7 +321,7 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 40, height: 40),
                 title: "Please enter a valid date.",
-                okButtonTitle: "Ok",
+                okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {
 
                 },
@@ -329,7 +338,7 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 40, height: 40),
                 title: "Please enter a valid time.",
-                okButtonTitle: "Ok",
+                okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {
 
                 },
@@ -478,7 +487,7 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 60, height: 60),
                 title: patientAlert,
-                okButtonTitle: "Ok",
+                okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {
 
                 },
@@ -492,7 +501,7 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 60, height: 60),
                 title: providerAlert,
-                okButtonTitle: "Ok",
+                okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {
 
                 },
@@ -506,7 +515,7 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 60, height: 60),
                 title: locationAlert,
-                okButtonTitle: "Ok",
+                okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {
 
                 },
@@ -555,45 +564,25 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
     
     //MARK: - Edit Save Button API Response
     
-    func getresponseforEditSaceAppointmentAPI(response:AnyObject)->() {
+    func getresponseforEditSaceAppointmentAPI(response: AnyObject) {
         self.view.hideToastActivity()
+
         if let responseString = response as? String {
             print("Response received from Edit Save API calling is", responseString)
         } else if let responseDict = response as? [String: Any] {
-
-                if let responseMessage = responseDict["message"] as? String {
-                    
-                    print("Response Message:", responseMessage)
-                    
-                    self.showSuccessAlert(successContent: responseMessage, centreImage: nil, okButtonAction: {
-                        
-                        if self.alert == 1 {
-
-
-                            for (offset, title, body) in self.alerts {
-                                scheduleAlarmNotification(
-                                    dateTimeString: self.dateTimeforParam,
-                                    dateFormat: "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
-                                    alarmOffset: offset,
-                                    title: title,
-                                    body: body
-                                )
-                            }
-
-                        }
-
-                        
-                        self.navigationController?.popViewController(animated: true)
-                    })
-                    
-                       } else {
-                           print("Response Message not found or is not a string.")
-                       }
-
+            if let responseMessage = responseDict["message"] as? String {
+                print("Response Message:", responseMessage)
+                self.showSuccessAlert(successContent: responseMessage, centreImage: nil, okButtonAction: {
+                    self.navigationController?.popViewController(animated: true)
+                })
+            } else {
+                print("Response Message not found or is not a string.")
+            }
         } else {
             print("Unsupported response type:", type(of: response))
         }
     }
+
     
     //MARK: - Date / Time Picker Function
     

@@ -329,8 +329,8 @@ class TakingControllIntro: UIViewController,UITableViewDelegate,UITableViewDataS
             imageSize: CGSize(width: 40, height: 40),
             title: flagName,
             subTitle: subTitle,
-            okButtonTitle: "Yes",
-            cancelButtonTitle: "No",
+            okButtonTitle: AppHelper.getLocalizeString(str: "YES"),
+            cancelButtonTitle: AppHelper.getLocalizeString(str: "NO"),
             okAction: {
                 let newFlag = flagValue == 0 ? 1 : 0
                 updateFlag?(newFlag)

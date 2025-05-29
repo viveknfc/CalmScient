@@ -10,6 +10,7 @@ import UIKit
 class Modarate3VC: ViewController {
     
     @IBOutlet weak var makeAPlan: FontLL15!
+    var sectionID: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,13 +39,48 @@ class Modarate3VC: ViewController {
     
 
     @IBAction func completeButtonPressed(_ sender: Any) {
-        let next = UIStoryboard(name: "Basicknowledge", bundle: nil)
-        if #available(iOS 16.0, *) {
-            let vc = next.instantiateViewController(withIdentifier: "Basicknowledge") as? Basicknowledge
-            vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
-            self.navigationController?.pushViewController(vc!, animated: true)
+        completeButtonAPICall()
+    }
+    
+    //MARK: - Complete Button API Call
+    
+    func completeButtonAPICall() {
+        self.view.showToastActivity()
+        
+        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+            fatalError("Unable to found Application Shared Info")
+        }
+        
+        let params: [String: Any] = [
+            "isCompleted":1,
+            "patientId": userInfo.patientID,
+            "sectionId":sectionID ?? 0
+        ]
+
+        APIService.DUpdateBasicKAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
+            self.getresponseforBasicKnowAPI(response: response)
+        }
+    }
+    
+    //MARK: - Complete Button API Response
+    
+    func getresponseforBasicKnowAPI(response: Any) {
+        self.view.hideToastActivity()
+        
+        if let responseDict = response as? [String: Any] {
+            
+            print("Response from Basic standard complete button:", responseDict)
+            let next = UIStoryboard(name: "Basicknowledge", bundle: nil)
+            if #available(iOS 16.0, *) {
+                let vc = next.instantiateViewController(withIdentifier: "Basicknowledge") as? Basicknowledge
+                vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
+                self.navigationController?.pushViewController(vc!, animated: true)
+            } else {
+                // Fallback on earlier versions
+            }
+            
         } else {
-            // Fallback on earlier versions
+            print("Unsupported response type:", type(of: response))
         }
     }
     

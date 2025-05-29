@@ -33,6 +33,7 @@ class CustomTextField: UITextField {
         self.placeholder = "******" // Default placeholder
         self.textAlignment = .left // Optional: text alignment
         self.isSecureTextEntry = true
+        self.delegate = self
         configureToggleButton()
     }
     
@@ -61,5 +62,18 @@ class CustomTextField: UITextField {
         let imageName = self.isSecureTextEntry ? "eye.slash" : "eye" // Change icon
         toggleButton.setImage(UIImage(systemName: imageName), for: .normal)
     }
+
+    // Prevent text changes containing spaces
+    override func insertText(_ text: String) {
+        if !text.contains(" ") {
+            super.insertText(text)
+        }
+    }
     
+}
+
+extension CustomTextField: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return !string.contains(" ") // Block space entry
+    }
 }

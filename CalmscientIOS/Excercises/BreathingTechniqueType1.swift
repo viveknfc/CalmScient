@@ -71,7 +71,7 @@ class BreathingTechniqueType1: ViewController {
     
     var languageId : Int = 1
     
-    @IBOutlet weak var completeButton: UIButton!
+    @IBOutlet weak var completeButton: CapsuleButton1!
     
     @IBOutlet weak var forwardButton: UIButton!
     @IBOutlet weak var backwardButton: UIButton!
@@ -140,8 +140,6 @@ class BreathingTechniqueType1: ViewController {
         favImg.addGestureRecognizer(favImgTapGestureRecognizer)
         
         let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-        let title = selectedLanguageID == 1 ? "Complete" : "Finalizar"
-        completeButton.setTitle(title, for: .normal)
     }
     
     func uiLabelsSetup(){
@@ -178,7 +176,6 @@ class BreathingTechniqueType1: ViewController {
         bottomDescLabel.font = UIFont(name: Fonts().lexendLight, size: 15)
         bottomDescLabel.textColor = UIColor(named: "lineChartLabelColor")
         
-        completeButton.titleLabel?.font = UIFont(name: Fonts().lexendLight, size: 14)
     }
     
     

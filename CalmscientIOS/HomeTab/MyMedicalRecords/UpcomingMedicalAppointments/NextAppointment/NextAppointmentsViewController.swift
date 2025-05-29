@@ -303,7 +303,7 @@ extension NextAppointmentsViewController: CustomTableViewCellDelegate {
             
             
             let alertController = UIAlertController(title: AppHelper.getLocalizeString(str: "Confirm Deletion"),
-                                                            message: AppHelper.getLocalizeString(str: "Are you sure you want to delete this medication?"),
+                                                            message: AppHelper.getLocalizeString(str: "Are you sure you want to delete this appointment?"),
                                                             preferredStyle: .alert)
                     
             let cancelAction = UIAlertAction(title: AppHelper.getLocalizeString(str: "No"), style: .cancel, handler: nil)
@@ -354,8 +354,14 @@ extension NextAppointmentsViewController: CustomTableViewCellDelegate {
                 if let responseMessage = responseDict["responseMessage"] as? String {
                     
                     print("Response Message:", responseMessage)
-                    self.view.showToast(message: responseMessage)
-                    
+                    showGeneralAlert(
+                        image: UIImage(named: "InfoIcon"),
+                        imageSize: CGSize(width: 60, height: 60),
+                        title: responseMessage,
+                        okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
+                        okAction: {},
+                        showDismissButton: false
+                    )
                     getMedicalAppointmentsData(forDate: selectedNewDate)
 
                        } else {

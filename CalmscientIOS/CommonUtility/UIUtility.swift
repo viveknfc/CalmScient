@@ -45,48 +45,6 @@ open class customUITextField: UITextField {
     }
 }
 
-
-//open class customUITextField: UITextField {
-//    
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        
-//    }
-//    required public init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        //setup()
-//    }
-//    
-//    open override func draw(_ rect: CGRect) {
-//        self.layer.cornerRadius = 5.0
-//        self.layer.borderWidth = 1.0
-//        self.layer.borderColor = UIColor(red: 110.0/255.0, green: 107.0/255.0, blue: 179.0/255.0, alpha: 1.0).cgColor
-//        self.layer.masksToBounds = true
-//        self.clipsToBounds = true
-////        self.attributedPlaceholder = NSAttributedString(
-////            string: self.placeholder ?? "",
-////            attributes: [NSAttributedString.Key.foregroundColor: UIColor(named: "MainTextColor") ?? UIColor.black]
-////        )
-//        self.textColor = UIColor(named: "MainTextColor")
-//        self.font = UIFont(name: Fonts().lexendLight, size: 16.0)
-//    }
-//    
-//    let padding = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 5)
-//
-//        override open func textRect(forBounds bounds: CGRect) -> CGRect {
-//            return bounds.inset(by: padding)
-//        }
-//
-//        override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
-//            return bounds.inset(by: padding)
-//        }
-//
-//        override open func editingRect(forBounds bounds: CGRect) -> CGRect {
-//            return bounds.inset(by: padding)
-//        }
-//    
-//}
-
 extension UIColor {
     public convenience init?(hex1: String) {
         let r, g, b, a: CGFloat

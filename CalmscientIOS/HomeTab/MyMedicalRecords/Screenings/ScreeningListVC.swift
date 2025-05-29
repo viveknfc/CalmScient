@@ -121,6 +121,11 @@ extension ScreeningListVC: UITableViewDelegate, UITableViewDataSource{
             return UITableViewCell()
         }
         let data = screeningData[indexPath.row]
+        if data.archiveFlag > 0 {
+            cell.historyIcon.isHidden = false
+        } else {
+            cell.historyIcon.isHidden = true
+        }
         cell.configureCell(celldata: data)
         cell.selectionStyle = .none
         cell.onHistoryClick = { [weak self] in
@@ -134,8 +139,8 @@ extension ScreeningListVC: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedScreening = screeningData[indexPath.row]
-        
-        if selectedScreening.screeningStatus.lowercased() != "completed" {
+//        print("the screening status is", selectedScreening.screeningStatus.lowercased())
+//        if selectedScreening.screeningStatus.lowercased() != "completed" {
             let next = UIStoryboard(name: "ScreeningQuestions", bundle: nil)
             let vc = next.instantiateViewController(withIdentifier: "ScreeningQuestionsViewController") as? ScreeningQuestionsViewController
             vc?.selectedScreening = screeningData[indexPath.row]
@@ -157,12 +162,12 @@ extension ScreeningListVC: UITableViewDelegate, UITableViewDataSource{
                 self.navigationController?.pushViewController(vc!, animated: true)
             }
             self.navigationController?.pushViewController(vc!, animated: true)
-        } else {
-            let next = UIStoryboard(name: "HistoryVC", bundle: nil)
-            let vc = next.instantiateViewController(withIdentifier: "HistoryVC") as? HistoryVC
-            vc?.selectedScreening = screeningData[indexPath.row]
-            self.navigationController?.pushViewController(vc!, animated: true)
-        }
+//        } else {
+//            let next = UIStoryboard(name: "HistoryVC", bundle: nil)
+//            let vc = next.instantiateViewController(withIdentifier: "HistoryVC") as? HistoryVC
+//            vc?.selectedScreening = screeningData[indexPath.row]
+//            self.navigationController?.pushViewController(vc!, animated: true)
+//        }
     }
 }
 

@@ -15,13 +15,15 @@ class VTakingControlIntroVC: ViewController {
     
     @IBOutlet weak var pointLabel: FontLM25!
     
-    let questions = [
-        "Have you ever felt that you ought to Cut down on your drinking or drug use?",
-        "Have people Annoyed you by criticizing your drinking or drug use?",
-        "Have you ever felt bad or Guilty about your drinking or drug use?",
-        "Have you ever had a drink or used drugs first thing in the morning to steady your nerves or to get rid of a hangover (Eye opener)?"
-    ]
     var answers: [String?] = []
+    var summaryArray: [TakingFirstQueSummary] = []
+    var questionnaireArray: [Question] = []
+    var assessmentId = Int()
+    
+    var answersArrayParam: [[String: Any]] = []
+    
+    var auditScreeningData:[Screening] = []
+    var dast10ScreeningData:[Screening] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,7 +61,7 @@ class VTakingControlIntroVC: ViewController {
 
         introLabel.attributedText = attributedText
         
-        answers = Array(repeating: nil, count: questions.count)
+        
         tableView.delegate = self
         tableView.dataSource = self
         
@@ -69,7 +71,7 @@ class VTakingControlIntroVC: ViewController {
         let nib = UINib(nibName: "TakincontrolIntroCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "takinccontrolintroTC")
 
-        
+        getscreeningListAssessmentrId()
     }
     
     func updateScoreLabel() {
@@ -79,11 +81,214 @@ class VTakingControlIntroVC: ViewController {
     
     
     @IBAction func submitButtonPressed(_ sender: Any) {
-        self.showSuccessAlert(successContent: "Submitted successfully", centreImage: nil, okButtonAction: {
-            let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
-            let vc = next.instantiateViewController(withIdentifier: "IntroSecondPageVC") as? IntroSecondPageVC
-            self.navigationController?.pushViewController(vc!, animated: true)
-        })
+        
+        let unansweredIndex = answers.firstIndex(where: { $0 != "Yes" && $0 != "No" })
+        
+        if let index = unansweredIndex {
+            // Show alert if a question is unanswered
+
+            showGeneralAlert(
+                image: UIImage(named: "InfoIcon"),
+                imageSize: CGSize(width: 60, height: 60),
+                title: "Please answer all questions",
+                okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
+                okAction: {},
+                showDismissButton: false
+            )
+            
+            return
+        }
+ 
+        submitAPICall()
+            
+    }
+    
+    //MARK: - Submit API Call
+    
+    func submitAPICall() {
+        self.view.showToastActivity()
+        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+            fatalError("Unable to found Application Shared Info")
+        }
+        answersArrayParam.removeAll()
+        for question in summaryArray {
+            var answerJSON: [String: Any] = [:]
+            
+            answerJSON["flag"] = "I"
+            answerJSON["answerId"] = question.selectedanswerId ?? 0
+            answerJSON["optionId"] = question.selectedoptionId ?? 0
+            answerJSON["score"] = question.selectedScore ?? 0
+            
+            answerJSON["questionnaireId"] = question.questionId
+            answerJSON["screeningId"] = 5
+            
+            answerJSON["patientLocationId"] = userInfo.patientLocationID
+            answerJSON["clientId"] = userInfo.clientID
+            answerJSON["patientId"] = userInfo.patientID
+            answerJSON["assessmentId"] = assessmentId
+            
+            answersArrayParam.append(answerJSON)
+        }
+        
+        let params: [String: Any] = [
+            "patientAnswers": answersArrayParam
+        ]
+        
+        print("the submit API call params", params)
+        
+        APIService.takingccontrolIntrofirstscreenAnswerAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
+            
+            self.submitAPIResponse(response: response)
+        }
+    }
+    
+    //MARK: - Submit API Response
+        
+    func submitAPIResponse(response: AnyObject) {
+        self.view.hideToastActivity()
+        if let responseDict = response as? [String: Any],
+           let statusResponse = responseDict["statusResponse"] as? [String: Any],
+           let responseMessage = statusResponse["responseMessage"] as? String {
+
+            // ✅ Show success alert with extracted message
+            self.showSuccessAlert(successContent: responseMessage, centreImage: nil, okButtonAction: {
+                let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+                if let vc = next.instantiateViewController(withIdentifier: "IntroSecondPageVC") as? IntroSecondPageVC {
+                    vc.auditData = self.auditScreeningData
+                    vc.dastData = self.dast10ScreeningData
+                    self.navigationController?.pushViewController(vc, animated: true)
+                }
+            })
+
+        } else {
+            print("Invalid response format or missing keys.")
+        }
+    }
+
+    
+    //MARK: - API call for Screening Questions
+    
+    func getscreeningListQuestions() {
+
+        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+            fatalError("Unable to found Application Shared Info")
+        }
+        
+        let params: [String: Any] = [
+            "assessmentId": assessmentId,
+            "screeningId": 5,
+            "patientId": userInfo.patientID,
+            "patientLocationId": userInfo.patientLocationID,
+            "clientId": userInfo.clientID,
+            "fromDate": "",
+            "toDate": ""
+            ]
+        
+        print("the getscreeningListAssessmentrId API call params", params)
+        
+        APIService.takingccontrolIntrofirstscreenDataAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
+            
+            self.view.hideToastActivity()
+            self.parsethetakingfirstScreen(response: response)
+        }
+    }
+    
+    //MARK: - Parsing the Response of Taking control first screen Data
+        
+    func parsethetakingfirstScreen(response: AnyObject) {
+
+        if let responseString = response as? String {
+            print("Response received from Get Drinking Data API calling is", responseString)
+        } else if let responseDict = response as? [String: Any] {
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: responseDict, options: [])
+                let decoded = try JSONDecoder().decode(TakingIntrofirstScreenQuestions.self, from: jsonData)
+
+                summaryArray.removeAll()
+                
+                questionnaireArray = decoded.questionnaire
+                
+                for question in decoded.questionnaire {
+
+                        let summary = TakingFirstQueSummary(
+                            questionId: question.questionId,
+                            questionName: question.questionName,
+                            optionTypeId: question.optionTypeId,
+                            selectedanswerId: nil,
+                            selectedScore: nil,
+                            selectedoptionId: nil,
+                            selectedAnswerLabel: ""
+                        )
+                        summaryArray.append(summary)
+                    
+                }
+                
+                print("the summary array is", summaryArray)
+                tableView.reloadData()
+                answers = Array(repeating: nil, count: summaryArray.count)
+
+            } catch {
+                print("Error decoding JSON: \(error)")
+            }
+        } else {
+            print("Unsupported response type:", type(of: response))
+        }
+    }
+    
+    //MARK: - API call for assessment ID
+    
+    func getscreeningListAssessmentrId() {
+        self.view.showToastActivity()
+        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+            fatalError("Unable to found Application Shared Info")
+        }
+        
+        let params: [String: Any] = [
+                "patientId": userInfo.patientID,
+                "patientLocationId": userInfo.patientLocationID,
+                "clientId": userInfo.clientID
+            ]
+        
+        print("the getscreeningListAssessmentrId API call params", params)
+        
+        APIService.screeningListAssessmentrIdAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") { response in
+
+            self.parsetheAssessmentIdResponse(response: response)
+        }
+    }
+    
+    //MARK: - Parsing the Response of assesment id
+        
+    func parsetheAssessmentIdResponse(response: AnyObject) {
+
+        if let responseString = response as? String {
+            print("Response received from Get Drinking Data API calling is", responseString)
+        } else if let responseDict = response as? [String: Any] {
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: responseDict, options: [])
+                let decodedResponse = try JSONDecoder().decode(ScreeningResponse.self, from: jsonData)
+                
+                let allScreenings = decodedResponse.screeningList
+                
+                self.auditScreeningData = allScreenings.filter { $0.screeningType.uppercased() == "AUDIT" }
+                self.dast10ScreeningData = allScreenings.filter { $0.screeningType.uppercased() == "DAST-10" }
+                
+                if let cageAssessment = allScreenings.first(where: { $0.screeningType == "CAGE" }) {
+                    assessmentId = cageAssessment.assessmentID
+                    print("CAGE Assessment ID: \(cageAssessment.assessmentID)")
+                    
+                    getscreeningListQuestions()
+                    
+                } else {
+                    print("CAGE screeningType not found.")
+                }
+
+            } catch {
+                print("Error decoding JSON: \(error)")
+            }
+        } else {
+            print("Unsupported response type:", type(of: response))
+        }
     }
     
 
@@ -92,7 +297,7 @@ class VTakingControlIntroVC: ViewController {
 extension VTakingControlIntroVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return questions.count
+        return summaryArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -100,18 +305,20 @@ extension VTakingControlIntroVC: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         
-        let numberPrefix = "\(indexPath.row + 1). "
-        let questionText = questions[indexPath.row]
-        let fullText = numberPrefix + questionText
-        
+        let fullText = summaryArray[indexPath.row].questionName
+
+        // Extract prefix (e.g., "1. ") from the existing text
+        let components = fullText.components(separatedBy: " ")
+        let numberPrefix = components.first ?? ""
+
+        // Calculate indentation based on the actual prefix
+        let font = cell.questionLabel.font ?? UIFont.systemFont(ofSize: 17)
+        let indentWidth = (numberPrefix as NSString).size(withAttributes: [.font: font]).width + 4 // +4 for extra spacing
+
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.firstLineHeadIndent = 0
-        
-        let font = cell.questionLabel.font ?? UIFont.systemFont(ofSize: 17)
-        
-        let indentWidth = (numberPrefix as NSString).size(withAttributes: [.font: font]).width
         paragraphStyle.headIndent = indentWidth
-        
+
         let attributedString = NSAttributedString(string: fullText, attributes: [
             .paragraphStyle: paragraphStyle,
             .font: font
@@ -131,14 +338,38 @@ extension VTakingControlIntroVC: UITableViewDelegate, UITableViewDataSource {
         cell.noButton.setTitleColor((selectedAnswer == "No") ? .white : .black, for: .normal)
 
         cell.yesTapped = { [weak self] in
-            self?.answers[indexPath.row] = "Yes"
-            self?.updateScoreLabel()
+            guard let self = self else { return }
+            self.answers[indexPath.row] = "Yes"
+
+            let question = self.questionnaireArray[indexPath.row]
+            let yesOption = question.answerResponse[1] // assuming Yes is always index 1
+
+            var summary = self.summaryArray[indexPath.row]
+            summary.selectedanswerId = yesOption.answerId
+            summary.selectedScore = Int(yesOption.optionScore)
+            summary.selectedoptionId = yesOption.optionLabelId
+            summary.selectedAnswerLabel = yesOption.optionLabel
+            self.summaryArray[indexPath.row] = summary
+
+            self.updateScoreLabel()
             tableView.reloadRows(at: [indexPath], with: .none)
         }
 
         cell.noTapped = { [weak self] in
-            self?.answers[indexPath.row] = "No"
-            self?.updateScoreLabel()
+            guard let self = self else { return }
+            self.answers[indexPath.row] = "No"
+
+            let question = self.questionnaireArray[indexPath.row]
+            let noOption = question.answerResponse[0] // assuming No is always index 0
+
+            var summary = self.summaryArray[indexPath.row]
+            summary.selectedanswerId = noOption.answerId
+            summary.selectedScore = Int(noOption.optionScore)
+            summary.selectedoptionId = noOption.optionLabelId
+            summary.selectedAnswerLabel = noOption.optionLabel
+            self.summaryArray[indexPath.row] = summary
+
+            self.updateScoreLabel()
             tableView.reloadRows(at: [indexPath], with: .none)
         }
 
@@ -146,3 +377,7 @@ extension VTakingControlIntroVC: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
+
+
+

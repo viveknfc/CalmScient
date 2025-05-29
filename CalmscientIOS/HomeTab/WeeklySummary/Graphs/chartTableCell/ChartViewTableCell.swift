@@ -333,7 +333,7 @@ class ChartViewTableCell: UITableViewCell {
         for (idx,val) in graphData.enumerated() {
             let entry = BarChartDataEntry(x: Double(idx+1), y: Double(val.yValue)) //+1 added
             print("the entry of BarChartDataEntry is", entry)
-            entries.append(entry)
+            entries.append(entry)    
         }
         let dataset = BarChartDataSet(entries: entries)
         dataset.colors = colors
@@ -376,6 +376,7 @@ public class MoodAxisFormatter:AxisValueFormatter {
 
 public class MoodValueAxisFormatter:AxisValueFormatter {
     public func stringForValue(_ value: Double, axis: DGCharts.AxisBase?) -> String {
+        print("Y value is \(Int(value))")
         return "\(Int(value))"
     }
     

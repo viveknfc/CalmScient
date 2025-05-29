@@ -8,7 +8,7 @@
 import UIKit
 import WebKit
 
-class WebViewLessonViewController: ViewController, WKNavigationDelegate, WKScriptMessageHandler {
+class WebViewLessonViewController: UIViewController, WKNavigationDelegate, WKScriptMessageHandler {
     var webView:WKWebView!
     var urlString:String = ""
     var pageTitle: String = ""
@@ -48,7 +48,21 @@ class WebViewLessonViewController: ViewController, WKNavigationDelegate, WKScrip
         
         //viv start
         
+        let backButtonImage = UIImage(named: "NavigationBack")?.withRenderingMode(.alwaysOriginal)
 
+        // Create a UIButton
+        let backButton = UIButton(type: .custom)
+        backButton.setImage(backButtonImage, for: .normal)
+        backButton.addTarget(self, action: #selector(backButtonOverrideAction), for: .touchUpInside)
+
+        // Set constraints to adjust the size
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.widthAnchor.constraint(equalToConstant: 32).isActive = true // Set desired width
+        backButton.heightAnchor.constraint(equalToConstant: 32).isActive = true // Set desired height
+
+        // Create a UIBarButtonItem using the UIButton
+        let backBarButtonItem = UIBarButtonItem(customView: backButton)
+        navigationItem.leftBarButtonItem = backBarButtonItem
         
         //end
     }
@@ -124,6 +138,8 @@ class WebViewLessonViewController: ViewController, WKNavigationDelegate, WKScrip
     
     @objc func backButtonTapped() {
         print("back button tap function called")
+        
+        UserDefaults.standard.set(false, forKey: "hasFetchedFavorites")
 
         let stopMediaAndNotifyScript = """
             document.querySelectorAll('audio, video').forEach(el => {
@@ -166,50 +182,6 @@ class WebViewLessonViewController: ViewController, WKNavigationDelegate, WKScrip
         }
     }
 
-
-    
-//    @objc func backButtonTapped() {
-//        print("back button tap fucntion called")
-////        let javascript = "onAbortCourseGotoIndex();"
-//        
-//        let stopMediaScript = """
-//            document.querySelectorAll('audio, video').forEach(el => {
-//                el.pause();
-//                el.currentTime = 0;
-//                el.src = '';
-//                el.load();
-//            });
-//            if (typeof onAbortCourseGotoIndex === 'function') {
-//                onAbortCourseGotoIndex();
-//            }
-//        """
-//        
-//        webView.evaluateJavaScript(stopMediaScript) { [weak self] (result, error) in
-//            guard let self = self else { return }
-//
-//            if let error = error {
-//                print("JavaScript error: \(error)")
-//            }
-//
-//            // Here we simulate the messageBody that might contain "1001" key
-//            // Normally, this would come from your JS message handler
-//            let messageBody: [String: Any] = ["1001": "turn off loading and go to index"]
-//
-//            for keyValuePair in messageBody {
-//                if keyValuePair.key == "1001" {
-//                    // index 3 - last page (quiz)
-//                    if self.index == 2 {
-//                        self.navigationController?.popViewController(animated: true)
-//                    } else if self.index == 3 {
-//                        self.title = "Your results"
-//                        self.navigationController?.popViewController(animated: true)
-//                    }
-//                }else if (keyValuePair.key == "1100"){
-//                    print("web page loaded with valid session")
-//                }
-//            }
-//        }
-//    }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureCustomBackButton()
@@ -221,6 +193,10 @@ class WebViewLessonViewController: ViewController, WKNavigationDelegate, WKScrip
         super.viewDidDisappear(animated)
         self.navigationController?.isNavigationBarHidden = false
     }
+    
+    @objc func backButtonOverrideAction() {
+        backButtonTapped()
+        }
     
     //viv start
     
@@ -330,8 +306,26 @@ extension WebViewLessonViewController: WKUIDelegate {
     
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        webView.isHidden = false // like `binding.webviewLearnMore.visibility = View.VISIBLE`
+
+        guard let tokenResponse = ApplicationSharedInfo.shared.tokenResponse else {
+            fatalError("Unable to found Application Shared Info")
+        }
+        
+        let token = tokenResponse.accessToken
+        let js = """
+        (function waitForFn(){
+            if (window && typeof window.onAccessTokenReceived === 'function') {
+                window.onAccessTokenReceived('\(token)');
+            } else {
+                setTimeout(waitForFn, 200);
+            }
+        })();
+        """
+        
+        webView.evaluateJavaScript(js, completionHandler: nil)
     }
-    
+
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction) async -> WKNavigationActionPolicy {
         print("User Redirected to \(String(describing: navigationAction.request.url))")
         return .allow

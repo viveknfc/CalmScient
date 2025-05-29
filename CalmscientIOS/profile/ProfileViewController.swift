@@ -158,7 +158,7 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 40, height: 40),
                 title: "Old password is required.",
-                okButtonTitle: "Ok",
+                okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {
 
                 },
@@ -174,7 +174,7 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 40, height: 40),
                 title: "New password is required.",
-                okButtonTitle: "Ok",
+                okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {
 
                 },
@@ -188,7 +188,7 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 40, height: 40),
                 title: "Your password must be at least eight characters long and include at least one special character and one number.",
-                okButtonTitle: "Ok",
+                okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: { },
                 showDismissButton: false
             )
@@ -200,7 +200,7 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 40, height: 40),
                 title: "Confirm password is required.",
-                okButtonTitle: "Ok",
+                okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {
 
                 },
@@ -214,7 +214,7 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 40, height: 40),
                 title: "New password and confirm password must be the same.",
-                okButtonTitle: "Ok",
+                okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {
 
                 },

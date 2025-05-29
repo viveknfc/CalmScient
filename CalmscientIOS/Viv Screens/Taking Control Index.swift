@@ -20,6 +20,7 @@ class TakingControlIndex: ViewController {
     private var currentViewController: UIViewController?
     
     var shouldPopBack: Bool = false
+    var moveToIntro = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,6 +101,15 @@ class TakingControlIndex: ViewController {
         titleLabel.font = UIFont(name: Fonts().lexendMedium, size: 18)
         titleLabel.textColor = .label // or any color you want
         navigationItem.titleView = titleLabel
+        
+        print("the move to intro value is",moveToIntro)
+        
+        if moveToIntro {
+            self.view.showToastActivity()
+            let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+            let vc = next.instantiateViewController(withIdentifier: "VTakingControlIntroVC") as? VTakingControlIntroVC
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
         
     }
     

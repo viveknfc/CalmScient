@@ -292,10 +292,10 @@ class MedicationAlarm: Codable {
             return [startTimeDate,endTimeDate]
         case .Afternoon:
             let startTimeDate = "12:00:00".createDateFromTimeString()
-            let endTimeDate = "16:59:00".createDateFromTimeString()
+            let endTimeDate = "17:59:00".createDateFromTimeString()
             return [startTimeDate,endTimeDate]
         case .Evening:
-            let startTimeDate = "17:00:00".createDateFromTimeString()
+            let startTimeDate = "18:00:00".createDateFromTimeString()
             let endTimeDate = "23:59:00".createDateFromTimeString()
             return [startTimeDate,endTimeDate]
         case .none:

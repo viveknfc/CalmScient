@@ -374,7 +374,7 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
                     image: UIImage(named: "InfoIcon"),
                     imageSize: CGSize(width: 40, height: 40),
                     title: alertText,
-                    okButtonTitle: "Ok",
+                    okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                     okAction: {
                         print("OK action triggered")
                     },
@@ -490,16 +490,16 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
         case .switchAndTableCell:
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddNewMedicationSwitchTableCell", for: indexPath) as! AddNewMedicationSwitchTableCell
             cell.selectionStyle = .none
-            cell.cellTitleLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "With Meal" : "Con la Comida."
-            cell.expiryLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Expiry Date" : "Fecha de vencimiento"
+            cell.cellTitleLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "With meal" : "Con alimentos"
+            cell.expiryLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Expiry date" : "Fecha de vencimiento"
             
             if EditVc ?? false {
                 
                 cell.expiryTextfield.text = expiryDate
                 cell.switchButton.status = (meal == 1)
-                cell.scheduleTimeLbl.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?   "Update Time & Alarm" :  "Programar Hora y Alarma."
+                cell.scheduleTimeLbl.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?   "Update time & alarm" :  "Programar hora y alarma."
             } else {
-                cell.scheduleTimeLbl.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?   "Schedule Time & Alarm" :  "Programar Hora y Alarma."
+                cell.scheduleTimeLbl.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?   "Schedule time & alarm" :  "Configurar la hora y alarma"
             }
             
             

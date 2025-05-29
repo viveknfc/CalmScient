@@ -7,7 +7,7 @@
 */
 
 "Profile" = "Profile";
-"Version 1.0.1" = "Version 1.1.3";
+"Version 1.0.1" = "Version 1.1.6";
 "Username" = "Username";
 "Password" = "Password";
 "Forgot Password?" = "Forgot Password?";
@@ -143,7 +143,7 @@ These individual tend to drink more, socialize with people who drink a lot, and 
 "Forgot password" = "Forgot password";
 "Your email/Phone number " = "Your email/Phone number ";
 "Please enter your email to reset the password" = "Please enter your email to reset the password";
-"Reset Password" = "Reset Password";
+"Reset Password" = "Reset password";
 
 //update password
 "Set a new password" = "Set a new password" ;
@@ -169,6 +169,7 @@ These individual tend to drink more, socialize with people who drink a lot, and 
 "Your License key has
 been verified." = "Your License key has
 been verified.";
+"Ok" = "Ok";
 
 "Please complete your profile to start using Calmscient." = "Please complete your profile to start using Calmscient.";
 "Continue" = "Continue";
@@ -293,6 +294,7 @@ Here are resources that can assist you in achieving your goal?";
 "An Unknown error occured. Please check with Admin" = "An Unknown error occured. Please check with Admin";
 "Add Medication" = "Add Medication";
 "OK" = "OK";
+"Cancel" = "Cancel";
 "Add Time & Alarm" = "Add Time & Alarm";
 "Name" = "Name";
 "Provider" = "Provider";
@@ -303,13 +305,18 @@ Here are resources that can assist you in achieving your goal?";
 
 //add medication vc
 "Add Medications" = "Add medications";
-"With Meal" = "With Meal";
+"With Meal" = "With meal";
 "Morning" = "Morning";
 "08:00AM" = "08:00AM";
 "07:50AM"  = "07:50AM";
 "Afternoon" = "Afternoon";
 "Night" = "Night";
 "Schedule Time & Alarm" = "Schedule Time & Alarm";
+
+"Your medical appointment is in 2 hours" = "Your medical appointment is in 2 hours.";
+"Don’t forget your medical appointment tomorrow" = "Don’t forget your medical appointment tomorrow.";
+"Upcoming Appointment" = "Upcoming Medical Appointments";
+"Would you like to update your mood?" = "Would you like to update your mood?";
 
 //medication details view controller
 "Medications detail" = "Medications detail";
@@ -329,6 +336,7 @@ Here are resources that can assist you in achieving your goal?";
 //Confirm Delete
 "Confirm Deletion" = "Confirm Deletion";
 "Are you sure you want to delete this medication?" = "Are you sure you want to delete this medication?";
+"Are you sure you want to delete this appointment?" = "Are you sure you want to delete this appointment?";
 "Yes" = "Yes";
 "No" = "No";
 
@@ -388,9 +396,9 @@ When you are feeling upset, ungrounded, agitated or irritable, try giving yourse
 
 "HOW TO DO IT" = "HOW TO DO IT";
 
-"Interlock your thumbs to form a butterfly shape" = "Interlock your thumbs to form a butterfly shape";
+"Interlock your thumbs to form a butterfly shape" = "Interlock your thumbs to form a butterfly shape:";
 
-"Place both hands over your chest, and alternate tapping your middle finger just below your collarbone" = "Place both hands over your chest, and alternate tapping your middle finger just below your collarbone";
+"Place both hands over your chest, and alternate tapping your middle finger just below your collarbone" = "Place both hands over your chest, and alternate tapping your middle finger just below your collarbone:";
 
 "Breathe slowly and deeply (abdominal breathing) while you mentally observe what is going through your mind and body thoughts, images, sounds, odors, feelings, and physical sensation." = "Breathe slowly and deeply (abdominal breathing) while you mentally observe what is going through your mind and body thoughts, images, sounds, odors, feelings, and physical sensation.";
 
@@ -420,7 +428,7 @@ When you are feeling upset, ungrounded, agitated or irritable, try giving yourse
 
 "4-7-8 Breathing excercise" = "4-7-8 Breathing excercise";
 "Preparation" = "Preparation";
-"First find a comfortable seated position. Ensure that you are at ease before beginning the rhythmic breathing pattern.\n\nPlace the tip of your tongue gently against the tissue just behind your top front teeth" = "First find a comfortable seated position. Ensure that you are at ease before beginning the rhythmic breathing pattern.\n\nPlace the tip of your tongue gently against the tissue just behind your top front teeth";
+"First find a comfortable seated position. Ensure that you are at ease before beginning the rhythmic breathing pattern.\n\nPlace the tip of your tongue gently against the tissue just behind your top front teeth" = "First find a comfortable seated position. Ensure that you are at ease before beginning the rhythmic breathing pattern.\n\nPlace the tip of your tongue gently against the tissue just behind your top front teeth.";
 
 "Let’s learn how to do the 4-7-8 breathing exercise." = "Let’s learn how to do the 4-7-8 breathing exercise.";
 
@@ -461,11 +469,11 @@ When you are feeling upset, ungrounded, agitated or irritable, try giving yourse
 
 "Step 3: Focus on the breath" = "Step 3: Focus on the breath";
 
-"Once settled into the pattern, focus on the breath coming in through the nose and out through the mouth" = "Once settled into the pattern, focus on the breath coming in through the nose and out through the mouth";
+"Once settled into the pattern, focus on the breath coming in through the nose and out through the mouth" = "Once settled into the pattern, focus on the breath coming in through the nose and out through the mouth.";
 
 "Step 4: Focus on the tummy" = "Step 4: Focus on the tummy";
 
-"Notice the rise and fall of the tummy as the breath come in and out" = "Notice the rise and fall of the tummy as the breath come in and out";
+"Notice the rise and fall of the tummy as the breath come in and out" = "Notice the rise and fall of the tummy as the breath come in and out.";
 
 "Step 5: Focus on the mind" = "Step 5: Focus on the mind";
 "As thoughts come into the head, notice that they are there without judgment, then let them go and bring the attention back to the breathing." = "As thoughts come into the head, notice that they are there without judgment, then let them go and bring the attention back to the breathing.";

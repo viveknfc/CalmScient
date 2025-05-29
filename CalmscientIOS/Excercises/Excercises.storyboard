@@ -439,13 +439,13 @@ When you are feeling upset, ungrounded, agitated or irritable, try giving yourse
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Shp-cJ-MT3" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
-                                <rect key="frame" x="310" y="757" width="63" height="41"/>
+                                <rect key="frame" x="343" y="757" width="30" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="K9Z-8f-U6c"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Complete">
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -569,13 +569,13 @@ When you are feeling upset, ungrounded, agitated or irritable, try giving yourse
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ECc-5N-mlQ" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
-                                        <rect key="frame" x="310" y="713" width="63" height="41"/>
+                                        <rect key="frame" x="343" y="713" width="30" height="41"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="41" id="ohi-3D-dtN"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                        <state key="normal" title="Complete">
+                                        <state key="normal">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
@@ -758,13 +758,13 @@ When you are feeling upset, ungrounded, agitated or irritable, try giving yourse
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fwu-6K-2D1" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
-                                                <rect key="frame" x="310" y="744.66666666666663" width="63" height="41"/>
+                                                <rect key="frame" x="343" y="744.66666666666663" width="30" height="41"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="41" id="C6j-Rt-jJZ"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Complete">
+                                                <state key="normal">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -877,13 +877,13 @@ When you are feeling upset, ungrounded, agitated or irritable, try giving yourse
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B0v-ti-MuH" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
-                                <rect key="frame" x="310" y="757" width="63" height="41"/>
+                                <rect key="frame" x="343" y="757" width="30" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="fGV-E8-yBd"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Complete">
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -947,13 +947,13 @@ When you are feeling upset, ungrounded, agitated or irritable, try giving yourse
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mc-zn-Y69" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
-                                <rect key="frame" x="310" y="757" width="63" height="41"/>
+                                <rect key="frame" x="343" y="757" width="30" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="Z0l-qH-lAa"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Complete">
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -1015,13 +1015,13 @@ When you are feeling upset, ungrounded, agitated or irritable, try giving yourse
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jqG-YA-U6j" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
-                                <rect key="frame" x="310" y="757" width="63" height="41"/>
+                                <rect key="frame" x="343" y="757" width="30" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="TUO-1a-Ffw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Complete">
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -1140,13 +1140,13 @@ For added effect, you can place your other hand across your forehead or on your 
                                 </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N0v-mU-8uh" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
-                                <rect key="frame" x="310" y="757" width="63" height="41"/>
+                                <rect key="frame" x="343" y="757" width="30" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="zk6-21-hvn"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Complete">
+                                <state key="normal">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -1525,13 +1525,13 @@ Pay careful attention to the following video.</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBR-Lx-Lyy" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
-                                                <rect key="frame" x="310" y="1498.6666666666667" width="63" height="41"/>
+                                                <rect key="frame" x="272.66666666666669" y="1498.6666666666667" width="100.33333333333331" height="41"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="41" id="XpP-Fa-dDF"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Complete">
+                                                <state key="normal">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -2180,13 +2180,13 @@ Pay careful attention to the following video.</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NNu-Kv-BRo" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
-                                                <rect key="frame" x="310" y="1560.3333333333333" width="63" height="41"/>
+                                                <rect key="frame" x="343" y="1560.3333333333333" width="30" height="41"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="41" id="vQb-NP-agK"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Complete">
+                                                <state key="normal">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -2697,13 +2697,13 @@ Pay careful attention to the following video.</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bRd-k4-m9R" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
-                                                <rect key="frame" x="310" y="1455.3333333333333" width="63" height="41"/>
+                                                <rect key="frame" x="343" y="1455.3333333333333" width="30" height="41"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="41" id="TOi-sa-qYe"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Complete">
+                                                <state key="normal">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
@@ -2838,6 +2838,11 @@ Pay careful attention to the following video.</string>
             <point key="canvasLocation" x="4759.5419847328239" y="24.647887323943664"/>
         </scene>
     </scenes>
+    <designables>
+        <designable name="JBR-Lx-Lyy">
+            <size key="intrinsicContentSize" width="100.33333333333333" height="39.333333333333336"/>
+        </designable>
+    </designables>
     <resources>
         <image name="back" width="82" height="82"/>
         <image name="bell" width="27.666666030883789" height="36"/>

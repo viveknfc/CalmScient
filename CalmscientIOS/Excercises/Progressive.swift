@@ -18,7 +18,7 @@ class Progressive: ViewController {
     @IBOutlet weak var rewindImg: UIImageView!
     @IBOutlet weak var forwardImg: UIImageView!
     
-    @IBOutlet weak var completeButton: UIButton!
+    @IBOutlet weak var completeButton: CapsuleButton1!
     
     var isObservingStatus = false
     var redOverlayView: UIView!

@@ -28,6 +28,7 @@ class settingsAlarmVC: UIViewController, UITableViewDataSource, UITableViewDeleg
 
     
     var tableData = ["5 min", "10 min", "15 min", "20 min", "25 min", "30 min"]
+    var tableAalrm = [5,10,15,20,25,30]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,11 +50,30 @@ class settingsAlarmVC: UIViewController, UITableViewDataSource, UITableViewDeleg
             fatalError("Unable to found Application Shared Info")
         }
         
+        guard let selectedIndex = selectedIndex else {
+            let alertText = "Please select a time interval before proceeding."
+            showGeneralAlert(
+                image: UIImage(named: "InfoIcon"),
+                imageSize: CGSize(width: 60, height: 60),
+                title: alertText,
+                okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
+                okAction: {
+                    print("Select a time interval")
+                },
+                dismissAction: {
+                    print("Dismiss action triggered")
+                }
+            )
+            return
+        }
+        
         let patientID = userInfo.patientID
         let email = userInfo.email
-        alarm = selectedIndex ?? 0
+        alarm = selectedIndex
         
         let params: [String: Any] = ["patientId": patientID, "alarmDuration": alarm! as Int, "emailId": email]
+        
+        print("param for alarm duration is",params)
         
         self.view.showToastActivity()
         APIService.alarmSettingsAPICalling(
@@ -82,6 +102,9 @@ class settingsAlarmVC: UIViewController, UITableViewDataSource, UITableViewDeleg
             if let responseMessage = responseDict["responseMessage"] as? String {
                 self.showSuccessAlert(successContent: responseMessage, centreImage: nil, okButtonAction: { [self] in
                     self.delegate?.didUpdateAlarmValue(self.alarm ?? 0)
+                    
+                    UserDefaults.standard.set(alarm, forKey: "alarmPriorMinutes")
+                    
                     NotificationCenter.default.post(name: Notification.Name("RemoveDimmingView"), object: nil)
                     self.dismiss(animated: true, completion: nil)
                 })
@@ -110,13 +133,15 @@ class settingsAlarmVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         let tickImage = cell.viewWithTag(2) as? UIImageView
         
         label?.text = tableData[indexPath.row]
-        tickImage?.isHidden = selectedIndex != indexPath.row
-        
+        print("from cell the selected index is",selectedIndex as Any, "and the table alarm value is", tableAalrm[indexPath.row])
+
+        tickImage?.isHidden = selectedIndex != tableAalrm[indexPath.row]
+  
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        selectedIndex = indexPath.row
+        selectedIndex = tableAalrm[indexPath.row]
         tableView.reloadData()
     }
 

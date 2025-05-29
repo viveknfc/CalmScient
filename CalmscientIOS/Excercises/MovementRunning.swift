@@ -15,7 +15,7 @@ class MovementRunning: ViewController {
     @IBOutlet weak var titleLbl: UILabel!
     @IBOutlet weak var descriptionLbl: UILabel!
     
-    @IBOutlet weak var completeButton: UIButton!
+    @IBOutlet weak var completeButton: CapsuleButton1!
     
     var languageId : Int = 1
     var isFav: Int = 0

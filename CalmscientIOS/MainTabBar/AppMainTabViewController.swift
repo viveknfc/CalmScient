@@ -151,12 +151,13 @@ extension AppMainTabViewController : UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         print("Tab bar selecting from here")
+        isInitalView = false
         prepareTabs()
-        
-        if (isInitalView && (viewController.title == "Medications")) {
-            print("Tab bar did select clicked")
-            isInitalView = false
-        }
+       
+//        if (isInitalView && (viewController.title == "Medications")) {
+//            print("Tab bar did select clicked")
+//            isInitalView = false
+//        }
     }
 }
 

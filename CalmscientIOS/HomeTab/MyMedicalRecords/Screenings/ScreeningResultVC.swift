@@ -35,6 +35,7 @@ class ScreeningResultVC: ViewController {
     
     var isComingFromParticularVC = false
     var isComingFromParticularVC1 = false
+    var isComingFromParticularVC2 = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -87,7 +88,13 @@ class ScreeningResultVC: ViewController {
                 vc?.isComingFromParticularVC1 = true
             }
             self.navigationController?.pushViewController(vc!, animated: true)
-        } else {
+        } else if isComingFromParticularVC2 {
+            let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+            if let vc = next.instantiateViewController(withIdentifier: "IntroSecondPageVC") as? IntroSecondPageVC {
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+        }
+        else {
             let next = UIStoryboard(name: "ScreeningListVC", bundle: nil)
             let vc = next.instantiateViewController(withIdentifier: "ScreeningListVC") as? ScreeningListVC
 
@@ -162,6 +169,7 @@ class ScreeningResultVC: ViewController {
                     self.screeningResult = response.screeningResults
                     self.totalScoreLbl.text = "\(self.screeningResult?.total ?? 0)"
                     self.scoreLbl.text =  "\(self.screeningResult?.score ?? 0)"
+                    print("thee score label showing is \(self.screeningResult?.score ?? 0)")
                     self.progressBar.setProgress(Float(response.screeningResults.score)/Float(response.screeningResults.total), animated: true)
                     self.screeningLabel.text = "\(self.screeningResult?.screeningName ?? "")"
                     

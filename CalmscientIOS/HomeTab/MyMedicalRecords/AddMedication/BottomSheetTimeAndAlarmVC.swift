@@ -67,63 +67,7 @@ class BottomSheetTimeAndAlarmVC: UIViewController {
         let dayNumbers = days.compactMap { dayMapping[$0] }
         return dayNumbers
     }
-    
-    
-    func scheduleAlarmNotification(hour: Int, minute: Int, identifier: String, repeatDays: [Int]) {
-        let content = UNMutableNotificationContent()
-        content.title = "Medication Alert"
-        content.body = "Please take your medication to stay healthy"
-        content.categoryIdentifier = "ALARM_CATEGORY"
-        
-        if #available(iOS 15.0, *) {
-            content.interruptionLevel = .critical
-        } else {
-            // Fallback on earlier versions
-        }
-        
-        content.sound = UNNotificationSound.criticalSoundNamed(
-            UNNotificationSoundName(rawValue: "bell.mp3")
-        )
-
-//        content.sound = UNNotificationSound.criticalSoundNamed(UNNotificationSoundName(rawValue: "bell.mp3"))
-        
-        if repeatDays.isEmpty {
-              let calendar = Calendar.current
-              var dateComponents = calendar.dateComponents([.year, .month, .day], from: Date()) // Get today's date
-              dateComponents.hour = hour
-              dateComponents.minute = minute
-              
-              let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false) // No repeat
-              
-              let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
-              UNUserNotificationCenter.current().add(request) { error in
-                  if let error = error {
-                      print("Error scheduling notification: \(error)")
-                  }
-              }
-        } else {
-            
-            for day in repeatDays {
-                var dateComponents = DateComponents()
-                dateComponents.hour = hour
-                dateComponents.minute = minute
-                dateComponents.weekday = day  // Sunday is 1, Monday is 2, ..., Saturday is 7
-                
-                let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
-                
-                let request = UNNotificationRequest(identifier: "\(identifier)_\(day)", content: content, trigger: trigger)
-                UNUserNotificationCenter.current().add(request) { error in
-                    if let error = error {
-                        print("Error scheduling notification: \(error)")
-                    }
-                }
-            }
-            
-        }
-    
-    }
-
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         self.headingLabel.text = headingLabelString
@@ -191,10 +135,10 @@ class BottomSheetTimeAndAlarmVC: UIViewController {
             restrictedTimings = [startTime, endTime]
         case .Afternoon:
             let startTime = "12:00:00".createDateFromTimeString()
-            let endTime = "16:59:00".createDateFromTimeString()
+            let endTime = "17:59:00".createDateFromTimeString()
             restrictedTimings = [startTime, endTime]
         case .Evening:
-            let startTime = "17:00:00".createDateFromTimeString()
+            let startTime = "18:00:00".createDateFromTimeString()
             let endTime = "23:59:00".createDateFromTimeString()
             restrictedTimings = [startTime, endTime]
         }
@@ -213,6 +157,7 @@ class BottomSheetTimeAndAlarmVC: UIViewController {
                 newMedicationInstance?.medicineTime = newDateTime
 //                newMedicationInstance?.alarmEnabled = "1"
                 timeIdentifier = newMedicationInstance?.getAlarmTime()
+                print("time identifier is after edit",timeIdentifier as Any)
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "HH:mm:ss"
                 repeatDays = convertDaysToNumbers(days: newMedicationInstance?.repeat ?? [])
@@ -264,16 +209,7 @@ class BottomSheetTimeAndAlarmVC: UIViewController {
                     print("Invalid date format")
                 }
             }
-            if let hour = self.hourTime{
-                if let minutes = self.minTime{
-                    if let timeId = timeIdentifier{
-                        
-                        scheduleAlarmNotification(hour: hour, minute: minutes, identifier: timeId ,repeatDays: repeatDays )
-//                        self.dismiss(animated: true)
-                    }
-                }
-                
-            }
+
         }
         self.dismiss(animated: true)
         
@@ -282,7 +218,6 @@ class BottomSheetTimeAndAlarmVC: UIViewController {
     @IBAction func closeButtonPressed(_ sender: Any) {
         self.dismiss(animated: true)
     }
-    
     
 }
 
