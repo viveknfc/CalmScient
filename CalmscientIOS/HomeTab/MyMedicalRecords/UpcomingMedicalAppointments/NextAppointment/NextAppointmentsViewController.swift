@@ -87,6 +87,41 @@ class NextAppointmentsViewController: ViewController, NCalendarToViewDelegate {
                         var tableData:[EmptyOrMedicalAppointment] = []
                         self.userMedicalAppointments = response.appointmentDetailsList
                         
+                        //for alarm
+
+                        // 🧹 Clear existing appointment alarms before adding new ones
+                        AlarmManager.shared.removeAllAppointmentAlarms()
+
+                        for appointmentDateEntry in response.appointmentDetailsList {
+                            for appointmentWrapper in appointmentDateEntry.appointmentDetailsByDate {
+                                guard let appointmentDate = appointmentWrapper.appointmentDetails.dateAndTime.toDate(format: "yyyy-MM-dd HH:mm:ss") else {
+                                    continue
+                                }
+
+                                if appointmentWrapper.appointmentDetails.alert == 1 {
+                                    let alerts = [
+                                        (86400, AppHelper.getLocalizeString(str: "Upcoming Appointment"),
+                                                AppHelper.getLocalizeString(str: "Don’t forget your medical appointment tomorrow")),
+                                        (7200, AppHelper.getLocalizeString(str: "Upcoming Appointment"),
+                                                AppHelper.getLocalizeString(str: "Your medical appointment is in 2 hours"))
+                                    ]
+
+                                    for (interval, title, body) in alerts {
+                                        let alarmTime = appointmentDate.addingTimeInterval(TimeInterval(-interval))
+                                        AlarmManager.shared.scheduleAlarm(
+                                            at: alarmTime,
+                                            title: title,
+                                            body: body,
+                                            identifier: "appointment_\(appointmentWrapper.appointmentDetails.appointmentId)_\(interval)"
+                                        )
+                                    }
+                                }
+                            }
+                        }
+
+                        
+                        //end
+                        
                         for datum in self.currentWeekList{
                             let matchedAppointments = response.appointmentDetailsList.filter { instance in
                                 let appointmentDateString = instance.date.getDate().dateToString(format: "MM/dd/yyyy")
@@ -129,15 +164,13 @@ class NextAppointmentsViewController: ViewController, NCalendarToViewDelegate {
     
     @IBAction func didClickOnAddAppointments(_ sender: Any) {
         
-//        if selectedNewDate < Calendar.current.startOfDay(for: Date()) {
-//            self.view.showToast(message: "Appointment cannot able to create in past days")
-//            return
-//        }
-        
         let next = UIStoryboard(name: "AddNewAppointment", bundle: nil)
         let vc = next.instantiateViewController(withIdentifier: "AddNewAppointmentViewController") as? AddNewAppointmentViewController
         self.navigationController?.pushViewController(vc!, animated: true)
     }
+    
+
+
 }
 
 extension NextAppointmentsViewController : UITableViewDataSource, UITableViewDelegate {

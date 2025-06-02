@@ -125,3 +125,10 @@ public class ImagePaddingTextField : UITextField {
         self.rightViewSetup()
     }
 }
+
+extension ImagePaddingTextField: UITextFieldDelegate {
+    public func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        return !string.contains(" ") // Block space entry
+    }
+}
+

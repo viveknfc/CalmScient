@@ -198,7 +198,7 @@ extension DiscoveryMainViewController {
                             let vc = next.instantiateViewController(withIdentifier: "TakingControlIndex") as? TakingControlIndex
                             vc?.title = AppHelper.getLocalizeString(str: "Taking control")
                             vc?.initialSegmentIndex = 0
-                            vc?.moveToIntro = skipTutorial == 1
+                            vc?.moveToIntro = skipTutorial == 0
                             
                             self.navigationController?.pushViewController(vc!, animated: true)
                             

@@ -119,17 +119,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 print("Permission granted")
             } else {
                 print("Permission not granted")
-//                DispatchQueue.main.async {
-//                    guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
-//                                return
-//                            }
-//                            
-//                            if UIApplication.shared.canOpenURL(settingsUrl) {
-//                                UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
-//                                    print("Settings opened: \(success)") // Prints true
-//                                })
-//                            }
-//                }
             }
         }
     }

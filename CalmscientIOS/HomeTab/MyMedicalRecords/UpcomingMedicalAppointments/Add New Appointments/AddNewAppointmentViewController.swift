@@ -320,7 +320,7 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 40, height: 40),
-                title: "Please enter a valid date.",
+                title: "Please fill all the mandatory fields.",
                 okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {
 
@@ -337,7 +337,7 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 40, height: 40),
-                title: "Please enter a valid time.",
+                title: "Please fill all the mandatory fields.",
                 okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {
 

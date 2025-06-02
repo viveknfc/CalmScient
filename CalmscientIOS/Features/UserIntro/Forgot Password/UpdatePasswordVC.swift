@@ -186,93 +186,95 @@ class UpdatePasswordVC: UIViewController,UITextFieldDelegate {
         }
     @IBAction func updatePasswordBtnAction(_ sender: Any) {
         
-        if passwordTF.text == "" && confirmPasswordTF.text == "" {
-            self.view.showToast(message: "Please fill New Password and Confirm Password")
+        let passwordRegex = "^(?=.*[0-9])(?=.*[!@#$%^&*(),.?\":{}|<>])[A-Za-z\\d!@#$%^&*(),.?\":{}|<>]{8,}$"
+        
+        guard let newPassword = passwordTF.text?.trimmingCharacters(in: .whitespacesAndNewlines),
+              let confirmPassword = confirmPasswordTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
+            showGeneralAlert(
+                image: UIImage(named: "InfoIcon"),
+                imageSize: CGSize(width: 40, height: 40),
+                title: "Unexpected error: Password fields missing.",
+                okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
+                okAction: {},
+                showDismissButton: false
+            )
+            return
         }
-        else if passwordTF.text == confirmPasswordTF.text {
-            self.view.showToastActivity()
-            
-            updateForgetPassword( emailId:updateEmailString,newPassword: passwordTF.text ?? "",confirmPasword: confirmPasswordTF.text ?? "") { [self] result in
-                switch result {
-                case .success(let data):
-                    do {
-                        if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                            DispatchQueue.main.async { [self] in
-                                print(json)
-                                
-                                self.showSuccessAlert(successContent: "Updated successfully", centreImage: nil, okButtonAction: {
-                                    if #available(iOS 16.0, *) {
-                                        let homeController = UIStoryboard(name: "LoginVC", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-                                        let navC = UINavigationController(rootViewController: homeController)
-                                        navC.navigationBar.isHidden = true
+        
+        if newPassword.isEmpty || confirmPassword.isEmpty {
+            showGeneralAlert(
+                image: UIImage(named: "InfoIcon"),
+                imageSize: CGSize(width: 40, height: 40),
+                title: "Please fill in both New Password and Confirm Password.",
+                okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
+                okAction: {},
+                showDismissButton: false
+            )
+            return
+        }
 
-                                        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
-                                           let window = sceneDelegate.window {
-                                            window.rootViewController = navC
-                                            window.makeKeyAndVisible()
-                                        }
-                                    } else {
-                                        // Fallback on earlier versions
-                                        print("Login movement stopped here")
+        guard NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: newPassword) else {
+            showGeneralAlert(
+                image: UIImage(named: "InfoIcon"),
+                imageSize: CGSize(width: 40, height: 40),
+                title: "Your password must be at least eight characters long and include at least one special character and one number.",
+                okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
+                okAction: {},
+                showDismissButton: false
+            )
+            return
+        }
+        
+        guard newPassword == confirmPassword else {
+            showGeneralAlert(
+                image: UIImage(named: "InfoIcon"),
+                imageSize: CGSize(width: 40, height: 40),
+                title: "New Password and Confirm Password should match.",
+                okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
+                okAction: {},
+                showDismissButton: false
+            )
+            return
+        }
+        
+        self.view.showToastActivity()
+        
+        updateForgetPassword(emailId: updateEmailString, newPassword: newPassword, confirmPasword: confirmPassword) { [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let data):
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        DispatchQueue.main.async {
+                            print(json)
+                            self.showSuccessAlert(successContent: "Updated successfully", centreImage: nil, okButtonAction: {
+                                if #available(iOS 16.0, *) {
+                                    let homeController = UIStoryboard(name: "LoginVC", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+                                    let navC = UINavigationController(rootViewController: homeController)
+                                    navC.navigationBar.isHidden = true
+                                    
+                                    if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
+                                       let window = sceneDelegate.window {
+                                        window.rootViewController = navC
+                                        window.makeKeyAndVisible()
                                     }
-
-                                })
-                                
-//                                self.view.hideToastActivity()
-//                                self.view.bringSubviewToFront(updateView)
-//                                updateView.isHidden = false
-                            }
-                            
-                        } else {
-                            print("Unable to convert data to JSON")
+                                } else {
+                                    print("Login movement stopped here")
+                                }
+                            })
                         }
-                    } catch {
-                        print("Error converting data to JSON: \(error)")
+                    } else {
+                        print("Unable to convert data to JSON")
                     }
-                case .failure(let error):
-                    print("Error: \(error)")
+                } catch {
+                    print("Error converting data to JSON: \(error)")
                 }
+            case .failure(let error):
+                print("Error: \(error)")
             }
-
-        }
-        else {
-            
-            self.view.showToast(message: "New Password and Confirm Password should match")
-            
         }
         
     }
-    
-//    private func addAlertView(title: String? , contentText: String?) {
-//        customAlertBackgroundView = UIVisualEffectView(effect: UIBlurEffect(style: .dark))
-//        customAlertBackgroundView?.frame = self.view.frame
-//        var customAlertView:CustomAlertView? = CustomAlertView(frame: .zero)
-//        customAlertBackgroundView?.contentView.addSubview(customAlertView!)
-//        customAlertView?.translatesAutoresizingMaskIntoConstraints = false
-//        customAlertView?.titleLabel.text = title
-//        customAlertView?.contentLabel.text = contentText
-//        customAlertView?.okAction = { [weak self] in
-//            guard let self = self else {
-//                return
-//            }
-//            UIView.transition(with: self.view, duration: 0.25, options: .transitionCrossDissolve, animations: {
-//                customAlertView?.removeFromSuperview()
-//                self.customAlertBackgroundView?.removeFromSuperview()
-//                customAlertView = nil
-//                self.customAlertBackgroundView = nil
-//            }, completion: nil)
-//        }
-//        
-//        UIView.transition(with: self.view, duration: 0.5, options: .transitionCrossDissolve, animations: {
-//            self.view.addSubview(self.customAlertBackgroundView!)
-//
-//            }, completion: nil)
-//        customAlertView?.layer.cornerRadius = 10
-//        customAlertView?.layer.masksToBounds = true
-//        customAlertView?.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
-//        customAlertView?.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor).isActive = true
-//        customAlertView?.widthAnchor.constraint(equalToConstant: self.view.frame.width * 0.9).isActive = true
-//        customAlertView?.heightAnchor.constraint(equalToConstant: self.view.frame.height * 0.35).isActive = true
-//    
-//    }
+
 }
