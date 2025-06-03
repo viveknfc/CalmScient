@@ -67,12 +67,12 @@ class ScreeningQuestionsViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         let alertController = UIAlertController(title: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "Information": "Información", message: selectedScreening?.screeningReminder ?? "", preferredStyle: .alert)
-        let cancelAction =  UIAlertAction(title: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "Ok": "Guardar", style: .default)
+        let cancelAction =  UIAlertAction(title: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "Ok": "Ok", style: .default)
         alertController.addAction(cancelAction)
         // Present the alert
         self.present(alertController, animated: true, completion: nil)
         infoButton.isHidden = false
-        guard let screeningObject = self.selectedScreening, let loginResponse = ApplicationSharedInfo.shared.loginResponse else {
+        guard let screeningObject = self.selectedScreening, let _ = ApplicationSharedInfo.shared.loginResponse else {
             return
         }
         self.title = screeningObject.screeningType

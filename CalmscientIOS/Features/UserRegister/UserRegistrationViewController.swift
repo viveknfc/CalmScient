@@ -13,10 +13,10 @@ class UserRegistrationViewController: UIViewController {
     @IBOutlet weak var licenseTextField: customUITextField!
     @IBOutlet weak var submitButton: LinearGradientButton!
     
-    @IBOutlet weak var firstCheck: UIButton!
-    @IBOutlet weak var firstLabel: FontLR15!
-    @IBOutlet weak var secondCheck: UIButton!
-    @IBOutlet weak var secondLabel: FontLR15!
+//    @IBOutlet weak var firstCheck: UIButton!
+//    @IBOutlet weak var firstLabel: FontLR15!
+//    @IBOutlet weak var secondCheck: UIButton!
+//    @IBOutlet weak var secondLabel: FontLR15!
     
     var buttonState1: SelectionButtonState = .dafault
     var buttonState2: SelectionButtonState = .dafault
@@ -36,10 +36,10 @@ class UserRegistrationViewController: UIViewController {
         self.submitButton.setAttributedTitleWithGradientDefaults(title: "Submit")
         self.navigationController?.isNavigationBarHidden = false
         
-        updateButtonImage1()
-        updateButtonImage2()
-        firstLabel.text = "I have read it and understood."
-        secondLabel.text = "I agree to share my info with medical provider"
+//        updateButtonImage1()
+//        updateButtonImage2()
+//        firstLabel.text = "I have read it and understood."
+//        secondLabel.text = "I agree to share my info with medical provider"
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
@@ -77,24 +77,24 @@ class UserRegistrationViewController: UIViewController {
     
     //CHeck Box
     
-    @IBAction func firstCheckboxPressed(_ sender: Any) {
-        buttonState1 = (buttonState1 == .dafault) ? .selected : .dafault
-        updateButtonImage1()
-    }
+//    @IBAction func firstCheckboxPressed(_ sender: Any) {
+//        buttonState1 = (buttonState1 == .dafault) ? .selected : .dafault
+//        updateButtonImage1()
+//    }
+//    
+//    private func updateButtonImage1() {
+//        firstCheck.setImage(buttonState1.getAssetImageForState(), for: .normal)
+//        }
     
-    private func updateButtonImage1() {
-        firstCheck.setImage(buttonState1.getAssetImageForState(), for: .normal)
-        }
     
-    
-    @IBAction func secondCheckboxPressed(_ sender: Any) {
-        buttonState2 = (buttonState2 == .dafault) ? .selected : .dafault
-        updateButtonImage2()
-    }
-    
-    private func updateButtonImage2() {
-        secondCheck.setImage(buttonState2.getAssetImageForState(), for: .normal)
-        }
+//    @IBAction func secondCheckboxPressed(_ sender: Any) {
+//        buttonState2 = (buttonState2 == .dafault) ? .selected : .dafault
+//        updateButtonImage2()
+//    }
+//    
+//    private func updateButtonImage2() {
+//        secondCheck.setImage(buttonState2.getAssetImageForState(), for: .normal)
+//        }
     
    
     @IBAction func didClickOnSubmitButton(_ sender: UIButton) {

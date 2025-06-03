@@ -120,7 +120,7 @@ class CheckMailVC: ViewController {
         let multipleAttributes: [NSAttributedString.Key : Any] = [
             NSAttributedString.Key.foregroundColor: UIColor(named: "Color") ?? UIColor.white,
             NSAttributedString.Key.font: UIFont(name: Fonts().lexendMedium, size: 18.0) ?? UIFont.systemFont(ofSize: 25.0) ]
-        let attrButtonName = NSAttributedString(string: "Verify Code", attributes: multipleAttributes)
+        let attrButtonName = NSAttributedString(string: "Verify code", attributes: multipleAttributes)
         self.verifyCodeButton.titleLabel?.attributedText = attrButtonName
         
         digitFields[0].becomeFirstResponder()

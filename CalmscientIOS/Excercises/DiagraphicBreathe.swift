@@ -153,8 +153,8 @@ class DiagraphicBreathe: ViewController {
         step1DescLabel.text = AppHelper.getLocalizeString(str: "Place your hand on the tummy and other on the upper chest.")
         
         step2Label.text =  AppHelper.getLocalizeString(str: "Step 2: Inhale")
-        step2DescLabel.text = AppHelper.getLocalizeString(str: "Inhale through your nose about 4 seconds,\nFocusing on the tummy rising.")
-        
+        step2DescLabel.text = AppHelper.getLocalizeString(str: "Inhale through your nose about 4 seconds, Focusing on the tummy rising.")
+
         step3Label.text =  AppHelper.getLocalizeString(str: "Step 3: Hold")
         step3DescLabel.text = AppHelper.getLocalizeString(str: "Hold your breath for 2 seconds.")
         

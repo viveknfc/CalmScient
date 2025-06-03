@@ -39,7 +39,7 @@
                                     <constraint firstAttribute="height" constant="40" id="oI3-Qp-9tb"/>
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Verify Code"/>
+                                <state key="normal" title="Verify code"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                         <integer key="value" value="20"/>
@@ -64,6 +64,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="waveBackground" translatesAutoresizingMaskIntoConstraints="NO" id="gUk-3U-gu9">
+                                <rect key="frame" x="0.0" y="656" width="393" height="196"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="196" id="L32-W5-vaG"/>
+                                </constraints>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Rko-WC-uqu">
                                 <rect key="frame" x="48" y="283.33333333333331" width="297" height="40"/>
                                 <subviews>
@@ -117,12 +123,6 @@
                                     </textField>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="waveBackground" translatesAutoresizingMaskIntoConstraints="NO" id="gUk-3U-gu9">
-                                <rect key="frame" x="0.0" y="656" width="393" height="196"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="196" id="L32-W5-vaG"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -132,7 +132,7 @@
                             <constraint firstItem="kfu-dl-UN7" firstAttribute="top" secondItem="oDj-E2-pow" secondAttribute="bottom" constant="16" id="8sO-LM-FUz"/>
                             <constraint firstItem="oDj-E2-pow" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="DjZ-Tq-mnB"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="tBG-WR-Qc6" secondAttribute="trailing" constant="30" id="E2L-L0-99v"/>
-                            <constraint firstItem="gUk-3U-gu9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="JKO-dV-qKG"/>
+                            <constraint firstItem="gUk-3U-gu9" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="JKO-dV-qKG"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="kfu-dl-UN7" secondAttribute="trailing" constant="40" id="QNO-D8-5zm"/>
                             <constraint firstItem="Rko-WC-uqu" firstAttribute="top" secondItem="kfu-dl-UN7" secondAttribute="bottom" constant="48" id="SPe-z5-6v9"/>
                             <constraint firstItem="kfu-dl-UN7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="Unx-iV-qmM"/>
@@ -141,7 +141,7 @@
                             <constraint firstItem="tBG-WR-Qc6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="Yiw-0d-Yy0"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Rko-WC-uqu" secondAttribute="trailing" constant="48" id="du5-mN-wDN"/>
                             <constraint firstItem="tBG-WR-Qc6" firstAttribute="top" secondItem="Rko-WC-uqu" secondAttribute="bottom" constant="48" id="ehu-0U-icF"/>
-                            <constraint firstItem="gUk-3U-gu9" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="kRL-u0-Xpt"/>
+                            <constraint firstItem="gUk-3U-gu9" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailing" id="kRL-u0-Xpt"/>
                             <constraint firstItem="kth-lk-KDW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="lBM-9g-DiB"/>
                             <constraint firstItem="kth-lk-KDW" firstAttribute="top" secondItem="tBG-WR-Qc6" secondAttribute="bottom" constant="30" id="yHd-bb-fx2"/>
                             <constraint firstItem="oDj-E2-pow" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="80" id="zfP-tk-OMh"/>
@@ -165,7 +165,7 @@
     </scenes>
     <designables>
         <designable name="tBG-WR-Qc6">
-            <size key="intrinsicContentSize" width="94" height="34"/>
+            <size key="intrinsicContentSize" width="91" height="34"/>
         </designable>
     </designables>
     <resources>

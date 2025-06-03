@@ -105,7 +105,6 @@ class TakingControlIndex: ViewController {
         print("the move to intro value is",moveToIntro)
         
         if moveToIntro {
-            self.view.showToastActivity()
             let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
             let vc = next.instantiateViewController(withIdentifier: "VTakingControlIntroVC") as? VTakingControlIntroVC
             self.navigationController?.pushViewController(vc!, animated: true)

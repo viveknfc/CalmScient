@@ -7,13 +7,15 @@
 
 import UIKit
 
-class VTakingControlIntroVC: ViewController {
+class VTakingControlIntroVC: UIViewController {
     
     @IBOutlet weak var introLabel: UILabel!
     
     @IBOutlet weak var tableView: UITableView!
     
     @IBOutlet weak var pointLabel: FontLM25!
+    
+    @IBOutlet weak var submitButton: LinearGradientButton!
     
     var answers: [String?] = []
     var summaryArray: [TakingFirstQueSummary] = []
@@ -28,26 +30,18 @@ class VTakingControlIntroVC: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Taking control introduction"
+        title = AppHelper.getLocalizeString(str: "Taking control introduction")
         
         let headingFont = UIFont(name: Fonts().lexendMedium, size: 16)!
         let bodyFont = UIFont(name: Fonts().lexendLight, size: 14)!
-
-        let fullText = """
-        Welcome to taking control!
         
-        Thank you for being willing to talk about alcohol and drugs. Now let’s begin with a brief assessment.
-        
-        CAGE-AID Questionnaire
-        
-        When thinking about drug use, include illegal drug and the use of prescriptions drug use other than prescribed.
-        """
+        let fullText = AppHelper.getLocalizeString(str: "Taking control Intro")
 
         let attributedText = NSMutableAttributedString(string: fullText, attributes: [.font: bodyFont])
 
         // Apply bold to headings
-        let heading1 = "Welcome to taking control!"
-        let heading2 = "CAGE-AID Questionnaire"
+        let heading1 = AppHelper.getLocalizeString(str: "Welcome to taking control!")
+        let heading2 = AppHelper.getLocalizeString(str: "CAGE-AID Questionnaire")
 
         if let range1 = fullText.range(of: heading1) {
             let nsRange1 = NSRange(range1, in: fullText)
@@ -72,7 +66,48 @@ class VTakingControlIntroVC: ViewController {
         tableView.register(nib, forCellReuseIdentifier: "takinccontrolintroTC")
 
         getscreeningListAssessmentrId()
+        
+        //nav bar back button start
+        let backButtonImage = UIImage(named: "NavigationBack")?.withRenderingMode(.alwaysOriginal)
+
+        // Create a UIButton
+        let backButton = UIButton(type: .custom)
+        backButton.setImage(backButtonImage, for: .normal)
+        backButton.addTarget(self, action: #selector(backButtonOverrideAction), for: .touchUpInside)
+
+        // Set constraints to adjust the size
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.widthAnchor.constraint(equalToConstant: 32).isActive = true // Set desired width
+        backButton.heightAnchor.constraint(equalToConstant: 32).isActive = true // Set desired height
+
+        // Create a UIBarButtonItem using the UIButton
+        let backBarButtonItem = UIBarButtonItem(customView: backButton)
+        navigationItem.leftBarButtonItem = backBarButtonItem
+        
+        let multipleAttributes: [NSAttributedString.Key : Any] = [
+            NSAttributedString.Key.foregroundColor: UIColor(named: "Color") ?? UIColor.white,
+            NSAttributedString.Key.font: UIFont(name: Fonts().lexendMedium, size: 18.0) ?? UIFont.systemFont(ofSize: 25.0) ]
+        let subtitle = AppHelper.getLocalizeString(str: "Submit")
+        let attrButtonName = NSAttributedString(string: subtitle, attributes: multipleAttributes)
+        self.submitButton.titleLabel?.attributedText = attrButtonName
+        
     }
+    
+    @objc func backButtonOverrideAction() {
+
+            if #available(iOS 16.0, *) {
+                let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+                let vc = next.instantiateViewController(withIdentifier: "TakingControlIndex") as? TakingControlIndex
+                vc?.title = AppHelper.getLocalizeString(str: "Taking control")
+                vc?.initialSegmentIndex = 0
+                
+                self.navigationController?.pushViewController(vc!, animated: true)
+            } else {
+                // Fallback on earlier versions
+            }
+        
+    }
+
     
     func updateScoreLabel() {
         let yesCount = answers.compactMap { $0 }.filter { $0 == "Yes" }.count
@@ -90,7 +125,7 @@ class VTakingControlIntroVC: ViewController {
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 60, height: 60),
-                title: "Please answer all questions",
+                title: AppHelper.getLocalizeString(str: "Please answer all questions"),
                 okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {},
                 showDismissButton: false
@@ -145,23 +180,25 @@ class VTakingControlIntroVC: ViewController {
     //MARK: - Submit API Response
         
     func submitAPIResponse(response: AnyObject) {
-        self.view.hideToastActivity()
-        if let responseDict = response as? [String: Any],
-           let statusResponse = responseDict["statusResponse"] as? [String: Any],
-           let responseMessage = statusResponse["responseMessage"] as? String {
-
-            // ✅ Show success alert with extracted message
-            self.showSuccessAlert(successContent: responseMessage, centreImage: nil, okButtonAction: {
-                let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
-                if let vc = next.instantiateViewController(withIdentifier: "IntroSecondPageVC") as? IntroSecondPageVC {
-                    vc.auditData = self.auditScreeningData
-                    vc.dastData = self.dast10ScreeningData
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
-            })
-
-        } else {
-            print("Invalid response format or missing keys.")
+        DispatchQueue.main.async {
+            self.view.hideToastActivity()
+            
+            if let responseDict = response as? [String: Any],
+               let statusResponse = responseDict["statusResponse"] as? [String: Any],
+               let responseMessage = statusResponse["responseMessage"] as? String {
+                
+                // ✅ Show success alert with extracted message
+                self.showSuccessAlert(successContent: responseMessage, centreImage: nil, okButtonAction: {
+                    let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+                    if let vc = next.instantiateViewController(withIdentifier: "IntroSecondPageVC") as? IntroSecondPageVC {
+                        vc.auditData = self.auditScreeningData
+                        vc.dastData = self.dast10ScreeningData
+                        self.navigationController?.pushViewController(vc, animated: true)
+                    }
+                })
+            } else {
+                print("Invalid response format or missing keys.")
+            }
         }
     }
 

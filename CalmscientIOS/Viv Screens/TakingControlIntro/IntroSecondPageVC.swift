@@ -17,7 +17,7 @@ class IntroSecondPageVC: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Taking control introduction"
+        title = AppHelper.getLocalizeString(str: "Taking control introduction")
         styleButton(firstButton)
         styleButton(secondButton)
         

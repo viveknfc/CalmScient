@@ -25,8 +25,8 @@ class MindfulWalking: ViewController {
     ]
     
     let spanishStringsArr = [
-        "Reducción del estrés: Participar en la caminata consciente puede ser una forma efectiva de reducir el estrés y promover la relajación. Al dirigir tu atención a las sensaciones físicas de caminar, creas un descanso mental de los factores estresantes cotidianos. Esta práctica activa la respuesta de relajación en tu cuerpo, lo que lleva a un estado mental más tranquilo.",
-        "Regulación emocional: Participar en la caminata consciente puede ayudar a regular tus emociones. Al observar tus pensamientos y emociones a medida que surgen durante la práctica, desarrollas una actitud de no juicio y aceptación hacia ellos. Esto puede mejorar la resiliencia emocional y brindarte un mayor sentido de control sobre tus reacciones ante situaciones desafiantes."
+        "Reducción del Estrés: Tener una caminata consciente puede ser una forma efectiva de reducir el estrés y promover la relajación. Al dirigir tu atención a las sensaciones físicas de caminar, creas un descanso mental de todo lo que te estresa. Esta práctica activa la respuesta de relajación en tu cuerpo, llevándote a un estado mental más tranquilo.",
+        "Regulación Emocional: Tener una caminata consciente puede ayudar a regular tus emociones. Al observar tus pensamientos y emociones a medida que van surgiendo ,desarrollas una actitud de aceptación para contigo mismo. Esto puede mejorar tu resiliencia emocional y darte una mayor sensación de control sobre tus reacciones ante situaciones desafiantes."
     ]
 
     @IBOutlet weak var descriptionLabel: UILabel!
@@ -204,25 +204,6 @@ class MindfulWalking: ViewController {
         let newTime = CMTimeAdd(currentTime, CMTimeMakeWithSeconds(10, preferredTimescale: currentTime.timescale))
         player.seek(to: newTime)
     }
-    
-//    @objc func updateOverlayView() {
-//        guard let player = player else { return }
-//        let totalDuration = player.currentItem?.duration.seconds ?? 1.0
-//        let currentTime = player.currentTime().seconds
-//        let progress = CGFloat(currentTime / totalDuration)
-//        
-//        let newWidth = equalizerImg.frame.width * progress
-//        redOverlayView.frame = CGRect(x: 0, y: 0, width: newWidth, height: equalizerImg.frame.height)
-//        
-//        // Stop the timer if the audio has finished playing
-//        if progress >= 1.0 {
-//            redOverlayView.frame = CGRect(x: 0, y: 0, width: equalizerImg.frame.width, height: equalizerImg.frame.height)
-//        }
-//    }
-//    
-    
-    
-    
     
     @objc func updateOverlayView() {
         guard let player = player, let currentItem = player.currentItem else { return }

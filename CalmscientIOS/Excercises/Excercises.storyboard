@@ -1221,7 +1221,7 @@ the tissue just behind your top front teeth</string>
                                                     <constraint firstAttribute="bottom" secondItem="W13-29-2LU" secondAttribute="bottom" constant="15" id="xzh-hN-miA"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let’s learn how to do the 4-7-8 breathing exercise." textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="272-mi-6Vj">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let’s learn how to do the 4-7-8 breathing exercise." textAlignment="justified" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="272-mi-6Vj">
                                                 <rect key="frame" x="17" y="198" width="359" height="18.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
                                                 <nil key="textColor"/>
@@ -1525,7 +1525,7 @@ Pay careful attention to the following video.</string>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JBR-Lx-Lyy" customClass="CapsuleButton1" customModule="CalmscientIOS" customModuleProvider="target">
-                                                <rect key="frame" x="272.66666666666669" y="1498.6666666666667" width="100.33333333333331" height="41"/>
+                                                <rect key="frame" x="343" y="1498.6666666666667" width="30" height="41"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="41" id="XpP-Fa-dDF"/>
                                                 </constraints>
@@ -2838,11 +2838,6 @@ Pay careful attention to the following video.</string>
             <point key="canvasLocation" x="4759.5419847328239" y="24.647887323943664"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="JBR-Lx-Lyy">
-            <size key="intrinsicContentSize" width="100.33333333333333" height="39.333333333333336"/>
-        </designable>
-    </designables>
     <resources>
         <image name="back" width="82" height="82"/>
         <image name="bell" width="27.666666030883789" height="36"/>

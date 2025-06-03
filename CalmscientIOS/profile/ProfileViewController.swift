@@ -167,7 +167,7 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
             return
         }
         
-        let passwordRegex = "^(?=.*[0-9])(?=.*[!@#$%^&*(),.?\":{}|<>])[A-Za-z\\d!@#$%^&*(),.?\":{}|<>]{8,}$"
+        let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?\":{}|<>])[A-Za-z\\d!@#$%^&*(),.?\":{}|<>]{8,}$"
 
         guard let newPassword = newPasswordTF.text, !newPassword.isEmpty else {
             showGeneralAlert(

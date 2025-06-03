@@ -38,6 +38,12 @@
 
 "US guidelines part2" = "There are some adults who should not drink alcohol, such as women who are pregnant.  Adults who choose to drink, and are not among the individuals listed below who should not drink, are encouraged to limit daily consumption of alcohol to align with the Dietary Guidelines.People who do not drink should not start drinking for any reason.";
 
+//Taking control Intro
+
+"Taking control Intro" = "Welcome to taking control!\n\nThank you for being willing to talk about alcohol and drugs. Now let’s begin with a brief assessment.\n\nCAGE-AID Questionnaire\n\nWhen thinking about drug use, include illegal drug and the use of prescription drugs other than as prescribed.";
+
+"Welcome to taking control!" = "Welcome to taking control!";
+"CAGE-AID Questionnaire" = "CAGE-AID Questionnaire";
 
 //moderation
 "When is drinking in moderation still too much?" = "When is drinking in moderation still too much?";
@@ -137,7 +143,7 @@ These individual tend to drink more, socialize with people who drink a lot, and 
 //check mail vc
 "Check your email" = "Check your email";
 "Enter the 4-digit code that we have sent via email xxxxxxxxxx@gmail.com" = "Enter the 4-digit code that we have sent via email xxxxxxxxxx@gmail.com";
-"Verify Code" = "Verify Code";
+"Verify Code" = "Verify code";
 
 //forgot passowrd
 "Forgot password" = "Forgot password";
@@ -258,13 +264,18 @@ Here are resources that can assist you in achieving your goal?";
 "Pros" = "Pros";
 "Cons" = "Cons";
 "Make a plan" = "Make a plan";
-
+"Please answer all questions" = "Please answer all questions";
 
 //mind cell
 "With this in mind, tell us what you would like to do." = "With this in mind, tell us what you would like to do.";
 "Quit" = "Quit";
 "Cut down" = "Cut down" ;
 
+"thank_you_message" = "Thank you for taking the test.\n\nBeing honest about alcohol and drug use is a big step toward better health and relationships!\n\nTook the AUDIT test?\n\nWant to cut back on drinking? Try out Drinking Coach.";
+"text2" = "Took the DUST-10 test?\n\nDealing with drug use? we recommended talking to your primary care provider for support.";
+"text3" = "Smoke and want to quit? \n\nOur Smoking Coach can help.";
+"text4" = "You can always re-take the AUDIT and DUST-10 in this app";
+"text5" = "Do not show this tutorial from the next time";
 
 //journal entry view controller
 "Quiz" = "Quiz";
@@ -490,7 +501,7 @@ Pay careful attention to the following video.";
 
 "Engage in this practice regularly, allowing the diaphragmatic breathing technique to guide you towards a state of tranquility and mindful breathing." = "Engage in this practice regularly, allowing the diaphragmatic breathing technique to guide you towards a state of tranquility and mindful breathing.";
 
-
+"Exhale slowly through your mouse. And repeat the process." = "Exhale slowly through your mouse. And repeat the process.";
 
 //diagraphic
 "Doctors usually recommend diaphragmatic breathing to people with a lung condition called chronic obstructive pulmonary disease. A 2017 study found that it could also help reduce anxiety." = "Doctors usually recommend diaphragmatic breathing to people with a lung condition called chronic obstructive pulmonary disease. A 2017 study found that it could also help reduce anxiety.";

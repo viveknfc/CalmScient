@@ -20,41 +20,23 @@ class TakingIntroLastVC: ViewController {
     @IBOutlet weak var button3: UIButton!
     @IBOutlet weak var button4: UIButton!
     
-    let Text2 = """
-        Took the DUST-10 test?
-
-        Dealing with drug use? we recommended talking to your primary care provider for support.
-        """
-    let Text3 = """
-        Smoke and want to quite?
-
-        Our Smoking Coach can help.
-        """
-    let Text4 = "You can always re-take the AUDIT and DUST-10 in this app"
-    let Text5 = "Do not show this tutorial from the next time"
+    let Text2 = AppHelper.getLocalizeString(str: "text2")
+    let Text3 = AppHelper.getLocalizeString(str: "text3")
+    let Text4 = AppHelper.getLocalizeString(str: "text4")
+    let Text5 = AppHelper.getLocalizeString(str: "text5")
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Taking control introduction"
+        title = AppHelper.getLocalizeString(str: "Taking control introduction")
         
         let headingFont = UIFont(name: Fonts().lexendMedium, size: 16)!
         let bodyFont = UIFont(name: Fonts().lexendLight, size: 14)!
 
-        let fullText = """
-        Thank you for taking the test.
-        
-        Being honest about alcohol and drug use is a big step toward better health and relationships!
-
-        Took the AUDIT test?
-
-        Want to cut back on drinking? Try out Drinking Coach
-        """
-
+        let fullText = NSLocalizedString("thank_you_message", comment: "")
         let attributedText = NSMutableAttributedString(string: fullText, attributes: [.font: bodyFont])
 
-        // Apply bold to headings
-        let heading1 = "Thank you for taking the test."
+        let heading1 = NSLocalizedString("thank_you_heading", comment: "Heading to bold")
 
         if let range1 = fullText.range(of: heading1) {
             let nsRange1 = NSRange(range1, in: fullText)

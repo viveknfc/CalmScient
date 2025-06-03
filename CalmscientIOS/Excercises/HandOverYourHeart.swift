@@ -32,10 +32,10 @@ class HandOverYourHeart: ViewController {
     ]
     
     let arrayStringSpanish = [
-        "Apoya el talón de tu mano sobre tu esternón, alrededor de la zona del corazón.",
+        "Apoya la base de tu mano en el esternón, alrededor del área del corazón.",
         "Aplica una presión constante, suave, pero firme.",
-        "Para un efecto adicional, puedes colocar la otra mano en la frente o en el abdomen.",
-        "Experimenta con las diferentes posiciones y espera hasta sentir un cambio. Puede tomar hasta 5 o 10 minutos de respiración profunda en esta posición para que el cambio ocurra si estás muy activado."
+        "Para un efecto adicional, puedes colocar la otra mano sobre tu frente o en tu abdomen.",
+        "Experimenta con las distintas posiciones y espera hasta que sientas un cambio. Puede tomar de 5 a 10 minutos de respiración profunda en esta posición para notar un cambio si estás muy activado."
     ]
     
     
@@ -110,7 +110,7 @@ class HandOverYourHeart: ViewController {
         howToDoIt.attributedText = add(stringList: languageId == 1 ? arrayString : arrayStringSpanish, font: UIFont(name: Fonts().lexendLight, size: 15)!
                                        , bullet: "•",textColor: (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ? .white : UIColor(hex: "#424242"),bulletColor: (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ? .white : UIColor(hex: "#424242"))
         
-        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Hand over your heart" : "La mano en el corazón."
+        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Hand over your heart" : "Mano Sobre Tu Corazón"
     }
     
     func add(stringList: [String],

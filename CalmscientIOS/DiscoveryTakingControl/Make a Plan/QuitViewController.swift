@@ -47,8 +47,8 @@ class QuitViewController: ViewController{
         
         notifiy_pcp.titleLabel?.font = UIFont(name: Fonts().lexendRegular, size: 18)
         notified_mangment.titleLabel?.font = UIFont(name: Fonts().lexendRegular, size: 18)
-        notifiy_pcp.setTitle(UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Notify to PCP" : "Notificar al PCP", for: .normal)
-        notified_mangment.setTitle(UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Notify to PCP" : "Notificar al PCP", for: .normal)
+        notifiy_pcp.setTitle(UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Notify to PCP" : "Notificar al médico de atención primaria", for: .normal)
+        notified_mangment.setTitle(UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Notify to PCP" : "Notificar al médico de atención primaria", for: .normal)
         
         // Initialization code
         super.viewDidLoad()

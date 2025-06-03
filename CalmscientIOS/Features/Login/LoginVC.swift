@@ -44,8 +44,8 @@ class LoginVC: UIViewController,UITextFieldDelegate {
 //       userNameTextField.text = "charus@nfcsolutionsusa.com"
 //       passwordTextField.text = "Charu@123"
         
-//          userNameTextField.text = "sureshbabus@nfcsolutionsusa.com"
-//          passwordTextField.text = "Nfc@123"
+//          userNameTextField.text = "appprod@calmscient.com"
+//          passwordTextField.text = "Test@1234"
         
 //          userNameTextField.text = "simhachalamb@nfcsolutionsusa.com"
 //          passwordTextField.text = "Simha@1234"
@@ -114,11 +114,11 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         
         
         
-        let attributedText = NSMutableAttributedString(string: (languageId == 0 ? 1 : languageId  ) == 1 ?  "Forgot Password?" : "¿Olvidaste la contrasňa?", attributes: [.font: UIFont(name: Fonts().lexendLight, size: 14.0)!, .foregroundColor:UIColor(named: "MainTextColor") ?? UIColor.white, .underlineStyle : NSUnderlineStyle.single.rawValue, .underlineColor:UIColor(named: "MainTextColor") ?? UIColor.white])
+        let attributedText = NSMutableAttributedString(string: (languageId == 0 ? 1 : languageId  ) == 1 ?  "Forgot password?" : "¿Olvidaste la contrasňa?", attributes: [.font: UIFont(name: Fonts().lexendLight, size: 14.0)!, .foregroundColor:UIColor(named: "MainTextColor") ?? UIColor.white, .underlineStyle : NSUnderlineStyle.single.rawValue, .underlineColor:UIColor(named: "MainTextColor") ?? UIColor.white])
         forgotPasswordLabel.attributedText = attributedText
         
        
-        let validateLicenseAttributedText = NSMutableAttributedString(string:  (languageId == 0 ? 1 : languageId  ) == 1 ?  "Validate your license key" : "Validate your license key", attributes: [.font: UIFont(name: Fonts().lexendLight, size: 14.0)!, .foregroundColor:UIColor(named: "MainTextColor") ?? UIColor.white, .underlineStyle : NSUnderlineStyle.single.rawValue, .underlineColor:UIColor(named: "MainTextColor") ?? UIColor.white])
+        let validateLicenseAttributedText = NSMutableAttributedString(string:  (languageId == 0 ? 1 : languageId  ) == 1 ?  "Validate your license key" : "Valida tu clave de licencia", attributes: [.font: UIFont(name: Fonts().lexendLight, size: 14.0)!, .foregroundColor:UIColor(named: "MainTextColor") ?? UIColor.white, .underlineStyle : NSUnderlineStyle.single.rawValue, .underlineColor:UIColor(named: "MainTextColor") ?? UIColor.white])
         validateLicenseKeyLabel.attributedText = validateLicenseAttributedText
         
         

@@ -29,10 +29,11 @@
 
 "Summary" = "Resumen";
 "Drink tracker" = "Rastreador de bebidas";
-"Taking control introduction" = "Introducción a tomar el control" ;
+"Taking control introduction" = "Introducción a la toma de control" ;
 "Make a plan" = "Haz un plan";
 "How to use" = "Cómo utilizar";
 "Events tracker" = "Rastreador de eventos";
+"Please answer all questions" = "Por favor, responda todas las preguntas";
 
 //basic standard drink
 "Basic Knowledge" = "Conocimientos básicos";
@@ -48,6 +49,13 @@
 "US guidelines part1" = "Las Guías Alimentarias para los Estadounidenses 2020-2025 establecen que los adultos en edad legal para beber pueden optar por no beber o beber con moderación limitando el consumo a 2 bebidas o menos al día para los hombres y 1 bebida o menos al día para las mujeres cuando se consume alcohol. Beber menos es mejor para la salud que beber más.";
 
 "US guidelines part2" = "Hay algunos adultos que no deben beber alcohol, como las mujeres que están embarazadas. Los adultos que eligen beber y no se encuentran entre los individuos que no deben beber, se les recomienda limitar el consumo diario de alcohol para alinearse con las Guías Alimentarias. Las personas que no beben no deben empezar a beber por ninguna razón.";
+
+//Taking control Intro
+
+"Taking control Intro" = "¡Bienvenido a Taking control!\n\nGracias por estar dispuesto a hablar sobre alcohol y drogas. Ahora, comencemos con una breve evaluación.\n\nCuestionario CAGE-AID\n\nAl pensar en el consumo de drogas, incluya tanto el uso de drogas ilegales como el uso de medicamentos recetados de una manera distinta a la indicada por el médico.";
+
+"Welcome to taking control!" = "¡Bienvenido a Taking control!";
+"CAGE-AID Questionnaire" = "Cuestionario CAGE-AID";
 
 //moderation
 "When is drinking in moderation still too much?" = "¿Cuándo es beber con moderación todavía demasiado?";
@@ -382,13 +390,13 @@ Aquí hay recursos que pueden ayudarle a lograr su objetivo.";
 =
 "¿Qué ejercicios de mindfulness te gustaría incorporar a tu rutina diaria? Calmscient puede recordarte algunas rutinas de mindfulness fáciles que te ayudarán a mantenerte en un modo saludable de ser.";
 
-"Progressive muscle relaxation" = "Relajación muscular progresiva";
+"Progressive muscle relaxation" = "Relajación Progresiva de los Músculos";
 
 "Touch and the butterfly hug" = "El tacto y el abrazo de mariposa";
 
-"Humans respond powerfully to touch. Gentle, affectionate touch helps calm the nervous system and can trigger the release of oxytocin, the attachment hormone. Interestingly, when it comes to releasing oxytocin, our bodies don’t differentiate between the touch of a loved one or our own touch as we hold ourselves.\nWhen you are feeling upset, ungrounded, agitated or irritable, try giving yourself a hug or a gentle stroke on the cheek and see how it impacts the way you feel." = "Los seres humanos responden poderosamente al tacto. El tacto suave y afectuoso ayuda a calmar el sistema nervioso y puede desencadenar la liberación de oxitocina, la hormona del apego. Curiosamente, cuando se trata de liberar oxitocina, nuestros cuerpos no diferencian entre el toque de un ser querido o nuestro propio toque al abrazarnos.
+"Humans respond powerfully to touch. Gentle, affectionate touch helps calm the nervous system and can trigger the release of oxytocin, the attachment hormone. Interestingly, when it comes to releasing oxytocin, our bodies don’t differentiate between the touch of a loved one or our own touch as we hold ourselves.\nWhen you are feeling upset, ungrounded, agitated or irritable, try giving yourself a hug or a gentle stroke on the cheek and see how it impacts the way you feel." = "Los humanos responden de manera poderosa al tacto. Un toque suave y cariñoso ayuda a calmar el sistema nervioso y puede desencadenar la liberación de oxitocina, la hormona del apego. Curiosamente, en lo que respecta a la liberación de oxitocina, nuestros cuerpos no diferencian entre el toque de un ser querido o nuestro propio toque al abrazarnos.
 
-Cuando te sientas molesto, descentrado, agitado o irritable, intenta darte un abrazo o una caricia suave en la mejilla y observa cómo impacta en la forma en que te sientes.
+Cuando te sientas molesto, desubicado, agitado o irritable, intenta darte un abrazo o acariciarte suavemente la mejilla y observa cómo afecta tu estado de ánimo.
 ";
 
 "HOW TO DO IT" = "CÓMO HACERLO";
@@ -408,11 +416,11 @@ Cuando te sientas molesto, descentrado, agitado o irritable, intenta darte un ab
 
 "Movement: running" = "Movimiento: correr";
 
-"It’s not easy to move when you have a shutdown or are feeling numb. Running can quickly shift you out of the shutdown state and re-energize you." = "No es fácil moverse cuando tienes un colapso o te sientes entumecido. Correr puede sacarte rápidamente del estado de colapso y revitalizarte.";
+"It’s not easy to move when you have a shutdown or are feeling numb. Running can quickly shift you out of the shutdown state and re-energize you." = "No es fácil moverse cuando te sientes desconectado o adormecido. Correr puede sacarte rápidamente de ese estado de desconexión y reenergizarte.";
 
 "Mindful body movement" = "Movimiento corporal consciente";
 
-"There are many movement routines that invite you to reconnect with your body. Pilates, yoga and other similar stretching exercises incorporate mindful awareness of movements and postures. Additionally, coordinating body movement and breath further potentiates your ability to shift your state." = "Existen muchas rutinas de movimiento que te invitan a reconectarte con tu cuerpo. El pilates, el yoga y otros ejercicios de estiramiento similares incorporan una conciencia plena de los movimientos y posturas. Además, coordinar el movimiento corporal y la respiración potencia aún más tu capacidad para cambiar tu estado.";
+"There are many movement routines that invite you to reconnect with your body. Pilates, yoga and other similar stretching exercises incorporate mindful awareness of movements and postures. Additionally, coordinating body movement and breath further potentiates your ability to shift your state." = "Existen muchas rutinas de movimiento que te invitan a reconectar con tu cuerpo. Pilates, yoga y otros ejercicios de estiramiento similares incorporan la atención plena en los movimientos y posturas. Además, coordinar el movimiento del cuerpo con la respiración potencia aún más tu capacidad para controlar tus estados de animo.";
 
 "Movement: dance" = "Movimiento: danza";
 
@@ -428,94 +436,98 @@ Cuando te sientas molesto, descentrado, agitado o irritable, intenta darte un ab
 //4-7-8 breathing
 "4-7-8 Breathing excercise" = "Ejercicio de respiración 4-7-8";
 "Preparation" = "Preparación";
-"First find a comfortable seated position. Ensure that you are at ease before beginning the rhythmic breathing pattern.\n\nPlace the tip of your tongue gently against the tissue just behind your top front teeth" = "Primero encuentra una posición cómoda para sentarte. Asegúrate de estar a gusto antes de comenzar el patrón de respiración rítmica.\n\nColoca la punta de tu lengua suavemente contra el tejido justo detrás de tus dientes frontales superiores.";
+"First find a comfortable seated position. Ensure that you are at ease before beginning the rhythmic breathing pattern.\n\nPlace the tip of your tongue gently against the tissue just behind your top front teeth" = "Primero, encuentra una posición cómoda para sentarte. Asegúrate de sentirte relajado antes de comenzar el patrón de respiración rítmica. \n\nColoca suavemente la punta de la lengua contra el tejido justo detrás de los dientes frontales superiores.";
 
 "Let’s learn how to do the 4-7-8 breathing exercise." = "Aprendamos cómo hacer el ejercicio de respiración 4-7-8.";
 
 "Step 1: Emptying the lungs" = "Paso 1: Vaciar los pulmones";
-"Begin by completely emptying your lungs of air. Allow yourself a moment to release any tension." = "Comienza vaciando completamente tus pulmones de aire. Permítete un momento para liberar cualquier tensión.";
+"Begin by completely emptying your lungs of air. Allow yourself a moment to release any tension." = "Comienza vaciando completamente los pulmones de aire.
+Permítete un momento para soltar cualquier tensión.";
 
-"Step 2: Inhaling quietly" = "Paso 2: Inhalar en silencio";
-"Inhale quietly through your nose, counting to 4 seconds. Fell the breath entering your body, bringing calmness." = "Inhala en silencio por la nariz, contando hasta 4 segundos. Siente el aire entrando en tu cuerpo, trayendo calma.";
+"Step 2: Inhaling quietly" = "Paso 2: Inhalar suavemente";
+"Inhale quietly through your nose, counting to 4 seconds. Fell the breath entering your body, bringing calmness." = "Inhala suavemente por la nariz contando hasta 4 segundos.
+Siente cómo el aire entra en tu cuerpo, trayendo calma.";
 
-"Step 3: Hold the breath" = "Paso 3: Retener la respiración";
-"Hold your breath for  a steady count of 7 seconds. Embrace the stillness within, allowing the breath to settle." = "Mantén la respiración por un conteo constante de 7 segundos. Abraza la quietud interior, permitiendo que la respiración se asiente.";
+"Step 3: Hold the breath" = "Paso 3: Sostener la respiración";
+"Hold your breath for  a steady count of 7 seconds. Embrace the stillness within, allowing the breath to settle." = "Sostén la respiración durante un conteo constante de 7 segundos. Abraza la quietud interior, permitiendo que la respiración se asiente.";
 
 "Step 4: Force exhalation" = "Paso 4: Exhalación forzada";
 
-"Exhale forcefully through your mouth, pursing your lips, and create a distinct “whoosh” sound for 8 seconds. Feel the release of tension as you expel the breath." = "Exhala con fuerza por la boca, frunciendo los labios, y crea un sonido distintivo de “whoosh” durante 8 segundos. Siente la liberación de tensión al expulsar el aire.";
+"Exhale forcefully through your mouth, pursing your lips, and create a distinct “whoosh” sound for 8 seconds. Feel the release of tension as you expel the breath." = "Exhala con fuerza a través de tu boca, frunciendo los labios, y crea un sonido distintivo de “whoosh” durante 8 segundos. Siente la liberación de tensión mientras expulsa el aire.";
 
 "Step 5: Repeat the process" = "Paso 5: Repite el proceso";
-"Repeat this entire cycle up to 4 times. Each repetition contributes to a deepening sense of relaxation." = "Repite todo este ciclo hasta 4 veces. Cada repetición contribuye a un sentido más profundo de relajación.";
+"Repeat this entire cycle up to 4 times. Each repetition contributes to a deepening sense of relaxation." = "Repite todo este ciclo hasta 4 veces. Cada repetición contribuye a una sensación de relajación más profunda.";
 
-"Now, let’s dive into it.\nPay careful attention to the following video." = "Ahora, vamos a sumergirnos en ello.\nPresta mucha atención al siguiente video.";
-"Engage in this practice regularly, allowing the 4-7-8 technique to guide you towards a state of tranquility and mindful breathing." = "Practica esto con regularidad, permitiendo que la técnica 4-7-8 te guíe hacia un estado de tranquilidad y respiración consciente.";
+"Now, let’s dive into it.\nPay careful attention to the following video." = "Ahora, vamos a intentarlo. Presta atención cuidadosamente al siguiente video.";
+"Engage in this practice regularly, allowing the 4-7-8 technique to guide you towards a state of tranquility and mindful breathing." = "Practica este ejercicio regularmente, permitiendo que la técnica 4-7-8 te guíe hacia un estado de tranquilidad y respiración consciente.";
 
 //Mindfull breathing exercise
 "Mindful breathing exercise" = "Ejercicio de respiración consciente";
 "Preparation" = "Preparación";
-"First find a comfortable to either sit down or lay down. You can close your eyes if you want to." = "Primero, encuentra una posición cómoda para sentarte o acostarte. Puedes cerrar los ojos si lo deseas.";
-"Let’s learn how to do the mindful breathing exercise." = "Aprendamos cómo hacer el ejercicio de respiración consciente.";
+"First find a comfortable to either sit down or lay down. You can close your eyes if you want to." = "Primero, encuentra un lugar cómodo para sentarte o acostarte. Puedes cerrar los ojos si lo deseas.";
+"Let’s learn how to do the mindful breathing exercise." = "Vamos a aprender cómo hacer el ejercicio de respiración consciente.";
 
-"Step 1: Inhale" = "Paso 1: Inhalar";
+"Step 1: Inhale" = "Paso 1: Inhala";
 
 "Inhale through your nose until the tummy expands." = "Inhala por la nariz hasta que el abdomen se expanda.";
 
 "Step 2: Exhale slowly and repeat it" = "Paso 2: Exhala lentamente y repite";
 
-"Step 3: Focus on the breath" = "Paso 3: Enfócate en la respiración";
+"Exhale slowly through your mouse. And repeat the process." = "Exhala lentamente por la boca y repite el proceso.";
 
-"Once settled into the pattern, focus on the breath coming in through the nose and out through the mouth" = "Una vez que te acomodes en el patrón, enfócate en la respiración que entra por la nariz y sale por la boca.";
+"Step 3: Focus on the breath" = "Paso 3: Concéntrate en la respiración";
 
-"Step 4: Focus on the tummy" = "Paso 4: Enfócate en el abdomen";
+"Once settled into the pattern, focus on the breath coming in through the nose and out through the mouth" = "Una vez que te hayas acomodado en el patrón, enfócate en la respiración que entra por la nariz y sale por la boca.";
 
-"Notice the rise and fall of the tummy as the breath come in and out" = "Observa cómo sube y baja el abdomen mientras la respiración entra y sale.";
+"Step 4: Focus on the tummy" = "Paso 4: Concéntrate en el abdomen";
 
-"Step 5: Focus on the mind" = "Paso 5: Enfócate en la mente";
+"Notice the rise and fall of the tummy as the breath come in and out" = "Observa cómo sube y baja el abdomen mientras respiras, sintiendo el movimiento de la respiración entrar y salir.";
 
-"As thoughts come into the head, notice that they are there without judgment, then let them go and bring the attention back to the breathing." = "Cuando los pensamientos entren en tu mente, nota que están ahí sin juzgar, luego déjalos ir y vuelve a enfocar tu atención en la respiración.";
+"Step 5: Focus on the mind" = "Paso 5: Concéntrate en la mente";
 
-"Step 6: Focus on the connection between mind and body." = "Paso 6: Enfócate en la conexión entre mente y cuerpo.";
+"As thoughts come into the head, notice that they are there without judgment, then let them go and bring the attention back to the breathing." = "A medida que surjan pensamientos en tu cabeza, reconócelos sin juzgarlos, luego déjalos ir y vuelve a centrar tu atención en la respiración.";
 
-"Carry on until feeling calm, then start to be aware of how the body and mind feel." = "Continúa hasta sentirte calmado, luego comienza a ser consciente de cómo se siente el cuerpo y la mente.";
+"Step 6: Focus on the connection between mind and body." = "Paso 6: Concéntrate en la conexión entre la mente y el cuerpo.";
+
+"Carry on until feeling calm, then start to be aware of how the body and mind feel." = "Continúa hasta sentirte tranquilo y luego comienza a ser consciente de cómo se siente el cuerpo y la mente.";
 
 "Now, let’s dive into it.
-Pay careful attention to the following video." = "Ahora, vamos a sumergirnos en ello. \nPresta mucha atención al siguiente video.";
+Pay careful attention to the following video." = "Ahora, vamos a intentarlo. \nPresta atención cuidadosamente al siguiente video.";
 
-"Engage in this practice regularly, allowing the diaphragmatic breathing technique to guide you towards a state of tranquility and mindful breathing." = "Practica esto regularmente, permitiendo que la técnica de respiración diafragmática te guíe hacia un estado de tranquilidad y respiración consciente.";
+"Engage in this practice regularly, allowing the diaphragmatic breathing technique to guide you towards a state of tranquility and mindful breathing." = "Practica esta técnica regularmente, permitiendo que la técnica de respiración consciente te guíe hacia un estado de tranquilidad y respiración consciente.";
 
 //Diagraphic breathing
-"Doctors usually recommend diaphragmatic breathing to people with a lung condition called chronic obstructive pulmonary disease. A 2017 study found that it could also help reduce anxiety." = "Los médicos suelen recomendar la respiración diafragmática a personas con una enfermedad pulmonar llamada enfermedad pulmonar obstructiva crónica. Un estudio de 2017 encontró que también podría ayudar a reducir la ansiedad.";
+"Doctors usually recommend diaphragmatic breathing to people with a lung condition called chronic obstructive pulmonary disease. A 2017 study found that it could also help reduce anxiety." = "Los médicos suelen recomendar la respiración diafragmática a las personas con una afección pulmonar llamada enfermedad pulmonar obstructiva crónica (EPOC). Un estudio de 2017 encontró que también podría ayudar a reducir la ansiedad.";
 
-"Let’s learn how to do the diaphragmatic breathing exercise." = "Aprendamos cómo hacer el ejercicio de respiración diafragmática.";
+"Let’s learn how to do the diaphragmatic breathing exercise." = "Vamos a aprender a hacer el ejercicio de respiración diafragmática. ";
 
 "Inhale through your nose about 4 seconds,\nFocusing on the tummy rising." = "Inhala por la nariz durante unos 4 segundos,\nconcentrándote en la elevación del abdomen.";
 
-"First find a comfortable to either sit down or lay down." = "Primero encuentra una posición cómoda para sentarte o acostarte.";
+"First find a comfortable to either sit down or lay down." = "Primero, encuentra un lugar cómodo para sentarte o acostarte.";
 
 "Step 1: Place your hands" = "Paso 1: Coloca tus manos";
 
-"Place your hand on the tummy and other on the upper chest." = "Coloca una mano en el abdomen y la otra en la parte superior del pecho.";
+"Place your hand on the tummy and other on the upper chest." = "Pon una mano sobre tu abdomen y la otra sobre la parte superior del pecho.";
 
 "Step 2: Inhale" = "Paso 2: Inhala";
 
-"Inhale through your nose about 4 seconds, Focusing on the tummy rising." = "Inhala por la nariz durante unos 4 segundos, enfocándote en el levantamiento del abdomen.";
+"Inhale through your nose about 4 seconds, Focusing on the tummy rising." = "Inhala por la nariz durante unos 4 segundos, enfocándote en que el abdomen se eleve.";
 
-"Step 3: Hold" = "Paso 3: Mantén la respiración";
+"Step 3: Hold" = "Paso 3: Mantén";
 
 "Hold your breath for 2 seconds." = "Mantén la respiración durante 2 segundos.";
 
 "Step 4: Exhale" = "Paso 4: Exhala";
 
-"Exhale slowly and steadily through you mouth for about 6 seconds." = "Exhala lentamente y de manera constante por la boca durante unos 6 segundos.";
+"Exhale slowly and steadily through you mouth for about 6 seconds." = "Exhala lenta y constantemente por la boca durante aproximadamente 6 segundos.";
 
 "Step 5: Repeat the process" = "Paso 5: Repite el proceso";
 
-"Repeat the cycle for 5 to 10 minutes about 3 to 5 times a day" = "Repite el ciclo durante 5 a 10 minutos unas 3 a 5 veces al día.";
+"Repeat the cycle for 5 to 10 minutes about 3 to 5 times a day" = "Repite el ciclo durante 5 a 10 minutos, aproximadamente 3 a 5 veces al día.";
 
-"Now, let’s dive into it.\nPay careful attention to the following video." = "Ahora, profundicemos en esto.\nPresta mucha atención al siguiente video.";
+"Now, let’s dive into it.\nPay careful attention to the following video." = "Ahora, vamos a intentarlo.\nPresta atención cuidadosamente al siguiente video.";
 
-"Engage in this practice regularly, allowing the diaphragmatic breathing technique to guide you towards a state of tranquility and mindful breathing." = "Practica esto regularmente, permitiendo que la técnica de respiración diafragmática te guíe hacia un estado de tranquilidad y respiración consciente.";
+"Engage in this practice regularly, allowing the diaphragmatic breathing technique to guide you towards a state of tranquility and mindful breathing." = "Practica esta técnica regularmente, permitiendo que la técnica de respiración diafragmática te guíe hacia un estado de tranquilidad y respiración consciente.";
 
 "Next appointments" = "Próximas citas";
 "No appointments" = "Sin citas";
@@ -526,7 +538,7 @@ Pay careful attention to the following video." = "Ahora, vamos a sumergirnos en 
 "Time" = "Hora";
 "Information" = "Información";
 "Screening" = "Cribado";
-"Ok" = "Guardar";
+"Ok" = "Ok";
 "Cancel" = "Cancelar";
 
 //ManagingScreen
@@ -611,8 +623,14 @@ Pero, tienes el control total sobre la decisión respecto a tu hábito.
 "How_was_your_day" = "¿Cómo te ha ido?";
 "How's_your_mood_so_far" = "¿Cómo está tu estado de ánimo hasta ahora?";
 "Close" = "Cerrar";
-"Done" = "Hecho";
-"Benefits_of_mindful_walking" = "¿Cuáles son los beneficios de caminar conscientemente?";
+"Done" = "Listo";
+"Benefits_of_mindful_walking" = "¿Cuáles son los beneficios de la caminata consciente?";
 
 "Did_you_take_your_meds_this_morning" = "¿Tomaste tus medicamentos esta mañana?";
 "Did_you_take_your_meds" = "Tomaste tu medicamento?";
+
+"thank_you_message" = "Gracias por hacer el test. \n\n¡Ser honesto sobre el consumo de alcohol y drogas es un gran paso hacia una mejor salud y mejores relaciones! \n\n¿Hiciste el test AUDIT? \n\n¿Quieres reducir tu consumo de alcohol? Prueba la herramienta Drinking Coach.";
+"text2" = "¿Hiciste el test DAST-10? \n\n¿Estás lidiando con el consumo de drogas? Te recomendamos hablar con tu proveedor de atención primaria para recibir apoyo.";
+"text3" = "¿Fumas y quieres dejarlo? \n\nNuestro Coach para dejar de fumar puede ayudarte.";
+"text4" = "Siempre puedes volver a tomar las pruebas AUDIT y DAST-10 en esta app.";
+"text5" = "No mostrar este tutorial la próxima vez.";

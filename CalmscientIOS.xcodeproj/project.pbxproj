@@ -458,7 +458,6 @@
 		C230434D2D10903B001E152B /* FontLM14.swift in Sources */ = {isa = PBXBuildFile; fileRef = C230434C2D10903B001E152B /* FontLM14.swift */; };
 		C237E9C72D30586000E895FA /* newPickerViewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C237E9C62D30586000E895FA /* newPickerViewVC.swift */; };
 		C23A2A632DD1CD9700F36781 /* VTakingControlIntroVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A2A622DD1CD9700F36781 /* VTakingControlIntroVC.swift */; };
-		C23A2A662DD1CFA700F36781 /* TakincontrolIntroCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C23A2A652DD1CFA700F36781 /* TakincontrolIntroCell.xib */; };
 		C23A2A682DD1D33D00F36781 /* takinccontrolintroTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A2A672DD1D33D00F36781 /* takinccontrolintroTC.swift */; };
 		C23A2A6A2DD2101E00F36781 /* IntroSecondPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A2A692DD2101E00F36781 /* IntroSecondPageVC.swift */; };
 		C23A2A6C2DD25CDE00F36781 /* TakingIntroLastVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C23A2A6B2DD25CDE00F36781 /* TakingIntroLastVC.swift */; };
@@ -541,6 +540,7 @@
 		C2EED5E22CFA6797005C1E1F /* CustomView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EED5E12CFA6797005C1E1F /* CustomView.swift */; };
 		C2EED5E42CFA69B0005C1E1F /* ImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EED5E32CFA69B0005C1E1F /* ImageView.swift */; };
 		C2EED5E62CFA6CB8005C1E1F /* FontLR12.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2EED5E52CFA6CB8005C1E1F /* FontLR12.swift */; };
+		C2F0F4312DEE090100C0B252 /* TakincontrolIntroCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2F0F4332DEE090100C0B252 /* TakincontrolIntroCell.xib */; };
 		C2F400602DC898B400481C5D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = C2F4005F2DC898B400481C5D /* FirebaseAnalytics */; };
 		C2F400622DC89FC100481C5D /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = C2F400612DC89FC100481C5D /* FirebaseCrashlytics */; };
 		C2FA22CD2DAF9A5700241D6E /* AddNewAppointment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C2FA22CF2DAF9A5700241D6E /* AddNewAppointment.storyboard */; };
@@ -1029,7 +1029,6 @@
 		C230434C2D10903B001E152B /* FontLM14.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLM14.swift; sourceTree = "<group>"; };
 		C237E9C62D30586000E895FA /* newPickerViewVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = newPickerViewVC.swift; sourceTree = "<group>"; };
 		C23A2A622DD1CD9700F36781 /* VTakingControlIntroVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VTakingControlIntroVC.swift; sourceTree = "<group>"; };
-		C23A2A652DD1CFA700F36781 /* TakincontrolIntroCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TakincontrolIntroCell.xib; sourceTree = "<group>"; };
 		C23A2A672DD1D33D00F36781 /* takinccontrolintroTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = takinccontrolintroTC.swift; sourceTree = "<group>"; };
 		C23A2A692DD2101E00F36781 /* IntroSecondPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroSecondPageVC.swift; sourceTree = "<group>"; };
 		C23A2A6B2DD25CDE00F36781 /* TakingIntroLastVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakingIntroLastVC.swift; sourceTree = "<group>"; };
@@ -1113,6 +1112,8 @@
 		C2EED5E12CFA6797005C1E1F /* CustomView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView.swift; sourceTree = "<group>"; };
 		C2EED5E32CFA69B0005C1E1F /* ImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageView.swift; sourceTree = "<group>"; };
 		C2EED5E52CFA6CB8005C1E1F /* FontLR12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLR12.swift; sourceTree = "<group>"; };
+		C2F0F4322DEE090100C0B252 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TakincontrolIntroCell.xib; sourceTree = "<group>"; };
+		C2F0F4342DEE090100C0B252 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/TakincontrolIntroCell.xcstrings; sourceTree = "<group>"; };
 		C2FA22CE2DAF9A5700241D6E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/AddNewAppointment.storyboard; sourceTree = "<group>"; };
 		C2FA22D02DAF9A5700241D6E /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/AddNewAppointment.xcstrings; sourceTree = "<group>"; };
 		C2FA57F92D71E80B0093568A /* FontLM20.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLM20.swift; sourceTree = "<group>"; };
@@ -2500,7 +2501,7 @@
 			isa = PBXGroup;
 			children = (
 				C23A2A622DD1CD9700F36781 /* VTakingControlIntroVC.swift */,
-				C23A2A652DD1CFA700F36781 /* TakincontrolIntroCell.xib */,
+				C2F0F4332DEE090100C0B252 /* TakincontrolIntroCell.xib */,
 				C23A2A672DD1D33D00F36781 /* takinccontrolintroTC.swift */,
 				C23A2A692DD2101E00F36781 /* IntroSecondPageVC.swift */,
 				C23A2A6B2DD25CDE00F36781 /* TakingIntroLastVC.swift */,
@@ -2802,7 +2803,7 @@
 				4A6ACC6F2BDD00BA00C5D02D /* QuestionHeaderView.xib in Resources */,
 				4A967FC92BD6892800FCE646 /* UserEntrySleepHoursCell.xib in Resources */,
 				433E538B2C45604000A37E84 /* ProfileLanguage1CollectionViewCell.xib in Resources */,
-				C23A2A662DD1CFA700F36781 /* TakincontrolIntroCell.xib in Resources */,
+				C2F0F4312DEE090100C0B252 /* TakincontrolIntroCell.xib in Resources */,
 				4A8045E12BD91EC20054A120 /* AddMedications.xcassets in Resources */,
 				C2D48F6C2D9676420058677F /* GeneralAlertView.xib in Resources */,
 				4A178C962C0572F100371517 /* WebViewLesson.storyboard in Resources */,
@@ -3405,6 +3406,15 @@
 				C2ADB3C02D1A966600157631 /* mul */,
 			);
 			name = "Taking Control Index.storyboard";
+			sourceTree = "<group>";
+		};
+		C2F0F4332DEE090100C0B252 /* TakincontrolIntroCell.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C2F0F4322DEE090100C0B252 /* Base */,
+				C2F0F4342DEE090100C0B252 /* mul */,
+			);
+			name = TakincontrolIntroCell.xib;
 			sourceTree = "<group>";
 		};
 		C2FA22CF2DAF9A5700241D6E /* AddNewAppointment.storyboard */ = {

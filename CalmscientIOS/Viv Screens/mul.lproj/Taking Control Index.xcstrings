@@ -28,6 +28,12 @@
             "state" : "new",
             "value" : "Notify to PCP"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Notificar al médico de atención primaria"
+          }
         }
       }
     },
@@ -375,6 +381,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Your points"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tus puntos"
           }
         }
       }
@@ -1468,6 +1480,12 @@
             "state" : "new",
             "value" : "Interpretation: \nOne or more “Yes” responses is regarded as a positive screening test, indication possible substance use and need for further evaluation. "
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Interpretación: Una o más respuestas afirmativas se considera un resultado positivo en la prueba de detección, lo que indica un posible consumo problemático de sustancias y la necesidad de una evaluación más profunda."
+          }
         }
       }
     },
@@ -1855,6 +1873,24 @@
         }
       }
     },
+    "fSp-x3-Tem.configuration.title" : {
+      "comment" : "Class = \"UIButton\"; configuration.title = \"Submit\"; ObjectID = \"fSp-x3-Tem\";",
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Submit"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enviar"
+          }
+        }
+      }
+    },
     "fSp-x3-Tem.normalTitle" : {
       "comment" : "Class = \"UIButton\"; normalTitle = \"Submit\"; ObjectID = \"fSp-x3-Tem\";",
       "extractionState" : "extracted_with_value",
@@ -1863,6 +1899,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "Submit"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enviar"
           }
         }
       }
@@ -2569,18 +2611,6 @@
         }
       }
     },
-    "Jfn-wm-9Ce.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Positive\"; ObjectID = \"Jfn-wm-9Ce\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Positive"
-          }
-        }
-      }
-    },
     "JKh-eQ-Ihg.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Alcohol-free day\"; ObjectID = \"JKh-eQ-Ihg\";",
       "extractionState" : "extracted_with_value",
@@ -3268,6 +3298,12 @@
             "state" : "new",
             "value" : "smoking and drug use"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para el consumo de tabaco y drogas"
+          }
         }
       }
     },
@@ -3536,7 +3572,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : " moderado\n"
+            "value" : "Drinking"
           }
         }
       }
@@ -3554,7 +3590,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "De fumar\n"
+            "value" : "Smoking"
           }
         }
       }
@@ -3932,7 +3968,7 @@
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Hecho"
+            "value" : "Listo"
           }
         }
       }
@@ -4450,6 +4486,12 @@
             "state" : "new",
             "value" : "If you answered YES to any of the four questions, please take the applicable follow-up test."
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Si respondiste que sí a alguna de las cuatro preguntas, por favor haz la prueba de seguimiento que te corresponde."
+          }
         }
       }
     },
@@ -4905,6 +4947,12 @@
           "stringUnit" : {
             "state" : "new",
             "value" : "For alcohol use"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para el consumo de alcohol"
           }
         }
       }

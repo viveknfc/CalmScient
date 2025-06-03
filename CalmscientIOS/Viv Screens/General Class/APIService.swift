@@ -339,22 +339,46 @@ class APIService: UIViewController {
             request = URLRequest(url: finalURL)
             request.timeoutInterval = TimeInterval(timeOut)
             request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization") //new
-        
+            
         case "body":
             request = URLRequest(url: url)
             request.timeoutInterval = TimeInterval(timeOut)
-            do {
-                request.httpBody = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
-            } catch let error {
-                let message = "Error serializing body parameters: \(error.localizedDescription)"
+            
+            if JSONSerialization.isValidJSONObject(params) {
+                do {
+                    request.httpBody = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+                } catch let error {
+                    let message = "Error serializing body parameters: \(error.localizedDescription)"
+                    Crashlytics.crashlytics().log(message)
+                    callback(message as AnyObject)
+                    return
+                }
+            } else {
+                let message = "Invalid JSON object in params: \(params)"
                 Crashlytics.crashlytics().log(message)
                 callback(message as AnyObject)
                 return
             }
-//            request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")//new
+
             if !accessToken.isEmpty {
                 request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
             }
+        
+//        case "body":
+//            request = URLRequest(url: url)
+//            request.timeoutInterval = TimeInterval(timeOut)
+//            do {
+//                request.httpBody = try JSONSerialization.data(withJSONObject: params, options: .prettyPrinted)
+//            } catch let error {
+//                let message = "Error serializing body parameters: \(error.localizedDescription)"
+//                Crashlytics.crashlytics().log(message)
+//                callback(message as AnyObject)
+//                return
+//            }
+////            request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")//new
+//            if !accessToken.isEmpty {
+//                request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+//            }
         
         case "header":
             request = URLRequest(url: url)

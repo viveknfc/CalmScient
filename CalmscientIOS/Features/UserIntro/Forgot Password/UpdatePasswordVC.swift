@@ -149,7 +149,7 @@ class UpdatePasswordVC: UIViewController,UITextFieldDelegate {
         let multipleAttributes: [NSAttributedString.Key : Any] = [
             NSAttributedString.Key.foregroundColor: UIColor(named: "Color") ?? UIColor.white,
             NSAttributedString.Key.font: UIFont(name: Fonts().lexendMedium, size: 18.0) ?? UIFont.systemFont(ofSize: 25.0) ]
-        let attrButtonName = NSAttributedString(string: "Update Password", attributes: multipleAttributes)
+        let attrButtonName = NSAttributedString(string: "Update password", attributes: multipleAttributes)
         self.updatePasswordButton.titleLabel?.attributedText = attrButtonName
         setupLanguage()
     }
@@ -186,14 +186,14 @@ class UpdatePasswordVC: UIViewController,UITextFieldDelegate {
         }
     @IBAction func updatePasswordBtnAction(_ sender: Any) {
         
-        let passwordRegex = "^(?=.*[0-9])(?=.*[!@#$%^&*(),.?\":{}|<>])[A-Za-z\\d!@#$%^&*(),.?\":{}|<>]{8,}$"
+        let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?\":{}|<>])[A-Za-z\\d!@#$%^&*(),.?\":{}|<>]{8,}$"
         
         guard let newPassword = passwordTF.text?.trimmingCharacters(in: .whitespacesAndNewlines),
               let confirmPassword = confirmPasswordTF.text?.trimmingCharacters(in: .whitespacesAndNewlines) else {
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
-                imageSize: CGSize(width: 40, height: 40),
-                title: "Unexpected error: Password fields missing.",
+                imageSize: CGSize(width: 60, height: 60),
+                title: "Unexpected error: password fields missing.",
                 okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {},
                 showDismissButton: false
@@ -204,8 +204,8 @@ class UpdatePasswordVC: UIViewController,UITextFieldDelegate {
         if newPassword.isEmpty || confirmPassword.isEmpty {
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
-                imageSize: CGSize(width: 40, height: 40),
-                title: "Please fill in both New Password and Confirm Password.",
+                imageSize: CGSize(width: 60, height: 60),
+                title: "Please fill in both new password and confirm password.",
                 okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {},
                 showDismissButton: false
@@ -216,7 +216,7 @@ class UpdatePasswordVC: UIViewController,UITextFieldDelegate {
         guard NSPredicate(format: "SELF MATCHES %@", passwordRegex).evaluate(with: newPassword) else {
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
-                imageSize: CGSize(width: 40, height: 40),
+                imageSize: CGSize(width: 60, height: 60),
                 title: "Your password must be at least eight characters long and include at least one special character and one number.",
                 okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {},
@@ -228,8 +228,8 @@ class UpdatePasswordVC: UIViewController,UITextFieldDelegate {
         guard newPassword == confirmPassword else {
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
-                imageSize: CGSize(width: 40, height: 40),
-                title: "New Password and Confirm Password should match.",
+                imageSize: CGSize(width: 60, height: 60),
+                title: "New password and confirm password should match.",
                 okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {},
                 showDismissButton: false
@@ -248,7 +248,7 @@ class UpdatePasswordVC: UIViewController,UITextFieldDelegate {
                     if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                         DispatchQueue.main.async {
                             print(json)
-                            self.showSuccessAlert(successContent: "Updated successfully", centreImage: nil, okButtonAction: {
+                            self.showSuccessAlert(successContent: "Password updated successfully", centreImage: nil, okButtonAction: {
                                 if #available(iOS 16.0, *) {
                                     let homeController = UIStoryboard(name: "LoginVC", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
                                     let navC = UINavigationController(rootViewController: homeController)

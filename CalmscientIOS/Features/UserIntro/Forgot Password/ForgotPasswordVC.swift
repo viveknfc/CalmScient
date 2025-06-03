@@ -25,7 +25,7 @@ class ForgotPasswordVC: ViewController {
         let multipleAttributes: [NSAttributedString.Key : Any] = [
             NSAttributedString.Key.foregroundColor: UIColor(named: "Color") ?? UIColor.white,
             NSAttributedString.Key.font: UIFont(name: Fonts().lexendMedium, size: 18.0) ?? UIFont.systemFont(ofSize: 25.0) ]
-        let attrButtonName = NSAttributedString(string: "Reset Password", attributes: multipleAttributes)
+        let attrButtonName = NSAttributedString(string: "Reset password", attributes: multipleAttributes)
         self.resetPasswordButton.titleLabel?.attributedText = attrButtonName
         
 //        title = "Forgot password"

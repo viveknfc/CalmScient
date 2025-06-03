@@ -145,7 +145,7 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
                 (86400, AppHelper.getLocalizeString(str: "Upcoming Appointment"), AppHelper.getLocalizeString(str: "Don’t forget your medical appointment tomorrow")),
                 (7200, AppHelper.getLocalizeString(str: "Upcoming Appointment"), AppHelper.getLocalizeString(str: "Your medical appointment is in 2 hours"))
             ]
-            providerAlert = "Provider name cannot be empty"
+            providerAlert = "Provider name can't be empty"
             locationAlert = "Location name cannot be empty"
             patientAlert = "Patient name cannot be empty"
         } else {
@@ -392,7 +392,10 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
         print("entered provider deyail response")
         print("🔹 Raw API Response:", response)
 
-        self.view.hideToastActivity()
+        DispatchQueue.main.async {
+            self.view.hideToastActivity()
+        }
+        
         
         // Check if the response is a valid Dictionary (JSON object)
         guard let json = response as? [String: Any] else {
