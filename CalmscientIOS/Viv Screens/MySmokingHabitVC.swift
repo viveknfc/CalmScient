@@ -10,6 +10,7 @@ import UIKit
 class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var smokingTableView: UITableView!
+    @IBOutlet weak var completeButton: CapsuleButton1!
     
     var selectedRowIndex : Int?
     var sectionID6: Int?
@@ -27,6 +28,11 @@ class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSour
         // Do any additional setup after loading the view.
         
         data = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? edata : sdata
+        
+        let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+        let title = selectedLanguageID == 1 ? "Complete" : "Finalizar"
+        completeButton.setTitle(title, for: .normal)
+        completeButton.titleLabel?.font = UIFont(name: Fonts().lexendLight, size: 14)
         
     }
     
@@ -76,12 +82,18 @@ class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSour
             fatalError("Unable to found Application Shared Info")
         }
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Specify the desired format
+        let currentDate = Date()
+        let formattedDate = dateFormatter.string(from: currentDate)
+        
         let params: [String: Any] = [
                 "patientId": userInfo.patientID,
                 "entry": data[selectedRowIndex ?? 0].0,
                 "plId": userInfo.patientLocationID,
                 "clientId": userInfo.clientID,
-                "entryType": "discovery_exercise"
+                "entryType": "discovery_exercise",
+                "createdAt": formattedDate
                 // Add other necessary parameters here
             ]
 

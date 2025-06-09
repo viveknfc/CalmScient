@@ -32,8 +32,10 @@ class UserRegistrationViewController: UIViewController {
         licenseTextField.backgroundColor = UIColor(named: "MainViewBackground")
         licenseTextField.font = UIFont(name: Fonts().lexendLight, size: 16.0)
         licenseTextField.textColor = UIColor(named: "MainTextColor")
- 
-        self.submitButton.setAttributedTitleWithGradientDefaults(title: "Submit")
+        
+        licenseTextLabel.text = AppHelper.getLocalizeString(str:"License Key")
+        let submittitle = AppHelper.getLocalizeString(str:"Submit")
+        self.submitButton.setAttributedTitleWithGradientDefaults(title: submittitle)
         self.navigationController?.isNavigationBarHidden = false
         
 //        updateButtonImage1()

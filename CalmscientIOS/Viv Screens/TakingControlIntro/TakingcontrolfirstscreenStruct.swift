@@ -8,6 +8,7 @@
 import Foundation
 
 struct TakingIntrofirstScreenQuestions: Codable {
+    let statusResponse: StatusResponse
     let questionnaire: [Question]
 }
 
@@ -23,7 +24,7 @@ struct Answer: Codable {
     let optionLabel: String
     let optionScore: String
     let answer: String?
-    let answerId: Int?
+    let answerId: String?
     let selected: String
 
     var optionScoreInt: Int? {
@@ -37,7 +38,7 @@ struct TakingFirstQueSummary {
     let questionName: String
     let optionTypeId: String
 
-    var selectedanswerId: Int?
+    var selectedanswerId: String?
     var selectedScore: Int?
     var selectedoptionId: Int?
     var selectedAnswerLabel: String?

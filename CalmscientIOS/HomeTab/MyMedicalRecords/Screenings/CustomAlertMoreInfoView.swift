@@ -36,7 +36,7 @@ class CustomAlertMoreInfoView: UIView {
 
         descriptionLbl.text = description
         
-        okButton.setAttributedTitleWithGradientDefaults(title: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Ok" : "De acuerdo")
+        okButton.setAttributedTitleWithGradientDefaults(title: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Ok" : "Ok")
         
         
         // Create an attributed string with the text and add the underline attribute

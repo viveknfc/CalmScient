@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Lexend-Medium.ttf">
+        <array key="lexendmedium.ttf">
             <string>Lexend-Medium</string>
         </array>
-        <array key="Lexend-Regular.ttf">
+        <array key="lexendregular.ttf">
             <string>Lexend-Regular</string>
         </array>
     </customFonts>
@@ -78,8 +78,8 @@
                                                 <rect key="frame" x="109" y="0.0" width="109" height="71"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alarm" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XD6-o3-q3D">
-                                                        <rect key="frame" x="37" y="12.666666666666664" width="35.333333333333343" height="15.666666666666664"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <rect key="frame" x="35.666666666666686" y="12.666666666666664" width="38" height="15.666666666666664"/>
+                                                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="13"/>
                                                         <color key="textColor" name="MedicationCellTitleColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>

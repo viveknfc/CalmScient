@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="Lexend-Regular.ttf">
+        <array key="lexendregular.ttf">
             <string>Lexend-Regular</string>
         </array>
     </customFonts>
@@ -500,6 +500,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="completeButton" destination="09y-3g-ktp" id="Xkm-E6-ajr"/>
                         <outlet property="tableView" destination="enG-6K-r5p" id="cQd-Tm-DsZ"/>
                     </connections>
                 </viewController>
@@ -604,6 +605,9 @@ Nicotine works on the brain in a way that makes it feel good and can become a ha
                             <constraint firstItem="JTe-E0-xlp" firstAttribute="leading" secondItem="0Ow-WJ-fWH" secondAttribute="leading" id="hK1-4U-nDu"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="completeButton" destination="2YV-2M-XfC" id="dJn-im-Z6m"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BfW-wW-6El" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -730,6 +734,9 @@ E-cigarette aerosol generally contains fewer toxic chemicals than the deadly mix
                             <constraint firstAttribute="bottom" secondItem="mmz-as-LDR" secondAttribute="bottom" id="wJk-ZA-3ec"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="completeButton" destination="uM4-m4-vem" id="4Hg-CN-BmT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EZJ-05-xsS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -827,6 +834,9 @@ That's why some people, both adults and teens, use smoking to kind of "reset" th
                             <constraint firstItem="9UP-xy-1Pe" firstAttribute="bottom" secondItem="Vkv-Ea-5Ib" secondAttribute="bottom" id="Vss-Rr-1I0"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="completeButton" destination="HIv-ug-ISO" id="uqW-KJ-muX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3Cw-Rn-xdk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -936,6 +946,7 @@ So what does this ride of change look like? There are 4 steps and helpful strate
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="completeButton" destination="n3s-Vv-UxV" id="YYp-Ud-3h8"/>
                         <outlet property="tableView" destination="io1-wj-Nzl" id="27y-ve-UIH"/>
                     </connections>
                 </viewController>
@@ -998,6 +1009,9 @@ But just so you know, thinking about quitting is already a first big step forwar
                             <constraint firstItem="Ngd-6u-Bee" firstAttribute="leading" secondItem="Qye-G2-KHk" secondAttribute="leading" constant="20" id="ryf-xP-2cq"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="completeButton" destination="jum-xd-DsJ" id="xIO-Bg-mPj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VvU-ck-zSk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1106,6 +1120,7 @@ In the following sections, you can learn about recommended strategies for overco
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="completeButton" destination="3Bw-fV-7cK" id="Xds-A1-d5A"/>
                         <outlet property="tableView" destination="0R3-sy-OU7" id="19G-vB-YhL"/>
                     </connections>
                 </viewController>
@@ -2090,6 +2105,7 @@ What can you do?</string>
                     </view>
                     <connections>
                         <outlet property="bulletinLabels" destination="ZY5-lM-L4v" id="npc-Ka-SFg"/>
+                        <outlet property="completeButton" destination="Mhx-hP-MpI" id="6bp-hF-zft"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eLP-eQ-Jj2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2206,6 +2222,9 @@ However, it’s always wise to be on guard</string>
                             <constraint firstItem="ZLS-25-Pbk" firstAttribute="top" secondItem="PsD-Cz-D9c" secondAttribute="top" id="zkP-cs-7Ok"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="completeButton" destination="95S-X3-XV2" id="ksw-Ps-Kkr"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yg1-d9-FmY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -5871,7 +5890,7 @@ One or more “Yes” responses is regarded as a positive screening test, indica
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YG7-dY-XZg" userLabel="label5" customClass="FontLL14" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="50" y="690" width="323" height="20.333333333333371"/>
+                                                        <rect key="frame" x="50" y="689.66666666666663" width="323" height="20.666666666666629"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -7122,6 +7141,9 @@ Depression is common because when you smoke a lot, your brain kind of switches o
                             <constraint firstAttribute="trailing" secondItem="LZg-6o-87U" secondAttribute="trailing" id="iFr-nf-en3"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="completeButton" destination="u0s-bE-o8F" id="AJP-J1-kZm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z0P-CW-MNU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -7270,6 +7292,7 @@ Depression is common because when you smoke a lot, your brain kind of switches o
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="completeButton" destination="Xvj-FH-C7G" id="AdG-Zn-ldh"/>
                         <outlet property="smokingTableView" destination="cwY-q1-4tK" id="gtC-WF-Yvo"/>
                     </connections>
                 </viewController>
@@ -7373,20 +7396,20 @@ Depression is common because when you smoke a lot, your brain kind of switches o
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="5" reuseIdentifier="AlarmCell" id="J2z-nw-MkN">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="46.666667938232422"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="47"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J2z-nw-MkN" id="DwJ-Zm-npW">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="46.666667938232422"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="47"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhX-TR-85e" customClass="FontLL14" customModule="CalmscientIOS" customModuleProvider="target">
-                                                    <rect key="frame" x="40" y="13.000000000000002" width="313" height="20.666666666666671"/>
+                                                    <rect key="frame" x="40" y="13" width="313" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="d2Q-pN-EhS">
-                                                    <rect key="frame" x="355" y="14.333333333333336" width="18" height="18"/>
+                                                    <rect key="frame" x="355" y="14.666666666666664" width="18" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="18" id="EZ5-TV-JTY"/>
                                                         <constraint firstAttribute="height" constant="18" id="OxL-FL-a6h"/>

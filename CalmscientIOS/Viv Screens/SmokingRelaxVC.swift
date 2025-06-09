@@ -10,11 +10,15 @@ import UIKit
 class SmokingRelaxVC: ViewController {
     
     var sectionID3: Int?
-
+    @IBOutlet weak var completeButton: CapsuleButton1!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+        let title = selectedLanguageID == 1 ? "Complete" : "Finalizar"
+        completeButton.setTitle(title, for: .normal)
+        completeButton.titleLabel?.font = UIFont(name: Fonts().lexendLight, size: 14)
     }
 
     @IBAction func completeButtonPressed(_ sender: Any) {

@@ -499,7 +499,7 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
                 cell.switchButton.status = (meal == 1)
                 cell.scheduleTimeLbl.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?   "Update time & alarm" :  "Programar hora y alarma."
             } else {
-                cell.scheduleTimeLbl.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?   "Schedule time & alarm" :  "Configurar la hora y alarma"
+                cell.scheduleTimeLbl.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?   "Schedule time & alarm" :  "Configurar la yora y alarma"
             }
             
             

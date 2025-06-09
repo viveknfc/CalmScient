@@ -10,6 +10,8 @@ import UIKit
 class SmokingBasicVc: ViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var completeButton: CapsuleButton1!
+    
     
     var data: [String] = []
     var isCompleted: [Int] = []
@@ -23,6 +25,11 @@ class SmokingBasicVc: ViewController, UITableViewDelegate, UITableViewDataSource
         
         tableView.register(UINib(nibName: "CustomCheckboxCell", bundle: nil), forCellReuseIdentifier: "CustomCheckboxCell")
         tableView.rowHeight = UITableView.automaticDimension
+        
+        let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+        let title = selectedLanguageID == 1 ? "Complete" : "Finalizar"
+        completeButton.setTitle(title, for: .normal)
+        completeButton.titleLabel?.font = UIFont(name: Fonts().lexendLight, size: 14)
 
         // Do any additional setup after loading the view.
     }

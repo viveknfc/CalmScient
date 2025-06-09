@@ -3754,6 +3754,12 @@
             "state" : "new",
             "value" : "Smoking free time"
           }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tiempo libre de fumar"
+          }
         }
       }
     },

@@ -337,7 +337,7 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
       
         self.view.showToastActivity()
         
-        updatePatientProfileDetails( patientId: userInfo.patientID,bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken) { [self] result in
+        updatePatientProfileDetails( patientId: userInfo.patientID,clientId: userInfo.clientID, bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken) { [self] result in
             switch result {
             case .success(let data):
                 // Convert data to JSON object and print it
@@ -424,7 +424,7 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
         task.resume()
     }
     
-    func updatePatientProfileDetails(patientId: Int, bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void) {
+    func updatePatientProfileDetails(patientId: Int, clientId: Int, bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void) {
         // Define the URL
         guard let url = URL(string: "\(baseURLString)identity/api/v1/settings/updatePatientProfileDetails") else {
             print("Invalid URL")
@@ -439,6 +439,7 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
         
         let payload: [String: Any] = [
             "patientId": patientId,
+//            "clientId": clientId,
             "firstName": firstNameTextField.text ?? "",
             "lastName": lastNameTextfield.text ?? "",
             "email": emailTF.text ?? "",

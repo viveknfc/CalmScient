@@ -114,6 +114,8 @@ class UserMedicationsTableCell: UITableViewCell, EditableCell {
         titleLabel.text = record.medicationDetailsByDate[0].medicineName
         subTitleLabel.text = record.medicationDetailsByDate[0].medicalDetails.directions
         
+        expiredLabel.text = isSpanish == 1 ? "Expired" : "Caducado"
+        
         let alarmList = record.medicationDetailsByDate[0].medicalDetails.scheduledTimeList
         
         //viv start

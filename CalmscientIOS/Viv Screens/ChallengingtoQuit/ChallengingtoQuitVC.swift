@@ -10,6 +10,8 @@ import UIKit
 class ChallengingtoQuitVC: ViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var completeButton: CapsuleButton1!
+    
     var sectionID4: Int?
     
     var data: [String] = []
@@ -22,6 +24,11 @@ class ChallengingtoQuitVC: ViewController, UITableViewDelegate, UITableViewDataS
     tableView.register(UINib(nibName: "CapsuleStyleCell", bundle: nil), forCellReuseIdentifier: "CapsuleCell")
     tableView.delegate = self
     tableView.dataSource = self
+        
+        let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+        let title = selectedLanguageID == 1 ? "Complete" : "Finalizar"
+        completeButton.setTitle(title, for: .normal)
+        completeButton.titleLabel?.font = UIFont(name: Fonts().lexendLight, size: 14)
     }
     
     override func viewWillAppear(_ animated: Bool) {

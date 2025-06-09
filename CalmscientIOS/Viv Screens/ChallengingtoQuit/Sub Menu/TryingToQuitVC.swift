@@ -10,6 +10,7 @@ import UIKit
 class TryingToQuitVC: ViewController {
     
     @IBOutlet weak var bulletinLabels: FontLL15!
+    @IBOutlet weak var completeButton: CapsuleButton1!
     
     let bullet = "•  " // Bullet with spacing
     
@@ -58,6 +59,10 @@ class TryingToQuitVC: ViewController {
         bulletinLabels.attributedText = attributedString
 
         // Do any additional setup after loading the view.
+        let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+        let title = selectedLanguageID == 1 ? "Complete" : "Finalizar"
+        completeButton.setTitle(title, for: .normal)
+        completeButton.titleLabel?.font = UIFont(name: Fonts().lexendLight, size: 14)
         
         
     }

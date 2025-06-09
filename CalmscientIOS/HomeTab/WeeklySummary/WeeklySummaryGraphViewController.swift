@@ -181,6 +181,7 @@ extension WeeklySummaryGraphViewController : UITableViewDataSource,UITableViewDe
             }
             if !chartData.isEmpty {
                 let list = chartData.sorted { $0.yValue > $1.yValue }
+                let nonZeroSortedList = chartData.filter { $0.yValue > 0 }.sorted { $0.yValue < $1.yValue }
                 let sleepHrs = chartData.map { $0.yValue }
                 var totalSleepHrs: Float = 0
                 for hour in sleepHrs {
@@ -192,9 +193,15 @@ extension WeeklySummaryGraphViewController : UITableViewDataSource,UITableViewDe
                 let avgSleepHrs = totalSleepHrs/Float(filteredDataForAvg.count)
                 print("the total sleep hours is ",totalSleepHrs, " and the list count is ",list.count, " filtered data for avg count is ",filteredDataForAvg, "so avg sleep hours is ", avgSleepHrs)
                 
-                if let first = list.first, let last = list.last {
+                if let least = nonZeroSortedList.first {
+                    cell.leastHrsSleptLbl.text = "\(least.yValue) hrs"
+                } else {
+                    cell.leastHrsSleptLbl.text = "0 hrs"
+                }
+                
+                if let first = list.first { // let last = list.last
                     cell.mostHrsSleptLbl.text = "\(first.yValue) hrs"
-                    cell.leastHrsSleptLbl.text = "\(last.yValue) hrs"
+//                    cell.leastHrsSleptLbl.text = "\(last.yValue) hrs"
                     cell.avgHrsSleptLbl.text = String(format: "%.2f", avgSleepHrs) + " hrs"
                     let attrText = NSMutableAttributedString(string: "\(String(format: "%.2f", avgSleepHrs)) / ", attributes: [.font : UIFont(name: Fonts().lexendMedium, size: 14) ?? "", .foregroundColor : UIColor(hex: "#9B9B9B")])
                     attrText.append(NSMutableAttributedString(string: "12", attributes: [.font : UIFont(name: Fonts().lexendMedium, size: 14) ?? "",.foregroundColor: UIColor(hex: (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ?  "#FFFFFF" : "#000000")]))

@@ -1069,7 +1069,7 @@ extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate
 
         
         if indexPath.row == 5 {
-            let alert = UIAlertController(title:UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "License Key" : "Clave de Licencia", message: self.licenseKey, preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title:UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "License Key" : "Licencia", message: self.licenseKey, preferredStyle: UIAlertController.Style.alert)
             
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             

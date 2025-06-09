@@ -176,6 +176,7 @@ class MindfulNess: ViewController {
         }else if(counter == 1){
             
             leftBtn.isHidden = false
+            completeButton.isHidden = true
             stepsImgView.image = UIImage(named: "step2")
             imgView.image = imagesArray[1]
             let highlightAttr: [NSAttributedString.Key: Any] = [
@@ -216,6 +217,7 @@ class MindfulNess: ViewController {
             text1.text = languageId == 1 ? textArray[2] : "¿Cómo ayuda la atención plena con la ansiedad?"
             text1.font = UIFont(name: Fonts().lexendRegular, size: 15)!
             imgView.image = imagesArray[2]
+            completeButton.isHidden = true
             stepsImgView.image = UIImage(named: "step3")
             imgView.contentMode = .scaleAspectFit
             text2.text = languageId == 1 ? "When we allow our brain to enter automatic pilot mode too often, it can be at risk of being conditioned to be overly preoccupied about the future, past experiences or our emotions in negative ways. If we have fallen into this old and unhelpful habit, we can unlearn it and replace it with skills that help us resist ‘buying into’ automatic worry and anxiety. " : "Cuando dejamos que nuestro cerebro entre en modo piloto automático con demasiada frecuencia, corremos el riesgo de acostumbrarnos a preocuparnos en exceso por el futuro, por experiencias pasadas o por nuestras emociones de manera negativa. Si hemos caído en este hábito poco útil, podemos desaprenderlo y reemplazarlo con habilidades que nos ayuden a no dejarnos llevar por la preocupación y la ansiedad automáticas."
@@ -227,10 +229,12 @@ class MindfulNess: ViewController {
             imgView.contentMode = .scaleAspectFill
             imgView.image = imagesArray[3]
             stepsImgView.image = UIImage(named: "step4")
+            completeButton.isHidden = true
         }
         else if(counter == 4){
             imgStack.isHidden = true
             stackHeight.constant = 0
+            completeButton.isHidden = true
             rightBtn.isHidden = false
             text1.text = languageId == 1 ? textArray[4] : "Como un ejemplo sencillo: en lugar de preocuparte por cuántos kilómetros caminaste por la mañana, ¿puedes ser consciente de los pájaros cantando, sentir el aire fresco y notar cómo cambia el día? Al conectar tus sentidos con la naturaleza, los animales, las personas y tu propio cuerpo, atraes la atención de tu sistema nervioso, lo que a su vez calma tu ansiedad. Cuando regreses a casa, estarás en un mejor estado de ánimo y más preparado para enfrentar tu día."
             text2.text = ""

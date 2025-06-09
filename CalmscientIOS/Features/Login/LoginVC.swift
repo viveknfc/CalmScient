@@ -50,8 +50,8 @@ class LoginVC: UIViewController,UITextFieldDelegate {
 //          userNameTextField.text = "simhachalamb@nfcsolutionsusa.com"
 //          passwordTextField.text = "Simha@1234"
         
-//        userNameTextField.text = "vivekl@nfcsolutionsusa.com"
-//        passwordTextField.text = "Test@1234"
+        userNameTextField.text = "vivekl@nfcsolutionsusa.com"
+        passwordTextField.text = "Test@1234"
         
         userNameTextField.delegate = self
         userNameTextField.layer.borderColor = UIColor(named: "AppBorderColor")?.cgColor
@@ -447,25 +447,48 @@ extension UIView {
         ToastManager.shared.style = toastStyle
     }
     
-    public func showToast(message:String,title:String? = nil,point:CGPoint? = nil) {
-        self.hideAllToasts(includeActivity: true)
-        self.updateToastStyleWithAppDefaults()
-        
-        let window = UIApplication.shared.windows.first
-        let safeAreaBottom = window?.safeAreaInsets.bottom ?? 0
-        let tabBarHeight = findViewController()?.tabBarController?.tabBar.frame.height ?? 49  // Default tab bar height if nil
-        let bottomPadding: CGFloat = 16  // Extra spacing above the tab bar for better visibility
-
-        // Dynamic Y position ensuring it appears above the tab bar
-        let adjustedY = self.frame.height - (tabBarHeight + safeAreaBottom + bottomPadding)
-
-        let defaultPoint = CGPoint(x: self.frame.width / 2, y: adjustedY)
-        
-//        let centerPoint = CGPoint(x: self.frame.width / 2, y: self.frame.height / 2)
-        self.makeToast(message, duration: 2 ,point: point ?? defaultPoint , title: title, image: nil) { didTap in
-            self.hideToastActivity() //CGPoint(x: self.frame.width/2, y: self.frame.height-50)
+    public func showToast(message: String, title: String? = nil, point: CGPoint? = nil) {
+        DispatchQueue.main.async {
+            self.hideAllToasts(includeActivity: true)
+            self.updateToastStyleWithAppDefaults()
+            
+            let window = UIApplication.shared.connectedScenes
+                .compactMap { $0 as? UIWindowScene }
+                .flatMap { $0.windows }
+                .first { $0.isKeyWindow }
+            
+            let safeAreaBottom = window?.safeAreaInsets.bottom ?? 0
+            let tabBarHeight = self.findViewController()?.tabBarController?.tabBar.frame.height ?? 49
+            let bottomPadding: CGFloat = 16
+            let adjustedY = self.frame.height - (tabBarHeight + safeAreaBottom + bottomPadding)
+            let defaultPoint = CGPoint(x: self.frame.width / 2, y: adjustedY)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                self.makeToast(message, duration: 2, point: point ?? defaultPoint, title: title, image: nil) { _ in
+                    self.hideToastActivity()
+                }
+            }
         }
     }
+    
+//    public func showToast(message:String,title:String? = nil,point:CGPoint? = nil) {
+//        self.hideAllToasts(includeActivity: true)
+//        self.updateToastStyleWithAppDefaults()
+//        
+//        let window = UIApplication.shared.windows.first
+//        let safeAreaBottom = window?.safeAreaInsets.bottom ?? 0
+//        let tabBarHeight = findViewController()?.tabBarController?.tabBar.frame.height ?? 49  // Default tab bar height if nil
+//        let bottomPadding: CGFloat = 16  // Extra spacing above the tab bar for better visibility
+//
+//        // Dynamic Y position ensuring it appears above the tab bar
+//        let adjustedY = self.frame.height - (tabBarHeight + safeAreaBottom + bottomPadding)
+//
+//        let defaultPoint = CGPoint(x: self.frame.width / 2, y: adjustedY)
+//
+//        self.makeToast(message, duration: 2 ,point: point ?? defaultPoint , title: title, image: nil) { didTap in
+//            self.hideToastActivity() //CGPoint(x: self.frame.width/2, y: self.frame.height-50)
+//        }
+//    }
     
     public func showToastActivity() {
         self.isUserInteractionEnabled = false

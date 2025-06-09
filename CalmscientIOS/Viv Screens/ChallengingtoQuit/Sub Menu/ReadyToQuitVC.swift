@@ -11,6 +11,9 @@ class ReadyToQuitVC: ViewController, UITableViewDelegate, UITableViewDataSource 
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var completeButton: CapsuleButton1!
+    
+    
     var data: [String] = []
     
     override func viewDidLoad() {
@@ -21,6 +24,11 @@ class ReadyToQuitVC: ViewController, UITableViewDelegate, UITableViewDataSource 
         tableView.dataSource = self
         
         data = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? edata : sdata
+        
+        let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+        let title = selectedLanguageID == 1 ? "Complete" : "Finalizar"
+        completeButton.setTitle(title, for: .normal)
+        completeButton.titleLabel?.font = UIFont(name: Fonts().lexendLight, size: 14)
     }
     
     override func viewWillAppear(_ animated: Bool) {
