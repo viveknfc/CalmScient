@@ -133,7 +133,7 @@ class MindfulBreathing: ViewController {
         
         self.step6Label.font = UIFont(name: Fonts().lexendRegular, size: 15)
         self.step6DescLabel.font = UIFont(name: Fonts().lexendLight, size: 15)
-        self.videoLabel.font = UIFont(name: Fonts().lexendRegular, size: 15)
+        self.videoLabel.font = UIFont(name: Fonts().lexendLight, size: 15)
         self.bottomDescLabel.font = UIFont(name: Fonts().lexendLight, size: 15)
         if let data = UserDefaults.standard.value(forKey: "favoriteExcersises") as? Data {
             favExcercises = try! PropertyListDecoder().decode([ExcercisesModel].self, from: data)

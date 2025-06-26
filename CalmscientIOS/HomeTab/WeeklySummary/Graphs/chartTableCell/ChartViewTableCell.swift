@@ -194,24 +194,6 @@ class ChartViewTableCell: UITableViewCell {
         leftAxis.zeroLineWidth = 0
         // Determine maximum Y value
         let maxYValue = self.graphData.map { $0.yValue }.max() ?? 0
-
-        // Adjust granularity based on max Y value
-//        if maxYValue > 20 {
-//            leftAxis.granularity = 3
-//        } else if maxYValue > 10 {
-//            leftAxis.granularity = 2
-//        } else {
-//            leftAxis.granularity = 1
-//        }
-//
-//        
-//        if (self.graphData.count > 0) {
-//            leftAxis.labelCount = self.getYAxisMaximumValue()
-//            leftAxis.axisMaximum = Double(self.getYAxisMaximumValue())
-//            leftAxis.axisMinimum = 0
-//        } else {
-//            leftAxis.labelCount = 0
-//        }
         
         if self.graphData.count > 0 {
             let granularity: Double
@@ -326,7 +308,7 @@ class ChartViewTableCell: UITableViewCell {
         xAxis.drawAxisLineEnabled = false
         xAxis.labelCount = 5
         xAxis.labelPosition = .bottom
-        xAxis.labelFont = UIFont(name: Fonts().lexendRegular, size: 12)!
+        xAxis.labelFont = UIFont(name: Fonts().lexendRegular, size: 10)!
         xAxis.valueFormatter = MoodAxisFormatter()
         var entries:[BarChartDataEntry] = []
         let colors = [UIColor(named: "barColor1")!,UIColor(named: "barColor2")!,UIColor(named: "barColor3")!,UIColor(named: "barColor4")!,UIColor(named: "barColor5")!]

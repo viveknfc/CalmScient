@@ -406,7 +406,6 @@
 		4AD5D16A2BD7A6C100E4C945 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD5D13F2BD7A6C100E4C945 /* HistoryVC.swift */; };
 		4AD5D16B2BD7A6C100E4C945 /* ScreeningListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD5D1402BD7A6C100E4C945 /* ScreeningListVC.swift */; };
 		4AD5D16C2BD7A6C100E4C945 /* ScreeningCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD5D1412BD7A6C100E4C945 /* ScreeningCell.swift */; };
-		4AD5D16D2BD7A6C100E4C945 /* ScreeningListVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AD5D1422BD7A6C100E4C945 /* ScreeningListVC.storyboard */; };
 		4AD5D16E2BD7A6C100E4C945 /* QuestionnairesVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AD5D1432BD7A6C100E4C945 /* QuestionnairesVC.storyboard */; };
 		4AD5D16F2BD7A6C100E4C945 /* HistoryVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AD5D1442BD7A6C100E4C945 /* HistoryVC.storyboard */; };
 		4AD5D1702BD7A6C100E4C945 /* ScreeningCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AD5D1452BD7A6C100E4C945 /* ScreeningCell.xib */; };
@@ -443,6 +442,7 @@
 		C21BD59A2D2C44AC005BA00D /* KeyChainFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21BD5992D2C44AB005BA00D /* KeyChainFile.swift */; };
 		C21C6D5A2DD4E23E009120F8 /* TakingcontrolfirstscreenStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = C21C6D592DD4E23E009120F8 /* TakingcontrolfirstscreenStruct.swift */; };
 		C22228312DB901B700A4CBC2 /* whiteGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = C22228302DB901B700A4CBC2 /* whiteGif.gif */; };
+		C225D0632E02C55D002A08B5 /* ScreeningListVC.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C225D0652E02C55D002A08B5 /* ScreeningListVC.storyboard */; };
 		C226A5722D0844B40080397A /* HoldYourLiquorVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C226A5712D0844B40080397A /* HoldYourLiquorVC.swift */; };
 		C226A5762D089AAA0080397A /* VivTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C226A5752D089AAA0080397A /* VivTableViewCell.xib */; };
 		C226A5782D08A3260080397A /* VivCustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C226A5772D08A3260080397A /* VivCustomTableViewCell.swift */; };
@@ -527,6 +527,8 @@
 		C2B94B152D6A1DA9006C0D91 /* IrritabilityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B94B142D6A1DA9006C0D91 /* IrritabilityViewController.swift */; };
 		C2B94B172D6A2071006C0D91 /* DifficultyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B94B162D6A2071006C0D91 /* DifficultyViewController.swift */; };
 		C2B94B192D6A27BB006C0D91 /* IncreasedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2B94B182D6A27BB006C0D91 /* IncreasedViewController.swift */; };
+		C2C81A4A2DF85B8800D84A36 /* ScreeningUpdatedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C81A492DF85B8700D84A36 /* ScreeningUpdatedCell.swift */; };
+		C2C81A4C2DF85BBF00D84A36 /* ScreeningUpdatedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2C81A4B2DF85BBF00D84A36 /* ScreeningUpdatedCell.xib */; };
 		C2CFEF712D81CABE00192126 /* MySmokingHabitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CFEF702D81CABE00192126 /* MySmokingHabitVC.swift */; };
 		C2D1A3042D019C1D009CAB47 /* ConSub2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D1A3032D019C1D009CAB47 /* ConSub2VC.swift */; };
 		C2D1A3062D01C40D009CAB47 /* ConSub3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D1A3052D01C40D009CAB47 /* ConSub3VC.swift */; };
@@ -976,7 +978,6 @@
 		4AD5D13F2BD7A6C100E4C945 /* HistoryVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 		4AD5D1402BD7A6C100E4C945 /* ScreeningListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreeningListVC.swift; sourceTree = "<group>"; };
 		4AD5D1412BD7A6C100E4C945 /* ScreeningCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScreeningCell.swift; sourceTree = "<group>"; };
-		4AD5D1422BD7A6C100E4C945 /* ScreeningListVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ScreeningListVC.storyboard; sourceTree = "<group>"; };
 		4AD5D1432BD7A6C100E4C945 /* QuestionnairesVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = QuestionnairesVC.storyboard; sourceTree = "<group>"; };
 		4AD5D1442BD7A6C100E4C945 /* HistoryVC.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HistoryVC.storyboard; sourceTree = "<group>"; };
 		4AD5D1452BD7A6C100E4C945 /* ScreeningCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ScreeningCell.xib; sourceTree = "<group>"; };
@@ -1014,6 +1015,8 @@
 		C21BD5992D2C44AB005BA00D /* KeyChainFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainFile.swift; sourceTree = "<group>"; };
 		C21C6D592DD4E23E009120F8 /* TakingcontrolfirstscreenStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakingcontrolfirstscreenStruct.swift; sourceTree = "<group>"; };
 		C22228302DB901B700A4CBC2 /* whiteGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = whiteGif.gif; sourceTree = "<group>"; };
+		C225D0642E02C55D002A08B5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ScreeningListVC.storyboard; sourceTree = "<group>"; };
+		C225D0662E02C55D002A08B5 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/ScreeningListVC.xcstrings; sourceTree = "<group>"; };
 		C226A5712D0844B40080397A /* HoldYourLiquorVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoldYourLiquorVC.swift; sourceTree = "<group>"; };
 		C226A5752D089AAA0080397A /* VivTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VivTableViewCell.xib; sourceTree = "<group>"; };
 		C226A5772D08A3260080397A /* VivCustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VivCustomTableViewCell.swift; sourceTree = "<group>"; };
@@ -1100,6 +1103,8 @@
 		C2B94B142D6A1DA9006C0D91 /* IrritabilityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IrritabilityViewController.swift; sourceTree = "<group>"; };
 		C2B94B162D6A2071006C0D91 /* DifficultyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DifficultyViewController.swift; sourceTree = "<group>"; };
 		C2B94B182D6A27BB006C0D91 /* IncreasedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncreasedViewController.swift; sourceTree = "<group>"; };
+		C2C81A492DF85B8700D84A36 /* ScreeningUpdatedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreeningUpdatedCell.swift; sourceTree = "<group>"; };
+		C2C81A4B2DF85BBF00D84A36 /* ScreeningUpdatedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScreeningUpdatedCell.xib; sourceTree = "<group>"; };
 		C2CFEF702D81CABE00192126 /* MySmokingHabitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySmokingHabitVC.swift; sourceTree = "<group>"; };
 		C2D1A3032D019C1D009CAB47 /* ConSub2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConSub2VC.swift; sourceTree = "<group>"; };
 		C2D1A3052D01C40D009CAB47 /* ConSub3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConSub3VC.swift; sourceTree = "<group>"; };
@@ -2415,7 +2420,7 @@
 				4AD5D13F2BD7A6C100E4C945 /* HistoryVC.swift */,
 				4AD5D1402BD7A6C100E4C945 /* ScreeningListVC.swift */,
 				4AD5D1412BD7A6C100E4C945 /* ScreeningCell.swift */,
-				4AD5D1422BD7A6C100E4C945 /* ScreeningListVC.storyboard */,
+				C225D0652E02C55D002A08B5 /* ScreeningListVC.storyboard */,
 				4AD5D1432BD7A6C100E4C945 /* QuestionnairesVC.storyboard */,
 				4AD5D1442BD7A6C100E4C945 /* HistoryVC.storyboard */,
 				4AD5D1452BD7A6C100E4C945 /* ScreeningCell.xib */,
@@ -2423,6 +2428,8 @@
 				4AD5D1472BD7A6C100E4C945 /* HistoryCell.swift */,
 				4AD5D1482BD7A6C100E4C945 /* QuestionCell.xib */,
 				4A0E1F9B2BEB3AAA008389C4 /* ScreeningsAPIRequest.swift */,
+				C2C81A492DF85B8700D84A36 /* ScreeningUpdatedCell.swift */,
+				C2C81A4B2DF85BBF00D84A36 /* ScreeningUpdatedCell.xib */,
 			);
 			path = Screenings;
 			sourceTree = "<group>";
@@ -2781,6 +2788,7 @@
 				43508AD92C4A70AD000B5645 /* comingsoon.png in Resources */,
 				4A98BFE92BF6902E00C9D043 /* ProfilePrivacyTableViewCell.xib in Resources */,
 				4A65C3312BD6859800809222 /* lexendextralight.ttf in Resources */,
+				C2C81A4C2DF85BBF00D84A36 /* ScreeningUpdatedCell.xib in Resources */,
 				4A7B046E2BDCADD10052BBB8 /* UpdateMedicationsTableViewCell.xib in Resources */,
 				43AB77402C63DBC800740BA6 /* weeklySummay1.png in Resources */,
 				43A08DB92C3EE5F20082F47B /* Lexend-Thin.ttf in Resources */,
@@ -2829,7 +2837,7 @@
 				4A8044832BD91E370054A120 /* TimeCell.xib in Resources */,
 				431C24812C46DF0B00909C24 /* LoginVC.storyboard in Resources */,
 				C2B8233E2D1D5F4500FC1291 /* SomkingIndexResourceCell.xib in Resources */,
-				4AD5D16D2BD7A6C100E4C945 /* ScreeningListVC.storyboard in Resources */,
+				C225D0632E02C55D002A08B5 /* ScreeningListVC.storyboard in Resources */,
 				43A08D952C3D35380082F47B /* FavoritesVideosWebViewController.storyboard in Resources */,
 				432EBE1E2C2BF49F000BB69A /* FactorCell.xib in Resources */,
 				4A0853AC2C21684B00202C02 /* introductionTakingPage.storyboard in Resources */,
@@ -3061,6 +3069,7 @@
 				4AD5D1632BD7A6C100E4C945 /* NextAppointmentsViewController.swift in Sources */,
 				C2B94B192D6A27BB006C0D91 /* IncreasedViewController.swift in Sources */,
 				4A78A1342BDF2A0400D1EFC1 /* ProgressCollapsableTableCell.swift in Sources */,
+				C2C81A4A2DF85B8800D84A36 /* ScreeningUpdatedCell.swift in Sources */,
 				C28D0E2D2D00B16000517693 /* ConSub1VC.swift in Sources */,
 				4AA705632BDE0CD50013932B /* WeeklySummary.swift in Sources */,
 				4AA5922C2BDF69DC001FE6B3 /* JournalEntryMainViewController.swift in Sources */,
@@ -3389,6 +3398,15 @@
 				431C241A2C4662A300909C24 /* en */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		C225D0652E02C55D002A08B5 /* ScreeningListVC.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C225D0642E02C55D002A08B5 /* Base */,
+				C225D0662E02C55D002A08B5 /* mul */,
+			);
+			name = ScreeningListVC.storyboard;
 			sourceTree = "<group>";
 		};
 		C285DF5F2DF0796900896F7D /* ProfileViewController.storyboard */ = {

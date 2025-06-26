@@ -8,7 +8,7 @@
 // Profile
 
 "Profile" = "Perfil";
-"Version 1.0.1" = "Versión 1.1.7";
+"Version 1.0.1" = "Versión 1.2.0";
 
 
 // Login
@@ -17,6 +17,10 @@
 "Password" = "Contraseña";
 "Forgot Password?" = "¿Has olvidado tu contraseña?";
 "Create an New account" = "Crea una cuenta nueva";
+
+"View history" = "Ver historial";
+"Take the screening" = "Realize la evaluación";
+"All fields are required" = "Todos los campos son obligatorios";
 
 //Create Account
 "First Name" = "Nombre";
@@ -165,7 +169,7 @@ Estos individuos tienden a beber más, socializar con personas que beben mucho y
 //check mail vc
 "Check your email" = "Consultar su correo electrónico";
 "Enter the 4-digit code that we have sent via email xxxxxxxxxx@gmail.com" = "Introduce el código de 4 dígitos que te hemos enviado al correo electrónico xxxxxxxxxx@gmail.com";
-"Verify Code" = "Código de verificación";
+"Verify Code" = "Verificar código";
 
 
 //forgot password

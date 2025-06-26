@@ -51,10 +51,10 @@ class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSour
     ]
     
     var sdata = [
-            ("Está pensando en dejar de fumar", UIImage(named: "check") ?? UIImage(), ["Lo está considerando pero aún no ha tomado una decisión.\n\n¡Está perfectamente bien! Lo guiaremos a través de los beneficios de dejar de fumar y luego podrá decidir si desea crear un plan para dejar de fumar.\nPase a hacer un plan."], false),
-            ("Preparándose para dejar de fumar", UIImage(named: "check") ?? UIImage(), ["Has decidido dejar de fumar.\n\n¡Excelente decisión! Te guiaremos sobre cómo crear un plan sólido y te ayudaremos a mantenerte concentrado en tu viaje.\nPasa a hacer un plan."], false),
-            ("Dejar de fumar", UIImage(named: "check") ?? UIImage(), ["Ya comenzó o fijó una fecha para dejar de fumar.\n\n¡Eso es genial! Lo ayudaremos a crear un plan estratégico y mantenerse enfocado en su objetivo.\nPase a hacer un plan."], false),
-            ("Permanecer libre de humo", UIImage(named: "check") ?? UIImage(), ["Te estás concentrando en evitar recaídas y mantener tu progreso.\n\nEso es fantástico. Es importante no bajar la guardia. Estaremos aquí para ayudarte a mantenerte fuerte.\nPasa a Haz un plan para registrar el día en que empezaste a dejar de fumar, luego podrás usar Mantente enfocado."], false)
+            ("Está pensando en dejar de fumar", UIImage(named: "check") ?? UIImage(), ["¡Está perfectamente bien! Te guiaremos para que veas los beneficios de dejar de fumar, y luego podrás decidir si deseas crear un plan para dejarlo. \nIr a Crear un plan."], false),
+            ("Preparándose para dejar de fumar", UIImage(named: "check") ?? UIImage(), ["Has decidido dejar de fumar.\n\n¡Excelente decisión! Te guiaremos para que puedas crear un plan sólido y te ayudaremos a mantenerte enfocado en tu camino.\nIr a Crear un plan."], false),
+            ("Dejar de fumar", UIImage(named: "check") ?? UIImage(), ["Ya has comenzado o ya tienes una fecha para dejar de fumar.\n\nTe ayudaremos a crear un plan estratégico y a mantenerte enfocado en tu objetivo.\nIr a Crear un plan."], false),
+            ("Permanecer libre de humo", UIImage(named: "check") ?? UIImage(), ["Te estás enfocando en evitar recaídas y mantener tu progreso.\n\nEso es fantástico. Es importante no bajar la guardia. Estaremos aquí para apoyarte y Eduarte a mantenerte firme.\nIr a Crear un plan para registrar el día en que comenzaste a dejar de fumar, luego podrás usar la opción Mantente enfocado."], false)
         ]
 
     

@@ -133,6 +133,10 @@ open class YAxisRenderer: NSObject, AxisRenderer
         
         let xOffset = axis.labelXOffset
         
+        guard from < to, positions.count >= to else {
+            return  // Safely exit if loop range would be invalid
+        }
+        
         for i in from..<to
         {
             let text = axis.getFormattedLabel(i)

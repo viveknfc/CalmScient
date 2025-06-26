@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="lexendregular.ttf">
+        <array key="Lexend-Regular.ttf">
             <string>Lexend-Regular</string>
         </array>
     </customFonts>
@@ -366,7 +366,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="e8n-Ew-pco">
-                                <rect key="frame" x="0.0" y="171" width="393" height="150"/>
+                                <rect key="frame" x="0.0" y="170" width="393" height="150"/>
                                 <color key="backgroundColor" name="AppBackGroundColor"/>
                                 <color key="tintColor" red="0.42882183190000001" green="0.41974490879999998" blue="0.68238306049999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -374,7 +374,7 @@
                                 </constraints>
                             </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r1p-7f-5jb">
-                                <rect key="frame" x="332" y="119" width="41" height="32"/>
+                                <rect key="frame" x="335" y="119" width="38" height="31"/>
                                 <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="16"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Done">
@@ -385,7 +385,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J8T-Qe-lvy">
-                                <rect key="frame" x="20" y="119" width="53" height="32"/>
+                                <rect key="frame" x="20" y="119" width="50" height="31"/>
                                 <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="16"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -5686,13 +5686,13 @@ One or more “Yes” responses is regarded as a positive screening test, indica
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="AUDIT" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JFk-gA-fL9">
-                                <rect key="frame" x="30.000000000000004" y="209" width="51.333333333333343" height="20"/>
+                                <rect key="frame" x="29.999999999999996" y="209.66666666666666" width="46.666666666666657" height="18.666666666666657"/>
                                 <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="For alcohol use" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vya-BG-mzO">
-                                <rect key="frame" x="260.33333333333331" y="210.33333333333334" width="102.66666666666669" height="17.666666666666657"/>
+                                <rect key="frame" x="267" y="211" width="96" height="16.333333333333343"/>
                                 <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -5708,13 +5708,13 @@ One or more “Yes” responses is regarded as a positive screening test, indica
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DAST-10" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PuW-pH-Zq7">
-                                <rect key="frame" x="30" y="309" width="64.666666666666671" height="20"/>
+                                <rect key="frame" x="30.000000000000004" y="309.66666666666669" width="63.333333333333343" height="18.666666666666686"/>
                                 <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="smoking and drug use" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nIQ-fW-CF2">
-                                <rect key="frame" x="212.33333333333337" y="310.33333333333331" width="150.66666666666663" height="17.666666666666686"/>
+                                <rect key="frame" x="223.33333333333337" y="311" width="139.66666666666663" height="16.333333333333314"/>
                                 <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="14"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -5793,10 +5793,10 @@ One or more “Yes” responses is regarded as a positive screening test, indica
                                 <rect key="frame" x="0.0" y="59" width="393" height="793"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="mpX-0r-5qF">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="810.33333333333337"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="830.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wa3-xn-LRv">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="810.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="830.33333333333337"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LKH-vS-ag5" userLabel="toplabel">
                                                         <rect key="frame" x="20" y="10" width="353" height="200"/>
@@ -5846,16 +5846,16 @@ One or more “Yes” responses is regarded as a positive screening test, indica
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TLz-sl-flr" userLabel="label3" customClass="FontLL14" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="470" width="353" height="60"/>
+                                                        <rect key="frame" x="20" y="470" width="353" height="80"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="60" id="X35-nH-Sdf"/>
+                                                            <constraint firstAttribute="height" constant="80" id="X35-nH-Sdf"/>
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L0S-20-7Ep" userLabel="button3">
-                                                        <rect key="frame" x="20" y="550" width="353" height="40"/>
+                                                        <rect key="frame" x="20" y="570" width="353" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="kcB-9R-W9r"/>
                                                         </constraints>
@@ -5869,7 +5869,7 @@ One or more “Yes” responses is regarded as a positive screening test, indica
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y6m-fQ-P9f" userLabel="label4" customClass="FontLL14" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="610" width="353" height="40"/>
+                                                        <rect key="frame" x="20" y="630" width="353" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="I1w-n4-7eU"/>
                                                         </constraints>
@@ -5878,7 +5878,7 @@ One or more “Yes” responses is regarded as a positive screening test, indica
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oP8-S0-lPj" userLabel="button4">
-                                                        <rect key="frame" x="20" y="690" width="20" height="20"/>
+                                                        <rect key="frame" x="20" y="710" width="20" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="20" id="BtW-GZ-bj8"/>
                                                             <constraint firstAttribute="height" constant="20" id="fYI-EX-PSo"/>
@@ -5890,13 +5890,13 @@ One or more “Yes” responses is regarded as a positive screening test, indica
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YG7-dY-XZg" userLabel="label5" customClass="FontLL14" customModule="CalmscientIOS" customModuleProvider="target">
-                                                        <rect key="frame" x="50" y="689.66666666666663" width="323" height="20.666666666666629"/>
+                                                        <rect key="frame" x="50" y="710" width="323" height="20.333333333333371"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NlP-uj-Rr8">
-                                                        <rect key="frame" x="20" y="750.33333333333337" width="40" height="40"/>
+                                                        <rect key="frame" x="20" y="770.33333333333337" width="40" height="40"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="40" id="TnQ-En-3Zw"/>
                                                             <constraint firstAttribute="width" constant="40" id="kow-6C-o8t"/>
@@ -7396,14 +7396,14 @@ Depression is common because when you smoke a lot, your brain kind of switches o
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="5" reuseIdentifier="AlarmCell" id="J2z-nw-MkN">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="47"/>
+                                        <rect key="frame" x="0.0" y="50" width="393" height="47.333332061767578"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="J2z-nw-MkN" id="DwJ-Zm-npW">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="47"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="47.333332061767578"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" tag="1" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YhX-TR-85e" customClass="FontLL14" customModule="CalmscientIOS" customModuleProvider="target">
-                                                    <rect key="frame" x="40" y="13" width="313" height="21"/>
+                                                    <rect key="frame" x="40" y="12.999999999999998" width="313" height="21.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>

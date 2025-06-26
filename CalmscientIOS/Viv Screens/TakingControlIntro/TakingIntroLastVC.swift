@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TakingIntroLastVC: ViewController {
+class TakingIntroLastVC: UIViewController {
     
     @IBOutlet weak var label1: UILabel!
     @IBOutlet weak var label2: FontLL14!
@@ -56,8 +56,41 @@ class TakingIntroLastVC: ViewController {
         
         button4.setImage(UIImage(named: "uncheck_img"), for: .normal)
         button4.setImage(UIImage(named: "checkbox"), for: .selected)
+        
+        //nav bar back button start
+        let backButtonImage = UIImage(named: "NavigationBack")?.withRenderingMode(.alwaysOriginal)
+
+        // Create a UIButton
+        let backButton = UIButton(type: .custom)
+        backButton.setImage(backButtonImage, for: .normal)
+        backButton.addTarget(self, action: #selector(backButtonOverrideAction), for: .touchUpInside)
+
+        // Set constraints to adjust the size
+        backButton.translatesAutoresizingMaskIntoConstraints = false
+        backButton.widthAnchor.constraint(equalToConstant: 32).isActive = true // Set desired width
+        backButton.heightAnchor.constraint(equalToConstant: 32).isActive = true // Set desired height
+
+        // Create a UIBarButtonItem using the UIButton
+        let backBarButtonItem = UIBarButtonItem(customView: backButton)
+        navigationItem.leftBarButtonItem = backBarButtonItem
 
     }
+    
+    @objc func backButtonOverrideAction() {
+
+            if #available(iOS 16.0, *) {
+                let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+                let vc = next.instantiateViewController(withIdentifier: "TakingControlIndex") as? TakingControlIndex
+                vc?.title = AppHelper.getLocalizeString(str: "Taking control")
+                vc?.initialSegmentIndex = 0
+                
+                self.navigationController?.pushViewController(vc!, animated: true)
+            } else {
+                // Fallback on earlier versions
+            }
+        
+    }
+
     
     
     @IBAction func drinkingciachButtonPressed(_ sender: Any) {

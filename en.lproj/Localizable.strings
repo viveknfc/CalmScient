@@ -7,11 +7,12 @@
 */
 
 "Profile" = "Profile";
-"Version 1.0.1" = "Version 1.1.7";
+"Version 1.0.1" = "Version 1.2.0";
 "Username" = "Username";
 "Password" = "Password";
 "Forgot Password?" = "Forgot Password?";
 "Create an New account" = "Create an New account";
+"All fields are required" = "All fields are required";
 
 //create account
 "First Name" = "First name";
@@ -21,6 +22,9 @@
 "Password" = "Password";
 "Confirm Password" = "Confirm Password";
 "Submit" = "Submit";
+
+"View history" = "View history";
+"Take the screening" = "Take the screening";
 
 //basic standard drink
 "Basic Knowledge" = "Basic knowledge";

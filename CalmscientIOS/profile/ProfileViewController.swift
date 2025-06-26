@@ -157,7 +157,7 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 40, height: 40),
-                title: "Old password is required.",
+                title: AppHelper.getLocalizeString(str: "All fields are required"),
                 okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {
 
@@ -173,7 +173,7 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 40, height: 40),
-                title: "New password is required.",
+                title: AppHelper.getLocalizeString(str: "All fields are required"),
                 okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {
 
@@ -199,7 +199,7 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 40, height: 40),
-                title: "Confirm password is required.",
+                title: AppHelper.getLocalizeString(str: "All fields are required"),
                 okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {
 
@@ -348,10 +348,10 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
                             self.view.hideToastActivity()
                             
                             print(json)
-                           
-                            self.view.showToast(message: "Profile updated succeffully")
-                            self.navigationController?.popViewController(animated: true)
-                        
+                            self.showSuccessAlert(successContent: json["responseMessage"] as? String, centreImage: nil) {
+                                self.navigationController?.popViewController(animated: true)
+                            }
+ 
                     }
                     
                 } else {

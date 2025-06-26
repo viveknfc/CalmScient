@@ -54,7 +54,8 @@ class SleepSummaryTableViewCell: UITableViewCell {
         progressView.progress = progress
          
          // Change progress bar color based on sleep range
-        progressView.progressTintColor = getProgressColor(for: Int(sleptHours))
+        let sleptHoursInt = Int(sleptHours)
+        progressView.progressTintColor = getProgressColor(for: sleptHoursInt)
         progressView.trackTintColor = UIColor.lightGray
      }
     

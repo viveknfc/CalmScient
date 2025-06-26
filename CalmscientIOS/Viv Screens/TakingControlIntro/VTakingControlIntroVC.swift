@@ -302,7 +302,12 @@ class VTakingControlIntroVC: UIViewController {
             print("Response received from Get Drinking Data API calling is", responseString)
         } else if let responseDict = response as? [String: Any] {
             do {
-                let jsonData = try JSONSerialization.data(withJSONObject: responseDict, options: [])
+                let jsonData = try JSONSerialization.data(withJSONObject: responseDict, options: [.prettyPrinted])
+                
+                if let jsonString = String(data: jsonData, encoding: .utf8) {
+                    print("Serialized JSON:\n\(jsonString)")
+                }
+                
                 let decodedResponse = try JSONDecoder().decode(ScreeningResponse.self, from: jsonData)
                 
                 let allScreenings = decodedResponse.screeningList
@@ -310,7 +315,7 @@ class VTakingControlIntroVC: UIViewController {
                 self.auditScreeningData = allScreenings.filter { $0.screeningType.uppercased() == "AUDIT" }
                 self.dast10ScreeningData = allScreenings.filter { $0.screeningType.uppercased() == "DAST-10" }
                 
-                if let cageAssessment = allScreenings.first(where: { $0.screeningType == "CAGE" }) {
+                if let cageAssessment = allScreenings.first(where: { $0.screeningType == "CAGE-AID" }) {
                     assessmentId = cageAssessment.assessmentID
                     print("CAGE Assessment ID: \(cageAssessment.assessmentID)")
                     

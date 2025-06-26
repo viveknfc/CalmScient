@@ -50,8 +50,8 @@ class LoginVC: UIViewController,UITextFieldDelegate {
 //          userNameTextField.text = "simhachalamb@nfcsolutionsusa.com"
 //          passwordTextField.text = "Simha@1234"
         
-        userNameTextField.text = "vivekl@nfcsolutionsusa.com"
-        passwordTextField.text = "Test@1234"
+//        userNameTextField.text = "vivekl@nfcsolutionsusa.com"
+//        passwordTextField.text = "Test@1234"
         
         userNameTextField.delegate = self
         userNameTextField.layer.borderColor = UIColor(named: "AppBorderColor")?.cgColor
@@ -101,11 +101,38 @@ class LoginVC: UIViewController,UITextFieldDelegate {
         let tapGesture1 = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGesture1.cancelsTouchesInView = false // Allow table view cell selection
         view.addGestureRecognizer(tapGesture1)
+        
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(saveUsername),
+            name: UIApplication.willResignActiveNotification,
+            object: nil)
+
+        NotificationCenter.default.addObserver(self,
+            selector: #selector(restoreUsername),
+            name: UIApplication.didBecomeActiveNotification,
+            object: nil)
+        
     }
     
     @objc private func dismissKeyboard() {
         view.endEditing(true)
     }
+    
+    @objc func saveUsername() {
+        UserDefaults.standard.set(userNameTextField.text, forKey: "temp_username")
+        UserDefaults.standard.set(passwordTextField.text, forKey: "temp_password")
+    }
+
+    @objc func restoreUsername() {
+        if let saved = UserDefaults.standard.string(forKey: "temp_username") {
+            userNameTextField.text = saved
+        }
+        if let savedPassword = UserDefaults.standard.string(forKey: "temp_password") {
+            passwordTextField.text = savedPassword
+        }
+
+    }
+
     
     func setupLanguage() {
         
@@ -143,6 +170,7 @@ class LoginVC: UIViewController,UITextFieldDelegate {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
+
     
     @objc func forgotPasswordGesture(tapGestureRecognizer: UITapGestureRecognizer)
     {
@@ -180,6 +208,8 @@ class LoginVC: UIViewController,UITextFieldDelegate {
     
     @IBAction func didClickOnLoginButton(_ sender: UIButton) {
         
+        UserDefaults.standard.removeObject(forKey: "temp_username")
+        UserDefaults.standard.removeObject(forKey: "temp_password")
         
         guard let userNameText = userNameTextField.text?.trimmingCharacters(in: .whitespaces), !userNameText.isEmpty else {
             self.view.showToast(message: "Username or Password can't be empty.")
@@ -361,8 +391,10 @@ class LoginVC: UIViewController,UITextFieldDelegate {
     
     func getresponseforUserStartUpAPI(response:AnyObject)->() {
         
-        self.view.hideToastActivity()
-
+        DispatchQueue.main.async {
+            self.view.hideToastActivity()
+        }
+       
         if let responseString = response as? String {
             print("Response received from User Startup API calling is", responseString)
             

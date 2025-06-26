@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ScreeningListVC: ViewController {
     
@@ -25,7 +26,8 @@ class ScreeningListVC: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        screeningListTable.register(UINib(nibName: "ScreeningCell", bundle: nil), forCellReuseIdentifier: "ScreeningCell")
+//        screeningListTable.register(UINib(nibName: "ScreeningCell", bundle: nil), forCellReuseIdentifier: "ScreeningCell")
+        screeningListTable.register(UINib(nibName: "ScreeningUpdatedCell", bundle: nil), forCellReuseIdentifier: "ScreeningUpdatedCell")
         self.screeningListTable.delegate = self
         self.screeningListTable.dataSource = self
         
@@ -117,36 +119,50 @@ extension ScreeningListVC: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell:ScreeningCell = self.screeningListTable.dequeueReusableCell(withIdentifier: "ScreeningCell") as? ScreeningCell else {
+        guard let cell = self.screeningListTable.dequeueReusableCell(withIdentifier: "ScreeningUpdatedCell") as? ScreeningUpdatedCell else {
             return UITableViewCell()
         }
         let data = screeningData[indexPath.row]
+        
         if data.archiveFlag > 0 {
-            cell.historyIcon.isHidden = false
+            cell.viewHistoryButton.isHidden = false
+            cell.onHistoryButtonTapped = { [weak self] in
+                let storyboard = UIStoryboard(name: "HistoryVC", bundle: nil)
+                if let vc = storyboard.instantiateViewController(withIdentifier: "HistoryVC") as? HistoryVC {
+                    vc.selectedScreening = data
+                    self?.navigationController?.pushViewController(vc, animated: true)
+                }
+            }
         } else {
-            cell.historyIcon.isHidden = true
+            cell.viewHistoryButton.isHidden = true
         }
-        cell.configureCell(celldata: data)
+        
+        cell.viewHistoryButton.titleLabel?.font = UIFont(name: Fonts().lexendMedium, size: 14)
+        cell.viewHistoryButton.setTitleColor(#colorLiteral(red: 0.4635629654, green: 0.505692482, blue: 0.7547530532, alpha: 1), for: .normal)
+        cell.viewHistoryButton.layer.borderWidth = 1
+        cell.viewHistoryButton.layer.borderColor = #colorLiteral(red: 0.4635629654, green: 0.505692482, blue: 0.7547530532, alpha: 1).cgColor
+
+        cell.screeningButton.titleLabel?.font = UIFont(name: Fonts().lexendMedium, size: 14)
+        cell.screeningButton.setTitleColor(.white, for: .normal)
+
+        
+        cell.viewHistoryButton.setTitle(AppHelper.getLocalizeString(str: "View history"), for: .normal)
+        cell.screeningButton.setTitle(AppHelper.getLocalizeString(str: "Take the screening"), for: .normal)
+
+        cell.headText.text = data.screeningType
+        cell.subtext.text = data.screeningReminder
         cell.selectionStyle = .none
-        cell.onHistoryClick = { [weak self] in
-            let next = UIStoryboard(name: "HistoryVC", bundle: nil)
-            let vc = next.instantiateViewController(withIdentifier: "HistoryVC") as? HistoryVC
-            vc?.selectedScreening = data
-            self?.navigationController?.pushViewController(vc!, animated: true)
-        }
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedScreening = screeningData[indexPath.row]
-//        print("the screening status is", selectedScreening.screeningStatus.lowercased())
-//        if selectedScreening.screeningStatus.lowercased() != "completed" {
+        let iconUrlString = data.iconUrl
+        cell.mainImg.sd_setImage(with: URL(string: iconUrlString), placeholderImage: UIImage(named: "placeholder"))
+        
+        cell.onScreeningButtonTapped = { [weak self] in
+            
             let next = UIStoryboard(name: "ScreeningQuestions", bundle: nil)
             let vc = next.instantiateViewController(withIdentifier: "ScreeningQuestionsViewController") as? ScreeningQuestionsViewController
-            vc?.selectedScreening = screeningData[indexPath.row]
-            
-            print("screeningData===\(screeningData)")
-            
+            vc?.selectedScreening = self?.screeningData[indexPath.row]
+
+            print("screeningData===\(String(describing: self?.screeningData))")
+
             vc?.screeningAllQuestionsSuccessfullySubmittedClosure = { [weak self] obj in
                 guard let self = self else {
                     return
@@ -161,14 +177,64 @@ extension ScreeningListVC: UITableViewDelegate, UITableViewDataSource{
                 }
                 self.navigationController?.pushViewController(vc!, animated: true)
             }
-            self.navigationController?.pushViewController(vc!, animated: true)
+            self?.navigationController?.pushViewController(vc!, animated: true)
+            
+        }
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 240
+    }
+    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        guard let cell:ScreeningCell = self.screeningListTable.dequeueReusableCell(withIdentifier: "ScreeningCell") as? ScreeningCell else {
+//            return UITableViewCell()
+//        }
+//        let data = screeningData[indexPath.row]
+//        if data.archiveFlag > 0 {
+//            cell.historyIcon.isHidden = false
 //        } else {
+//            cell.historyIcon.isHidden = true
+//        }
+//        cell.configureCell(celldata: data)
+//        cell.selectionStyle = .none
+//        cell.onHistoryClick = { [weak self] in
 //            let next = UIStoryboard(name: "HistoryVC", bundle: nil)
 //            let vc = next.instantiateViewController(withIdentifier: "HistoryVC") as? HistoryVC
-//            vc?.selectedScreening = screeningData[indexPath.row]
-//            self.navigationController?.pushViewController(vc!, animated: true)
+//            vc?.selectedScreening = data
+//            self?.navigationController?.pushViewController(vc!, animated: true)
 //        }
-    }
+//        return cell
+//    }
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        let selectedScreening = screeningData[indexPath.row]
+//
+//            let next = UIStoryboard(name: "ScreeningQuestions", bundle: nil)
+//            let vc = next.instantiateViewController(withIdentifier: "ScreeningQuestionsViewController") as? ScreeningQuestionsViewController
+//            vc?.selectedScreening = screeningData[indexPath.row]
+//            
+//            print("screeningData===\(screeningData)")
+//            
+//            vc?.screeningAllQuestionsSuccessfullySubmittedClosure = { [weak self] obj in
+//                guard let self = self else {
+//                    return
+//                }
+//                let next = UIStoryboard(name: "ScreeningResultVC", bundle: nil)
+//                let vc = next.instantiateViewController(withIdentifier: "ScreeningResultVC") as? ScreeningResultVC
+//                vc?.selectedScreening = obj
+//                if isComingFromParticularVC {
+//                    vc?.isComingFromParticularVC = true
+//                } else if isComingFromParticularVC1 {
+//                    vc?.isComingFromParticularVC1 = true
+//                }
+//                self.navigationController?.pushViewController(vc!, animated: true)
+//            }
+//            self.navigationController?.pushViewController(vc!, animated: true)
+//
+//    }
 }
 
 

@@ -167,9 +167,9 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
         journalDataFunc(date: "")
 
         let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            let title1 = languageId == 1 ? "Quiz" : "Prueba"
+            let title1 = languageId == 1 ? "Quiz" : "Cuestionario"
             quizButton.setTitle(title1, for: .normal)
-        let title2 = languageId == 1 ? "Daily journal" : "diario"
+        let title2 = languageId == 1 ? "Daily journal" : "Diario"
         dailyButton.setTitle(title2, for: .normal)
         
         let title3 = languageId == 1 ? "Discovery \nExcercise" : "Ejercicio de descubrimiento"

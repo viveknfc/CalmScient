@@ -22,6 +22,7 @@ class Screening: Codable {
     let assessmentID: Int
     let archiveFlag: Int
     let clientID: Int
+    let iconUrl: String
     let screeningStatus: String
     let screeningReminder: String?
     
@@ -38,6 +39,7 @@ class Screening: Codable {
         case clientID
         case screeningStatus
         case screeningReminder
+        case iconUrl
     }
     
     
@@ -55,6 +57,7 @@ class Screening: Codable {
         self.clientID = try container.decode(Int.self, forKey: .clientID)
         self.screeningStatus = try container.decode(String.self, forKey: .screeningStatus)
         self.screeningReminder = try container.decodeIfPresent(String.self, forKey: .screeningReminder)
+        self.iconUrl = try container.decode(String.self, forKey: .iconUrl)
     }
     
     func encode(to encoder: any Encoder) throws {
@@ -71,6 +74,7 @@ class Screening: Codable {
         try container.encode(self.clientID, forKey: .clientID)
         try container.encode(self.screeningStatus, forKey: .screeningStatus)
         try container.encodeIfPresent(self.screeningReminder, forKey: .screeningReminder)
+        try container.encode(self.iconUrl, forKey: .iconUrl)
     }
     
 }

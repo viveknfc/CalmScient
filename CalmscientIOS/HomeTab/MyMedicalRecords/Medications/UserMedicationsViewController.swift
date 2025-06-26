@@ -196,14 +196,20 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     
     func getresponseforMarkMedicationAPI(response:AnyObject)->() {
 
-        getMedicationsData(forDate: selectedNewDate) //Date()
+//        getMedicationsData(forDate: selectedNewDate) //Date()
         
         if let responseDict = response as? [String: Any],
            let responseCode = responseDict["responseCode"] as? Int,
            responseCode == 200 {
             print("medine updation success")
+            print("response is ", responseDict)
+            self.showSuccessAlert(successContent: responseDict["responseMessage"] as? String, centreImage: nil) { [self] in
+                getMedicationsData(forDate: selectedNewDate)
+            }
+            
         } else {
             print("Failed to mark medication. Response: \(response)")
+            getMedicationsData(forDate: selectedNewDate)
             self.view.hideToastActivity()
         }
     }

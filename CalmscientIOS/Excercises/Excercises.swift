@@ -34,7 +34,7 @@ class Excercises: ViewController {
          "Toque y el abrazo de mariposa",
         "Mano sobre tu corazón",
          "Caminata consciente",
-        "Movimiento: baile",
+        "Movimiento: Danza",
         "Movimiento: correr",
         "Movimiento corporal consciente",
         "Técnica de respiración"

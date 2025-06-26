@@ -43,12 +43,19 @@ class IntroSecondPageVC: ViewController {
     }
     
     @objc func backButtonOverrideAction() {
+
+            if #available(iOS 16.0, *) {
+                let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+                let vc = next.instantiateViewController(withIdentifier: "TakingControlIndex") as? TakingControlIndex
+                vc?.title = AppHelper.getLocalizeString(str: "Taking control")
+                vc?.initialSegmentIndex = 0
+                
+                self.navigationController?.pushViewController(vc!, animated: true)
+            } else {
+                // Fallback on earlier versions
+            }
         
-        let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "VTakingControlIntroVC") as? VTakingControlIntroVC
-        self.navigationController?.pushViewController(vc!, animated: true)
-    
-        }
+    }
     
     @IBAction func firstButtonPressed(_ sender: Any) {
         let next = UIStoryboard(name: "ScreeningQuestions", bundle: nil)

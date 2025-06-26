@@ -70,8 +70,8 @@
                                     <constraint firstAttribute="height" constant="196" id="L32-W5-vaG"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Rko-WC-uqu">
-                                <rect key="frame" x="48" y="283.33333333333331" width="297" height="40"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Rko-WC-uqu">
+                                <rect key="frame" x="80" y="283.33333333333331" width="233" height="40"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" background="RectangleText" translatesAutoresizingMaskIntoConstraints="NO" id="a5v-Hm-NfQ">
                                         <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
@@ -86,7 +86,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" background="RectangleText" translatesAutoresizingMaskIntoConstraints="NO" id="C0G-7j-bHZ">
-                                        <rect key="frame" x="85.666666666666657" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="64.333333333333343" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="ffX-dn-rTN"/>
                                             <constraint firstAttribute="height" constant="40" id="n22-BC-hsa"/>
@@ -98,7 +98,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" background="RectangleText" translatesAutoresizingMaskIntoConstraints="NO" id="4PH-lw-s49">
-                                        <rect key="frame" x="171.33333333333334" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="128.66666666666666" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="Y0E-Cc-rcI"/>
                                             <constraint firstAttribute="height" constant="40" id="sWs-Cd-7a6"/>
@@ -110,7 +110,7 @@
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" background="RectangleText" translatesAutoresizingMaskIntoConstraints="NO" id="wfF-Ng-6oJ">
-                                        <rect key="frame" x="257" y="0.0" width="40" height="40"/>
+                                        <rect key="frame" x="193" y="0.0" width="40" height="40"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="40" id="oqX-dc-Jzj"/>
                                             <constraint firstAttribute="height" constant="40" id="pfw-df-efx"/>
@@ -137,9 +137,9 @@
                             <constraint firstItem="Rko-WC-uqu" firstAttribute="top" secondItem="kfu-dl-UN7" secondAttribute="bottom" constant="48" id="SPe-z5-6v9"/>
                             <constraint firstItem="kfu-dl-UN7" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="40" id="Unx-iV-qmM"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="oDj-E2-pow" secondAttribute="trailing" constant="40" id="V3q-fF-gdJ"/>
-                            <constraint firstItem="Rko-WC-uqu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="48" id="WX7-z8-mK8"/>
+                            <constraint firstItem="Rko-WC-uqu" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="80" id="WX7-z8-mK8"/>
                             <constraint firstItem="tBG-WR-Qc6" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="Yiw-0d-Yy0"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Rko-WC-uqu" secondAttribute="trailing" constant="48" id="du5-mN-wDN"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Rko-WC-uqu" secondAttribute="trailing" constant="80" id="du5-mN-wDN"/>
                             <constraint firstItem="tBG-WR-Qc6" firstAttribute="top" secondItem="Rko-WC-uqu" secondAttribute="bottom" constant="48" id="ehu-0U-icF"/>
                             <constraint firstItem="gUk-3U-gu9" firstAttribute="trailing" secondItem="5EZ-qb-Rvc" secondAttribute="trailing" id="kRL-u0-Xpt"/>
                             <constraint firstItem="kth-lk-KDW" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="lBM-9g-DiB"/>

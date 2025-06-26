@@ -13,6 +13,7 @@ pod 'Toast-Swift'
 pod 'AlamofireImage'
 pod 'SVGKit'
 pod 'SwiftyJSON'
+pod 'SDWebImage'
 
 end
 

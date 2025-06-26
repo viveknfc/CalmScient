@@ -15,6 +15,7 @@ class WeeklySummaryGraphViewController: ViewController {
     
     private let hardCodedStartDate:String = "05/12/2024"
     private let hardCodedEndDate:String = "05/27/2024"
+    var avgSleepHrs: Float = 0
     
     
     var summaryType:WeeklySummaryItems = .WeeklySummarySummaryOfMood {
@@ -190,8 +191,14 @@ extension WeeklySummaryGraphViewController : UITableViewDataSource,UITableViewDe
                 
                 let filteredDataForAvg = chartData.filter { $0.yValue > 0 }
                 
-                let avgSleepHrs = totalSleepHrs/Float(filteredDataForAvg.count)
-                print("the total sleep hours is ",totalSleepHrs, " and the list count is ",list.count, " filtered data for avg count is ",filteredDataForAvg, "so avg sleep hours is ", avgSleepHrs)
+                if filteredDataForAvg.isEmpty {
+                    // No positive values, so handle accordingly, maybe set avgSleepHrs to 0 or some default
+                    avgSleepHrs = 0
+                    print("No positive sleep hours found, average sleep hours is set to 0")
+                } else {
+                    avgSleepHrs = totalSleepHrs / Float(filteredDataForAvg.count)
+                    print("The total sleep hours is \(totalSleepHrs), filtered count is \(filteredDataForAvg.count), so average sleep hours is \(avgSleepHrs)")
+                }
                 
                 if let least = nonZeroSortedList.first {
                     cell.leastHrsSleptLbl.text = "\(least.yValue) hrs"

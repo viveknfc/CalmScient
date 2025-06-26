@@ -201,8 +201,8 @@ class MindfulNess: ViewController {
             attributedString.addAttributes(attrs2, range: NSRange(location: 0, length: fullString.count))
 
             // Define the ranges of the words you want to highlight
-            let mindfulnessRange = (fullString as NSString).range(of:languageId == 1 ? "Mindfulness" : "Consciencia" )
-            let beingRange = (fullString as NSString).range(of:languageId == 1 ?  "being" : "ser")
+            let mindfulnessRange = (fullString as NSString).range(of:languageId == 1 ? "Mindfulness" : "conciencia es" )
+            let beingRange = (fullString as NSString).range(of:languageId == 1 ?  "being" : "modo de presencia")
 
             
 
