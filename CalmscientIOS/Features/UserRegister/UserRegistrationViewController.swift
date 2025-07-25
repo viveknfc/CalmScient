@@ -114,30 +114,30 @@ class UserRegistrationViewController: UIViewController {
                 return
             }
             
-            // 2. Check if checkboxes are selected
-            if buttonState1 != .selected {
-                showGeneralAlert(
-                    image: UIImage(named: "InfoIcon"),
-                    imageSize: CGSize(width: 40, height: 40),
-                    title: "Please confirm that you have read and understood the license",
-                    okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
-                    okAction: {},
-                    showDismissButton: false
-                )
-                return
-            }
-
-            if buttonState2 != .selected {
-                showGeneralAlert(
-                    image: UIImage(named: "InfoIcon"),
-                    imageSize: CGSize(width: 40, height: 40),
-                    title: "Please agree to share your information with the medical provider",
-                    okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
-                    okAction: {},
-                    showDismissButton: false
-                )
-                return
-            }
+//            // 2. Check if checkboxes are selected
+//            if buttonState1 != .selected {
+//                showGeneralAlert(
+//                    image: UIImage(named: "InfoIcon"),
+//                    imageSize: CGSize(width: 40, height: 40),
+//                    title: "Please confirm that you have read and understood the license",
+//                    okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
+//                    okAction: {},
+//                    showDismissButton: false
+//                )
+//                return
+//            }
+//
+//            if buttonState2 != .selected {
+//                showGeneralAlert(
+//                    image: UIImage(named: "InfoIcon"),
+//                    imageSize: CGSize(width: 40, height: 40),
+//                    title: "Please agree to share your information with the medical provider",
+//                    okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
+//                    okAction: {},
+//                    showDismissButton: false
+//                )
+//                return
+//            }
 
             // 3. All good — proceed with API call
             let params: [String: String] = ["licenseKey": license]
@@ -173,7 +173,8 @@ class UserRegistrationViewController: UIViewController {
                let responseMessage = statusResponse["responseMessage"] as? String {
                 
                 if responseCode == 200 {
-                    self.showSuccessAlert(successContent: responseMessage, centreImage: nil, okButtonAction: {
+                    let successContent = "Your license key has been verified."
+                    self.showSuccessAlert(successContent: successContent, centreImage: nil, okButtonAction: {
                         self.navigateToCreateAccount()
                     })
                 } else {

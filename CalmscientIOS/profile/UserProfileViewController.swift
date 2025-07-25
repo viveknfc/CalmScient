@@ -709,6 +709,7 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
        // This method is called when the user cancels the image picker
        func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
            // Dismiss the image picker
+           self.view.hideToastActivity()
            picker.dismiss(animated: true, completion: nil)
        }
     

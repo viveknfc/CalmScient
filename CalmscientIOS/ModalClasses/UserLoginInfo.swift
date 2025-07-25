@@ -131,7 +131,7 @@ class LoginDetails: Codable {
     let userType: String
     let locationName: String
     let address: String
-    let city: String
+    let city: Int
     let providerID: Int?
     let providerName: String?
     let providerCode: String?
@@ -208,7 +208,7 @@ class LoginDetails: Codable {
         self.userType = try container.decode(String.self, forKey: .userType)
         self.locationName = try container.decode(String.self, forKey: .locationName)
         self.address = try container.decode(String.self, forKey: .address)
-        self.city = try container.decode(String.self, forKey: .city)
+        self.city = try container.decode(Int.self, forKey: .city)
         self.providerID = try container.decodeIfPresent(Int.self, forKey: .providerID)
         self.providerName = try container.decodeIfPresent(String.self, forKey: .providerName)
         self.providerCode = try container.decodeIfPresent(String.self, forKey: .providerCode)

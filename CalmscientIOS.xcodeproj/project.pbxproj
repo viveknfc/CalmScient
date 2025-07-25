@@ -484,7 +484,6 @@
 		C275E3912D0212FD00E7513D /* ConSub5VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C275E3902D0212FD00E7513D /* ConSub5VC.swift */; };
 		C2815F6F2D2C1A0900B2A640 /* SuccessAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2815F6E2D2C1A0900B2A640 /* SuccessAlertView.swift */; };
 		C281E4902D9FF22200589224 /* LaunchGifFile.gif in Resources */ = {isa = PBXBuildFile; fileRef = C281E48F2D9FF22200589224 /* LaunchGifFile.gif */; };
-		C285B50D2DDC75C500AECD9B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C285B50C2DDC75C500AECD9B /* GoogleService-Info.plist */; };
 		C285DF5D2DF0796900896F7D /* ProfileViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C285DF5F2DF0796900896F7D /* ProfileViewController.storyboard */; };
 		C28D0E292D006BFB00517693 /* ConsequenceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28D0E282D006BFB00517693 /* ConsequenceVC.swift */; };
 		C28D0E2B2D00948A00517693 /* FontLL12.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28D0E2A2D00948A00517693 /* FontLL12.swift */; };
@@ -552,6 +551,7 @@
 		C2FDECB22D267EB9005EE6BA /* ReadyToQuitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FDECB12D267EB9005EE6BA /* ReadyToQuitVC.swift */; };
 		C2FDECB42D26940E005EE6BA /* TryingToQuitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FDECB32D26940E005EE6BA /* TryingToQuitVC.swift */; };
 		C2FDECB62D269C9E005EE6BA /* TobaccoFreeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FDECB52D269C9E005EE6BA /* TobaccoFreeVC.swift */; };
+		F5D5EEF32E2F991C00653D58 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5D5EEF22E2F991C00653D58 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -1057,7 +1057,6 @@
 		C275E3902D0212FD00E7513D /* ConSub5VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConSub5VC.swift; sourceTree = "<group>"; };
 		C2815F6E2D2C1A0900B2A640 /* SuccessAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessAlertView.swift; sourceTree = "<group>"; };
 		C281E48F2D9FF22200589224 /* LaunchGifFile.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = LaunchGifFile.gif; sourceTree = "<group>"; };
-		C285B50C2DDC75C500AECD9B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		C285DF5E2DF0796900896F7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/ProfileViewController.storyboard; sourceTree = "<group>"; };
 		C285DF602DF0796900896F7D /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/ProfileViewController.xcstrings; sourceTree = "<group>"; };
 		C28D0E282D006BFB00517693 /* ConsequenceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConsequenceVC.swift; sourceTree = "<group>"; };
@@ -1129,6 +1128,7 @@
 		C2FDECB32D26940E005EE6BA /* TryingToQuitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryingToQuitVC.swift; sourceTree = "<group>"; };
 		C2FDECB52D269C9E005EE6BA /* TobaccoFreeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TobaccoFreeVC.swift; sourceTree = "<group>"; };
 		CE5C42DCE48AE7884CCA2E42 /* Pods_CalmscientIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalmscientIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F5D5EEF22E2F991C00653D58 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1693,7 +1693,6 @@
 				4A65C31E2BD6857600809222 /* GenericUIComponents */,
 				4A65C31C2BD6856C00809222 /* HealthAppLaunchScreen.storyboard */,
 				4A65C2F32BD6852C00809222 /* AppDelegate.swift */,
-				C285B50C2DDC75C500AECD9B /* GoogleService-Info.plist */,
 				6B5789C62C7C3C7500EFB8FF /* bell.mp3 */,
 				4A65C2F52BD6852C00809222 /* SceneDelegate.swift */,
 				4A967F8B2BD6892800FCE646 /* Features */,
@@ -1702,6 +1701,7 @@
 				4A65C2FC2BD6852D00809222 /* Assets.xcassets */,
 				4A65C2FE2BD6852D00809222 /* LaunchScreen.storyboard */,
 				4A65C3012BD6852D00809222 /* Info.plist */,
+				F5D5EEF22E2F991C00653D58 /* GoogleService-Info.plist */,
 			);
 			path = CalmscientIOS;
 			sourceTree = "<group>";
@@ -2767,6 +2767,7 @@
 				4A967FC12BD6892800FCE646 /* Dashboard.storyboard in Resources */,
 				4A0853DD2C23C0A600202C02 /* SummaryTableViewCell.xib in Resources */,
 				4AD5D1042BD7A60E00E4C945 /* MainTabColors.xcassets in Resources */,
+				F5D5EEF32E2F991C00653D58 /* GoogleService-Info.plist in Resources */,
 				432EBE312C2C0B07000BB69A /* LogoutTableViewCell.xib in Resources */,
 				4A0853792C21684B00202C02 /* HeadersCell.xib in Resources */,
 				43BDB7A42CAA650F007219B0 /* GlossyController.storyboard in Resources */,
@@ -2819,7 +2820,6 @@
 				4A65C33B2BD685E500809222 /* AppAssets.xcassets in Resources */,
 				C2B823382D1D3D6700FC1291 /* IndexBasicTableCell.xib in Resources */,
 				4A6DCA192BE1E6D400F2EB7C /* LineChartViewAssets.xcassets in Resources */,
-				C285B50D2DDC75C500AECD9B /* GoogleService-Info.plist in Resources */,
 				4AD5D1602BD7A6C100E4C945 /* NextAppointments.storyboard in Resources */,
 				4A0853822C21684B00202C02 /* DrinikingHabbit.storyboard in Resources */,
 				4A0853C42C22F0C100202C02 /* TakingControlAssets.xcassets in Resources */,
@@ -2996,9 +2996,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CalmscientIOS/Pods-CalmscientIOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-CalmscientIOS/Pods-CalmscientIOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -3584,7 +3588,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0;
-				DEVELOPMENT_TEAM = LJ9NVW4F46;
+				DEVELOPMENT_TEAM = 842J5G3PU2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CalmscientIOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CalmscientIOS;
@@ -3600,8 +3604,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.calmscient.co;
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = calmscientllc.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -3625,7 +3629,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1.0;
-				DEVELOPMENT_TEAM = LJ9NVW4F46;
+				DEVELOPMENT_TEAM = 842J5G3PU2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CalmscientIOS/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = CalmscientIOS;
@@ -3641,8 +3645,8 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.calmscient.co;
+				MARKETING_VERSION = 1.0.1;
+				PRODUCT_BUNDLE_IDENTIFIER = calmscientllc.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

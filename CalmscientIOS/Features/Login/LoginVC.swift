@@ -344,6 +344,8 @@ class LoginVC: UIViewController,UITextFieldDelegate {
                         }
                     }
                 } else {
+                    
+                    print("decoding is failing")
  
                     if let failureResponse = try? JSONDecoder().decode(FailureResponse.self, from: data) {
                         DispatchQueue.main.async {

@@ -9,7 +9,7 @@
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
-	<string>com.calmscient.co</string>
+	<string>calmscientllc.com</string>
 	<key>PROJECT_ID</key>
 	<string>calmscient-c947d</string>
 	<key>STORAGE_BUCKET</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:472772676413:ios:b3de7736b5d90cc178d354</string>
+	<string>1:472772676413:ios:ee9ee9eea07bab0178d354</string>
 </dict>
 </plist>

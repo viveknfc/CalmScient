@@ -151,11 +151,11 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
             let responseDate = medicationData[indexPath.row].date
 
             if let scheduledTimes = medicationDetails?.scheduledTimeList[scheduledIndex].scheduledTimes.first {
-                
+                print("the medicine taken value before is", scheduledTimes.medicineTaken as Any)
                 let pmtId = scheduledTimes.pmtId
                 let medicineTaken = (scheduledTimes.medicineTaken == "1") ? "0" : "1"
                 let responseTime = scheduledTimes.medicineTime
-
+                print("the medicine takne value now is", medicineTaken)
                 let dateFormatter = DateFormatter()
                 dateFormatter.dateFormat = "MM/dd/yyyy"
                 dateFormatter.locale = Locale(identifier: "en_US_POSIX")
