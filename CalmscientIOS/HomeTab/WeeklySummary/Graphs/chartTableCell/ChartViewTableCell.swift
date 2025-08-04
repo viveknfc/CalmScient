@@ -333,7 +333,7 @@ class ChartViewTableCell: UITableViewCell {
         marker.chartView = barChartView
         marker.minimumSize = CGSize(width: 100, height: 45)
 //        barChartView.marker = marker
-        
+        barChartView.isUserInteractionEnabled = false
         barChartView.animate(yAxisDuration: 2)
     }
     
