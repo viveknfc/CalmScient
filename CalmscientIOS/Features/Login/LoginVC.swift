@@ -9,7 +9,7 @@ import UIKit
 import Toast_Swift
 
 @available(iOS 16.0, *)
-class LoginVC: UIViewController,UITextFieldDelegate {
+class LoginVC: UIViewController,UITextFieldDelegate, UITextViewDelegate {
     
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userNameTextField: ImagePaddingTextField!
@@ -90,13 +90,19 @@ class LoginVC: UIViewController,UITextFieldDelegate {
             termsAndConditionsAttributedText.addAttributes([
                 .underlineStyle: NSUnderlineStyle.single.rawValue,
                 .underlineColor: UIColor(named: "MainTextColor") ?? UIColor.white,
-                .link: URL(string: "https://example.com")! // Replace with your actual URL
+                .link: URL(string: "https://calmscient.com/privacy-policy/")! // Replace with your actual URL
             ], range: NSRange(range, in: termsAndConditions))
         }
         
         termsAndConditionsAttributedText.addAttributes([.underlineStyle : NSUnderlineStyle.single.rawValue, .underlineColor:UIColor(named: "MainTextColor") ?? UIColor.white], range: (termsAndConditions as NSString).range(of: "terms and conditions"))
 //        selectionButton.contentLabel.attributedText = termsAndConditionsAttributedText
         selectionButton.textView.attributedText = termsAndConditionsAttributedText
+        
+        selectionButton.textView.isUserInteractionEnabled = true
+        selectionButton.textView.isEditable = false
+        selectionButton.textView.isSelectable = true
+        selectionButton.textView.dataDetectorTypes = .link
+        selectionButton.textView.delegate = self
         
         let tapGesture1 = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGesture1.cancelsTouchesInView = false // Allow table view cell selection
@@ -131,6 +137,15 @@ class LoginVC: UIViewController,UITextFieldDelegate {
             passwordTextField.text = savedPassword
         }
 
+    }
+    
+    func textView(_ textView: UITextView, shouldInteractWith URL: URL, in characterRange: NSRange) -> Bool {
+        if URL.absoluteString == "https://calmscient.com/privacy-policy/" {
+            // Open the URL
+            UIApplication.shared.open(URL)
+            return false // Return false to prevent default handling
+        }
+        return true
     }
 
     
@@ -505,25 +520,6 @@ extension UIView {
         }
     }
     
-//    public func showToast(message:String,title:String? = nil,point:CGPoint? = nil) {
-//        self.hideAllToasts(includeActivity: true)
-//        self.updateToastStyleWithAppDefaults()
-//        
-//        let window = UIApplication.shared.windows.first
-//        let safeAreaBottom = window?.safeAreaInsets.bottom ?? 0
-//        let tabBarHeight = findViewController()?.tabBarController?.tabBar.frame.height ?? 49  // Default tab bar height if nil
-//        let bottomPadding: CGFloat = 16  // Extra spacing above the tab bar for better visibility
-//
-//        // Dynamic Y position ensuring it appears above the tab bar
-//        let adjustedY = self.frame.height - (tabBarHeight + safeAreaBottom + bottomPadding)
-//
-//        let defaultPoint = CGPoint(x: self.frame.width / 2, y: adjustedY)
-//
-//        self.makeToast(message, duration: 2 ,point: point ?? defaultPoint , title: title, image: nil) { didTap in
-//            self.hideToastActivity() //CGPoint(x: self.frame.width/2, y: self.frame.height-50)
-//        }
-//    }
-    
     public func showToastActivity() {
         self.isUserInteractionEnabled = false
 //        self.hideAllToasts(includeActivity: true)
@@ -543,4 +539,5 @@ extension UIView {
 
   
 }
+
 

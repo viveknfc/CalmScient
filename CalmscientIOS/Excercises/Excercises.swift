@@ -49,6 +49,22 @@ class Excercises: ViewController {
         self.navigationItem.hidesBackButton = true
         self.navigationItem.leftBarButtonItem = nil
         
+        if let image = UIImage(named: "Citation")?.withRenderingMode(.alwaysOriginal) {
+            let button = UIButton(type: .custom)
+            button.setImage(image, for: .normal)
+            button.imageView?.contentMode = .scaleAspectFill
+            button.contentHorizontalAlignment = .fill
+            button.contentVerticalAlignment = .fill
+            button.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
+            button.addTarget(self, action: #selector(rightBarButtonTapped), for: .touchUpInside)
+
+            let rightBarButton = UIBarButtonItem(customView: button)
+            self.navigationItem.rightBarButtonItem = rightBarButton
+        } else {
+            print("❌ Failed to load image named 'Citation'")
+        }
+
+        
         if let layout = excercisesCollection.collectionViewLayout as? UICollectionViewFlowLayout {
             layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
             let spacing: CGFloat = 10
@@ -59,9 +75,18 @@ class Excercises: ViewController {
                             }
 
         self.excercisesCollection.clipsToBounds = false
-        
+
     }
     
+    @objc func rightBarButtonTapped() {
+        // Action when right bar button is tapped
+        print("Right bar button tapped")
+        
+        let next = UIStoryboard(name: "WebView_Ciitation", bundle: nil)
+        let vc = next.instantiateViewController(withIdentifier: "CitationWebViewController") as? CitationWebViewController
+        vc?.favURL = "https://calmscient.in/courses/sources-and-citations"
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
     
     func setupLanguage() {
         

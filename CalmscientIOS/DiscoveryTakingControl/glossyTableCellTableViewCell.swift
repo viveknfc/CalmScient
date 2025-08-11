@@ -14,44 +14,58 @@ class glossyTableCellTableViewCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var roundLabel: UILabel!
 
-    var isExpanded: Bool = false {
-        didSet {
-            summaryLabel.isHidden = !isExpanded
-            updateButtonImage() // Update button image when expanded/collapsed
+    // Expanded state
+    private var _isExpanded: Bool = false
+    var isExpanded: Bool {
+        get { _isExpanded }
+        set {
+            _isExpanded = newValue
+            updateCellAppearance()
         }
     }
 
-    // Closure to handle the button tap
+    // Closure for button tap
     var plusButtonAction: (() -> Void)?
 
     override func awakeFromNib() {
         super.awakeFromNib()
-
-        self.titleLabel.font = UIFont(name: Fonts().lexendRegular, size: 19)
-        self.roundLabel.font = UIFont(name: Fonts().lexendRegular, size: 17)
-        roundLabel.layer.cornerRadius = roundLabel.frame.size.width / 2
-        roundLabel.clipsToBounds = true
-        roundLabel.layer.masksToBounds = true
-        // Set initial button image
-        updateButtonImage()
-
-        // Add action to plus button
+        setupUI()
         plusButton.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
     }
-    override func layoutSubviews() {
-           super.layoutSubviews()
 
-           // Apply shadow to backGroundView after the layout is set
-//        backGroundView.applyShadow() //contentView
-        
-       }
-    @objc func plusButtonTapped() {
-        // Execute the closure when the button is tapped
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        roundLabel.layer.cornerRadius = roundLabel.frame.size.width / 2
+    }
+
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        _isExpanded = false
+        plusButtonAction = nil
+        updateCellAppearance()
+    }
+
+    func configureCell(isExpanded: Bool) {
+        self.isExpanded = isExpanded
+    }
+
+    @objc private func plusButtonTapped() {
         plusButtonAction?()
     }
 
-    private func updateButtonImage() {
-        let imageName = isExpanded ? "cellCollapse" : "cellExpansion"
+    // MARK: - Private Methods
+
+    private func setupUI() {
+        titleLabel.font = UIFont(name: Fonts().lexendRegular, size: 19)
+        roundLabel.font = UIFont(name: Fonts().lexendRegular, size: 17)
+        roundLabel.clipsToBounds = true
+        roundLabel.layer.masksToBounds = true
+        updateCellAppearance()
+    }
+
+    private func updateCellAppearance() {
+        summaryLabel.isHidden = !_isExpanded
+        let imageName = _isExpanded ? "cellCollapse" : "cellExpansion"
         plusButton.setImage(UIImage(named: imageName), for: .normal)
     }
 }

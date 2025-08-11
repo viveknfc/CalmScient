@@ -25,19 +25,38 @@ class DiscoveryMainViewController: ViewController{
         self.navigationItem.leftBarButtonItem = nil
         self.navigationItem.hidesBackButton = true
         
-        // Do any additional setup after loading the view.
-        let button: UIButton = UIButton(type: UIButton.ButtonType.custom)
-                //set image for button
-        button.setImage(UIImage(named: "profileIcon.png"), for: UIControl.State.normal)
-                //add function for button
-       // button.addTarget(self, action: Selector(("profileButtonPressed")), for: UIControl.Event.touchUpInside)
-        button.addTarget(self, action: #selector(profileButtonPressed), for: .touchUpInside)
-                //set frame
-                button.frame = CGRectMake(0, 0, 32, 32)
+        // Existing profile button
+        let profileButton = UIButton(type: .custom)
+        profileButton.setImage(UIImage(named: "profileIcon.png"), for: .normal)
+        profileButton.addTarget(self, action: #selector(profileButtonPressed), for: .touchUpInside)
+        
+        profileButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            profileButton.widthAnchor.constraint(equalToConstant: 28),
+            profileButton.heightAnchor.constraint(equalToConstant: 28)
+        ])
 
-                let barButton = UIBarButtonItem(customView: button)
-                //assign button to navigationbar
-                self.navigationItem.rightBarButtonItem = barButton
+        profileButton.imageView?.contentMode = .scaleAspectFit
+        profileButton.contentHorizontalAlignment = .fill
+        profileButton.contentVerticalAlignment = .fill
+
+
+        let profileBarButton = UIBarButtonItem(customView: profileButton)
+
+        // New second button (e.g., settings)
+        let settingsButton = UIButton(type: .custom)
+        settingsButton.setImage(UIImage(named: "Citation"), for: .normal)
+        settingsButton.addTarget(self, action: #selector(settingsButtonPressed), for: .touchUpInside)
+        settingsButton.frame = CGRect(x: 0, y: 0, width: 32, height: 32)
+        
+        settingsButton.imageView?.contentMode = .scaleAspectFit
+        settingsButton.contentHorizontalAlignment = .fill
+        settingsButton.contentVerticalAlignment = .fill
+        
+        let settingsBarButton = UIBarButtonItem(customView: settingsButton)
+
+        self.navigationItem.rightBarButtonItems = [profileBarButton, settingsBarButton]
+        
     }
     
     @objc func profileButtonPressed() {
@@ -46,6 +65,15 @@ class DiscoveryMainViewController: ViewController{
         UserDefaults.standard.set(true, forKey: "shouldPopToDis")
         self.navigationController?.pushViewController(userProfileViewController, animated: true)
         }
+    
+    @objc func settingsButtonPressed() {
+        print("settingsButton tapped")
+        
+        let next = UIStoryboard(name: "WebView_Ciitation", bundle: nil)
+        let vc = next.instantiateViewController(withIdentifier: "CitationWebViewController") as? CitationWebViewController
+        vc?.favURL = "https://calmscient.in/courses/sources-and-citations"
+        self.navigationController?.pushViewController(vc!, animated: true)
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         setupLanguage()

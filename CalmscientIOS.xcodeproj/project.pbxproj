@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		331F25612E45C33900606A53 /* WebView_Citation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F25602E45C32F00606A53 /* WebView_Citation.swift */; };
+		331F25632E45C9C300606A53 /* WebView_Ciitation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 331F25622E45C9C300606A53 /* WebView_Ciitation.storyboard */; };
 		3C58E3D0D76D550F12EB55C4 /* Pods_CalmscientIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5C42DCE48AE7884CCA2E42 /* Pods_CalmscientIOS.framework */; };
 		431C24172C46624D00909C24 /* DashboardHomeTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 431C24162C46624D00909C24 /* DashboardHomeTab.storyboard */; };
 		431C24742C46992B00909C24 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 431C24722C46992B00909C24 /* Localizable.strings */; };
@@ -569,6 +571,8 @@
 
 /* Begin PBXFileReference section */
 		0C444166053ECD1D5D36EA00 /* Pods-CalmscientIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalmscientIOS.release.xcconfig"; path = "Target Support Files/Pods-CalmscientIOS/Pods-CalmscientIOS.release.xcconfig"; sourceTree = "<group>"; };
+		331F25602E45C32F00606A53 /* WebView_Citation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView_Citation.swift; sourceTree = "<group>"; };
+		331F25622E45C9C300606A53 /* WebView_Ciitation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebView_Ciitation.storyboard; sourceTree = "<group>"; };
 		431C24152C46624D00909C24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DashboardHomeTab.storyboard; sourceTree = "<group>"; };
 		431C24182C46624D00909C24 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/DashboardHomeTab.xcstrings; sourceTree = "<group>"; };
 		431C241A2C4662A300909C24 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -2550,6 +2554,7 @@
 		C28D0E262D006B9900517693 /* General Class */ = {
 			isa = PBXGroup;
 			children = (
+				331F25602E45C32F00606A53 /* WebView_Citation.swift */,
 				C2EED5E32CFA69B0005C1E1F /* ImageView.swift */,
 				C2EED5E12CFA6797005C1E1F /* CustomView.swift */,
 				C2948E1C2CFF374900D6FC55 /* CustomView1.swift */,
@@ -2582,6 +2587,7 @@
 				C2A7F2252DA4E7B300E41D5A /* scheduleAlarmNotification.swift */,
 				C23B71682DA6C4BC006CCFE4 /* GeneralwithYesNoView.swift */,
 				C23B716C2DA6F076006CCFE4 /* GeneralAlertwithYesNo.xib */,
+				331F25622E45C9C300606A53 /* WebView_Ciitation.storyboard */,
 			);
 			path = "General Class";
 			sourceTree = "<group>";
@@ -2916,6 +2922,7 @@
 				4A78A14D2BDF4C2F00D1EFC1 /* JournalEntryEditView.xib in Resources */,
 				A3B8827D2CC7B3DF003C5133 /* SleepSummaryTableViewCell.xib in Resources */,
 				43AB77602C64512500740BA6 /* Excercises.storyboard in Resources */,
+				331F25632E45C9C300606A53 /* WebView_Ciitation.storyboard in Resources */,
 				C2ADB3BD2D1A966600157631 /* Taking Control Index.storyboard in Resources */,
 				4A6ACC722BDD06CD00C5D02D /* CustomAlertMoreInfoView.xib in Resources */,
 				4AD5D15F2BD7A6C100E4C945 /* AddAppointmentsTableCell.xib in Resources */,
@@ -3124,6 +3131,7 @@
 				C25576992D2E56DE008E9D2F /* APIService.swift in Sources */,
 				4A87C1452C011245004E04CC /* CheckMailVC.swift in Sources */,
 				C2D3EE412D475EF9008A49D2 /* CustomDropDown.swift in Sources */,
+				331F25612E45C33900606A53 /* WebView_Citation.swift in Sources */,
 				4A78A1482BDF47E200D1EFC1 /* TablePopOverViewController.swift in Sources */,
 				4A0853972C21684B00202C02 /* Consequences_six.swift in Sources */,
 				4AD5D1642BD7A6C100E4C945 /* AppointmentDetailsVC.swift in Sources */,
@@ -3587,7 +3595,7 @@
 				CODE_SIGN_ENTITLEMENTS = CalmscientIOS/CalmscientIOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = 842J5G3PU2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CalmscientIOS/Info.plist;
@@ -3604,7 +3612,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = calmscientllc.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3628,7 +3636,7 @@
 				CODE_SIGN_ENTITLEMENTS = CalmscientIOS/CalmscientIOS.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.0;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_TEAM = 842J5G3PU2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = CalmscientIOS/Info.plist;
@@ -3645,7 +3653,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = calmscientllc.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
