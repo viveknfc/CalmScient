@@ -796,7 +796,7 @@
 		4A35FE062BF9FD2C00D71B14 /* CoursesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoursesViewController.swift; sourceTree = "<group>"; };
 		4A404C5B2BF6712B000790C8 /* ProfileDefaultTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileDefaultTableViewCell.swift; sourceTree = "<group>"; };
 		4A404C5C2BF6712B000790C8 /* ProfileDefaultTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileDefaultTableViewCell.xib; sourceTree = "<group>"; };
-		4A65C2F02BD6852C00809222 /* CalmscientIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CalmscientIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A65C2F02BD6852C00809222 /* Calmscient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Calmscient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A65C2F32BD6852C00809222 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4A65C2F52BD6852C00809222 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		4A65C2F72BD6852C00809222 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -1642,7 +1642,7 @@
 				431C24722C46992B00909C24 /* Localizable.strings */,
 				4A0853C32C22F0C100202C02 /* TakingControlAssets.xcassets */,
 				4A6DCA292BE221B300F2EB7C /* DiscoveryTabAssets.xcassets */,
-				4A65C2F22BD6852C00809222 /* CalmscientIOS */,
+				4A65C2F22BD6852C00809222 /* Calmscient */,
 				4A65C2F12BD6852C00809222 /* Products */,
 				3BADB94C2BBA9017AAB75ADF /* Pods */,
 				B23D767572A2EA06C5C5C713 /* Frameworks */,
@@ -1652,12 +1652,12 @@
 		4A65C2F12BD6852C00809222 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4A65C2F02BD6852C00809222 /* CalmscientIOS.app */,
+				4A65C2F02BD6852C00809222 /* Calmscient.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4A65C2F22BD6852C00809222 /* CalmscientIOS */ = {
+		4A65C2F22BD6852C00809222 /* Calmscient */ = {
 			isa = PBXGroup;
 			children = (
 				43CC6B402CA5510E00CAF2ED /* CalmscientIOS.entitlements */,
@@ -1707,7 +1707,7 @@
 				4A65C3012BD6852D00809222 /* Info.plist */,
 				F5D5EEF22E2F991C00653D58 /* GoogleService-Info.plist */,
 			);
-			path = CalmscientIOS;
+			path = Calmscient;
 			sourceTree = "<group>";
 		};
 		4A65C31E2BD6857600809222 /* GenericUIComponents */ = {
@@ -2661,9 +2661,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4A65C2EF2BD6852C00809222 /* CalmscientIOS */ = {
+		4A65C2EF2BD6852C00809222 /* Calmscient */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4A65C3042BD6852D00809222 /* Build configuration list for PBXNativeTarget "CalmscientIOS" */;
+			buildConfigurationList = 4A65C3042BD6852D00809222 /* Build configuration list for PBXNativeTarget "Calmscient" */;
 			buildPhases = (
 				2F36CFD25F6E744C73D1CAE1 /* [CP] Check Pods Manifest.lock */,
 				4A65C2EC2BD6852C00809222 /* Sources */,
@@ -2677,14 +2677,14 @@
 			);
 			dependencies = (
 			);
-			name = CalmscientIOS;
+			name = Calmscient;
 			packageProductDependencies = (
 				C23BD4E42DA1202A00283907 /* SwiftyGif */,
 				C2F4005F2DC898B400481C5D /* FirebaseAnalytics */,
 				C2F400612DC89FC100481C5D /* FirebaseCrashlytics */,
 			);
 			productName = CalmscientIOS;
-			productReference = 4A65C2F02BD6852C00809222 /* CalmscientIOS.app */;
+			productReference = 4A65C2F02BD6852C00809222 /* Calmscient.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -2702,7 +2702,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4A65C2EB2BD6852C00809222 /* Build configuration list for PBXProject "CalmscientIOS" */;
+			buildConfigurationList = 4A65C2EB2BD6852C00809222 /* Build configuration list for PBXProject "Calmscient" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -2720,7 +2720,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4A65C2EF2BD6852C00809222 /* CalmscientIOS */,
+				4A65C2EF2BD6852C00809222 /* Calmscient */,
 			);
 		};
 /* End PBXProject section */
@@ -3592,14 +3592,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_ENTITLEMENTS = CalmscientIOS/CalmscientIOS.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Calmscient/Calmscient.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 842J5G3PU2;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CalmscientIOS/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CalmscientIOS;
+				INFOPLIST_FILE = Calmscient/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Calmscient;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Please allow access to save photo in your photo library";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to select photos and videos.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -3633,14 +3633,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
-				CODE_SIGN_ENTITLEMENTS = CalmscientIOS/CalmscientIOS.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Calmscient/Calmscient.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1.1;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = 842J5G3PU2;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = CalmscientIOS/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = CalmscientIOS;
+				INFOPLIST_FILE = Calmscient/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Calmscient;
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Please allow access to save photo in your photo library";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to select photos and videos.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -3670,7 +3670,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4A65C2EB2BD6852C00809222 /* Build configuration list for PBXProject "CalmscientIOS" */ = {
+		4A65C2EB2BD6852C00809222 /* Build configuration list for PBXProject "Calmscient" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A65C3022BD6852D00809222 /* Debug */,
@@ -3679,7 +3679,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4A65C3042BD6852D00809222 /* Build configuration list for PBXNativeTarget "CalmscientIOS" */ = {
+		4A65C3042BD6852D00809222 /* Build configuration list for PBXNativeTarget "Calmscient" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4A65C3052BD6852D00809222 /* Debug */,

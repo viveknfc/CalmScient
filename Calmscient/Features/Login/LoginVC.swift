@@ -44,8 +44,8 @@ class LoginVC: UIViewController,UITextFieldDelegate, UITextViewDelegate {
 //       userNameTextField.text = "charus@nfcsolutionsusa.com"
 //       passwordTextField.text = "Charu@123"
         
-//          userNameTextField.text = "appprod@calmscient.com"
-//          passwordTextField.text = "Test@1234"
+//          userNameTextField.text = "kajalkubde28@gmail.com"
+//          passwordTextField.text = "Test@123"
         
 //          userNameTextField.text = "simhachalamb@nfcsolutionsusa.com"
 //          passwordTextField.text = "Simha@1234"
@@ -90,7 +90,7 @@ class LoginVC: UIViewController,UITextFieldDelegate, UITextViewDelegate {
             termsAndConditionsAttributedText.addAttributes([
                 .underlineStyle: NSUnderlineStyle.single.rawValue,
                 .underlineColor: UIColor(named: "MainTextColor") ?? UIColor.white,
-                .link: URL(string: "https://calmscient.com/privacy-policy/")! // Replace with your actual URL
+                .link: URL(string: "http://147.93.41.160/courses/terms-of-service")! // Replace with your actual URL
             ], range: NSRange(range, in: termsAndConditions))
         }
         
