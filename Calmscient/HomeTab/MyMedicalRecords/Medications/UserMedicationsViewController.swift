@@ -8,6 +8,12 @@
 import UIKit
 import FSCalendar
 
+enum TimeSlot {
+    case morning
+    case afternoon
+    case evening
+}
+
 @available(iOS 16.0, *)
 class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, CustomTableViewCellDelegate {    
     
@@ -19,7 +25,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     @IBOutlet weak var saveButton: LinearGradientButton!
     @IBOutlet weak var medicationsTableView: UITableView!
     
-    @IBOutlet weak var infoLabel: FontLR15!
+    @IBOutlet weak var infoLabel: FontLL12!
     
     @IBOutlet weak var calendarHeightConstraint: NSLayoutConstraint!
     var medicationData:[MedicineDetails] = []
@@ -31,11 +37,13 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         return utcCalendar.startOfDay(for: Date())
     }()
 
+    @IBOutlet weak var tabBarButton: UISegmentedControl!
+    var selectedTimeSlot: TimeSlot = .morning
     
-//    private var selectedNewDate:Date = Calendar.current.startOfDay(for: Date())//Date()
     var nomedications = UILabel()
     var combinedDateTime = String()
     
+    @IBOutlet weak var takeAllButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,7 +54,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         medicationsTableView.dataSource = self
         medicationsTableView.delegate = self
         
-        infoLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Please select the medication below if you took it today." : "Selecciona el medicamento de la lista si lo has tomado hoy"
+        infoLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Please select the medication you are currently taking." : "Selecciona el medicamento de la lista si lo has tomado hoy"
         
         nomedications.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "No Records" : "No hay registros"
         nomedications.textAlignment = .center
@@ -88,9 +96,54 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         //end
         saveButton.isHidden = true
         
+        // Rounded capsule look for entire control
+        tabBarButton.layer.cornerRadius = tabBarButton.frame.height / 2
+        tabBarButton.layer.masksToBounds = false
+        
+        tabBarButton.layer.borderWidth = 1
+        tabBarButton.layer.borderColor = #colorLiteral(red: 0.9607843757, green: 0.9607843757, blue: 0.9607843757, alpha: 1)
+        
+        tabBarButton.backgroundColor = .clear
+        tabBarButton.selectedSegmentTintColor = #colorLiteral(red: 0.432, green: 0.415, blue: 0.706, alpha: 1)
+        
+        let normalTextAttributes = [NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.432, green: 0.415, blue: 0.706, alpha: 1)]
+        let selectedTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        tabBarButton.setTitleTextAttributes(normalTextAttributes, for: .normal)
+        tabBarButton.setTitleTextAttributes(selectedTextAttributes, for: .selected)
+        tabBarButton.addTarget(self, action: #selector(segmentChanged), for: .valueChanged)
+        
+        takeAllButton.layer.borderColor = #colorLiteral(red: 0.432, green: 0.415, blue: 0.706, alpha: 1).cgColor
+        takeAllButton.layer.borderWidth = 1
+        takeAllButton.layer.cornerRadius = 13
+        
         medicationsTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 150, right: 0)
 
     }
+    
+    //MARK: - Segment Change
+    
+    @objc func segmentChanged() {
+        switch tabBarButton.selectedSegmentIndex {
+        case 0:
+            selectedTimeSlot = .morning
+        case 1:
+            selectedTimeSlot = .afternoon
+        case 2:
+            selectedTimeSlot = .evening
+        default:
+            break
+        }
+        medicationsTableView.reloadData()
+    }
+    
+    //MARK: - Take All Button Pressed
+    
+    @IBAction func takeAllButtonPressed(_ sender: Any) {
+        takeAllButton.layer.borderColor = #colorLiteral(red: 0.9636, green: 0.574, blue: 0.575, alpha: 1)
+        print("take all button pressed")
+    }
+    
     
     //MARK: - MARK Medication API Call
     
@@ -647,7 +700,7 @@ extension UserMedicationsViewController : UITableViewDataSource,UITableViewDeleg
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "UserMedicationsTableCell", for: indexPath) as! UserMedicationsTableCell
         cell.selectionStyle = .none
-        cell.updateCellWith(MedicalDetails: medicationData[indexPath.row])
+        cell.updateCellWith(MedicalDetails: medicationData[indexPath.row], for: selectedTimeSlot)
         cell.delegate = self
         cell.indexPath = indexPath
         

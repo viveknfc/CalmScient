@@ -100,8 +100,14 @@ class JournalEntryEditView: UIView, UITextViewDelegate {
         let currentText = textView.text ?? ""
         guard let stringRange = Range(range, in: currentText) else { return false }
         let updatedText = currentText.replacingCharacters(in: stringRange, with: text)
-        textCount.text = "\(updatedText.count)/2000"
-        return updatedText.count < 2000
+        
+        if updatedText.count <= 2000 {
+            textCount.text = "\(updatedText.count)/2000"
+            return true
+        } else {
+            // Optionally, trim the text to max length
+            return false
+        }
     }
     
     func textViewDidChange(_ textView: UITextView) {

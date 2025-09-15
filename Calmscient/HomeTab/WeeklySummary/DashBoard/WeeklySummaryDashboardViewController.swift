@@ -10,15 +10,24 @@ import UIKit
 class WeeklySummaryDashboardViewController: ViewController {
     var collectionItems:[WeeklySummaryItems] = [.WeeklySummarySummaryOfMood,.WeeklySummarySummaryOfSleep,.WeeklySummarySummaryOfPHQ9,.WeeklySummarySummaryOfGAD,.WeeklySummarySummaryOfAudit,.WeeklySummarySummaryOfDast, .WeeklySummaryCAGE, .WeeklySummaryProgressOnCourseWork,.WeeklySummaryJournalEntry]
     var spanishCollection:[String] = ["Resumen del Estado de Ánimo","Resumen del Sueño","Resumen del PHQ-9","Resumen del GAD","Resumen de la Auditoría","Resumen del DAST-10","Progreso en el Trabajo del Curso","Entrada del Diario"]
-    private lazy var dashboardCollectionView:UICollectionView = {
-        let customFlowLayout:CustomCollectionViewLayout = CustomCollectionViewLayout()
+    
+    private lazy var dashboardCollectionView: UICollectionView = {
+        let flowLayout = UICollectionViewFlowLayout()
         let cellWidth = self.view.bounds.width - 42
-        customFlowLayout.cellSize = CGSize(width: cellWidth/2, height: 125)
-        customFlowLayout.cellSpacing = 10
-        customFlowLayout.collectionView?.alwaysBounceHorizontal = false
-        customFlowLayout.collectionViewInsets = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 10)
-        return UICollectionView(frame: self.view.frame, collectionViewLayout: customFlowLayout)
+        flowLayout.itemSize = CGSize(width: cellWidth / 2, height: 125)
+        flowLayout.minimumLineSpacing = 10
+        flowLayout.minimumInteritemSpacing = 10
+        flowLayout.sectionInset = UIEdgeInsets(top: 10, left: 15, bottom: 10, right: 10)
+        flowLayout.scrollDirection = .vertical
+        
+        let collectionView = UICollectionView(frame: self.view.bounds, collectionViewLayout: flowLayout)
+        collectionView.alwaysBounceVertical = true
+        collectionView.showsVerticalScrollIndicator = true
+        collectionView.backgroundColor = .clear
+        
+        return collectionView
     }()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +37,14 @@ class WeeklySummaryDashboardViewController: ViewController {
         dashboardCollectionView.register(nib, forCellWithReuseIdentifier: "WeeklySummaryDashboardCell")
         dashboardCollectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "YourCellIdentifier")
         dashboardCollectionView.isPagingEnabled = false
-        dashboardCollectionView.isScrollEnabled = false
+        dashboardCollectionView.isScrollEnabled = true
         dashboardCollectionView.delegate = self
-        dashboardCollectionView.bounces = false
+        dashboardCollectionView.bounces = true
         dashboardCollectionView.dataSource = self
         dashboardCollectionView.showsHorizontalScrollIndicator = false
-        dashboardCollectionView.showsVerticalScrollIndicator = false
+        dashboardCollectionView.showsVerticalScrollIndicator = true
         dashboardCollectionView.alwaysBounceHorizontal = false
-        dashboardCollectionView.alwaysBounceVertical = false
+        dashboardCollectionView.alwaysBounceVertical = true
         
         self.view.addSubview(dashboardCollectionView)
         dashboardCollectionView.translatesAutoresizingMaskIntoConstraints = false
