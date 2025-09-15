@@ -18,6 +18,7 @@ class JournalEntryEditView: UIView, UITextViewDelegate {
     @IBOutlet weak var entryTitleLabel: UILabel!
     @IBOutlet weak var journalTextView: UITextView!
     @IBOutlet weak var updateButton: LinearGradientButton!
+    @IBOutlet weak var textCount: UILabel!
     
     weak var journalEntryEditActionDelegate:JournalEntryEditViewActions?
     var editingIndexPath:IndexPath = IndexPath(row: 0, section: 0)
@@ -58,6 +59,8 @@ class JournalEntryEditView: UIView, UITextViewDelegate {
         self.initialText = selectedLanguageID == 1 ? "Add your journal here" : "Agregue su registro del diario aquí"
         journalTextView.text = initialText
         self.journalTextView.delegate = self
+        
+        self.textCount.text = "0/2000"
 
         entryTitleLabel.text = selectedLanguageID == 1 ? "Add journal entry" : "Agregar registro del diario"
         
@@ -91,6 +94,18 @@ class JournalEntryEditView: UIView, UITextViewDelegate {
             textView.text = initialText
         }
         textView.resignFirstResponder()
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let currentText = textView.text ?? ""
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: text)
+        textCount.text = "\(updatedText.count)/2000"
+        return updatedText.count < 2000
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        textCount.text = "\(textView.text.count)/2000"
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

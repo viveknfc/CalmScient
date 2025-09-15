@@ -324,6 +324,8 @@ class APIService: UIViewController {
             return
         }
         
+        print("the access token is \(accessToken)")
+        
         switch parameterPlacement {
         case "url":
             var urlComponents = URLComponents(string: urlString)!

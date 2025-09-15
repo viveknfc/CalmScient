@@ -434,6 +434,7 @@ class GADDashboard: Codable {
     let screeningId: Int
     let plId: Int
     let score: Int
+    let totalScore: Int?
     let screening: String
     let firstName: String
     let lastName: String
@@ -448,6 +449,7 @@ class GADDashboard: Codable {
         try container.encode(screeningId, forKey: .screeningId)
         try container.encode(plId, forKey: .plId)
         try container.encode(score, forKey: .score)
+        try container.encodeIfPresent(totalScore, forKey: .totalScore)
         try container.encode(screening, forKey: .screening)
         try container.encode(firstName, forKey: .firstName)
         try container.encode(lastName, forKey: .lastName)
@@ -463,6 +465,7 @@ class GADDashboard: Codable {
         screeningId = try container.decode(Int.self, forKey: .screeningId)
         plId = try container.decode(Int.self, forKey: .plId)
         score = try container.decode(Int.self, forKey: .score)
+        totalScore = try container.decodeIfPresent(Int.self, forKey: .totalScore)
         screening = try container.decode(String.self, forKey: .screening)
         firstName = try container.decode(String.self, forKey: .firstName)
         lastName = try container.decode(String.self, forKey: .lastName)
@@ -477,6 +480,7 @@ class GADDashboard: Codable {
         case screeningId
         case plId
         case score
+        case totalScore
         case screening
         case firstName
         case lastName
@@ -519,6 +523,37 @@ class SummaryOfGAD7: Codable {
         case weeklyScores
         case statusResponse
         case gadDashboardByDateRangeList
+    }
+}
+
+//MARK: - Summary of CAGE
+
+class SummaryOfCAGE: Codable {
+    let cageAidByDateRange: [GAD7WeeklyScore]
+    let statusResponse: ResponseDetails
+    let summaryofCAGEAID: [GADDashboard]
+    
+    // Encoding function
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        try container.encode(cageAidByDateRange, forKey: .cageAidByDateRange)
+        try container.encode(statusResponse, forKey: .statusResponse)
+        try container.encode(summaryofCAGEAID, forKey: .summaryofCAGEAID)
+    }
+    
+    // Decoding function
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        cageAidByDateRange = try container.decode([GAD7WeeklyScore].self, forKey: .cageAidByDateRange)
+        statusResponse = try container.decode(ResponseDetails.self, forKey: .statusResponse)
+        summaryofCAGEAID = try container.decode([GADDashboard].self, forKey: .summaryofCAGEAID)
+    }
+    
+    // Coding keys
+    enum CodingKeys: String, CodingKey {
+        case cageAidByDateRange
+        case statusResponse
+        case summaryofCAGEAID
     }
 }
 
@@ -999,6 +1034,31 @@ class GetDASTRequestForm : EndPointRequest, CodableRequestFormParams {
         requestParams["toDate"] = endDate
         requestParams["patientId"] = userInfo.patientID
         requestParams["userId"] = userInfo.userID
+        requestParams["clientId"] = userInfo.clientID
+        
+        return requestParams
+    }
+}
+
+class GetCAGERequestForm : EndPointRequest, CodableRequestFormParams {
+    var baseURL: String = baseURLString
+    var path: String = "patients/api/v1/patientDetails/getSummaryOfCAGEByDateRange"
+    var httpMethod: HTTPMethod = .post
+    var requestBody: [String : Any] = [:]
+    
+    required init(startDate:String, endDate:String) {
+        requestBody = getRequestFormParams(startDate: startDate, endDate: endDate)
+    }
+    
+    func getRequestFormParams(startDate:String,endDate:String) -> [String:Any] {
+        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+            fatalError("Unable to found Application Shared Info")
+        }
+        var requestParams:[String:Any] = [:]
+        requestParams["plId"] = userInfo.patientLocationID
+        requestParams["fromDate"] = startDate
+        requestParams["toDate"] = endDate
+        requestParams["patientId"] = userInfo.patientID
         requestParams["clientId"] = userInfo.clientID
         
         return requestParams

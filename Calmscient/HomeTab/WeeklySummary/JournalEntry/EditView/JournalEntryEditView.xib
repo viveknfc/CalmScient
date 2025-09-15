@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -18,11 +18,12 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JournalEntryEditView" customModule="CalmscientIOS" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JournalEntryEditView" customModule="Calmscient" customModuleProvider="target">
             <connections>
                 <outlet property="closeButton" destination="jCH-T5-XgF" id="axp-kY-ecH"/>
                 <outlet property="entryTitleLabel" destination="Tfm-Ie-zev" id="FYS-kr-FRV"/>
                 <outlet property="journalTextView" destination="3QZ-zk-NaQ" id="Z3d-qM-uaW"/>
+                <outlet property="textCount" destination="CoF-7O-E9w" id="dvs-Po-N0w"/>
                 <outlet property="updateButton" destination="0Jr-27-fBb" id="em5-q1-GBU"/>
             </connections>
         </placeholder>
@@ -32,7 +33,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3XP-aI-I45">
-                    <rect key="frame" x="0.0" y="59" width="393" height="366"/>
+                    <rect key="frame" x="0.0" y="118" width="393" height="307"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add journal entry" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Tfm-Ie-zev">
                             <rect key="frame" x="92.666666666666671" y="16" width="168.66666666666663" height="25"/>
@@ -41,7 +42,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jCH-T5-XgF">
-                            <rect key="frame" x="345" y="12.666666666666671" width="32" height="32"/>
+                            <rect key="frame" x="345" y="12.666666666666657" width="32" height="32"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="32" id="4b2-4T-tI5"/>
                                 <constraint firstAttribute="width" constant="32" id="qCb-RF-cS3"/>
@@ -53,14 +54,20 @@
                             </connections>
                         </button>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Add your Journal here" translatesAutoresizingMaskIntoConstraints="NO" id="3QZ-zk-NaQ">
-                            <rect key="frame" x="16" y="64.999999999999986" width="361" height="219.66666666666663"/>
+                            <rect key="frame" x="16" y="65.000000000000014" width="361" height="184.33333333333337"/>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <color key="textColor" name="424242Color"/>
                             <fontDescription key="fontDescription" name="Lexend-Light" family="Lexend" pointSize="15"/>
                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                         </textView>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Jr-27-fBb" customClass="LinearGradientButton" customModule="CalmscientIOS" customModuleProvider="target">
-                            <rect key="frame" x="68.666666666666671" y="300.66666666666669" width="255.66666666666663" height="45"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CoF-7O-E9w">
+                            <rect key="frame" x="353.33333333333331" y="254.33333333333329" width="29.666666666666686" height="13.666666666666657"/>
+                            <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="12"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Jr-27-fBb" customClass="LinearGradientButton" customModule="Calmscient" customModuleProvider="target">
+                            <rect key="frame" x="68.666666666666671" y="278" width="255.66666666666663" height="45"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="45" id="hQY-6r-tdu"/>
                             </constraints>
@@ -81,8 +88,9 @@
                     </subviews>
                     <color key="backgroundColor" name="AppViewContentColor"/>
                     <constraints>
-                        <constraint firstItem="0Jr-27-fBb" firstAttribute="top" secondItem="3QZ-zk-NaQ" secondAttribute="bottom" constant="16" id="42k-9x-aFT"/>
+                        <constraint firstItem="0Jr-27-fBb" firstAttribute="top" secondItem="CoF-7O-E9w" secondAttribute="bottom" constant="10" id="42k-9x-aFT"/>
                         <constraint firstItem="0Jr-27-fBb" firstAttribute="centerX" secondItem="3XP-aI-I45" secondAttribute="centerX" id="56Y-GH-nqk"/>
+                        <constraint firstAttribute="trailing" secondItem="CoF-7O-E9w" secondAttribute="trailing" constant="10" id="6RH-rS-Pkg"/>
                         <constraint firstItem="3QZ-zk-NaQ" firstAttribute="height" secondItem="3XP-aI-I45" secondAttribute="height" multiplier="0.6" id="Vnl-K5-mWj"/>
                         <constraint firstItem="jCH-T5-XgF" firstAttribute="centerY" secondItem="Tfm-Ie-zev" secondAttribute="centerY" id="YfX-YY-Q5c"/>
                         <constraint firstItem="3QZ-zk-NaQ" firstAttribute="leading" secondItem="3XP-aI-I45" secondAttribute="leading" constant="16" id="Yof-iy-X6C"/>
@@ -92,6 +100,7 @@
                         <constraint firstItem="0Jr-27-fBb" firstAttribute="width" secondItem="3XP-aI-I45" secondAttribute="width" multiplier="0.65" id="ffq-dq-dJM"/>
                         <constraint firstAttribute="trailing" secondItem="jCH-T5-XgF" secondAttribute="trailing" constant="16" id="lqT-Y8-iU8"/>
                         <constraint firstItem="Tfm-Ie-zev" firstAttribute="centerX" secondItem="3XP-aI-I45" secondAttribute="centerX" multiplier="0.9" id="ufK-r3-F1Y"/>
+                        <constraint firstItem="CoF-7O-E9w" firstAttribute="top" secondItem="3QZ-zk-NaQ" secondAttribute="bottom" constant="5" id="v8J-h0-xhv"/>
                     </constraints>
                 </view>
             </subviews>
@@ -107,11 +116,6 @@
             <point key="canvasLocation" x="84.732824427480907" y="19.366197183098592"/>
         </view>
     </objects>
-    <designables>
-        <designable name="0Jr-27-fBb">
-            <size key="intrinsicContentSize" width="75" height="34.333333333333336"/>
-        </designable>
-    </designables>
     <resources>
         <image name="closeIcon" width="32.333332061767578" height="33"/>
         <namedColor name="424242Color">

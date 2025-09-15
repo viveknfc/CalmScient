@@ -255,21 +255,42 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegateFlowLayout, UICo
   
             //end
             cell.cellImageView.image = self.cellType == .UserEntryTimeSpendCell ? UIImage(named: self.selectedFamilyImages[indexPath.row]) : UIImage(named: "\(cellData.0)")
-            cell.cellImageView.applyShadow()
-
-            cell.cellWidth.constant = newSize
-            cell.cellHeight.constant = newSize
-            cell.cellImageView.layer.cornerRadius = newSize / 2
+//            cell.cellImageView.applyShadow()
+//            cell.cellWidth.constant = newSize
+//            cell.cellHeight.constant = newSize
+//            cell.cellImageView.layer.cornerRadius = newSize / 2
+//            cell.cellImageView.clipsToBounds = false
+//            cell.cellImageView.layer.borderWidth = 2
+//            cell.cellImageView.layer.borderColor = UIColor.white.cgColor
+//            cell.cellImageView.layer.shadowColor = UIColor.black.cgColor
+//            cell.cellImageView.layer.shadowOpacity = 0.5
+//            cell.cellImageView.layer.shadowOffset = CGSize(width: 0, height: 2)
+//            cell.cellImageView.layer.shadowRadius = 4
+//            cell.cellImageView.layer.shadowPath = UIBezierPath(ovalIn: cell.cellImageView.bounds).cgPath
             
-//            cell.cellImageView.layer.cornerRadius = cell.cellImageView.frame.height / 2
+            // Animate scaling for visual feedback
+            UIView.animate(withDuration: 0.2) {
+                cell.cellWidth.constant = newSize
+                cell.cellHeight.constant = newSize
+                cell.layoutIfNeeded()
+            }
+            
+            // Rounded image with shadow and border
+            cell.cellImageView.layer.cornerRadius = newSize / 2
             cell.cellImageView.clipsToBounds = false
-            cell.cellImageView.layer.borderWidth = 2
-            cell.cellImageView.layer.borderColor = UIColor.white.cgColor
-            cell.cellImageView.layer.shadowColor = UIColor.black.cgColor
-            cell.cellImageView.layer.shadowOpacity = 0.5
-            cell.cellImageView.layer.shadowOffset = CGSize(width: 0, height: 2)
-            cell.cellImageView.layer.shadowRadius = 4
+            cell.cellImageView.layer.borderWidth = 3
+            cell.cellImageView.layer.borderColor = UIColor.darkGray.cgColor
+            
+            // Apply shadow with glow effect
+            cell.cellImageView.layer.shadowColor = UIColor.darkGray.cgColor
+            cell.cellImageView.layer.shadowOpacity = 0.8
+            cell.cellImageView.layer.shadowOffset = CGSize(width: 0, height: 4)
+            cell.cellImageView.layer.shadowRadius = 8
             cell.cellImageView.layer.shadowPath = UIBezierPath(ovalIn: cell.cellImageView.bounds).cgPath
+            
+            // Optional – add slight scale effect for pop animation
+            cell.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
+            
 
         } else {
             // Configure the unselected cell appearance
@@ -283,6 +304,13 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegateFlowLayout, UICo
             cell.cellImageView.layer.borderWidth = 1
             cell.cellImageView.layer.borderColor = UIColor.clear.cgColor
             cell.cellImageView.layer.masksToBounds = true
+            
+            cell.cellImageView.layer.shadowOpacity = 0
+            cell.transform = .identity
+            
+            UIView.animate(withDuration: 0.2) {
+                cell.layoutIfNeeded()
+            }
             
         }
         

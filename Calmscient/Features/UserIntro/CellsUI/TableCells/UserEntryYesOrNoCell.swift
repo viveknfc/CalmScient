@@ -14,6 +14,7 @@ class UserEntryYesOrNoCell: UITableViewCell, UITextViewDelegate {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var journalTextView: UITextView!
     @IBOutlet weak var toggleImageView: UIImageView!
+    @IBOutlet weak var textCount: UILabel!
     
     var toggleValue: Int? {
         didSet {
@@ -54,9 +55,9 @@ class UserEntryYesOrNoCell: UITableViewCell, UITextViewDelegate {
 
                 // Set the attributed text to the label
                 self.titleLabel.attributedText = attributedText
+                self.textCount.text = "0/2000"
 
             } else {
-                let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
                 
                 if UserDefaults.standard.bool(forKey: "Morning") {
                     print("viv u r setting text from here")
@@ -92,6 +93,7 @@ class UserEntryYesOrNoCell: UITableViewCell, UITextViewDelegate {
     
     func textViewDidChange(_ textView: UITextView) {
         instance.journalAnswer = textView.text
+        textCount.text = "\(textView.text.count)/2000"
     }
     
     func getUpdatedToggleData() -> String? {
@@ -101,11 +103,27 @@ class UserEntryYesOrNoCell: UITableViewCell, UITextViewDelegate {
     func getUpdatedJournalData() -> String? {
         return self.journalTextView.text
     }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let currentText = textView.text ?? ""
+        guard let stringRange = Range(range, in: currentText) else { return false }
+        let updatedText = currentText.replacingCharacters(in: stringRange, with: text)
+
+        if updatedText.count <= 2000 {
+            textCount.text = "\(updatedText.count)/2000"
+            return true
+        } else {
+            // Optionally, trim the text to max length
+            return false
+        }
+    }
 
     
     func updateUIWithCellInstance(instance:UserStartupScreenDayData, cellType:UserEntryDayFeedbackTableCell) {
         self.instance = instance
         self.cellType = cellType
+        
+        self.textCount.text = "\(self.journalTextView.text.count)/2000"
     }
     
     @objc func toggleTheImage(){
@@ -136,6 +154,7 @@ class UserEntryYesOrNoCell: UITableViewCell, UITextViewDelegate {
     public func configureJournalView(isJournalView:Bool) {
         toggleImageView.isHidden = isJournalView
         self.journalTextView.isHidden = !isJournalView
+        self.textCount.isHidden = !isJournalView
     
     }
 

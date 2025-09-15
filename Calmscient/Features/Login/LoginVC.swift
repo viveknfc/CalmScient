@@ -90,7 +90,7 @@ class LoginVC: UIViewController,UITextFieldDelegate, UITextViewDelegate {
             termsAndConditionsAttributedText.addAttributes([
                 .underlineStyle: NSUnderlineStyle.single.rawValue,
                 .underlineColor: UIColor(named: "MainTextColor") ?? UIColor.white,
-                .link: URL(string: "http://147.93.41.160/courses/terms-of-service")! // Replace with your actual URL
+                .link: URL(string: "https://calmscient.in/courses/terms-of-service")! // Replace with your actual URL
             ], range: NSRange(range, in: termsAndConditions))
         }
         

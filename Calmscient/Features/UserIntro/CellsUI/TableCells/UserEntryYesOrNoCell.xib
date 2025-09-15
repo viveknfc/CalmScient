@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -17,7 +17,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserEntryYesOrNoCell" rowHeight="119" id="KGk-i7-Jjw" customClass="UserEntryYesOrNoCell" customModule="CalmscientIOS" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserEntryYesOrNoCell" rowHeight="119" id="KGk-i7-Jjw" customClass="UserEntryYesOrNoCell" customModule="Calmscient" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="341" height="119"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
@@ -37,12 +37,18 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView hidden="YES" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="heK-tC-54S">
-                                        <rect key="frame" x="10" y="68" width="283" height="19"/>
+                                        <rect key="frame" x="10" y="68" width="283" height="7.3333333333333428"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xl5-25-WHX">
+                                        <rect key="frame" x="272" y="80.333333333333329" width="27" height="12.666666666666671"/>
+                                        <fontDescription key="fontDescription" name="Lexend-Regular" family="Lexend" pointSize="10"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ToggleSwitch_No" translatesAutoresizingMaskIntoConstraints="NO" id="uyZ-iz-YP8">
                                         <rect key="frame" x="109" y="57" width="91" height="48"/>
                                     </imageView>
@@ -51,13 +57,16 @@
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="heK-tC-54S" secondAttribute="trailing" constant="16" id="5UL-q9-IK4"/>
                                     <constraint firstItem="uyZ-iz-YP8" firstAttribute="top" secondItem="7cJ-U9-bDv" secondAttribute="bottom" constant="5" id="D3W-D3-OY6"/>
+                                    <constraint firstItem="xl5-25-WHX" firstAttribute="top" secondItem="heK-tC-54S" secondAttribute="bottom" constant="5" id="Dgh-bV-vjU"/>
                                     <constraint firstItem="7cJ-U9-bDv" firstAttribute="leading" secondItem="YbG-a0-qtV" secondAttribute="leading" constant="10" id="MiY-7g-zqw"/>
                                     <constraint firstItem="heK-tC-54S" firstAttribute="top" secondItem="7cJ-U9-bDv" secondAttribute="bottom" constant="16" id="TPA-Ik-Zcm"/>
                                     <constraint firstItem="uyZ-iz-YP8" firstAttribute="centerX" secondItem="YbG-a0-qtV" secondAttribute="centerX" id="a5X-bf-r2H"/>
+                                    <constraint firstAttribute="bottom" secondItem="xl5-25-WHX" secondAttribute="bottom" constant="10" id="cIz-hF-qbD"/>
                                     <constraint firstItem="heK-tC-54S" firstAttribute="leading" secondItem="7cJ-U9-bDv" secondAttribute="leading" id="dDt-62-Fug"/>
                                     <constraint firstAttribute="trailing" secondItem="7cJ-U9-bDv" secondAttribute="trailing" constant="10" id="fQE-Br-ysK"/>
-                                    <constraint firstAttribute="bottom" secondItem="heK-tC-54S" secondAttribute="bottom" constant="16" id="iEV-BO-SKD"/>
+                                    <constraint firstItem="xl5-25-WHX" firstAttribute="top" secondItem="heK-tC-54S" secondAttribute="bottom" constant="5" id="iEV-BO-SKD"/>
                                     <constraint firstItem="7cJ-U9-bDv" firstAttribute="top" secondItem="YbG-a0-qtV" secondAttribute="top" constant="12" id="u1l-Io-8nn"/>
+                                    <constraint firstAttribute="trailing" secondItem="xl5-25-WHX" secondAttribute="trailing" constant="10" id="yKY-S6-NBO"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -82,6 +91,7 @@
                 <outlet property="borderView" destination="YbG-a0-qtV" id="fZN-QS-Tok"/>
                 <outlet property="journalTextView" destination="heK-tC-54S" id="t2X-gw-Bf2"/>
                 <outlet property="shadowView" destination="yRK-5y-1yb" id="X4L-pp-t5s"/>
+                <outlet property="textCount" destination="xl5-25-WHX" id="czP-mW-eqt"/>
                 <outlet property="titleLabel" destination="7cJ-U9-bDv" id="XEd-of-gAY"/>
                 <outlet property="toggleImageView" destination="uyZ-iz-YP8" id="cdD-1Q-fpg"/>
             </connections>

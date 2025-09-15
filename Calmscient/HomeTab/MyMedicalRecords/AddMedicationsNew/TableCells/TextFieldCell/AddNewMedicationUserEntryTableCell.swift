@@ -18,6 +18,8 @@ class AddNewMedicationUserEntryTableCell: UITableViewCell, UITextFieldDelegate {
 
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var userEntryTextField: TextFieldWithPadding!
+    @IBOutlet weak var textCount: UILabel!
+    
     public var cellType:AddMedicationsCellType = .MedicationName
     var userEntryCaptureClosure:((_ text:String, _ row:Int)->Void)?
     var cellRow:Int = 0
@@ -33,6 +35,8 @@ class AddNewMedicationUserEntryTableCell: UITableViewCell, UITextFieldDelegate {
                     userEntryTextField.autocapitalizationType = .sentences
                     userEntryTextField.delegate = self
                 }
+        
+        textCount.text = "0/2000"
         
         // Initialization code
     }
@@ -62,33 +66,64 @@ class AddNewMedicationUserEntryTableCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        // Get the current text, including the new characters
         let currentText = textField.text ?? ""
-        guard let textRange = Range(range, in: currentText) else { return true } // Safely unwrap the range
+        guard let textRange = Range(range, in: currentText) else { return true }
+        
         let updatedText = currentText.replacingCharacters(in: textRange, with: string)
         
-        // Apply capitalization: Capitalize the first letter, lowercase the rest
-//        let capitalizedText = updatedText.prefix(1).uppercased() + updatedText.dropFirst().lowercased()
-        
-        // Calculate the new cursor position
-        let cursorOffset = range.location + string.count
-        let newCursorPosition = textField.position(from: textField.beginningOfDocument, offset: cursorOffset)
-        
-        // Update the text field
-        textField.text = updatedText//capitalizedText
-        
-        // Set the cursor to the new position, if possible
-        if let position = newCursorPosition {
-            textField.selectedTextRange = textField.textRange(from: position, to: position)
+        // Check if the new text length is within the limit
+        if updatedText.count <= 2000 {
+            // Update the text field manually
+            textField.text = updatedText
+            
+            // Update the character count label
+            textCount.text = "\(updatedText.count)/2000"
+            
+            // Call the capture closure if needed
+            userEntryCaptureClosure?(updatedText, cellRow)
+            
+            // Set the cursor position appropriately
+            let cursorOffset = range.location + string.count
+            if let newPosition = textField.position(from: textField.beginningOfDocument, offset: cursorOffset) {
+                textField.selectedTextRange = textField.textRange(from: newPosition, to: newPosition)
+            }
+            
+            return false // We've handled the update
         } else {
-            // Fallback: Set the cursor to the end of the text if the position calculation fails
-            let endPosition = textField.endOfDocument
-            textField.selectedTextRange = textField.textRange(from: endPosition, to: endPosition)
+            // Optionally, you could shake the text field or show an alert if needed
+            return false // Prevent further typing
         }
-        
-        // Returning false as we've already updated the text field manually
-        return false
     }
+
+    
+//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+//        // Get the current text, including the new characters
+//        let currentText = textField.text ?? ""
+//        guard let textRange = Range(range, in: currentText) else { return true } // Safely unwrap the range
+//        let updatedText = currentText.replacingCharacters(in: textRange, with: string)
+//        
+//        // Apply capitalization: Capitalize the first letter, lowercase the rest
+////        let capitalizedText = updatedText.prefix(1).uppercased() + updatedText.dropFirst().lowercased()
+//        
+//        // Calculate the new cursor position
+//        let cursorOffset = range.location + string.count
+//        let newCursorPosition = textField.position(from: textField.beginningOfDocument, offset: cursorOffset)
+//        
+//        // Update the text field
+//        textField.text = updatedText//capitalizedText
+//        
+//        // Set the cursor to the new position, if possible
+//        if let position = newCursorPosition {
+//            textField.selectedTextRange = textField.textRange(from: position, to: position)
+//        } else {
+//            // Fallback: Set the cursor to the end of the text if the position calculation fails
+//            let endPosition = textField.endOfDocument
+//            textField.selectedTextRange = textField.textRange(from: endPosition, to: endPosition)
+//        }
+//        
+//        // Returning false as we've already updated the text field manually
+//        return false
+//    }
     
 }
 

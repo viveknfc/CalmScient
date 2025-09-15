@@ -48,6 +48,9 @@ class MindfulWalking: ViewController {
         super.viewDidLoad()
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
+        
+        configureAudioSession()
+        
         guard let url = URL(string: audioURL) else {
             print("Invalid URL")
             return
@@ -105,6 +108,15 @@ class MindfulWalking: ViewController {
     
     func setFavImage() {
         self.addFavImage.image = UIImage(named: self.isFav == 1 ? "redFav" : "fav")
+    }
+    
+    private func configureAudioSession() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            print("Failed to set audio session category: \(error)")
+        }
     }
 
     @objc func addFavouriteAction(sender: UITapGestureRecognizer) {

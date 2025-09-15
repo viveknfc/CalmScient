@@ -33,6 +33,9 @@ class Progressive: ViewController {
     override func viewDidLoad() {
 
         self.title = AppHelper.getLocalizeString(str:"Progressive muscle relaxation")
+        
+        configureAudioSession()
+        
         guard let url = URL(string: audioURL) else {
             print("Invalid URL")
             return
@@ -92,6 +95,14 @@ class Progressive: ViewController {
         setupLanguage()
     }
     
+    private func configureAudioSession() {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            print("Failed to set audio session category: \(error)")
+        }
+    }
     
     func setupPlayerObserver() {
         // Observe the status of the player to check if it's ready to play

@@ -17,7 +17,7 @@ fileprivate enum AddUserMedicationsCellDef:String {
         switch self {
         case .MedicationsDetailCell : return 96
         case .switchAndTableCell : return 200
-        case .textFieldUserEntry : return 80
+        case .textFieldUserEntry : return 100
         }
     }
     
@@ -446,24 +446,28 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
             case 0:
                 cell.titleLabel.attributedText = setRequiredTitle(AppHelper.getLocalizeString(str: "Medication"))
                 cell.cellType = .MedicationName
+                cell.textCount.isHidden = true
                 if EditVc ?? false, userEnteredDetails[indexPath.row].isEmpty {
                     userEnteredDetails[indexPath.row] = medication ?? ""
                 }
             case 1:
                 cell.titleLabel.attributedText = setRequiredTitle(AppHelper.getLocalizeString(str: "Provider"))
                 cell.cellType = .MedicationProvider
+                cell.textCount.isHidden = true
                 if EditVc ?? false, userEnteredDetails[indexPath.row].isEmpty {
                     userEnteredDetails[indexPath.row] = providerName ?? ""
                 }
             case 2:
                 cell.titleLabel.attributedText = setRequiredTitle(AppHelper.getLocalizeString(str: "Dosage"))
                 cell.cellType = .MedicationDosage
+                cell.textCount.isHidden = true
                 if EditVc ?? false, userEnteredDetails[indexPath.row].isEmpty {
                     userEnteredDetails[indexPath.row] = dosage ?? ""
                 }
             case 3:
                 cell.titleLabel.attributedText = setRequiredTitle(AppHelper.getLocalizeString(str: "Direction"))
                 cell.cellType = .MedicationDirection
+                cell.textCount.isHidden = false
                 if EditVc ?? false, userEnteredDetails[indexPath.row].isEmpty {
                     userEnteredDetails[indexPath.row] = direction ?? ""
                 }

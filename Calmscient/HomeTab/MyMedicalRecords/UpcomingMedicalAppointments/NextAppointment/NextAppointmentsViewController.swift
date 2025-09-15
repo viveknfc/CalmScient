@@ -63,9 +63,11 @@ class NextAppointmentsViewController: ViewController, NCalendarToViewDelegate {
         prepareRequestBodyParams["clientId"] = loginResponse.clientID
         
         let calendar = Calendar.current
-        let toDate = calendar.date(byAdding: .day, value: 6, to: Date())
-
-        prepareRequestBodyParams["fromDate"] = Date().dateInMMDDYYYYFormat()
+        let toDate = calendar.date(byAdding: .day, value: 6, to: forDate)
+        
+        print("the for date coming as ", forDate.dateInMMDDYYYYFormat())
+        
+        prepareRequestBodyParams["fromDate"] = forDate.dateInMMDDYYYYFormat()
         prepareRequestBodyParams["toDate"] = toDate?.dateInMMDDYYYYFormat() ?? Date().dateInMMDDYYYYFormat()
 
         let questonariesRequest = GetUserMedicalAppointmentsRequestForm(prepareRequestBodyParams)

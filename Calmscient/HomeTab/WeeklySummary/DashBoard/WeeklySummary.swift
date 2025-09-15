@@ -47,6 +47,7 @@ public enum WeeklySummaryItems:String {
     case WeeklySummarySummaryOfDast = "Summary Of Dast"
     case WeeklySummaryProgressOnCourseWork = "Progress On Course Work"
     case WeeklySummaryJournalEntry = "Journal Entry"
+    case WeeklySummaryCAGE = "Summary of CAGE"
     
     var localized: String {
           switch self {
@@ -66,6 +67,8 @@ public enum WeeklySummaryItems:String {
               return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Progress on course work" : "Progreso en el trabajo del curso"
           case .WeeklySummaryJournalEntry:
               return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Journal entry" : "Entrada de diario"
+          case .WeeklySummaryCAGE:
+              return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Summary of CAGE" : "Resumen de CAGE"
           }
       }
     
@@ -87,6 +90,8 @@ public enum WeeklySummaryItems:String {
               return ""
           case .WeeklySummaryJournalEntry:
               return ""
+          case .WeeklySummaryCAGE:
+              return "Summary of CAGE by date range"
           }
       }
     
@@ -108,6 +113,8 @@ public enum WeeklySummaryItems:String {
             return "SummaryOfDAST"
         case .WeeklySummaryProgressOnCourseWork:
             return "ProgressOnCourseWork"
+        case .WeeklySummaryCAGE:
+            return "ProgressOnCourseWork"//"CAGE"
         }
     }
     
@@ -140,6 +147,8 @@ public enum WeeklySummaryItems:String {
             return GetDASTRequestForm(startDate: StartDate, endDate: endDate)
         case .WeeklySummaryProgressOnCourseWork:
             fatalError("WeeklySummaryItems Wrongly API called")
+        case .WeeklySummaryCAGE:
+            return GetCAGERequestForm(startDate: StartDate, endDate: endDate)
         }
     }
     
@@ -191,6 +200,14 @@ public enum WeeklySummaryItems:String {
                 return ([],nil)
              }
             let results = responseDecoded.summaryOfDAST.map { obj in
+                return obj.getGraphData()
+            }
+            return (results,responseDecoded.statusResponse)
+        case .WeeklySummaryCAGE:
+            guard let responseDecoded = try? decoder.decode(SummaryOfCAGE.self, from: responseData!) else {
+                return ([],nil)
+             }
+            let results = responseDecoded.summaryofCAGEAID.map { obj in
                 return obj.getGraphData()
             }
             return (results,responseDecoded.statusResponse)

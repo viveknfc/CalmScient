@@ -8,7 +8,7 @@
 import UIKit
 
 class WeeklySummaryDashboardViewController: ViewController {
-    var collectionItems:[WeeklySummaryItems] = [.WeeklySummarySummaryOfMood,.WeeklySummarySummaryOfSleep,.WeeklySummarySummaryOfPHQ9,.WeeklySummarySummaryOfGAD,.WeeklySummarySummaryOfAudit,.WeeklySummarySummaryOfDast,.WeeklySummaryProgressOnCourseWork,.WeeklySummaryJournalEntry]
+    var collectionItems:[WeeklySummaryItems] = [.WeeklySummarySummaryOfMood,.WeeklySummarySummaryOfSleep,.WeeklySummarySummaryOfPHQ9,.WeeklySummarySummaryOfGAD,.WeeklySummarySummaryOfAudit,.WeeklySummarySummaryOfDast, .WeeklySummaryCAGE, .WeeklySummaryProgressOnCourseWork,.WeeklySummaryJournalEntry]
     var spanishCollection:[String] = ["Resumen del Estado de Ánimo","Resumen del Sueño","Resumen del PHQ-9","Resumen del GAD","Resumen de la Auditoría","Resumen del DAST-10","Progreso en el Trabajo del Curso","Entrada del Diario"]
     private lazy var dashboardCollectionView:UICollectionView = {
         let customFlowLayout:CustomCollectionViewLayout = CustomCollectionViewLayout()
@@ -102,13 +102,13 @@ extension WeeklySummaryDashboardViewController: UICollectionViewDelegateFlowLayo
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         
-        if (indexPath.row >= 0  && indexPath.row <= 5) {
+        if (indexPath.row >= 0  && indexPath.row <= 6) {
             let next = UIStoryboard(name: "WeeklySummaryGraphResults", bundle: nil)
             let vc = next.instantiateViewController(withIdentifier: "WeeklySummaryGraphViewController") as? WeeklySummaryGraphViewController
             vc?.summaryType = collectionItems[indexPath.row]
             vc?.title = collectionItems[indexPath.row].localized
             self.navigationController?.pushViewController(vc!, animated: true)
-        } else if indexPath.row == 6 {
+        } else if indexPath.row == 7 {
             let next = UIStoryboard(name: "ProgressOnWorkMain", bundle: nil)
             let vc = next.instantiateViewController(withIdentifier: "ProgressOnWorkMainViewController") as? ProgressOnWorkMainViewController
             self.navigationController?.pushViewController(vc!, animated: true)
