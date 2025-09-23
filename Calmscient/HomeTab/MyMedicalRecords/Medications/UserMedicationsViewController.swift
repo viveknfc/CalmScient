@@ -140,8 +140,71 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     //MARK: - Take All Button Pressed
     
     @IBAction func takeAllButtonPressed(_ sender: Any) {
-        takeAllButton.layer.borderColor = #colorLiteral(red: 0.9636, green: 0.574, blue: 0.575, alpha: 1)
+
         print("take all button pressed")
+        
+        
+        var allPmtIds: [String] = []
+        var responseDate: String?
+        var responseTime: String?
+
+        for medication in medicationData {
+            if let medicalDetails = medication.medicationDetailsByDate.first?.medicalDetails {
+                for scheduled in medicalDetails.scheduledTimeList {
+                    for time in scheduled.scheduledTimes {
+                        
+                        // 🔑 Filter based on selected slot
+                        switch selectedTimeSlot {
+                        case .morning:
+                            if time.medicineTime.isDayTimeAM() {
+                                allPmtIds.append(time.pmtId)
+                                responseDate = medication.date
+                                responseTime = time.medicineTime
+                            }
+                        case .afternoon:
+                            if time.medicineTime.isDayTimePM() {
+                                allPmtIds.append(time.pmtId)
+                                responseDate = medication.date
+                                responseTime = time.medicineTime
+                            }
+                        case .evening:
+                            if time.medicineTime.isDayTimeEvening() {
+                                allPmtIds.append(time.pmtId)
+                                responseDate = medication.date
+                                responseTime = time.medicineTime
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        guard !allPmtIds.isEmpty else {
+            print("⚠️ No pmtIds found for slot \(selectedTimeSlot)")
+            return
+        }
+
+        // Default: mark as taken
+        let medicineTaken = "1"
+
+        // Build combined datetime
+
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        if let date = dateFormatter.date(from: responseDate ?? "") {
+            let outputFormatter = DateFormatter()
+            outputFormatter.dateFormat = "yyyy-MM-dd"
+            let formattedDate = outputFormatter.string(from: date)
+            combinedDateTime = "\(formattedDate) \(responseTime ?? "")"
+        }
+
+        callForMarkMedication(
+            pmtId: allPmtIds,
+            medicineTaken: medicineTaken,
+            medicationdatetime: combinedDateTime
+        )
+        
     }
     
     
@@ -219,7 +282,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
                     combinedDateTime = "\(formattedDate) \(responseTime)"
                 }
 
-                callForMarkMedication(pmtId: pmtId, medicineTaken: medicineTaken, medicationdatetime: combinedDateTime)
+                callForMarkMedication(pmtId: [pmtId], medicineTaken: medicineTaken, medicationdatetime: combinedDateTime)
             } else {
                 print("No scheduledTimes found for button: \(buttonType)")
             }
@@ -229,9 +292,11 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         }
     }
     
-    func callForMarkMedication(pmtId: String, medicineTaken: String, medicationdatetime: String) {
+    func callForMarkMedication(pmtId: [String], medicineTaken: String, medicationdatetime: String) {
         
-        if let medicineTakenInt = Int(medicineTaken), let pmtIdInt = Int(pmtId) {
+        let pmtIdInt = pmtId.compactMap { Int($0) }
+        
+        if let medicineTakenInt = Int(medicineTaken)  {
             let params: [String: Any] = ["pmtId": pmtIdInt, "medicineTaken": medicineTakenInt, "medicationdatetime": medicationdatetime]
             print("Params of mark medeication is :", params)
             self.view.showToastActivity()
@@ -256,6 +321,11 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
            responseCode == 200 {
             print("medine updation success")
             print("response is ", responseDict)
+            
+            takeAllButton.layer.borderColor = #colorLiteral(red: 0.9636, green: 0.574, blue: 0.575, alpha: 1)
+            takeAllButton.titleLabel?.textColor = #colorLiteral(red: 0.9636, green: 0.574, blue: 0.575, alpha: 1)
+            takeAllButton.titleLabel?.text = "Taken all"
+            
             self.showSuccessAlert(successContent: responseDict["responseMessage"] as? String, centreImage: nil) { [self] in
                 getMedicationsData(forDate: selectedNewDate)
             }

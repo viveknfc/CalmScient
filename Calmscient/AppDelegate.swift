@@ -16,10 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-//        IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.isEnabled = true
-        IQKeyboardManager.shared.enableAutoToolbar = true
+//        IQKeyboardManager.shared.enableAutoToolbar = true
         
         FirebaseApp.configure()
                 
@@ -37,12 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 bottomBorder.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
                 navBar.addSubview(bottomBorder)
             }
-            
-            
-//            let backImage = UIImage(named: "NavigationBack")
-//            UINavigationBar.appearance().backIndicatorImage = backImage
-//            UINavigationBar.appearance().backIndicatorTransitionMaskImage = backImage
-//            UINavigationBar.appearance().backItem?.backButtonTitle = ""
             
             let selectedLanguage = UserDefaults.standard.string(forKey: "appLanguage") ?? "en"
             Bundle.setLanguage(selectedLanguage)
@@ -70,6 +62,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
             
         }
+        
         return true
     }
     
@@ -117,6 +110,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             if granted {
                 print("Permission granted")
+                DispatchQueue.main.async {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
             } else {
                 print("Permission not granted")
             }
@@ -126,29 +122,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     
     func checkNotificationPermission() {
-        
-        
         UNUserNotificationCenter.current().getNotificationSettings { settings in
             switch settings.authorizationStatus {
             case .notDetermined:
                 print(" Permission not requested yet, request permission ")
                 self.requestNotificationPermission()
-                // Permission not requested yet, request permission
-//                self.requestNotificationPermission()
             case .denied:
                 print("for now we are allowing user to use app but in app if user tried to use alarm then we will restrict user")
-                // Permission was denied, show an alert to guide the user to settings
-//                DispatchQueue.main.async {
-//                    guard let settingsUrl = URL(string: UIApplication.openSettingsURLString) else {
-//                                return
-//                            }
-//                            
-//                            if UIApplication.shared.canOpenURL(settingsUrl) {
-//                                UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
-//                                    print("Settings opened: \(success)") // Prints true
-//                                })
-//                            }
-//                }
             case .authorized, .provisional, .ephemeral:
                 // Permission granted or in provisional state
                 print("Permission granted")
@@ -171,6 +151,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+    }
+    
+    // Called when device successfully registers with APNs
+    func application(_ application: UIApplication,
+                     didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        
+        let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
+        let token = tokenParts.joined()
+        print("📱 Device Token: \(token)")
+        
+        // 👉 Send this token to your server
+    }
+
+    // Called if registration fails
+    func application(_ application: UIApplication,
+                     didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("❌ Failed to register: \(error)")
     }
     
     

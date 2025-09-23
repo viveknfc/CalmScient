@@ -53,7 +53,7 @@ class UserJournalData: Codable {
 
 struct StartupAnswer: Codable {
     let activitySection: String
-    let activityResponse: String
+    let activityResponse: [String]?
 }
 
 class UserStartupScreenDayData: Codable {
@@ -68,7 +68,7 @@ class UserStartupScreenDayData: Codable {
     var moodAnswer:Int?
     var sleepAnswer:Int?
     var medicineAnswer:String?
-    var timeSpendAnswer:String?
+    var timeSpendAnswer:[String]?
     var journalAnswer:String?
     
     var startupAnswersDtoList: [StartupAnswer]?
@@ -213,7 +213,7 @@ class PatientLog: Codable {
     var sleepQuestion: String = ""
     var medicineQuestion: String = ""
     var spendQuestion: String = ""
-    var spendTime: String = ""
+    var spendTime: [String] = []
     var journal: String = ""
     var wish: String = ""
     var activityDate: String = ""
@@ -254,7 +254,7 @@ class PatientLog: Codable {
         sleepQuestion = try container.decode(String.self, forKey: .sleepQuestion)
         medicineQuestion = try container.decode(String.self, forKey: .medicineQuestion)
         spendQuestion = try container.decode(String.self, forKey: .spendQuestion)
-        spendTime = try container.decode(String.self, forKey: .spendTime)
+        spendTime = try container.decode([String].self, forKey: .spendTime)
         journal = try container.decode(String.self, forKey: .journal)
         wish = try container.decode(String.self, forKey: .wish)
         activityDate = try container.decode(String.self, forKey: .activityDate)
@@ -290,7 +290,7 @@ class SaveUserStartupScreenDetailsRequestForm: EndPointRequest {
         guard let reqBody = try? requestParams.toDictionary() else {
             return nil
         }
-        print(reqBody)
+        print("request body for save user startup screen details",reqBody)
         self.requestBody = reqBody
     }
 }

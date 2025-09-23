@@ -83,6 +83,12 @@ class UserIntroDayFeedbackViewController: ViewController {
         }
     }
     
+    var SpendTime1: [Int]?{
+        didSet {
+            feedbackTableView.reloadData()
+        }
+    }
+    
     var selectedCell: Int? {
         didSet {
             feedbackTableView.reloadData()
@@ -328,22 +334,23 @@ class UserIntroDayFeedbackViewController: ViewController {
                     for answer in answersList {
                           switch answer.activitySection {
                           case "Mood Monitor":
-                              selectedCell = (Int(answer.activityResponse) ?? 0) - 1
+                              selectedCell = (Int(answer.activityResponse?.first ?? "-1") ?? 0) - 1
                           case "Sleep Hours":
 //                              slpHours = String((Int(answer.activityResponse) ?? 0) - 1)
                               
-                              if let index = sleepData.firstIndex(of: answer.activityResponse) {
+                              if let index = sleepData.firstIndex(of: answer.activityResponse?.first ?? "-1") {
                                   slpHours = String(index)
                               } else {
                                   slpHours = "0" // Default value if not found
                               }
                               
                           case "Medication":
-                              mediTaken = answer.activityResponse 
+                              mediTaken = answer.activityResponse?.first
                           case "Journal":
-                              journalText = answer.activityResponse
+                              journalText = answer.activityResponse?.first
                           case "SpendTime":
-                              SpendTime = (Int(answer.activityResponse) ?? 0) - 1
+//                              SpendTime = (Int(answer.activityResponse) ?? 0) - 1
+                              SpendTime1 = answer.activityResponse?.compactMap { Int($0) }.map { $0 - 1 }
                           default:
                               break
                           }
@@ -418,7 +425,7 @@ class UserIntroDayFeedbackViewController: ViewController {
             
             if let cell = cell as? UserIntroSelectionTableCell {
                         userDayWiseData.moodAnswer =  cell.getUpdatedData4MoodId()
-                        userDayWiseData.timeSpendAnswer = cell.getUpdatedData4SpendHours()
+                        userDayWiseData.timeSpendAnswer = cell.getUpdatedData4SpendHours1()
                     } else if let cell = cell as? UserEntrySleepHoursCell {
                         let updatedSleepHours = cell.getUpdatedData() ?? 1
                         print("the updatedSleepHours is", updatedSleepHours)
@@ -452,7 +459,7 @@ class UserIntroDayFeedbackViewController: ViewController {
                     }
         }
         
-        print("Mood ID: \(userDayWiseData.moodAnswer ?? -1), Sleep Hours: \(userDayWiseData.sleepAnswer ?? -2), Medicine Flag: \(userDayWiseData.medicineAnswer ?? "None"), Journal: \(userDayWiseData.journalAnswer ?? "None"), Spend Hours: \(userDayWiseData.timeSpendAnswer ?? "none")")
+        print("Mood ID: \(userDayWiseData.moodAnswer ?? -1), Sleep Hours: \(userDayWiseData.sleepAnswer ?? -2), Medicine Flag: \(userDayWiseData.medicineAnswer ?? "None"), Journal: \(userDayWiseData.journalAnswer ?? "None"), Spend Hours: \(userDayWiseData.timeSpendAnswer?.first ?? "none")")
 
         
         let answers = PatientLog()
@@ -670,10 +677,10 @@ extension UserIntroDayFeedbackViewController : UITableViewDataSource,UITableView
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellType.getCellIdentifier(), for: indexPath) as? UserIntroSelectionTableCell else {
                 return UITableViewCell()
             }
-            cell.isFromAPISetup = true
+            cell.isFromAPISetup = true 
             cell.selectedIndex = ((selectedCell ?? -1))
             cell.apiSelectedIndex = ((selectedCell ?? -1))
-            cell.spendIndex = ((SpendTime ?? -1))
+            cell.spendIndex1 = ((SpendTime1 ?? []))
             cell.isFromAPISetup = false
             
             cell.delegate = self

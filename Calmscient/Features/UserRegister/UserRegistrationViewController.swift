@@ -173,7 +173,7 @@ class UserRegistrationViewController: UIViewController {
                let responseMessage = statusResponse["responseMessage"] as? String {
                 
                 if responseCode == 200 {
-                    let successContent = "Your license key has been verified, please check your mail for login with temporary password."
+                    let successContent = "Your license key has been verified, Please check your mail for login with temporary password."
                     self.showSuccessAlert(successContent: successContent, centreImage: nil, okButtonAction: {
                         self.navigateToCreateAccount()
                     })

@@ -14,7 +14,7 @@ class APIService: UIViewController {
     static var DevURL = "http://147.93.41.160/api/"
     
     static var Url4Courses = "https://calmscient.in/courses/" //"http://147.93.41.160/courses/"
-    static var BaseUrl = ProducitonURL
+    static var BaseUrl = DevURL
     
     static var RefreshToken = "identity/api/v1/user/refreshToken"
     static var DeleteMedication = "patients/api/v1/medications/deleteMedication"

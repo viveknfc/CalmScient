@@ -379,6 +379,7 @@ class AddMedication: Codable {
     var medicineTime: String = ""
     var plId: Int = ApplicationSharedInfo.shared.loginResponse!.patientLocationID
     var prescriptionId: Int = 0
+    var patientId: Int = ApplicationSharedInfo.shared.loginResponse!.patientID
     var providerId: Int = 0
     var pvcFlag: String = ""
     var quantity: Int = 1
@@ -387,7 +388,7 @@ class AddMedication: Codable {
     var provider = ""
 
     enum CodingKeys: String, CodingKey {
-        case alarms, direction, dosage, endDate, isActive, medicationName, medicineTime, plId, prescriptionId, providerId, pvcFlag, quantity, startDate, withMeal, provider
+        case alarms, direction, dosage, endDate, isActive, medicationName, medicineTime, plId, prescriptionId, patientId, providerId, pvcFlag, quantity, startDate, withMeal, provider
     }
     
     init() {
@@ -406,6 +407,7 @@ class AddMedication: Codable {
         medicineTime = try container.decode(String.self, forKey: .medicineTime)
         plId = try container.decode(Int.self, forKey: .plId)
         prescriptionId = try container.decode(Int.self, forKey: .prescriptionId)
+        patientId = try container.decode(Int.self, forKey: .patientId)
         providerId = try container.decode(Int.self, forKey: .providerId)
         pvcFlag = try container.decode(String.self, forKey: .pvcFlag)
         quantity = try container.decode(Int.self, forKey: .quantity)
@@ -426,6 +428,7 @@ class AddMedication: Codable {
         try container.encode(medicineTime, forKey: .medicineTime)
         try container.encode(plId, forKey: .plId)
         try container.encode(prescriptionId, forKey: .prescriptionId)
+        try container.encode(patientId, forKey: .patientId)
         try container.encode(providerId, forKey: .providerId)
         try container.encode(pvcFlag, forKey: .pvcFlag)
         try container.encode(quantity, forKey: .quantity)
