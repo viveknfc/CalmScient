@@ -148,39 +148,79 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         
         
         var allPmtIds: [String] = []
-        var responseDate: String?
-        var responseTime: String?
-
+//        var responseDate: String?
+//        var responseTime: String?
+        var medicationdatetime: [String] = []
+        
         for medication in medicationData {
             if let medicalDetails = medication.medicationDetailsByDate.first?.medicalDetails {
                 for scheduled in medicalDetails.scheduledTimeList {
                     for time in scheduled.scheduledTimes {
                         
+                        var shouldInclude = false
+                        
                         // 🔑 Filter based on selected slot
                         switch selectedTimeSlot {
                         case .morning:
-                            if time.medicineTime.isDayTimeAM() {
-                                allPmtIds.append(time.pmtId)
-                                responseDate = medication.date
-                                responseTime = time.medicineTime
-                            }
+                            shouldInclude = time.medicineTime.isDayTimeAM()
                         case .afternoon:
-                            if time.medicineTime.isDayTimePM() {
-                                allPmtIds.append(time.pmtId)
-                                responseDate = medication.date
-                                responseTime = time.medicineTime
-                            }
+                            shouldInclude = time.medicineTime.isDayTimePM()
                         case .evening:
-                            if time.medicineTime.isDayTimeEvening() {
-                                allPmtIds.append(time.pmtId)
-                                responseDate = medication.date
-                                responseTime = time.medicineTime
+                            shouldInclude = time.medicineTime.isDayTimeEvening()
+                        }
+                        
+                        if shouldInclude {
+                            allPmtIds.append(time.pmtId)
+                            
+                            // Format date properly for each pmtId
+                            let dateFormatter = DateFormatter()
+                            dateFormatter.dateFormat = "MM/dd/yyyy"
+                            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+                            
+                            if let date = dateFormatter.date(from: medication.date) {
+                                let outputFormatter = DateFormatter()
+                                outputFormatter.dateFormat = "yyyy-MM-dd"
+                                let formattedDate = outputFormatter.string(from: date)
+                                
+                                let combined = "\(formattedDate) \(time.medicineTime)"
+                                medicationdatetime.append(combined) // ✅ add per record
                             }
                         }
                     }
                 }
             }
         }
+
+//        for medication in medicationData {
+//            if let medicalDetails = medication.medicationDetailsByDate.first?.medicalDetails {
+//                for scheduled in medicalDetails.scheduledTimeList {
+//                    for time in scheduled.scheduledTimes {
+//                        
+//                        // 🔑 Filter based on selected slot
+//                        switch selectedTimeSlot {
+//                        case .morning:
+//                            if time.medicineTime.isDayTimeAM() {
+//                                allPmtIds.append(time.pmtId)
+//                                responseDate = medication.date
+//                                responseTime = time.medicineTime
+//                            }
+//                        case .afternoon:
+//                            if time.medicineTime.isDayTimePM() {
+//                                allPmtIds.append(time.pmtId)
+//                                responseDate = medication.date
+//                                responseTime = time.medicineTime
+//                            }
+//                        case .evening:
+//                            if time.medicineTime.isDayTimeEvening() {
+//                                allPmtIds.append(time.pmtId)
+//                                responseDate = medication.date
+//                                responseTime = time.medicineTime
+//                            }
+//                        }
+//                    }
+//                }
+//            }
+//        }
 
         guard !allPmtIds.isEmpty else {
             print("⚠️ No pmtIds found for slot \(selectedTimeSlot)")
@@ -193,20 +233,20 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
 
         // Build combined datetime
 
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM/dd/yyyy"
-        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-        if let date = dateFormatter.date(from: responseDate ?? "") {
-            let outputFormatter = DateFormatter()
-            outputFormatter.dateFormat = "yyyy-MM-dd"
-            let formattedDate = outputFormatter.string(from: date)
-            combinedDateTime = ["\(formattedDate) \(responseTime ?? "")"]
-        }
+//        let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "MM/dd/yyyy"
+//        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+//        if let date = dateFormatter.date(from: responseDate ?? "") {
+//            let outputFormatter = DateFormatter()
+//            outputFormatter.dateFormat = "yyyy-MM-dd"
+//            let formattedDate = outputFormatter.string(from: date)
+//            combinedDateTime = ["\(formattedDate) \(responseTime ?? "")"]
+//        }
 
         callForMarkMedication(
             pmtId: allPmtIds,
             medicineTaken: medicineTaken,
-            medicationdatetime: combinedDateTime
+            medicationdatetime: medicationdatetime
         )
         
     }
