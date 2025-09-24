@@ -18,6 +18,7 @@ class MindfulWalking: ViewController {
     var isPlayerReady = false
     
     @IBOutlet weak var completeButton: CapsuleButton1!
+    var timeObserverToken: Any?
     
     let stringsArr = [
         "Stress Reduction: Engaging in mindful walking can be an effective way to reduce stress and promote relaxation. By directing your attention to the physical sensations of walking, you create a mental break from everyday stressors. This practice activates the relaxation response in your body, leading to a calmer state of mind",
@@ -104,6 +105,26 @@ class MindfulWalking: ViewController {
         completeButton.titleLabel?.font = UIFont(name: Fonts().lexendLight, size: 14)
         
         title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Mindful walking" : "Caminata Consciente"
+        
+        // Initially disabled
+        completeButton.isEnabled = false
+        completeButton.alpha = 0.5
+
+        // Attach generic observer
+        timeObserverToken = player?.observeRemainingTime(threshold: 10) { [weak self] canEnable in
+            guard let self = self else { return }
+            self.completeButton.isEnabled = canEnable
+            self.completeButton.alpha = canEnable ? 1.0 : 0.5
+        }
+    }
+    
+    deinit {
+        
+        removeStatusObserver()
+        
+        if let token = timeObserverToken {
+            player?.removeTimeObserver(token)
+        }
     }
     
     func setFavImage() {
@@ -191,10 +212,6 @@ class MindfulWalking: ViewController {
             player?.pause()
         }
 //        removeStatusObserver()
-      }
-      
-      deinit {
-          removeStatusObserver()
       }
     
     func removeStatusObserver() {

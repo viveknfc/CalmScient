@@ -41,9 +41,10 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     var selectedTimeSlot: TimeSlot = .morning
     
     var nomedications = UILabel()
-    var combinedDateTime = String()
+    var combinedDateTime = [String]()
     
     @IBOutlet weak var takeAllButton: UIButton!
+    var isMedicineTaken = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -118,6 +119,8 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         takeAllButton.layer.cornerRadius = 13
         
         medicationsTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 150, right: 0)
+        
+        takeAllButton.setTitle(isMedicineTaken ? "Taken" : "Take all", for: .normal)
 
     }
     
@@ -185,7 +188,8 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         }
 
         // Default: mark as taken
-        let medicineTaken = "1"
+        isMedicineTaken.toggle()
+        let medicineTaken = isMedicineTaken ? "1" : "0"
 
         // Build combined datetime
 
@@ -196,7 +200,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
             let outputFormatter = DateFormatter()
             outputFormatter.dateFormat = "yyyy-MM-dd"
             let formattedDate = outputFormatter.string(from: date)
-            combinedDateTime = "\(formattedDate) \(responseTime ?? "")"
+            combinedDateTime = ["\(formattedDate) \(responseTime ?? "")"]
         }
 
         callForMarkMedication(
@@ -279,7 +283,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
                     let outputFormatter = DateFormatter()
                     outputFormatter.dateFormat = "yyyy-MM-dd"
                     let formattedDate = outputFormatter.string(from: date)
-                    combinedDateTime = "\(formattedDate) \(responseTime)"
+                    combinedDateTime = ["\(formattedDate) \(responseTime)"]
                 }
 
                 callForMarkMedication(pmtId: [pmtId], medicineTaken: medicineTaken, medicationdatetime: combinedDateTime)
@@ -292,7 +296,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         }
     }
     
-    func callForMarkMedication(pmtId: [String], medicineTaken: String, medicationdatetime: String) {
+    func callForMarkMedication(pmtId: [String], medicineTaken: String, medicationdatetime: [String]) {
         
         let pmtIdInt = pmtId.compactMap { Int($0) }
         
@@ -322,9 +326,17 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
             print("medine updation success")
             print("response is ", responseDict)
             
-            takeAllButton.layer.borderColor = #colorLiteral(red: 0.9636, green: 0.574, blue: 0.575, alpha: 1)
-            takeAllButton.titleLabel?.textColor = #colorLiteral(red: 0.9636, green: 0.574, blue: 0.575, alpha: 1)
-            takeAllButton.titleLabel?.text = "Taken all"
+            takeAllButton.setTitle(isMedicineTaken ? "Taken" : "Take all", for: .normal)
+            
+            print("the is medicine taken is : \(isMedicineTaken)")
+            
+            if isMedicineTaken {
+                takeAllButton.layer.borderColor = #colorLiteral(red: 0.9636, green: 0.574, blue: 0.575, alpha: 1)
+                takeAllButton.setTitleColor(#colorLiteral(red: 0.9636, green: 0.574, blue: 0.575, alpha: 1), for: .normal)
+            } else {
+                takeAllButton.layer.borderColor = #colorLiteral(red: 0.432, green: 0.415, blue: 0.706, alpha: 1)
+                takeAllButton.setTitleColor(#colorLiteral(red: 0.432, green: 0.415, blue: 0.706, alpha: 1), for: .normal)
+            }
             
             self.showSuccessAlert(successContent: responseDict["responseMessage"] as? String, centreImage: nil) { [self] in
                 getMedicationsData(forDate: selectedNewDate)

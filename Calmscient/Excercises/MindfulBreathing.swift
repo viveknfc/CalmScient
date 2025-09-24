@@ -93,6 +93,7 @@ class MindfulBreathing: ViewController {
     
     
     @IBOutlet weak var completeButton: CapsuleButton1!
+    var timeObserverToken: Any?
     
     @IBOutlet weak var forwardButton: UIButton!
     @IBOutlet weak var backwardButton: UIButton!
@@ -166,7 +167,22 @@ class MindfulBreathing: ViewController {
         
         //end
 
-        let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+        // Initially disabled
+        completeButton.isEnabled = false
+        completeButton.alpha = 0.5
+
+        // Attach generic observer
+        timeObserverToken = player?.observeRemainingTime(threshold: 10) { [weak self] canEnable in
+            guard let self = self else { return }
+            self.completeButton.isEnabled = canEnable
+            self.completeButton.alpha = canEnable ? 1.0 : 0.5
+        }
+    }
+    
+    deinit {
+        if let token = timeObserverToken {
+            player?.removeTimeObserver(token)
+        }
     }
     
     @objc func backButtonOverrideAction() {

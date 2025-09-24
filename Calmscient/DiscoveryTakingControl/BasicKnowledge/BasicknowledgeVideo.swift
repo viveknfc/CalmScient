@@ -22,6 +22,8 @@ class BasicknowledgeVideo: ViewController {
     @IBOutlet weak var subtitleLbl: UILabel!
     @IBOutlet weak var completeButton: CapsuleButton1!
     
+    var timeObserverToken: Any?
+    
     var sectionID4: Int?
     //        @IBOutlet weak var timeLabel: UILabel!
     
@@ -42,7 +44,23 @@ class BasicknowledgeVideo: ViewController {
         progressBar.tintColor = UIColor.white
         title =  AppHelper.getLocalizeString(str: "Basic Knowledge")
         
+        // Initially disabled
+        completeButton.isEnabled = false
+        completeButton.alpha = 0.5
 
+        // Attach generic observer
+        timeObserverToken = player?.observeRemainingTime(threshold: 10) { [weak self] canEnable in
+            guard let self = self else { return }
+            self.completeButton.isEnabled = canEnable
+            self.completeButton.alpha = canEnable ? 1.0 : 0.5
+        }
+        
+    }
+    
+    deinit {
+        if let token = timeObserverToken {
+            player?.removeTimeObserver(token)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

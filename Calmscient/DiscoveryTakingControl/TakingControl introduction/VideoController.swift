@@ -181,3 +181,23 @@ class VideoController: ViewController {
     }
     
 }
+
+extension AVPlayer {
+
+    func observeRemainingTime(threshold: Double = 10,
+                              queue: DispatchQueue = .main,
+                              callback: @escaping (Bool) -> Void) -> Any? {
+        let interval = CMTime(seconds: 1, preferredTimescale: CMTimeScale(NSEC_PER_SEC))
+        
+        return addPeriodicTimeObserver(forInterval: interval, queue: queue) { [weak self] currentTime in
+            guard let self = self,
+                  let duration = self.currentItem?.duration.seconds,
+                  duration.isFinite else {
+                return
+            }
+            
+            let remaining = duration - currentTime.seconds
+            callback(remaining <= threshold)
+        }
+    }
+}

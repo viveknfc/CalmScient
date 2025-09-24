@@ -53,7 +53,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="12"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="Take all">
+                                <state key="normal">
                                     <color key="titleColor" name="6E6BB3ColorOnly"/>
                                 </state>
                                 <connections>

@@ -19,6 +19,7 @@ class Progressive: ViewController {
     @IBOutlet weak var forwardImg: UIImageView!
     
     @IBOutlet weak var completeButton: CapsuleButton1!
+    var timeObserverToken: Any?
     
     var isObservingStatus = false
     var redOverlayView: UIView!
@@ -84,6 +85,26 @@ class Progressive: ViewController {
         navigationItem.leftBarButtonItem = backBarButtonItem
         
         //end
+        
+        // Initially disabled
+        completeButton.isEnabled = false
+        completeButton.alpha = 0.5
+
+        // Attach generic observer
+        timeObserverToken = player?.observeRemainingTime(threshold: 10) { [weak self] canEnable in
+            guard let self = self else { return }
+            self.completeButton.isEnabled = canEnable
+            self.completeButton.alpha = canEnable ? 1.0 : 0.5
+        }
+    }
+    
+    deinit {
+        
+        removeStatusObserver()
+        
+        if let token = timeObserverToken {
+            player?.removeTimeObserver(token)
+        }
     }
     
     @objc func backButtonOverrideAction() {
@@ -138,10 +159,6 @@ class Progressive: ViewController {
             player?.pause()
         }
 //      removeStatusObserver()
-    }
-    
-    deinit {
-        removeStatusObserver()
     }
     
     func removeStatusObserver() {
