@@ -22,6 +22,7 @@ class WebViewLessonViewController: UIViewController, WKNavigationDelegate, WKScr
 
         let configuration = WKWebViewConfiguration()
         configuration.userContentController.add(self, name: "nativeDispatch")
+        
         configuration.preferences.javaScriptEnabled = true
         webView = WKWebView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height), configuration: configuration)
         self.view.addSubview(webView)
@@ -32,8 +33,12 @@ class WebViewLessonViewController: UIViewController, WKNavigationDelegate, WKScr
         webView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor).isActive = true
         self.navigationController?.navigationBar.isHidden = false
         webView.navigationDelegate = self
+        
+        
+        
         if let urlT = URL(string: urlString) {
-            let request = URLRequest(url: urlT)
+            
+            var request = URLRequest(url: urlT)
             webView.load(request)
         }
         self.view.showToastActivity()
@@ -92,15 +97,6 @@ class WebViewLessonViewController: UIViewController, WKNavigationDelegate, WKScr
         navigationItem.leftBarButtonItem = nil
         navigationItem.rightBarButtonItem = nil
         navigationItem.hidesBackButton = false
-        
-//        let stopMediaScript = """
-//            var videos = document.querySelectorAll('video');
-//            videos.forEach(video => video.pause());
-//
-//            var audios = document.querySelectorAll('audio');
-//            audios.forEach(audio => audio.pause());
-//        """
-//        webView.evaluateJavaScript(stopMediaScript, completionHandler: nil)
         
     }
     
@@ -306,13 +302,15 @@ extension WebViewLessonViewController: WKUIDelegate {
     
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        webView.isHidden = false // like `binding.webviewLearnMore.visibility = View.VISIBLE`
+        webView.isHidden = false
 
         guard let tokenResponse = ApplicationSharedInfo.shared.tokenResponse else {
             fatalError("Unable to found Application Shared Info")
         }
         
         let token = tokenResponse.accessToken
+        print("the token is \(token)")
+        
         let js = """
         (function waitForFn(){
             if (window && typeof window.onAccessTokenReceived === 'function') {
@@ -350,4 +348,5 @@ extension WebViewLessonViewController: WKUIDelegate {
         return ""
       }
     }
+
 }

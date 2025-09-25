@@ -77,11 +77,11 @@ class UserIntroDayFeedbackViewController: ViewController {
     
     var isJournalClearedByUser = false
     
-    var SpendTime: Int?{
-        didSet {
-            feedbackTableView.reloadData()
-        }
-    }
+//    var SpendTime: Int?{
+//        didSet {
+//            feedbackTableView.reloadData()
+//        }
+//    }
     
     var SpendTime1: [Int]?{
         didSet {
@@ -349,8 +349,7 @@ class UserIntroDayFeedbackViewController: ViewController {
                           case "Journal":
                               journalText = answer.activityResponse?.first
                           case "SpendTime":
-//                              SpendTime = (Int(answer.activityResponse) ?? 0) - 1
-                              SpendTime1 = answer.activityResponse?.compactMap { Int($0) }.map { $0 - 1 }
+                              SpendTime1 = answer.activityResponse?.compactMap { Int($0) }
                           default:
                               break
                           }
@@ -680,7 +679,8 @@ extension UserIntroDayFeedbackViewController : UITableViewDataSource,UITableView
             cell.isFromAPISetup = true 
             cell.selectedIndex = ((selectedCell ?? -1))
             cell.apiSelectedIndex = ((selectedCell ?? -1))
-            cell.spendIndex1 = ((SpendTime1 ?? []))
+//            cell.spendIndex1 = ((SpendTime1 ?? []))
+            cell.spendHoursAnswer1 = (SpendTime1 ?? []).map { String($0) }
             cell.isFromAPISetup = false
             
             cell.delegate = self

@@ -107,6 +107,7 @@ class CoursesViewController: ViewController {
                 } else if let response = response {
                     self.courseDate = response.coursesList
                     self.courseSessionID = response.patientSessionDetails.userSessionID
+                    
                     self.patientSessionDetails = response.patientSessionDetails
                     self.courseTableView.reloadData()
                 } else if let failureResponse = failureResponse {

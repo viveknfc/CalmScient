@@ -84,15 +84,19 @@ class UserIntroSelectionTableCell: UITableViewCell {
 //        }
 //    }
     
-    var spendIndex1: [Int] = [] {
+//    var spendIndex1: [Int] = [] {
+//        didSet {
+//            tableCellCollectionView.reloadData()
+//        }
+//    }
+    
+    var moodIdAnswer: Int?
+//    var spendHoursAnswer: String?
+    var spendHoursAnswer1: [String] = [] {
         didSet {
             tableCellCollectionView.reloadData()
         }
     }
-    
-    var moodIdAnswer: Int?
-//    var spendHoursAnswer: String?
-    var spendHoursAnswer1: [String] = []
     
     func getUpdatedData4MoodId() -> (Int?) {
         return instance.moodAnswer
@@ -224,10 +228,12 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegateFlowLayout, UICo
             
             let answer = String(indexPath.row + 1)
             
-            let wasInitiallySelected = spendIndex1.contains(indexPath.row)
-            let isNowSelected = spendHoursAnswer1.contains(answer)
+            let isSelected = spendHoursAnswer1.contains(answer)
             
-            let isSelected = (wasInitiallySelected && !isNowSelected) || (!wasInitiallySelected && isNowSelected)
+//            let wasInitiallySelected = spendIndex1.contains(indexPath.row)
+//            let isNowSelected = spendHoursAnswer1.contains(answer)
+//            
+//            let isSelected = (wasInitiallySelected && !isNowSelected) || (!wasInitiallySelected && isNowSelected)
             configureCell(cell, indexPath: indexPath, isSelected: isSelected, cellData: cellData)
 
         case .none:
@@ -271,18 +277,19 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegateFlowLayout, UICo
 
 //                spendHoursAnswer = String(indexPath.row + 1)
                 
-                let answer = String(indexPath.row + 1)
-                if isSelected {
-                    // Add to the selection if not already there
-                    if !spendHoursAnswer1.contains(answer) {
-                        spendHoursAnswer1.append(answer)
-                    }
-                } else {
-                    // Remove from the selection if deselected
-                    if let index = spendHoursAnswer1.firstIndex(of: answer) {
-                        spendHoursAnswer1.remove(at: index)
-                    }
-                }
+//                let answer = String(indexPath.row + 1)
+//                if isSelected {
+//                    // Add to the selection if not already there
+//                    if !spendHoursAnswer1.contains(answer) {
+//                        spendHoursAnswer1.append(answer)
+//                    }
+//                } else {
+//                    // Remove from the selection if deselected
+//                    if let index = spendHoursAnswer1.firstIndex(of: answer) {
+//                        spendHoursAnswer1.remove(at: index)
+//                    }
+//                }
+                break
                 
             default:
                 break
@@ -290,18 +297,6 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegateFlowLayout, UICo
   
             //end
             cell.cellImageView.image = self.cellType == .UserEntryTimeSpendCell ? UIImage(named: self.selectedFamilyImages[indexPath.row]) : UIImage(named: "\(cellData.0)")
-//            cell.cellImageView.applyShadow()
-//            cell.cellWidth.constant = newSize
-//            cell.cellHeight.constant = newSize
-//            cell.cellImageView.layer.cornerRadius = newSize / 2
-//            cell.cellImageView.clipsToBounds = false
-//            cell.cellImageView.layer.borderWidth = 2
-//            cell.cellImageView.layer.borderColor = UIColor.white.cgColor
-//            cell.cellImageView.layer.shadowColor = UIColor.black.cgColor
-//            cell.cellImageView.layer.shadowOpacity = 0.5
-//            cell.cellImageView.layer.shadowOffset = CGSize(width: 0, height: 2)
-//            cell.cellImageView.layer.shadowRadius = 4
-//            cell.cellImageView.layer.shadowPath = UIBezierPath(ovalIn: cell.cellImageView.bounds).cgPath
             
             // Animate scaling for visual feedback
             UIView.animate(withDuration: 0.2) {
@@ -389,8 +384,6 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegate {
             print("Selected moodAnswer after update: \(String(describing: self.instance.moodAnswer))")
 
         case .UserEntryTimeSpendCell:
-//            spendIndex = indexPath.row
-//            self.instance.timeSpendAnswer = String(spendIndex+1) //cellSelectedItem.1
             
             let answer = String(indexPath.row + 1)
             if spendHoursAnswer1.contains(answer) {
