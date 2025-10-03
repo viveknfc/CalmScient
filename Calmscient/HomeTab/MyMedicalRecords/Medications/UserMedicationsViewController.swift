@@ -44,6 +44,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     var combinedDateTime = [String]()
     
     @IBOutlet weak var takeAllButton: UIButton!
+    
     var isMedicineTaken = false
     
     override func viewDidLoad() {
@@ -119,9 +120,6 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         takeAllButton.layer.cornerRadius = 13
         
         medicationsTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 150, right: 0)
-        
-        takeAllButton.setTitle(isMedicineTaken ? "Taken" : "Take all", for: .normal)
-
     }
     
     //MARK: - Segment Change
@@ -137,7 +135,12 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         default:
             break
         }
+        
         medicationsTableView.reloadData()
+        
+        DispatchQueue.main.async {
+            self.updateTakeAllButtonFromCells(for: self.selectedTimeSlot)
+        }
     }
     
     //MARK: - Take All Button Pressed
@@ -146,14 +149,21 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
 
         print("take all button pressed")
         
+        let status = slotStatus(for: selectedTimeSlot)
+        let currentlyAllTaken = status.allTaken
+        let newTakenState = !currentlyAllTaken   // toggle
         
         var allPmtIds: [String] = []
-//        var responseDate: String?
-//        var responseTime: String?
+        var allmedicineTakenID: [Int] = []
         var medicationdatetime: [String] = []
         
         for medication in medicationData {
             if let medicalDetails = medication.medicationDetailsByDate.first?.medicalDetails {
+                
+                if medicalDetails.expired == 1 {
+                    continue
+                }
+                
                 for scheduled in medicalDetails.scheduledTimeList {
                     for time in scheduled.scheduledTimes {
                         
@@ -170,178 +180,116 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
                         }
                         
                         if shouldInclude {
-                            allPmtIds.append(time.pmtId)
-                            
-                            // Format date properly for each pmtId
-                            let dateFormatter = DateFormatter()
-                            dateFormatter.dateFormat = "MM/dd/yyyy"
-                            dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-                            
-                            if let date = dateFormatter.date(from: medication.date) {
-                                let outputFormatter = DateFormatter()
-                                outputFormatter.dateFormat = "yyyy-MM-dd"
-                                let formattedDate = outputFormatter.string(from: date)
                                 
-                                let combined = "\(formattedDate) \(time.medicineTime)"
-                                medicationdatetime.append(combined) // ✅ add per record
-                            }
+                                allPmtIds.append(time.pmtId)
+                                
+                                allmedicineTakenID.append(time.medicineTakenID ?? 0)
+                                
+                                // Format date properly for each pmtId
+                                let dateFormatter = DateFormatter()
+                                dateFormatter.dateFormat = "MM/dd/yyyy"
+                                dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+                                
+                                if let date = dateFormatter.date(from: medication.date) {
+                                    let outputFormatter = DateFormatter()
+                                    outputFormatter.dateFormat = "yyyy-MM-dd"
+                                    let formattedDate = outputFormatter.string(from: date)
+                                    
+                                    let combined = "\(formattedDate) \(time.medicineTime)"
+                                    medicationdatetime.append(combined) // ✅ add per record
+                                }
+                            
                         }
                     }
                 }
             }
         }
 
-//        for medication in medicationData {
-//            if let medicalDetails = medication.medicationDetailsByDate.first?.medicalDetails {
-//                for scheduled in medicalDetails.scheduledTimeList {
-//                    for time in scheduled.scheduledTimes {
-//                        
-//                        // 🔑 Filter based on selected slot
-//                        switch selectedTimeSlot {
-//                        case .morning:
-//                            if time.medicineTime.isDayTimeAM() {
-//                                allPmtIds.append(time.pmtId)
-//                                responseDate = medication.date
-//                                responseTime = time.medicineTime
-//                            }
-//                        case .afternoon:
-//                            if time.medicineTime.isDayTimePM() {
-//                                allPmtIds.append(time.pmtId)
-//                                responseDate = medication.date
-//                                responseTime = time.medicineTime
-//                            }
-//                        case .evening:
-//                            if time.medicineTime.isDayTimeEvening() {
-//                                allPmtIds.append(time.pmtId)
-//                                responseDate = medication.date
-//                                responseTime = time.medicineTime
-//                            }
-//                        }
-//                    }
-//                }
-//            }
-//        }
-
-        guard !allPmtIds.isEmpty else {
-            print("⚠️ No pmtIds found for slot \(selectedTimeSlot)")
-            return
-        }
-
-        // Default: mark as taken
-        isMedicineTaken.toggle()
-        let medicineTaken = isMedicineTaken ? "1" : "0"
-
-        // Build combined datetime
-
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "MM/dd/yyyy"
-//        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-//        if let date = dateFormatter.date(from: responseDate ?? "") {
-//            let outputFormatter = DateFormatter()
-//            outputFormatter.dateFormat = "yyyy-MM-dd"
-//            let formattedDate = outputFormatter.string(from: date)
-//            combinedDateTime = ["\(formattedDate) \(responseTime ?? "")"]
-//        }
+//        let isMedicineTaken = takeAllButton.titleLabel?.text == "Taken"
+//        let medicineTaken = isMedicineTaken ? "0" : "1"
+        
+        let medicineTaken = newTakenState ? "1" : "0"
 
         callForMarkMedication(
             pmtId: allPmtIds,
             medicineTaken: medicineTaken,
-            medicationdatetime: medicationdatetime
+            medicationdatetime: medicationdatetime,
+            medicineTakenId: allmedicineTakenID
         )
         
     }
+
     
     
     //MARK: - MARK Medication API Call
     
     func didTapTakenButton(in cell: UITableViewCell, buttonType: ButtonType) {
+        guard let customCell = cell as? UserMedicationsTableCell else { return }
         
-        var calendar = Calendar.current
-        calendar.timeZone = TimeZone(identifier: "UTC")!
-        
-        let now = Date()
-        let today = calendar.startOfDay(for: now)
-        let selectedDay = calendar.startOfDay(for: selectedNewDate)
-
-        if let daysDifference = calendar.dateComponents([.day], from: selectedDay, to: today).day,
-           daysDifference >= 0 && daysDifference <= 4 {
-            
-            // 🕓 For today, apply future time restriction
-            if selectedDay == today {
-                
-                //viv start
-                
-                if selectedDay == today {
-                    // Get local hour (not in UTC)
-                    let localHour = Calendar.current.component(.hour, from: Date())
-
-                    switch buttonType {
-                    case .first:
-                        // Morning: allowed anytime today — no restriction
-                        break
-
-                    case .second:
-                        // Afternoon: only allowed if local time is 12 PM or later
-                        if localHour < 12 {
-                            print("⏰ Too early to mark afternoon dose. Local hour: \(localHour)")
-                            return
-                        }
-
-                    case .third:
-                        // Evening: only allowed if local time is 6 PM or later
-                        if localHour < 18 {
-                            print("⏰ Too early to mark evening dose. Local hour: \(localHour)")
-                            return
-                        }
-                    }
-                }
-
-                
-                //end
-
-            }
-
-            print("✅ Date is allowed for marking")
-
-            guard let indexPath = self.medicationsTableView.indexPath(for: cell) else { return }
-
-            let medicationDetails = medicationData[indexPath.row].medicationDetailsByDate.first?.medicalDetails
-            let scheduledIndex = buttonType.scheduledIndex
-
-            let responseDate = medicationData[indexPath.row].date
-
-            if let scheduledTimes = medicationDetails?.scheduledTimeList[scheduledIndex].scheduledTimes.first {
-                print("the medicine taken value before is", scheduledTimes.medicineTaken as Any)
-                let pmtId = scheduledTimes.pmtId
-                let medicineTaken = (scheduledTimes.medicineTaken == "1") ? "0" : "1"
-                let responseTime = scheduledTimes.medicineTime
-                print("the medicine takne value now is", medicineTaken)
-                let dateFormatter = DateFormatter()
-                dateFormatter.dateFormat = "MM/dd/yyyy"
-                dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-                if let date = dateFormatter.date(from: responseDate) {
-                    let outputFormatter = DateFormatter()
-                    outputFormatter.dateFormat = "yyyy-MM-dd"
-                    let formattedDate = outputFormatter.string(from: date)
-                    combinedDateTime = ["\(formattedDate) \(responseTime)"]
-                }
-
-                callForMarkMedication(pmtId: [pmtId], medicineTaken: medicineTaken, medicationdatetime: combinedDateTime)
-            } else {
-                print("No scheduledTimes found for button: \(buttonType)")
-            }
-            
-        } else {
-            print("❌ Selected date is more than 5 days ago or in the future")
+        let tappedButton: UIButton
+        switch buttonType {
+        case .first: tappedButton = customCell.amButton
+        case .second: tappedButton = customCell.afButton
+        case .third: tappedButton = customCell.pmButton
         }
+        
+        // ✅ Instead of recalculating, just trust cell’s state
+        guard customCell.isButtonActive(tappedButton) else {
+            print("⏰ Cannot mark this dose yet. Disabled state (from cell)")
+            return
+        }
+        
+        // --- proceed with your API call using cell/record data ---
+        guard let indexPath = medicationsTableView.indexPath(for: cell) else { return }
+        let medicationRecord = medicationData[indexPath.row]
+        guard let medicalDetails = medicationRecord.medicationDetailsByDate.first?.medicalDetails else { return }
+
+        let scheduledIndex = buttonType.scheduledIndex
+        guard let scheduledTimes = medicalDetails.scheduledTimeList[scheduledIndex].scheduledTimes.first else { return }
+
+        let medicineTaken = (scheduledTimes.medicineTaken == "1") ? "0" : "1"
+        let pmtId = scheduledTimes.pmtId
+        let takenId = scheduledTimes.medicineTakenID ?? 0
+        let responseTime = scheduledTimes.medicineTime
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/yyyy"
+        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        guard let medicationDateParsed = dateFormatter.date(from: medicationRecord.date) else { return }
+        
+        let outputFormatter = DateFormatter()
+        outputFormatter.dateFormat = "yyyy-MM-dd"
+        let formattedDate = outputFormatter.string(from: medicationDateParsed)
+        let combinedDateTime = ["\(formattedDate) \(responseTime)"]
+        
+        callForMarkMedication(
+            pmtId: [pmtId],
+            medicineTaken: medicineTaken,
+            medicationdatetime: combinedDateTime,
+            medicineTakenId: [takenId]
+        )
+        
+        print("✅ Marked medication (trusted cell state). PMT ID: \(pmtId), Taken: \(medicineTaken), Time: \(combinedDateTime)")
     }
     
-    func callForMarkMedication(pmtId: [String], medicineTaken: String, medicationdatetime: [String]) {
+    func checkIsFuture(medicationDate: String, medicineTime: String) -> Bool {
+        let dateTimeString = "\(medicationDate) \(medicineTime)"
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy HH:mm:ss"
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        // Use local time zone (system default)
+        formatter.timeZone = TimeZone.current
+
+        guard let scheduledDate = formatter.date(from: dateTimeString) else { return false }
+        return scheduledDate > Date()
+    }
+    
+    func callForMarkMedication(pmtId: [String], medicineTaken: String, medicationdatetime: [String], medicineTakenId: [Int]) {
         
         let pmtIdInt = pmtId.compactMap { Int($0) }
         
         if let medicineTakenInt = Int(medicineTaken)  {
-            let params: [String: Any] = ["pmtId": pmtIdInt, "medicineTaken": medicineTakenInt, "medicationdatetime": medicationdatetime]
+            let params: [String: Any] = ["pmtId": pmtIdInt, "medicineTaken": medicineTakenInt, "medicationdatetime": medicationdatetime, "medicineTakenId": medicineTakenId]
             print("Params of mark medeication is :", params)
             self.view.showToastActivity()
             APIService.MarkMedicationAPICalling(self, params: params, method: "POST", accessToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken, acces: false, parameterPlacement: "body") {  [self] response in
@@ -357,26 +305,12 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
     //MARK: - Mark Medication API Response
     
     func getresponseforMarkMedicationAPI(response:AnyObject)->() {
-
-//        getMedicationsData(forDate: selectedNewDate) //Date()
         
         if let responseDict = response as? [String: Any],
            let responseCode = responseDict["responseCode"] as? Int,
            responseCode == 200 {
             print("medine updation success")
             print("response is ", responseDict)
-            
-            takeAllButton.setTitle(isMedicineTaken ? "Taken" : "Take all", for: .normal)
-            
-            print("the is medicine taken is : \(isMedicineTaken)")
-            
-            if isMedicineTaken {
-                takeAllButton.layer.borderColor = #colorLiteral(red: 0.9636, green: 0.574, blue: 0.575, alpha: 1)
-                takeAllButton.setTitleColor(#colorLiteral(red: 0.9636, green: 0.574, blue: 0.575, alpha: 1), for: .normal)
-            } else {
-                takeAllButton.layer.borderColor = #colorLiteral(red: 0.432, green: 0.415, blue: 0.706, alpha: 1)
-                takeAllButton.setTitleColor(#colorLiteral(red: 0.432, green: 0.415, blue: 0.706, alpha: 1), for: .normal)
-            }
             
             self.showSuccessAlert(successContent: responseDict["responseMessage"] as? String, centreImage: nil) { [self] in
                 getMedicationsData(forDate: selectedNewDate)
@@ -558,9 +492,6 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         let date = Calendar.current.startOfDay(for: Date())
         getMedicationsData(forDate: convertToLocalTimeZone(date: date))
         print("the date we are passing is", convertToLocalTimeZone(date: date))
-
-
-//        getMedicationsData(forDate: Date())
     }
     
     func convertToLocalTimeZone(date: Date) -> Date {
@@ -600,8 +531,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         prepareRequestBodyParams["patientLocationId"] = loginResponse.patientLocationID
         prepareRequestBodyParams["patientId"] = loginResponse.patientID
         prepareRequestBodyParams["clientId"] = loginResponse.clientID
-        
-//        let tomorrowDate = selectedNewDate.getTomorrowDate()
+
         let tomorrowDate = Calendar.current.date(byAdding: .day, value: 1, to: utcDate)!
 
         prepareRequestBodyParams["fromDate"] = utcDate.dateInMMDDYYYYFormat1()
@@ -644,13 +574,20 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
 
                             let afterSorting = self.medicationData.flatMap { $0.medicationDetailsByDate }.map { $0.medicalDetails.medicationId }
                             print("After Sorting: \(afterSorting)")
+                        
+                        self.reloadTableView {
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                                print("spinner stops")
+                                self.updateTakeAllButtonFromCells(for: self.selectedTimeSlot)
+                                self.view.hideToastActivity()
+                            }
+                        }
 
                         self.scheduleAlarm()
                         
                         print("the medication data count is",self.medicationData.count)
                         self.nomedications.isHidden = true
                         self.medicationsTableView.isHidden = false
-//                        self.medicationsTableView.reloadData()
 
                         self.reloadTableView {
                             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { // Slight delay to allow rendering completion
@@ -684,6 +621,85 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
             }
         }
     }
+    
+    //MARK: - Take All Button Status Update
+    
+    func slotStatus(for timeSlot: TimeSlot) -> (hasActive: Bool, allTaken: Bool) {
+        var hasActiveSlot = false
+        var allActiveTaken = true
+        
+        for case let cell as UserMedicationsTableCell in medicationsTableView.visibleCells {
+            if cell.isExpired { continue }
+            
+            if let slotInfo = cell.getSlotInfo(for: timeSlot) {
+                if slotInfo.isActive {
+                    hasActiveSlot = true
+                    if !slotInfo.isTaken {
+                        allActiveTaken = false
+                    }
+                }
+            }
+        }
+        return (hasActiveSlot, hasActiveSlot && allActiveTaken)
+    }
+
+    
+    func updateTakeAllButtonFromCells(for timeSlot: TimeSlot) {
+//        var hasActiveSlot = false
+//        var allActiveTaken = true
+//        
+//        for case let cell as UserMedicationsTableCell in medicationsTableView.visibleCells {
+//            
+//            if cell.isExpired {
+//                continue  // ✅ skip expired cells
+//            }
+//            
+//            if let slotInfo = cell.getSlotInfo(for: timeSlot) {
+//                if slotInfo.isActive {
+//                    hasActiveSlot = true
+//                    if !slotInfo.isTaken {
+//                        allActiveTaken = false
+//                    }
+//                }
+//            }
+//        }
+//        
+//        print("the all active taken is \(allActiveTaken) and the has active slot is \(hasActiveSlot)")
+//        
+//        let isTaken = allActiveTaken && hasActiveSlot
+//        let titleKey = isTaken ? "taken" : "take_all"
+        
+        let status = slotStatus(for: timeSlot)
+        let isTaken = status.allTaken
+        let titleKey = isTaken ? "taken" : "take_all"
+        
+        let newTitle = NSLocalizedString(titleKey, comment: "")
+//        let newTitle = isTaken ? "Taken" : "Take All"
+        
+        // Update title
+        takeAllButton.setTitle(newTitle, for: .normal)
+        takeAllButton.setTitle(newTitle, for: .disabled)
+        takeAllButton.setTitle(newTitle, for: .highlighted)
+        
+        // Update colors based on isTaken state
+        let borderColor = isTaken ? #colorLiteral(red: 0.9636, green: 0.574, blue: 0.575, alpha: 1) : #colorLiteral(red: 0.432, green: 0.415, blue: 0.706, alpha: 1)
+        
+        takeAllButton.layer.borderColor = borderColor.cgColor
+        takeAllButton.backgroundColor = .clear
+        takeAllButton.setTitleColor(borderColor, for: .normal)
+        
+        // Update enabled state and alpha
+//        takeAllButton.isEnabled = hasActiveSlot
+//        takeAllButton.alpha = hasActiveSlot ? 1.0 : 0.5
+        
+        takeAllButton.isEnabled = status.hasActive
+        takeAllButton.alpha = status.hasActive ? 1.0 : 0.5
+        
+//        takeAllButton.layoutIfNeeded()
+    }
+
+
+
     
     //MARK: - Call to schedule alarm
     
@@ -831,6 +847,8 @@ extension UserMedicationsViewController : UITableViewDataSource,UITableViewDeleg
         print("medicine taken value is",medicineTaken)
         
         let expiry = medicationData[indexPath.row].medicationDetailsByDate.first?.medicalDetails.expired ?? 0
+        
+        cell.isExpired = (expiry == 1)
         
         if expiry == 1 {
             cell.expiredLabel.alpha = 0.5

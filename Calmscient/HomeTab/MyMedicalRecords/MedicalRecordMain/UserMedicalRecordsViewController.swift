@@ -20,8 +20,17 @@ class UserMedicalRecordsViewController: ViewController {
         self.navigationController?.isNavigationBarHidden = false
 
         medicalRecordsTableView.register(UINib(nibName: "MyMedicalRecordsCell", bundle: nil), forCellReuseIdentifier: "MyMedicalRecordsCell")
-        medicalRecordsTableView.dataSource = self
-        medicalRecordsTableView.delegate = self
+        if #available(iOS 16.0, *) {
+            medicalRecordsTableView.dataSource = self
+        } else {
+            // Fallback on earlier versions
+        }
+        if #available(iOS 16.0, *) {
+            medicalRecordsTableView.delegate = self
+        } else {
+            // Fallback on earlier versions
+        }
+        medicalRecordsTableView.separatorStyle = .none
         self.navigationController?.navigationBar.isHidden = false
         
         //Nav right bar button start

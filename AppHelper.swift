@@ -10,9 +10,15 @@ import UIKit
 
 class AppHelper: NSObject {
 
-    static func getLocalizeString(str:String) -> String {
-        let string = Bundle.main.path(forResource: UserDefaults.standard.string(forKey: "Language"), ofType: "lproj")
-        let myBundle = Bundle(path: string!)
-        return (myBundle?.localizedString(forKey: str, value: "", table: nil))!
+    static func getLocalizeString(str: String) -> String {
+        guard let language = UserDefaults.standard.string(forKey: "Language"),
+              let path = Bundle.main.path(forResource: language, ofType: "lproj"),
+              let bundle = Bundle(path: path) else {
+            // fallback → return the key itself if not found
+            return str
+        }
+
+        return NSLocalizedString(str, tableName: nil, bundle: bundle, value: "", comment: "")
     }
 }
+

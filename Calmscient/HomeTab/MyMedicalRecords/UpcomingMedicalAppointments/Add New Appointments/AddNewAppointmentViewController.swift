@@ -132,6 +132,8 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
         super.viewDidLoad()
 //        self.title = EditVc ?? false ? "Edit appointment" : "Add appointment"
         
+        hideKeyboardWhenTappedAround()
+        
         if EditVc ?? false {
             self.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Edit appointment" : "Editar cita"
         } else {
@@ -178,12 +180,6 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
         locationTF.addTarget(self, action: #selector(textFieldDidChange(_:)), for: .editingChanged)
         providerNameTF.delegate = self
         locationTF.delegate = self
-        
-        // ✅ Add tap gesture recognizer to dismiss dropdown when tapping outside
-        let tapGesture = UITapGestureRecognizer(target: self, action: nil)
-        tapGesture.cancelsTouchesInView = false
-        tapGesture.delegate = self
-        view.addGestureRecognizer(tapGesture)
         
         guard let loginResponse = ApplicationSharedInfo.shared.loginResponse else {
             return
@@ -239,6 +235,17 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
         saveButton.titleLabel?.font = font
         cancelButton.titleLabel?.font = font
 
+    }
+    
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        tap.delegate = self
+        view.addGestureRecognizer(tap)
+    }
+
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 
     //MARK: - For Adding astrik to labels
@@ -473,10 +480,16 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
     }
     
     @IBAction func cancelBtnAction(){
+        
+        view.endEditing(true)
+        dropdownTableView.isHidden = true
         self.navigationController?.popViewController(animated: true)
     }
   
     @IBAction func saveBtnAction(){
+        
+        view.endEditing(true)
+        dropdownTableView.isHidden = true
         
         let patientName = patientNameTF.text ?? ""
         providerFirstName = providerNameTF.text ?? ""
@@ -631,13 +644,15 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
     //END
     
     @IBAction func dateBtnAction(){
-        
+        view.endEditing(true)
+        dropdownTableView.isHidden = true
         openPicker(pickerMode: .date, minimumDate: Date())
         
     }
     
     @IBAction func timeBtnAction(){
-        
+        view.endEditing(true)
+        dropdownTableView.isHidden = true
         openPicker(pickerMode: .time)
 
     }
@@ -698,17 +713,14 @@ extension AddNewAppointmentViewController :  UITableViewDelegate, UITableViewDat
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
-        // ✅ If tap is inside dropdownTableView, do NOT dismiss it
+        // Ignore taps inside dropdownTableView
         if dropdownTableView.frame.contains(touch.location(in: view)) {
-            print("✅ Tap inside dropdown, keeping it open")
             return false
         }
 
-        // ✅ Tap is outside, hide dropdown
-        print("✅ Tap outside dropdown, hiding it")
-        dropdownTableView.isHidden = true
-        return true
+        return true // allow dismiss for all other taps
     }
+
 
     
     // ✅ Show dropdown when text field is tapped
@@ -797,3 +809,4 @@ extension AddNewAppointmentViewController :  UITableViewDelegate, UITableViewDat
     }
 
 }
+

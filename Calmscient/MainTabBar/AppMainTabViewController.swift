@@ -70,7 +70,7 @@ class AppMainTabViewController: UITabBarController {
             tabTitles = selectedLanguageID == 1 ? tabTitlesEnglish : tabTitlesSpanish
             guard let items = tabBar.items else { return }
             for i in 0..<items.count {
-                print("the first title is",tabTitles[i])
+//                print("the first title is",tabTitles[i])
                 items[i].title = tabTitles[i]
             }
         

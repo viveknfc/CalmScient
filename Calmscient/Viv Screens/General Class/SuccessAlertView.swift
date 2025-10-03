@@ -87,7 +87,6 @@ class SuccessAlertView: UIView {
     
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         let hitView = super.hitTest(point, with: event)
-        print("Hit test at point: \(point), hit view: \(hitView?.description ?? "nil")")
         return hitView
     }
     

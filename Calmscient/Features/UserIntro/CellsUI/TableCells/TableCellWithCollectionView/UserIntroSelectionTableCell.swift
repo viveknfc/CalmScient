@@ -20,6 +20,8 @@ class UserIntroSelectionTableCell: UITableViewCell {
     
     private var shouldNotifyDelegate = false
     
+    let spendOptions = ["FAMILY", "FRIENDS", "WORKMATES", "OTHERS", "ALONE"]
+    
     private var cellType:UserEntryDayFeedbackTableCell! {
         didSet {
              var languageId: Int?
@@ -75,23 +77,8 @@ class UserIntroSelectionTableCell: UITableViewCell {
             }
         }
     }
-
-
-    
-//    var spendIndex = -1 {
-//        didSet {
-//            tableCellCollectionView.reloadData()
-//        }
-//    }
-    
-//    var spendIndex1: [Int] = [] {
-//        didSet {
-//            tableCellCollectionView.reloadData()
-//        }
-//    }
     
     var moodIdAnswer: Int?
-//    var spendHoursAnswer: String?
     var spendHoursAnswer1: [String] = [] {
         didSet {
             tableCellCollectionView.reloadData()
@@ -101,11 +88,6 @@ class UserIntroSelectionTableCell: UITableViewCell {
     func getUpdatedData4MoodId() -> (Int?) {
         return instance.moodAnswer
     }
-    
-//    func getUpdatedData4SpendHours() -> (String?) {
-//        print("spend hours inside updated data is", spendHoursAnswer ?? -4)
-//        return (spendHoursAnswer)
-//    }
     
     func getUpdatedData4SpendHours1() -> ([String]?) {
         print("spend hours inside updated data isfor multi selection is", spendHoursAnswer1)
@@ -223,17 +205,14 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegateFlowLayout, UICo
             configureCell(cell, indexPath: indexPath, isSelected: indexPath.row == selectedIndex, cellData: cellData)
             
         case .UserEntryTimeSpendCell:
-            // Use spendIndex for UserEntryTimeSpendCell
-//            configureCell(cell, indexPath: indexPath, isSelected: indexPath.row == spendIndex, cellData: cellData)
             
             let answer = String(indexPath.row + 1)
+//            let answer = spendOptions[indexPath.row]
+
+            
             
             let isSelected = spendHoursAnswer1.contains(answer)
-            
-//            let wasInitiallySelected = spendIndex1.contains(indexPath.row)
-//            let isNowSelected = spendHoursAnswer1.contains(answer)
-//            
-//            let isSelected = (wasInitiallySelected && !isNowSelected) || (!wasInitiallySelected && isNowSelected)
+
             configureCell(cell, indexPath: indexPath, isSelected: isSelected, cellData: cellData)
 
         case .none:
@@ -274,21 +253,6 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegateFlowLayout, UICo
                 instance.moodAnswer = indexPath.row + 1
                 
             case .UserEntryTimeSpendCell:
-
-//                spendHoursAnswer = String(indexPath.row + 1)
-                
-//                let answer = String(indexPath.row + 1)
-//                if isSelected {
-//                    // Add to the selection if not already there
-//                    if !spendHoursAnswer1.contains(answer) {
-//                        spendHoursAnswer1.append(answer)
-//                    }
-//                } else {
-//                    // Remove from the selection if deselected
-//                    if let index = spendHoursAnswer1.firstIndex(of: answer) {
-//                        spendHoursAnswer1.remove(at: index)
-//                    }
-//                }
                 break
                 
             default:
@@ -386,7 +350,11 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegate {
         case .UserEntryTimeSpendCell:
             
             let answer = String(indexPath.row + 1)
+            
+//            let answer = spendOptions[indexPath.row]
+            
             if spendHoursAnswer1.contains(answer) {
+                
                 if let index = spendHoursAnswer1.firstIndex(of: answer) {
                     spendHoursAnswer1.remove(at: index)
                     print("the index removed from time spend is :\(answer)")
@@ -404,16 +372,5 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegate {
         collectionView.reloadItems(at: [indexPath])
         
     }
-    
-//    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-//        if cellType == .UserEntryTimeSpendCell {
-//            let answer = String(indexPath.row + 1)
-//            if let index = spendHoursAnswer1.firstIndex(of: answer) {
-//                spendHoursAnswer1.remove(at: index)
-//                self.instance.timeSpendAnswer = spendHoursAnswer1
-//            }
-//        }
-//        collectionView.reloadItems(at: [indexPath])
-//    }
     
 }

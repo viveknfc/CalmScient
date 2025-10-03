@@ -13,8 +13,10 @@ class APIService: UIViewController {
     static var ProducitonURL = "https://calmscient.in/api/"
     static var DevURL = "http://147.93.41.160/api/"
     
-    static var Url4Courses = "http://147.93.41.160/courses/" //"https://calmscient.in/courses/" //
-    static var BaseUrl = DevURL
+    static var Url4Courses = "https://calmscient.in/courses/" //"http://147.93.41.160/courses/" //
+    static var BaseUrl = ProducitonURL
+    
+    static var versionCheck = "identity/api/v1/settings/getAppVersion"
     
     static var RefreshToken = "identity/api/v1/user/refreshToken"
     static var DeleteMedication = "patients/api/v1/medications/deleteMedication"
@@ -59,6 +61,14 @@ class APIService: UIViewController {
     static var generateOTP = "identity/api/v1/settings/generateOTP"
     
 
+    //MARK: - Version CHeck API
+    
+    static func validateVersionAPICalling(_ view:UIViewController?,params:[String:Any],method:String,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+        
+        let urlString = APIService.BaseUrl+APIService.versionCheck
+        APIService.getRequestWithToken(viewController: view, urlString: urlString, params: params, method: method, accessToken: "", acces: true, timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
     //MARK: - Validate License Key API Calling
     
     static func validateLicenseKeyAPICalling(_ view:UIViewController?,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {

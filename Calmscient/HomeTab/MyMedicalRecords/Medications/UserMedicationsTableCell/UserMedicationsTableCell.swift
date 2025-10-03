@@ -60,6 +60,16 @@ class UserMedicationsTableCell: UITableViewCell, EditableCell {
     @IBOutlet weak var afTaken: UILabel!
     @IBOutlet weak var pmTaken: UILabel!
     
+    var isAMActive = false
+    var isPMActive = false
+    var isEVActive = false
+    
+    var isAMTaken: Bool = false
+    var isPMTaken: Bool = false
+    var isEVTaken: Bool = false
+    
+    var isExpired: Bool = false
+    
     weak var delegate: CustomTableViewCellDelegate?
     var indexPath: IndexPath?
     
@@ -158,281 +168,126 @@ class UserMedicationsTableCell: UITableViewCell, EditableCell {
             if let morningAlarm = enabledAlarms.first(where: { $0.medicineTime.isDayTimeAM() }) {
                 let timeText = morningAlarm.medicineTime.getDayTimeFromDate(formatter: "HH:mm:ss", includeTimeZone: true) ?? ""
                 let isTaken = morningAlarm.medicineTaken == "1"
+//                let isFuture = checkIsFutureSlot(for: .morning, now: now, calendar: calendar)
                 let isFuture = checkIsFuture(medicationDate: medicationDate, medicineTime: morningAlarm.medicineTime, now: now, calendar: calendar)
                 let isDisabled = !isInAllowedWindow || !isWithinAllowedRange || isFuture
-                configureButton(isTaken: isTaken, isDisabled: isDisabled, button: amButton, label: amTaken, imageView: AMImage, timeText: timeText)
+                configureButton(isTaken: isTaken, isDisabled: isDisabled, button: amButton, label: amTaken, imageView: AMImage, timeText: timeText, slotType: .morning)
             }
 
         case .afternoon:
             if let afternoonAlarm = enabledAlarms.first(where: { $0.medicineTime.isDayTimePM() }) {
                 let timeText = afternoonAlarm.medicineTime.getDayTimeFromDate(formatter: "HH:mm:ss", includeTimeZone: true) ?? ""
                 let isTaken = afternoonAlarm.medicineTaken == "1"
+//                let isFuture = checkIsFutureSlot(for: .morning, now: now, calendar: calendar)
                 let isFuture = checkIsFuture(medicationDate: medicationDate, medicineTime: afternoonAlarm.medicineTime, now: now, calendar: calendar)
                 let isDisabled = !isInAllowedWindow || !isWithinAllowedRange || isFuture
-                configureButton(isTaken: isTaken, isDisabled: isDisabled, button: afButton, label: afTaken, imageView: AFImage, timeText: timeText)
+                configureButton(isTaken: isTaken, isDisabled: isDisabled, button: afButton, label: afTaken, imageView: AFImage, timeText: timeText, slotType: .afternoon)
             }
 
         case .evening:
             if let eveningAlarm = enabledAlarms.first(where: { $0.medicineTime.isDayTimeEvening() }) {
                 let timeText = eveningAlarm.medicineTime.getDayTimeFromDate(formatter: "HH:mm:ss", includeTimeZone: true) ?? ""
                 let isTaken = eveningAlarm.medicineTaken == "1"
+//                let isFuture = checkIsFutureSlot(for: .morning, now: now, calendar: calendar)
                 let isFuture = checkIsFuture(medicationDate: medicationDate, medicineTime: eveningAlarm.medicineTime, now: now, calendar: calendar)
                 let isDisabled = !isInAllowedWindow || !isWithinAllowedRange || isFuture
-                configureButton(isTaken: isTaken, isDisabled: isDisabled, button: pmButton, label: pmTaken, imageView: PMImage, timeText: timeText)
+                configureButton(isTaken: isTaken, isDisabled: isDisabled, button: pmButton, label: pmTaken, imageView: PMImage, timeText: timeText, slotType: .evening)
             }
         }
     }
-
-    
-    
-//    func updateCellWith(MedicalDetails record:MedicineDetails, for timeSlot: TimeSlot) {
-//        titleLabel.text = record.medicationDetailsByDate[0].medicineName
-//        subTitleLabel.text = record.medicationDetailsByDate[0].medicalDetails.directions
-//        
-//        expiredLabel.text = isSpanish == 1 ? "Expired" : "Caducado"
-//        
-//        let alarmList = record.medicationDetailsByDate[0].medicalDetails.scheduledTimeList
-//        
-//        //viv start
-//        
-//        // Get current date and the date 5 days ago
-//        let calendar = Calendar.current
-//        let now = Date() // Current date and time
-//        let fourDaysAgo = calendar.date(byAdding: .day, value: -5, to: now)!
-//        
-//        // Get the medication date from MedicineDetails (example: "04/10/2025")
-//        let medicationDate = record.date
-//        let dateFormatter = DateFormatter()
-//        dateFormatter.dateFormat = "MM/dd/yyyy"
-//        dateFormatter.locale = Locale(identifier: "en_US_POSIX")
-//        
-//        guard let medicationDateParsed = dateFormatter.date(from: medicationDate) else {
-//            return
-//        }
-//
-//        // Check if the medication date is within the past 5 days including today
-//        let isWithinAllowedRange = (medicationDateParsed >= fourDaysAgo) && (medicationDateParsed <= now)
-//        
-//        //end
-//        
-//        let enabledAlarms = alarmList.flatMap { obj in
-//            obj.scheduledTimes.filter { $0.isDefault == 0 } // 1
-//        }
-//        
-//        if let morningAlarm = enabledAlarms.first(where: { $0.medicineTime.isDayTimeAM() }) {
-//            AMImage.isHidden = false
-//            amTaken.isHidden = false
-//            amButton.isHidden = false
-//            timeLabel.text = morningAlarm.medicineTime.getDayTimeFromDate(formatter: "HH:mm:ss", includeTimeZone: true) //alarmTime
-//            print("Morning alarm is", timeLabel.text ?? "")
-//            let isTaken = morningAlarm.medicineTaken == "1"
-//            amButton.layer.borderColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4356096983, green: 0.419034481, blue: 0.7057439685, alpha: 1)
-//            timeLabel.textColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4356096983, green: 0.419034481, blue: 0.7057439685, alpha: 1)
-//            print("is spanish value is",isSpanish)
-//            let actionText = (isSpanish == 2) ? (isTaken ? "Tomado" : "Tomar") : (isTaken ? "Taken" : "Take")
-//            amTaken.text = actionText
-//            amTaken.textColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4356096983, green: 0.419034481, blue: 0.7057439685, alpha: 1)
-//            
-//            //viv start
-//            
-//            let today = Calendar.current.startOfDay(for: Date())
-//            let fourDaysAgo = Calendar.current.date(byAdding: .day, value: -5, to: today)! // today + 4 previous days
-//            let isInAllowedWindow = medicationDateParsed >= fourDaysAgo && medicationDateParsed <= today
-//
-//
-//            if !isInAllowedWindow || !isWithinAllowedRange {
-//                amButton.isUserInteractionEnabled = false
-//                amButton.layer.borderColor = #colorLiteral(red: 0.7843137255, green: 0.7843137255, blue: 0.7843137255, alpha: 1) // Gray border
-//                amButton.backgroundColor = #colorLiteral(red: 0.9, green: 0.9, blue: 0.9, alpha: 1) // Light gray background
-//            } else {
-//                let medicineTime = morningAlarm.medicineTime
-//
-//                if let medicineDateOnly = dateFormatter.date(from: medicationDate),
-//                   let hour = Int(medicineTime.prefix(2)) {
-//                    let medicineDateTime = Calendar.current.date(bySettingHour: hour, minute: 0, second: 0, of: medicineDateOnly)
-//
-//                        amButton.isUserInteractionEnabled = true
-//                        amButton.layer.borderColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4356096983, green: 0.419034481, blue: 0.7057439685, alpha: 1)
-//                        amButton.backgroundColor = .clear
-//                    
-//                }
-//
-//            }
-//            
-//            //end
-//            
-//        } else {
-//            AMImage.isHidden = true
-//            amTaken.isHidden = true
-//            amButton.isHidden = true
-//            timeLabel.text = ""
-//        }
-//        
-//        if let afternoonAlarm = enabledAlarms.first(where: { $0.medicineTime.isDayTimePM() }) {
-//            AFImage.isHidden = false
-//            afTaken.isHidden = false
-//            afButton.isHidden = false
-//            afTimeLabel.text = afternoonAlarm.medicineTime.getDayTimeFromDate(formatter: "HH:mm:ss", includeTimeZone: true)
-//            print("Afternoon alarm is", afTimeLabel.text ?? "")
-//            let isTaken = afternoonAlarm.medicineTaken == "1"
-//            afButton.layer.borderColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4318677187, green: 0.4149213433, blue: 0.7059496045, alpha: 1)
-//            afTimeLabel.textColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4356096983, green: 0.419034481, blue: 0.7057439685, alpha: 1)
-//            
-//            let actionText = (isSpanish == 2) ? (isTaken ? "Tomado" : "Tomar") : (isTaken ? "Taken" : "Take")
-//            afTaken.text = actionText
-//            
-//            afTaken.textColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4356096983, green: 0.419034481, blue: 0.7057439685, alpha: 1)
-//            
-//        //VIV start
-//            
-//            let today = Calendar.current.startOfDay(for: Date())
-//            let now = Date()
-//            let fourDaysAgo = Calendar.current.date(byAdding: .day, value: -5, to: today)!
-//            let isInAllowedWindow = medicationDateParsed >= fourDaysAgo && medicationDateParsed <= today
-//
-//            if !isInAllowedWindow || !isWithinAllowedRange {
-//                afButton.isUserInteractionEnabled = false
-//                afButton.layer.borderColor = #colorLiteral(red: 0.7843137255, green: 0.7843137255, blue: 0.7843137255, alpha: 1)
-//                afButton.backgroundColor = #colorLiteral(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
-//            } else {
-//                var isFuture = false
-//
-//                // Only restrict future times if date is today
-//                if Calendar.current.isDate(medicationDateParsed, inSameDayAs: today) {
-//                    if let medicineDateOnly = dateFormatter.date(from: medicationDate),
-//                       let hour = Int(afternoonAlarm.medicineTime.prefix(2)) {
-//                        let scheduledTime = Calendar.current.date(bySettingHour: hour, minute: 0, second: 0, of: medicineDateOnly)
-//                        if let scheduled = scheduledTime, now < scheduled {
-//                            isFuture = true
-//                        }
-//                    }
-//                }
-//
-//                if isFuture {
-//                    afButton.isUserInteractionEnabled = false
-//                    afButton.layer.borderColor = #colorLiteral(red: 0.7843137255, green: 0.7843137255, blue: 0.7843137255, alpha: 1)
-//                    afButton.backgroundColor = #colorLiteral(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
-//                } else {
-//                    afButton.isUserInteractionEnabled = true
-//                    afButton.layer.borderColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4318677187, green: 0.4149213433, blue: 0.7059496045, alpha: 1)
-//                    afButton.backgroundColor = .clear
-//                }
-//            }
-//            
-//            //END
-//            
-//        } else {
-//            AFImage.isHidden = true
-//            afTaken.isHidden = true
-//            afButton.isHidden = true
-//            afTimeLabel.text = ""
-//        }
-//        
-//        if let eveningAlarm = enabledAlarms.first(where: { $0.medicineTime.isDayTimeEvening() }) {
-//            PMImage.isHidden = false
-//            pmTaken.isHidden = false
-//            pmButton.isHidden = false
-//            pmTimeLabel.text = eveningAlarm.medicineTime.getDayTimeFromDate(formatter: "HH:mm:ss", includeTimeZone: true)
-//            print("Afternoon alarm is", afTimeLabel.text ?? "")
-//            let isTaken = eveningAlarm.medicineTaken == "1"
-//            pmButton.layer.borderColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4318677187, green: 0.4149213433, blue: 0.7059496045, alpha: 1)
-//            pmTimeLabel.textColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4356096983, green: 0.419034481, blue: 0.7057439685, alpha: 1)
-//            
-//            let actionText = (isSpanish == 2) ? (isTaken ? "Tomado" : "Tomar") : (isTaken ? "Taken" : "Take")
-//            pmTaken.text = actionText
-//            
-//            pmTaken.textColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4356096983, green: 0.419034481, blue: 0.7057439685, alpha: 1)
-//            
-//        //VIV start
-//            
-//            let today = Calendar.current.startOfDay(for: Date())
-//            let now = Date()
-//            let fourDaysAgo = Calendar.current.date(byAdding: .day, value: -5, to: today)!
-//            let isInAllowedWindow = medicationDateParsed >= fourDaysAgo && medicationDateParsed <= today
-//
-//            if !isInAllowedWindow || !isWithinAllowedRange {
-//                pmButton.isUserInteractionEnabled = false
-//                pmButton.layer.borderColor = #colorLiteral(red: 0.7843137255, green: 0.7843137255, blue: 0.7843137255, alpha: 1)
-//                pmButton.backgroundColor = #colorLiteral(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
-//            } else {
-//                var isFuture = false
-//
-//                // Restrict future times if date is today
-//                if Calendar.current.isDate(medicationDateParsed, inSameDayAs: today) {
-//                    if let medicineDateOnly = dateFormatter.date(from: medicationDate),
-//                       let hour = Int(eveningAlarm.medicineTime.prefix(2)) {
-//                        let scheduledTime = Calendar.current.date(bySettingHour: hour, minute: 0, second: 0, of: medicineDateOnly)
-//                        if let scheduled = scheduledTime, now < scheduled {
-//                            isFuture = true
-//                        }
-//                    }
-//                }
-//
-//                if isFuture {
-//                    pmButton.isUserInteractionEnabled = false
-//                    pmButton.layer.borderColor = #colorLiteral(red: 0.7843137255, green: 0.7843137255, blue: 0.7843137255, alpha: 1)
-//                    pmButton.backgroundColor = #colorLiteral(red: 0.9, green: 0.9, blue: 0.9, alpha: 1)
-//                } else {
-//                    pmButton.isUserInteractionEnabled = true
-//                    pmButton.layer.borderColor = isTaken ? #colorLiteral(red: 0.9636033177, green: 0.5739583373, blue: 0.5747298598, alpha: 1) : #colorLiteral(red: 0.4318677187, green: 0.4149213433, blue: 0.7059496045, alpha: 1)
-//                    pmButton.backgroundColor = .clear
-//                }
-//            }
-//            
-//            //END
-//            
-//        } else {
-//            PMImage.isHidden = true
-//            pmTaken.isHidden = true
-//            pmButton.isHidden = true
-//            pmTimeLabel.text = ""
-//        }
-//
-//    }
     
     //MARK: - Configure Button
     
-    func configureButton(isTaken: Bool, isDisabled: Bool, button: UIButton, label: UILabel, imageView: UIImageView, timeText: String) {
-        // Always show the button, label, and imageView
+    func configureButton(isTaken: Bool, isDisabled: Bool, button: UIButton, label: UILabel, imageView: UIImageView, timeText: String, slotType: TimeSlot) {
+
         imageView.isHidden = false
         label.isHidden = false
         button.isHidden = false
-
-        // Set the time text
         label.text = timeText
+        
+        button.isUserInteractionEnabled = !isDisabled
+        button.accessibilityValue = isDisabled ? "disabled" : "enabled"
+        
+        let isActive = !isDisabled
+        let takenStatus = isTaken
+        
+        switch slotType {
+        case .morning: isAMActive = isActive; isAMTaken = takenStatus
+        case .afternoon: isPMActive = isActive; isPMTaken = takenStatus
+        case .evening: isEVActive = isActive; isEVTaken = takenStatus
+        }
 
         if isDisabled {
-            // Show as disabled: gray colors and non-interactive
-            button.isUserInteractionEnabled = false
             button.layer.borderColor = UIColor.gray.cgColor
             button.backgroundColor = UIColor.lightGray
             label.textColor = UIColor.gray
         } else {
-            // Show as enabled: use colors based on 'isTaken'
-            button.isUserInteractionEnabled = true
             button.layer.borderColor = isTaken ? #colorLiteral(red: 0.9636, green: 0.574, blue: 0.575, alpha: 1) : #colorLiteral(red: 0.432, green: 0.415, blue: 0.706, alpha: 1)
             button.backgroundColor = .clear
             label.textColor = isTaken ? #colorLiteral(red: 0.9636, green: 0.574, blue: 0.575, alpha: 1) : #colorLiteral(red: 0.432, green: 0.415, blue: 0.706, alpha: 1)
         }
     }
+    
+    func isButtonActive(_ button: UIButton) -> Bool {
+        return button.isUserInteractionEnabled && button.accessibilityValue == "enabled"
+    }
 
     
     //MARK: - Check future
+    
+    func checkIsFutureSlot(for slot: TimeSlot, now: Date, calendar: Calendar) -> Bool {
+        let hour = calendar.component(.hour, from: now)
+
+        switch slot {
+        case .morning:
+            // Morning is future if current time is still before noon
+            return hour < 12
+        case .afternoon:
+            // Afternoon is future if current time is still before evening
+            return hour < 18
+        case .evening:
+            // Evening is future if current time is still before night
+            return hour < 24
+        }
+    }
     
     func checkIsFuture(medicationDate: String, medicineTime: String, now: Date, calendar: Calendar) -> Bool {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM/dd/yyyy"
         dateFormatter.locale = Locale(identifier: "en_US_POSIX")
+        
         guard let dateOnly = dateFormatter.date(from: medicationDate),
               let hour = Int(medicineTime.prefix(2)) else {
             return false
         }
-        if calendar.isDate(dateOnly, inSameDayAs: now) {
-            if let scheduled = calendar.date(bySettingHour: hour, minute: 0, second: 0, of: dateOnly), now < scheduled {
-                return true
-            }
+        
+        // ✅ If it's today, always allow
+        if calendar.isDateInToday(dateOnly) {
+            return false
         }
+        
+        // If it's the same date but in future compared to now → mark as future
+        if let scheduled = calendar.date(bySettingHour: hour, minute: 0, second: 0, of: dateOnly),
+           now < scheduled {
+            return true
+        }
+        
         return false
+    }
+
+    
+    func getSlotInfo(for timeSlot: TimeSlot) -> (isActive: Bool, isTaken: Bool)? {
+        switch timeSlot {
+        case .morning:
+            guard !amButton.isHidden else { return nil }
+            return (isAMActive, isAMTaken)
+        case .afternoon:
+            guard !afButton.isHidden else { return nil }
+            return (isPMActive, isPMTaken)
+        case .evening:
+            guard !pmButton.isHidden else { return nil }
+            return (isEVActive, isEVTaken)
+        }
     }
 
     

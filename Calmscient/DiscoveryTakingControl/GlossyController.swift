@@ -167,11 +167,15 @@ class GlossyController: ViewController,  UITableViewDataSource, UITableViewDeleg
             cell.roundLabel.text = String(termData1.term1.prefix(1)).uppercased()
         }
  
-        cell.contentView.applyShadow()
+//        cell.contentView.applyShadow()
         
         let isExpanded = (selectedIndexPath == indexPath)
         cell.isExpanded = isExpanded
-        print("the cell is exapnded value is ", isExpanded)
+        
+        cell.plusButtonAction = { [weak self, weak tableView] in
+            guard let self = self, let tableView = tableView else { return }
+            self.toggleExpansion(at: indexPath, in: tableView)
+        }
 
         cell.selectionStyle = .none
         return cell
@@ -181,6 +185,21 @@ class GlossyController: ViewController,  UITableViewDataSource, UITableViewDeleg
         // MARK: - UITableViewDelegate methods
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        toggleExpansion(at: indexPath, in: tableView)
+
+    }
+
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+
+        if selectedIndexPath == indexPath {
+            return UITableView.automaticDimension // Expand to fit the summary text
+        } else {
+            return 75 // Default collapsed height
+        }
+    }
+    
+    private func toggleExpansion(at indexPath: IndexPath, in tableView: UITableView) {
         var indexPathsToReload: [IndexPath] = []
 
         if let previousIndexPath = selectedIndexPath {
@@ -188,26 +207,18 @@ class GlossyController: ViewController,  UITableViewDataSource, UITableViewDeleg
         }
 
         if selectedIndexPath == indexPath {
-            // Collapse the same cell
+            // Collapse if same cell tapped again
             selectedIndexPath = nil
         } else {
-            // Expand the new cell
+            // Expand new cell
             selectedIndexPath = indexPath
             indexPathsToReload.append(indexPath)
         }
 
-        // Reload affected rows (collapse previous and expand current)
-        tableView.reloadRows(at: indexPathsToReload, with: .automatic)
+        tableView.reloadRows(at: indexPathsToReload, with: UITableView.RowAnimation.automatic)
+
     }
 
-        func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
- 
-            if selectedIndexPath == indexPath {
-                return UITableView.automaticDimension // Expand to fit the summary text
-            } else {
-                return 75 // Default collapsed height
-            }
-        }
     }
 
 

@@ -439,6 +439,8 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
                             let userProfileViewController = UIStoryboard(name: "UserProfile", bundle: nil).instantiateViewController(withIdentifier: "UserProfileViewController") as! UserProfileViewController
                             self.navigationController?.pushViewController(userProfileViewController, animated: false)
                             
+                            NotificationCenter.default.post(name: .favLanUpdated, object: nil)
+                            
                             self.dimmingView?.removeFromSuperview()
 
                         }
@@ -847,97 +849,9 @@ extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate
             cell.cellTitleLabel.text = cellTitleList[indexPath.row]
             return cell
             
-//        case .ProfileThemeTableViewCell:
-            
-            //VIV STart
-            
-//            let cell = tableView.dequeueReusableCell(withIdentifier: data.rawValue, for: indexPath) as! ProfileThemeTableViewCell
-//            let imageUrlString = profileIconList[indexPath.row]
-//
-//            if let url = URL(string: imageUrlString) {
-//                let task = URLSession.shared.dataTask(with: url) { data, response, error in
-//                    guard let data = data, error == nil else {
-//                        print("Failed to load image: \(error?.localizedDescription ?? "Unknown error")")
-//                        return
-//                    }
-//                    
-//                    DispatchQueue.main.async {
-//                        cell.darkmodeLbl.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Dark Mode" : "la noche"
-//                        
-//                        cell.cellIconView.image = UIImage(named: self.profileSvgIcons[indexPath.row])
-//                        
-//                        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
-//                            fatalError("Unable to found Application Shared Info")
-//                        }
-//                        
-//                        let isDarkMode = UserDefaults.standard.bool(forKey: "isDarkMode")
-//                        let lan = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-//                        
-//                        let imageName = isDarkMode ? (lan == 1 ? "ToggleSwitch_Yes" : "ToggleSwitch_Si") : "ToggleSwitch_No"
-//                        print("dark mode change button image is",imageName)
-//                        cell.darkModeChangeButton.setImage(UIImage(named: imageName), for: .normal)
-//                        
-//                        cell.darkModeChangeButton.imageView?.contentMode = .scaleAspectFill
-//                        cell.darkModeChangeButtonAction = { [weak self, weak cell] in
-//                            guard let self = self, let cell = cell else { return }
-//                            
-//                            let currentDarkModeState = UserDefaults.standard.bool(forKey: "isDarkMode")
-//                            let newDarkModeState = !currentDarkModeState
-//
-//                            UserDefaults.standard.set(newDarkModeState, forKey: "isDarkMode")
-//                            setAppDarkMode(newDarkModeState)
-//                            print("change action button clicked", newDarkModeState)
-//                            
-//                            let newImageName = newDarkModeState ? (lan == 1 ? "ToggleSwitch_Yes" : "ToggleSwitch_Si") : "ToggleSwitch_No"
-//                            cell.darkModeChangeButton.setImage(UIImage(named: newImageName), for: .normal)
-//                            print("dark mode change button image while clicking is",newImageName)
-//                            
-//                            
-//                            self.getUserTheme(
-//                                patientId: userInfo.patientID,
-//                                clientId: userInfo.clientID,
-//                                bearerToken: ApplicationSharedInfo.shared.tokenResponse!.accessToken,
-//                                dark: newDarkModeState ? 1 : 0
-//                            ) { result in
-//                                DispatchQueue.main.async {
-//                                    switch result {
-//                                    case .success(let data):
-//                                        if let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-//                                            print("response for themee change api is ",json)
-//                                        } else {
-//                                            print("Unable to convert data to JSON")
-//                                        }
-//                                    case .failure(let error):
-//                                        print("Error: \(error)")
-//                                    }
-//                                }
-//                            }
-//                            
-//                            DispatchQueue.main.async {
-//                                if let tableView = cell.getTableView() {
-//                                    let indexPath = IndexPath(row: 2, section: 0)
-//                                    tableView.reloadRows(at: [indexPath], with: .automatic)
-//                                }
-//                            }
-//                        }
-//                    }
-//                }
-//                task.resume() // Start the async request
-//            }
-//  
-//            cell.cellTitleLabel.text = cellTitleList[indexPath.row]
-//            return cell
-        
-            //END
-            
         case .ProfileLanguageTableViewCell:
             let cell = tableView.dequeueReusableCell(withIdentifier: data.rawValue, for: indexPath) as! ProfileLanguageTableViewCell
-//            let imageUrlString = profileIconList[indexPath.row]
-//            if let url = URL(string: imageUrlString) {
-//                DispatchQueue.global().async {
-//                    if let data = try? Data(contentsOf: url) {
-//                        DispatchQueue.main.async {
-//                            cell.cellIconView.image = UIImage(data: data)
+
                             cell.cellIconView.image = UIImage(named: self.profileSvgIcons[indexPath.row])
                             cell.languagesArray = self.languagesData
 //                            cell.delegate = self
@@ -969,13 +883,7 @@ extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate
                                     
                                 }
                             }
-                            
-                            
-//                        }
-//                    }
-//                }
-//                
-//            }
+
             print("-4-4-4-4-4--4")
             print(cellTitleList[indexPath.row])
             cell.cellTitleLabel.text = cellTitleList[indexPath.row]
@@ -986,17 +894,7 @@ extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate
         case .LogoutTableViewCell:
             let cell = tableView.dequeueReusableCell(withIdentifier: data.rawValue, for: indexPath) as! LogoutTableViewCell
             cell.cellIconView.image = UIImage(named: self.profileSvgIcons[indexPath.row])
-//            let imageUrlString = profileIconList[indexPath.row]
-//            if let url = URL(string: imageUrlString) {
-//                DispatchQueue.global().async {
-//                    if let data = try? Data(contentsOf: url) {
-//                        DispatchQueue.main.async {
-//                            cell.cellIconView.image = UIImage(data: data)
-//                            
-//                        }
-//                    }
-//                }
-//            }
+
             cell.cellTitleLabel.text = cellTitleList[indexPath.row]
             return cell
         }
@@ -1177,20 +1075,6 @@ extension UITableViewCell {
     }
 }
 
-//extension UserProfileViewController: UIAdaptivePresentationControllerDelegate {
-//    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-//        print("presentationControllerDidDismiss called")
-//        if let dimmingView = self.dimmingView {
-//            dimmingView.removeFromSuperview()
-//            self.dimmingView = nil
-//            print("Dimming view removed in presentationControllerDidDismiss.")
-//        }
-//    }
-//}
-//
-//private struct AssociatedKeys {
-//    static var dimmingView: UInt8 = 0
-//}
 
 
 

@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		331F25612E45C33900606A53 /* WebView_Citation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F25602E45C32F00606A53 /* WebView_Citation.swift */; };
 		331F25632E45C9C300606A53 /* WebView_Ciitation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 331F25622E45C9C300606A53 /* WebView_Ciitation.storyboard */; };
+		334BDED62E8D31D200CEAD4A /* UserMedications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 334BDED52E8D31D200CEAD4A /* UserMedications.storyboard */; };
+		335389A72E8C1FC40041E61F /* Favourite Response Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335389A62E8C1FBC0041E61F /* Favourite Response Modal.swift */; };
 		3C58E3D0D76D550F12EB55C4 /* Pods_CalmscientIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5C42DCE48AE7884CCA2E42 /* Pods_CalmscientIOS.framework */; };
 		431C24172C46624D00909C24 /* DashboardHomeTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 431C24162C46624D00909C24 /* DashboardHomeTab.storyboard */; };
 		431C24742C46992B00909C24 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 431C24722C46992B00909C24 /* Localizable.strings */; };
@@ -385,7 +387,6 @@
 		4AD5D1542BD7A6C100E4C945 /* UserMedicationsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD5D1202BD7A6C100E4C945 /* UserMedicationsTableCell.swift */; };
 		4AD5D1552BD7A6C100E4C945 /* UserMedicationsTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AD5D1212BD7A6C100E4C945 /* UserMedicationsTableCell.xib */; };
 		4AD5D1562BD7A6C100E4C945 /* UserMedicationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD5D1222BD7A6C100E4C945 /* UserMedicationsViewController.swift */; };
-		4AD5D1572BD7A6C100E4C945 /* UserMedications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AD5D1232BD7A6C100E4C945 /* UserMedications.storyboard */; };
 		4AD5D1582BD7A6C100E4C945 /* MedicationsDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD5D1252BD7A6C100E4C945 /* MedicationsDetailViewController.swift */; };
 		4AD5D1592BD7A6C100E4C945 /* MedicationsDetailTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AD5D1272BD7A6C100E4C945 /* MedicationsDetailTableCell.xib */; };
 		4AD5D15A2BD7A6C100E4C945 /* MedicationsDetailTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD5D1282BD7A6C100E4C945 /* MedicationsDetailTableCell.swift */; };
@@ -572,6 +573,9 @@
 		0C444166053ECD1D5D36EA00 /* Pods-CalmscientIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalmscientIOS.release.xcconfig"; path = "Target Support Files/Pods-CalmscientIOS/Pods-CalmscientIOS.release.xcconfig"; sourceTree = "<group>"; };
 		331F25602E45C32F00606A53 /* WebView_Citation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView_Citation.swift; sourceTree = "<group>"; };
 		331F25622E45C9C300606A53 /* WebView_Ciitation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebView_Ciitation.storyboard; sourceTree = "<group>"; };
+		334BDED42E8D31D200CEAD4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/UserMedications.storyboard; sourceTree = "<group>"; };
+		334BDED72E8D31D200CEAD4A /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/UserMedications.xcstrings; sourceTree = "<group>"; };
+		335389A62E8C1FBC0041E61F /* Favourite Response Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favourite Response Modal.swift"; sourceTree = "<group>"; };
 		431C24152C46624D00909C24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DashboardHomeTab.storyboard; sourceTree = "<group>"; };
 		431C24182C46624D00909C24 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/DashboardHomeTab.xcstrings; sourceTree = "<group>"; };
 		431C241A2C4662A300909C24 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
@@ -958,7 +962,6 @@
 		4AD5D1202BD7A6C100E4C945 /* UserMedicationsTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMedicationsTableCell.swift; sourceTree = "<group>"; };
 		4AD5D1212BD7A6C100E4C945 /* UserMedicationsTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserMedicationsTableCell.xib; sourceTree = "<group>"; };
 		4AD5D1222BD7A6C100E4C945 /* UserMedicationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserMedicationsViewController.swift; sourceTree = "<group>"; };
-		4AD5D1232BD7A6C100E4C945 /* UserMedications.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = UserMedications.storyboard; sourceTree = "<group>"; };
 		4AD5D1252BD7A6C100E4C945 /* MedicationsDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicationsDetailViewController.swift; sourceTree = "<group>"; };
 		4AD5D1272BD7A6C100E4C945 /* MedicationsDetailTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MedicationsDetailTableCell.xib; sourceTree = "<group>"; };
 		4AD5D1282BD7A6C100E4C945 /* MedicationsDetailTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedicationsDetailTableCell.swift; sourceTree = "<group>"; };
@@ -2269,6 +2272,7 @@
 		4AD5D1142BD7A6C100E4C945 /* Dashboard */ = {
 			isa = PBXGroup;
 			children = (
+				335389A62E8C1FBC0041E61F /* Favourite Response Modal.swift */,
 				431C24162C46624D00909C24 /* DashboardHomeTab.storyboard */,
 				4AD5D1162BD7A6C100E4C945 /* CollectionCell */,
 				4AD5D1192BD7A6C100E4C945 /* TableCell */,
@@ -2317,7 +2321,7 @@
 				4AD5D11F2BD7A6C100E4C945 /* UserMedicationsTableCell */,
 				4AD5D1222BD7A6C100E4C945 /* UserMedicationsViewController.swift */,
 				6BE9FE6C2C6F7C1800178B92 /* CustomViewController.swift */,
-				4AD5D1232BD7A6C100E4C945 /* UserMedications.storyboard */,
+				334BDED52E8D31D200CEAD4A /* UserMedications.storyboard */,
 			);
 			path = Medications;
 			sourceTree = "<group>";
@@ -2733,7 +2737,7 @@
 				4A0853DE2C23C0A600202C02 /* SummaryViewController.storyboard in Resources */,
 				C2AC16B52DDE0FD000BFE160 /* SuccessAlertVIew.xib in Resources */,
 				4A0853B22C21684B00202C02 /* VideoController.storyboard in Resources */,
-				4AD5D1572BD7A6C100E4C945 /* UserMedications.storyboard in Resources */,
+				334BDED62E8D31D200CEAD4A /* UserMedications.storyboard in Resources */,
 				4A08537D2C21684B00202C02 /* SaveCell.xib in Resources */,
 				4AD5D1072BD7A62500E4C945 /* HomeTabAssets.xcassets in Resources */,
 				4A78A1362BDF300A00D1EFC1 /* MainScreenAssetsAdded.xcassets in Resources */,
@@ -3310,6 +3314,7 @@
 				4AA705722BDE6D1B0013932B /* CollapsedTableViewCell.swift in Sources */,
 				4A65C2F62BD6852C00809222 /* SceneDelegate.swift in Sources */,
 				43AB775D2C64511C00740BA6 /* MindfulWalking.swift in Sources */,
+				335389A72E8C1FC40041E61F /* Favourite Response Modal.swift in Sources */,
 				43BDB79A2CAA61A3007219B0 /* glossyTableCellTableViewCell.swift in Sources */,
 				4A08537C2C21684B00202C02 /* SaveCell.swift in Sources */,
 				C2A293E52D2CFB2800666D25 /* NicotinCarvingVC.swift in Sources */,
@@ -3353,6 +3358,15 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		334BDED52E8D31D200CEAD4A /* UserMedications.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				334BDED42E8D31D200CEAD4A /* Base */,
+				334BDED72E8D31D200CEAD4A /* mul */,
+			);
+			name = UserMedications.storyboard;
+			sourceTree = "<group>";
+		};
 		431C24162C46624D00909C24 /* DashboardHomeTab.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -3591,7 +3605,7 @@
 				CODE_SIGN_ENTITLEMENTS = Calmscient/Calmscient.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 842J5G3PU2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Calmscient/Info.plist;
@@ -3608,7 +3622,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = calmscientllc.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3632,7 +3646,7 @@
 				CODE_SIGN_ENTITLEMENTS = Calmscient/Calmscient.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 3;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 842J5G3PU2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Calmscient/Info.plist;
@@ -3649,7 +3663,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.2;
+				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = calmscientllc.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

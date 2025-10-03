@@ -45,18 +45,19 @@ class Basicknowledge: ViewController, UITableViewDelegate, UITableViewDataSource
             
             //end
             
-            let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            let title = selectedLanguageID == 1 ? "Complete" : "Finalizar"
-            completeButton.setTitle(title, for: .normal)
-            completeButton.titleLabel?.font = UIFont(name: Fonts().lexendLight, size: 14)
+
 
         }
 
     override func viewWillAppear(_ animated: Bool) {
         
         getBasicKnowledgeQuestions()
-//        completeButton.updateTitleForLanguage()
-
+        
+        if let font = completeButton.titleLabel?.font {
+            print("👉 Complete button font on Basicknowledge screen: \(font.fontName), size: \(font.pointSize)")
+        } else {
+            print("⚠️ No font set on complete button")
+        }
     }
     
     @objc func backButtonOverrideAction() {

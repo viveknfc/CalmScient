@@ -77,12 +77,6 @@ class UserIntroDayFeedbackViewController: ViewController {
     
     var isJournalClearedByUser = false
     
-//    var SpendTime: Int?{
-//        didSet {
-//            feedbackTableView.reloadData()
-//        }
-//    }
-    
     var SpendTime1: [Int]?{
         didSet {
             feedbackTableView.reloadData()
@@ -105,6 +99,7 @@ class UserIntroDayFeedbackViewController: ViewController {
     fileprivate var cellData:[UserEntryDayFeedbackTableCell] = []
     
     let sleepData = ["3","4","5","6","7","8","9","10","11"]
+    let spendOptions = ["FAMILY", "FRIENDS", "WORKMATES", "OTHERS", "ALONE"]
     
     var medicineFlagString: String?
     
@@ -349,7 +344,9 @@ class UserIntroDayFeedbackViewController: ViewController {
                           case "Journal":
                               journalText = answer.activityResponse?.first
                           case "SpendTime":
-                              SpendTime1 = answer.activityResponse?.compactMap { Int($0) }
+                              let fetchedAnswers: [String] = answer.activityResponse?.compactMap { String($0) } ?? []
+                              SpendTime1 = fetchedAnswers.compactMap { spendOptions.firstIndex(of: $0).map { $0 + 1 } }//answer.activityResponse?.compactMap { Int($0) }
+                              print("the fetching answers for time spend is :\(String(describing: SpendTime1))")
                           default:
                               break
                           }
@@ -428,10 +425,7 @@ class UserIntroDayFeedbackViewController: ViewController {
                     } else if let cell = cell as? UserEntrySleepHoursCell {
                         let updatedSleepHours = cell.getUpdatedData() ?? 1
                         print("the updatedSleepHours is", updatedSleepHours)
-//                        let sleepAns = sleepData[updatedSleepHours-1]
-//                        userDayWiseData.sleepAnswer = Int(sleepAns) //updatedSleepHours
-                        
-                        // Check if updatedSleepHours is within range
+
                         if updatedSleepHours > 0 && updatedSleepHours <= sleepData.count {
                             let sleepAns = sleepData[updatedSleepHours - 1]
                             userDayWiseData.sleepAnswer = Int(sleepAns)
@@ -458,7 +452,7 @@ class UserIntroDayFeedbackViewController: ViewController {
                     }
         }
         
-        print("Mood ID: \(userDayWiseData.moodAnswer ?? -1), Sleep Hours: \(userDayWiseData.sleepAnswer ?? -2), Medicine Flag: \(userDayWiseData.medicineAnswer ?? "None"), Journal: \(userDayWiseData.journalAnswer ?? "None"), Spend Hours: \(userDayWiseData.timeSpendAnswer?.first ?? "none")")
+        print("Mood ID: \(userDayWiseData.moodAnswer ?? -1), Sleep Hours: \(userDayWiseData.sleepAnswer ?? -2), Medicine Flag: \(userDayWiseData.medicineAnswer ?? "None"), Journal: \(userDayWiseData.journalAnswer ?? "None"), Spend Hours: \(userDayWiseData.timeSpendAnswer?.first ?? "")")
 
         
         let answers = PatientLog()
@@ -519,13 +513,24 @@ class UserIntroDayFeedbackViewController: ViewController {
                 
                        return
                    }
-                    let medicineFlag = userDayWiseData.medicineAnswer
-                    medicineFlagString = userDayWiseData.medicineAnswer
-                   answers.moodId = moodId
-                   answers.medicineFlag = Int(medicineFlag ?? "") ?? 0
-                   answers.spendTime = spendTime
-                   answers.journal = journal
-                   answers.activityDate = currentTime!
+            
+            let spendTimeMapped = spendTime.compactMap { item -> String? in
+                if let index = Int(item), index > 0, index <= spendOptions.count {
+                    return spendOptions[index - 1] // subtract 1 because array is 0-indexed
+                } else {
+                    return nil
+                }
+            }
+            
+                let medicineFlag = userDayWiseData.medicineAnswer
+                medicineFlagString = userDayWiseData.medicineAnswer
+               answers.moodId = moodId
+               answers.medicineFlag = Int(medicineFlag ?? "") ?? 0
+               answers.spendTime = spendTimeMapped//spendTime
+               answers.journal = journal
+               answers.activityDate = currentTime!
+            
+            print("the answer of spent time is \(answers.spendTime)")
 
         }
         
@@ -679,8 +684,10 @@ extension UserIntroDayFeedbackViewController : UITableViewDataSource,UITableView
             cell.isFromAPISetup = true 
             cell.selectedIndex = ((selectedCell ?? -1))
             cell.apiSelectedIndex = ((selectedCell ?? -1))
-//            cell.spendIndex1 = ((SpendTime1 ?? []))
             cell.spendHoursAnswer1 = (SpendTime1 ?? []).map { String($0) }
+            
+            print("the spend hours answer received is : \(String(describing: SpendTime1))")
+            
             cell.isFromAPISetup = false
             
             cell.delegate = self

@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class TakingControllIntro: UIViewController,UITableViewDelegate,UITableViewDataSource { //QuestionAlertAlertViewActionProtocol
+class TakingControllIntro: ViewController,UITableViewDelegate,UITableViewDataSource { //QuestionAlertAlertViewActionProtocol
     var screeningData:[Screening] = []
     var previouslySelectedIndexPath: Int?
     var networkHandler:NetworkAPIRequest = NetworkAPIRequest()

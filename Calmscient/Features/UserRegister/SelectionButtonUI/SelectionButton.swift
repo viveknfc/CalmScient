@@ -89,10 +89,6 @@ class SelectionButton : UIView {
             self.rememberMeImg.image = self.rememberMeState.getAssetImageForState()
         }
 
-        
-//        if (rememberMeState == .selected) {
-//            UserDefaults.standard.set(1, forKey: "rememberMe")
-//        }
     }
     
     private func loadViewFromNib(nibName: String? = "\(type(of: SelectionButton.self))") {

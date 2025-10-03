@@ -17,7 +17,7 @@ fileprivate enum AddUserMedicationsCellDef:String {
         switch self {
         case .MedicationsDetailCell : return 96
         case .switchAndTableCell : return 200
-        case .textFieldUserEntry : return 100
+        case .textFieldUserEntry : return 90
         }
     }
     

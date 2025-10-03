@@ -8,7 +8,7 @@
 // Profile
 
 "Profile" = "Perfil";
-"Version 1.0.1" = "Versión 1.2.0";
+"Version 1.0.1" = "Versión 1.0.1";
 
 
 // Login
@@ -21,6 +21,9 @@
 "View history" = "Ver historial";
 "Take the screening" = "Realize la evaluación";
 "All fields are required" = "Todos los campos son obligatorios";
+
+"take_all" = "Tomar todo";
+"taken" = "Tomado";
 
 //Create Account
 "First Name" = "Nombre";

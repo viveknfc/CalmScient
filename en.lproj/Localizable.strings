@@ -7,7 +7,7 @@
 */
 
 "Profile" = "Profile";
-"Version 1.0.1" = "Version 1.2.0";
+"Version 1.0.1" = "Version 1.0.1";
 "Username" = "Username";
 "Password" = "Password";
 "Forgot Password?" = "Forgot Password?";
@@ -25,6 +25,9 @@
 
 "View history" = "View history";
 "Take the screening" = "Take the screening";
+
+"take_all" = "Take All";
+"taken" = "Taken";
 
 //basic standard drink
 "Basic Knowledge" = "Basic knowledge";

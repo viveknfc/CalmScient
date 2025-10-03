@@ -65,7 +65,7 @@ class NeedToTalkViewController: ViewController {
                                 if let docNamePhone = need["phoneNumber"] as? String {
                                     self.phoneNumber.text = docNamePhone
                                 } else {
-                                    self.phoneNumber.text = "Not Updated"
+                                    self.phoneNumber.text = ""
                                 }
                                 
                             } else {

@@ -13,11 +13,6 @@ class UserRegistrationViewController: UIViewController {
     @IBOutlet weak var licenseTextField: customUITextField!
     @IBOutlet weak var submitButton: LinearGradientButton!
     
-//    @IBOutlet weak var firstCheck: UIButton!
-//    @IBOutlet weak var firstLabel: FontLR15!
-//    @IBOutlet weak var secondCheck: UIButton!
-//    @IBOutlet weak var secondLabel: FontLR15!
-    
     var buttonState1: SelectionButtonState = .dafault
     var buttonState2: SelectionButtonState = .dafault
     var window: UIWindow?
@@ -37,11 +32,6 @@ class UserRegistrationViewController: UIViewController {
         let submittitle = AppHelper.getLocalizeString(str:"Submit")
         self.submitButton.setAttributedTitleWithGradientDefaults(title: submittitle)
         self.navigationController?.isNavigationBarHidden = false
-        
-//        updateButtonImage1()
-//        updateButtonImage2()
-//        firstLabel.text = "I have read it and understood."
-//        secondLabel.text = "I agree to share my info with medical provider"
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tapGesture)
@@ -77,29 +67,10 @@ class UserRegistrationViewController: UIViewController {
     
         }
     
-    //CHeck Box
-    
-//    @IBAction func firstCheckboxPressed(_ sender: Any) {
-//        buttonState1 = (buttonState1 == .dafault) ? .selected : .dafault
-//        updateButtonImage1()
-//    }
-//    
-//    private func updateButtonImage1() {
-//        firstCheck.setImage(buttonState1.getAssetImageForState(), for: .normal)
-//        }
-    
-    
-//    @IBAction func secondCheckboxPressed(_ sender: Any) {
-//        buttonState2 = (buttonState2 == .dafault) ? .selected : .dafault
-//        updateButtonImage2()
-//    }
-//    
-//    private func updateButtonImage2() {
-//        secondCheck.setImage(buttonState2.getAssetImageForState(), for: .normal)
-//        }
-    
    
     @IBAction func didClickOnSubmitButton(_ sender: UIButton) {
+        
+        view.endEditing(true)
             
             // 1. Check if license key is empty
             guard let license = licenseTextField.text, !license.trimmingCharacters(in: .whitespaces).isEmpty else {
@@ -113,31 +84,6 @@ class UserRegistrationViewController: UIViewController {
                 )
                 return
             }
-            
-//            // 2. Check if checkboxes are selected
-//            if buttonState1 != .selected {
-//                showGeneralAlert(
-//                    image: UIImage(named: "InfoIcon"),
-//                    imageSize: CGSize(width: 40, height: 40),
-//                    title: "Please confirm that you have read and understood the license",
-//                    okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
-//                    okAction: {},
-//                    showDismissButton: false
-//                )
-//                return
-//            }
-//
-//            if buttonState2 != .selected {
-//                showGeneralAlert(
-//                    image: UIImage(named: "InfoIcon"),
-//                    imageSize: CGSize(width: 40, height: 40),
-//                    title: "Please agree to share your information with the medical provider",
-//                    okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
-//                    okAction: {},
-//                    showDismissButton: false
-//                )
-//                return
-//            }
 
             // 3. All good — proceed with API call
             let params: [String: String] = ["licenseKey": license]

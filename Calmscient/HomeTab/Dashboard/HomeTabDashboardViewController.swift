@@ -28,6 +28,22 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
     @IBOutlet weak var myFavourites: UILabel!
     var languageId : Int = 1
     
+    var nomedications1 = UILabel()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
+        
+        setupViews()
+        
+        checkTokenAndFetchFavorites()
+   
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         noFavsLabel.numberOfLines = 0
@@ -52,8 +68,7 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
         text.addAttributes([.font: subTextFont!], range: text.mutableString.range(of: subText))
         screenTitleLabel.attributedText = text
 
-        // End
-        NotificationCenter.default.addObserver(self, selector: #selector(updateFavorites), name: .favoritesUpdated, object: nil)
+        setupObservers()
         self.favorites = FavoriteManager.shared.favorites
         self.dashBoardCollectionView.reloadData()
     }
@@ -67,7 +82,6 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.navigationController?.isNavigationBarHidden = false
-        NotificationCenter.default.removeObserver(self, name: .favoritesUpdated, object: nil)
     }
     
     //MARK: - Add Favourites
@@ -83,21 +97,43 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
     }
     
     
-    private func fetchFavorites() {
-        self.view.showToastActivity()
-        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else { return }
+    // MARK: - Token & API
+    private func checkTokenAndFetchFavorites() {
+        let hasFetchedFavorites = UserDefaults.standard.bool(forKey: "hasFetchedFavorites")
 
-        FavoriteManager.shared.fetchFavoritesIfNeeded(
-            plId: userInfo.patientLocationID,
-            patientId: userInfo.patientID,
-            clientId: userInfo.clientID,
-            parentId: 0
-        ) {
-            UserDefaults.standard.set(true, forKey: "hasFetchedFavorites")
+        if TokenManager.shared.isTokenExpired() {
+            print("Token expired, refreshing...")
+            TokenManager.shared.refreshAccessToken(from: self) { success in
+                DispatchQueue.main.async {
+                    if success {
+                        print("Token refreshed, proceeding with API call")
+                        if !hasFetchedFavorites { self.fetchFavorites() }
+                    } else {
+                        self.handleTokenFailure()
+                    }
+                }
+            }
+        } else {
+            print("Token is still valid, proceeding with API call")
+            if !hasFetchedFavorites { self.fetchFavorites() }
         }
     }
     
-    //END
+    private func handleTokenFailure() {
+        let next = UIStoryboard(name: "LoginVC", bundle: nil)
+        UserDefaults.standard.set(0, forKey: "rememberMe")
+        UserDefaultsHelper.clearLoginDetailsFromUserDefaults()
+        ApplicationSharedInfo.shared.loginResponse = nil
+        ApplicationSharedInfo.shared.tokenResponse = nil
+
+        if #available(iOS 16.0, *) {
+            if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+                let newVC = next.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+                let navController = UINavigationController(rootViewController: newVC)
+                sceneDelegate.changeRootViewController(to: navController)
+            }
+        }
+    }
     
     @IBAction func didClickOnProfile(_ sender: UIButton) {
         let userProfileViewController = UIStoryboard(name: "UserProfile", bundle: nil).instantiateViewController(withIdentifier: "UserProfileViewController") as! UserProfileViewController
@@ -105,76 +141,20 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
         self.navigationController?.pushViewController(userProfileViewController, animated: true)
         
     }
-    var nomedications1 = UILabel()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
-        
-        let hasFetchedFavorites = UserDefaults.standard.bool(forKey: "hasFetchedFavorites")
-        
-        //VIV Fav API Call
-        
-        // Check token expiration before making API calls
-        if TokenManager.shared.isTokenExpired() {
-            print("Token expired, refreshing...")
-            TokenManager.shared.refreshAccessToken(from: self) { success in
-                DispatchQueue.main.async {
-                    if success {
-                        print("Token refreshed, proceeding with API call")
-//                        self.geMenuItemsAPICalls()
-                        if !hasFetchedFavorites {
-                            self.fetchFavorites()
-                            }
-                    } else {
-                        print("Token refresh failed")
-//                        self.view.showToast(message: "Token refresh failed")
-                        // Handle failure (e.g., logout user, show alert)
-                        
-                        let next = UIStoryboard(name: "LoginVC", bundle: nil)
-                        UserDefaults.standard.set(0, forKey: "rememberMe")
-                        
-                        UserDefaultsHelper.clearLoginDetailsFromUserDefaults()
-                        ApplicationSharedInfo.shared.loginResponse = nil
-                        ApplicationSharedInfo.shared.tokenResponse = nil
-                        
-                        // Add your code to handle the "Yes" action here
-                        if #available(iOS 16.0, *) {
-                            if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
-                                let newViewController = next.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-                                let navController = UINavigationController(rootViewController: newViewController)
-                                sceneDelegate.changeRootViewController(to: navController)
-                            }
-                        } else {
-                            // Fallback on earlier versions
-                        }
-                        
-                    }
-                }
-            }
-        } else {
-            print("Token is still valid, proceeding with API call")
-//            geMenuItemsAPICalls()
-            if !hasFetchedFavorites {
-                       fetchFavorites()
-                   }
-        }
-        
-        //END
-        
+    //MARK: - Setup Views
+    
+    private func setupViews() {
         actionButton.addTarget(self, action: #selector(actionButtonTapped), for: .touchUpInside)
         
         dashboardTableView.register(UINib(nibName: "DashboardMainTableCell", bundle: nil), forCellReuseIdentifier: "DashboardMainTableCell")
         dashboardTableView.dataSource = self
         dashboardTableView.delegate = self
         dashboardTableView.isScrollEnabled = true
-
-        
+        dashboardTableView.separatorStyle = .none
         
         let nib = UINib(nibName: "HomeTabFavoritesCollectionViewCell", bundle: nil)
-        
         dashBoardCollectionView.register(nib, forCellWithReuseIdentifier: "HomeTabFavoritesCollectionViewCell")
-        
         dashBoardCollectionView.delegate = self
         dashBoardCollectionView.dataSource = self
         if let layout = dashBoardCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
@@ -182,12 +162,18 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
         }
         dashBoardCollectionView.showsHorizontalScrollIndicator = false
         
-        self.noFavsLabel.isHidden = true
-   
+        noFavsLabel.isHidden = true
     }
     
+    //MARK: - Setup Observers
+    
+    private func setupObservers() {
+        NotificationCenter.default.addObserver(self, selector: #selector(updateFavorites), name: .favoritesUpdated, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(fetchFavorites), name: .favLanUpdated, object: nil)
+    }
+    
+    // MARK: - Language
     func setupLanguage() {
-        
         languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
         
         if languageId == 1 {
@@ -201,7 +187,28 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
         actionButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str: "Need to talk with someone?"))
         dashboardTableView.reloadData()
         
+        // Notify observers that language has changed
+        NotificationCenter.default.post(name: .languageChanged, object: nil)
     }
+    
+    // MARK: - Favorites
+    @objc private func fetchFavorites() {
+        self.view.showToastActivity()
+        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else { return }
+
+        FavoriteManager.shared.fetchFavoritesIfNeeded(
+            plId: userInfo.patientLocationID,
+            patientId: userInfo.patientID,
+            clientId: userInfo.clientID,
+            parentId: 0
+        ) {
+            DispatchQueue.main.async {
+                UserDefaults.standard.set(true, forKey: "hasFetchedFavorites")
+                self.updateFavorites()
+            }
+        }
+    }
+
     @objc func actionButtonTapped() {
         // Perform the action you want when the button is tapped
         let next = UIStoryboard(name: "NeedToTalkViewController", bundle: nil)
@@ -406,26 +413,12 @@ extension HomeTabDashboardViewController : UICollectionViewDelegateFlowLayout, U
             }.resume()
         }
 
-
-        
-//        if let imageUrlString = images["thumbnailUrl"] as? String, let url = URL(string: imageUrlString) {
-//            DispatchQueue.global().async {
-//                if let data = try? Data(contentsOf: url) {
-//                    DispatchQueue.main.async {
-//                        cell.cellImageView.image = UIImage(data: data)
-//                    }
-//                }
-//            }
-//        }
         cell.titleLabel.text = images["title"] as? String
-        
-        // cell.cellImageView.image = UIImage(named: "HometabFavorites\(Int.random(in: 1...2))")
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let selectedFavorite = favorites[indexPath.item]
-        //        let patientselectedFavorite = patientFavorites[indexPath.item]
         
         if let favoritesId = selectedFavorite["favoritesId"] as? Int,
            let patientFavoriteId = selectedFavorite["favoritesId"] as? Int,
@@ -444,7 +437,6 @@ extension HomeTabDashboardViewController : UICollectionViewDelegateFlowLayout, U
             }
         }
         if let isFromExcercise = selectedFavorite["isFromExercises"] as? Int, isFromExcercise == 1, let screenCode = selectedFavorite["screenCode"] as? Int  {
-            let storyboard = UIStoryboard(name: "Excercises", bundle: nil)
             print("the screen code is",screenCode)
             print("is from excerise value is ",isFromExcercise)
             let excerciseType = ExcercisesTypeEnum(rawValue: screenCode)

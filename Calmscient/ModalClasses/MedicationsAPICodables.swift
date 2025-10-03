@@ -223,6 +223,7 @@ class MedicationAlarm: Codable {
     var alarmId: Int = 0
     var pmtId: String = "0"
     var medicineTaken: String? //new
+    var medicineTakenID: Int?
     var alarmEnabled: String?
     var alarmInterval: String = "" //"05"
     var `repeat`: [String] = []
@@ -239,7 +240,7 @@ class MedicationAlarm: Codable {
     
     
     enum CodingKeys: String, CodingKey {
-        case alarmId, alarmInterval, alarmEnabled, medicineTime, pmtId, alarmTime, medicineTaken, flag, isEnabled, alarmDate, plId, medicationId, isDefault
+        case alarmId, alarmInterval, alarmEnabled, medicineTime, pmtId, alarmTime, medicineTaken, medicineTakenID, flag, isEnabled, alarmDate, plId, medicationId, isDefault
         case `repeat` = "repeat"
     }
     
@@ -253,6 +254,7 @@ class MedicationAlarm: Codable {
         self.medicationId = medicationID
         self.alarmId = withScheduledTime.alarmId
         self.medicineTime = withScheduledTime.medicineTime
+        self.medicineTakenID = withScheduledTime.medicineTakenID
         let isEnableInt = Int(withScheduledTime.alarmEnabled ?? "0")
         self.isEnabled = isEnableInt
         self.alarmInterval = withScheduledTime.alarmInterval
@@ -336,6 +338,7 @@ class MedicationAlarm: Codable {
         plId = try container.decodeIfPresent(Int.self, forKey: .plId)
         pmtId = try container.decode(String.self, forKey: .pmtId)
         medicationId = try container.decodeIfPresent(Int.self, forKey: .medicationId)
+        medicineTakenID = try container.decodeIfPresent(Int.self, forKey: .medicineTakenID)
         flag = try container.decodeIfPresent(String.self, forKey: .flag)
         isEnabled = try container.decodeIfPresent(Int.self, forKey: .isEnabled)
         alarmEnabled = try container.decodeIfPresent(String.self, forKey: .alarmEnabled)
@@ -354,6 +357,7 @@ class MedicationAlarm: Codable {
         try container.encode(alarmInterval, forKey: .alarmInterval)
         try container.encode(plId, forKey: .plId)
         try container.encode(medicationId, forKey: .medicationId)
+        try container.encode(medicineTakenID, forKey: .medicineTakenID)
         try container.encode(flag, forKey: .flag)
         try container.encode(pmtId, forKey: .pmtId)
 //        try container.encode(alarmEnabled, forKey: .alarmEnabled)

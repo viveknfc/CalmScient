@@ -78,7 +78,6 @@ class BasicStandardDrink: ViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         setupLanguage()
-        completeButton.updateTitleForLanguage()
     }
     
     func labelText() {
@@ -275,9 +274,7 @@ class BasicStandardDrink: ViewController {
         if currentIndex < images.count - 1 {
             currentIndex += 1
         } 
-//        else {
-//            currentIndex = 0  // Rotate back to the first image
-//        }
+
         updateContent()
     }
 

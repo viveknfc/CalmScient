@@ -137,6 +137,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             }
         }
     }
+
     
     
     // MARK: UISceneSession Lifecycle
@@ -206,3 +207,10 @@ extension UIApplication {
     }
     
 }
+
+extension Bundle {
+    var appVersion: String {
+        return infoDictionary?["CFBundleShortVersionString"] as? String ?? "0"
+    }
+}
+

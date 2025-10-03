@@ -24,6 +24,9 @@ class BasicknowledgeVideo: ViewController {
     
     var timeObserverToken: Any?
     
+    var isFav: Int = 0
+    let homeVC = HomeTabDashboardViewController()
+    
     var sectionID4: Int?
     //        @IBOutlet weak var timeLabel: UILabel!
     
@@ -71,6 +74,8 @@ class BasicknowledgeVideo: ViewController {
         
         subtitleLbl.text = AppHelper.getLocalizeString(str:"Let’s watch the videos ")
         completeButton.updateTitleForLanguage()
+        
+        fetchFavorite()
     }
     
     @IBAction func maximiseButtonAction(_ sender: Any) {
@@ -82,6 +87,47 @@ class BasicknowledgeVideo: ViewController {
         avController.modalPresentationStyle = .overFullScreen
         present(avController, animated: true) {
             avPlayer.play()
+        }
+    }
+    
+    //MARK: - Fetch Fav
+    
+    func fetchFavorite() {
+        
+        self.view.showToastActivity()
+        guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
+            fatalError("Unable to found Application Shared Info")
+        }
+        
+        homeVC.getPatientFavorites(plId: userInfo.patientLocationID, patientId: userInfo.patientID, clientId: userInfo.clientID, parentId: 0) { result in
+            switch result {
+            case .success(let data):
+                do {
+                    let decoded = try JSONDecoder().decode(FavoritesResponse.self, from: data)
+                    
+                    if let match = decoded.favorites.first(where: { $0.title == "What happens to your brain when you drink?" }) {
+                        print("Found → isFavorite = \(match.isFavorite)")
+                        self.isFav = match.isFavorite
+                        
+                        DispatchQueue.main.async {
+                            self.setFavImage()
+                            self.view.hideToastActivity()
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            self.view.hideToastActivity()
+                        }
+                        print("Title not found in favorites")
+                    }
+                } catch {
+                    self.view.hideToastActivity()
+                    print("Decoding error: \(error)")
+                }
+                
+            case .failure(let error):
+                self.view.hideToastActivity()
+                print("API failed: \(error)")
+            }
         }
     }
     
@@ -112,12 +158,9 @@ class BasicknowledgeVideo: ViewController {
             player.pause()
             playPauseButton.setTitle("Play", for: .normal)
             let videoURL = URL(string: "https://media.calmscient.in/uploads/course/Tipsy_truth_with_subtitle.mp4")!
-            let avPlayer = AVPlayer(url: videoURL)
-            let avController = AVPlayerViewController()
-            //                avController.player = avPlayer
-            //                present(avController, animated: true) {
-            //                    avPlayer.play()
-            //                }
+            _ = AVPlayer(url: videoURL)
+            _ = AVPlayerViewController()
+
         } else {
             playPauseButton.setImage(UIImage(named: "pause"), for: .normal)
             player.play()
@@ -145,15 +188,9 @@ class BasicknowledgeVideo: ViewController {
         let currentTime = player.currentTime().seconds
         let duration = currentItem.duration.seconds
         progressBar.value = Float(currentTime / duration)
-        //            resetAutoHideTimer()
-        
-        //            timeLabel.text = formatTime(seconds: currentTime) + " / " + formatTime(seconds: duration)
+
     }
-    //    @IBAction func forwardButtonTapped(_ sender: UIButton) {
-    //        let next = UIStoryboard(name: "TakingControllIntro", bundle: nil)
-    //        let vc = next.instantiateViewController(withIdentifier: "TakingControllIntro") as? TakingControllIntro
-    //        self.navigationController?.pushViewController(vc!, animated: true)
-    //    }
+
     func formatTime(seconds: Double) -> String {
         let mins = Int(seconds / 60)
         let secs = Int(seconds) % 60
@@ -161,11 +198,52 @@ class BasicknowledgeVideo: ViewController {
     }
     
     @IBAction func favoriteButtonTapped(_ sender: UIButton) {
-        // Handle adding to favorite
-        isFavorite.toggle()
-        let favoriteTitle = isFavorite ? "Unfavorite" : "Favorite"
-        favoriteButton.setTitle(favoriteTitle, for: .normal)
+        
+        print("fav button tapped from tipsy truth")
+        isFav = (isFav == 0) ? 1 : 0
+        
+        self.view.showToastActivity()
+        ExcercisesRepository.shared.addFavAPICall(isFav: isFav, pageId: 1, title: "What happens to your brain when you drink?") { [self] result in
+            switch result {
+            case .success(let data):
+                // Convert data to JSON object and print it
+                do {
+                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        DispatchQueue.main.async {
+                            self.setFavImage()
+                            self.view.hideToastActivity()
+                            if let msg = json["responseMessage"] {
+                                self.view.showToast(message: msg as! String)
+                            }
+
+                        }
+                    } else {
+                        DispatchQueue.main.async {
+                            self.view.hideToastActivity()
+                        }
+
+                    }
+                } catch {
+                    print("Error converting data to JSON: \(error)")
+                    DispatchQueue.main.async {
+                        self.view.hideToastActivity()
+                    }
+                }
+            case .failure(let error):
+                print("Error: \(error)")
+                DispatchQueue.main.async {
+                    self.view.hideToastActivity()
+                }
+            }
+        }
+
     }
+    
+    func setFavImage() {
+        let imageName = isFav == 1 ? "redFav" : "fav"
+        favoriteButton.setImage(UIImage(named: imageName), for: .normal)
+    }
+
     @IBAction func backButtonTapped(_ sender: UIButton) {
         // Handle adding to favorite
         self.navigationController?.popViewController(animated: true)

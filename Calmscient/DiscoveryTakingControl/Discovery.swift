@@ -200,21 +200,6 @@ class Discovery: ViewController,UITableViewDelegate,UITableViewDataSource {
             let course = courseLists[indexPath.row]
             
             cell.customLabel.text = "   \(course["courseName"] ?? "")"
-            
-//            if course["isEnable"] as! Int == 1 {
-//                cell.enableButton()
-//            } else {
-//                cell.disableButton()
-//            }
-        
-            
-           // let imageName = course["isEnable"] as! Int  == 1 ? "check" : "uncheck_circle"
-            //       cell.checkBox.setImage(UIImage(named: imageName), for: .normal)
-            
-//            cell.main_view.layer.borderWidth = 2
-//            cell.main_view.layer.borderColor = UIColor(named: "AppBorderColor")?.cgColor
-//            cell.main_view.layer.cornerRadius = cell.main_view.frame.height / 3.5
-//            cell.main_view.layer.masksToBounds = true
 
             let isEnable = course["isEnable"] as? Int
             if isEnable == 1 {
@@ -246,8 +231,6 @@ class Discovery: ViewController,UITableViewDelegate,UITableViewDataSource {
             }
 
            cell.separatorInset = .zero
-            //                cell.buttons.addTarget(self, action: #selector(self.clicked(_:)), for: .touchUpInside)
-            // Configure the cell as needed
             
             
             return cell
