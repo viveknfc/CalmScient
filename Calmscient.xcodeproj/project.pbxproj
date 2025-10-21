@@ -11,7 +11,7 @@
 		331F25632E45C9C300606A53 /* WebView_Ciitation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 331F25622E45C9C300606A53 /* WebView_Ciitation.storyboard */; };
 		334BDED62E8D31D200CEAD4A /* UserMedications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 334BDED52E8D31D200CEAD4A /* UserMedications.storyboard */; };
 		335389A72E8C1FC40041E61F /* Favourite Response Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335389A62E8C1FBC0041E61F /* Favourite Response Modal.swift */; };
-		3C58E3D0D76D550F12EB55C4 /* Pods_CalmscientIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE5C42DCE48AE7884CCA2E42 /* Pods_CalmscientIOS.framework */; };
+		3379D6092E9434CF00D8C68F /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 3379D6082E9434CF00D8C68F /* FirebaseMessaging */; };
 		431C24172C46624D00909C24 /* DashboardHomeTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 431C24162C46624D00909C24 /* DashboardHomeTab.storyboard */; };
 		431C24742C46992B00909C24 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 431C24722C46992B00909C24 /* Localizable.strings */; };
 		431C24772C469B7300909C24 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431C24762C469B7300909C24 /* AppHelper.swift */; };
@@ -553,6 +553,7 @@
 		C2FDECB22D267EB9005EE6BA /* ReadyToQuitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FDECB12D267EB9005EE6BA /* ReadyToQuitVC.swift */; };
 		C2FDECB42D26940E005EE6BA /* TryingToQuitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FDECB32D26940E005EE6BA /* TryingToQuitVC.swift */; };
 		C2FDECB62D269C9E005EE6BA /* TobaccoFreeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2FDECB52D269C9E005EE6BA /* TobaccoFreeVC.swift */; };
+		D0AC6062D470BF2F3F78092B /* Pods_Calmscient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F804732A5EA52F5DA440D3E9 /* Pods_Calmscient.framework */; };
 		F5D5EEF32E2F991C00653D58 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F5D5EEF22E2F991C00653D58 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
@@ -570,7 +571,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0C444166053ECD1D5D36EA00 /* Pods-CalmscientIOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalmscientIOS.release.xcconfig"; path = "Target Support Files/Pods-CalmscientIOS/Pods-CalmscientIOS.release.xcconfig"; sourceTree = "<group>"; };
 		331F25602E45C32F00606A53 /* WebView_Citation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView_Citation.swift; sourceTree = "<group>"; };
 		331F25622E45C9C300606A53 /* WebView_Ciitation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebView_Ciitation.storyboard; sourceTree = "<group>"; };
 		334BDED42E8D31D200CEAD4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/UserMedications.storyboard; sourceTree = "<group>"; };
@@ -1003,7 +1003,7 @@
 		4C7FA3802D7EB2EF00143612 /* NewAppointmentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewAppointmentTableViewCell.xib; sourceTree = "<group>"; };
 		4C7FA3832D7F19AE00143612 /* DrinkingTakingControlResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkingTakingControlResponse.swift; sourceTree = "<group>"; };
 		4C80993F2D79B47D009648CB /* AddNewAppointmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAppointmentViewController.swift; sourceTree = "<group>"; };
-		56E23A8A2D9B9218EC519A59 /* Pods-CalmscientIOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalmscientIOS.debug.xcconfig"; path = "Target Support Files/Pods-CalmscientIOS/Pods-CalmscientIOS.debug.xcconfig"; sourceTree = "<group>"; };
+		54706BBFE409830CE4A132A4 /* Pods-Calmscient.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calmscient.release.xcconfig"; path = "Target Support Files/Pods-Calmscient/Pods-Calmscient.release.xcconfig"; sourceTree = "<group>"; };
 		6B5789C62C7C3C7500EFB8FF /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
 		6B5CC41B2C673C14007DDEE5 /* UserStartUpScreenDayDataSpanish.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UserStartUpScreenDayDataSpanish.json; sourceTree = "<group>"; };
 		6B75829B2C6B9A61008EB4EF /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
@@ -1132,8 +1132,9 @@
 		C2FDECB12D267EB9005EE6BA /* ReadyToQuitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadyToQuitVC.swift; sourceTree = "<group>"; };
 		C2FDECB32D26940E005EE6BA /* TryingToQuitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TryingToQuitVC.swift; sourceTree = "<group>"; };
 		C2FDECB52D269C9E005EE6BA /* TobaccoFreeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TobaccoFreeVC.swift; sourceTree = "<group>"; };
-		CE5C42DCE48AE7884CCA2E42 /* Pods_CalmscientIOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalmscientIOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDFCAF88A1842D36A997BA44 /* Pods-Calmscient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calmscient.debug.xcconfig"; path = "Target Support Files/Pods-Calmscient/Pods-Calmscient.debug.xcconfig"; sourceTree = "<group>"; };
 		F5D5EEF22E2F991C00653D58 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F804732A5EA52F5DA440D3E9 /* Pods_Calmscient.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Calmscient.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1143,8 +1144,9 @@
 			files = (
 				C2F400622DC89FC100481C5D /* FirebaseCrashlytics in Frameworks */,
 				C23BD4E52DA1202A00283907 /* SwiftyGif in Frameworks */,
+				3379D6092E9434CF00D8C68F /* FirebaseMessaging in Frameworks */,
 				C2F400602DC898B400481C5D /* FirebaseAnalytics in Frameworks */,
-				3C58E3D0D76D550F12EB55C4 /* Pods_CalmscientIOS.framework in Frameworks */,
+				D0AC6062D470BF2F3F78092B /* Pods_Calmscient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1154,8 +1156,8 @@
 		3BADB94C2BBA9017AAB75ADF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				56E23A8A2D9B9218EC519A59 /* Pods-CalmscientIOS.debug.xcconfig */,
-				0C444166053ECD1D5D36EA00 /* Pods-CalmscientIOS.release.xcconfig */,
+				EDFCAF88A1842D36A997BA44 /* Pods-Calmscient.debug.xcconfig */,
+				54706BBFE409830CE4A132A4 /* Pods-Calmscient.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -1646,7 +1648,7 @@
 				4A65C2F22BD6852C00809222 /* Calmscient */,
 				4A65C2F12BD6852C00809222 /* Products */,
 				3BADB94C2BBA9017AAB75ADF /* Pods */,
-				B23D767572A2EA06C5C5C713 /* Frameworks */,
+				BB5D8A37287FD266143AD515 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2478,10 +2480,10 @@
 			name = SleepSummaryTableViewCell;
 			sourceTree = "<group>";
 		};
-		B23D767572A2EA06C5C5C713 /* Frameworks */ = {
+		BB5D8A37287FD266143AD515 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CE5C42DCE48AE7884CCA2E42 /* Pods_CalmscientIOS.framework */,
+				F804732A5EA52F5DA440D3E9 /* Pods_Calmscient.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -2666,13 +2668,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4A65C3042BD6852D00809222 /* Build configuration list for PBXNativeTarget "Calmscient" */;
 			buildPhases = (
-				2F36CFD25F6E744C73D1CAE1 /* [CP] Check Pods Manifest.lock */,
+				91FE9DC1C2F2F2C2B200ADC8 /* [CP] Check Pods Manifest.lock */,
 				4A65C2EC2BD6852C00809222 /* Sources */,
 				4A65C2ED2BD6852C00809222 /* Frameworks */,
 				4A65C2EE2BD6852C00809222 /* Resources */,
 				C21BD59D2D2C48A7005BA00D /* Embed Frameworks */,
 				C2F400632DC8AC1400481C5D /* ShellScript */,
-				ED962CDFD8D78BBA0C6083AC /* [CP] Embed Pods Frameworks */,
+				8A9371DEF94901F712CE9FD9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -2683,6 +2685,7 @@
 				C23BD4E42DA1202A00283907 /* SwiftyGif */,
 				C2F4005F2DC898B400481C5D /* FirebaseAnalytics */,
 				C2F400612DC89FC100481C5D /* FirebaseCrashlytics */,
+				3379D6082E9434CF00D8C68F /* FirebaseMessaging */,
 			);
 			productName = CalmscientIOS;
 			productReference = 4A65C2F02BD6852C00809222 /* Calmscient.app */;
@@ -2952,7 +2955,28 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		2F36CFD25F6E744C73D1CAE1 /* [CP] Check Pods Manifest.lock */ = {
+		8A9371DEF94901F712CE9FD9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Calmscient/Pods-Calmscient-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Calmscient/Pods-Calmscient-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Calmscient/Pods-Calmscient-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91FE9DC1C2F2F2C2B200ADC8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2967,7 +2991,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-CalmscientIOS-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-Calmscient-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2987,6 +3011,7 @@
 				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
 				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
 				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+				"$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)",
 			);
 			outputFileListPaths = (
 			);
@@ -2995,27 +3020,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
-		};
-		ED962CDFD8D78BBA0C6083AC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CalmscientIOS/Pods-CalmscientIOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-CalmscientIOS/Pods-CalmscientIOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-CalmscientIOS/Pods-CalmscientIOS-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -3597,7 +3601,7 @@
 		};
 		4A65C3052BD6852D00809222 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 56E23A8A2D9B9218EC519A59 /* Pods-CalmscientIOS.debug.xcconfig */;
+			baseConfigurationReference = EDFCAF88A1842D36A997BA44 /* Pods-Calmscient.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -3605,7 +3609,7 @@
 				CODE_SIGN_ENTITLEMENTS = Calmscient/Calmscient.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 842J5G3PU2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Calmscient/Info.plist;
@@ -3617,15 +3621,17 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = calmscientllc.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
+				STRIP_INSTALLED_PRODUCT = NO;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -3638,7 +3644,7 @@
 		};
 		4A65C3062BD6852D00809222 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0C444166053ECD1D5D36EA00 /* Pods-CalmscientIOS.release.xcconfig */;
+			baseConfigurationReference = 54706BBFE409830CE4A132A4 /* Pods-Calmscient.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -3646,7 +3652,7 @@
 				CODE_SIGN_ENTITLEMENTS = Calmscient/Calmscient.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 12;
+				CURRENT_PROJECT_VERSION = 5;
 				DEVELOPMENT_TEAM = 842J5G3PU2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Calmscient/Info.plist;
@@ -3658,12 +3664,13 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.0;
+				MARKETING_VERSION = 1.0.5;
 				PRODUCT_BUNDLE_IDENTIFIER = calmscientllc.com;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -3720,6 +3727,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		3379D6082E9434CF00D8C68F /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C2F4005E2DC898B400481C5D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
 		C23BD4E42DA1202A00283907 /* SwiftyGif */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C23BD4E32DA1202A00283907 /* XCRemoteSwiftPackageReference "SwiftyGif" */;

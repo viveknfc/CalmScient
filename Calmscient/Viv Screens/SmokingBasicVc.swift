@@ -38,7 +38,7 @@ class SmokingBasicVc: ViewController, UITableViewDelegate, UITableViewDataSource
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         getBasicKnowledgeQuestions ()
-        title = "Basic Knowledge"
+        title = "Basic knowledge"
     }
     
 //    let data = ["What is tobacco?", "How is vaping safer than tobacco?", "Why does smoking seem to relax me?", "Why is it challenging to quit?", "How does smoking affect your mental health?", "My smoking habit"]

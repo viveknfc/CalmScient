@@ -62,30 +62,36 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func proceedAfterSplashScreen() {
         isSplashScreenShowing = false
         print("after 2 sec its printing")
+
         if (UserDefaults.standard.value(forKey: "rememberMe") as? Int == 1) {
             print("remember Me pressed before")
-            
+
             let (loginDetails, tokenResponse) = UserDefaultsHelper.retrieveLoginDetailsFromUserDefaults()
-            
+
             if let loginDetails = loginDetails, let tokenResponse = tokenResponse {
                 // Populate shared info
                 ApplicationSharedInfo.shared.loginResponse = loginDetails
                 ApplicationSharedInfo.shared.tokenResponse = tokenResponse
 
+                // If userStartUpAPICall involves any UI updates, also ensure it's called on main thread
                 self.userStartUpAPICall()
             } else {
-                // If no login details are found, navigate to Login screen
-                navigateToLogin()
+                DispatchQueue.main.async {
+                    self.navigateToLogin()
+                }
             }
         } else {
-            // No rememberMe, go to LoginVC
-            let homeController = UIStoryboard(name: "LoginVC", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-            let navC = UINavigationController(rootViewController: homeController)
-            navC.navigationBar.isHidden = true
-            window?.rootViewController = navC
-            window?.makeKeyAndVisible()
+            DispatchQueue.main.async {
+                let homeController = UIStoryboard(name: "LoginVC", bundle: nil)
+                    .instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+                let navC = UINavigationController(rootViewController: homeController)
+                navC.navigationBar.isHidden = true
+                self.window?.rootViewController = navC
+                self.window?.makeKeyAndVisible()
+            }
         }
     }
+
     
     //MARK: - First API Call if remember ME
     

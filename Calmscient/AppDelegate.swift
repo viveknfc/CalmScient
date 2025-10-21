@@ -9,21 +9,23 @@ import UIKit
 import IQKeyboardManagerSwift
 import UserNotifications
 import Firebase
+import FirebaseMessaging
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
     
     
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         IQKeyboardManager.shared.isEnabled = true
-//        IQKeyboardManager.shared.enableAutoToolbar = true
         
         FirebaseApp.configure()
                 
         DispatchQueue.main.async {
             self.checkNotificationPermission()
             UNUserNotificationCenter.current().delegate = self
+            
+            Messaging.messaging().delegate = self
             
             UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "TabBarUnSelectedColor")!, NSAttributedString.Key.font: UIFont(name: Fonts().lexendRegular, size: 9)!], for: .normal)
             UITabBar.appearance().isTranslucent = true
@@ -59,6 +61,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 UserDefaults.standard.set("en", forKey: "Language")
             } else if languageId == 2 {
                 UserDefaults.standard.set("es", forKey: "Language")
+            }
+            
+            Messaging.messaging().token { token, error in
+                if let error = error {
+                    print("❌ Error fetching FCM token: \(error)")
+                } else if let token = token {
+                    print("🔥 Retrieved FCM token manually: \(token)")
+                    UserDefaults.standard.set(token, forKey: "FCM_TOKEN")
+                }
             }
             
         }
@@ -112,6 +123,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 print("Permission granted")
                 DispatchQueue.main.async {
                     UIApplication.shared.registerForRemoteNotifications()
+                    
                 }
             } else {
                 print("Permission not granted")
@@ -149,20 +161,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
+
     }
     
     // Called when device successfully registers with APNs
     func application(_ application: UIApplication,
                      didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         
+        Messaging.messaging().apnsToken = deviceToken
+        
         let tokenParts = deviceToken.map { data in String(format: "%02.2hhx", data) }
         let token = tokenParts.joined()
         print("📱 Device Token: \(token)")
         
         // 👉 Send this token to your server
+    }
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        print("🔥 FCM token: \(fcmToken ?? "nil")")
+
+        // Save or send to backend here
+        if let token = fcmToken {
+            UserDefaults.standard.set(token, forKey: "FCM_TOKEN")
+        }
     }
 
     // Called if registration fails

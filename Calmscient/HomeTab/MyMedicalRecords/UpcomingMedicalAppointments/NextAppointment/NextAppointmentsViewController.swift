@@ -42,6 +42,7 @@ class NextAppointmentsViewController: ViewController, NCalendarToViewDelegate {
         nextAppointmentTableView.dataSource = self
         nextAppointmentTableView.delegate = self
         nextAppointmentTableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 150, right: 0)
+        nextAppointmentTableView.separatorStyle = .none
 
     }
     

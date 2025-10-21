@@ -41,11 +41,6 @@ class MedicationsDetailViewController: ViewController, UISheetPresentationContro
             tableData = filteredData.sorted {
                 $0.scheduledTimes.first?.medicineTime ?? "" < $1.scheduledTimes.first?.medicineTime ?? ""
             }
-            
-//            tableData = details.scheduledTimeList.sorted(by: {
-//                $0.scheduledTimes.first?.medicineTime ?? "" < $1.scheduledTimes.first?.medicineTime ?? ""
-//            })
-//            medicineDetails?.medicationDetailsByDate.first?.medicalDetails.scheduledTimeList = tableData
         }
     }
     
@@ -66,8 +61,6 @@ class MedicationsDetailViewController: ViewController, UISheetPresentationContro
         dosageView.layer.masksToBounds = true
         dosageView.layer.borderWidth = 1
         dosageView.layer.borderColor = UIColor(named: "AppViewBorderColor")?.cgColor
-     //   saveButton.setAttributedTitleWithGradientDefaults(title:saveStr)
-     //   cancelButton.setAttributedTitleWithGradientDefaults(title:AppHelper.getLocalizeString(str: "Cancel"))
         
         dosageLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Dosage" : "Dosificación"
         directionLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Direction" : "Dirección"

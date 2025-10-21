@@ -71,6 +71,10 @@ class AddNewMedicationUserEntryTableCell: UITableViewCell, UITextFieldDelegate {
         
         let updatedText = currentText.replacingCharacters(in: textRange, with: string)
         
+        if string.contains("<") || string.contains(">") || string.contains("/") {
+            return false
+        }
+        
         // Check if the new text length is within the limit
         if updatedText.count <= 2000 {
             // Update the text field manually
@@ -94,36 +98,6 @@ class AddNewMedicationUserEntryTableCell: UITableViewCell, UITextFieldDelegate {
             return false // Prevent further typing
         }
     }
-
-    
-//    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-//        // Get the current text, including the new characters
-//        let currentText = textField.text ?? ""
-//        guard let textRange = Range(range, in: currentText) else { return true } // Safely unwrap the range
-//        let updatedText = currentText.replacingCharacters(in: textRange, with: string)
-//        
-//        // Apply capitalization: Capitalize the first letter, lowercase the rest
-////        let capitalizedText = updatedText.prefix(1).uppercased() + updatedText.dropFirst().lowercased()
-//        
-//        // Calculate the new cursor position
-//        let cursorOffset = range.location + string.count
-//        let newCursorPosition = textField.position(from: textField.beginningOfDocument, offset: cursorOffset)
-//        
-//        // Update the text field
-//        textField.text = updatedText//capitalizedText
-//        
-//        // Set the cursor to the new position, if possible
-//        if let position = newCursorPosition {
-//            textField.selectedTextRange = textField.textRange(from: position, to: position)
-//        } else {
-//            // Fallback: Set the cursor to the end of the text if the position calculation fails
-//            let endPosition = textField.endOfDocument
-//            textField.selectedTextRange = textField.textRange(from: endPosition, to: endPosition)
-//        }
-//        
-//        // Returning false as we've already updated the text field manually
-//        return false
-//    }
     
 }
 

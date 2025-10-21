@@ -215,10 +215,7 @@ class LoginVC: UIViewController,UITextFieldDelegate, UITextViewDelegate {
         } else {
             print("Navigation Controller not available")
         }
-        
-//        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
-//            sceneDelegate.changeRootViewController(to: self.navController!)
-//        }
+
     }
     
     @IBAction func didClickOnLoginButton(_ sender: UIButton) {
@@ -256,6 +253,11 @@ class LoginVC: UIViewController,UITextFieldDelegate, UITextViewDelegate {
     fileprivate func createLoginRequest(userName:String,password:String) {
  
         let url = URL(string: "\(baseURLString)identity/api/v1/settings/userLogin")!
+        
+        let timeZoneIdentifier = TimeZone.current.identifier
+        print("🕓 Timezone ID: \(timeZoneIdentifier)")
+        
+        let token = UserDefaults.standard.string(forKey: "FCM_TOKEN")
 
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
@@ -263,8 +265,14 @@ class LoginVC: UIViewController,UITextFieldDelegate, UITextViewDelegate {
 
         let parameters: [String: Any] = [
             "userName": userName,
-            "password": password
+            "password": password,
+            "rememberMe": 0,
+            "deviceToken": token ?? "",
+            "mobilePlatform": "IOS",
+            "timeZone": timeZoneIdentifier
         ]
+        
+        print("the param for login cred is : \(parameters)")
 
         do {
             request.httpBody = try JSONSerialization.data(withJSONObject: parameters)

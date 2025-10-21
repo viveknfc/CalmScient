@@ -170,6 +170,10 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
         descriptionTV.textColor = UIColor.black
         descriptionTV.delegate = self
         
+        [patientNameTF, providerNameTF, locationTF, dateTF, timeTF].forEach {
+            $0?.delegate = self
+        }
+        
         setupDropdownTable()
 
         patientNameTF.isUserInteractionEnabled = true
@@ -246,6 +250,19 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
 
     @objc func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let currentText = textField.text ?? ""
+        guard let textRange = Range(range, in: currentText) else { return true }
+        
+        let updatedText = currentText.replacingCharacters(in: textRange, with: string)
+        
+        if string.contains("<") || string.contains(">") || string.contains("/") {
+            return false
+        }
+        
+        return true
     }
 
     //MARK: - For Adding astrik to labels

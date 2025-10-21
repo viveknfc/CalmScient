@@ -42,7 +42,7 @@ class ScreeningQuestionsViewController: ViewController {
     @IBOutlet weak var backwardButton: UIButton!
     @IBOutlet weak var forwardButton: UIButton!
     
-    @IBOutlet weak var completeButton: UIButton!
+    @IBOutlet weak var completeButton: CapsuleButton1!
     public weak var selectedScreening:Screening? = nil
     fileprivate var pageNumber:Int = 0
     fileprivate var maxPage:Int = 0

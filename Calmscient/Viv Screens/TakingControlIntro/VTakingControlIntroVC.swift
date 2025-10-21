@@ -61,6 +61,7 @@ class VTakingControlIntroVC: UIViewController {
         
         tableView.estimatedRowHeight = 60
         tableView.rowHeight = UITableView.automaticDimension
+        tableView.separatorStyle = .none
         
         let nib = UINib(nibName: "TakincontrolIntroCell", bundle: nil)
         tableView.register(nib, forCellReuseIdentifier: "takinccontrolintroTC")

@@ -59,8 +59,6 @@ class CreateAccountVC: ViewController,UITextFieldDelegate {
                 customAlertView = nil
                 self.customAlertBackgroundView = nil
             }, completion: nil)
-            
-          //  self.navigateToLogin()
         }
         
         UIView.transition(with: self.view, duration: 0.5, options: .transitionCrossDissolve, animations: {
@@ -72,21 +70,13 @@ class CreateAccountVC: ViewController,UITextFieldDelegate {
         customAlertView?.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
         customAlertView?.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor).isActive = true
         customAlertView?.widthAnchor.constraint(equalToConstant: self.view.frame.width * 0.9).isActive = true
-//        customAlertView?.heightAnchor.constraint(equalToConstant: self.view.frame.height * 0.35).isActive = true
     
-    }
-    
-    func navigateToLogin(){
-        let next = UIStoryboard(name: "LoginVC", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
-        self.navigationController?.pushViewController(vc!, animated: true)
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        submitButton.clipsToBounds = true
-//        submitButton.layer.cornerRadius = submitButton.frame.height / 2
+
         setupLanguage()
 
         
@@ -192,7 +182,6 @@ class CreateAccountVC: ViewController,UITextFieldDelegate {
         }
         
         return false
-        return true
     }
 }
 

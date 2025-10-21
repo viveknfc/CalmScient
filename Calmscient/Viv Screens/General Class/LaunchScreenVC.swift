@@ -25,10 +25,6 @@ class LaunchScreenVC: UIViewController {
             print("❌ Failed to load GIF: \(error)")
         }
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { //+ 2.0
-            print("🕒 Timer (from viewDidLoad) done, proceeding to next screen")
-            self.sceneDelegate?.proceedAfterSplashScreen()
-        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -86,9 +82,14 @@ class LaunchScreenVC: UIViewController {
         
         print("the version api response is \(response)")
         
-        guard response.status.responseCode == 200 else {
+        guard response.mandatoryUpdate == false else {
             showUpdateAlert(forceUpdate: !response.mandatoryUpdate)
             return
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { //+ 2.0
+            print("🕒 Timer (from viewDidLoad) done, proceeding to next screen")
+            self.sceneDelegate?.proceedAfterSplashScreen()
         }
         
     }

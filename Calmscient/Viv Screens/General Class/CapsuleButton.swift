@@ -22,7 +22,7 @@ class CapsuleButton1: UIButton {
     
     private func setupAppearance() {
         let title = getLocalizedTitle()
-        guard let font = UIFont(name: Fonts().lexendLight, size: 14) else {
+        guard let font = UIFont(name: Fonts().lexendRegular, size: 14) else {
             print("Font not found, using system font")
             return
         }

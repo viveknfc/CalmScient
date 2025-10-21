@@ -55,6 +55,7 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         medicationsTableView.register(UINib(nibName: "UserMedicationsTableCell", bundle: nil), forCellReuseIdentifier: "UserMedicationsTableCell")
         medicationsTableView.dataSource = self
         medicationsTableView.delegate = self
+        medicationsTableView.separatorStyle = .none
         
         infoLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Please select the medication you are currently taking." : "Selecciona el medicamento de la lista si lo has tomado hoy"
         
@@ -489,9 +490,11 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         self.tabBarController?.tabBar.selectedItem?.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Home" : "Inicio"//"Home"
         saveButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str:"Save"))
         
-        let date = Calendar.current.startOfDay(for: Date())
-        getMedicationsData(forDate: convertToLocalTimeZone(date: date))
-        print("the date we are passing is", convertToLocalTimeZone(date: date))
+        getMedicationsData(forDate: selectedNewDate)
+        
+//        let date = Calendar.current.startOfDay(for: Date())
+//        getMedicationsData(forDate: convertToLocalTimeZone(date: date))
+//        print("the date we are passing is", convertToLocalTimeZone(date: date))
     }
     
     func convertToLocalTimeZone(date: Date) -> Date {
@@ -645,36 +648,12 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
 
     
     func updateTakeAllButtonFromCells(for timeSlot: TimeSlot) {
-//        var hasActiveSlot = false
-//        var allActiveTaken = true
-//        
-//        for case let cell as UserMedicationsTableCell in medicationsTableView.visibleCells {
-//            
-//            if cell.isExpired {
-//                continue  // ✅ skip expired cells
-//            }
-//            
-//            if let slotInfo = cell.getSlotInfo(for: timeSlot) {
-//                if slotInfo.isActive {
-//                    hasActiveSlot = true
-//                    if !slotInfo.isTaken {
-//                        allActiveTaken = false
-//                    }
-//                }
-//            }
-//        }
-//        
-//        print("the all active taken is \(allActiveTaken) and the has active slot is \(hasActiveSlot)")
-//        
-//        let isTaken = allActiveTaken && hasActiveSlot
-//        let titleKey = isTaken ? "taken" : "take_all"
         
         let status = slotStatus(for: timeSlot)
         let isTaken = status.allTaken
         let titleKey = isTaken ? "taken" : "take_all"
         
         let newTitle = NSLocalizedString(titleKey, comment: "")
-//        let newTitle = isTaken ? "Taken" : "Take All"
         
         // Update title
         takeAllButton.setTitle(newTitle, for: .normal)
@@ -688,14 +667,9 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         takeAllButton.backgroundColor = .clear
         takeAllButton.setTitleColor(borderColor, for: .normal)
         
-        // Update enabled state and alpha
-//        takeAllButton.isEnabled = hasActiveSlot
-//        takeAllButton.alpha = hasActiveSlot ? 1.0 : 0.5
-        
         takeAllButton.isEnabled = status.hasActive
         takeAllButton.alpha = status.hasActive ? 1.0 : 0.5
-        
-//        takeAllButton.layoutIfNeeded()
+
     }
 
 

@@ -11,6 +11,6 @@
 #endif
 
 
-FOUNDATION_EXPORT double Pods_CalmscientIOSVersionNumber;
-FOUNDATION_EXPORT const unsigned char Pods_CalmscientIOSVersionString[];
+FOUNDATION_EXPORT double Pods_CalmscientVersionNumber;
+FOUNDATION_EXPORT const unsigned char Pods_CalmscientVersionString[];
 
