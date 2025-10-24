@@ -3609,7 +3609,7 @@
 				CODE_SIGN_ENTITLEMENTS = Calmscient/Calmscient.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 842J5G3PU2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Calmscient/Info.plist;
@@ -3652,7 +3652,7 @@
 				CODE_SIGN_ENTITLEMENTS = Calmscient/Calmscient.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 842J5G3PU2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Calmscient/Info.plist;

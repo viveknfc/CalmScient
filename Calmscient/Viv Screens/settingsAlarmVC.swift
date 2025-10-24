@@ -134,8 +134,6 @@ class settingsAlarmVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         label?.text = tableData[indexPath.row]
         print("from cell the selected index is",selectedIndex as Any, "and the table alarm value is", tableAalrm[indexPath.row])
-
-//        tickImage?.isHidden = selectedIndex != tableAalrm[indexPath.row]
         
         let isSelected = selectedIndex == tableAalrm[indexPath.row]
         tickImage?.isHidden = !isSelected

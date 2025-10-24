@@ -78,11 +78,6 @@ class MedicationsDetailTableCell: UITableViewCell {
                }
                if buttonState == .dafault {
                    scheduleAlarm.alarmEnabled = "0"
-                   
-                       //to disable alarm
-//                       deleteAlarmNotification(identifier: scheduleAlarm.alarmTime)
-                   
-                   
                } else {
                    scheduleAlarm.alarmEnabled = "1"
                }
@@ -195,9 +190,14 @@ class MedicationsDetailTableCell: UITableViewCell {
             guard let scheduledTime = data.scheduledTimes.first else {
                 return
             }
-
+        
+        if scheduledTime.alarmEnabled == "1" {
+            self.cellSwitchImageView.image = self.selectedImage
+        } else {
             self.cellSwitchImageView.image = self.currentImage
-            guard let alarmDayType = scheduledTime.medicineTime.getDayTimeFromDate(formatter: "HH:mm:ss"), let alarmDayTypeShortForm = scheduledTime.alarmTime.getDayTimeFromDate(includeTimeZone:true) else {
+        }
+
+        guard let alarmDayType = scheduledTime.medicineTime.getDayTimeFromDate(formatter: "HH:mm:ss"), let _ = scheduledTime.alarmTime.getDayTimeFromDate(includeTimeZone:true) else {
                 return
             }
             guard let dayTypeMatch = DayTimeValue(rawValue: alarmDayType) else {
@@ -206,11 +206,11 @@ class MedicationsDetailTableCell: UITableViewCell {
             guard let medicineTimeShortForm = scheduledTime.medicineTime.getDayTimeFromDate(formatter: "HH:mm:ss", includeTimeZone: true) else {
                 return
             }
-//            self.dayTimeImageView.image = dayTypeMatch.getIconImage()
+
             leftTitleLabel.text = getTimeStr(timeStr: dayTypeMatch.rawValue)
             rightTitleLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Alarm" : "Alarma"
             leftContentLabel.text = medicineTimeShortForm
-//            rightContentLabel.text = alarmDayTypeShortForm
+
         }
     
     func getTimeStr(timeStr:String) -> String{
@@ -226,9 +226,11 @@ class MedicationsDetailTableCell: UITableViewCell {
         
         func updateCellData(medicationAlarm:MedicationAlarm) {
             if medicationAlarm.alarmEnabled == "1" {
+                print("Alarm is enabled for this medication", medicationAlarm.alarmId)
                 buttonState = .selected
                 medicationAlarm.isDefault = 0
             } else {
+                print("Alarm is not enabled for this medication", medicationAlarm.alarmId)
                 buttonState = .dafault
             }
             

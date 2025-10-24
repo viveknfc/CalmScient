@@ -34,6 +34,7 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.separatorStyle = .none
         
         resourceTableView.delegate = self
         resourceTableView.dataSource = self

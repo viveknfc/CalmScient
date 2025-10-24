@@ -101,6 +101,10 @@ class JournalEntryEditView: UIView, UITextViewDelegate {
         guard let stringRange = Range(range, in: currentText) else { return false }
         let updatedText = currentText.replacingCharacters(in: stringRange, with: text)
         
+        if text.contains("<") || text.contains(">") || text.contains("/") {
+            return false
+        }
+        
         if updatedText.count <= 2000 {
             textCount.text = "\(updatedText.count)/2000"
             return true

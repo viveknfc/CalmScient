@@ -24,6 +24,7 @@ class ChallengingtoQuitVC: ViewController, UITableViewDelegate, UITableViewDataS
     tableView.register(UINib(nibName: "CapsuleStyleCell", bundle: nil), forCellReuseIdentifier: "CapsuleCell")
     tableView.delegate = self
     tableView.dataSource = self
+    tableView.separatorStyle = .none
         
         let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
         let title = selectedLanguageID == 1 ? "Complete" : "Finalizar"

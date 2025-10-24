@@ -25,6 +25,7 @@ class MyDrinkingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSou
             // Set the delegate and data source
             tableView.delegate = self
             tableView.dataSource = self
+        tableView.separatorStyle = .none
         
         data = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? edata : sdata
 

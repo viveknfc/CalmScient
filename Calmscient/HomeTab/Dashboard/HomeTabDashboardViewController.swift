@@ -193,6 +193,7 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
     
     // MARK: - Favorites
     @objc private func fetchFavorites() {
+        print("fetch fav")
         self.view.showToastActivity()
         guard let userInfo = ApplicationSharedInfo.shared.loginResponse else { return }
 

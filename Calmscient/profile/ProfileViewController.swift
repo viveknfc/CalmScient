@@ -53,7 +53,8 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
         let cornerRadius: CGFloat = 7.0
         let borderColor = UIColor(named: "AppBorderColor")?.cgColor
         
-        
+        firstNameTextField.delegate = self
+        lastNameTextfield.delegate = self
         phoneTF.delegate = self
         phoneTF.keyboardType = .numberPad
         phoneTF.isUserInteractionEnabled = false
@@ -502,6 +503,10 @@ extension ProfileViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool
     {
         
+        if string.contains("<") || string.contains(">") || string.contains("/") {
+            return false
+        }
+        
         if textField == phoneTF
         {
             guard let text = textField.text else { return false }
@@ -511,6 +516,12 @@ extension ProfileViewController: UITextFieldDelegate {
         }
         return true
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+
 }
 
 extension UIView {

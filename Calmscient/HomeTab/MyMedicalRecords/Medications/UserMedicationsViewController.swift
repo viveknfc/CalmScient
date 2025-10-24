@@ -491,10 +491,6 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         saveButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str:"Save"))
         
         getMedicationsData(forDate: selectedNewDate)
-        
-//        let date = Calendar.current.startOfDay(for: Date())
-//        getMedicationsData(forDate: convertToLocalTimeZone(date: date))
-//        print("the date we are passing is", convertToLocalTimeZone(date: date))
     }
     
     func convertToLocalTimeZone(date: Date) -> Date {

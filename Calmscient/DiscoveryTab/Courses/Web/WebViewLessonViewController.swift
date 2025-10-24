@@ -188,6 +188,8 @@ class WebViewLessonViewController: UIViewController, WKNavigationDelegate, WKScr
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.navigationController?.isNavigationBarHidden = false
+        NotificationCenter.default.post(name: .favLanUpdated, object: nil)
+        print("fetching favorites from webview page inside")
     }
     
     @objc func backButtonOverrideAction() {

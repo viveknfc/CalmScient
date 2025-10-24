@@ -152,12 +152,13 @@ extension AppMainTabViewController : UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         print("Tab bar selecting from here")
         isInitalView = false
+        
+        if !(viewController is FavoritesVideosWebViewController) {
+            NotificationCenter.default.post(name: .favLanUpdated, object: nil)
+            print("✅ Posted favLanUpdated when switching tabs")
+        }
+        
         prepareTabs()
-       
-//        if (isInitalView && (viewController.title == "Medications")) {
-//            print("Tab bar did select clicked")
-//            isInitalView = false
-//        }
     }
 }
 

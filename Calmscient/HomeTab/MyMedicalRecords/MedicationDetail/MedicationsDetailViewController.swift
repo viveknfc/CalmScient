@@ -74,6 +74,8 @@ class MedicationsDetailViewController: ViewController, UISheetPresentationContro
         directionsValue.text = details.directions
         
         setupButtonShadows()
+        
+        print("reached medication detail vc")
     }
     
     
@@ -205,6 +207,7 @@ extension MedicationsDetailViewController : UITableViewDataSource,UITableViewDel
         let cell = tableView.dequeueReusableCell(withIdentifier: "MedicationsDetailTableCell", for: indexPath) as! MedicationsDetailTableCell
         cell.selectionStyle = .none
         cell.cellSwitchImageView.isUserInteractionEnabled = false
+        cell.timeSelectionButton.isUserInteractionEnabled = false
         cell.updateCellData(withScheduledTimeList: tableData[indexPath.row], medicineDetails: medicineDetails!)
         return cell
     }
@@ -214,8 +217,7 @@ extension MedicationsDetailViewController : UITableViewDataSource,UITableViewDel
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        presentModal(forInstance: tableData[indexPath.row])
-//        checkNotificationPermission(forInstance: tableData[indexPath.row])
+
     }
     func setupLanguage() {
         
