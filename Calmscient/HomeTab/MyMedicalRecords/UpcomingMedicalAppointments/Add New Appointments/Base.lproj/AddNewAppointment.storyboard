@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -14,7 +14,7 @@
         <!--Add New Appointment View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="AddNewAppointmentViewController" id="Y6W-OH-hqX" customClass="AddNewAppointmentViewController" customModule="CalmscientIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddNewAppointmentViewController" id="Y6W-OH-hqX" customClass="AddNewAppointmentViewController" customModule="Calmscient" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,7 +34,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="v2t-Q9-wNL">
                                                                 <rect key="frame" x="0.0" y="0.0" width="343" height="75"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6D-vS-FTq" customClass="FontLR16" customModule="CalmscientIOS" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Patient name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d6D-vS-FTq" customClass="FontLR16" customModule="Calmscient" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="5" width="343" height="21"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="21" id="xRE-DQ-7Fr"/>
@@ -43,7 +43,7 @@
                                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CXo-6P-zBm" customClass="customUITextField" customModule="CalmscientIOS" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CXo-6P-zBm" customClass="customUITextField" customModule="Calmscient" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="34" width="343" height="33"/>
                                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -65,7 +65,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FNg-BD-wSK">
                                                                 <rect key="frame" x="0.0" y="85" width="343" height="75"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Provider name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNe-nC-AWP" customClass="FontLR16" customModule="CalmscientIOS" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Provider name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yNe-nC-AWP" customClass="FontLR16" customModule="Calmscient" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="21"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="21" id="SkM-iS-NeT"/>
@@ -74,7 +74,7 @@
                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mv1-pv-RxZ" customClass="customUITextField" customModule="CalmscientIOS" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mv1-pv-RxZ" customClass="customUITextField" customModule="Calmscient" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="29" width="343" height="38"/>
                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -96,7 +96,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OTe-F2-Yux">
                                                                 <rect key="frame" x="0.0" y="170" width="343" height="75"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHN-kK-ANC" customClass="FontLR16" customModule="CalmscientIOS" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HHN-kK-ANC" customClass="FontLR16" customModule="Calmscient" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="21"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="21" id="lLc-ER-c9b"/>
@@ -105,7 +105,7 @@
                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PzU-c9-FLQ" customClass="customUITextField" customModule="CalmscientIOS" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PzU-c9-FLQ" customClass="customUITextField" customModule="Calmscient" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="29" width="343" height="38"/>
                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -133,7 +133,7 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CRa-nr-t3s">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="166.5" height="75"/>
                                                                                 <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSU-ZP-pLJ" customClass="FontLR16" customModule="CalmscientIOS" customModuleProvider="target">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JSU-ZP-pLJ" customClass="FontLR16" customModule="Calmscient" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="166.5" height="21"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="21" id="aOE-Qv-SvY"/>
@@ -142,7 +142,7 @@
                                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8BA-UB-dj6" customClass="customUITextField" customModule="CalmscientIOS" customModuleProvider="target">
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8BA-UB-dj6" customClass="customUITextField" customModule="Calmscient" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="29" width="166.5" height="38"/>
                                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -183,7 +183,7 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gtb-hS-avM">
                                                                                 <rect key="frame" x="176.5" y="0.0" width="166.5" height="75"/>
                                                                                 <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ril-du-ddO" customClass="FontLR16" customModule="CalmscientIOS" customModuleProvider="target">
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ril-du-ddO" customClass="FontLR16" customModule="Calmscient" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="166.5" height="21"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="height" constant="21" id="1dh-9C-nOy"/>
@@ -192,7 +192,7 @@
                                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
-                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cNS-3R-toy" customClass="customUITextField" customModule="CalmscientIOS" customModuleProvider="target">
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cNS-3R-toy" customClass="customUITextField" customModule="Calmscient" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="29" width="166.5" height="38"/>
                                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -248,7 +248,7 @@
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LEY-mG-7tQ" userLabel="AppointmentDetailView">
                                                                 <rect key="frame" x="0.0" y="340" width="343" height="150"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appointment detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXN-tu-oLQ" customClass="FontLR16" customModule="CalmscientIOS" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Appointment detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oXN-tu-oLQ" customClass="FontLR16" customModule="Calmscient" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="343" height="18"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="18" id="LFz-dl-Q7w"/>
@@ -257,7 +257,7 @@
                                                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
-                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZQe-mW-eqE" customClass="CustomTextView" customModule="CalmscientIOS" customModuleProvider="target">
+                                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ZQe-mW-eqE" customClass="CustomTextView" customModule="Calmscient" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="26" width="343" height="124"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                         <color key="textColor" systemColor="labelColor"/>
@@ -298,7 +298,7 @@
                                                                             <action selector="notificationBtnAction" destination="Y6W-OH-hqX" eventType="touchUpInside" id="1PJ-We-882"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send an alert notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKX-2w-kko" customClass="FontLR16" customModule="CalmscientIOS" customModuleProvider="target">
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send an alert notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKX-2w-kko" customClass="FontLR16" customModule="Calmscient" customModuleProvider="target">
                                                                         <rect key="frame" x="33" y="27" width="302" height="21"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="21" id="Tto-AK-ov6"/>
@@ -331,7 +331,7 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="HOh-aG-i5V">
                                                         <rect key="frame" x="37.5" y="633" width="300" height="40"/>
                                                         <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5g2-ac-8Wx" customClass="BorderShadowButton" customModule="CalmscientIOS" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5g2-ac-8Wx" customClass="BorderShadowButton" customModule="Calmscient" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="145" height="40"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -354,7 +354,7 @@
                                                                     <action selector="cancelBtnAction" destination="Y6W-OH-hqX" eventType="touchUpInside" id="aE6-1v-ljA"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIW-sN-9dN" customClass="LinearGradientButton" customModule="CalmscientIOS" customModuleProvider="target">
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wIW-sN-9dN" customClass="LinearGradientButton" customModule="Calmscient" customModuleProvider="target">
                                                                 <rect key="frame" x="155" y="0.0" width="145" height="40"/>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
                                                                 <color key="tintColor" name="Color"/>
@@ -436,6 +436,7 @@
                         <outlet property="location" destination="HHN-kK-ANC" id="2lb-H6-f0X"/>
                         <outlet property="locationTF" destination="PzU-c9-FLQ" id="jwW-6z-fMf"/>
                         <outlet property="locationVW" destination="OTe-F2-Yux" id="DEQ-bj-fTZ"/>
+                        <outlet property="mainScroll" destination="x1K-cN-blU" id="l8q-uZ-kvC"/>
                         <outlet property="notificationBtn" destination="DVL-mb-G7v" id="mkM-IX-hPT"/>
                         <outlet property="patientName" destination="d6D-vS-FTq" id="S63-8o-dzE"/>
                         <outlet property="patientNameTF" destination="CXo-6P-zBm" id="NLt-Lh-iuX"/>
@@ -453,11 +454,6 @@
             <point key="canvasLocation" x="89.312977099236633" y="-2.1126760563380285"/>
         </scene>
     </scenes>
-    <designables>
-        <designable name="wIW-sN-9dN">
-            <size key="intrinsicContentSize" width="34" height="30"/>
-        </designable>
-    </designables>
     <resources>
         <image name="calendarIcon" width="24" height="24"/>
         <image name="cellUnselectedImage" width="29" height="29"/>

@@ -99,6 +99,8 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
     @IBOutlet weak var descriptionTV : UITextView!
     @IBOutlet weak var notificationBtn : UIButton!
     
+    @IBOutlet weak var mainScroll: UIScrollView!
+    
     let dropdownTableView = UITableView()
     var locationData: [LocationDetail] = [] // Holds all locations from API
     var providerData: [ProviderDetail] = []
@@ -217,7 +219,6 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
                 print("❌ No matching location found for name: \(hospitalNameFromFirstAPI)")
             }
             
-//            patientNameTF.text = medicalAppointmentsData.appointmentDetails.patientName
             providerNameTF.text = providerNameFromFirstAPI
             locationTF.text = hospitalNameFromFirstAPI
             let date = medicalAppointmentsData.appointmentDetails.dateAndTime
@@ -250,6 +251,12 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
 
     @objc func dismissKeyboard() {
         view.endEditing(true)
+        
+        if !dropdownTableView.isHidden {
+            dropdownTableView.isHidden = true
+            mainScroll.isScrollEnabled = true
+            print("✅ Dropdown hidden (tapped outside)")
+        }
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -264,6 +271,14 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
         
         return true
     }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if text.contains("<") || text.contains(">") || text.contains("/") {
+            return false
+        }
+        return true
+    }
+
 
     //MARK: - For Adding astrik to labels
     
@@ -757,6 +772,7 @@ extension AddNewAppointmentViewController :  UITableViewDelegate, UITableViewDat
         dropdownTableView.reloadData()
         updateDropdownPosition(for: textField)
         dropdownTableView.isHidden = filteredItems.isEmpty//false
+        mainScroll.isScrollEnabled = dropdownTableView.isHidden ? true : false
         print("✅ Dropdown should now be visible!")
     }
     
@@ -826,4 +842,3 @@ extension AddNewAppointmentViewController :  UITableViewDelegate, UITableViewDat
     }
 
 }
-
