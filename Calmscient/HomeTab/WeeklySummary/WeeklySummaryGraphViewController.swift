@@ -46,6 +46,18 @@ class WeeklySummaryGraphViewController: ViewController {
     override func viewWillAppear(_ animated: Bool) {
         setupLanguage()
     }
+    
+    // MARK: - Network Hooks ✅
+      override func onNetworkRestored() {
+          // Auto-refresh data when internet comes back
+          getDataFromAPI()
+      }
+    
+    override func onNetworkLost() {
+           // Optional: stop any loading indicators
+           self.view.hideToastActivity()
+       }
+      
     func setupLanguage() {
         
         let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
@@ -63,6 +75,8 @@ class WeeklySummaryGraphViewController: ViewController {
                self.navigationController?.pushViewController(vc!, animated: true)
     }
     private func getDataFromAPI() {
+        guard isConnected else { return } // ✅ isConnected from BaseViewController
+
         self.view.showToastActivity()
         tableDataList = summaryType.getTableCellList()
         summaryType.getServerResponsefrom(startDate: dateRange.fromDate.dateToString(format: "MM/dd/yyyy"), and: dateRange.toDate.dateToString(format: "MM/dd/yyyy")) { [weak self] graphData, serverResponse, error in

@@ -103,6 +103,8 @@
 		43BDB79A2CAA61A3007219B0 /* glossyTableCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDB7972CAA61A3007219B0 /* glossyTableCellTableViewCell.swift */; };
 		43BDB7A22CAA64FE007219B0 /* GlossyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43BDB7A12CAA64FE007219B0 /* GlossyController.swift */; };
 		43BDB7A42CAA650F007219B0 /* GlossyController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 43BDB7A32CAA650F007219B0 /* GlossyController.storyboard */; };
+		443B59712FA1E07700469C1E /* NoInternetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443B59702FA1E07700469C1E /* NoInternetViewController.swift */; };
+		443B59732FA1E0E600469C1E /* NoInternetBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 443B59722FA1E0E600469C1E /* NoInternetBanner.swift */; };
 		4A03EB1C2BDC09FB006AE8C4 /* AddUserMedications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A03EB1B2BDC09FB006AE8C4 /* AddUserMedications.storyboard */; };
 		4A03EB1F2BDC0C03006AE8C4 /* AddNewMedicationUserEntryTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A03EB1E2BDC0C03006AE8C4 /* AddNewMedicationUserEntryTableCell.xib */; };
 		4A03EB202BDC0C03006AE8C4 /* AddNewMedicationUserEntryTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A03EB1D2BDC0C03006AE8C4 /* AddNewMedicationUserEntryTableCell.swift */; };
@@ -675,6 +677,8 @@
 		43BDB7A12CAA64FE007219B0 /* GlossyController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossyController.swift; sourceTree = "<group>"; };
 		43BDB7A32CAA650F007219B0 /* GlossyController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GlossyController.storyboard; sourceTree = "<group>"; };
 		43CC6B402CA5510E00CAF2ED /* CalmscientIOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CalmscientIOS.entitlements; sourceTree = "<group>"; };
+		443B59702FA1E07700469C1E /* NoInternetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetViewController.swift; sourceTree = "<group>"; };
+		443B59722FA1E0E600469C1E /* NoInternetBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoInternetBanner.swift; sourceTree = "<group>"; };
 		4A03EB1B2BDC09FB006AE8C4 /* AddUserMedications.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddUserMedications.storyboard; sourceTree = "<group>"; };
 		4A03EB1D2BDC0C03006AE8C4 /* AddNewMedicationUserEntryTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewMedicationUserEntryTableCell.swift; sourceTree = "<group>"; };
 		4A03EB1E2BDC0C03006AE8C4 /* AddNewMedicationUserEntryTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddNewMedicationUserEntryTableCell.xib; sourceTree = "<group>"; };
@@ -1722,6 +1726,7 @@
 				4AD1B8C72BD6885A0095F28E /* LinearGradientButton.swift */,
 				4AD828C42BD6E27100BD9A25 /* BorderShadowButton.swift */,
 				4A6DCA2B2BE33DF600F2EB7C /* ImagePaddingTextField.swift */,
+				443B59722FA1E0E600469C1E /* NoInternetBanner.swift */,
 			);
 			path = GenericUIComponents;
 			sourceTree = "<group>";
@@ -2550,6 +2555,7 @@
 				C2B8E98C2D81BB99003962A7 /* SmokingAffectMentalHealthVC.swift */,
 				C2CFEF702D81CABE00192126 /* MySmokingHabitVC.swift */,
 				C2D7A1BF2DBC1D1600860A86 /* settingsAlarmVC.swift */,
+				443B59702FA1E07700469C1E /* NoInternetViewController.swift */,
 			);
 			path = "Viv Screens";
 			sourceTree = "<group>";
@@ -3214,6 +3220,7 @@
 				C22E9F922D2270F700600715 /* CapsuleTableViewCell.swift in Sources */,
 				432EBE172C2BF49F000BB69A /* DefineCell.swift in Sources */,
 				4A967FCB2BD6892800FCE646 /* UserIntroSelectionTableCell.swift in Sources */,
+				443B59712FA1E07700469C1E /* NoInternetViewController.swift in Sources */,
 				C2ADB3BC2D1A7E7800157631 /* CurvedOutlineButton1.swift in Sources */,
 				4AC1F44F2BF3604A002F5E44 /* String+Extension.swift in Sources */,
 				4A0853782C21684B00202C02 /* HeadersCell.swift in Sources */,
@@ -3318,6 +3325,7 @@
 				4AA705722BDE6D1B0013932B /* CollapsedTableViewCell.swift in Sources */,
 				4A65C2F62BD6852C00809222 /* SceneDelegate.swift in Sources */,
 				43AB775D2C64511C00740BA6 /* MindfulWalking.swift in Sources */,
+				443B59732FA1E0E600469C1E /* NoInternetBanner.swift in Sources */,
 				335389A72E8C1FC40041E61F /* Favourite Response Modal.swift in Sources */,
 				43BDB79A2CAA61A3007219B0 /* glossyTableCellTableViewCell.swift in Sources */,
 				4A08537C2C21684B00202C02 /* SaveCell.swift in Sources */,
@@ -3610,7 +3618,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = 842J5G3PU2;
+				DEVELOPMENT_TEAM = 265HK725X4;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Calmscient/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Calmscient;
@@ -3628,7 +3636,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.5;
-				PRODUCT_BUNDLE_IDENTIFIER = calmscientllc.com;
+				PRODUCT_BUNDLE_IDENTIFIER = com.clamscient;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRIP_INSTALLED_PRODUCT = NO;

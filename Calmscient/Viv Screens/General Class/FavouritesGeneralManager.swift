@@ -101,5 +101,6 @@ class FavoriteManager {
 extension Notification.Name {
     static let favoritesUpdated = Notification.Name("favoritesUpdated")
     static let favLanUpdated = Notification.Name("favLanUpdated")
+    static let networkStatusChanged = Notification.Name("networkStatusChanged")
 }
 
