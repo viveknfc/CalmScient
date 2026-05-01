@@ -217,6 +217,14 @@ public enum WeeklySummaryItems:String {
     }
     
     func getServerResponsefrom(startDate:String, and endDate:String,completion:@escaping((_ graphData:[GraphData]?, _ serverResponse:ResponseDetails?, _ error:Error?) -> Void)) {
+        
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
+        
         let weekySummaryRequestForm = self.getAPIRequestForWeeklySummary(with: startDate, endDate: endDate)
         guard let apiRequest = weekySummaryRequestForm.getURLRequest() else {
             return

@@ -213,6 +213,14 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
     }
 
     func updateUserLanguage(patientId: Int, clientId: Int, languageId: Int,bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void) {
+        
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
+        
         // Define the URL
         guard let url = URL(string: "\(baseURLString)identity/api/v1/settings/updateUserLanguage") else {
             print("Invalid URL")
@@ -273,6 +281,13 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
     }
 
     func getUserTheme(patientId: Int, clientId: Int, bearerToken: String,dark: Int, completion: @escaping (Result<Data, Error>) -> Void) {
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
+        
         // Define the URL
         guard let url = URL(string: "\(baseURLString)identity/api/v1/settings/updatePatientTheme") else {
             print("Invalid URL")
@@ -335,6 +350,14 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
     }
     
     func getPatientLanguages(patientId: Int, clientId: Int, bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void) {
+        
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
+        
         // Define the URL
         guard let url = URL(string: "\(baseURLString)identity/api/v1/settings/getPatientLanguages") else {
             print("Invalid URL")
@@ -552,6 +575,14 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
     //MARK: - Profile Pic API Response
     
     func handleUserProfileResponse1(response: AnyObject) -> () {
+        
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
+        
         DispatchQueue.main.async {
             self.view.hideToastActivity()
         }
@@ -745,6 +776,13 @@ private func setAppDarkMode(_ isDarkMode: Bool) {
     }
 }
 func uploadProfileImage( patientId: Int, clientId: Int, fileData: Data, fileName: String, bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void) {
+    guard NetworkMonitor.shared.isConnected else {
+        DispatchQueue.main.async {
+            NoInternetBanner.shared.show()
+        }
+        return
+    }
+    
     // Define the URL
     let validURL = APIService.BaseUrl + "identity/api/v1/settings/uploadProfileImage" //"https://calmscient.in/api/identity/api/v1/settings/uploadProfileImage"
     guard let url = URL(string: validURL) else {

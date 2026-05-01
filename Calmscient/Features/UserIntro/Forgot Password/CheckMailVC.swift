@@ -127,6 +127,14 @@ class CheckMailVC: ViewController {
         setupLanguage()
     }
     func validateOTP(otp: String, completion: @escaping (Result<Data, Error>) -> Void){
+        
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
+        
         // Define the URL
         guard let url = URL(string: "\(baseURLString)identity/api/v1/settings/validateOTP") else {
             print("Invalid URL")

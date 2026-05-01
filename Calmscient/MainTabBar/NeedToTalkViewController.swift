@@ -138,6 +138,13 @@ class NeedToTalkViewController: ViewController {
         self.navigationController?.isNavigationBarHidden = false
     }
     func getNeedToTalkData(patientId: Int,bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void) {
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
+        
         // Define the URL
         guard let url = URL(string: "\(baseURLString)identity/api/v1/settings/getNeedToTalkWithSomeoneDetails") else {
             print("Invalid URL")

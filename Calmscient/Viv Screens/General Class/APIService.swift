@@ -328,7 +328,7 @@ class APIService: UIViewController {
     ) {
         
         // 🚫 Block API if no internet
-        if !NetworkMonitor.shared.isConnected {
+        guard NetworkMonitor.shared.isConnected else {
             DispatchQueue.main.async {
                 NoInternetBanner.shared.show()
             }

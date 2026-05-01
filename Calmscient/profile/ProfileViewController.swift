@@ -368,6 +368,13 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
     }
     }
     func getPatientProfileDetails(patientId: Int, bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void) {
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
+        
         // Define the URL
         guard let url = URL(string: "\(baseURLString)identity/api/v1/settings/getPatientProfileDetails") else {
             print("Invalid URL")
@@ -426,6 +433,15 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
     }
     
     func updatePatientProfileDetails(patientId: Int, clientId: Int, bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void) {
+        
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
+        
+        
         // Define the URL
         guard let url = URL(string: "\(baseURLString)identity/api/v1/settings/updatePatientProfileDetails") else {
             print("Invalid URL")

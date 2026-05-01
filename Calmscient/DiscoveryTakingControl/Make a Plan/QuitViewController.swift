@@ -170,6 +170,12 @@ class QuitViewController: ViewController{
         
     }
     func getTakingControlIntroduction(plId: Int, patientId: Int, clientId: Int, activityDate: String,bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void){
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
         // Define the URL
         guard let url = URL(string: "\(baseURLString)patients/api/v1/takingControl/getTakingControlIntroduction") else {
             print("Invalid URL")
@@ -267,6 +273,12 @@ class QuitViewController: ViewController{
         }
     }
     func updateTakingControlIndex(plId: Int, patientId: Int, clientId: Int, activityDate: String,bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void){
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
         // Define the URL
         guard let url = URL(string: "\(baseURLString)patients/api/v1/takingControl/sendNotificationToDoctorMakeAPlan") else {
             print("Invalid URL")

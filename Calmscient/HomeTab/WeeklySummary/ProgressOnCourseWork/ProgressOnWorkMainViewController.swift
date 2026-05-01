@@ -94,6 +94,12 @@ class ProgressOnWorkMainViewController: ViewController {
     }
     
     func getPatientCourseWorkPercentageDetails( patientId: Int,bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void){
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
         // Define the URL
         guard let url = URL(string: "\(baseURLString)patients/api/v1/course/getPatientCourseWorkPercentageDetailsForMobile") else {
             print("Invalid URL")

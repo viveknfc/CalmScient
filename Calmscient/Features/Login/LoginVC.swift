@@ -251,6 +251,13 @@ class LoginVC: UIViewController,UITextFieldDelegate, UITextViewDelegate {
     }
     
     fileprivate func createLoginRequest(userName:String,password:String) {
+        
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
  
         let url = URL(string: "\(baseURLString)identity/api/v1/settings/userLogin")!
         

@@ -33,6 +33,15 @@ class ForgotPasswordVC: ViewController {
     }
 
     func generateOTP(emailId: String, completion: @escaping (Result<Data, Error>) -> Void){
+        
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
+        
+        
         // Define the URL
         guard let url = URL(string: "\(baseURLString)identity/api/v1/settings/generateOTP") else {
             print("Invalid URL")

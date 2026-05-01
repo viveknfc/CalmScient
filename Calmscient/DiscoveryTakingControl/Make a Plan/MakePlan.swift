@@ -113,6 +113,12 @@ class MakePlan: ViewController,UITableViewDelegate,UITableViewDataSource {
     }
     
     func saveCourseJournalEntry(plId: Int,  clientId: Int, bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void) {
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
         
         guard let url = URL(string: "\(baseURLString)patients/api/v1/patientDetails/saveCourseJournalEntry") else {
             print("Invalid URL")
