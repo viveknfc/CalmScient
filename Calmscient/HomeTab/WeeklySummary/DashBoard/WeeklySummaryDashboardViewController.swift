@@ -6,11 +6,15 @@
 //
 
 import UIKit
+import Network
+
 
 class WeeklySummaryDashboardViewController: ViewController {
     var collectionItems:[WeeklySummaryItems] = [.WeeklySummarySummaryOfMood,.WeeklySummarySummaryOfSleep,.WeeklySummarySummaryOfPHQ9,.WeeklySummarySummaryOfGAD,.WeeklySummarySummaryOfAudit,.WeeklySummarySummaryOfDast, .WeeklySummaryCAGE, .WeeklySummaryProgressOnCourseWork,.WeeklySummaryJournalEntry]
     var spanishCollection:[String] = ["Resumen del Estado de Ánimo","Resumen del Sueño","Resumen del PHQ-9","Resumen del GAD","Resumen de la Auditoría","Resumen del DAST-10","Progreso en el Trabajo del Curso","Entrada del Diario"]
-    
+    // MARK: - Network Monitor
+        private let networkMonitor = NWPathMonitor()
+        private var hasNetworkConnection: Bool = true
     private lazy var dashboardCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         let cellWidth = self.view.bounds.width - 42
@@ -57,6 +61,8 @@ class WeeklySummaryDashboardViewController: ViewController {
         dashboardCollectionView.collectionViewLayout.invalidateLayout()
         dashboardCollectionView.reloadData()
         
+               // MARK: - Start Network Monitoring
+               startNetworkMonitoring()
         //Nav right bar button start
         
         let button: UIButton = UIButton(type: UIButton.ButtonType.custom)
@@ -72,7 +78,17 @@ class WeeklySummaryDashboardViewController: ViewController {
 
     }
     
-
+    // MARK: - Network Monitor Setup
+       private func startNetworkMonitoring() {
+           networkMonitor.pathUpdateHandler = { [weak self] path in
+               self?.hasNetworkConnection = (path.status == .satisfied)
+           }
+           networkMonitor.start(queue: DispatchQueue(label: "NetworkMonitor"))
+       }
+       
+       deinit {
+           networkMonitor.cancel()
+       }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -110,6 +126,16 @@ extension WeeklySummaryDashboardViewController: UICollectionViewDelegateFlowLayo
    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        // MARK: - Internet Check Before Navigation
+              guard hasNetworkConnection else {
+                  let noInternetMsg = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1
+                      ? "No internet connection. Please try again."
+                      : "Sin conexión a internet. Por favor, inténtalo de nuevo."
+                  DispatchQueue.main.async {
+                      NoInternetBanner.shared.openDetails()
+                  }
+                  return
+              }
         
         if (indexPath.row >= 0  && indexPath.row <= 6) {
             let next = UIStoryboard(name: "WeeklySummaryGraphResults", bundle: nil)
@@ -132,3 +158,4 @@ extension WeeklySummaryDashboardViewController: UICollectionViewDelegateFlowLayo
     
     
 }
+

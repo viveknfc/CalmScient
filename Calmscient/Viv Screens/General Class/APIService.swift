@@ -326,6 +326,16 @@ class APIService: UIViewController {
         parameterPlacement: String, // "header", "body", "url"
         callback: @escaping (AnyObject) -> ()
     ) {
+        
+        // 🚫 Block API if no internet
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            callback("Error: No Internet Connection" as AnyObject)
+            return
+        }
+        
         var request: URLRequest
         
         guard let url = URL(string: urlString) else {
@@ -414,9 +424,34 @@ class APIService: UIViewController {
             let responseTIme = endTime.timeIntervalSince(startTime)
             print("the response TIme taking is: \(responseTIme) seconds")
             
+//            if let error = error {
+//                
+//                let nsError = error as NSError
+//                if nsError.code == NSURLErrorTimedOut {
+//                    Crashlytics.crashlytics().log("Timeout error for URL: \(urlString)")
+//                } else {
+//                    Crashlytics.crashlytics().log("Network error: \(error.localizedDescription)")
+//                }
+//                
+//                callback("Error: \(error.localizedDescription)" as AnyObject)
+//                return
+//            }
             if let error = error {
                 
                 let nsError = error as NSError
+                
+                // 🚫 No Internet case
+                if nsError.code == NSURLErrorNotConnectedToInternet ||
+                   nsError.code == NSURLErrorNetworkConnectionLost {
+                    
+                    DispatchQueue.main.async {
+                        NoInternetBanner.shared.show()
+                    }
+                    
+                    callback("Error: No Internet Connection" as AnyObject)
+                    return
+                }
+                
                 if nsError.code == NSURLErrorTimedOut {
                     Crashlytics.crashlytics().log("Timeout error for URL: \(urlString)")
                 } else {

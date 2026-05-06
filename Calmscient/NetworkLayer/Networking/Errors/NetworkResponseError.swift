@@ -16,6 +16,7 @@ enum NetworkResponseError: Error {
     case noData
     case unableToDecode
     case httpURLResponseCastFailed
+    case noInternet
     
     var localizedDescription: String {
         switch self {
@@ -26,6 +27,7 @@ enum NetworkResponseError: Error {
         case .noData: return "Response returned with no data to decode."
         case .unableToDecode: return "We could not decode the response."
         case .httpURLResponseCastFailed: return "HTTP url response cast failed."
+        case .noInternet: return "No Internet available. Please try again later."
         }
     }
 }

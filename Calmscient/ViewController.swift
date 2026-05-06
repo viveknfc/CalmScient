@@ -6,13 +6,18 @@
 //
 
 import UIKit
+import Network
 
 class ViewController: UIViewController {
+    // MARK: - Properties
+        private let networkMonitor = NWPathMonitor()
+        private let networkQueue = DispatchQueue(label: "com.calmscient.networkMonitor")
+        private(set) var isConnected: Bool = true
     override func viewDidLoad() {
         super.viewDidLoad()
 //        self.navigationController?.navigationBar.setTitleVerticalPositionAdjustment(-5, for: .default)
         self.navigationItem.backButtonTitle = ""
-        
+        startNetworkMonitoring()
         let backButtonImage = UIImage(named: "NavigationBack")?.withRenderingMode(.alwaysOriginal)
 
         // Create a UIButton
@@ -38,10 +43,48 @@ class ViewController: UIViewController {
 
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+            super.viewWillDisappear(animated)
+            stopNetworkMonitoring()
+        }
+    
+    
+    
     @objc func customBackButtonTapped() {
         // Handle back navigation
         navigationController?.popViewController(animated: true)
     }
+    
+    // MARK: - Network Monitoring
+       private func startNetworkMonitoring() {
+           networkMonitor.pathUpdateHandler = { [weak self] path in
+               guard let self = self else { return }
+               DispatchQueue.main.async {
+                   if path.status == .satisfied {
+                       if !self.isConnected {
+                           self.isConnected = true
+                           NoInternetBanner.shared.hide()
+                           self.onNetworkRestored()  // ✅ Hook for subclasses
+                       }
+                   } else {
+                       self.isConnected = false
+                       NoInternetBanner.shared.show()
+                       self.onNetworkLost()          // ✅ Hook for subclasses
+                   }
+               }
+           }
+           networkMonitor.start(queue: networkQueue)
+       }
+       
+       private func stopNetworkMonitoring() {
+           networkMonitor.cancel()
+       }
+    
+    /// Called when internet connection is restored. Override to refresh data.
+       func onNetworkRestored() {}
+       
+       /// Called when internet connection is lost. Override to pause operations.
+       func onNetworkLost() {}
 
     
     override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {

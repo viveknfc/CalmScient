@@ -425,6 +425,12 @@ class MonthsViewController: UIViewController,UIPickerViewDataSource, UIPickerVie
         numberView.isHidden = true
     }
     func getPatientAlcoholGoal(patientId: Int, bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void) {
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
         // Define the URL
         guard let url = URL(string: "\(baseURLString)patients/api/v1/takingControl/getPatientAlcoholGoal") else {
             print("Invalid URL")
@@ -550,6 +556,12 @@ class MonthsViewController: UIViewController,UIPickerViewDataSource, UIPickerVie
            dismissAlert()
        }
     func saveGoalSetupMakeAPlan(plId: Int, patientId: Int, clientId: Int, activityDate: String,bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void) {
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
         // Define the URL
         guard let url = URL(string: "\(baseURLString)patients/api/v1/takingControl/saveGoalSetupMakeAPlan") else {
             print("Invalid URL")
@@ -627,6 +639,12 @@ class MonthsViewController: UIViewController,UIPickerViewDataSource, UIPickerVie
         task.resume()
     }
     func updateTakingControlIndex(plId: Int, patientId: Int, clientId: Int, activityDate: String,bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void){
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
         // Define the URL
         guard let url = URL(string: "\(baseURLString)patients/api/v1/takingControl/updateTakingControlIndex") else {
             print("Invalid URL")

@@ -218,6 +218,12 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
         self.navigationController?.pushViewController(vc!, animated: true)
     }
     func getPatientFavorites(plId: Int, patientId: Int, clientId: Int,parentId: Int, completion: @escaping (Result<Data, Error>) -> Void) {
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
         
         guard let url = URL(string: "\(baseURLString)patients/api/v1/course/getPatientFavorites") else {
             print("Invalid URL")
@@ -275,6 +281,13 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
         task.resume()
     }
     func getMeniItems(plId: Int, patientId: Int, clientId: Int,parentId: Int, completion: @escaping (Result<Data, Error>) -> Void) {
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
+        
         // Define the URL
         guard let url = URL(string: "\(baseURLString)identity/api/v1/menu/fetchMenus") else {
             print("Invalid URL")

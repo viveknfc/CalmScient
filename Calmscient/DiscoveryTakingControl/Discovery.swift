@@ -385,7 +385,12 @@ class Discovery: ViewController,UITableViewDelegate,UITableViewDataSource {
     }
     func getAlcoholDrinks(plId: Int, patientId: Int, clientId: Int, activityDate: String,bearerToken: String, completion: @escaping (Result<Data, Error>) -> Void) {
         // Define the URL
-
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
         guard let url = URL(string: "\(baseURLString)patients/api/v1/takingControl/getTakingControlIndex") else {
             print("Invalid URL")
             return
