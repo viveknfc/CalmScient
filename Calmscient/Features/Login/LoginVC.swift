@@ -21,7 +21,6 @@ class LoginVC: UIViewController,UITextFieldDelegate, UITextViewDelegate {
     @IBOutlet weak var loginButton: LinearGradientButton!
     
     @IBOutlet weak var validateLicenseKeyLabel: UILabel!
-    var languageId : Int?
     var isFirstLaunch: Bool?
     
     var navController: UINavigationController?
@@ -80,12 +79,11 @@ class LoginVC: UIViewController,UITextFieldDelegate, UITextViewDelegate {
         let tapGesture2 = UITapGestureRecognizer(target: self, action: #selector(validateLicenseGesture(tapGestureRecognizer:)))
         tapGesture2.numberOfTapsRequired = 1
         self.validateLicenseKeyLabel.addGestureRecognizer(tapGesture2)
-        
-        languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-        let termsAndConditions = (languageId == 0 ? 1 : languageId  ) == 1 ? "Accept Terms and Conditions" : "Aceptar Términos y Condiciones"
+
+        let termsAndConditions = NSLocalizedString("Accept Terms and Conditions", comment: "")
         let termsAndConditionsAttributedText = NSMutableAttributedString(string: termsAndConditions, attributes: [.font: UIFont(name: Fonts().lexendLight, size: 14.0)!, .foregroundColor:UIColor(named: "MainTextColor") ?? UIColor.white])
         
-        let linkText = (languageId == 1) ? "Terms and Conditions" : "Términos y Condiciones"
+        let linkText = NSLocalizedString("Terms and Conditions", comment: "")
         if let range = Range((termsAndConditions as NSString).range(of: linkText), in: termsAndConditions) {
             termsAndConditionsAttributedText.addAttributes([
                 .underlineStyle: NSUnderlineStyle.single.rawValue,
@@ -151,25 +149,21 @@ class LoginVC: UIViewController,UITextFieldDelegate, UITextViewDelegate {
     
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
         
         
         
-        
-        let attributedText = NSMutableAttributedString(string: (languageId == 0 ? 1 : languageId  ) == 1 ?  "Forgot password?" : "¿Olvidaste la contrasňa?", attributes: [.font: UIFont(name: Fonts().lexendLight, size: 14.0)!, .foregroundColor:UIColor(named: "MainTextColor") ?? UIColor.white, .underlineStyle : NSUnderlineStyle.single.rawValue, .underlineColor:UIColor(named: "MainTextColor") ?? UIColor.white])
+        let attributedText = NSMutableAttributedString(string: (NSLocalizedString("Forgot Password", comment: "")), attributes: [.font: UIFont(name: Fonts().lexendLight, size: 14.0)!, .foregroundColor:UIColor(named: "MainTextColor") ?? UIColor.white, .underlineStyle : NSUnderlineStyle.single.rawValue, .underlineColor:UIColor(named: "MainTextColor") ?? UIColor.white])
         forgotPasswordLabel.attributedText = attributedText
         
        
-        let validateLicenseAttributedText = NSMutableAttributedString(string:  (languageId == 0 ? 1 : languageId  ) == 1 ?  "Validate your license key" : "Valida tu clave de licencia", attributes: [.font: UIFont(name: Fonts().lexendLight, size: 14.0)!, .foregroundColor:UIColor(named: "MainTextColor") ?? UIColor.white, .underlineStyle : NSUnderlineStyle.single.rawValue, .underlineColor:UIColor(named: "MainTextColor") ?? UIColor.white])
+        let validateLicenseAttributedText = NSMutableAttributedString(string:  NSLocalizedString("Validate your license key", comment: ""), attributes: [.font: UIFont(name: Fonts().lexendLight, size: 14.0)!, .foregroundColor:UIColor(named: "MainTextColor") ?? UIColor.white, .underlineStyle : NSUnderlineStyle.single.rawValue, .underlineColor:UIColor(named: "MainTextColor") ?? UIColor.white])
         validateLicenseKeyLabel.attributedText = validateLicenseAttributedText
         
         
-        self.loginButton.setAttributedTitleWithGradientDefaults(title: (languageId == 0 ? 1 : languageId  ) == 1 ?  "Login" : "Login")
-        selectionButton.contentLabel.text = (languageId == 0 ? 1 : languageId  ) == 1 ? "Accept Terms & Conditions" : "Aceptar Términos y Condiciones"
+        self.loginButton.setAttributedTitleWithGradientDefaults(title: NSLocalizedString("Login", comment: ""))
+        selectionButton.contentLabel.text = NSLocalizedString("Accept Terms and Conditions", comment: "")
         userNameLabel.text = AppHelper.getLocalizeString(str: "Username")
         passwordLabel.text = AppHelper.getLocalizeString(str: "Password")
-
-//        forgotPasswordLabel.text = (languageId == 0 ? 1 : languageId  ) == 1 ?  "Forgot password?" : "¿Has olvidado tu contraseña?"
         
         }
     override func viewWillAppear(_ animated: Bool) {
@@ -341,16 +335,19 @@ class LoginVC: UIViewController,UITextFieldDelegate, UITextViewDelegate {
                             UserDefaults.standard.set("\(loginResponse.loginDetails.firstName)", forKey: "titleString")
                             UserDefaults.standard.set("\(loginResponse.loginDetails.languageId)", forKey: "SelectedLanguageID")
                             
-                            self.languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-                            print("the language id after login is getting as ", self.languageId as Any)
+                            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+                            print("the language id after login is getting as ", languageId as Any)
                             
-                            if self.languageId == 1 {
+                            if languageId == 1 {
                                 UserDefaults.standard.set("en", forKey: "appLanguage")
                                 Bundle.setLanguage("en")
                             }
-                            if self.languageId == 2 {
-                                UserDefaults.standard.set("es", forKey: "appLanguage")
-                                Bundle.setLanguage("es")
+                            if languageId == 2 {
+//                                UserDefaults.standard.set("es", forKey: "appLanguage")
+//                                Bundle.setLanguage("es")
+                                
+                                UserDefaults.standard.set("ja", forKey: "appLanguage")
+                                Bundle.setLanguage("ja")
                                 
                             }
                             

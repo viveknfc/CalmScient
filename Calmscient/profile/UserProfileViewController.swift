@@ -85,6 +85,7 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
                         DispatchQueue.main.async {
                             
                             self.languagesData = json["patientLanguages"] as! [[String : Any]]
+                            
                             print("classgetPatientLanguages===\(self.languagesData)")
                             self.profileTableView.reloadData()
                             self.view.hideToastActivity()
@@ -916,9 +917,15 @@ extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate
                                     Bundle.setLanguage("en")
                                 }
                                 if languageId == 2 {
-                                    UserDefaults.standard.set("es", forKey: "appLanguage")
-                                    Bundle.setLanguage("es")
+                                    //UserDefaults.standard.set("es", forKey: "appLanguage")
+                                    //Bundle.setLanguage("es")
+                                    UserDefaults.standard.set("ja", forKey: "appLanguage")
+                                    Bundle.setLanguage("ja")
                                     
+                                }
+                                if languageId == 3 {
+                                    UserDefaults.standard.set("ja", forKey: "appLanguage")
+                                    Bundle.setLanguage("ja")
                                 }
                             }
 

@@ -15,8 +15,10 @@
 
 "Username" = "Usuario";
 "Password" = "Contraseña";
-"Forgot Password?" = "¿Has olvidado tu contraseña?";
+"Forgot Password" = "¿Has olvidado tu contraseña?";
 "Create an New account" = "Crea una cuenta nueva";
+"Validate your license key" = "Valida tu clave de licencia";
+"Login" = "Login";
 
 "View history" = "Ver historial";
 "Take the screening" = "Realize la evaluación";
@@ -24,6 +26,9 @@
 
 "take_all" = "Tomar todo";
 "taken" = "Tomado";
+
+"Accept Terms and Conditions" = "Aceptar Términos y Condiciones";
+"Terms and Conditions" = "Términos y Condiciones";
 
 //Create Account
 "First Name" = "Nombre";

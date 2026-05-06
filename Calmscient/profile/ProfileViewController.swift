@@ -294,23 +294,20 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
         }
     override func viewWillAppear(_ animated: Bool) {
         
-//        profileTitle.font = UIFont(name: Fonts().lexendMedium, size: 19)
-//        profileTitle.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Profile" : "Perfil"
-        
-        firstName.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "First name" : "Nombre"
+        firstName.text = NSLocalizedString("First Name", comment: "")
         firstName.font = UIFont(name: Fonts().lexendRegular, size: 14)
         firstNameTextField.font = UIFont(name: Fonts().lexendRegular, size: 14)
-        lastName.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Last name" : "Apellido"
+        lastName.text = NSLocalizedString("Last Name", comment: "")
         lastName.font =  UIFont(name: Fonts().lexendRegular, size: 14)
         lastNameTextfield.font = UIFont(name: Fonts().lexendRegular, size: 14)
-        emailLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Email" : "Correo electrónico"
+        emailLabel.text = NSLocalizedString("Email", comment: "")
         emailLabel.font =  UIFont(name: Fonts().lexendRegular, size: 14)
         emailTF.font = UIFont(name: Fonts().lexendRegular, size: 14)
-        phoneLabel.text =  UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Phone" : "Teléfono"
+        phoneLabel.text =  NSLocalizedString("Phone Number", comment: "")
         phoneLabel.font =  UIFont(name: Fonts().lexendRegular, size: 14)
         phoneTF.font = UIFont(name: Fonts().lexendRegular, size: 14)
         
-        submitButton.setTitle(UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Submit" : "Enviar", for: .normal)
+        submitButton.setTitle(NSLocalizedString("Submit", comment: ""), for: .normal)
         
     }
     

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		331A142B2FAA519E004A1747 /* Localizable (Japanese).xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 331A142A2FAA519E004A1747 /* Localizable (Japanese).xcstrings */; };
 		331F25612E45C33900606A53 /* WebView_Citation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331F25602E45C32F00606A53 /* WebView_Citation.swift */; };
 		331F25632E45C9C300606A53 /* WebView_Ciitation.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 331F25622E45C9C300606A53 /* WebView_Ciitation.storyboard */; };
 		334BDED62E8D31D200CEAD4A /* UserMedications.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 334BDED52E8D31D200CEAD4A /* UserMedications.storyboard */; };
@@ -573,6 +574,12 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		331A142A2FAA519E004A1747 /* Localizable (Japanese).xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = "Localizable (Japanese).xcstrings"; sourceTree = "<group>"; };
+		331A142C2FAA5D55004A1747 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/UserProfile.strings; sourceTree = "<group>"; };
+		331A142D2FAA5D5B004A1747 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LoginVC.strings; sourceTree = "<group>"; };
+		331A142E2FAA5D5D004A1747 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		331A142F2FAA5D5F004A1747 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		331A14302FAA5D62004A1747 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		331F25602E45C32F00606A53 /* WebView_Citation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView_Citation.swift; sourceTree = "<group>"; };
 		331F25622E45C9C300606A53 /* WebView_Ciitation.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebView_Ciitation.storyboard; sourceTree = "<group>"; };
 		334BDED42E8D31D200CEAD4A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/UserMedications.storyboard; sourceTree = "<group>"; };
@@ -1647,6 +1654,7 @@
 			children = (
 				431C24762C469B7300909C24 /* AppHelper.swift */,
 				431C24722C46992B00909C24 /* Localizable.strings */,
+				331A142A2FAA519E004A1747 /* Localizable (Japanese).xcstrings */,
 				4A0853C32C22F0C100202C02 /* TakingControlAssets.xcassets */,
 				4A6DCA292BE221B300F2EB7C /* DiscoveryTabAssets.xcassets */,
 				4A65C2F22BD6852C00809222 /* Calmscient */,
@@ -2720,6 +2728,7 @@
 				en,
 				Base,
 				es,
+				ja,
 			);
 			mainGroup = 4A65C2E72BD6852C00809222;
 			packageReferences = (
@@ -2902,6 +2911,7 @@
 				4A8044802BD91E370054A120 /* BottomSheetTimeAndAlarmVC.storyboard in Resources */,
 				433E53912C46467000A37E84 /* updateImage.png in Resources */,
 				4A78A14A2BDF47F500D1EFC1 /* TablePopOver.storyboard in Resources */,
+				331A142B2FAA519E004A1747 /* Localizable (Japanese).xcstrings in Resources */,
 				4AD5D1032BD7A60E00E4C945 /* AppTabBar.storyboard in Resources */,
 				4A0853D62C23C0A600202C02 /* DrinksTrackerViewController.storyboard in Resources */,
 				4A967FCC2BD6892800FCE646 /* UserIntroSelectionTableCell.xib in Resources */,
@@ -3393,6 +3403,7 @@
 			children = (
 				431C24732C46992B00909C24 /* en */,
 				431C24752C46993E00909C24 /* es */,
+				331A14302FAA5D62004A1747 /* ja */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";
@@ -3403,6 +3414,7 @@
 				431C24782C469C2500909C24 /* Base */,
 				431C247C2C469C2800909C24 /* en */,
 				431C247E2C469C2A00909C24 /* es */,
+				331A142C2FAA5D55004A1747 /* ja */,
 			);
 			name = UserProfile.storyboard;
 			sourceTree = "<group>";
@@ -3412,6 +3424,7 @@
 			children = (
 				431C247F2C46DF0B00909C24 /* Base */,
 				431C24832C46DF0E00909C24 /* en */,
+				331A142D2FAA5D5B004A1747 /* ja */,
 			);
 			name = LoginVC.storyboard;
 			sourceTree = "<group>";
@@ -3421,6 +3434,7 @@
 			children = (
 				4A65C2FA2BD6852C00809222 /* Base */,
 				431C241C2C46630700909C24 /* en */,
+				331A142E2FAA5D5D004A1747 /* ja */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -3430,6 +3444,7 @@
 			children = (
 				4A65C2FF2BD6852D00809222 /* Base */,
 				431C241A2C4662A300909C24 /* en */,
+				331A142F2FAA5D5F004A1747 /* ja */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -3548,6 +3563,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -3602,6 +3618,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};

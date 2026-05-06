@@ -10,9 +10,14 @@
 "Version 1.0.1" = "Version 1.0.5";
 "Username" = "Username";
 "Password" = "Password";
-"Forgot Password?" = "Forgot Password?";
+"Forgot Password" = "Forgot Password?";
 "Create an New account" = "Create an New account";
 "All fields are required" = "All fields are required";
+
+"Accept Terms and Conditions" = "Accept Terms and Conditions";
+"Terms and Conditions" = "Terms and Conditions";
+"Validate your license key" = "Validate your license key";
+"Login" = "Login";
 
 //create account
 "First Name" = "First name";
