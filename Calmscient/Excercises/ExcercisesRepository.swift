@@ -15,6 +15,12 @@ class ExcercisesRepository {
     
     func addFavAPICall(isFav: Int, pageId: Int, title: String, completion: @escaping (Result<Data, Error>) -> Void){
         // Define the URL
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
         
         print("the title getting is ", title)
         

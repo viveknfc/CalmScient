@@ -129,6 +129,12 @@ class TouchButterflyHug: ViewController {
     
     
     @IBAction func completeButtonPressed(_ sender: Any) {
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
         let destinationVC = UIStoryboard(name: "Excercises", bundle: nil).instantiateViewController(withIdentifier: "Excercises") as! Excercises
                 
                 // Push to the destination view controller

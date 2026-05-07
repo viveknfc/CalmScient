@@ -195,6 +195,12 @@ class Moderation: ViewController {
     //MARK: - Complete Button Pressed
     
     @IBAction func completeButtonPressed(_ sender: Any) {
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
         completeButtonAPICall()
     }
     

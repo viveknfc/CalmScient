@@ -290,6 +290,12 @@ class BasicknowledgeVideo: ViewController {
     //MARK: - Complete Button Pressed
     
     @IBAction func completeBUttonPressed(_ sender: Any) {
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
         completeButtonAPICall()
     }
     

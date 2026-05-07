@@ -20,6 +20,12 @@ class ThinkingAbtQuitingVC: ViewController {
     }
 
     @IBAction func CompleteButtonPressed(_ sender: Any) {
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
         self.navigationController?.popViewController(animated: true)
     }
     

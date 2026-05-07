@@ -132,7 +132,7 @@ extension WeeklySummaryDashboardViewController: UICollectionViewDelegateFlowLayo
                       ? "No internet connection. Please try again."
                       : "Sin conexión a internet. Por favor, inténtalo de nuevo."
                   DispatchQueue.main.async {
-                      NoInternetBanner.shared.openDetails()
+                      NoInternetBanner.shared.show()
                   }
                   return
               }

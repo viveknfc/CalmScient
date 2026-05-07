@@ -78,6 +78,8 @@ class BreathingTechniqueType1: ViewController {
     @IBOutlet weak var forwardButton: UIButton!
     @IBOutlet weak var backwardButton: UIButton!
     
+    private var hasStartedNetworkMonitor = false
+    
     override func viewDidLoad() {
         
         self.view.backgroundColor = .white
@@ -296,13 +298,6 @@ class BreathingTechniqueType1: ViewController {
         
         }
     
-    override func viewWillAppear(_ animated: Bool) {
-        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "4-7-8 Breathing excercise" : "Ejercicios de respiración 4-7-8"//"4-7-8 Breathing excercise"
-        setupLanguage()
-        bringControlsToFront()
-        uiLabelsSetup()
-    }
-    
     func setupPlayer() {
         
         guard let url = URL(string: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "https://media.calmscient.in/uploads/exercises-videos/4-7-8Breathing.mp4" : "https://media.calmscient.in/uploads/exercises-spanish-videos-audios/Spanish4-7-8Breathing.mp4") else { return }
@@ -432,6 +427,12 @@ class BreathingTechniqueType1: ViewController {
     }
     
     @IBAction func completeButtonPressed(_ sender: Any) {
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
         self.navigationController?.popViewController(animated: true)
 //        let destinationVC = UIStoryboard(name: "Excercises", bundle: nil).instantiateViewController(withIdentifier: "Excercises") as! Excercises
 //                
@@ -520,3 +521,4 @@ extension UIColor {
     
     
 }
+

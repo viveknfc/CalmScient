@@ -298,6 +298,12 @@ class ScreeningQuestionsViewController: ViewController {
     //viv complete button
     
     @IBAction func completeButtonPressed(_ sender: Any) {
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
         print(patientAnsweredOption)
         if(patientAnsweredOption.compactMap({$0}).count == 0){
             // create the alert

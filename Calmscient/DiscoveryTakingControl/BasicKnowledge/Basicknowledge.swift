@@ -197,6 +197,12 @@ class Basicknowledge: ViewController, UITableViewDelegate, UITableViewDataSource
     //MARK: - Complete Button Pressed
     
     @IBAction func completeButtonPressed(_ sender: Any) {
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            return
+        }
 //        self.navigationController?.popViewController(animated: true)
         let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
         let vc = next.instantiateViewController(withIdentifier: "TakingControlIndex") as? TakingControlIndex

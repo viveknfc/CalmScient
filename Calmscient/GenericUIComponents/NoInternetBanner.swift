@@ -1,99 +1,136 @@
+// NoInternetBanner.swift
 import UIKit
 
 final class NoInternetBanner {
-    
+
     static let shared = NoInternetBanner()
-    
     private var banner: UIView?
-    
-    private init() {}
-    
-    // ✅ Get correct window (FIXED BUG)
+    private var isAnimatingOut = false  // ✅ Track hide animation separately
+
+    private init() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(networkStatusChanged(_:)),
+            name: .networkStatusChanged,
+            object: nil
+        )
+
+        // ✅ Re-evaluate on foreground in case status changed while backgrounded
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(appDidBecomeActive),
+            name: UIApplication.didBecomeActiveNotification,
+            object: nil
+        )
+    }
+
+    @objc private func appDidBecomeActive() {
+        if !NetworkMonitor.shared.isConnected {
+            show()
+        } else {
+            hide()
+        }
+    }
+
+    @objc private func networkStatusChanged(_ notification: Notification) {
+        guard let isConnected = notification.object as? Bool else { return }
+        DispatchQueue.main.async {
+            if isConnected {
+                self.hide()
+            } else {
+                self.show()
+            }
+        }
+    }
+
+    // MARK: - Window
+
     private func getKeyWindow() -> UIWindow? {
-        return UIApplication.shared
+        UIApplication.shared
             .connectedScenes
             .compactMap { $0 as? UIWindowScene }
             .flatMap { $0.windows }
             .first { $0.isKeyWindow }
     }
-    
+
+    // MARK: - Show
+
     func show() {
-        guard banner == nil,
-              let window = getKeyWindow() else { return }
-        
-        let height: CGFloat = 70
-        
-        let container = UIView(frame: CGRect(
-            x: 16,
-            y: window.frame.height - height - 30,
-            width: window.frame.width - 32,
-            height: height
-        ))
-        
-        container.backgroundColor = .white
-        container.layer.cornerRadius = 12
-        container.layer.shadowColor = UIColor.black.cgColor
-        container.layer.shadowOpacity = 0.2
-        container.layer.shadowOffset = CGSize(width: 0, height: 2)
-        
-        let label = UILabel(frame: CGRect(
-            x: 16,
-            y: 0,
-            width: container.frame.width - 80,
-            height: height
-        ))
-        label.text = "No Internet Connection"
-        label.textColor = .red
-        label.font = UIFont.boldSystemFont(ofSize: 15)
-        
-        // ❌ Remove "Details" button
-        // ✅ Add Close (✕) button
-        let closeButton = UIButton(frame: CGRect(
-            x: container.frame.width - 50,
-            y: 0,
-            width: 50,
-            height: height
-        ))
-        
-        closeButton.setTitle("✕", for: .normal)
-        closeButton.setTitleColor(.darkGray, for: .normal)
-        closeButton.titleLabel?.font = UIFont.systemFont(ofSize: 20, weight: .bold)
-        closeButton.addTarget(self, action: #selector(closeTapped), for: .touchUpInside)
-        
-        container.addSubview(label)
-        container.addSubview(closeButton)
-        
-        window.addSubview(container)
-        
-        // animation
-        container.transform = CGAffineTransform(translationX: 0, y: 100)
-        UIView.animate(withDuration: 0.3) {
-            container.transform = .identity
+        // ✅ Allow re-show if currently animating out (disconnected again quickly)
+        guard (banner == nil || isAnimatingOut), let window = getKeyWindow() else { return }
+      
+        // Remove any in-progress hide animation
+        if isAnimatingOut {
+            banner?.layer.removeAllAnimations()
+            banner?.removeFromSuperview()
+            banner = nil
+            isAnimatingOut = false
+        }
+
+        let pill = UILabel()
+        pill.text = "No internet connection."
+        pill.textColor = .white
+        pill.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        pill.textAlignment = .center
+        pill.numberOfLines = 1
+        pill.backgroundColor = UIColor(red: 0.42, green: 0.39, blue: 0.72, alpha: 0.93)
+        pill.layer.cornerRadius = 20
+        pill.clipsToBounds = true
+
+        pill.sizeToFit()
+        let pillWidth = min(pill.frame.width + 48, window.frame.width - 64)
+        let pillHeight: CGFloat = 40
+        let pillX = (window.frame.width - pillWidth) / 2
+        let bottomOffset = window.safeAreaInsets.bottom + 83 + 8
+        let pillY = window.frame.height - bottomOffset - pillHeight
+
+        pill.frame = CGRect(x: pillX, y: pillY, width: pillWidth, height: pillHeight)
+        window.addSubview(pill)
+
+        pill.transform = CGAffineTransform(translationX: 0, y: 60)
+        pill.alpha = 0
+        UIView.animate(withDuration: 0.3, delay: 0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0.5) {
+            pill.transform = .identity
+            pill.alpha = 1
         }
         
-        banner = container
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            
+            // If a banner already exists and isn't animating out,
+            // don't just return; maybe give it a "shake" or just let it be.
+            if self.banner != nil && !self.isAnimatingOut {
+                banner = pill
+                return
+            }
+            
+            guard let window = self.getKeyWindow() else {
+                print("DEBUG: No Key Window found")
+                return
+            }
+        }
+
+        banner = pill
     }
     
-    @objc private func closeTapped() {
-        hide()
-    }
-    
+   
+       
+            
+   
+
+    // MARK: - Hide
+
     func hide() {
-        guard let banner = banner else { return }
-        
-        UIView.animate(withDuration: 0.3, animations: {
+        guard let banner, !isAnimatingOut else { return }
+        isAnimatingOut = true
+        self.banner = nil
+
+        UIView.animate(withDuration: 0.2, animations: {
+            banner.transform = CGAffineTransform(translationX: 0, y: 60)
             banner.alpha = 0
         }) { _ in
             banner.removeFromSuperview()
+            self.isAnimatingOut = false  // ✅ Reset flag after animation completes
         }
-        
-        self.banner = nil
-    }
-    
-    @objc func openDetails() {
-        guard let topVC = UIApplication.topViewController() else { return }
-        let vc = NoInternetViewController()
-        vc.modalPresentationStyle = .overFullScreen
-        topVC.present(vc, animated: true)
     }
 }
