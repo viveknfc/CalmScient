@@ -27,42 +27,50 @@ class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSour
         smokingTableView.dataSource = self
         // Do any additional setup after loading the view.
         
-        data = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? edata : sdata
+        rebuildLocalizedData()
         
-        let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-        let title = selectedLanguageID == 1 ? "Complete" : "Finalizar"
-        completeButton.setTitle(title, for: .normal)
+        completeButton.setTitle("Complete".localized, for: .normal)
         completeButton.titleLabel?.font = UIFont(name: Fonts().lexendLight, size: 14)
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        rebuildLocalizedData()
+        smokingTableView.reloadData()
+        completeButton.setTitle("Complete".localized, for: .normal)
         if let indexPath = smokingTableView.indexPathForSelectedRow {
             smokingTableView.deselectRow(at: indexPath, animated: true)
         }
     }
     
-    var edata = [
-        ("Thinking about quitting", UIImage(named: "check") ?? UIImage(), ["You are considering it but haven't made a decision yet.\n\nThat's perfectly ok! We will guide you through the benefits of quitting smoking, and then you can decide if you'd like to create a plan for quitting.\nMove to Make a plan."], false),
-        ("Getting ready to quit", UIImage(named: "check") ?? UIImage(), ["You've decided to quit smoking.\n\nGreat decision! We will guide you on how to create a solid plan and help you stay focused on your journey.\nMove to Make a plan."], false),
-        ("Quitting", UIImage(named: "check") ?? UIImage(), ["You've already started or set a date to quit smoking.\n\nThat's great! We will help you create a strategic plan and stay focused on your goal.\nMove to Make a plan."], false),
-        ("Staying smoke-free", UIImage(named: "check") ?? UIImage(), ["You're focusing on avoiding relapse and keeping up your progress.\n\nThat's fantastic. It's important not to let your guard down. We will be here to support you to stay strong.\nMove to Make a plan to register the day you started quitting smoking, then you can use Stay focused."], false)
-    ]
-    
-    var sdata = [
-            ("Está pensando en dejar de fumar", UIImage(named: "check") ?? UIImage(), ["¡Está perfectamente bien! Te guiaremos para que veas los beneficios de dejar de fumar, y luego podrás decidir si deseas crear un plan para dejarlo. \nIr a Crear un plan."], false),
-            ("Preparándose para dejar de fumar", UIImage(named: "check") ?? UIImage(), ["Has decidido dejar de fumar.\n\n¡Excelente decisión! Te guiaremos para que puedas crear un plan sólido y te ayudaremos a mantenerte enfocado en tu camino.\nIr a Crear un plan."], false),
-            ("Dejar de fumar", UIImage(named: "check") ?? UIImage(), ["Ya has comenzado o ya tienes una fecha para dejar de fumar.\n\nTe ayudaremos a crear un plan estratégico y a mantenerte enfocado en tu objetivo.\nIr a Crear un plan."], false),
-            ("Permanecer libre de humo", UIImage(named: "check") ?? UIImage(), ["Te estás enfocando en evitar recaídas y mantener tu progreso.\n\nEso es fantástico. Es importante no bajar la guardia. Estaremos aquí para apoyarte y Eduarte a mantenerte firme.\nIr a Crear un plan para registrar el día en que comenzaste a dejar de fumar, luego podrás usar la opción Mantente enfocado."], false)
+    private func rebuildLocalizedData() {
+        let check = UIImage(named: "check") ?? UIImage()
+        let keys: [(String, String)] = [
+            ("smoking_habit_stage_thinking_title", "smoking_habit_stage_thinking_body"),
+            ("smoking_habit_stage_ready_title", "smoking_habit_stage_ready_body"),
+            ("smoking_habit_stage_quitting_title", "smoking_habit_stage_quitting_body"),
+            ("smoking_habit_stage_smokefree_title", "smoking_habit_stage_smokefree_body")
         ]
+        var newData = keys.map { titleKey, bodyKey -> (String, UIImage, [String], Bool) in
+            (titleKey.localized, check, [bodyKey.localized], false)
+        }
+        if let sel = selectedRowIndex, sel < newData.count {
+            for idx in newData.indices {
+                var row = newData[idx]
+                row.3 = (idx == sel)
+                newData[idx] = row
+            }
+        }
+        data = newData
+    }
 
     
     @IBAction func yesButtonPressede(_ sender: Any) {
         
         guard selectedRowIndex != nil else {
             
-            let alertText = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Please select the stage that applies to you." : "Por favor, seleccione la etapa que le corresponde"
+            let alertText = "Please select the stage that applies to you.".localized
             
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
@@ -122,7 +130,7 @@ class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSour
         
         guard selectedRowIndex != nil else {
             
-            let alertText = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Please select the stage that applies to you." : "Por favor, seleccione la etapa que le corresponde"
+            let alertText = "Please select the stage that applies to you.".localized
             
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
@@ -141,7 +149,7 @@ class MySmokingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSour
 
         
         showGeneralAlert(
-            title: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "We will guide you to create a strategic plan in Taking control full version." : "Le guiaremos para crear un plan estratégico en la versión completa de Taking Control.",
+            title: "We will guide you to create a strategic plan in Taking control full version.".localized,
             okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
             okAction: {
                 self.completeButtonAPICall()

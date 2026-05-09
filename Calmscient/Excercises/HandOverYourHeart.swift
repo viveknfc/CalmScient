@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 class HandOverYourHeart: ViewController {
 
     @IBOutlet weak var howToDoIt: UILabel!
@@ -21,22 +20,15 @@ class HandOverYourHeart: ViewController {
     
     var isFav: Int = 0
     var favExcercises:[ExcercisesModel] = []
-
-    var languageId : Int = 1
     
-    let arrayString = [
-        "Rest the heel of your hand on your sternum around your heart area.",
-        "Apply a steady, gentle, but firm pressure.",
-        "For added effect, you can place your other hand across your forehead or on your abdomen.",
-        "Experiment with the various placements and wait until you feel a shift. It may take up to 5 or 10 minutes of deep breathing in this position to shift if you are very activated."
-    ]
-    
-    let arrayStringSpanish = [
-        "Apoya la base de tu mano en el esternón, alrededor del área del corazón.",
-        "Aplica una presión constante, suave, pero firme.",
-        "Para un efecto adicional, puedes colocar la otra mano sobre tu frente o en tu abdomen.",
-        "Experimenta con las distintas posiciones y espera hasta que sientas un cambio. Puede tomar de 5 a 10 minutos de respiración profunda en esta posición para notar un cambio si estás muy activado."
-    ]
+    private var howToDoItems: [String] {
+        return [
+            "hand_over_heart_step_1".localized,
+            "hand_over_heart_step_2".localized,
+            "hand_over_heart_step_3".localized,
+            "hand_over_heart_step_4".localized
+        ]
+    }
     
     
     override func viewDidLoad() {
@@ -47,7 +39,7 @@ class HandOverYourHeart: ViewController {
         completeButton.titleLabel?.font = UIFont(name: Fonts().lexendLight, size: 14)
         
 
-        howToDoIt.attributedText = add(stringList: languageId == 1 ? arrayString : arrayStringSpanish, font: UIFont(name: Fonts().lexendLight, size: 15)!
+        howToDoIt.attributedText = add(stringList: howToDoItems, font: UIFont(name: Fonts().lexendLight, size: 15)!
                                        , bullet: "•",textColor: (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ? .white : UIColor(hex: "#424242"),bulletColor: (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ? .white : UIColor(hex: "#424242"))
 
         if let data = UserDefaults.standard.value(forKey: "favoriteExcersises") as? Data {
@@ -90,16 +82,7 @@ class HandOverYourHeart: ViewController {
     
     func setupLanguage() {
         
-             languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-//        titleLbl.text = languageId == 1 ? "Hand over your heart" : "La mano en el corazón."
-        
-        subtitleLbl.text = languageId == 1 ? "HOW TO DO IT" : "CÓMO HACERLO."
+        subtitleLbl.text = "HOW TO DO IT".localized
         
         }
 
@@ -107,10 +90,10 @@ class HandOverYourHeart: ViewController {
         super.viewWillAppear(animated)
         setupLanguage()
         
-        howToDoIt.attributedText = add(stringList: languageId == 1 ? arrayString : arrayStringSpanish, font: UIFont(name: Fonts().lexendLight, size: 15)!
+        howToDoIt.attributedText = add(stringList: howToDoItems, font: UIFont(name: Fonts().lexendLight, size: 15)!
                                        , bullet: "•",textColor: (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ? .white : UIColor(hex: "#424242"),bulletColor: (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ? .white : UIColor(hex: "#424242"))
         
-        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Hand over your heart" : "Mano Sobre Tu Corazón"
+        title = "Hand over your heart".localized
     }
     
     func add(stringList: [String],

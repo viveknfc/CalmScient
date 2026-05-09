@@ -48,7 +48,7 @@ class NextAppointmentsViewController: ViewController, NCalendarToViewDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         selectedIndexPath = 0
-        self.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Next appointments" : "Próximas citas"
+        self.title = "Next appointments".localized
         getMedicalAppointmentsData(forDate: selectedNewDate)
     }
     
@@ -204,7 +204,7 @@ extension NextAppointmentsViewController : UITableViewDataSource, UITableViewDel
                 cell.forwardButton.isHidden = true
                 cell.forwardButton.setImage(UIImage(named: "MedicationsCellArrow"), for: .normal)
                 cell.editDeletButton.isHidden = true
-                cell.contentTextLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "No appointments" : "Sin citas"
+                cell.contentTextLabel.text = "No appointments".localized
                 cell.contentTextLabel.textColor = .black
                 return cell
                 

@@ -57,9 +57,9 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         medicationsTableView.delegate = self
         medicationsTableView.separatorStyle = .none
         
-        infoLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Please select the medication you are currently taking." : "Selecciona el medicamento de la lista si lo has tomado hoy"
+        infoLabel.text = "Please select the medication you are currently taking.".localized
         
-        nomedications.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "No Records" : "No hay registros"
+        nomedications.text = "No Records".localized
         nomedications.textAlignment = .center
         nomedications.font = UIFont(name: Fonts().lexendMedium, size: 18)
 
@@ -485,9 +485,9 @@ class UserMedicationsViewController: ViewController, NCalendarToViewDelegate, Cu
         
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         
-        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Medications" : "Medicamento"
+        title = "Medications".localized
         self.tabBarController?.tabBar.isHidden = false;
-        self.tabBarController?.tabBar.selectedItem?.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Home" : "Inicio"//"Home"
+        self.tabBarController?.tabBar.selectedItem?.title = "Home".localized//"Home"
         saveButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str:"Save"))
         
         getMedicationsData(forDate: selectedNewDate)

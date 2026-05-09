@@ -7,8 +7,6 @@
 import Foundation
 import UIKit
 
-
-
 class CustomAlertView : UIView {
     
     
@@ -24,14 +22,7 @@ class CustomAlertView : UIView {
     }
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        titleLabel.text = AppHelper.getLocalizeString(str: "Your license key has\nbeen verified.")
+titleLabel.text = AppHelper.getLocalizeString(str: "Your license key has\nbeen verified.")
 //        contentLabel.text = AppHelper.getLocalizeString(str: "Please complete your profile to start using Calmscient.")
         continueButton.titleLabel?.text = AppHelper.getLocalizeString(str: "Continue")
         

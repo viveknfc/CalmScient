@@ -17,7 +17,7 @@ class EventsTrackersTableViewCell: UITableViewCell {
     
     var switchAction: ((Bool) -> Void)?
     private var defaultImage = UIImage(named: "ToggleSwitch_No")
-    private var selectedImage = UIImage(named: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "ToggleSwitch_Yes" : "ToggleSwitch_Si")
+    private var selectedImage = UIImage(named: "ToggleSwitch_Yes".localized)
     
     private var currentImage:UIImage? = UIImage(named: "ToggleSwitch_No")
     

@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class WeeklySummaryGraphViewController: ViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var needToTalkSomeOneButton: LinearGradientButton!
@@ -32,7 +30,7 @@ class WeeklySummaryGraphViewController: ViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupLanguage()
-        let needToTalk = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Need to talk with someone?" : "¿Necesitas hablar con alguien?"
+        let needToTalk = "Need to talk with someone?".localized
         needToTalkSomeOneButton.setAttributedTitleWithGradientDefaults(title: needToTalk)
         tableView.allowsSelection = false
         tableView.register(UINib(nibName: "ChartViewHeaderTableCell", bundle: nil), forCellReuseIdentifier: "ChartViewHeaderTableCell")
@@ -60,14 +58,7 @@ class WeeklySummaryGraphViewController: ViewController {
       
     func setupLanguage() {
         
-        let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-        
-        if languageId == 1 {
-            UserDefaults.standard.set("en", forKey: "Language")
-        } else if languageId == 2 {
-            UserDefaults.standard.set("es", forKey: "Language")
-        }
-    }
+}
     @IBAction func needToTalkButtonAction(_ sender: Any) {
         let next = UIStoryboard(name: "NeedToTalkViewController", bundle: nil)
                let vc = next.instantiateViewController(withIdentifier: "NeedToTalkViewController") as? NeedToTalkViewController
@@ -146,7 +137,6 @@ class WeeklySummaryGraphViewController: ViewController {
         }
     }
 
-
 }
 
 extension WeeklySummaryGraphViewController : UITableViewDataSource,UITableViewDelegate {
@@ -187,7 +177,7 @@ extension WeeklySummaryGraphViewController : UITableViewDataSource,UITableViewDe
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ChartViewTableCell", for: indexPath) as? ChartViewTableCell else {
                 return UITableViewCell()
             }
-            cell.chartViewTitleLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Days at each mood" : "Días en cada estado de ánimo"
+            cell.chartViewTitleLabel.text = "Days at each mood".localized
             cell.setupbarChartView(data: self.prepareBarChartData(data: chartData))
             return cell
         case .WeeklySummarySleepAverageViewCell:

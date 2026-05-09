@@ -41,7 +41,7 @@ class ScreeningResultVC: ViewController {
         super.viewDidLoad()
         
         
-        needToTalkButton.setAttributedTitleWithGradientDefaults(title: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Need to talk with someone?" : "¿Necesitas hablar con alguien?")
+        needToTalkButton.setAttributedTitleWithGradientDefaults(title: "Need to talk with someone?".localized)
         addShadowAndBorder()
         print(progressBar.frame.height)
         print(progressBar.frame.height)
@@ -110,16 +110,9 @@ class ScreeningResultVC: ViewController {
     
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        self.title =  UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Your results" : "Tus resultados."
+self.title =  "Your results".localized
      //   needToTalkButton.titleLabel!.text = AppHelper.getLocalizeString(str:"Need to talk with someone?")
-        needToTalkButton.setAttributedTitleWithGradientDefaults(title: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Need to talk with someone?" : "¿Necesitas hablar con alguien?")
+        needToTalkButton.setAttributedTitleWithGradientDefaults(title: "Need to talk with someone?".localized)
         remindMeLabel.text = AppHelper.getLocalizeString(str:"Remind me")
         scoreMarkedLabel.font = UIFont(name: Fonts().lexendRegular, size: 10)
         scoreLbl.font = UIFont(name: Fonts().lexendMedium, size: 30)
@@ -127,7 +120,7 @@ class ScreeningResultVC: ViewController {
         totalscoreLabelText.font = UIFont(name: Fonts().lexendRegular, size: 10)
         totalScoreLbl.font = UIFont(name: Fonts().lexendMedium, size: 30)
         totalscoreLabelText.text = AppHelper.getLocalizeString(str:"Total score")
-        remindOptionLbl.text =  UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Weekly" : "Semanalmente"
+        remindOptionLbl.text =  "Weekly".localized
         
         }
     @IBAction func needToTalkAction(_ sender: Any) {
@@ -257,7 +250,6 @@ class ScreeningResultVC: ViewController {
         customAlertView?.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor).isActive = true
         customAlertView?.widthAnchor.constraint(equalToConstant: self.view.frame.width * 0.9).isActive = true
 //        customAlertView?.heightAnchor.constraint(equalToConstant: self.view.frame.height * 0.45).isActive = true
-
 
     
     }

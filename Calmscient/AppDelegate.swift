@@ -38,30 +38,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 navBar.addSubview(bottomBorder)
             }
             
-            let selectedLanguage = UserDefaults.standard.string(forKey: "appLanguage") ?? "en"
-            Bundle.setLanguage(selectedLanguage)
-
-            
-            if UserDefaults.standard.object(forKey: "Language") != nil && UserDefaults.standard.object(forKey: "Language") as! String == "es"
-            {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-            else
-            {
-                UserDefaults.standard.set("en", forKey: "Language")
-            }
-            
-            
             var languageId: Int? = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
             languageId = (languageId == 0) ? 1 : languageId
             UserDefaults.standard.set(languageId, forKey: "SelectedLanguageID")
-            
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
+
+            let selectedLanguage: String
+            if let appLanguage = UserDefaults.standard.string(forKey: "appLanguage"), !appLanguage.isEmpty {
+                selectedLanguage = appLanguage
+            } else if languageId == 3 {
+                selectedLanguage = "ja"
             } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
+                selectedLanguage = "es"
+            } else {
+                selectedLanguage = "en"
             }
+            UserDefaults.standard.set(selectedLanguage, forKey: "Language")
+            UserDefaults.standard.set(selectedLanguage, forKey: "appLanguage")
+            Bundle.setLanguage(selectedLanguage)
             
             Messaging.messaging().token { token, error in
                 if let error = error {

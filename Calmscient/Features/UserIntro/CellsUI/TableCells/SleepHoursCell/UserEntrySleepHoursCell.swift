@@ -23,10 +23,6 @@ class UserEntrySleepHoursCell: UITableViewCell {
     let selectedFillColor = UIColor(named: "circleCellSelectedColor")
     let defaultFillColor = UIColor(named: "circleFillColor")
     
-    let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-    
-    let sleepData = ["Less","4","5","6","7","8","9","10","More"]
-    let sleepData1 = ["Menos","4","5","6","7","8","9","10","Más"]
     
     var selectedIndex: Int = 7 {
            didSet {
@@ -71,7 +67,7 @@ class UserEntrySleepHoursCell: UITableViewCell {
         
         self.titleLabel.font = UIFont(name: Fonts().lexendMedium, size: 16)
         
-        let labelText = languageId == 1 ? "How many hours did you sleep last night?" : "¿Cuántas horas dormiste anoche?"
+        let labelText = "sleep_hours_question_last_night".localized
         
         let attributedText = NSMutableAttributedString(string: labelText)
         let redAsterisk = NSAttributedString(
@@ -89,11 +85,12 @@ class UserEntrySleepHoursCell: UITableViewCell {
             self.sleepHoursLabel.isHidden = false
             
             if slpHrs < 1 {
-                self.sleepHoursLabel.text = "Less than 4 Hours"
+                self.sleepHoursLabel.text = "sleep_summary_less_than_four".localized
             } else if slpHrs > 7 {
-                self.sleepHoursLabel.text = "More than 10 Hours"
+                self.sleepHoursLabel.text = "sleep_summary_more_than_ten".localized
             } else {
-                self.sleepHoursLabel.text = "\(sleepData[slpHrs]) Hours"
+                let hourLabel = Self.sleepHourDigitLabel(forCollectionIndex: slpHrs)
+                self.sleepHoursLabel.text = String(format: "sleep_summary_hours_format".localized, hourLabel)
             }
             
         }
@@ -128,12 +125,26 @@ class UserEntrySleepHoursCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+
+    /// Collection indices 1...7 map to hours 4...10.
+    private static func sleepHourDigitLabel(forCollectionIndex index: Int) -> String {
+        guard (1...7).contains(index) else { return "" }
+        return "\(index + 3)"
+    }
+
+    private func localizedSleepEndpointLabel(at index: Int) -> String {
+        switch index {
+        case 0: return "sleep_circle_less".localized
+        case 8: return "sleep_circle_more".localized
+        default: return Self.sleepHourDigitLabel(forCollectionIndex: index)
+        }
+    }
     
 }
 
 extension UserEntrySleepHoursCell : UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        sleepData.count
+        9
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -157,7 +168,7 @@ extension UserEntrySleepHoursCell : UICollectionViewDelegateFlowLayout, UICollec
                 cell.contentTextColor = defaultTextColor
             }
             
-            let cellText: () = languageId == 1 ? cell.setCircleText(text: sleepData[indexPath.row]) : cell.setCircleText(text: sleepData1[indexPath.row])
+            cell.setCircleText(text: localizedSleepEndpointLabel(at: indexPath.row))
             
             return cell
         } else {
@@ -177,7 +188,7 @@ extension UserEntrySleepHoursCell : UICollectionViewDelegateFlowLayout, UICollec
                 cell.contentTextColor = defaultTextColor
             }
             
-            cell.setCircleText(text: sleepData[indexPath.row])
+            cell.setCircleText(text: localizedSleepEndpointLabel(at: indexPath.row))
             return cell
         }
         
@@ -238,11 +249,12 @@ extension UserEntrySleepHoursCell : UICollectionViewDelegate {
 
         self.sleepHoursLabel.isHidden = false
         if indexPath.row == 0 {
-            self.sleepHoursLabel.text = "Less than 4 Hours"
+            self.sleepHoursLabel.text = "sleep_summary_less_than_four".localized
         } else if indexPath.row == 8 {
-            self.sleepHoursLabel.text = "More than 10 Hours"
+            self.sleepHoursLabel.text = "sleep_summary_more_than_ten".localized
         } else {
-            self.sleepHoursLabel.text = "\(sleepData[indexPath.row]) Hours"
+            let hourLabel = Self.sleepHourDigitLabel(forCollectionIndex: indexPath.row)
+            self.sleepHoursLabel.text = String(format: "sleep_summary_hours_format".localized, hourLabel)
         }
         
         

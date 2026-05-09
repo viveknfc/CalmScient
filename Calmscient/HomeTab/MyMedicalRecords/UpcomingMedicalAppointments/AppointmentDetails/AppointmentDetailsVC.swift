@@ -57,8 +57,6 @@ class AppointmentDetailsVC: ViewController {
             dateAndTimeValue.text = AppHelper.getLocalizeString(str: "Invalid Date")
         }
 
-
-
         
         contactValue.text = appointDetails.appointmentDetails.contact
         
@@ -71,14 +69,7 @@ class AppointmentDetailsVC: ViewController {
     
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        dataAndTimeLabel.text = AppHelper.getLocalizeString(str:"Date and Time")
+dataAndTimeLabel.text = AppHelper.getLocalizeString(str:"Date and Time")
         self.title = AppHelper.getLocalizeString(str:"Appointment Details")
         contactLabel.text =  AppHelper.getLocalizeString(str:"Contact")
         addressLabel.text = AppHelper.getLocalizeString(str:"Address")

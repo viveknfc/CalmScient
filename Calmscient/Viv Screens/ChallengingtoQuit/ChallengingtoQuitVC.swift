@@ -19,16 +19,14 @@ class ChallengingtoQuitVC: ViewController, UITableViewDelegate, UITableViewDataS
     override func viewDidLoad() {
         super.viewDidLoad()
 
-    data = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? edata : sdata
+    data = Self.localizedData
         
     tableView.register(UINib(nibName: "CapsuleStyleCell", bundle: nil), forCellReuseIdentifier: "CapsuleCell")
     tableView.delegate = self
     tableView.dataSource = self
     tableView.separatorStyle = .none
         
-        let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-        let title = selectedLanguageID == 1 ? "Complete" : "Finalizar"
-        completeButton.setTitle(title, for: .normal)
+        completeButton.setTitle("Complete".localized, for: .normal)
         completeButton.titleLabel?.font = UIFont(name: Fonts().lexendLight, size: 14)
     }
     
@@ -39,9 +37,12 @@ class ChallengingtoQuitVC: ViewController, UITableViewDelegate, UITableViewDataS
         }
     }
     
-    let edata = ["“I’m thinking about quitting”", "“Getting ready to quit”", "“Quitting”", "“Staying smoke-free”"]
-    
-    let sdata = ["“Estoy pensando en dejarlo”", "“Preparándote para dejar de fumar”", "“Dejar de fumar”", "“Mantenerse libre de fumar”"]
+    static let localizedData = [
+        "“I’m thinking about quitting”".localized,
+        "“Getting ready to quit”".localized,
+        "“Quitting”".localized,
+        "“Staying smoke-free”".localized
+    ]
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

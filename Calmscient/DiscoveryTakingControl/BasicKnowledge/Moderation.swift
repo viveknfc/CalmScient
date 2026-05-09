@@ -17,21 +17,15 @@ class Moderation: ViewController {
     
     var sectionID3: Int?
     
-    var primaryReasonsArr = [
-        "Taking medications that interact with alcohol",
-        "Managing a medical condition that can be made worse by drinking",
-        "Under the age of 21, the minimum legal drinking age in the United States",
-        "Recovering from alcohol use disorder (AUD) or unable to control the amount you drink",
-        "Pregnant or might be pregnant"
-    ]
-    
-    let primaryReasonsArrSpanish = [
-        "Tomar medicamentos que interactúan con el alcohol",
-        "Manejar una condición médica que puede empeorar con el consumo de alcohol",
-        "Menor de 21 años, la edad mínima legal para beber en los Estados Unidos",
-        "Recuperándose de un trastorno por consumo de alcohol (AUD) o incapaz de controlar la cantidad que bebes",
-        "Embarazada o podría estar embarazada"
-    ]
+    private var primaryReasonsArr: [String] {
+        [
+            AppHelper.getLocalizeString(str: "moderation_primary_reason_1"),
+            AppHelper.getLocalizeString(str: "moderation_primary_reason_2"),
+            AppHelper.getLocalizeString(str: "moderation_primary_reason_3"),
+            AppHelper.getLocalizeString(str: "moderation_primary_reason_4"),
+            AppHelper.getLocalizeString(str: "moderation_primary_reason_5")
+        ]
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,48 +44,18 @@ class Moderation: ViewController {
     func fontConfigaration(){
         self.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
 //        headerLabel.font = UIFont(name: Fonts().lexendLight, size: 15)!
-        let someAdditionalInfo = NSMutableAttributedString(string:UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "According to the 2020-2025 Dietary Guidelines for Americans, certain individuals should not consume alcohol. It’s safest to avoid alcohol altogether if you are:\n\n" : "Según las Guías Alimentarias para Estadounidenses 2020-2025, ciertas personas no deben consumir alcohol. Es más seguro evitar el alcohol por completo si eres:\n\n")
+        let someAdditionalInfo = NSMutableAttributedString(string: AppHelper.getLocalizeString(str: "moderation_intro_text"))
         someAdditionalInfo.addAttribute(.font, value: UIFont(name: Fonts().lexendLight, size: 16)!, range: NSRange(location: 0, length: someAdditionalInfo.length))
         someAdditionalInfo.addAttribute(.foregroundColor, value: UIColor(named: "424242Color")!, range: NSRange(location: 0, length: someAdditionalInfo.length))
 
-
-        let primaryReasons = add(stringList:UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? primaryReasonsArr : primaryReasonsArrSpanish, font: UIFont(name: Fonts().lexendLight, size: 16)!)
+        let primaryReasons = add(stringList: primaryReasonsArr, font: UIFont(name: Fonts().lexendLight, size: 16)!)
         
         primaryReasons.addAttribute(.foregroundColor, value: UIColor(named: "424242Color")!, range: NSRange(location: 0, length: primaryReasons.length))
         
-        let englishText = """
-                In addition, certain individuals, particularly older adults, who are planning to drive a vehicle or operate machinery—or who are participating in activities that require skill, coordination, and alertness—should avoid alcohol completely.
-
-                What is alcohol misuse?
-
-                NIAAA defines heavy drinking as follows:
-
-                For women:
-                4 or more drinks on any day or 8 or more per week.
-
-                For men:
-                5 or more drinks on any day or 15 or more per week.
-                """
-        
-        let  spanishText = """
-                Además, ciertas personas, especialmente los adultos mayores, que planean conducir un vehículo o operar maquinaria—o que están participando en actividades que requieren destreza, coordinación y alerta—deben evitar el alcohol por completo.
-
-                ¿Qué es el abuso de alcohol?
-
-                El NIAAA define el consumo excesivo de alcohol de la siguiente manera:
-
-                Para mujeres: 
-                4 o más bebidas en un día o 8 o más por semana.
-
-                Para hombres: 
-                5 o más bebidas en un día o 15 o más por semana.
-                """
-        let fullText = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? englishText : spanishText
+        let fullText = AppHelper.getLocalizeString(str: "moderation_full_text")
         let targetStrings = [
-            "4 or more drinks on any day or 8 or more per week",
-            "5 or more drinks on any day or 15 or more per week.",
-            "4 o más bebidas en un día o 8 o más por semana.",
-            "5 o más bebidas en un día o 15 o más por semana."
+            AppHelper.getLocalizeString(str: "moderation_target_women"),
+            AppHelper.getLocalizeString(str: "moderation_target_men")
         ]
         
 
@@ -131,19 +95,7 @@ class Moderation: ViewController {
     
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-                
-                
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-                
-               
-            }
-        
-        headerLabel.text = AppHelper.getLocalizeString(str: "What’s a standard drink")
+headerLabel.text = AppHelper.getLocalizeString(str: "What’s a standard drink")
         
         normalTextLabel.text = AppHelper.getLocalizeString(str: "According to the 2020-2025 Dietary Guidelines for Americans, certain individuals should not consume alcohol. It’s safest to void alcohol altogether if you are: Taking medications that interact with alcohol Managing a medical condition that can be made Worse by drinking Under the age of 21, the minimum legal drinking age in the United States Recovering from alcohol use disorder (AUD) or unable to control the amount you drink Pregnant or might be pregnant In addition, certain individuals, particularly older adults, who are planning to drive a vehicle or operate machinery-or who are participating in activities that require skill, coordination, and alertness-should avoid alcohol completely.")
         hyperTextLabel.text = AppHelper.getLocalizeString(str: "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.")

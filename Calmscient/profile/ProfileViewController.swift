@@ -60,7 +60,7 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
         phoneTF.isUserInteractionEnabled = false
         emailTF.isUserInteractionEnabled = false
         
-        submitButton.setTitle(UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Submit" : "Enviar", for: .normal)
+        submitButton.setTitle("Submit".localized, for: .normal)
         self.navigationController?.navigationBar.tintColor = UIColor.white
         //self.title = "Profile"
         // Apply the corner radius and border color to each text field

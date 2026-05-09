@@ -23,7 +23,6 @@ class MonthlyDrinksCountViewController: UIViewController {
     @IBOutlet weak var congralatulationsLabel: UITextView!
     @IBOutlet weak var daysLabel: UILabel!
 
-
     @IBOutlet weak var monthsView: UIView!
     @IBOutlet weak var dateView: UIView!
     @IBOutlet weak var calenderBackgroundView: UIView!
@@ -41,7 +40,6 @@ class MonthlyDrinksCountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupCalendarView()
-
 
         setShadow()
         setUpMonths()
@@ -98,15 +96,7 @@ class MonthlyDrinksCountViewController: UIViewController {
     }
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        
-        congralatulationsLabel.text = AppHelper.getLocalizeString(str: "Congratulations text")
+congralatulationsLabel.text = AppHelper.getLocalizeString(str: "Congratulations text")
         daysLabel.text = AppHelper.getLocalizeString(str: "days")
         totalAlcoholfreeLabel.text = AppHelper.getLocalizeString(str:"   Your total alcohol free days are")
         }
@@ -572,7 +562,6 @@ class MonthlyDrinksCountViewController: UIViewController {
         dateFormatter.dateFormat = "MMM"
         return dateFormatter.string(from: Date())
     }
-
 
     private func setShadow() {
         calenderBackgroundView.layer.cornerRadius = 10

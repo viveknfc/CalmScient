@@ -219,17 +219,7 @@ class CheckMailVC: ViewController {
     
     func setupLanguage() {
         
-        let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-        
-        if languageId == 1 {
-            UserDefaults.standard.set("en", forKey: "Language")
-            
-        } else if languageId == 2 {
-            UserDefaults.standard.set("es", forKey: "Language")
-            
-        }
-        
-        checkMailLbl.text = AppHelper.getLocalizeString(str: "Check your email")
+checkMailLbl.text = AppHelper.getLocalizeString(str: "Check your email")
         instructionLbl.text = AppHelper.getLocalizeString(str: "Enter the 4-digit code that we have sent via email xxxxxxxxxx@gmail.com")
         
     }

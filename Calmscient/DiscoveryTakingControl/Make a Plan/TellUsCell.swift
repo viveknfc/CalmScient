@@ -34,15 +34,7 @@ class TellUsCell: UITableViewCell {
     }
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        
-        headerLabel.text = AppHelper.getLocalizeString(str: "Save it to weekly summary journal entry")
+headerLabel.text = AppHelper.getLocalizeString(str: "Save it to weekly summary journal entry")
         titleLabel.text = AppHelper.getLocalizeString(str: "Tell us what you would like to do." )
         
         //yesButton.titleLabel?.text = AppHelper.getLocalizeString(str: "Yes")

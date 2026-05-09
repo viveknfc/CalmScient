@@ -48,7 +48,7 @@ class SummaryViewController: ViewController {
         monthLabel.text = newDateString
 
         
-        self.title =  UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Summary" :"Resumen"
+        self.title =  "Summary".localized
         //pickerView.frame = CGRect.init(x: 0, y: self.view.bounds.height-550, width: 350, height: 200)
         pickerView.backgroundColor = UIColor(named: "whiteAndBlack")
         pickerView.layer.borderColor = UIColor.lightGray.cgColor
@@ -374,7 +374,7 @@ extension SummaryViewController : UITableViewDataSource,UITableViewDelegate {
         if let days1 = data1["count"] as? Int , let totalDays = data1["target"] as? Int {
                               cell.daysLabel.text = String(days1)
                               cell.summaryProgressBar.progress = Float(days1) / Float(totalDays)
-                              cell.daysSublable.text =  UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "days" : "días"
+                              cell.daysSublable.text =  "days".localized
            
                           } else {
                               cell.daysLabel.text = "0"
@@ -386,17 +386,17 @@ extension SummaryViewController : UITableViewDataSource,UITableViewDelegate {
 //        }
         
         if indexPath.row == 0 {
-            cell.daysSublable.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "days" : "días"
+            cell.daysSublable.text = "days".localized
                }
         if indexPath.row == 1 {
-            cell.daysSublable.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "count" : "contar"
+            cell.daysSublable.text = "count".localized
                 }
         
         if indexPath.row == 2 {
-            cell.daysSublable.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "times" : "veces"
+            cell.daysSublable.text = "times".localized
                 }
         if indexPath.row == 3 {
-            cell.daysSublable.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "times" : "veces"
+            cell.daysSublable.text = "times".localized
                 }
         
         

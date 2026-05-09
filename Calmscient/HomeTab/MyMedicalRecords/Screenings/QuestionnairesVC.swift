@@ -25,20 +25,11 @@ class QuestionnairesVC: UIViewController {
 
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-       
-        titleLabel.text = AppHelper.getLocalizeString(str:"Over the last 2 weeks, how often have you been bothered by the following problems?")
+titleLabel.text = AppHelper.getLocalizeString(str:"Over the last 2 weeks, how often have you been bothered by the following problems?")
         question1Label.text = AppHelper.getLocalizeString(str:"1. Feeling nervous, anxious or on edge")
     //        change at line 48, 49,
         }
 }
-
 
 extension QuestionnairesVC: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

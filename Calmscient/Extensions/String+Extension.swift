@@ -47,6 +47,10 @@ public enum DayTimeValue:String, Comparable, Equatable {
 
 extension String {
     
+    var localized: String {
+        NSLocalizedString(self, comment: "")
+    }
+    
     func toFormattedDateString(inputFormat: String = "yyyy-MM-dd HH:mm:ss", outputFormat: String = "MM/dd/yyyy") -> String? {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = inputFormat
@@ -167,7 +171,7 @@ extension String {
                 if includeTimeZone {
                     let formattedHour = String(format: "%02d", hour)
                     let formattedMinute = String(format: "%02d", minute)
-                    let ampm = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "AM" : "AM" //a. m.
+                    let ampm = "AM".localized //a. m.
                     return "\(formattedHour):\(formattedMinute) \(ampm)"
                 } else {
                     return DayTimeValue.Morning.rawValue 
@@ -179,7 +183,7 @@ extension String {
                     }
                     let formattedHour = String(format: "%02d", hour)
                     let formattedMinute = String(format: "%02d", minute)
-                    let ampm = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "PM" : "PM" //p. m.
+                    let ampm = "PM".localized //p. m.
                     return "\(formattedHour):\(formattedMinute) \(ampm)"
                 } else {
                     return DayTimeValue.Afternoon.rawValue
@@ -191,7 +195,7 @@ extension String {
                     }
                     let formattedHour = String(format: "%02d", hour)
                     let formattedMinute = String(format: "%02d", minute)
-                    let ampm = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "PM" : "PM" //p. m.
+                    let ampm = "PM".localized //p. m.
                     return "\(formattedHour):\(formattedMinute) \(ampm)"
                 } else {
                     return DayTimeValue.Evening.rawValue

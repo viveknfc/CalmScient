@@ -24,15 +24,6 @@ class JournalEntryEditView: UIView, UITextViewDelegate {
     var editingIndexPath:IndexPath = IndexPath(row: 0, section: 0)
     
     var initialText: String = ""
-    
-//    lazy var initialText: String = {
-//        let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-//        return selectedLanguageID == 1 ? "Add your Journal Here" : "Agregue su registro del diario aquí"
-//    }() {
-//        didSet {
-//            journalTextView.text = initialText
-//        }
-//    }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -47,22 +38,21 @@ class JournalEntryEditView: UIView, UITextViewDelegate {
     }
     
     private func updateTextView() {
-        let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
         self.journalTextView.layer.borderColor = UIColor(named: "UserRegistrationTextViewBorderColor")?.cgColor
         self.journalTextView.backgroundColor = UIColor(named: "UserRegistrationTextViewBackgroundColor")
         self.journalTextView.layer.borderWidth = 1.0
         self.journalTextView.layer.cornerRadius = 4
-        let updateTitle = selectedLanguageID == 1 ? "Add" : "Agregar"
+        let updateTitle = "journal_edit_add_button".localized
         self.updateButton.setAttributedTitleWithGradientDefaults(title: updateTitle)
         self.journalTextView.textContainerInset = UIEdgeInsets(top: 15, left: 16, bottom: 15, right: 10)
         
-        self.initialText = selectedLanguageID == 1 ? "Add your journal here" : "Agregue su registro del diario aquí"
+        self.initialText = "journal_edit_placeholder".localized
         journalTextView.text = initialText
         self.journalTextView.delegate = self
         
-        self.textCount.text = "0/2000"
+        self.textCount.text = String(format: "journal_edit_char_count_format".localized, 0)
 
-        entryTitleLabel.text = selectedLanguageID == 1 ? "Add journal entry" : "Agregar registro del diario"
+        entryTitleLabel.text = "journal_edit_title".localized
         
     }
     
@@ -106,7 +96,7 @@ class JournalEntryEditView: UIView, UITextViewDelegate {
         }
         
         if updatedText.count <= 2000 {
-            textCount.text = "\(updatedText.count)/2000"
+            textCount.text = String(format: "journal_edit_char_count_format".localized, updatedText.count)
             return true
         } else {
             // Optionally, trim the text to max length
@@ -115,7 +105,7 @@ class JournalEntryEditView: UIView, UITextViewDelegate {
     }
     
     func textViewDidChange(_ textView: UITextView) {
-        textCount.text = "\(textView.text.count)/2000"
+        textCount.text = String(format: "journal_edit_char_count_format".localized, textView.text.count)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

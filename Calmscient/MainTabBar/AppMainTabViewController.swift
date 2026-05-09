@@ -10,9 +10,9 @@ import UIKit
 //    func didSelectLanguage(languageId: Int)
 //}
 
-let tabTitlesEnglish: [String] = ["Home", "Discovery", "Exercises", "Rewards"]
-let tabTitlesSpanish: [String] = ["Inicio", "Descubrimiento", "Ejercicios", "Recompensas"]
 var tabTitles: [String] = []
+
+private let tabBarTitleKeys = ["Home", "Discovery", "Exercises", "Rewards"]
 
 @available(iOS 16.0, *)
 class AppMainTabViewController: UITabBarController {
@@ -66,8 +66,7 @@ class AppMainTabViewController: UITabBarController {
             NotificationCenter.default.removeObserver(self, name: .languageChanged, object: nil)
         }
     func updateTabBarItems() {
-            let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            tabTitles = selectedLanguageID == 1 ? tabTitlesEnglish : tabTitlesSpanish
+            tabTitles = tabBarTitleKeys.map { $0.localized }
             guard let items = tabBar.items else { return }
             for i in 0..<items.count {
 //                print("the first title is",tabTitles[i])

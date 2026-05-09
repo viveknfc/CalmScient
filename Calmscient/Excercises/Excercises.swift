@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 class Excercises: ViewController {
     
     
@@ -28,18 +27,18 @@ class Excercises: ViewController {
             ("Breathing technique", "breathingTechnique")
         ]
     
-    let exercisesSpanish = [
-         "Mindfulness - ¿qué es?",
-         "Relajación muscular progresiva",
-         "Toque y el abrazo de mariposa",
-        "Mano sobre tu corazón",
-         "Caminata consciente",
-        "Movimiento: Danza",
-        "Movimiento: correr",
-        "Movimiento corporal consciente",
-        "Técnica de respiración"
-
-        ]
+    /// Localization keys matching `exercises` titles (English key → translated per bundle).
+    private let exerciseLocalizedTitleKeys: [String] = [
+        "Mindfulness - what is it?",
+        "Progressive muscle relaxation",
+        "Touch and the butterfly hug",
+        "Hand over your heart",
+        "Mindful walking",
+        "Movement: dance",
+        "Movement: running",
+        "Mindful body movement",
+        "Breathing technique"
+    ]
     
     var titleStr : String = ""
     
@@ -90,15 +89,7 @@ class Excercises: ViewController {
     
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-
-        titleStr = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Exercises" : "Ejercicios"
+titleStr = "Exercises".localized
         
         
         }
@@ -220,10 +211,10 @@ extension Excercises: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExerciseCell", for: indexPath) as! ExerciseCell
         cell.layoutSubviews()
-        let exercise = exercises[indexPath.row]
-        cell.label.text =  UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? (exercise.0) : exercisesSpanish[indexPath.row]
+        let exerciseAsset = exercises[indexPath.row]
+        cell.label.text = exerciseLocalizedTitleKeys[indexPath.row].localized
         cell.label.font = UIFont(name: Fonts().lexendRegular, size: 14)
-        cell.imageView.image = UIImage(named: exercise.1)
+        cell.imageView.image = UIImage(named: exerciseAsset.1)
         return cell
     }
 }

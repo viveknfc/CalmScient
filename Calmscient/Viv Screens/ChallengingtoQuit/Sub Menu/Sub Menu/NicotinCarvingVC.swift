@@ -46,56 +46,26 @@ class NicotinCarvingVC: UIViewController {
         super.viewDidLoad()
 
          let subContext3Text = """
-You can also try…
+\("You can also try…".localized)
 
-One non-nicotine medicine (prescription from your doctor is required). Varenicline is a pill that works differently from other medicines. It does not contain nicotine. It works by attaching to the same parts of your brain that are stimulated by nicotine. This means that nicotine from a cigarette has fewer places to attach because the varenicline is already there. This makes it harder to get a nicotine "buzz".
+\("One non-nicotine medicine (prescription from your doctor is required). Varenicline is a pill that works differently from other medicines. It does not contain nicotine. It works by attaching to the same parts of your brain that are stimulated by nicotine. This means that nicotine from a cigarette has fewer places to attach because the varenicline is already there. This makes it harder to get a nicotine \"buzz\".".localized)
 """
         
-        let subCOntext4Text = "The benefits of Varenicline are:"
+        let subCOntext4Text = "The benefits of Varenicline are:".localized
         
         let subCOntext7Text = """
-Know your triggers:
+\("Know your triggers:".localized)
 
-Certain things can make you want to smoke, like being around friends you used to smoke with or being in a place where you often smoked. Even memories or feelings can bring it on.
+\("Certain things can make you want to smoke, like being around friends you used to smoke with or being in a place where you often smoked. Even memories or feelings can bring it on.".localized)
 
-Positive thoughts:
+\("Positive thoughts:".localized)
 
-Remember why you decided to quit. You're in control, and cravings don't last forever. They'll pass.
+\("Remember why you decided to quit. You're in control, and cravings don't last forever. They'll pass.".localized)
 """
         
-        //spanish
-        
-        let sSubContext3Text = """
-También puedes probar…
-
-Un medicamento sin nicotina (se requiere receta médica). La vareniclina es una pastilla que actúa de manera diferente a otros medicamentos. No contiene nicotina. Funciona al unirse a las mismas partes de tu cerebro que son estimuladas por la nicotina. Esto significa que la nicotina de un cigarrillo tiene menos lugares a los que unirse porque la vareniclina ya está ahí.
-"""
-        
-        let sSubCOntext4Text = "Los beneficios de la Vareniclina son:"
-        
-        let sSubCOntext7Text = """
-Conoce tus desencadenantes:
-
-Ciertas cosas pueden hacer que quieras fumar, como estar cerca de amigos con los que solías fumar o estar en un lugar donde solías fumar frecuentemente. Incluso los recuerdos o sentimientos pueden desencadenarlo.
-
-Pensamientos positivos:
-
-Recuerda por qué decidiste dejar de fumar. Estás en control, y los deseos no duran para siempre. Pasarán.
-"""
-        
-        //end
-        
-        let langauge = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-        
-        if langauge == 1 {
-            subContext3.attributedText = TextHighlighter.getFormattedText(fullText: subContext3Text, highlightTexts: ["One non-nicotine medicine"], highlightColor: UIColor(hex: "6E6BB3"))
-            subContext4.attributedText = TextHighlighter.getFormattedText(fullText: subCOntext4Text, highlightTexts: ["Varenicline"], highlightColor: UIColor(hex: "6E6BB3"))
-            subContext5.attributedText = TextHighlighter.getFormattedText(fullText: subCOntext7Text, highlightTexts: ["Know your triggers:", "Positive thoughts:"], highlightColor: UIColor(hex: "6E6BB3"))
-        } else {
-            subContext3.attributedText = TextHighlighter.getFormattedText(fullText: sSubContext3Text, highlightTexts: [], highlightColor: UIColor(hex: "6E6BB3"))
-            subContext4.attributedText = TextHighlighter.getFormattedText(fullText: sSubCOntext4Text, highlightTexts: [], highlightColor: UIColor(hex: "6E6BB3"))
-            subContext5.attributedText = TextHighlighter.getFormattedText(fullText: sSubCOntext7Text, highlightTexts: ["Conoce tus desencadenantes:", "Pensamientos positivos:"], highlightColor: UIColor(hex: "6E6BB3"))
-        }
+        subContext3.attributedText = TextHighlighter.getFormattedText(fullText: subContext3Text, highlightTexts: ["One non-nicotine medicine".localized], highlightColor: UIColor(hex: "6E6BB3"))
+        subContext4.attributedText = TextHighlighter.getFormattedText(fullText: subCOntext4Text, highlightTexts: ["Varenicline".localized], highlightColor: UIColor(hex: "6E6BB3"))
+        subContext5.attributedText = TextHighlighter.getFormattedText(fullText: subCOntext7Text, highlightTexts: ["Know your triggers:".localized, "Positive thoughts:".localized], highlightColor: UIColor(hex: "6E6BB3"))
         
 
     }

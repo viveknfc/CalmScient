@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 class MovementRunning: ViewController {
 
     @IBOutlet weak var favImg: UIImageView!
@@ -16,8 +15,7 @@ class MovementRunning: ViewController {
     @IBOutlet weak var descriptionLbl: UILabel!
     
     @IBOutlet weak var completeButton: CapsuleButton1!
-    
-    var languageId : Int = 1
+
     var isFav: Int = 0
     var favExcercises:[ExcercisesModel] = []
     override func viewDidLoad() {
@@ -65,20 +63,12 @@ class MovementRunning: ViewController {
     
     func setupLanguage() {
         
-        languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-        
-        if languageId == 1 {
-            UserDefaults.standard.set("en", forKey: "Language")
-        } else if languageId == 2 {
-            UserDefaults.standard.set("es", forKey: "Language")
-        }
-        
-        descriptionLbl.text = AppHelper.getLocalizeString(str: "It’s not easy to move when you have a shutdown or are feeling numb. Running can quickly shift you out of the shutdown state and re-energize you.")
+descriptionLbl.text = AppHelper.getLocalizeString(str: "It’s not easy to move when you have a shutdown or are feeling numb. Running can quickly shift you out of the shutdown state and re-energize you.")
         
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Movement: running" : "Movimiento: Correr"
+        title = "Movement: running".localized
         setupLanguage()
     }
     

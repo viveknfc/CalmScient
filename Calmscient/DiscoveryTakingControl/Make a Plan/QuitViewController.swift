@@ -47,8 +47,8 @@ class QuitViewController: ViewController{
         
         notifiy_pcp.titleLabel?.font = UIFont(name: Fonts().lexendRegular, size: 18)
         notified_mangment.titleLabel?.font = UIFont(name: Fonts().lexendRegular, size: 18)
-        notifiy_pcp.setTitle(UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Notify to PCP" : "Notificar al médico de atención primaria", for: .normal)
-        notified_mangment.setTitle(UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Notify to PCP" : "Notificar al médico de atención primaria", for: .normal)
+        notifiy_pcp.setTitle("Notify to PCP".localized, for: .normal)
+        notified_mangment.setTitle("Notify to PCP".localized, for: .normal)
         
         // Initialization code
         super.viewDidLoad()
@@ -111,15 +111,7 @@ class QuitViewController: ViewController{
     
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        
-        descriptionLabel.text = AppHelper.getLocalizeString(str: "congralatuateDecision")
+descriptionLabel.text = AppHelper.getLocalizeString(str: "congralatuateDecision")
         talkToPrimaryDoc.text = AppHelper.getLocalizeString(str: "Talk to your primary care doctor" )
         talkToPrimaryDoc2.text = AppHelper.getLocalizeString(str: "Consider medication management" )
         talkToPrimaryDoc3.text = AppHelper.getLocalizeString(str: "Look for alcohol treatment program" )

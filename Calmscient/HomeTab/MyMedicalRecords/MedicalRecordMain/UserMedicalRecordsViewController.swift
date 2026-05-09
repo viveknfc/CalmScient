@@ -10,10 +10,18 @@ import UIKit
 class UserMedicalRecordsViewController: ViewController {
 
     @IBOutlet weak var medicalRecordsTableView: UITableView!
-    let content:[(String,UIImage)] = [("Medications",UIImage(named: "Medications_Cell")!),("Upcoming medical appointments",UIImage(named: "MedicalAppointment_Cell")!),("Screenings",UIImage(named: "Screening_Cell")!)]
-    let spanishContent:[(String,UIImage)] = [("Medicamentos",UIImage(named: "Medications_Cell")!),
-                                             ("Próximas citas médicas",UIImage(named: "MedicalAppointment_Cell")!),
-                                             ("Exámenes",UIImage(named: "Screening_Cell")!)]
+
+    private let medicalRecordRowImages: [UIImage] = [
+        UIImage(named: "Medications_Cell")!,
+        UIImage(named: "MedicalAppointment_Cell")!,
+        UIImage(named: "Screening_Cell")!
+    ]
+    /// Localization keys — titles use `Localized.strings` (en / es / ja).
+    private let medicalRecordTitleKeys = [
+        "Medications",
+        "Upcoming medical appointments",
+        "Screenings"
+    ]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -80,7 +88,7 @@ class UserMedicalRecordsViewController: ViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        self.navigationItem.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "My medical records" :  "Mis registros médicos"
+        self.navigationItem.title = "My medical records".localized
         medicalRecordsTableView.reloadData()
 
     }
@@ -101,9 +109,8 @@ extension UserMedicalRecordsViewController : UITableViewDataSource,UITableViewDe
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyMedicalRecordsCell", for: indexPath) as! MyMedicalRecordsCell
-        let cellContent = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? content[indexPath.row] : spanishContent[indexPath.row]
-        cell.medicalCellImage.image = cellContent.1
-        cell.titleTextField.text = cellContent.0
+        cell.medicalCellImage.image = medicalRecordRowImages[indexPath.row]
+        cell.titleTextField.text = medicalRecordTitleKeys[indexPath.row].localized
 //        cell.addShadowAndBorder()
         return cell
     }

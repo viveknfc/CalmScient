@@ -5,9 +5,6 @@
 //  Created by NFC on 12/03/24.
 //
 
-
-
-
 import UIKit
 
 class AddMedicationVC: UIViewController {
@@ -44,20 +41,13 @@ class AddMedicationVC: UIViewController {
     
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        self.title = AppHelper.getLocalizeString(str:"Add Medications")
+self.title = AppHelper.getLocalizeString(str:"Add Medications")
         nameLabel.text = AppHelper.getLocalizeString(str:"Name")
         providerLbl.text = AppHelper.getLocalizeString(str:"Provider")
         dosageLabel.text = AppHelper.getLocalizeString(str:"Dosage")
         dosageLabel.text = AppHelper.getLocalizeString(str:"Direction")
         withMealLabel.text = AppHelper.getLocalizeString(str:"With Meal")
-        scheduleTimeLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Schedule Time & Alarm" : "Programar Hora y Alarma"
+        scheduleTimeLabel.text = "Schedule Time & Alarm".localized
         }
     func setupAlarmMockData(){
         let alarmMorning = AlarmData(alarmMode: "Morning", medicationTime: "08:00AM", alarmTime: "07:50AM", alarmOnOrOFF: false)

@@ -20,7 +20,7 @@ class HistoryVC: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "History" : "Historial"
+        self.title = "History".localized
         historyTable.register(UINib(nibName: "HistoryCell", bundle: nil), forCellReuseIdentifier: "HistoryCell")
         historyTable.delegate = self
         historyTable.dataSource = self

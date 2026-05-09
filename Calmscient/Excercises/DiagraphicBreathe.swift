@@ -5,12 +5,10 @@
 //  Created by Krishna on 8/6/24.
 //
 
-
 import Foundation
 import UIKit
 import AVFoundation
 import AVKit
-
 
 class DiagraphicBreathe: ViewController {
 
@@ -57,7 +55,6 @@ class DiagraphicBreathe: ViewController {
     var isFullScreen = false
     let avController = AVPlayerViewController()
     var autoHideTimer: Timer?
-    var languageId :Int = 1
     
     @IBOutlet weak var completeButton: CapsuleButton1!
     var timeObserverToken: Any?
@@ -149,16 +146,8 @@ class DiagraphicBreathe: ViewController {
     
     
     func setupLanguage() {
-        
-             languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
             
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        
-        topDescriptionLabel.text = AppHelper.getLocalizeString(str: "Doctors usually recommend diaphragmatic breathing to people with a lung condition called chronic obstructive pulmonary disease. A 2017 study found that it could also help reduce anxiety.")
+topDescriptionLabel.text = AppHelper.getLocalizeString(str: "Doctors usually recommend diaphragmatic breathing to people with a lung condition called chronic obstructive pulmonary disease. A 2017 study found that it could also help reduce anxiety.")
         preparationLabel.text = AppHelper.getLocalizeString(str:"Preparation")
         preparationDescLabel.text = AppHelper.getLocalizeString(str: "First find a comfortable to either sit down or lay down.")
         
@@ -190,7 +179,7 @@ class DiagraphicBreathe: ViewController {
         super.viewWillAppear(animated)
         
         // Customize the navigation bar title font size
-        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Diaphragmatic breathing exercise" : "Ejercicio de respiración diafragmática"
+        title = "Diaphragmatic breathing exercise".localized
         setupLanguage()
         bringControlsToFront()
     }
@@ -250,7 +239,7 @@ class DiagraphicBreathe: ViewController {
     }
     
     func setupPlayer() {
-        guard let url = URL(string: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "https://media.calmscient.in/uploads/exercises-videos/Diaphragmaticbreathing.mp4" : "https://media.calmscient.in/uploads/exercises-spanish-videos-audios/SpanishDiaphragmaticbreathing.mp4") else { return }
+        guard let url = URL(string: "https://media.calmscient.in/uploads/exercises-videos/Diaphragmaticbreathing.mp4".localized) else { return }
         player = AVPlayer(url: url)
                playerLayer = AVPlayerLayer(player: player)
                playerLayer.frame = videoView.bounds

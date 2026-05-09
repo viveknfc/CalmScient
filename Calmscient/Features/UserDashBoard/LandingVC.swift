@@ -39,14 +39,7 @@ class LandingVC: UIViewController {
     }
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        needToTalkButton.titleLabel!.text = AppHelper.getLocalizeString(str: "Need to talk with someone?")
+needToTalkButton.titleLabel!.text = AppHelper.getLocalizeString(str: "Need to talk with someone?")
         happyToSeeYouLbl.text = AppHelper.getLocalizeString(str: "We are happy to see you")
         //helloLabel have attributed string
         
@@ -113,7 +106,6 @@ extension LandingVC: UICollectionViewDataSource{
     
 }
 
-
 class HomeTableCell: UITableViewCell{
     
     @IBOutlet weak var iconImage: UIImageView!
@@ -121,7 +113,6 @@ class HomeTableCell: UITableViewCell{
     @IBOutlet weak var iconView: UIView!
     
 }
-
 
 final class FavouriteCell: UICollectionViewCell {
     
@@ -159,5 +150,4 @@ final class FavouriteCell: UICollectionViewCell {
     }
     
 }
-
 

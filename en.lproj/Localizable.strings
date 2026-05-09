@@ -60,6 +60,25 @@
 //moderation
 "When is drinking in moderation still too much?" = "When is drinking in moderation still too much?";
 
+// Moderation (localized blocks)
+"moderation_intro_text" = "According to the 2020-2025 Dietary Guidelines for Americans, certain individuals should not consume alcohol. It’s safest to avoid alcohol altogether if you are:\n\n";
+"moderation_primary_reason_1" = "Taking medications that interact with alcohol";
+"moderation_primary_reason_2" = "Managing a medical condition that can be made worse by drinking";
+"moderation_primary_reason_3" = "Under the age of 21, the minimum legal drinking age in the United States";
+"moderation_primary_reason_4" = "Recovering from alcohol use disorder (AUD) or unable to control the amount you drink";
+"moderation_primary_reason_5" = "Pregnant or might be pregnant";
+"moderation_full_text" = "In addition, certain individuals, particularly older adults, who are planning to drive a vehicle or operate machinery—or who are participating in activities that require skill, coordination, and alertness—should avoid alcohol completely.\n\nWhat is alcohol misuse?\n\nNIAAA defines heavy drinking as follows:\n\nFor women:\n4 or more drinks on any day or 8 or more per week.\n\nFor men:\n5 or more drinks on any day or 15 or more per week.";
+"moderation_target_women" = "4 or more drinks on any day or 8 or more per week.";
+"moderation_target_men" = "5 or more drinks on any day or 15 or more per week.";
+
+// Make a plan - ChangeCell / DefineMakeCell
+"make_plan_change_full_text" = "Thinking about a change?\n\nWe want you to know that the decision to reduce alcohol/drug consumption is entirely yours!\n\nBut If you find yourself consistently exceeding recommended guidelines for alcohol consumption, it would be wise to consider stopping, cutting down, or reducing your drinking.\nMixed feelings are normal.\n\nHave you thought about the pros and cons of doing so?";
+"make_plan_change_highlight_1" = "the decision to reduce alcohol/drug consumption is entirely yours!";
+"make_plan_change_highlight_2" = "stopping, cutting down, or reducing your drinking.";
+"define_make_full_text" = "First of all, let's define what is the best for you.\n\nIf you're considering changing your drinking, you'll need to decide whether to cut down or quit. It's a good idea to discuss different options with a healthcare professional, a friend, or someone else you trust.\n\nPlease note, when someone who has been drinking heavily for a prolonged period of time suddenly stops drinking, the body can go into a painful or even potentially life-threatening process of withdrawal.\n\nSymptoms can include nausea, rapid heart rate, seizures, or other problems. Seek medical help to plan a safe recovery. Doctors can prescribe medications to address these symptoms and make the process safer and less distressing.";
+"define_make_highlight_1" = "a painful or even potentially life-threatening process of withdrawal.";
+"define_make_highlight_2" = "nausea, rapid heart rate, seizures, or other problems.";
+
 "According to the 2020-2025 Dietary Guidelines for Americans, certain individuals should not consume alcohol. It’s safest to void alcohol altogether if you are: Taking medications that interact with alcohol Managing a medical condition that can be made Worse by drinking Under the age of 21, the minimum legal drinking age in the United States Recovering from alcohol use disorder (AUD) or unable to control the amount you drink Pregnant or might be pregnant In addition, certain individuals, particularly older adults, who are planning to drive a vehicle or operate machinery-or who are participating in activities that require skill, coordination, and alertness-should avoid alcohol completely." = "According to the 2020-2025 Dietary Guidelines for Americans, certain individuals should not consume alcohol. It’s safest to void alcohol altogether if you are: Taking medications that interact with alcohol Managing a medical condition that can be made Worse by drinking Under the age of 21, the minimum legal drinking age in the United States Recovering from alcohol use disorder (AUD) or unable to control the amount you drink Pregnant or might be pregnant In addition, certain individuals, particularly older adults, who are planning to drive a vehicle or operate machinery-or who are participating in activities that require skill, coordination, and alertness-should avoid alcohol completely.";
 
 "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda." = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
@@ -174,6 +193,9 @@ These individual tend to drink more, socialize with people who drink a lot, and 
  "Good morning!"=  "Good morning!";
 "Good afternoon!" = "Good afternoon!";
 "Good evening!" = "Good evening!";
+"Hello" = "Hello";
+"Good evening" = "Good evening";
+"Please fill all mandatory fields." = "Please fill all mandatory fields.";
 "Save" = "Save";
 "Skip" = "Skip";
 
@@ -419,7 +441,6 @@ Here are resources that can assist you in achieving your goal?";
 When you are feeling upset, ungrounded, agitated or irritable, try giving yourself a hug or a gentle stroke on the cheek and see how it impacts the way you feel.";
 
 "HOW TO DO IT" = "HOW TO DO IT";
-
 "Interlock your thumbs to form a butterfly shape" = "Interlock your thumbs to form a butterfly shape:";
 
 "Place both hands over your chest, and alternate tapping your middle finger just below your collarbone" = "Place both hands over your chest, and alternate tapping your middle finger just below your collarbone:";
@@ -444,6 +465,9 @@ When you are feeling upset, ungrounded, agitated or irritable, try giving yourse
 "Mindful walking" = "Mindful walking";
 
 "What are the benefits of mindful walking?" = "What are the benefits of mindful walking?";
+
+"mindful_walking_benefit_stress_reduction" = "Stress Reduction: Engaging in mindful walking can be an effective way to reduce stress and promote relaxation. By directing your attention to the physical sensations of walking, you create a mental break from everyday stressors. This practice activates the relaxation response in your body, leading to a calmer state of mind.";
+"mindful_walking_benefit_emotional_regulation" = "Emotional Regulation: Engaging in mindful walking can help regulate your emotions. By observing your thoughts and emotions as they arise during the practice, you develop a non-judgmental and accepting attitude towards them. This can enhance emotional resilience and provide you with a greater sense of control over your reactions to challenging situations.";
 
 "Emotional Regulation: Engaging in mindful walking can help regulate your emotions. By observing your thoughts and emotions as they arise during the practice, you develop a non-judgmental and accepting attitude towards them. This can enhance emotional resilience and provide you with a greater sense of control over your reactions to challenging situations." = "Emotional Regulation: Engaging in mindful walking can help regulate your emotions. By observing your thoughts and emotions as they arise during the practice, you develop a non-judgmental and accepting attitude towards them. This can enhance emotional resilience and provide you with a greater sense of control over your reactions to challenging situations.";
 
@@ -636,3 +660,320 @@ Ready?";
 "Benefits_of_mindful_walking" = "What are the benefits of mindful walking?";
 "Did_you_take_your_meds_this_morning" = "Did you take your meds this morning?";
 "Did_you_take_your_meds" = "Did you take your meds?";
+
+// Added for SelectedLanguageID .localized migration
+"0 counts" = "0 counts";
+"0 days" = "0 days";
+"A family history of alcohol problems." = "A family history of alcohol problems.";
+"A history of drinking-related injuries." = "A history of drinking-related injuries.";
+"AM" = "AM";
+"According to the 2020-2025 Dietary Guidelines for Americans, certain individuals should not consume alcohol. It’s safest to avoid alcohol altogether if you are:\\n\\n" = "According to the 2020-2025 Dietary Guidelines for Americans, certain individuals should not consume alcohol. It’s safest to avoid alcohol altogether if you are:\\n\\n";
+"Add appointment" = "Add appointment";
+"Alarm" = "Alarm";
+"Alarm settings" = "Alarm settings";
+"Also you need to consider the following factors to determine what to do." = "Also you need to consider the following factors to determine what to do.";
+"Are you ready?" = "Are you ready?";
+"Are you sure you want to logout?" = "Are you sure you want to logout?";
+"BAD" = "BAD";
+"COULD BE\\n BETTER" = "COULD BE\\n BETTER";
+"Changing your response to stress" = "Changing your response to stress";
+"Complete" = "Complete";
+"Confirmation" = "Confirmation";
+"Days at each mood" = "Days at each mood";
+"Do something you're good at to build self-confidence, then tackle a tougher task." = "Do something you're good at to build self-confidence, then tackle a tougher task.";
+"Drink Counts" = "Drink Counts";
+"Drinking Control" = "Drinking Control";
+"Drinking control" = "Drinking control";
+"EXCELLENT" = "EXCELLENT";
+"Edit appointment" = "Edit appointment";
+"Emergency resources" = "Emergency resources";
+"Evening" = "Evening";
+"EveryDay" = "EveryDay";
+"Expiry date" = "Expiry date";
+"FAIR" = "FAIR";
+"GOOD" = "GOOD";
+"Go back" = "Go back";
+"History" = "History";
+"Home" = "Home";
+"Journal entry" = "Journal entry";
+"Learn more" = "Learn more";
+"Let's begin!" = "Let's begin!";
+"Managing anxiety" = "Managing anxiety";
+"Medication" = "Medication";
+"Mindfulness - what is it?" = "Mindfulness - what is it?";
+"More Info" = "More Info";
+"My medical records" = "My medical records";
+"No Data Found" = "No Data Found";
+"No Records" = "No Records";
+"No content available" = "No content available";
+"No data for this date" = "No data for this date";
+"No internet connection. Please try again." = "No internet connection. Please try again.";
+"No title available" = "No title available";
+"Notify to PCP" = "Notify to PCP";
+"Others" = "Others";
+"PM" = "PM";
+"Please answer the questions" = "Please answer the questions";
+"Please enter" = "Please enter";
+"Please enter journal details" = "Please enter journal details";
+"Please fill textfield one" = "Please fill textfield one";
+"Please fill textfield two" = "Please fill textfield two";
+"Please select date" = "Please select date";
+"Please select one option" = "Please select one option";
+"Please select the medication you are currently taking." = "Please select the medication you are currently taking.";
+"Please select the stage that applies to you." = "Please select the stage that applies to you.";
+"Please select time" = "Please select time";
+"Progress on course work" = "Progress on course work";
+"Repeat" = "Repeat";
+"Resources" = "Resources";
+"Schedule time & alarm" = "Schedule time & alarm";
+"Score" = "Score";
+"Search" = "Search";
+"Settings" = "Settings";
+"Smoking Control" = "Smoking Control";
+"Smoking control" = "Smoking control";
+"So be determined to dedicate time to following along and completing the exercises. Each section has interesting and informative content that is designed to keep you actively thinking about your specific challenges. But, like taking a road trip to an unknown destination, you’ll need to be committed to following the map! It may be a little more work than you’re used to, but it will absolutely pay off in the end." = "So be determined to dedicate time to following along and completing the exercises. Each section has interesting and informative content that is designed to keep you actively thinking about your specific challenges. But, like taking a road trip to an unknown destination, you’ll need to be committed to following the map! It may be a little more work than you’re used to, but it will absolutely pay off in the end.";
+"Summary of AUDIT" = "Summary of AUDIT";
+"Summary of CAGE" = "Summary of CAGE";
+"Summary of DAST-10" = "Summary of DAST-10";
+"Summary of GAD-7" = "Summary of GAD-7";
+"Summary of PHQ-9" = "Summary of PHQ-9";
+"Summary of mood" = "Summary of mood";
+"Symptoms such as a sleep, pain, or anxiety disorder and sexual dysfunction." = "Symptoms such as a sleep, pain, or anxiety disorder and sexual dysfunction.";
+"The Discovery" = "The Discovery";
+"This assessment is based on the Patient Health Questionnaire (PHQ), which is a self-administered version of the PRIME-MD diagnostic instrument for common mental disorders.\\n\\nPHQ9 Copyright © Pfizer Inc. All rights reserved. Reproduced with permission. PRIME-MD ® is a trademark of Pfizer Inc." = "This assessment is based on the Patient Health Questionnaire (PHQ), which is a self-administered version of the PRIME-MD diagnostic instrument for common mental disorders.\\n\\nPHQ9 Copyright © Pfizer Inc. All rights reserved. Reproduced with permission. PRIME-MD ® is a trademark of Pfizer Inc.";
+"ToggleSwitch_Yes" = "ToggleSwitch_Yes";
+"US National Institute of HealthAmerican Psychological AssociationStamford University" = "US National Institute of HealthAmerican Psychological AssociationStamford University";
+"Update Time & Alarm" = "Update Time & Alarm";
+"Update time & alarm" = "Update time & alarm";
+"We will guide you to create a strategic plan in Taking control full version." = "We will guide you to create a strategic plan in Taking control full version.";
+"Weekly" = "Weekly";
+"Weekly summary" = "Weekly summary";
+"With meal" = "With meal";
+"Work your strengths" = "Work your strengths";
+"Your age." = "Your age.";
+"Your results" = "Your results";
+"cons:" = "cons:";
+"count" = "count";
+"counts" = "counts";
+"https://media.calmscient.in/uploads/exercises-audios/MindfulWalkingWithMusicEnglish.mp3" = "https://media.calmscient.in/uploads/exercises-audios/MindfulWalkingWithMusicEnglish.mp3";
+"https://media.calmscient.in/uploads/exercises-audios/ProgressiveMuscleRelaxationEnglishWithMusic.wav" = "https://media.calmscient.in/uploads/exercises-audios/ProgressiveMuscleRelaxationEnglishWithMusic.wav";
+"https://media.calmscient.in/uploads/exercises-videos/4-7-8Breathing.mp4" = "https://media.calmscient.in/uploads/exercises-videos/4-7-8Breathing.mp4";
+"https://media.calmscient.in/uploads/exercises-videos/Diaphragmaticbreathing.mp4" = "https://media.calmscient.in/uploads/exercises-videos/Diaphragmaticbreathing.mp4";
+"https://media.calmscient.in/uploads/exercises-videos/Mindfulbreathing.mp4" = "https://media.calmscient.in/uploads/exercises-videos/Mindfulbreathing.mp4";
+"pros:" = "pros:";
+"times" = "times";
+"Edit" = "Edit";
+"Delete" = "Delete";
+"Discovery" = "Discovery";
+"Expired" = "Expired";
+"Mental wellbeing tracker" = "Mental wellbeing tracker";
+
+// Medication weekday short names
+"medication_weekday_sun" = "Sun";
+"medication_weekday_mon" = "Mon";
+"medication_weekday_tue" = "Tue";
+"medication_weekday_wed" = "Wed";
+"medication_weekday_thu" = "Thu";
+"medication_weekday_fri" = "Fri";
+"medication_weekday_sat" = "Sat";
+
+// Hand over your heart steps
+"hand_over_heart_step_1" = "Rest the heel of your hand on your sternum around your heart area.";
+"hand_over_heart_step_2" = "Apply a steady, gentle, but firm pressure.";
+"hand_over_heart_step_3" = "For added effect, you can place your other hand across your forehead or on your abdomen.";
+"hand_over_heart_step_4" = "Experiment with the various placements and wait until you feel a shift. It may take up to 5 or 10 minutes of deep breathing in this position to shift if you are very activated.";
+
+// Mindfulness screen localized keys
+"mindfulness_intro_highlight" = "Have you ever caught your mind wandering or daydreaming";
+"mindfulness_intro_body" = " while you are in the middle of a familiar or repetitive task? You could be walking, working or even driving your car, and your mind is miles away, perhaps fantasizing about going on vacation, thinking about your to-do list, or worrying about some upcoming event.";
+"mindfulness_auto_pilot_text" = "In either case, you are not focusing on the current situation and not in touch with the ‘here and now’. \nThis mode of operation is often referred to as automatic pilot.";
+"mindfulness_auto_pilot_highlight" = "automatic pilot.";
+"mindfulness_opposite_text" = "Mindfulness is the opposite of automatic pilot. It is about experiencing the world that is firmly in the ‘here and now’. This is referred to as the being mode. It liberates you from automatic and unhelpful thoughts and responses.";
+"mindfulness_opposite_highlight_primary" = "Mindfulness";
+"mindfulness_opposite_highlight_secondary" = "being";
+"mindfulness_anxiety_title" = "How does mindfulness help with anxiety?";
+"mindfulness_anxiety_body" = "When we allow our brain to enter automatic pilot mode too often, it can be at risk of being conditioned to be overly preoccupied about the future, past experiences or our emotions in negative ways. If we have fallen into this old and unhelpful habit, we can unlearn it and replace it with skills that help us resist ‘buying into’ automatic worry and anxiety.";
+"mindfulness_reminder_body" = "Mindfulness reminds us that we don’t have to take immediate control of, remove or fix unpleasant experiences. Instead, we can identify and actively engage in something that will give us a sense of safety and connection.";
+"mindfulness_example_body" = "As a simple example: Instead of focusing on how many miles you walked in the morning, can you be mindfully aware of the birds singing, actively feel the fresh air, and sense the changing of the season? When you connect your senses to nature, animals, people and your own body, you capture the attention of your nervous system, which in turn soothes your anxiety. When you return home, you will be in a better frame of mind and more prepared to face your day.";
+"mindfulness_daily_routine_body" = "Which mindfulness exercises would you like to make part of your daily routine? Calmscient can remind you of some easy mindfulness routines that will help you stay in a healthy, being mode.";
+
+// Added for TakingControl/Alert/Consequence/Smoking localization
+"AUDIT" = "AUDIT";
+"DAST-10" = "DAST-10";
+"CAGE" = "CAGE";
+"Apply to me" = "Apply to me";
+"DRINKING_CONTROL_ALERT_DUI_BODY" = "Above 1.5 million people are arrested each year for driving under the influence of alcohol or drugs. DUI citations typically remain on your criminal record for many years, leading to higher insurance rates, difficulty in securing employment, and many other problems. Can you imagine the long-term negative consequences on your life and the stress it could cause? If someone has more than two DUIs, it doesn’t matter if they occur within days or over a ten-year period. They will be regarded as compounding offenses, resulting in increased penalties and possible imprisonment.";
+"SMOKING_CONTROL_RESOURCE_BREATHING_DESC" = "Let’s use breathing exercises to support your journey. They help reduce stress and cravings, and provide a calming distraction.";
+"SMOKING_CONTROL_RESOURCE_MANAGING_ANXIETY_TITLE" = "Managing anxiety course";
+"SMOKING_CONTROL_RESOURCE_MANAGING_ANXIETY_DESC" = "Anxiety can trigger drinking and smoking, but healthy coping strategies help you to stay strong";
+"SMOKING_CONTROL_RESOURCE_SCREENINGS_DESC" = "Let’s set a goal to screen for depression, anxiety, and alcohol and smoking regularly, as these can support your success";
+
+// MakePlan / Question / InfoAlert / Glossary localized keys
+"mkpln_pro_1" = "To improve my health";
+"mkpln_pro_2" = "To improve my relationships";
+"mkpln_pro_3" = "To avoid hangovers";
+"mkpln_pro_4" = "To do better at work or in school";
+"mkpln_pro_5" = "To save money";
+"mkpln_pro_6" = "To lose weight or get fit";
+"mkpln_pro_7" = "To avoid more serious problems";
+"mkpln_pro_8" = "To meet my own personal standards";
+"mkpln_con_1" = "I'd need another way to unwind";
+"mkpln_con_2" = "It helps me feel more at ease socially";
+"mkpln_con_3" = "I wouldn't fit in with some of my friends";
+"mkpln_con_4" = "Change can be hard";
+
+"qvc_hdr_1" = "1. What is your understanding of how these things are affect yourself?";
+"qvc_hdr_2" = "2. What is your understanding of how these things are affect people?";
+"qvc_hdr_3" = "3. And if you are comfortable sharing, which of these impact are you dealing with right now?";
+
+"ialrt_cap_1" = "(Alcohol Use Disorder Identification Test)";
+"ialrt_cap_2" = "(Drug Abuse Screening Test)";
+"ialrt_cap_3" = "(Cut, Annoyed, Guilty and Eye)";
+"ialrt_desc_1" = "Do you enjoy a drink now or then? Many of us do, often when socializing with friends and family. Let's take a look at your drinking patterns and how they may affect your health.\n\nThe AUDIT questionnaire is designed to help in the self-assessment of alcohol consumption and to identify any implications for the person's health and well being, now and in the future.\n\nConduct a quick self-test with AUDIT above. Click on \"Submit\" at the end for an instant assessment.";
+"ialrt_desc_2" = "\"Drug use\" refers to\n\n1. the use of prescribed or over-the-counter drugs in excess of the directions, and\n2. any non medical use of drugs.\n\nThe various classes of drugs may include cannabis (marijuana, hashish), solvents (e.g., paint thinner), tranquilizers (e.g., valium), barbiturates, cocaine, stimulants (e.g., speed), hallucinogens (e.g., LSD) or narcotics (e.g., heroin). The questions do not include alcoholic beverages.\n\nPlease answer the questions in this survey. If you have difficulty with a statement, simply choose the best response possible.\n\nThese questions refer to drug use in the past 12 months. Please answer NO or YES to each question.";
+"ialrt_desc_3" = "The CAGE questionnaire for smoking (modified from the familiar CAGE questionnaire for alcoholism), the \"four Cs\" test and the Fagerstrom Test for Nicotine Dependence help diagnose nicotine dependence based on standard criteria. Additional questions can be used to determine a patient's readiness to change and the nature of reinforcement the patient receives from smoking. These tools can assist family physicians in guiding patients to quit smoking-the single most important thing smokers can do to improve their health.";
+
+"gls_term_1" = "Adrenaline";
+"gls_term_2" = "Anxiety attack";
+"gls_term_3" = "Automatic thinking";
+"gls_term_4" = "Biased thinking";
+"gls_term_5" = "Cortisol";
+"gls_term_6" = "Cognitive distortion";
+"gls_term_7" = "Competency";
+"gls_term_8" = "Compulsive behavior";
+"gls_term_9" = "Dependency";
+"gls_term_10" = "GABA";
+"gls_term_11" = "Hyperventilation";
+"gls_term_12" = "Mindful breathing";
+"gls_term_13" = "Obsession";
+"gls_term_14" = "Panic attack";
+"gls_term_15" = "Progressive muscle relaxation";
+"gls_term_16" = "Resilience";
+"gls_term_17" = "Rigid thinking";
+"gls_term_18" = "Rumination";
+"gls_term_19" = "Self-compassion";
+"gls_term_20" = "Serotonin";
+"gls_term_21" = "Window of tolerance";
+
+"gls_sum_1" = "Adrenaline, also known as epinephrine, is a hormone and neurotransmitter produced by the adrenal glands, which are located on top of the kidneys. It plays a crucial role in the body's response to stress and triggering the \"Fight or Flight\" response.\nWhen a person perceives a threat or danger, whether real or perceived, the brain signals the adrenal glands to release adrenaline into the bloodstream. Adrenaline acts as a chemical messenger, rapidly preparing the body for action to deal with the perceived threat.";
+"gls_sum_2" = "The term \"anxiety attack\" is not officially recognized in the diagnostic manuals; DSM-5 (Diagnostic and Statistical Manual of Mental Disorders). It is often used to describe a period of heightened anxiety or a more prolonged state of anxiousness. Anxiety attacks may involve similar symptoms to panic attacks, such as excessive worry, restlessness, irritability, muscle tension, difficulty concentrating, and sleep disturbances.";
+"gls_sum_3" = "Automatic thinking refers to the rapid, involuntary, and often unconscious thoughts that arise in response to situations or triggers. These thoughts are automatic in the sense that they occur automatically and effortlessly, without deliberate intention or conscious awareness.\nAutomatic thinking patterns can be influenced by past experiences, beliefs, and cognitive biases. They can be helpful or unhelpful, depending on their content and impact on emotions and behaviors. In the context of anxiety, automatic thoughts often lean towards negative and worrisome interpretations of situations, leading to increased anxiety and distress.";
+"gls_sum_4" = "Biased thinking refers to cognitive distortions or errors in thinking that influence how we perceive and interpret information. It involves a tendency to view situations, events, or ourselves in a distorted or exaggerated manner, often leading to negative or irrational thoughts. Biased thinking can contribute to the development and maintenance of anxiety and other mental health issues.";
+"gls_sum_5" = "Cortisol is a hormone produced by the adrenal glands in response to stress. It is often referred to as the primary stress hormone. When the brain detects a threat or perceives stress, it signals the release of cortisol into the bloodstream. While cortisol is important for short-term stress adaptation, chronic or prolonged elevation of cortisol levels due to chronic stress can cause a loss of neurons in the prefrontal cortex and hippocampus. It also decreases serotonin, the \"happy hormone\", which makes a person feel angry, depressed, and feel physical pain more quickly and easily.";
+"gls_sum_6" = "Cognitive distortions, also known as biased thinking or irrational thoughts, refer to exaggerated or irrational patterns of thinking that can contribute to emotional distress and maintain anxiety or other mental health issues.\nCognitive distortions are common and can affect the way individuals interpret and perceive events, situations, and themselves. They often involve biases or errors in reasoning that lead to distorted or negative thinking patterns.";
+"gls_sum_7" = "Competency refers to the ability to perform or execute a task or set of skills effectively. It is often associated with knowledge, expertise, and proficiency in a particular area. Competency is measured by evaluating our aptitude, qualifications, or capabilities in a specific situation.";
+"gls_sum_8" = "Compulsive behavior refers to repetitive and often ritualistic actions or thoughts that individuals feel driven to perform in response to anxiety or distressing thoughts. These behaviors are typically aimed at reducing anxiety, preventing perceived harm, or maintaining a sense of control. However, they are often excessive, time-consuming, and interfere with daily functioning.";
+"gls_sum_9" = "Dependency refers to reliance on substances such as alcohol, drugs, or tobacco as a means of coping with anxiety or seeking quick relief or escape from anxiety or help coping with overwhelming emotions. However, substance dependency can be problematic and can lead to long-term physical, psychological, and social consequences.";
+"gls_sum_10" = "GABA stands for gamma-aminobutyric acid, which is a neurotransmitter in the brain. It is known as the brain's natural anti-anxiety drug because it has inhibitory effects on the central nervous system, helping to reduce neuronal excitability and promote relaxation. GABA acts as a calming agent, counteracting the effects of excitatory neurotransmitters in the brain.\nBy increasing GABA levels through exercise, individuals may experience a reduction in anxiety symptoms, improved mood, and an overall sense of well-being. This is one of the ways in which exercise can have a positive impact on mental health and help alleviate anxiety.";
+"gls_sum_11" = "Hyperventilation refers to a rapid or excessive increase in breathing rate and volume. It involves taking in more oxygen and exhaling more carbon dioxide than the body needs. Hyperventilation can be a physiological response to anxiety or stress and is often associated with panic attacks.";
+"gls_sum_12" = "Mindful breathing is a technique that involves intentionally bringing awareness to the breath and focusing on the present moment. It is a fundamental practice in mindfulness and can help promote relaxation, reduce stress, and cultivate a sense of calm.";
+"gls_sum_13" = "Obsession refers to intrusive, persistent, and unwanted thoughts, images, or urges that repeatedly and uncontrollably enter a person's mind. Individuals with obsessions often recognize that their thoughts are irrational or excessive, but they find it challenging to dismiss or ignore them. As a result, they may engage in various repetitive behaviors or mental rituals, known as compulsions, to alleviate the anxiety caused by the obsessions temporarily.";
+"gls_sum_14" = "A panic attack is a sudden and intense episode of fear or discomfort that typically peaks within minutes. It is a manifestation of anxiety and can occur without any apparent trigger or in response to a specific situation or object. Panic attacks can be accompanied by various physical and psychological symptoms, such as a rapid heart rate, chest pain, shortness of breath, dizziness, trembling, sweating, a sense of impending doom or loss of control, and feelings of unreality or detachment.";
+"gls_sum_15" = "Progressive muscle relaxation (PMR) is a relaxation technique that involves systematically tensing and relaxing different muscle groups in the body. It aims to reduce muscle tension, release physical stress, and promote overall relaxation.";
+"gls_sum_16" = "Resilience refers to the capacity to bounce back, adapt, and recover in the face of adversity, challenges, or stressful situations. It is the ability to withstand, cope with, and effectively navigate through difficulties, setbacks, or hardships. Resilience involves psychological, emotional, and sometimes physical strength to maintain a positive mindset and being able to function despite adversity.\nResilience is not about avoiding or eliminating challenges, but rather about how we respond and recover from them. It involves skills such as emotional regulation, problem-solving, flexibility, optimism, and social support. Resilience helps us persevere, learn from setbacks, and grow stronger as a result.";
+"gls_sum_17" = "Rigid thinking refers to inflexible and narrow patterns of thinking that limit flexibility, adaptability, and open-mindedness. People with rigid thinking tend to adhere strictly to their beliefs, rules, and expectations without considering alternative perspectives or possibilities. They may have a black-and-white view of the world, categorizing things as either all good or all bad, with little room for shades of gray or ambiguity.\nWhen faced with challenges or uncertainties, individuals with rigid thinking may become overwhelmed or stuck, as they struggle to adapt and find alternative solutions. Rigid thinking can also lead to self-criticism, perfectionism, and a constant need for control, which can perpetuate anxiety and stress.";
+"gls_sum_18" = "The tendency to continuously and excessively think about negative events, situations, or problems. It involves repetitively focusing on one's distressing thoughts, often with a lack of resolution or progress toward a solution.\nRumination is a common cognitive process associated with anxiety and other mental health conditions. When someone ruminates, they may replay past events, worry about future outcomes, or excessively analyze their thoughts and feelings. This prolonged dwelling on negative thoughts can contribute to heightened anxiety and a sense of feeling stuck or trapped in one's worries.";
+"gls_sum_19" = "Self-compassion refers to the practice of treating oneself with kindness, understanding, and non-judgment during times of difficulty, failure, or suffering. It involves extending the same warmth, care, and support to oneself that one would offer to a close friend or loved one who is struggling.";
+"gls_sum_20" = "Serotonin is a neurotransmitter, a chemical messenger in the brain and nervous system that plays a crucial role in regulating various physiological and psychological processes. It is often referred to as the \"feel-good\" neurotransmitter because of its association with mood regulation and feelings of well-being.";
+"gls_sum_21" = "Window of tolerance refers to a concept in psychology that describes an optimal range of arousal or activation that allows an individual to effectively cope with and respond to stressors and emotions. The window of tolerance suggests that individuals have a range in which they can handle and adapt to stressors without becoming overwhelmed or shutting down. When a person is within their window of tolerance, they are able to think clearly, make rational decisions, and engage in effective problem-solving. They are also able to experience and regulate emotions in a balanced and healthy manner.";
+
+// MyDrinkingHabit / ChallengingToQuit localization
+"Moderate drinking" = "Moderate drinking";
+"Always drink with the moderate drinking standard." = "Always drink with the moderate drinking standard.";
+"Can effortlessly commit alcohol free plan for week or month." = "Can effortlessly commit alcohol free plan for week or month.";
+"Can choose to drink or not even though people around you are drinking." = "Can choose to drink or not even though people around you are drinking.";
+"Moderate everyday drinking" = "Moderate everyday drinking";
+"Always drink with the moderate drinking standard but struggles to have alcohol- free day." = "Always drink with the moderate drinking standard but struggles to have alcohol- free day.";
+"Drink daily as sleep aids or relaxation." = "Drink daily as sleep aids or relaxation.";
+"Expect to have a drink after work or in the evening and get irritated or stressed when you can't have it." = "Expect to have a drink after work or in the evening and get irritated or stressed when you can't have it.";
+"Social / weekend binge drinking" = "Social / weekend binge drinking";
+"Casual drinking turns into doing things that you normal wouldn't do or that go against your judgement while you're sober, such as driving under alcohol influence." = "Casual drinking turns into doing things that you normal wouldn't do or that go against your judgement while you're sober, such as driving under alcohol influence.";
+"Often seek the mood-altering effects (the buzz) or using alcohol as a coping mechanism, sometimes in isolation." = "Often seek the mood-altering effects (the buzz) or using alcohol as a coping mechanism, sometimes in isolation.";
+"Get defensive when someone tries to limit your consumption or asks you to stop." = "Get defensive when someone tries to limit your consumption or asks you to stop.";
+"Remember? Binge drinking is: Men - Up to 5 or more drinks within 2 hrs Women - Up to 4 or more drinks within 2 hrs." = "Remember? Binge drinking is: Men - Up to 5 or more drinks within 2 hrs Women - Up to 4 or more drinks within 2 hrs.";
+"Problematic drinking" = "Problematic drinking";
+"Drinking until drunk." = "Drinking until drunk.";
+"Going to work drunk or drinking on the job." = "Going to work drunk or drinking on the job.";
+"Driving while drunk or have driven while drunk." = "Driving while drunk or have driven while drunk.";
+"Getting in trouble with the law or being injured due to drinking." = "Getting in trouble with the law or being injured due to drinking.";
+"Doing something under the influence of alcohol that they would not otherwise do." = "Doing something under the influence of alcohol that they would not otherwise do.";
+"Having problems at school, with social relationships, or with family members because of drinking." = "Having problems at school, with social relationships, or with family members because of drinking.";
+"Using alcohol to decrease anxiety or sadness." = "Using alcohol to decrease anxiety or sadness.";
+"Lying about or trying to hide drinking habits." = "Lying about or trying to hide drinking habits.";
+"Needing more alcohol to feel its effects." = "Needing more alcohol to feel its effects.";
+"Feeling grouchy, resentful, or unreasonable when not drinking." = "Feeling grouchy, resentful, or unreasonable when not drinking.";
+"Nicotine cravings" = "Nicotine cravings";
+"Irritability and mood swings" = "Irritability and mood swings";
+"Difficulty concentrating" = "Difficulty concentrating";
+"Increased appetite and weight gain" = "Increased appetite and weight gain";
+"Sleep disturbances" = "Sleep disturbances";
+"Depression and anxiety" = "Depression and anxiety";
+"Feeling jumpy or restless" = "Feeling jumpy or restless";
+"Do something to stay active at home" = "Do something to stay active at home";
+"Call or visit a friend or family member" = "Call or visit a friend or family member";
+"Brush your teeth" = "Brush your teeth";
+"Play with a pet" = "Play with a pet";
+"Update your contact list on your cell phone" = "Update your contact list on your cell phone";
+"Try a new hobby" = "Try a new hobby";
+"Switch to coffee with less caffeine or decaf products" = "Switch to coffee with less caffeine or decaf products";
+"“I’m thinking about quitting”" = "“I’m thinking about quitting”";
+"“Getting ready to quit”" = "“Getting ready to quit”";
+"“Quitting”" = "“Quitting”";
+"“Staying smoke-free”" = "“Staying smoke-free”";
+"You can also try…" = "You can also try…";
+"One non-nicotine medicine (prescription from your doctor is required). Varenicline is a pill that works differently from other medicines. It does not contain nicotine. It works by attaching to the same parts of your brain that are stimulated by nicotine. This means that nicotine from a cigarette has fewer places to attach because the varenicline is already there. This makes it harder to get a nicotine \"buzz\"." = "One non-nicotine medicine (prescription from your doctor is required). Varenicline is a pill that works differently from other medicines. It does not contain nicotine. It works by attaching to the same parts of your brain that are stimulated by nicotine. This means that nicotine from a cigarette has fewer places to attach because the varenicline is already there. This makes it harder to get a nicotine \"buzz\".";
+"The benefits of Varenicline are:" = "The benefits of Varenicline are:";
+"Know your triggers:" = "Know your triggers:";
+"Certain things can make you want to smoke, like being around friends you used to smoke with or being in a place where you often smoked. Even memories or feelings can bring it on." = "Certain things can make you want to smoke, like being around friends you used to smoke with or being in a place where you often smoked. Even memories or feelings can bring it on.";
+"Positive thoughts:" = "Positive thoughts:";
+"Remember why you decided to quit. You're in control, and cravings don't last forever. They'll pass." = "Remember why you decided to quit. You're in control, and cravings don't last forever. They'll pass.";
+"One non-nicotine medicine" = "One non-nicotine medicine";
+"Varenicline" = "Varenicline";
+
+// Journal entry edit / segment (EN keys)
+"journal_edit_add_button" = "Add";
+"journal_edit_placeholder" = "Add your journal here";
+"journal_edit_title" = "Add journal entry";
+"journal_edit_char_count_format" = "%d/2000";
+"journal_discovery_exercise_segment" = "Discovery \nExercise";
+
+// My smoking habit stages
+"smoking_habit_stage_thinking_title" = "Thinking about quitting";
+"smoking_habit_stage_thinking_body" = "You are considering it but haven't made a decision yet.\n\nThat's perfectly ok! We will guide you through the benefits of quitting smoking, and then you can decide if you'd like to create a plan for quitting.\nMove to Make a plan.";
+"smoking_habit_stage_ready_title" = "Getting ready to quit";
+"smoking_habit_stage_ready_body" = "You've decided to quit smoking.\n\nGreat decision! We will guide you on how to create a solid plan and help you stay focused on your journey.\nMove to Make a plan.";
+"smoking_habit_stage_quitting_title" = "Quitting";
+"smoking_habit_stage_quitting_body" = "You've already started or set a date to quit smoking.\n\nThat's great! We will help you create a strategic plan and stay focused on your goal.\nMove to Make a plan.";
+"smoking_habit_stage_smokefree_title" = "Staying smoke-free";
+"smoking_habit_stage_smokefree_body" = "You're focusing on avoiding relapse and keeping up your progress.\n\nThat's fantastic. It's important not to let your guard down. We will be here to support you to stay strong.\nMove to Make a plan to register the day you started quitting smoking, then you can use Stay focused.";
+
+// Add / edit appointment
+"appointment_description_placeholder" = "Description";
+"appointment_validation_patient_name_empty" = "Patient name cannot be empty";
+"appointment_validation_provider_name_empty" = "Provider name can't be empty";
+"appointment_validation_location_name_empty" = "Location name cannot be empty";
+"appointment_selected_time_in_past" = "Selected time is in the past for today";
+"appointment_past_dates_not_allowed" = "Past dates are not allowed";
+
+// Medical records rows / tab bar / sleep intro / user intro selection (en)
+"Upcoming medical appointments" = "Upcoming medical appointments";
+"Rewards" = "Rewards";
+"sleep_hours_question_last_night" = "How many hours did you sleep last night?";
+"sleep_circle_less" = "Less";
+"sleep_circle_more" = "More";
+"sleep_summary_less_than_four" = "Less than 4 Hours";
+"sleep_summary_more_than_ten" = "More than 10 Hours";
+"sleep_summary_hours_format" = "%@ Hours";
+"UserIntro_Mood_BAD" = "BAD";
+"UserIntro_Mood_COULD_BE_BETTER" = "COULD BE BETTER";
+"UserIntro_Mood_FAIR" = "FAIR";
+"UserIntro_Mood_GOOD" = "GOOD";
+"UserIntro_Mood_EXCELLENT" = "EXCELLENT";
+"UserIntro_Time_FAMILY" = "FAMILY";
+"UserIntro_Time_FRIENDS" = "FRIENDS";
+"UserIntro_Time_WORKMATES" = "WORKMATES";
+"UserIntro_Time_OTHERS" = "OTHERS";
+"UserIntro_Time_ALONE" = "ALONE";
+"UserIntro_fallback_mood_morning" = "How are you feeling so far?";
+"UserIntro_fallback_mood_today" = "How was your mood today?";
+"UserIntro_fallback_time_spend" = "Who did you spend time with?";

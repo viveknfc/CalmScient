@@ -279,7 +279,19 @@ class MedicationAlarm: Codable {
             medicineTime = "18:00:00"
         }
         plId = userInfo.patientLocationID
-        `repeat` = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"] : ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"] // this is the default selection it was [] empty array mentioned if not default needed //
+        `repeat` = MedicationAlarm.getLocalizedWeekDays()
+    }
+
+    private static func getLocalizedWeekDays() -> [String] {
+        return [
+            "medication_weekday_sun".localized,
+            "medication_weekday_mon".localized,
+            "medication_weekday_tue".localized,
+            "medication_weekday_wed".localized,
+            "medication_weekday_thu".localized,
+            "medication_weekday_fri".localized,
+            "medication_weekday_sat".localized
+        ]
     }
     
     public func getDayTime() -> DayTimeValue {

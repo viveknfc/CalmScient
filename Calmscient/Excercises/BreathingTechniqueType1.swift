@@ -5,15 +5,12 @@
 //  Created by Krishna on 8/7/24.
 //
 
-
-
 import UIKit
 
 import Foundation
 import UIKit
 import AVKit
 import AVFoundation
-
 
 class BreathingTechniqueType1: ViewController {
     
@@ -70,8 +67,6 @@ class BreathingTechniqueType1: ViewController {
     var timeObserverToken: Any?
     
     @IBOutlet weak var preparationLabel: UILabel!
-    
-    var languageId : Int = 1
     
     @IBOutlet weak var completeButton: CapsuleButton1!
     
@@ -258,16 +253,8 @@ class BreathingTechniqueType1: ViewController {
     
     
     func setupLanguage() {
-        
-             languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
             
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        
-        preparationLabel.text = AppHelper.getLocalizeString(str: "Preparation")
+preparationLabel.text = AppHelper.getLocalizeString(str: "Preparation")
         preparationDescLabel.text = AppHelper.getLocalizeString(str: "First find a comfortable seated position. Ensure that you are at ease before beginning the rhythmic breathing pattern.\n\nPlace the tip of your tongue gently against the tissue just behind your top front teeth")
         
         subtitleLabel.text = AppHelper.getLocalizeString(str: "Let’s learn how to do the 4-7-8 breathing exercise.")
@@ -297,7 +284,7 @@ class BreathingTechniqueType1: ViewController {
         }
     
     override func viewWillAppear(_ animated: Bool) {
-        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "4-7-8 Breathing excercise" : "Ejercicios de respiración 4-7-8"//"4-7-8 Breathing excercise"
+        title = "4-7-8 Breathing excercise".localized//"4-7-8 Breathing excercise"
         setupLanguage()
         bringControlsToFront()
         uiLabelsSetup()
@@ -305,7 +292,7 @@ class BreathingTechniqueType1: ViewController {
     
     func setupPlayer() {
         
-        guard let url = URL(string: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "https://media.calmscient.in/uploads/exercises-videos/4-7-8Breathing.mp4" : "https://media.calmscient.in/uploads/exercises-spanish-videos-audios/Spanish4-7-8Breathing.mp4") else { return }
+        guard let url = URL(string: "https://media.calmscient.in/uploads/exercises-videos/4-7-8Breathing.mp4".localized) else { return }
         player = AVPlayer(url: url)
         playerLayer = AVPlayerLayer(player: player)
         playerLayer.frame = videoView.bounds
@@ -387,7 +374,6 @@ class BreathingTechniqueType1: ViewController {
     func setFavImage() {
         self.favImg.image = UIImage(named: self.isFav == 1 ? "redFav" : "fav")
     }
-
 
     @objc func favImgTapped(sender: UITapGestureRecognizer) {
         isFav = (isFav == 0) ? 1 : 0

@@ -68,7 +68,7 @@ public class GraphData {
     }
     
     func getMarkerTextValue() -> String {
-        let scoreString = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Score" : "Puntaje"
+        let scoreString = "Score".localized
         guard let additionalInfo = self.additionalInfo else {
             return "\(scoreString)(\(yValue))"
         }

@@ -73,8 +73,6 @@ class UserMedicationsTableCell: UITableViewCell, EditableCell {
     weak var delegate: CustomTableViewCellDelegate?
     var indexPath: IndexPath?
     
-    let isSpanish = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-   
     override func awakeFromNib() {
         super.awakeFromNib()
         addShadowAndBorder()
@@ -124,7 +122,7 @@ class UserMedicationsTableCell: UITableViewCell, EditableCell {
     func updateCellWith(MedicalDetails record: MedicineDetails, for timeSlot: TimeSlot) {
         titleLabel.text = record.medicationDetailsByDate[0].medicineName
         subTitleLabel.text = record.medicationDetailsByDate[0].medicalDetails.directions
-        expiredLabel.text = isSpanish == 1 ? "Expired" : "Caducado"
+        expiredLabel.text = "Expired".localized
 
         let alarmList = record.medicationDetailsByDate[0].medicalDetails.scheduledTimeList
         let enabledAlarms = alarmList.flatMap { obj in

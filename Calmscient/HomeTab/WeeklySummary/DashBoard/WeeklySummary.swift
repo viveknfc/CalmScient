@@ -52,23 +52,23 @@ public enum WeeklySummaryItems:String {
     var localized: String {
           switch self {
           case .WeeklySummarySummaryOfMood:
-              return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Summary of mood" : "Resumen del estado de ánimo"
+              return "Summary of mood".localized
           case .WeeklySummarySummaryOfSleep:
-              return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Summary of sleep" : "Resumen del sueño"
+              return "Summary of sleep".localized
           case .WeeklySummarySummaryOfPHQ9:
-              return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Summary of PHQ-9" : "Resumen del PHQ-9";
+              return "Summary of PHQ-9".localized;
           case .WeeklySummarySummaryOfGAD:
-              return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Summary of GAD-7" : "Resumen de GAD-7";
+              return "Summary of GAD-7".localized;
           case .WeeklySummarySummaryOfAudit:
-              return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Summary of AUDIT" : "Resumen de AUDIT"
+              return "Summary of AUDIT".localized
           case .WeeklySummarySummaryOfDast:
-              return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Summary of DAST-10" : "Resumen de DAST-10"
+              return "Summary of DAST-10".localized
           case .WeeklySummaryProgressOnCourseWork:
-              return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Progress on course work" : "Progreso en el trabajo del curso"
+              return "Progress on course work".localized
           case .WeeklySummaryJournalEntry:
-              return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Journal entry" : "Entrada de diario"
+              return "Journal entry".localized
           case .WeeklySummaryCAGE:
-              return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Summary of CAGE" : "Resumen de CAGE"
+              return "Summary of CAGE".localized
           }
       }
     

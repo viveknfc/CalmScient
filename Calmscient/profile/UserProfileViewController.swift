@@ -64,8 +64,8 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
         self.view.showToastActivity()
         
         self.navigationController?.isNavigationBarHidden = false
-        self.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Settings" : "Ajustes"
-        self.alarmTile = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Alarm settings" : "Configuración de alarma"
+        self.title = "Settings".localized
+        self.alarmTile = "Alarm settings".localized
         setupView()
         setupTableView()
         setupLanguage()
@@ -173,19 +173,8 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
        }
 
     func setupLanguage() {
-        
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-                self.versionLabel.text = AppHelper.getLocalizeString(str: "Version 1.0.1")
-               
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-                self.versionLabel.text = AppHelper.getLocalizeString(str: "Version 1.0.1")
-
-            }
-        }
+        self.versionLabel.text = AppHelper.getLocalizeString(str: "Version 1.0.1")
+    }
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.navigationBar.isHidden = false
         
@@ -631,7 +620,7 @@ class UserProfileViewController: ViewController, UIImagePickerControllerDelegate
             if let alarmDuration = settings["alarmDuration"] as? Int {
                 self.alarmValue = alarmDuration
                 print("the alarm duration is",self.alarmValue)
-                let alarmTitle = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Alarm settings" : "Configuración de alarma"
+                let alarmTitle = "Alarm settings".localized
                 self.cellTitleList.append(alarmTitle)
             }
 
@@ -1013,7 +1002,7 @@ extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate
 
         
         if indexPath.row == 5 {
-            let alert = UIAlertController(title:UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "License Key" : "Licencia", message: self.licenseKey, preferredStyle: UIAlertController.Style.alert)
+            let alert = UIAlertController(title:"License Key".localized, message: self.licenseKey, preferredStyle: UIAlertController.Style.alert)
             
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
             
@@ -1024,10 +1013,10 @@ extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate
             
             //  func showAlert() {
             // Create the alert controller
-            let alertController = UIAlertController(title: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Confirmation" : "Confirmación", message: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Are you sure you want to logout?" : "¿Estás seguro de que quieres cerrar sesión?", preferredStyle: .alert)
+            let alertController = UIAlertController(title: "Confirmation".localized, message: "Are you sure you want to logout?".localized, preferredStyle: .alert)
             
             // Create the "Yes" action
-            let yesAction = UIAlertAction(title:  UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Yes" : "Sí", style: .default) { _ in
+            let yesAction = UIAlertAction(title:  "Yes".localized, style: .default) { _ in
                 print("User tapped Yes")
                 let next = UIStoryboard(name: "LoginVC", bundle: nil)
                 UserDefaults.standard.set(0, forKey: "rememberMe")

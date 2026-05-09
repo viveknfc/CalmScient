@@ -9,8 +9,8 @@ class CustomSegmentedControl: UIControl {
     var bottomBorderViews = [UIView]()
     
     var items: [String] = [
-        UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Drinking control" : "Control del Consumo de Alcohol",
-        UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Smoking control" : "Control del Tabaquismo" ] {
+        "Drinking control".localized,
+        "Smoking control".localized ] {
         didSet {
             setupLabels()
             setupBorders()
@@ -84,8 +84,8 @@ class CustomSegmentedControl: UIControl {
         for index in 0..<items.count {
             let label = UILabel(frame: .zero)
             label.text = [
-                UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Drinking Control" : "Control del Consumo de Alcohol",
-                UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Smoking Control" : "Control del Tabaquismo" ][index]
+                "Drinking Control".localized,
+                "Smoking Control".localized ][index]
             label.textAlignment = .center
             label.font = UIFont(name: Fonts().lexendRegular, size: 16)!
             label.textColor = index == selectedIndex ? selectedColor : unselectedColor

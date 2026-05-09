@@ -8,9 +8,6 @@
 import Foundation
 import UIKit
 
-
-
-
 class TouchAndButterFly2: ViewController {
     
     
@@ -77,20 +74,13 @@ class TouchAndButterFly2: ViewController {
 
     
     override func viewWillAppear(_ animated: Bool) {
-        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Touch and the butterfly hug" : "Tacto y el Abrazo de Mariposa"
+        title = "Touch and the butterfly hug".localized
         setupLanguage()
     }
     
     
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
 //        titleLabel.text = languageId == 1 ? "Touch and the butterfly hug" : "Toque y el abrazo de mariposa"
         
         descriptionLabel.text = AppHelper.getLocalizeString(str: "Humans respond powerfully to touch. Gentle, affectionate touch helps calm the nervous system and can trigger the release of oxytocin, the attachment hormone. Interestingly, when it comes to releasing oxytocin, our bodies don’t differentiate between the touch of a loved one or our own touch as we hold ourselves.\nWhen you are feeling upset, ungrounded, agitated or irritable, try giving yourself a hug or a gentle stroke on the cheek and see how it impacts the way you feel.")

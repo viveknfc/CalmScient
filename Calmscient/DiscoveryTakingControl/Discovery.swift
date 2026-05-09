@@ -110,7 +110,7 @@ class Discovery: ViewController,UITableViewDelegate,UITableViewDataSource {
         }
         customSegmentedControl.setupLabels()
         tableView.reloadData()
-        self.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "Taking control" : "Tomando el control"
+        self.title = "Taking control".localized
        // self.view.showToastActivity()
     }
     
@@ -155,7 +155,7 @@ class Discovery: ViewController,UITableViewDelegate,UITableViewDataSource {
                         cell.leftValue.text = "\(nowValue) \(AppHelper.getLocalizeString(str: "days"))"
                     } else {
                         
-                        cell.leftValue.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "0 days" :"0 Días"
+                        cell.leftValue.text = "0 days".localized
                     }
            
                     cell.rightTitle.text =  AppHelper.getLocalizeString(str: "Monthly goal")
@@ -163,7 +163,7 @@ class Discovery: ViewController,UITableViewDelegate,UITableViewDataSource {
                         
                         cell.rightValue.text = "\(goalValue) \(AppHelper.getLocalizeString(str: "days"))"
                     } else {
-                        cell.rightValue.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "0 days" :"0 Días"
+                        cell.rightValue.text = "0 days".localized
                     }
 
                     cell.rightBox.layer.cornerRadius = 10
@@ -177,18 +177,18 @@ class Discovery: ViewController,UITableViewDelegate,UITableViewDataSource {
                     let sectionData = index[indexPath.section]
                     if let nowValue = sectionData["now"] as? Int {
                         
-                        cell.leftValue.text = "\(nowValue) \(UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "counts" :"conteos")"
+                        cell.leftValue.text = "\(nowValue) \("counts".localized)"
                         
                     } else {
-                        cell.leftValue.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "0 counts" : "0 conteos"
+                        cell.leftValue.text = "0 counts".localized
                     }
            
                     cell.rightTitle.text =  AppHelper.getLocalizeString(str: "Monthly goal")
                     if let goalValue = sectionData["goal"] as? Int {
                         
-                        cell.rightValue.text = "\(goalValue) \(UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "counts" :"conteos")"
+                        cell.rightValue.text = "\(goalValue) \("counts".localized)"
                     } else {
-                        cell.rightValue.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "0 counts" : "0 conteos"
+                        cell.rightValue.text = "0 counts".localized
                     }
 
                     cell.rightBox.layer.cornerRadius = 10
@@ -238,10 +238,10 @@ class Discovery: ViewController,UITableViewDelegate,UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ResourceCell", for: indexPath) as! ResourceCell
             cell.selectionStyle = .none
             cell.videoImageView.image = UIImage(named: "Mask", in: nil, with: nil)
-            cell.headLable.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?   "Work your strengths" : "Aprovecha tus fortalezas"
-            cell.resourcesLbl.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Resources" : "Recursos"
+            cell.headLable.text = "Work your strengths".localized
+            cell.resourcesLbl.text = "Resources".localized
                    
-            cell.descriptionLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?   "Do something you're good at to build self-confidence, then tackle a tougher task." : "Haz algo en lo que seas bueno para aumentar tu autoconfianza, y luego enfrenta una tarea más difícil."
+            cell.descriptionLabel.text = "Do something you're good at to build self-confidence, then tackle a tougher task.".localized
             // Configure the cell as needed
             return cell
         case 4:
@@ -264,9 +264,9 @@ class Discovery: ViewController,UITableViewDelegate,UITableViewDataSource {
         
         switch section {
         case 0:
-            header.setText(UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Alcohol free days" : "Días sin alcohol.")
+            header.setText("Alcohol free days".localized)
         case 1:
-            header.setText(UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Drink Counts" : "Conteo de bebidas.")
+            header.setText("Drink Counts".localized)
         default:
             header.setText("")
         }

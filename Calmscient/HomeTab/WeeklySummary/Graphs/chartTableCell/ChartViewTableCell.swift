@@ -66,7 +66,7 @@ class ChartViewTableCell: UITableViewCell {
         guard graphData.count > 0 else {
             lineChartView.data = nil
             lineChartView.notifyDataSetChanged()
-            lineChartView.noDataText = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "No Data Found" : "No se encontraron datos"
+            lineChartView.noDataText = "No Data Found".localized
             lineChartView.animate(xAxisDuration: 0.01)
             return
         }
@@ -159,7 +159,7 @@ class ChartViewTableCell: UITableViewCell {
         guard graphData.count > 0 else {
             lineChartView.data = nil
             lineChartView.notifyDataSetChanged()
-            lineChartView.noDataText = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "No Data Found" : "No se encontraron datos"
+            lineChartView.noDataText = "No Data Found".localized
             lineChartView.animate(xAxisDuration: 0.01)
             return
         }
@@ -268,7 +268,7 @@ class ChartViewTableCell: UITableViewCell {
         guard graphData.count > 0 else {
             barChartView.data = nil
             barChartView.notifyDataSetChanged()
-            barChartView.noDataText = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "No Data Found" : "No se encontraron datos"
+            barChartView.noDataText = "No Data Found".localized
             barChartView.animate(xAxisDuration: 0.01)
             return
         }
@@ -344,11 +344,11 @@ class ChartViewTableCell: UITableViewCell {
 public class MoodAxisFormatter:AxisValueFormatter {
     public func stringForValue(_ value: Double, axis: DGCharts.AxisBase?) -> String {
         switch value {
-        case 5: return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "EXCELLENT" : "EXCELENTE"
-        case 3: return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "FAIR" : "JUSTO"
-        case 2: return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "COULD BE\n BETTER" : "PODRÍA SER\n MEJOR"
-        case 1: return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "BAD" : "MALO"
-        case 4: return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "GOOD" : "BUENO"
+        case 5: return "EXCELLENT".localized
+        case 3: return "FAIR".localized
+        case 2: return "COULD BE\n BETTER".localized
+        case 1: return "BAD".localized
+        case 4: return "GOOD".localized
         default: return ""
         }
     }
@@ -440,11 +440,11 @@ public class ScoreAxisFormatter: AxisValueFormatter {
 public class MoodChartYAxisFormatter: AxisValueFormatter {
     public func stringForValue(_ value: Double, axis: DGCharts.AxisBase?) -> String {
         switch Int(value) {
-        case 5: return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "EXCELLENT" : "EXCELENTE"
-        case 3: return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "FAIR" : "JUSTO"
-        case 2: return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "COULD BE\n BETTER" : "PODRÍA SER\n MEJOR"
-        case 1: return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "BAD" : "MALO"
-        case 4: return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "GOOD" : "BUENO"
+        case 5: return "EXCELLENT".localized
+        case 3: return "FAIR".localized
+        case 2: return "COULD BE\n BETTER".localized
+        case 1: return "BAD".localized
+        case 4: return "GOOD".localized
         default: return "N/A"
         }
     }

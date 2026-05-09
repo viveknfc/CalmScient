@@ -72,6 +72,25 @@
 //moderation
 "When is drinking in moderation still too much?" = "¿Cuándo es beber con moderación todavía demasiado?";
 
+// Moderation (localized blocks)
+"moderation_intro_text" = "Según las Guías Alimentarias para Estadounidenses 2020-2025, ciertas personas no deben consumir alcohol. Es más seguro evitar el alcohol por completo si:\n\n";
+"moderation_primary_reason_1" = "Tomar medicamentos que interactúan con el alcohol";
+"moderation_primary_reason_2" = "Manejar una condición médica que puede empeorar con el consumo de alcohol";
+"moderation_primary_reason_3" = "Menor de 21 años, la edad mínima legal para beber en los Estados Unidos";
+"moderation_primary_reason_4" = "Recuperándose de un trastorno por consumo de alcohol (AUD) o incapaz de controlar la cantidad que bebes";
+"moderation_primary_reason_5" = "Embarazada o podría estar embarazada";
+"moderation_full_text" = "Además, ciertas personas, especialmente los adultos mayores, que planean conducir un vehículo o operar maquinaria—o que están participando en actividades que requieren destreza, coordinación y alerta—deben evitar el alcohol por completo.\n\n¿Qué es el abuso de alcohol?\n\nEl NIAAA define el consumo excesivo de alcohol de la siguiente manera:\n\nPara mujeres:\n4 o más bebidas en un día o 8 o más por semana.\n\nPara hombres:\n5 o más bebidas en un día o 15 o más por semana.";
+"moderation_target_women" = "4 o más bebidas en un día o 8 o más por semana.";
+"moderation_target_men" = "5 o más bebidas en un día o 15 o más por semana.";
+
+// Make a plan - ChangeCell / DefineMakeCell
+"make_plan_change_full_text" = "¿Pensando en un cambio?\n\n¡Queremos que sepas que la decisión de reducir el consumo de alcohol/drogas es completamente tuya!\n\nPero si te encuentras superando constantemente las pautas recomendadas para el consumo de alcohol, sería prudente considerar detener, reducir o disminuir tu consumo.\nEs normal tener sentimientos encontrados.\n\n¿Has pensado en los pros y contras de hacerlo?";
+"make_plan_change_highlight_1" = "la decisión de reducir el consumo de alcohol/drogas es completamente tuya!";
+"make_plan_change_highlight_2" = "detener, reducir o disminuir tu consumo.";
+"define_make_full_text" = "En primer lugar, definamos qué es lo mejor para ti.\n\nSi estás considerando cambiar tu forma de beber, tendrás que decidir si reducir o dejar de beber. Es una buena idea hablar sobre las diferentes opciones con un profesional de la salud, un amigo o alguien en quien confíes.\n\nTen en cuenta que, cuando una persona que ha estado bebiendo en exceso durante un período prolongado deja de beber repentinamente, su cuerpo puede entrar en un proceso de abstinencia doloroso o incluso potencialmente mortal.\n\nLos síntomas pueden incluir náuseas, ritmo cardíaco acelerado, convulsiones u otros problemas. Busca ayuda médica para planificar una recuperación segura. Los médicos pueden recetar medicamentos para tratar estos síntomas y hacer que el proceso sea más seguro y menos angustiante.";
+"define_make_highlight_1" = "un proceso de abstinencia doloroso o incluso potencialmente mortal.";
+"define_make_highlight_2" = "náuseas, ritmo cardíaco acelerado, convulsiones u otros problemas.";
+
 "According to the 2020-2025 Dietary Guidelines for Americans, certain individuals should not consume alcohol. It’s safest to void alcohol altogether if you are: Taking medications that interact with alcohol Managing a medical condition that can be made Worse by drinking Under the age of 21, the minimum legal drinking age in the United States Recovering from alcohol use disorder (AUD) or unable to control the amount you drink Pregnant or might be pregnant In addition, certain individuals, particularly older adults, who are planning to drive a vehicle or operate machinery-or who are participating in activities that require skill, coordination, and alertness-should avoid alcohol completely." = "Según las Pautas dietéticas para estadounidenses 2020-2025, determinadas personas no deben consumir alcohol. Es más seguro evitar el consumo de alcohol por completo si: Toma medicamentos que interactúan con el alcohol. Maneja una condición médica que puede empeorar al beber. Tiene menos de 21 años, la edad mínima legal para beber en los Estados Unidos. Se está recuperando de un trastorno por consumo de alcohol (AUD). o incapaz de controlar la cantidad que bebe. Embarazada o que podría estar embarazada. Además, ciertas personas, particularmente adultos mayores, que planean conducir un vehículo u operar maquinaria, o que participan en actividades que requieren habilidad, coordinación y estado de alerta, deben Evite el alcohol por completo.";
 
 "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda." = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.
@@ -197,6 +216,9 @@ Estos individuos tienden a beber más, socializar con personas que beben mucho y
 "Good morning!" = "¡Buenos días!";
 "Good afternoon!" = "¡Buenas tardes!";
 "Good evening!" = "¡Buenas noches!";
+"Hello" = "Hola";
+"Good evening" = "Buenas noches";
+"Please fill all mandatory fields." = "Por favor, completa todos los campos obligatorios.";
 "Save" = "Guardar";
 "Skip" = "Omitir";
 
@@ -413,7 +435,6 @@ Cuando te sientas molesto, desubicado, agitado o irritable, intenta darte un abr
 ";
 
 "HOW TO DO IT" = "CÓMO HACERLO";
-
 "Interlock your thumbs to form a butterfly shape" = "Entrecruza tus pulgares para formar una forma de mariposa:";
 
 "Place both hands over your chest, and alternate tapping your middle finger just below your collarbone" = "Coloca ambas manos sobre tu pecho y alterna tocando con tu dedo medio justo debajo de la clavícula:";
@@ -442,6 +463,9 @@ Cuando te sientas molesto, desubicado, agitado o irritable, intenta darte un abr
 "Mindful walking" = "Caminata consciente";
 
 "What are the benefits of mindful walking?" = "¿Cuáles son los beneficios de la caminata consciente?";
+
+"mindful_walking_benefit_stress_reduction" = "Reducción del Estrés: Tener una caminata consciente puede ser una forma efectiva de reducir el estrés y promover la relajación. Al dirigir tu atención a las sensaciones físicas de caminar, creas un descanso mental de todo lo que te estresa. Esta práctica activa la respuesta de relajación en tu cuerpo, llevándote a un estado mental más tranquilo.";
+"mindful_walking_benefit_emotional_regulation" = "Regulación Emocional: Tener una caminata consciente puede ayudar a regular tus emociones. Al observar tus pensamientos y emociones a medida que van surgiendo, desarrollas una actitud de aceptación para contigo mismo. Esto puede mejorar tu resiliencia emocional y darte una mayor sensación de control sobre tus reacciones ante situaciones desafiantes.";
 
 "Emotional Regulation: Engaging in mindful walking can help regulate your emotions. By observing your thoughts and emotions as they arise during the practice, you develop a non-judgmental and accepting attitude towards them. This can enhance emotional resilience and provide you with a greater sense of control over your reactions to challenging situations." = "Regulación emocional: Participar en la caminata consciente puede ayudar a regular tus emociones. Al observar tus pensamientos y emociones a medida que surgen durante la práctica, desarrollas una actitud de no juicio y aceptación hacia ellos. Esto puede mejorar la resiliencia emocional y brindarte un mayor sentido de control sobre tus reacciones ante situaciones desafiantes.";
 
@@ -647,3 +671,333 @@ Pero, tienes el control total sobre la decisión respecto a tu hábito.
 "text3" = "¿Fumas y quieres dejarlo? \n\nNuestro Coach para dejar de fumar puede ayudarte.";
 "text4" = "Siempre puedes volver a tomar las pruebas AUDIT y DAST-10 en esta app.";
 "text5" = "No mostrar este tutorial la próxima vez.";
+
+// Added for SelectedLanguageID .localized migration
+"0 counts" = "0 conteos";
+"0 days" = "0 Días";
+"A family history of alcohol problems." = "Antecedentes familiares de problemas con el alcohol.";
+"A history of drinking-related injuries." = "Antecedentes de lesiones relacionadas con el consumo de alcohol.";
+"AM" = "AM";
+"According to the 2020-2025 Dietary Guidelines for Americans, certain individuals should not consume alcohol. It’s safest to avoid alcohol altogether if you are:\\\n\\\n" = "Según las Guías Alimentarias para Estadounidenses 2020-2025, ciertas personas no deben consumir alcohol. Es más seguro evitar el alcohol por completo si eres:\\\n\\\n";
+"Add appointment" = "Agregar nueva cita";
+"Alarm" = "Alarma";
+"Alarm settings" = "Configuración de alarma";
+"Alcohol free days" = "Días sin alcohol.";
+"Also you need to consider the following factors to determine what to do." = "También debe considerar los siguientes factores para determinar qué hacer.";
+"Are you ready?" = "¿Estás listo?";
+"Are you sure you want to logout?" = "¿Estás seguro de que quieres cerrar sesión?";
+"BAD" = "MALO";
+"COULD BE\\\n BETTER" = "PODRÍA SER\\\n MEJOR";
+"Changing your response to stress" = "Cambiar tu respuesta al estrés";
+"Complete" = "Finalizar";
+"Confirmation" = "Confirmation";
+"Days at each mood" = "Días en cada estado de ánimo";
+"Do something you're good at to build self-confidence, then tackle a tougher task." = "Haz algo en lo que seas bueno para aumentar tu autoconfianza, y luego enfrenta una tarea más difícil.";
+"Drink Counts" = "Conteo de bebidas.";
+"Drinking Control" = "Control del Consumo de Alcohol";
+"Drinking control" = "Control del Consumo de Alcohol";
+"EXCELLENT" = "EXCELENTE";
+"Edit appointment" = "Editar cita";
+"Emergency resources" = "Recursos de emergencia.";
+"Evening" = "Noche";
+"EveryDay" = "todos los días.";
+"Expiry date" = "Fecha de vencimiento";
+"FAIR" = "JUSTO";
+"GOOD" = "BUENO";
+"Go back" = "Volver";
+"History" = "Historial";
+"Home" = "Inicio";
+"Journal entry" = "Entrada de diario";
+"Learn more" = "Aprende más.";
+"Let's begin!" = "¡Empecemos!";
+"Managing anxiety" = "Manejar la ansiedad";
+"Mindfulness - what is it?" = "Mindfulness: ¿qué es?";
+"More Info" = "Más información";
+"My medical records" = "Mis registros médicos";
+"No Data Found" = "No se encontraron datos";
+"No Records" = "No hay registros";
+"No content available" = "No hay contenido disponible.";
+"No data for this date" = "No hay datos para esta fecha";
+"No internet connection. Please try again." = "No internet connection. Please try again.";
+"No title available" = "Título no disponible.";
+"Notify to PCP" = "Notificar al médico de atención primaria";
+"Others" = "Otros";
+"PM" = "PM";
+"Please answer the questions" = "Por favor, responde las preguntas";
+"Please enter" = "Por favor ingresa";
+"Please enter journal details" = "Por favor, ingrese los detalles del diario";
+"Please fill textfield one" = "Por favor complete el campo de texto uno";
+"Please fill textfield two" = "Por favor complete el campo de texto dos";
+"Please select date" = "Por favor, seleccione la fecha";
+"Please select one option" = "Por favor seleccione una opción";
+"Please select the medication you are currently taking." = "Selecciona el medicamento de la lista si lo has tomado hoy";
+"Please select the stage that applies to you." = "Por favor, seleccione la etapa que le corresponde";
+"Please select time" = "Por favor, seleccione la hora";
+"Progress on course work" = "Progreso en el trabajo del curso";
+"Repeat" = "Repetir";
+"Resources" = "Recursos";
+"Schedule time & alarm" = "Configurar la yora y alarma";
+"Score" = "Puntaje";
+"Search" = "Buscar";
+"Settings" = "Ajustes";
+"Smoking Control" = "Control del Tabaquismo";
+"Smoking control" = "Control del Tabaquismo";
+"Summary of AUDIT" = "Resumen de AUDIT";
+"Summary of CAGE" = "Resumen de CAGE";
+"Summary of DAST-10" = "Resumen de DAST-10";
+"Summary of GAD-7" = "Resumen de GAD-7";
+"Summary of PHQ-9" = "Resumen del PHQ-9";
+"Summary of mood" = "Resumen del estado de ánimo";
+"Symptoms such as a sleep, pain, or anxiety disorder and sexual dysfunction." = "Síntomas como trastorno del sueño, dolor o ansiedad y disfunción sexual.";
+"The Discovery" = "El Descubrimiento";
+"This assessment is based on the Patient Health Questionnaire (PHQ), which is a self-administered version of the PRIME-MD diagnostic instrument for common mental disorders.\\\n\\\nPHQ9 Copyright © Pfizer Inc. All rights reserved. Reproduced with permission. PRIME-MD ® is a trademark of Pfizer Inc." = "Esta evaluación se basa en el Cuestionario de salud del paciente (PHQ), que es una versión autoadministrada del instrumento de diagnóstico PRIME-MD para trastornos mentales comunes.\\\n\\\nPHQ9 Copyright © Pfizer Inc. Todos los derechos reservados. Reproducido con permiso. PRIME-MD® es una marca comercial de Pfizer Inc.";
+"ToggleSwitch_Yes" = "ToggleSwitch_Si";
+"US National Institute of HealthAmerican Psychological AssociationStamford University" = "Instituto Nacional de Salud de EE. UU.Asociación Americana de PsicologíaUniversidad de Stamford";
+"Update Time & Alarm" = "Actualizar Hora y Alarma.";
+"Update time & alarm" = "Programar hora y alarma.";
+"We will guide you to create a strategic plan in Taking control full version." = "Le guiaremos para crear un plan estratégico en la versión completa de Taking Control.";
+"Weekly" = "Semanalmente";
+"Weekly summary" = "Resumen semanal";
+"With meal" = "Con alimentos";
+"Work your strengths" = "Aprovecha tus fortalezas";
+"Your age." = "Su edad.";
+"Your results" = "Tus resultados.";
+"cons:" = "Contras:";
+"count" = "contar";
+"counts" = "conteos";
+"https://media.calmscient.in/uploads/exercises-audios/MindfulWalkingWithMusicEnglish.mp3" = "https://media.calmscient.in/uploads/exercises-audios/MindfulWalkingWithMusicSpanish.mp3";
+"https://media.calmscient.in/uploads/exercises-audios/ProgressiveMuscleRelaxationEnglishWithMusic.wav" = "https://media.calmscient.in/uploads/exercises-audios/ProgressiveMuscleRelaxationWithMusicSpanish.wav";
+"https://media.calmscient.in/uploads/exercises-videos/4-7-8Breathing.mp4" = "https://media.calmscient.in/uploads/exercises-spanish-videos-audios/Spanish4-7-8Breathing.mp4";
+"https://media.calmscient.in/uploads/exercises-videos/Diaphragmaticbreathing.mp4" = "https://media.calmscient.in/uploads/exercises-spanish-videos-audios/SpanishDiaphragmaticbreathing.mp4";
+"https://media.calmscient.in/uploads/exercises-videos/Mindfulbreathing.mp4" = "https://media.calmscient.in/uploads/exercises-spanish-videos-audios/SpanishMindfulbreathing.mp4";
+"pros:" = "Ventajas:";
+"times" = "veces";
+"Edit" = "Editar";
+"Delete" = "Eliminar";
+"Discovery" = "Descubrimiento";
+"Expired" = "Caducado";
+"Mental wellbeing tracker" = "Rastreador de bienestar mental";
+
+// Medication weekday short names
+"medication_weekday_sun" = "Dom";
+"medication_weekday_mon" = "Lun";
+"medication_weekday_tue" = "Mar";
+"medication_weekday_wed" = "Mié";
+"medication_weekday_thu" = "Jue";
+"medication_weekday_fri" = "Vie";
+"medication_weekday_sat" = "Sáb";
+
+// Hand over your heart steps
+"hand_over_heart_step_1" = "Apoya la base de tu mano en el esternón, alrededor del área del corazón.";
+"hand_over_heart_step_2" = "Aplica una presión constante, suave, pero firme.";
+"hand_over_heart_step_3" = "Para un efecto adicional, puedes colocar la otra mano sobre tu frente o en tu abdomen.";
+"hand_over_heart_step_4" = "Experimenta con las distintas posiciones y espera hasta que sientas un cambio. Puede tomar de 5 a 10 minutos de respiración profunda en esta posición para notar un cambio si estás muy activado.";
+
+// Added missing keys from English
+"Doesn't apply to me" = "No se aplica a mí";
+"Pros" = "Ventajas";
+"Cons" = "Desventajas";
+"Daily jouneral" = "Diario diario";
+"Discovery Excercise" = "Ejercicio de descubrimiento";
+"Accept Terms & Conditions" = "Aceptar Términos y Condiciones";
+"First find a comfortable to either sit down or
+lay down." = "Primero busca una posicion comoda para sentarte o acostarte.";
+" So be determined to dedicate time to following along and completing the exercises. Each section has interesting and informative content that is designed to keep you actively thinking about your specific challenges. But, like taking a road trip to an unknown destination, you’ll need to be committed to following the map! It may be a little more work than you’re used to, but it will absolutely pay off in the end." = "Asi que decide dedicar tiempo a seguir y completar los ejercicios. Cada seccion tiene contenido interesante e informativo para ayudarte a pensar activamente en tus desafios especificos. Pero, como en un viaje por carretera a un destino desconocido, necesitas comprometerte a seguir el mapa. Puede requerir un poco mas de esfuerzo de lo habitual, pero valdra totalmente la pena al final.";
+"According to the 2020-2025 Dietary Guidelines for Americans, certain individuals should not consume alcohol. It’s safest to avoid alcohol altogether if you are:\\n\\n" = "Segun las Guias Alimentarias para los Estadounidenses 2020-2025, ciertas personas no deben consumir alcohol. Es mas seguro evitar el alcohol por completo si usted es:\\n\\n";
+"COULD BE\\n BETTER" = "PODRIA SER\\n MEJOR";
+"This assessment is based on the Patient Health Questionnaire (PHQ), which is a self-administered version of the PRIME-MD diagnostic instrument for common mental disorders.\\n\\nPHQ9 Copyright © Pfizer Inc. All rights reserved. Reproduced with permission. PRIME-MD ® is a trademark of Pfizer Inc." = "Esta evaluacion se basa en el Cuestionario de Salud del Paciente (PHQ), que es una version autoadministrada del instrumento diagnostico PRIME-MD para trastornos mentales comunes.\\n\\nPHQ9 Copyright © Pfizer Inc. Todos los derechos reservados. Reproducido con permiso. PRIME-MD ® es una marca registrada de Pfizer Inc.";
+
+// Mindfulness screen localized keys
+"mindfulness_intro_highlight" = "¿Alguna vez estuviste pensando en otra cosa o sonando despierto";
+"mindfulness_intro_body" = " mientras estas en medio de una tarea familiar o repetitiva? Podrias estar caminando, trabajando o incluso conduciendo el auto, pero tu mente esta a kilometros de distancia, quizas fantaseando con ir de vacaciones, pensando en tu lista de tareas o preocupandote por algun proximo evento.";
+"mindfulness_auto_pilot_text" = "En cualquiera de los casos, no estas prestando atencion a la situacion actual y no estas en contacto con el aqui y ahora.\nA este comportamiento se le conoce a menudo como piloto automatico.";
+"mindfulness_auto_pilot_highlight" = "piloto automatico";
+"mindfulness_opposite_text" = "La conciencia es lo contrario del piloto automatico. Se trata de vivir el momento presente, de estar realmente en el aqui y ahora. Esto se llama modo de presencia. Te ayuda a liberarte de pensamientos y reacciones automaticas que no son utiles.";
+"mindfulness_opposite_highlight_primary" = "conciencia es";
+"mindfulness_opposite_highlight_secondary" = "modo de presencia";
+"mindfulness_anxiety_title" = "¿Como ayuda la atencion plena con la ansiedad?";
+"mindfulness_anxiety_body" = "Cuando dejamos que nuestro cerebro entre en modo piloto automatico con demasiada frecuencia, corremos el riesgo de acostumbrarnos a preocuparnos en exceso por el futuro, por experiencias pasadas o por nuestras emociones de manera negativa. Si hemos caido en este habito poco util, podemos desaprenderlo y reemplazarlo con habilidades que nos ayuden a no dejarnos llevar por la preocupacion y la ansiedad automaticas.";
+"mindfulness_reminder_body" = "La atencion plena nos recuerda que no necesitamos controlar, eliminar o solucionar de inmediato las experiencias desagradables. En lugar de eso, podemos identificar algo que nos haga sentir seguros y conectados, para poder dedicarnos a ello.";
+"mindfulness_example_body" = "Como un ejemplo sencillo: en lugar de preocuparte por cuantos kilometros caminaste por la manana, ¿puedes ser consciente de los pajaros cantando, sentir el aire fresco y notar como cambia el dia? Al conectar tus sentidos con la naturaleza, los animales, las personas y tu propio cuerpo, atraes la atencion de tu sistema nervioso, lo que a su vez calma tu ansiedad. Cuando regreses a casa, estaras en un mejor estado de animo y mas preparado para enfrentar tu dia.";
+"mindfulness_daily_routine_body" = "¿Que ejercicios de atencion plena te gustaria incluir en tu rutina diaria? Calmscient puede recordarte algunas rutinas sencillas de atencion plena que te ayudaran a mantenerte saludable.";
+
+// Added for TakingControl/Alert/Consequence/Smoking localization
+"AUDIT" = "AUDITORIA";
+"DAST-10" = "POLVO-10";
+"CAGE" = "JAULA";
+"Apply to me" = "Aplicarme";
+"DRINKING_CONTROL_ALERT_DUI_BODY" = "Aproximadamente 1.5 millones de personas son arrestadas cada año por conducir bajo los efectos del alcohol o las drogas. Las citaciones por conducir bajo la influencia (DUI, por sus siglas en ingles) generalmente permanecen en tu historial criminal durante muchos anos, lo que conlleva tasas de seguro mas altas, dificultades para conseguir empleo y muchos otros problemas. ¿Puedes imaginar las consecuencias negativas a largo plazo en tu vida y el estres que podria causar? Si alguien tiene mas de dos DUI, no importa si ocurren dentro de dias o en un periodo de diez anos. Seran consideradas como infracciones acumulativas, lo que resultara en penas mas severas y posible encarcelamiento.";
+"SMOKING_CONTROL_RESOURCE_BREATHING_DESC" = "Usemos ejercicios de respiracion para apoyar tu viaje. Ayudan a reducir el estres, los antojos, y proporcionan calma.";
+"SMOKING_CONTROL_RESOURCE_MANAGING_ANXIETY_TITLE" = "Curso de manejo de la ansiedad";
+"SMOKING_CONTROL_RESOURCE_MANAGING_ANXIETY_DESC" = "La ansiedad puede desencadenar el consumo de alcohol y tabaco, pero hay estrategias saludables que pueden ayuda";
+"SMOKING_CONTROL_RESOURCE_SCREENINGS_DESC" = "Establezcamos metas para analizar la depresion, ansiedad, alcohol y tabaco de forma regular, esto puede apoyar tu exito";
+
+// MakePlan / Question / InfoAlert / Glossary localized keys
+"mkpln_pro_1" = "Mejorar mi salud";
+"mkpln_pro_2" = "Mejorar mis relaciones";
+"mkpln_pro_3" = "Evitar resacas";
+"mkpln_pro_4" = "Rendir mejor en el trabajo o en la escuela";
+"mkpln_pro_5" = "Ahorrar dinero";
+"mkpln_pro_6" = "Perder peso o ponerme en forma";
+"mkpln_pro_7" = "Evitar problemas más graves";
+"mkpln_pro_8" = "Cumplir mis propios estándares personales";
+"mkpln_con_1" = "Necesitaría otra forma de relajarme";
+"mkpln_con_2" = "Me ayuda a sentirme más cómodo socialmente";
+"mkpln_con_3" = "No encajaría con algunos de mis amigos";
+"mkpln_con_4" = "El cambio puede ser difícil";
+
+"qvc_hdr_1" = "1. ¿Cuál es su comprensión de cómo estas cosas le afectan a usted mismo?";
+"qvc_hdr_2" = "2. ¿Cuál es su comprensión de cómo estas cosas afectan a las personas?";
+"qvc_hdr_3" = "3. Y si se siente cómodo compartiendo, ¿con cuál de estos impactos está lidiando en este momento?";
+
+"ialrt_cap_1" = "(Test de Identificación de Trastornos por Consumo de Alcohol)";
+"ialrt_cap_2" = "(Test de Detección de Abuso de Drogas)";
+"ialrt_cap_3" = "(Cortar, Molestar, Culpable y Ojo)";
+"ialrt_desc_1" = "¿Disfruta de una bebida de vez en cuando? Muchos de nosotros lo hacemos, a menudo cuando socializamos con amigos y familiares. Echemos un vistazo a sus patrones de consumo de alcohol y cómo pueden afectar su salud. El cuestionario AUDIT está diseñado para ayudar en la autoevaluación del consumo de alcohol e identificar cualquier implicación para la salud y el bienestar de la persona, ahora y en el futuro. Realice una autoevaluación rápida con AUDIT arriba. Haga clic en \"Enviar\" al final para obtener una evaluación instantánea.";
+"ialrt_desc_2" = "\"Consumo de drogas\" se refiere al uso de medicamentos recetados o de venta libre en exceso de las indicaciones, y cualquier uso no médico de drogas. Las diversas clases de drogas pueden incluir cannabis (marihuana, hachís), solventes (por ejemplo, diluyente de pintura), tranquilizantes (por ejemplo, valium), barbitúricos, cocaína, estimulantes (por ejemplo, speed), alucinógenos (por ejemplo, LSD) o narcóticos (por ejemplo, heroína). Las preguntas no incluyen bebidas alcohólicas. Por favor, responda las preguntas de esta encuesta. Si tiene dificultades con una afirmación, simplemente elija la mejor respuesta posible. Estas preguntas se refieren al uso de drogas en los últimos 12 meses. Por favor responda NO o SÍ a cada pregunta.";
+"ialrt_desc_3" = "El cuestionario CAGE para fumar (modificado del familiar cuestionario CAGE para el alcoholismo), la prueba de las \"cuatro Cs\" y el Test de Fagerstrom para la Dependencia a la Nicotina ayudan a diagnosticar la dependencia a la nicotina según criterios estándar. Se pueden usar preguntas adicionales para determinar la disposición del paciente para cambiar y la naturaleza del refuerzo que recibe al fumar. Estas herramientas pueden ayudar a los médicos de familia a guiar a los pacientes a dejar de fumar, lo más importante que los fumadores pueden hacer para mejorar su salud.";
+
+"gls_term_1" = "Adrenalina";
+"gls_term_2" = "Ataque de ansiedad";
+"gls_term_3" = "Pensamiento automático";
+"gls_term_4" = "Pensamiento sesgado";
+"gls_term_5" = "Cortisol";
+"gls_term_6" = "Distorsión cognitiva";
+"gls_term_7" = "Competencia";
+"gls_term_8" = "Comportamiento compulsivo";
+"gls_term_9" = "Dependencia";
+"gls_term_10" = "GABA";
+"gls_term_11" = "Hiperventilación";
+"gls_term_12" = "Respiración consciente";
+"gls_term_13" = "Obsesión";
+"gls_term_14" = "Ataque de pánico";
+"gls_term_15" = "Relajación muscular progresiva";
+"gls_term_16" = "Resiliencia";
+"gls_term_17" = "Pensamiento rígido";
+"gls_term_18" = "Rumia";
+"gls_term_19" = "Autocompasión";
+"gls_term_20" = "Serotonina";
+"gls_term_21" = "Ventana de tolerancia";
+
+"gls_sum_1" = "La adrenalina, también conocida como epinefrina, es una hormona y un neurotransmisor producido por las glándulas suprarrenales, que se encuentran encima de los riñones. Desempeña un papel crucial en la respuesta del cuerpo al estrés y desencadena la respuesta de 'lucha o huida'. Cuando una persona percibe una amenaza o peligro, ya sea real o percibido, el cerebro envía señales a las glándulas suprarrenales para que liberen adrenalina en el torrente sanguíneo. La adrenalina actúa como mensajero químico, preparando rápidamente al cuerpo para actuar y hacer frente a la amenaza percibida.";
+"gls_sum_2" = "El término 'ataque de ansiedad' no está reconocido oficialmente en los manuales de diagnóstico; DSM-5 (Manual Diagnóstico y Estadístico de los Trastornos Mentales). A menudo se utiliza para describir un período de mayor ansiedad o un estado de ansiedad más prolongado. Los ataques de ansiedad pueden implicar síntomas similares a los ataques de pánico, como preocupación excesiva, inquietud, irritabilidad, tensión muscular, dificultad para concentrarse y alteraciones del sueño.";
+"gls_sum_3" = "El pensamiento automático se refiere a los pensamientos rápidos, involuntarios y, a menudo, inconscientes que surgen en respuesta a situaciones o desencadenantes. Estos pensamientos son automáticos en el sentido de que ocurren automáticamente y sin esfuerzo, sin intención deliberada ni conciencia consciente. Los patrones de pensamiento automático pueden verse influenciados por experiencias, creencias y sesgos cognitivos pasados.";
+"gls_sum_4" = "El pensamiento sesgado se refiere a distorsiones cognitivas o errores en el pensamiento que influyen en cómo percibimos e interpretamos la información. Implica una tendencia a ver situaciones, acontecimientos o a nosotros mismos de manera distorsionada o exagerada, lo que a menudo conduce a pensamientos negativos o irracionales.";
+"gls_sum_5" = "El cortisol es una hormona producida por las glándulas suprarrenales en respuesta al estrés. A menudo se la conoce como la principal hormona del estrés. Cuando el cerebro detecta una amenaza o percibe estrés, indica la liberación de cortisol al torrente sanguíneo.";
+"gls_sum_6" = "Las distorsiones cognitivas, también conocidas como pensamiento sesgado o pensamientos irracionales, se refieren a patrones de pensamiento exagerados o irracionales que pueden contribuir a la angustia emocional y mantener la ansiedad u otros problemas de salud mental.";
+"gls_sum_7" = "La competencia se refiere a la capacidad de realizar o ejecutar una tarea o un conjunto de habilidades de manera efectiva. A menudo se asocia con el conocimiento, la experiencia y la competencia en un área en particular.";
+"gls_sum_8" = "El comportamiento compulsivo se refiere a acciones o pensamientos repetitivos y a menudo rituales que los individuos se sienten impulsados a realizar en respuesta a la ansiedad o pensamientos angustiosos.";
+"gls_sum_9" = "La dependencia se refiere a la dependencia de sustancias como el alcohol, las drogas o el tabaco como medio para afrontar la ansiedad o buscar un alivio rápido.";
+"gls_sum_10" = "GABA significa ácido gamma-aminobutírico, que es un neurotransmisor en el cerebro. Se le conoce como el ansiolítico natural del cerebro porque tiene efectos inhibidores sobre el sistema nervioso central, ayudando a reducir la excitabilidad neuronal y promover la relajación.";
+"gls_sum_11" = "La hiperventilación se refiere a un aumento rápido o excesivo de la frecuencia y el volumen de la respiración. Implica tomar más oxígeno y exhalar más dióxido de carbono del que el cuerpo necesita.";
+"gls_sum_12" = "La respiración consciente es una técnica que implica concienciar intencionalmente de la respiración y concentrarse en el momento presente.";
+"gls_sum_13" = "La obsesión se refiere a pensamientos, imágenes o impulsos intrusivos, persistentes y no deseados que entran repetida e incontrolablemente en la mente de una persona.";
+"gls_sum_14" = "Un ataque de pánico es un episodio repentino e intenso de miedo o malestar que normalmente alcanza su punto máximo en cuestión de minutos.";
+"gls_sum_15" = "La relajación muscular progresiva (PMR) es una técnica de relajación que consiste en tensar y relajar sistemáticamente diferentes grupos de músculos del cuerpo.";
+"gls_sum_16" = "La resiliencia se refiere a la capacidad de recuperarse, adaptarse y recuperarse ante la adversidad, los desafíos o las situaciones estresantes.";
+"gls_sum_17" = "El pensamiento rígido se refiere a patrones de pensamiento inflexibles y estrechos que limitan la flexibilidad, la adaptabilidad y la apertura de mente.";
+"gls_sum_18" = "La tendencia a pensar continua y excesivamente en eventos, situaciones o problemas negativos. Implica concentrarse repetidamente en los pensamientos angustiosos.";
+"gls_sum_19" = "La autocompasión se refiere a la práctica de tratarse a uno mismo con amabilidad, comprensión y sin juzgarse en momentos de dificultad.";
+"gls_sum_20" = "La serotonina es un neurotransmisor, un mensajero químico en el cerebro y el sistema nervioso que desempeña un papel crucial en la regulación de diversos procesos fisiológicos y psicológicos.";
+"gls_sum_21" = "La ventana de tolerancia se refiere a un concepto en psicología que describe un rango óptimo de excitación o activación que permite a un individuo afrontar y responder eficazmente a los factores estresantes y las emociones.";
+
+// MyDrinkingHabit / ChallengingToQuit localization
+"Moderate drinking" = "Consumo moderado";
+"Always drink with the moderate drinking standard." = "Siempre bebes siguiendo el estándar de consumo moderado.";
+"Can effortlessly commit alcohol free plan for week or month." = "Puedes comprometerte sin esfuerzo a un plan sin alcohol durante una semana o un mes.";
+"Can choose to drink or not even though people around you are drinking." = "Puedes elegir beber o no, aunque las personas a tu alrededor estén bebiendo";
+"Moderate everyday drinking" = "Consumo moderado diario";
+"Always drink with the moderate drinking standard but struggles to have alcohol- free day." = "Siempre bebes siguiendo el estándar de consumo moderado, pero me cuesta tener un día sin alcohol.";
+"Drink daily as sleep aids or relaxation." = "Bebes a diario como ayuda para dormir o para relajarte.";
+"Expect to have a drink after work or in the evening and get irritated or stressed when you can't have it." = "Anhelas tomar un trago después del trabajo o por la noche, y te irritas cuando no puedes hacerlo.";
+"Social / weekend binge drinking" = "Consumo excesivo social / de fines de semana";
+"Casual drinking turns into doing things that you normal wouldn't do or that go against your judgement while you're sober, such as driving under alcohol influence." = "El consumo ocasional de alcohol te mueve a hacer cosas que normalmente no harías o que van en contra de tu juicio cuando estás sobrio, como conducir bajo los efectos del alcohol.";
+"Often seek the mood-altering effects (the buzz) or using alcohol as a coping mechanism, sometimes in isolation." = "A menudo buscas los efectos que alteran el estado de ánimo (el subidón) o usas el alcohol como un mecanismo de afrontamiento, a veces en aislamiento.";
+"Get defensive when someone tries to limit your consumption or asks you to stop." = "Te pones a la defensiva cuando alguien intenta limitar tu consumo o te pide que dejes de beber.";
+"Remember? Binge drinking is: Men - Up to 5 or more drinks within 2 hrs Women - Up to 4 or more drinks within 2 hrs." = "¿Recuerdas? El consumo excesivo ocasional (binge drinking) es: Hombres: hasta 5 o más bebidas dentro de las 2 horas Mujeres: hasta 4 o más bebidas dentro de las 2 horas";
+"Problematic drinking" = "Consumo problemático";
+"Drinking until drunk." = "Beber hasta emborracharse";
+"Going to work drunk or drinking on the job." = "Ir a trabajar borracho o beber durante el trabajo";
+"Driving while drunk or have driven while drunk." = "Conducir bajo los efectos del alcohol o haber conducido borracho.";
+"Getting in trouble with the law or being injured due to drinking." = "Meterse en problemas con la ley o sufrir lesiones debido al consumo de alcohol.";
+"Doing something under the influence of alcohol that they would not otherwise do." = "Hacer algo bajo la influencia del alcohol que no harían de otra manera.";
+"Having problems at school, with social relationships, or with family members because of drinking." = "Tener problemas en la escuela, con las relaciones sociales o con los miembros de la familia a causa del consumo de alcohol.";
+"Using alcohol to decrease anxiety or sadness." = "Usar el alcohol para disminuir la ansiedad o la tristeza.";
+"Lying about or trying to hide drinking habits." = "Mentir o intentar ocultar los hábitos de consumo de alcohol.";
+"Needing more alcohol to feel its effects." = "Necesitar más alcohol para sentir sus efectos.";
+"Feeling grouchy, resentful, or unreasonable when not drinking." = "Sentirse irritable, resentido o irrazonable cuando no se bebe.";
+"Nicotine cravings" = "Deseos de nicotina";
+"Irritability and mood swings" = "Irritabilidad y cambios de humor";
+"Difficulty concentrating" = "Dificultad para concentrarse";
+"Increased appetite and weight gain" = "Aumento del apetito y aumento de peso";
+"Sleep disturbances" = "Trastornos de sueño";
+"Depression and anxiety" = "Depresión y ansiedad";
+"Feeling jumpy or restless" = "Sentirse nervioso o inquieto";
+"Do something to stay active at home" = "Haz algo para mantenerte activo en casa";
+"Call or visit a friend or family member" = "Llama o visita a un amigo o familiar";
+"Brush your teeth" = "Cepíllate los dientes";
+"Play with a pet" = "Juega con una mascota";
+"Update your contact list on your cell phone" = "Actualiza tu lista de contactos en tu teléfono móvil";
+"Try a new hobby" = "Prueba un nuevo pasatiempo";
+"Switch to coffee with less caffeine or decaf products" = "Cambia a café con menos cafeína o productos descafeinados";
+"“I’m thinking about quitting”" = "“Estoy pensando en dejarlo”";
+"“Getting ready to quit”" = "“Preparándote para dejar de fumar”";
+"“Quitting”" = "“Dejar de fumar”";
+"“Staying smoke-free”" = "“Mantenerse libre de fumar”";
+"You can also try…" = "También puedes probar…";
+"One non-nicotine medicine (prescription from your doctor is required). Varenicline is a pill that works differently from other medicines. It does not contain nicotine. It works by attaching to the same parts of your brain that are stimulated by nicotine. This means that nicotine from a cigarette has fewer places to attach because the varenicline is already there. This makes it harder to get a nicotine \"buzz\"." = "Un medicamento sin nicotina (se requiere receta médica). La vareniclina es una pastilla que actúa de manera diferente a otros medicamentos. No contiene nicotina. Funciona al unirse a las mismas partes de tu cerebro que son estimuladas por la nicotina. Esto significa que la nicotina de un cigarrillo tiene menos lugares a los que unirse porque la vareniclina ya está ahí.";
+"The benefits of Varenicline are:" = "Los beneficios de la Vareniclina son:";
+"Know your triggers:" = "Conoce tus desencadenantes:";
+"Certain things can make you want to smoke, like being around friends you used to smoke with or being in a place where you often smoked. Even memories or feelings can bring it on." = "Ciertas cosas pueden hacer que quieras fumar, como estar cerca de amigos con los que solías fumar o estar en un lugar donde solías fumar frecuentemente. Incluso los recuerdos o sentimientos pueden desencadenarlo.";
+"Positive thoughts:" = "Pensamientos positivos:";
+"Remember why you decided to quit. You're in control, and cravings don't last forever. They'll pass." = "Recuerda por qué decidiste dejar de fumar. Estás en control, y los deseos no duran para siempre. Pasarán.";
+"One non-nicotine medicine" = "Un medicamento sin nicotina";
+"Varenicline" = "Vareniclina";
+
+// Journal entry edit / segment
+"journal_edit_add_button" = "Agregar";
+"journal_edit_placeholder" = "Agregue su registro del diario aquí";
+"journal_edit_title" = "Agregar registro del diario";
+"journal_edit_char_count_format" = "%d/2000";
+"journal_discovery_exercise_segment" = "Ejercicio de\ndescubrimiento";
+
+// My smoking habit stages
+"smoking_habit_stage_thinking_title" = "Está pensando en dejar de fumar";
+"smoking_habit_stage_thinking_body" = "¡Está perfectamente bien! Te guiaremos para que veas los beneficios de dejar de fumar, y luego podrás decidir si deseas crear un plan para dejarlo.\nIr a Crear un plan.";
+"smoking_habit_stage_ready_title" = "Preparándose para dejar de fumar";
+"smoking_habit_stage_ready_body" = "Has decidido dejar de fumar.\n\n¡Excelente decisión! Te guiaremos para que puedas crear un plan sólido y te ayudaremos a mantenerte enfocado en tu camino.\nIr a Crear un plan.";
+"smoking_habit_stage_quitting_title" = "Dejar de fumar";
+"smoking_habit_stage_quitting_body" = "Ya has comenzado o ya tienes una fecha para dejar de fumar.\n\nTe ayudaremos a crear un plan estratégico y a mantenerte enfocado en tu objetivo.\nIr a Crear un plan.";
+"smoking_habit_stage_smokefree_title" = "Permanecer libre de humo";
+"smoking_habit_stage_smokefree_body" = "Te estás enfocando en evitar recaídas y mantener tu progreso.\n\nEso es fantástico. Es importante no bajar la guardia. Estaremos aquí para apoyarte y ayudarte a mantenerte firme.\nIr a Crear un plan para registrar el día en que comenzaste a dejar de fumar, luego podrás usar la opción Mantente enfocado.";
+
+// Add / edit appointment
+"appointment_description_placeholder" = "Descripción";
+"appointment_validation_patient_name_empty" = "El nombre del paciente no puede estar vacío";
+"appointment_validation_provider_name_empty" = "El nombre del proveedor no puede estar vacío";
+"appointment_validation_location_name_empty" = "El nombre de la ubicación no puede estar vacío";
+"appointment_selected_time_in_past" = "La hora seleccionada ya pasó para hoy";
+"appointment_past_dates_not_allowed" = "No se permiten fechas pasadas";
+
+// Medical records rows / tab bar / sleep intro / user intro selection (es)
+"Upcoming medical appointments" = "Próximas citas médicas";
+"Rewards" = "Recompensas";
+"sleep_hours_question_last_night" = "¿Cuántas horas dormiste anoche?";
+"sleep_circle_less" = "Menos";
+"sleep_circle_more" = "Más";
+"sleep_summary_less_than_four" = "Menos de 4 horas";
+"sleep_summary_more_than_ten" = "Más de 10 horas";
+"sleep_summary_hours_format" = "%@ horas";
+"UserIntro_Mood_BAD" = "Mal";
+"UserIntro_Mood_COULD_BE_BETTER" = "Podría ser mejor";
+"UserIntro_Mood_FAIR" = "Más o menos";
+"UserIntro_Mood_GOOD" = "Bueno";
+"UserIntro_Mood_EXCELLENT" = "Excelente";
+"UserIntro_Time_FAMILY" = "Familia";
+"UserIntro_Time_FRIENDS" = "Amigos";
+"UserIntro_Time_WORKMATES" = "Compañeros de trabajo";
+"UserIntro_Time_OTHERS" = "Otras personas";
+"UserIntro_Time_ALONE" = "Solo";
+"UserIntro_fallback_mood_morning" = "¿Qué tal tu ánimo?";
+"UserIntro_fallback_mood_today" = "¿Cómo estuvo tu estado de ánimo hoy?";
+"UserIntro_fallback_time_spend" = "¿Con quién pasaste tiempo?";

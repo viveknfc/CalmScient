@@ -23,11 +23,9 @@ class ReadyToQuitVC: ViewController, UITableViewDelegate, UITableViewDataSource 
         tableView.delegate = self
         tableView.dataSource = self
         
-        data = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? edata : sdata
+        data = Self.localizedData
         
-        let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-        let title = selectedLanguageID == 1 ? "Complete" : "Finalizar"
-        completeButton.setTitle(title, for: .normal)
+        completeButton.setTitle("Complete".localized, for: .normal)
         completeButton.titleLabel?.font = UIFont(name: Fonts().lexendLight, size: 14)
     }
     
@@ -38,9 +36,15 @@ class ReadyToQuitVC: ViewController, UITableViewDelegate, UITableViewDataSource 
         }
     }
     
-    let edata = ["Nicotine cravings", "Irritability and mood swings", "Difficulty concentrating", "Increased appetite and weight gain", "Sleep disturbances", "Depression and anxiety", "Feeling jumpy or restless"]
-    
-    let sdata = ["Deseos de nicotina", "Irritabilidad y cambios de humor", "Dificultad para concentrarse", "Aumento del apetito y aumento de peso", "Trastornos de sueño", "Depresión y ansiedad", "Sentirse nervioso o inquieto"]
+    static let localizedData: [String] = [
+        "Nicotine cravings".localized,
+        "Irritability and mood swings".localized,
+        "Difficulty concentrating".localized,
+        "Increased appetite and weight gain".localized,
+        "Sleep disturbances".localized,
+        "Depression and anxiety".localized,
+        "Feeling jumpy or restless".localized
+    ]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         data.count

@@ -31,7 +31,7 @@ class MedicationsDetailTableCell: UITableViewCell {
     var isAlarmSelected = false
     
     private var defaultImage = UIImage(named: "ToggleSwitch_No")
-    private var selectedImage = UIImage(named: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "ToggleSwitch_Yes" : "ToggleSwitch_Si")
+    private var selectedImage = UIImage(named: "ToggleSwitch_Yes".localized)
 
     private var currentImage:UIImage? = UIImage(named: "ToggleSwitch_No")
     private weak var medicationAlarmInstance:ScheduledTimeList?
@@ -208,7 +208,7 @@ class MedicationsDetailTableCell: UITableViewCell {
             }
 
             leftTitleLabel.text = getTimeStr(timeStr: dayTypeMatch.rawValue)
-            rightTitleLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Alarm" : "Alarma"
+            rightTitleLabel.text = "Alarm".localized
             leftContentLabel.text = medicineTimeShortForm
 
         }
@@ -216,11 +216,11 @@ class MedicationsDetailTableCell: UITableViewCell {
     func getTimeStr(timeStr:String) -> String{
         
         if(timeStr == "Morning"){
-            return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Morning" : "Mañana"
+            return "Morning".localized
         }else if(timeStr == "Afternoon"){
-            return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Afternoon" : "Tarde"
+            return "Afternoon".localized
         }else{
-            return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Evening" : "Noche"
+            return "Evening".localized
         }
     }
         
@@ -245,7 +245,7 @@ class MedicationsDetailTableCell: UITableViewCell {
             self.cellSwitchImageView.image = self.currentImage
 //            self.dayTimeImageView.image = medicationAlarm.getDayTime().getIconImage()
             leftTitleLabel.text = getTimeStr(timeStr:medicationAlarm.getDayTime().rawValue)
-            rightTitleLabel.text =  UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Alarm" : "Alarma"
+            rightTitleLabel.text =  "Alarm".localized
             leftContentLabel.text = medicationAlarm.getMedicineTimeWithAMorPM()
 //            rightContentLabel.text =  medicationAlarm.getAlarmTimeWithAMOrPM()
         }

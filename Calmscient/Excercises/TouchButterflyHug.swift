@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 class TouchButterflyHug: ViewController {
     
     @IBOutlet weak var view1: UIView!
@@ -93,21 +92,13 @@ class TouchButterflyHug: ViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Touch and the butterfly hug" : "Tacto y el Abrazo de Mariposa"
+        title = "Touch and the butterfly hug".localized
         setupLanguage()
     }
     
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        
-        subTitleLabel.text = AppHelper.getLocalizeString(str: "HOW TO DO IT")
+subTitleLabel.text = AppHelper.getLocalizeString(str: "HOW TO DO IT")
         
         view1Title.text = AppHelper.getLocalizeString(str: "Interlock your thumbs to form a butterfly shape")
         

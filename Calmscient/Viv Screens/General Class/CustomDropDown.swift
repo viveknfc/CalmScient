@@ -34,10 +34,8 @@ class DropdownView: UIView {
 //        editButton.setTitle("Edit", for: .normal)
 //        deleteButton.setTitle("Delete", for: .normal)
         
-        let isEnglish = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1
-
-        editButton.setTitle(isEnglish ? "Edit" : "Editar", for: .normal)
-        deleteButton.setTitle(isEnglish ? "Delete" : "Eliminar", for: .normal)
+        editButton.setTitle("Edit".localized, for: .normal)
+        deleteButton.setTitle("Delete".localized, for: .normal)
 
         
         editButton.setImage(UIImage(named: "editIcon"), for: .normal)  // Replace with your image

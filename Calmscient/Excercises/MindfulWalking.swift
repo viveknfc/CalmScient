@@ -20,15 +20,12 @@ class MindfulWalking: ViewController {
     @IBOutlet weak var completeButton: CapsuleButton1!
     var timeObserverToken: Any?
     
-    let stringsArr = [
-        "Stress Reduction: Engaging in mindful walking can be an effective way to reduce stress and promote relaxation. By directing your attention to the physical sensations of walking, you create a mental break from everyday stressors. This practice activates the relaxation response in your body, leading to a calmer state of mind",
-        "Emotional Regulation: Engaging in mindful walking can help regulate your emotions. By observing your thoughts and emotions as they arise during the practice, you develop a non-judgmental and accepting attitude towards them. This can enhance emotional resilience and provide you with a greater sense of control over your reactions to challenging situations."
-    ]
-    
-    let spanishStringsArr = [
-        "Reducción del Estrés: Tener una caminata consciente puede ser una forma efectiva de reducir el estrés y promover la relajación. Al dirigir tu atención a las sensaciones físicas de caminar, creas un descanso mental de todo lo que te estresa. Esta práctica activa la respuesta de relajación en tu cuerpo, llevándote a un estado mental más tranquilo.",
-        "Regulación Emocional: Tener una caminata consciente puede ayudar a regular tus emociones. Al observar tus pensamientos y emociones a medida que van surgiendo ,desarrollas una actitud de aceptación para contigo mismo. Esto puede mejorar tu resiliencia emocional y darte una mayor sensación de control sobre tus reacciones ante situaciones desafiantes."
-    ]
+    private var mindfulWalkingBenefits: [String] {
+        return [
+            "mindful_walking_benefit_stress_reduction".localized,
+            "mindful_walking_benefit_emotional_regulation".localized
+        ]
+    }
 
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var rewindImg: UIImageView!
@@ -39,10 +36,9 @@ class MindfulWalking: ViewController {
     @IBOutlet weak var addFavImage: UIImageView!
     var isFav: Int = 0
     var favExcercises:[ExcercisesModel] = []
-    var languageId : Int = 1
     var isObservingStatus = false
     var audioURL: String {
-        return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "https://media.calmscient.in/uploads/exercises-audios/MindfulWalkingWithMusicEnglish.mp3" : "https://media.calmscient.in/uploads/exercises-audios/MindfulWalkingWithMusicSpanish.mp3"
+        return "https://media.calmscient.in/uploads/exercises-audios/MindfulWalkingWithMusicEnglish.mp3".localized
     }
     
     override func viewDidLoad() {
@@ -73,7 +69,7 @@ class MindfulWalking: ViewController {
         // Hide the play button until the player is ready
         playAudioImg.isHidden = true
         
-        descriptionLabel.attributedText = add(stringList: languageId == 1 ? stringsArr : spanishStringsArr, font: descriptionLabel.font, bullet: "•")
+        descriptionLabel.attributedText = add(stringList: mindfulWalkingBenefits, font: descriptionLabel.font, bullet: "•")
         
         let rewindGesture = UITapGestureRecognizer(target: self, action: #selector(rewindTapped(tapGestureRecognizer:)))
         rewindImg.isUserInteractionEnabled = true
@@ -104,7 +100,7 @@ class MindfulWalking: ViewController {
         
         completeButton.titleLabel?.font = UIFont(name: Fonts().lexendLight, size: 14)
         
-        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Mindful walking" : "Caminata Consciente"
+        title = "Mindful walking".localized
         
         // Initially disabled
         completeButton.isEnabled = false
@@ -298,17 +294,9 @@ class MindfulWalking: ViewController {
     }
     
     func setupLanguage() {
-        languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+subtitleLabel.text = AppHelper.getLocalizeString(str: "Benefits_of_mindful_walking")
         
-        if languageId == 1 {
-            UserDefaults.standard.set("en", forKey: "Language")
-        } else if languageId == 2 {
-            UserDefaults.standard.set("es", forKey: "Language")
-        }
-        
-        subtitleLabel.text = AppHelper.getLocalizeString(str: "Benefits_of_mindful_walking")
-        
-        descriptionLabel.attributedText = add(stringList: languageId == 1 ? stringsArr : spanishStringsArr, font: descriptionLabel.font, bullet: "•", indentation: 20, lineSpacing: 2, paragraphSpacing: 12, textColor: (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ? .white : UIColor(hex: "#424242"), bulletColor: (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ? .white : UIColor(hex: "#424242"))
+        descriptionLabel.attributedText = add(stringList: mindfulWalkingBenefits, font: descriptionLabel.font, bullet: "•", indentation: 20, lineSpacing: 2, paragraphSpacing: 12, textColor: (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ? .white : UIColor(hex: "#424242"), bulletColor: (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ? .white : UIColor(hex: "#424242"))
     }
     
     func add(stringList: [String], font: UIFont, bullet: String = "\u{2022}", indentation: CGFloat = 20, lineSpacing: CGFloat = 2, paragraphSpacing: CGFloat = 12, textColor: UIColor = UIColor(hex: "#424242"), bulletColor: UIColor = .black) -> NSAttributedString {

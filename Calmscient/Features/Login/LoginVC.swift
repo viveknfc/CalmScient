@@ -350,6 +350,10 @@ class LoginVC: UIViewController,UITextFieldDelegate, UITextViewDelegate {
                                 Bundle.setLanguage("ja")
                                 
                             }
+                            if languageId == 3 {
+                                UserDefaults.standard.set("ja", forKey: "appLanguage")
+                                Bundle.setLanguage("ja")
+                            }
                             
                             let loginCount = loginResponse.loginDetails.loginCount
                             

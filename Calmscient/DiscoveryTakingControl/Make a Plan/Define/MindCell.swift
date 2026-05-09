@@ -32,20 +32,11 @@ class MindCell: UITableViewCell {
     
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-                
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-                
-            }
-        questionCell.text = AppHelper.getLocalizeString(str: "With this in mind, tell us what you would like to do."
+questionCell.text = AppHelper.getLocalizeString(str: "With this in mind, tell us what you would like to do."
         )
       //  quit_btn.titleLabel?.text = AppHelper.getLocalizeString(str: "Quit")
-        quit_btn.setTitle( UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Quit" : "Abandonar", for: .normal)
-        track_btn.setTitle( UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Cut down" : "Reducir", for: .normal)
+        quit_btn.setTitle( "Quit".localized, for: .normal)
+        track_btn.setTitle( "Cut down".localized, for: .normal)
        
        // track_btn.titleLabel?.text = AppHelper.getLocalizeString(str: "Cut down"
         

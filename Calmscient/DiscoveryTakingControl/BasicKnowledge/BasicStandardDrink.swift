@@ -109,24 +109,11 @@ class BasicStandardDrink: ViewController {
        
     }
     func setupLanguage() {
-        
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-                
-                headerLabel.text = AppHelper.getLocalizeString(str: "What’s a standard drink")
-                normalTextLabel.text = AppHelper.getLocalizeString(str: "standard drink description")
-                normalTextView.text = AppHelper.getLocalizeString(str: "standard drink description2")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-                
-                headerLabel.text = AppHelper.getLocalizeString(str: "What’s a standard drink")
-                normalTextLabel.text = AppHelper.getLocalizeString(str: "standard drink description")
-                normalTextView.text = AppHelper.getLocalizeString(str: "standard drink description2")
-            }
+        headerLabel.text = AppHelper.getLocalizeString(str: "What’s a standard drink")
+        normalTextLabel.text = AppHelper.getLocalizeString(str: "standard drink description")
+        normalTextView.text = AppHelper.getLocalizeString(str: "standard drink description2")
         self.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
-        }
+    }
     
     //viv start
     

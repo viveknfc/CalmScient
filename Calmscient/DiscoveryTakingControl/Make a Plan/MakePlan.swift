@@ -20,10 +20,23 @@ class MakePlan: ViewController,UITableViewDelegate,UITableViewDataSource {
     //    @IBOutlet weak var labelsContainerView: UIView!
     
     var button_name = ["To improve my health","To improve my relationships","To avoid hangovers","To do better at work or in school", "To save money","To lose weight or get fit","To avoid more serious problems","To meet my own personal standards"]
+    private let buttonNameKeys = [
+        "mkpln_pro_1",
+        "mkpln_pro_2",
+        "mkpln_pro_3",
+        "mkpln_pro_4",
+        "mkpln_pro_5",
+        "mkpln_pro_6",
+        "mkpln_pro_7",
+        "mkpln_pro_8"
+    ]
     var cons_arr = ["I'd need another way to unwind","It helps me feel more at ease socially","I wouldn't fit in with some of my friends","Change can be hard"]
-    
-    var button_namespanish = ["Mejorar mi salud", "Mejorar mis relaciones", "Evitar resacas", "Rendir mejor en el trabajo o en la escuela", "Ahorrar dinero", "Perder peso o ponerme en forma", "Evitar problemas más graves", "Cumplir mis propios estándares personales"];
-    var cons_arrspanish = ["Necesitaría otra forma de relajarme", "Me ayuda a sentirme más cómodo socialmente", "No encajaría con algunos de mis amigos", "El cambio puede ser difícil"];
+    private let consArrKeys = [
+        "mkpln_con_1",
+        "mkpln_con_2",
+        "mkpln_con_3",
+        "mkpln_con_4"
+    ]
 
     
     var prosText : String  = ""
@@ -199,15 +212,7 @@ class MakePlan: ViewController,UITableViewDelegate,UITableViewDataSource {
             return cell
         case 1:
                     let cell = tableView.dequeueReusableCell(withIdentifier: "ProsCell", for: indexPath) as! ProsCell
-            let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-
-            if selectedLanguageID == 1 {
-                    // English
-                    cell.label.text = button_name[indexPath.row]
-                } else {
-                    
-                    cell.label.text = button_namespanish[indexPath.row]
-                }
+            cell.label.text = buttonNameKeys[indexPath.row].localized
             
                    // cell.label.text = button_name[indexPath.row]
                     
@@ -229,22 +234,13 @@ class MakePlan: ViewController,UITableViewDelegate,UITableViewDataSource {
                 journalEntry.append(["entry": prosText])
             }
             //  prosTextfieldText = cell.label.text
-            cell.otherLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Others" : "Otros"
+            cell.otherLabel.text = "Others".localized
             cell.selectionStyle = .none
             print(journalEntry)
             return cell
         case 3:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProsCell", for: indexPath) as! ProsCell
-           
-            let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-
-            if selectedLanguageID == 1 {
-                    // English
-                cell.label.text = cons_arr[indexPath.row]
-                } else {
-                    
-                    cell.label.text = cons_arrspanish[indexPath.row]
-                }
+            cell.label.text = consArrKeys[indexPath.row].localized
             if tableSelectedRow[indexPath.section] != nil && indexPath.row == tableSelectedRow[indexPath.section] {
                 cell.main_view.backgroundColor = UIColor(named: "AppBorderColor")
                 cell.label.textColor = UIColor(named: "appointmentBackgroundcolor")
@@ -262,7 +258,7 @@ class MakePlan: ViewController,UITableViewDelegate,UITableViewDataSource {
             if let consText = cell.label.text, !consText.isEmpty {
                 journalEntry.append(["entry": consText])
             }
-            cell.otherLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Others" : "Otros"
+            cell.otherLabel.text = "Others".localized
             cell.selectionStyle = .none
             print(journalEntry)
             return cell
@@ -291,11 +287,11 @@ class MakePlan: ViewController,UITableViewDelegate,UITableViewDataSource {
         
         switch section {
         case 2:
-            header.setText(UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Alcohol free days" : "Días sin alcohol.")
+            header.setText("Alcohol free days".localized)
         case 1:
-            header.setText(UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "pros:" : "Ventajas:")
+            header.setText("pros:".localized)
         case 3:
-            header.setText(UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "cons:" : "Contras:")
+            header.setText("cons:".localized)
         default:
             header.setText("")
         }

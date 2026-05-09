@@ -19,9 +19,6 @@ class MindfulBodyMovement : ViewController {
     @IBOutlet weak var completeButton: CapsuleButton1!
     
     
-    var languageId : Int = 1
-    
-    
     override func viewDidLoad() {
         
         self.descriptionLabel.font = UIFont(name: Fonts().lexendLight, size: 15)
@@ -71,21 +68,13 @@ class MindfulBodyMovement : ViewController {
     
     
     func setupLanguage() {
-        
-             languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
             
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        
-        descriptionLabel.text = AppHelper.getLocalizeString(str: "There are many movement routines that invite you to reconnect with your body. Pilates, yoga and other similar stretching exercises incorporate mindful awareness of movements and postures. Additionally, coordinating body movement and breath further potentiates your ability to shift your state.")
+descriptionLabel.text = AppHelper.getLocalizeString(str: "There are many movement routines that invite you to reconnect with your body. Pilates, yoga and other similar stretching exercises incorporate mindful awareness of movements and postures. Additionally, coordinating body movement and breath further potentiates your ability to shift your state.")
         
         }
     
     override func viewWillAppear(_ animated: Bool) {
-        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Mindful body movement" : "Movimiento Corporal Consciente"
+        title = "Mindful body movement".localized
         setupLanguage()
     }
     

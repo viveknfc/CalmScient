@@ -40,15 +40,7 @@ class DefineCell: UITableViewCell {
     }
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        
-        headerLabel.text = AppHelper.getLocalizeString(str: "Quitting is strongly advised if you:")
+headerLabel.text = AppHelper.getLocalizeString(str: "Quitting is strongly advised if you:")
         point1Label.text = AppHelper.getLocalizeString(str: "Have tried cutting down but cannot stay within the limit you set." )
         point2Label.text = AppHelper.getLocalizeString(str: "Have had alcohol use disorder (AUD) or now have any symptoms." )
         point3Label.text = AppHelper.getLocalizeString(str: "Have a physical or mental health condition that is caused or being worsened by drinking." )

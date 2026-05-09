@@ -22,7 +22,7 @@ class AddNewMedicationSwitchTableCell: UITableViewCell, UITextFieldDelegate {
     var isMedicationIncluded:((Bool) -> Void)?
     override func awakeFromNib() {
         super.awakeFromNib()
-        switchButton.onImage = UIImage(named: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "ToggleSwitch_Yes" : "ToggleSwitch_Si")
+        switchButton.onImage = UIImage(named: "ToggleSwitch_Yes".localized)
         switchButton.offImage = UIImage(named: "ToggleSwitch_No")
         switchButton.changeResponseClosure = {[weak self] in self?.isMedicationIncluded?($0)}
         // Initialization code

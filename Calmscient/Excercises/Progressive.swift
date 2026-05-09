@@ -23,12 +23,11 @@ class Progressive: ViewController {
     
     var isObservingStatus = false
     var redOverlayView: UIView!
-    var languageId : Int = 1
     var isPlayerReady = false
     var isFav: Int = 0
     var favExcercises:[ExcercisesModel] = []
     var audioURL: String {
-        return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "https://media.calmscient.in/uploads/exercises-audios/ProgressiveMuscleRelaxationEnglishWithMusic.wav" : "https://media.calmscient.in/uploads/exercises-audios/ProgressiveMuscleRelaxationWithMusicSpanish.wav"
+        return "https://media.calmscient.in/uploads/exercises-audios/ProgressiveMuscleRelaxationEnglishWithMusic.wav".localized
     }
     
     override func viewDidLoad() {
@@ -112,10 +111,6 @@ class Progressive: ViewController {
     
         }
     
-    override func viewWillAppear(_ animated: Bool) {
-        setupLanguage()
-    }
-    
     private func configureAudioSession() {
         do {
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [])
@@ -166,18 +161,6 @@ class Progressive: ViewController {
         player?.currentItem?.removeObserver(self, forKeyPath: "status")
         isObservingStatus = false
     }
-    
-    func setupLanguage() {
-        
-             languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-        
-        
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        }
     
     func addGestureRecognizers() {        
         let rewindGesture = UITapGestureRecognizer(target: self, action: #selector(rewindTapped(tapGestureRecognizer:)))

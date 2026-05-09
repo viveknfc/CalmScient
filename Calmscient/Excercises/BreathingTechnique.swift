@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 class BreathingTechnique: ViewController {
         
     @IBOutlet weak var breathingExcercise478: UIView!
@@ -72,7 +71,7 @@ class BreathingTechnique: ViewController {
         }
     
     override func viewWillAppear(_ animated: Bool) {
-        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Breathing technique" : "Técnica de respiración"
+        title = "Breathing technique".localized
         setupLanguage()
         breathingExcercise478.applyShadow(shadowColor: (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ? .white : .black,shadowOpacity: (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ? 0.4 : 0.2)
         mindfulBreathingExcercise478.applyShadow(shadowColor: (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ? .white : .black,shadowOpacity: (UserDefaults.standard.value(forKey: "isDarkMode") ?? false) as! Bool ? 0.4 : 0.2)
@@ -82,14 +81,7 @@ class BreathingTechnique: ViewController {
     
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        subTitleLabel.text = AppHelper.getLocalizeString(str:"Breathing exercises")
+subTitleLabel.text = AppHelper.getLocalizeString(str:"Breathing exercises")
         excersice1Label.text = AppHelper.getLocalizeString(str: "4-7-8 Breathing exercise")
         excersice2Label.text = AppHelper.getLocalizeString(str: "Mindful breathing exercise")
         excersice3Label.text = AppHelper.getLocalizeString(str: "Diaphragmatic breathing exercise")

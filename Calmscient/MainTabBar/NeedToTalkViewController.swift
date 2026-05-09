@@ -94,7 +94,7 @@ class NeedToTalkViewController: ViewController {
                 print("Error: \(error)")
             }
         }
-        self.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "Emergency resources" : "Recursos de emergencia."
+        self.title = "Emergency resources".localized
         let attributes: [NSAttributedString.Key: Any] = [.font: UIFont(name: Fonts().lexendMedium, size: 18)!,]
         navigationController?.navigationBar.titleTextAttributes = attributes
         needToTalkTableView.reloadData()
@@ -121,15 +121,7 @@ class NeedToTalkViewController: ViewController {
     
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        
-        }
+}
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -212,7 +204,7 @@ extension NeedToTalkViewController : UITableViewDataSource,UITableViewDelegate {
                 if let eventName = event["title"] as? String {
                     cell.titleLabel.text = eventName
                 } else {
-                    cell.titleLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "No title available" : "Título no disponible."
+                    cell.titleLabel.text = "No title available".localized
                 }
                 
                 if let eventContent = event["content"] as? String {
@@ -243,9 +235,9 @@ extension NeedToTalkViewController : UITableViewDataSource,UITableViewDelegate {
 //                    cell.descriptionLabel.text = eventContent
                     
                 } else {
-                    cell.descriptionLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "No content available" : "No hay contenido disponible."
+                    cell.descriptionLabel.text = "No content available".localized
                 }
-        cell.learnMoreButton.setTitle(UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Learn more" : "Aprende más.", for: .normal)  
+        cell.learnMoreButton.setTitle("Learn more".localized, for: .normal)  
         cell.learnMoreButton.tag = indexPath.row
 
         cell.learnMoreButton.addTarget(self, action: #selector(NeedToTalkViewController.learnMoreButtonClicked(_:)), for: .touchUpInside)
@@ -262,7 +254,7 @@ extension NeedToTalkViewController : UITableViewDataSource,UITableViewDelegate {
                 let next = UIStoryboard(name: "FavoritesVideosWebViewController", bundle: nil)
                 let vc = next.instantiateViewController(withIdentifier: "FavoritesVideosWebViewController") as? FavoritesVideosWebViewController
                 vc?.favURL = url
-                vc?.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "Emergency resources" : "Recursos de emergencia."
+                vc?.title = "Emergency resources".localized
                 self.navigationController?.pushViewController(vc!, animated: true)
                 
                 

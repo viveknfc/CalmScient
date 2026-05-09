@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 fileprivate enum AddUserMedicationsCellDef:String {
     case textFieldUserEntry = "AddNewMedicationUserEntryTableCell"
     case switchAndTableCell = "AddNewMedicationSwitchTableCell"
@@ -187,15 +186,7 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
     }
     
     func setupLanguage() {
-        let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-        
-        if languageId == 1 {
-            UserDefaults.standard.set("en", forKey: "Language")
-        } else if languageId == 2 {
-            UserDefaults.standard.set("es", forKey: "Language")
-        }
-
-        if self.title == nil {
+if self.title == nil {
             self.title = AppHelper.getLocalizeString(str:"Add Medications")
         }
         
@@ -304,7 +295,7 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
        
             let requestForm = AddMedicationsRequestForm(jsonData)
             guard let requestURL = requestForm.getURLRequest() else {
-                self.view.showToast(message:  UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "An Unknown error occured. Please check with Admin" : "Se produjo un error desconocido. Consulte con el administrador")
+                self.view.showToast(message:  "An Unknown error occured. Please check with Admin".localized)
                 return
             }
             self.view.showToastActivity()
@@ -357,11 +348,11 @@ class AddUserMedicationsViewController: ViewController, UIAdaptivePresentationCo
     
     public func doValidation() -> Bool {
         
-        let name = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Medication" : "Medicamentos"
-        let provider = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Provider" : "Proveedora"
-        let dosage = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Dosage" : "Dosificación"
-        let direction = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Direction" : "Dirección"
-        let pleaseEnter = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Please enter" : "Por favor ingresa"
+        let name = "Medication".localized
+        let provider = "Provider".localized
+        let dosage = "Dosage".localized
+        let direction = "Direction".localized
+        let pleaseEnter = "Please enter".localized
         
         
         let detailsMatch:[Int:String] = [0:name,1:provider,2:dosage,3:direction]
@@ -494,16 +485,16 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
         case .switchAndTableCell:
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddNewMedicationSwitchTableCell", for: indexPath) as! AddNewMedicationSwitchTableCell
             cell.selectionStyle = .none
-            cell.cellTitleLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "With meal" : "Con alimentos"
-            cell.expiryLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Expiry date" : "Fecha de vencimiento"
+            cell.cellTitleLabel.text = "With meal".localized
+            cell.expiryLabel.text = "Expiry date".localized
             
             if EditVc ?? false {
                 
                 cell.expiryTextfield.text = expiryDate
                 cell.switchButton.status = (meal == 1)
-                cell.scheduleTimeLbl.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?   "Update time & alarm" :  "Programar hora y alarma."
+                cell.scheduleTimeLbl.text = "Update time & alarm".localized
             } else {
-                cell.scheduleTimeLbl.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?   "Schedule time & alarm" :  "Configurar la yora y alarma"
+                cell.scheduleTimeLbl.text = "Schedule time & alarm".localized
             }
             
             
@@ -609,7 +600,6 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
             print("No indexPath provided, date is \(formattedDate)")
         }
     }
-
 
     func didDismissPicker() {
         removeDimmingView()
@@ -748,7 +738,6 @@ extension AddUserMedicationsViewController : UITableViewDataSource,UITableViewDe
             window.addSubview(dimmingView)
             self.dimmingView = dimmingView // Store the reference
         }
-
 
         if #available(iOS 15.0, *) {
             if let sheet = vc.sheetPresentationController {

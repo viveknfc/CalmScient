@@ -16,30 +16,20 @@ class TryingToQuitVC: ViewController {
     
     var items: [String] = []
     
-    let eitems = [
-        "Do something to stay active at home",
-        "Call or visit a friend or family member",
-        "Brush your teeth",
-        "Play with a pet",
-        "Update your contact list on your cell phone",
-        "Try a new hobby",
-        "Switch to coffee with less caffeine or decaf products"
-    ]
-
-    let sitems = [
-        "Haz algo para mantenerte activo en casa",
-        "Llama o visita a un amigo o familiar",
-        "Cepíllate los dientes",
-        "Juega con una mascota",
-        "Update your contact list on your cell phone",
-        "Prueba un nuevo pasatiempo",
-        "Cambia a café con menos cafeína o productos descafeinados"
+    static let localizedItems = [
+        "Do something to stay active at home".localized,
+        "Call or visit a friend or family member".localized,
+        "Brush your teeth".localized,
+        "Play with a pet".localized,
+        "Update your contact list on your cell phone".localized,
+        "Try a new hobby".localized,
+        "Switch to coffee with less caffeine or decaf products".localized
     ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        items = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? eitems : sitems
+        items = Self.localizedItems
         
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.firstLineHeadIndent = 0 // First line starts normally
@@ -59,9 +49,7 @@ class TryingToQuitVC: ViewController {
         bulletinLabels.attributedText = attributedString
 
         // Do any additional setup after loading the view.
-        let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-        let title = selectedLanguageID == 1 ? "Complete" : "Finalizar"
-        completeButton.setTitle(title, for: .normal)
+        completeButton.setTitle("Complete".localized, for: .normal)
         completeButton.titleLabel?.font = UIFont(name: Fonts().lexendLight, size: 14)
         
         

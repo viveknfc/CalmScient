@@ -57,9 +57,8 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
         }
 
         // Title
-        let languageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-        let greeting = languageID == 1 ? "Hello" : "Hola"
-        let subText = languageID == 1 ? "We are happy to see you" : "Estamos felices de verte"
+        let greeting = "Hello".localized
+        let subText = "We are happy to see you".localized
         let firstName = loginResponse.firstName
 
         let text = NSMutableAttributedString(string: "\(greeting) \(firstName)\n\(subText)")
@@ -174,15 +173,8 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
     
     // MARK: - Language
     func setupLanguage() {
-        languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
         
-        if languageId == 1 {
-            UserDefaults.standard.set("en", forKey: "Language")
-        } else if languageId == 2 {
-            UserDefaults.standard.set("es", forKey: "Language")
-        }
-        
-        noFavsLabel.text = AppHelper.getLocalizeString(str: "No favorites found for this patient")
+noFavsLabel.text = AppHelper.getLocalizeString(str: "No favorites found for this patient")
         myFavourites.text = AppHelper.getLocalizeString(str: "My Favorites")
         actionButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str: "Need to talk with someone?"))
         dashboardTableView.reloadData()
@@ -352,13 +344,13 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
         let cell = tableView.dequeueReusableCell(withIdentifier: "DashboardMainTableCell", for: indexPath) as! DashboardMainTableCell
         
         if (indexPath.row == 0) {
-            cell.cellTitleLabel.text = languageId == 1 ? "My medical records" :  "Mis registros médicos"
+            cell.cellTitleLabel.text = "My medical records".localized
             cell.cellImageView?.image = UIImage(named: "MyMedicalRecordsIcon")
         } else if (indexPath.row == 1){
-            cell.cellTitleLabel.text = languageId == 1 ? "Weekly summary" : "Resumen semanal"
+            cell.cellTitleLabel.text = "Weekly summary".localized
             cell.cellImageView?.image = UIImage(named: "weeklySummay1")
         } else if (indexPath.row == 2){
-            cell.cellTitleLabel.text = languageId == 1 ? "Mental wellbeing tracker" : "Rastreador de bienestar mental"
+            cell.cellTitleLabel.text = "Mental wellbeing tracker".localized
             cell.cellImageView?.image = UIImage(named: "mentalWellbeing")
         }
         cell.selectionStyle = .none
@@ -384,7 +376,7 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
             if #available(iOS 16.0, *) {
                 let vc = next.instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as? UserIntroDayFeedbackViewController
                 
-                vc?.title = languageId == 1 ? "Mental wellbeing tracker" : "Rastreador de bienestar mental"
+                vc?.title = "Mental wellbeing tracker".localized
                 vc?.hideSkipButton = true
                 self.navigationController?.pushViewController(vc!, animated: true)
             } else {

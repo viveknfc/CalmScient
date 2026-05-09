@@ -82,7 +82,7 @@ class ScreeningListVC: ViewController {
     
     override func viewWillAppear(_ animated: Bool) {
 //        self.view.showToastActivity()
-        self.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Screenings" : "Exámenes"
+        self.title = "Screenings".localized
         
         
     }

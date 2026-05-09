@@ -135,20 +135,15 @@ class UserIntroDayFeedbackViewController: ViewController {
         if let dayTimeValue = userDayWiseData?.dayTimeValue {
             switch dayTimeValue {
             case .Morning, .Afternoon:
-                let morningGreet = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Hello" : "Hola"
+                let morningGreet = "Hello".localized
                 GreetingTitle = "\(morningGreet) \(titleString)!"
             case .Evening:
-                let eveGreet = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Good evening" : "¡Buenas noches"
+                let eveGreet = "Good evening".localized
                 GreetingTitle = "\(eveGreet) \(titleString)!"
             }
         }
         
-        let language = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-        if language == 1 {
-            alertText = "Please fill all mandatory fields."
-        } else {
-            alertText = "Por favor, completa todos los campos obligatorios."
-        }
+        alertText = "Please fill all mandatory fields.".localized
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGesture.cancelsTouchesInView = false // Allow table view cell selection
@@ -378,16 +373,6 @@ class UserIntroDayFeedbackViewController: ViewController {
     
     
     func setupLanguage() {
-        
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-        
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-                
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-               
-            }
         
         skipButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str: "Skip"))
         savebutton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str: "Save"))

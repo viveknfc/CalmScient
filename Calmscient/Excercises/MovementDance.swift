@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 class MovementDance: ViewController {
 
     @IBOutlet weak var descriptionLbl: UILabel!
@@ -19,13 +18,11 @@ class MovementDance: ViewController {
     
     var isFav: Int = 0
     var favExcercises:[ExcercisesModel] = []
-    var languageId : Int = 1
     
     override func viewDidLoad() {
         
         self.descriptionLbl.font = UIFont(name: Fonts().lexendLight, size: 15)
         completeButton.titleLabel?.font = UIFont(name: Fonts().lexendLight, size: 14)
-
 
         if let data = UserDefaults.standard.value(forKey: "favoriteExcersises") as? Data {
             favExcercises = try! PropertyListDecoder().decode([ExcercisesModel].self, from: data)
@@ -65,21 +62,13 @@ class MovementDance: ViewController {
     
     
     func setupLanguage() {
-        
-             languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
             
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        
-        descriptionLbl.text = AppHelper.getLocalizeString(str: "Moving your body to music can be a fun and fast way to shift your state and reconnect with your body, rhythm and expression.")
+descriptionLbl.text = AppHelper.getLocalizeString(str: "Moving your body to music can be a fun and fast way to shift your state and reconnect with your body, rhythm and expression.")
         
         }
     
     override func viewWillAppear(_ animated: Bool) {
-        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Movement: dance" : "Movimiento: Danza"
+        title = "Movement: dance".localized
         setupLanguage()
     }
 

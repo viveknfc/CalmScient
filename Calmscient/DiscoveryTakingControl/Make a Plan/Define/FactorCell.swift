@@ -36,11 +36,11 @@ class FactorCell: UITableViewCell {
 //        quit_btn.layer.borderColor = UIColor(red: 110/255, green: 107/255, blue: 179/255, alpha: 1).cgColor
         // Initialization code
         
-        label1.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Also you need to consider the following factors to determine what to do." : "También debe considerar los siguientes factores para determinar qué hacer."
-        label2.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "A family history of alcohol problems." : "Antecedentes familiares de problemas con el alcohol."
-        label3.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Your age." : "Su edad."
-        label4.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "A history of drinking-related injuries." : "Antecedentes de lesiones relacionadas con el consumo de alcohol."
-        label5.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Symptoms such as a sleep, pain, or anxiety disorder and sexual dysfunction." : "Síntomas como trastorno del sueño, dolor o ansiedad y disfunción sexual."
+        label1.text = "Also you need to consider the following factors to determine what to do.".localized
+        label2.text = "A family history of alcohol problems.".localized
+        label3.text = "Your age.".localized
+        label4.text = "A history of drinking-related injuries.".localized
+        label5.text = "Symptoms such as a sleep, pain, or anxiety disorder and sexual dysfunction.".localized
       
         
         

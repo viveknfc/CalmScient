@@ -7,8 +7,6 @@
 
 import UIKit
 
-
-
 class MedicationsDetailViewController: ViewController, UISheetPresentationControllerDelegate {
     var dimmingView: UIView?
     @IBOutlet weak var scrennTitleView: UIView!
@@ -62,8 +60,8 @@ class MedicationsDetailViewController: ViewController, UISheetPresentationContro
         dosageView.layer.borderWidth = 1
         dosageView.layer.borderColor = UIColor(named: "AppViewBorderColor")?.cgColor
         
-        dosageLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Dosage" : "Dosificación"
-        directionLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Direction" : "Dirección"
+        dosageLabel.text = "Dosage".localized
+        directionLabel.text = "Direction".localized
         
         guard let details = medicineDetails?.medicationDetailsByDate.first?.medicalDetails else {
             return
@@ -89,7 +87,7 @@ class MedicationsDetailViewController: ViewController, UISheetPresentationContro
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        tableTitleLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Schedule Time & Alarm" : "Programar Hora y Alarma"
+        tableTitleLabel.text = "Schedule Time & Alarm".localized
     }
     
     private func setupButtonShadows() {
@@ -221,14 +219,7 @@ extension MedicationsDetailViewController : UITableViewDataSource,UITableViewDel
     }
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        self.title = AppHelper.getLocalizeString(str:"Add Medications")
+self.title = AppHelper.getLocalizeString(str:"Add Medications")
         saveStr = AppHelper.getLocalizeString(str: "Save")
         }
     
@@ -350,7 +341,6 @@ extension MedicationsDetailViewController : UITableViewDataSource,UITableViewDel
             self.dimmingView = dimmingView // Store the reference
         }
 
-
             self.navigationController?.modalPresentationStyle = .pageSheet
             
             if #available(iOS 15.0, *) {
@@ -367,7 +357,7 @@ extension MedicationsDetailViewController : UITableViewDataSource,UITableViewDel
             } else {
                 
             }
-        sheetVC.headingLabelString = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Update Time & Alarm" : "Actualizar Hora y Alarma."
+        sheetVC.headingLabelString = "Update Time & Alarm".localized
         sheetVC.medicineName = medicineTitle.text ?? ""
         sheetVC.medicineDose = dosageValue.text ?? ""
         

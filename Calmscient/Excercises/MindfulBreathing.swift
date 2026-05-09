@@ -10,7 +10,6 @@ import UIKit
 import AVFoundation
 import AVKit
 
-
 class MindfulBreathing: ViewController {
     
     @IBOutlet weak var preparationView: UIView!
@@ -88,8 +87,6 @@ class MindfulBreathing: ViewController {
     var isFullScreen = false
     let avController = AVPlayerViewController()
     var autoHideTimer: Timer?
-
-    var languageId : Int = 1
     
     
     @IBOutlet weak var completeButton: CapsuleButton1!
@@ -195,16 +192,8 @@ class MindfulBreathing: ViewController {
     }
 
     func setupLanguage() {
-        
-             languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
             
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        
-        preparationTitle.text = AppHelper.getLocalizeString(str: "Preparation")
+preparationTitle.text = AppHelper.getLocalizeString(str: "Preparation")
         preparationDesLabel.text = AppHelper.getLocalizeString(str: "First find a comfortable to either sit down or lay down. You can close your eyes if you want to.")
         
         
@@ -235,7 +224,7 @@ class MindfulBreathing: ViewController {
         }
     
     override func viewWillAppear(_ animated: Bool) {
-        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Mindful breathing exercise" : "Ejercicio de respiración consciente"
+        title = "Mindful breathing exercise".localized
         setupLanguage()
         bringControlsToFront()
     }
@@ -342,7 +331,7 @@ class MindfulBreathing: ViewController {
     
     func setupPlayer() {
         
-        guard let url = URL(string: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "https://media.calmscient.in/uploads/exercises-videos/Mindfulbreathing.mp4" : "https://media.calmscient.in/uploads/exercises-spanish-videos-audios/SpanishMindfulbreathing.mp4") else { return }
+        guard let url = URL(string: "https://media.calmscient.in/uploads/exercises-videos/Mindfulbreathing.mp4".localized) else { return }
         player = AVPlayer(url: url)
                playerLayer = AVPlayerLayer(player: player)
                playerLayer.frame = videoView.bounds

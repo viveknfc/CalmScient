@@ -13,12 +13,11 @@ class QuestionViewController: ViewController, UITableViewDataSource,UITextViewDe
     
     @IBOutlet weak var tableView: UITableView!
     
-    let headers = ["1. What is your understanding of how these things are affect yourself?", "2. What is your understanding of how these things are affect people?", "3. And if you are comfortable sharing, which of these impact are you dealing with right now?"]
-    let spanishHeaders = [
-        "1. ¿Cuál es su comprensión de cómo estas cosas le afectan a usted mismo?",
-        "2. ¿Cuál es su comprensión de cómo estas cosas afectan a las personas?",
-        "3. Y si se siente cómodo compartiendo, ¿con cuál de estos impactos está lidiando en este momento?"
-      ]
+    let headerKeys = [
+        "qvc_hdr_1",
+        "qvc_hdr_2",
+        "qvc_hdr_3"
+    ]
     let texts = ["Text for section 1", "Text for section 2", "Text for section 3"]
     //    var values = ["Anxiety, paranoia, panic","Depression","Decreased memory and problem solving ability","Sleep problems","Mood swings","Family relationships—more fighting and arguing","Health problems","Getting in trouble with the law","Accidents and injuries"]
     
@@ -354,7 +353,7 @@ class QuestionViewController: ViewController, UITableViewDataSource,UITextViewDe
                 return UITableViewCell()
             }
             cell.separatorInset = .zero
-            cell.headerLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? headers[indexPath.row] : spanishHeaders[indexPath.row]
+            cell.headerLabel.text = headerKeys[indexPath.row].localized
             cell.textView.delegate = self
             cell.textView.tag = indexPath.row
             if cell.textView.tag == 0 {
@@ -372,7 +371,7 @@ class QuestionViewController: ViewController, UITableViewDataSource,UITextViewDe
                 return UITableViewCell()
             }
             cell.separatorInset = .zero
-            cell.headerLabel.text = "3. And if you are comfortable sharing, which of these impact are you dealing with right now?"
+            cell.headerLabel.text = "qvc_hdr_3".localized
             //            cell.textView.delegate = self
             //            cell.textView.tag = indexPath.row
             //            cell.textView.text = optionType6
@@ -483,7 +482,7 @@ class QuestionViewController: ViewController, UITableViewDataSource,UITextViewDe
             }
             self.view.showToastActivity()
             if optionType5 == "nil"{
-                self.view.showToast(message: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Please fill textfield one" : "Por favor complete el campo de texto uno")
+                self.view.showToast(message: "Please fill textfield one".localized)
                 
             }
             else{
@@ -496,7 +495,7 @@ class QuestionViewController: ViewController, UITableViewDataSource,UITextViewDe
                                     // self.view.hideToastActivity()
                                     print("saveBasicKnowledgeCource5:\(json)")
                                     if optionType6 == "nil"{
-                                        self.view.showToast(message: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Please fill textfield two" : "Por favor complete el campo de texto dos")
+                                        self.view.showToast(message: "Please fill textfield two".localized)
                                     }
                                     else {
                                         // self.view.showToastActivity()
@@ -510,7 +509,7 @@ class QuestionViewController: ViewController, UITableViewDataSource,UITextViewDe
                                                             //   self.view.hideToastActivity()
                                                             print("saveBasicKnowledgeCource6:\(json)")
                                                             if optionid7 == nil{
-                                                                self.view.showToast(message:  UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Please select one option" : "Por favor seleccione una opción")
+                                                                self.view.showToast(message:  "Please select one option".localized)
                                                                
                                                             }
                                                             else{

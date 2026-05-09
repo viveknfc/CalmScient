@@ -123,14 +123,6 @@ class CreateAccountVC: ViewController,UITextFieldDelegate {
     }
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        
         firstNameLbl.text = AppHelper.getLocalizeString(str: "First Name")
         firstNameTF.placeholder = AppHelper.getLocalizeString(str: "First Name")
         
@@ -146,7 +138,7 @@ class CreateAccountVC: ViewController,UITextFieldDelegate {
         confirmPasswordLbl.text = AppHelper.getLocalizeString(str: "Confirm Password")
         confirmPasswordTF.placeholder = AppHelper.getLocalizeString(str: "Confirm Password")
         submitButton.setTitle(AppHelper.getLocalizeString(str: "Submit"), for: .normal)
-        }
+    }
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
             // Define the characters to allow
             let allowedCharacters = CharacterSet(charactersIn: "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789")

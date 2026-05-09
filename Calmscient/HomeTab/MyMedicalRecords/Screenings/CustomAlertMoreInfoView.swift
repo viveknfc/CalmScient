@@ -32,15 +32,15 @@ class CustomAlertMoreInfoView: UIView {
     
     func UISetup(){
         
-        let description = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "This assessment is based on the Patient Health Questionnaire (PHQ), which is a self-administered version of the PRIME-MD diagnostic instrument for common mental disorders.\n\nPHQ9 Copyright © Pfizer Inc. All rights reserved. Reproduced with permission. PRIME-MD ® is a trademark of Pfizer Inc." : "Esta evaluación se basa en el Cuestionario de salud del paciente (PHQ), que es una versión autoadministrada del instrumento de diagnóstico PRIME-MD para trastornos mentales comunes.\n\nPHQ9 Copyright © Pfizer Inc. Todos los derechos reservados. Reproducido con permiso. PRIME-MD® es una marca comercial de Pfizer Inc."
+        let description = "This assessment is based on the Patient Health Questionnaire (PHQ), which is a self-administered version of the PRIME-MD diagnostic instrument for common mental disorders.\n\nPHQ9 Copyright © Pfizer Inc. All rights reserved. Reproduced with permission. PRIME-MD ® is a trademark of Pfizer Inc.".localized
 
         descriptionLbl.text = description
         
-        okButton.setAttributedTitleWithGradientDefaults(title: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Ok" : "Ok")
+        okButton.setAttributedTitleWithGradientDefaults(title: "Ok".localized)
         
         
         // Create an attributed string with the text and add the underline attribute
-        let underLinetext = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "US National Institute of HealthAmerican Psychological AssociationStamford University" : "Instituto Nacional de Salud de EE. UU.Asociación Americana de PsicologíaUniversidad de Stamford"
+        let underLinetext = "US National Institute of HealthAmerican Psychological AssociationStamford University".localized
         let attributedString = NSMutableAttributedString(string: underLinetext)
         attributedString.addAttribute(.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: NSRange(location: 0, length: underLinetext.count))
         highlightLbl.attributedText = attributedString
@@ -48,7 +48,7 @@ class CustomAlertMoreInfoView: UIView {
  
         highlightLbl.font = UIFont(name: Fonts().lexendMedium, size: 15)
         
-        moreInfoLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "More Info" : "Más información"
+        moreInfoLabel.text = "More Info".localized
         moreInfoLabel.font = UIFont(name: Fonts().lexendSemiBold, size: 19)
         descriptionLbl.font = UIFont(name: Fonts().lexendLight, size: 15)
         let screenSize = UIScreen.main.bounds.size

@@ -54,18 +54,7 @@ class Consequences_six:  ViewController {
     
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-                
-                
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-                
-               
-            }
-        self.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
+self.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
         
         headerLabel.text = AppHelper.getLocalizeString(str: "What are the consequence?")
         subtitleLbl.text = AppHelper.getLocalizeString(str: "Why is being able to “hold your liquor” a concern?") //

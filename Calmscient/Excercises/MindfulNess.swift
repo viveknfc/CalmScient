@@ -8,8 +8,6 @@
 import Foundation
 import UIKit
 
-
-
 class MindfulNess: ViewController {
     
     
@@ -30,25 +28,25 @@ class MindfulNess: ViewController {
     @IBOutlet weak var stackHeight: NSLayoutConstraint!
     
     @IBOutlet weak var completeButton: CapsuleButton1!
-    
-    var languageId : Int = 1
+
     var isFav: Int = 0
     var favExcercises:[ExcercisesModel] = []
 
     
-    let textArray = [
-        "Have you ever caught your mind wandering or daydreaming while you are in the middle of a familiar or repetitive task? You could be walking, working or even driving your car, and your mind is miles away, perhaps fantasizing about going on vacation, thinking about your to-do list, or worrying about some upcoming event.",
-                     
-                     "Mindfulness is the opposite of automatic pilot. It is about experiencing the world that is firmly in the ‘here and now’. This is referred to as the being mode. It liberates you from automatic and unhelpful thoughts and responses.",
-                     
-                     "How does mindfulness help with anxiety?",
-                     
-    "Mindfulness reminds us that we don’t have to take immediate control of, remove or fix unpleasant experiences. Instead, we can identify and actively engage in something that will give us a sense of safety and connection.",
-                     
-                     "As a simple example: Instead of focusing on how many miles you walked in the morning, can you be mindfully aware of the birds singing, actively feel the fresh air, and sense the changing of the season? When you connect your senses to nature, animals, people and your own body, you capture the attention of your nervous system, which in turn soothes your anxiety. When you return home, you will be in a better frame of mind and more prepared to face your day.",
-                     
-                     "Which mindfulness exercises would you like to make part of your daily routine? Calmscient can remind you of some easy mindfulness routines that will help you stay in a healthy, being mode."
-    ]
+    private enum L10n {
+        static let introHighlight = "mindfulness_intro_highlight".localized
+        static let introBody = "mindfulness_intro_body".localized
+        static let autoPilotText = "mindfulness_auto_pilot_text".localized
+        static let autoPilotHighlight = "mindfulness_auto_pilot_highlight".localized
+        static let oppositeText = "mindfulness_opposite_text".localized
+        static let oppositeHighlightPrimary = "mindfulness_opposite_highlight_primary".localized
+        static let oppositeHighlightSecondary = "mindfulness_opposite_highlight_secondary".localized
+        static let anxietyTitle = "mindfulness_anxiety_title".localized
+        static let anxietyBody = "mindfulness_anxiety_body".localized
+        static let reminderBody = "mindfulness_reminder_body".localized
+        static let exampleBody = "mindfulness_example_body".localized
+        static let dailyRoutineBody = "mindfulness_daily_routine_body".localized
+    }
     
     let imagesArray = [
                        UIImage(named: "stpe1_img"),
@@ -116,15 +114,8 @@ class MindfulNess: ViewController {
     
     
     func setupLanguage() {
-        
-             languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
             
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-//        self.titleLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Mindfulness - what is it?" : "Mindfulness: ¿qué es?"
+//        self.titleLabel.text = "Mindfulness - what is it?".localized
         setupData()
         
         }
@@ -148,8 +139,8 @@ class MindfulNess: ViewController {
 
                     // Define the text segments
                     let segments = [
-                        (text: languageId == 1 ? "Have you ever caught your mind wandering or daydreaming" : "¿Alguna vez estuviste pensando en otra cosa o soñando despierto", attributes: highlightAttr),
-                        (text: languageId == 1 ?  " while you are in the middle of a familiar or repetitive task? You could be walking, working or even driving your car, and your mind is miles away, perhaps fantasizing about going on vacation, thinking about your to-do list, or worrying about some upcoming event." : " mientras estás en medio de una tarea familiar o repetitiva? Podrías estar caminando, trabajando o incluso conduciendo el auto, pero tu mente está a kilómetros de distancia, quizás fantaseando con ir de vacaciones, pensando en tu lista de tareas o preocupándote por algún próximo evento." , attributes: attrs2)
+                        (text: L10n.introHighlight, attributes: highlightAttr),
+                        (text: L10n.introBody, attributes: attrs2)
                     ]
 
                     // Create the combined attributed string
@@ -157,13 +148,13 @@ class MindfulNess: ViewController {
                     
             text1.attributedText = combinedAttributedString//textArray[0]
             
-            let fulltxt2 = languageId == 1 ? "In either case, you are not focusing on the current situation and not in touch with the ‘here and now’.  This mode of operation is often referred to as automatic pilot." : "En cualquiera de los casos, no estás prestando atención a la situación actual y no estás en contacto con el “aquí y ahora”. \n A este comportamiento se le conoce a menudo como piloto automático."
+            let fulltxt2 = L10n.autoPilotText
             
                     // Create a mutable attributed string
                     let attributedString = NSMutableAttributedString(string: fulltxt2, attributes: attrs2)
                     
                     // Define the range of the highlighted text
-            let highlightedTextRange = (fulltxt2 as NSString).range(of: languageId == 1 ? "automatic pilot." : "piloto automático" )
+            let highlightedTextRange = (fulltxt2 as NSString).range(of: L10n.autoPilotHighlight)
                     
                     // Apply the highlighted attributes to the specific range
                     attributedString.addAttributes(highlightAttr, range: highlightedTextRange)
@@ -190,7 +181,7 @@ class MindfulNess: ViewController {
                 
             ]
             
-            let fullString = languageId == 1 ? "Mindfulness is the opposite of automatic pilot. It is about experiencing the world that is firmly in the ‘here and now’. This is referred to as the being mode. It liberates you from automatic and unhelpful thoughts and responses." : "La conciencia es lo contrario del piloto automático. Se trata de vivir el momento presente, de estar realmente en el “aquí y ahora”. Esto se llama modo de presencia. Te ayuda a liberarte de pensamientos y reacciones automáticas que no son útiles."
+            let fullString = L10n.oppositeText
 
             // Create an NSMutableAttributedString with the entire string
             let attributedString = NSMutableAttributedString(string: fullString)
@@ -201,8 +192,8 @@ class MindfulNess: ViewController {
             attributedString.addAttributes(attrs2, range: NSRange(location: 0, length: fullString.count))
 
             // Define the ranges of the words you want to highlight
-            let mindfulnessRange = (fullString as NSString).range(of:languageId == 1 ? "Mindfulness" : "conciencia es" )
-            let beingRange = (fullString as NSString).range(of:languageId == 1 ?  "being" : "modo de presencia")
+            let mindfulnessRange = (fullString as NSString).range(of: L10n.oppositeHighlightPrimary)
+            let beingRange = (fullString as NSString).range(of: L10n.oppositeHighlightSecondary)
 
             
 
@@ -214,16 +205,16 @@ class MindfulNess: ViewController {
             text2.text = ""
         }
         else if(counter == 2){
-            text1.text = languageId == 1 ? textArray[2] : "¿Cómo ayuda la atención plena con la ansiedad?"
+            text1.text = L10n.anxietyTitle
             text1.font = UIFont(name: Fonts().lexendRegular, size: 15)!
             imgView.image = imagesArray[2]
             completeButton.isHidden = true
             stepsImgView.image = UIImage(named: "step3")
             imgView.contentMode = .scaleAspectFit
-            text2.text = languageId == 1 ? "When we allow our brain to enter automatic pilot mode too often, it can be at risk of being conditioned to be overly preoccupied about the future, past experiences or our emotions in negative ways. If we have fallen into this old and unhelpful habit, we can unlearn it and replace it with skills that help us resist ‘buying into’ automatic worry and anxiety. " : "Cuando dejamos que nuestro cerebro entre en modo piloto automático con demasiada frecuencia, corremos el riesgo de acostumbrarnos a preocuparnos en exceso por el futuro, por experiencias pasadas o por nuestras emociones de manera negativa. Si hemos caído en este hábito poco útil, podemos desaprenderlo y reemplazarlo con habilidades que nos ayuden a no dejarnos llevar por la preocupación y la ansiedad automáticas."
+            text2.text = L10n.anxietyBody
         }
         else if(counter == 3){
-            text1.text = languageId == 1 ? textArray[3] : "La atención plena nos recuerda que no necesitamos controlar, eliminar o solucionar de inmediato las experiencias desagradables. En lugar de eso, podemos identificar algo que nos haga sentir seguros y conectados, para poder dedicarnos a ello."
+            text1.text = L10n.reminderBody
             text1.font = UIFont(name: Fonts().lexendLight, size: 15)!
             text2.text = ""
             imgView.contentMode = .scaleAspectFill
@@ -236,7 +227,7 @@ class MindfulNess: ViewController {
             stackHeight.constant = 0
             completeButton.isHidden = true
             rightBtn.isHidden = false
-            text1.text = languageId == 1 ? textArray[4] : "Como un ejemplo sencillo: en lugar de preocuparte por cuántos kilómetros caminaste por la mañana, ¿puedes ser consciente de los pájaros cantando, sentir el aire fresco y notar cómo cambia el día? Al conectar tus sentidos con la naturaleza, los animales, las personas y tu propio cuerpo, atraes la atención de tu sistema nervioso, lo que a su vez calma tu ansiedad. Cuando regreses a casa, estarás en un mejor estado de ánimo y más preparado para enfrentar tu día."
+            text1.text = L10n.exampleBody
             text2.text = ""
             imgView.contentMode = .scaleAspectFit
             imgView.image = imagesArray[4]
@@ -247,7 +238,7 @@ class MindfulNess: ViewController {
             stackHeight.constant = 41
             rightBtn.isHidden = true
             completeButton.isHidden = false
-            text1.text = languageId == 1 ? textArray[5] : "¿Qué ejercicios de atención plena te gustaría incluir en tu rutina diaria? Calmscient puede recordarte algunas rutinas sencillas de atención plena que te ayudarán a mantenerte saludable."
+            text1.text = L10n.dailyRoutineBody
             text2.text = ""
             imgView.image = imagesArray[5]
             stepsImgView.image = UIImage(named: "step6")
@@ -255,7 +246,7 @@ class MindfulNess: ViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Mindfulness - what is it?" : "Mindfulness: ¿qué es?"
+        title = "Mindfulness - what is it?".localized
         imgStack.isHidden  =   (counter == 5) ?  false :  true
         stackHeight.constant = (counter == 5) ? 41 : 0
         setupLanguage()

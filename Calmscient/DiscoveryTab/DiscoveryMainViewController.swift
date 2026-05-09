@@ -40,7 +40,6 @@ class DiscoveryMainViewController: ViewController{
         profileButton.contentHorizontalAlignment = .fill
         profileButton.contentVerticalAlignment = .fill
 
-
         let profileBarButton = UIBarButtonItem(customView: profileButton)
 
         // New second button (e.g., settings)
@@ -81,8 +80,7 @@ class DiscoveryMainViewController: ViewController{
         self.navigationItem.leftBarButtonItem = nil
         self.navigationItem.hidesBackButton = true
 
-        let selectedLanguageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-        let titleText = selectedLanguageId == 1 ? "Discovery" : "Descubrimiento"
+        let titleText = "Discovery".localized
 
         let titleLabel = UILabel()
         titleLabel.text = titleText
@@ -100,15 +98,7 @@ class DiscoveryMainViewController: ViewController{
     
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        
-        }
+}
 }
 
 @available(iOS 16.0, *)
@@ -121,13 +111,13 @@ extension DiscoveryMainViewController : UITableViewDataSource,UITableViewDelegat
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyMedicalRecordsCell", for: indexPath) as! MyMedicalRecordsCell
         if indexPath.row == 0{
             cell.medicalCellImage.image = UIImage(named: "img1")
-            cell.titleTextField.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Managing anxiety" : "Manejar la ansiedad"
+            cell.titleTextField.text = "Managing anxiety".localized
         } else if indexPath.row == 1 {
             cell.medicalCellImage.image = UIImage(named: "img2")
-            cell.titleTextField.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Changing your response to stress" : "Cambiar tu respuesta al estrés"
+            cell.titleTextField.text = "Changing your response to stress".localized
         } else {
             cell.medicalCellImage.image = UIImage(named: "img3")
-            cell.titleTextField.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Taking control" : "Tomando el control"
+            cell.titleTextField.text = "Taking control".localized
         }
         cell.medicalCellImage.contentMode = .center
         cell.cellBottomImageView.isHidden = false
@@ -158,7 +148,7 @@ extension DiscoveryMainViewController : UITableViewDataSource,UITableViewDelegat
             
             let next = UIStoryboard(name: "CourseViewController", bundle: nil)
             let vc = next.instantiateViewController(withIdentifier: "CoursesViewController") as? CoursesViewController
-            vc?.title =  UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "Changing your response to stress" : "Cambiando tu respuesta al estrés"
+            vc?.title =  "Changing your response to stress".localized
             vc?.courseID = 3
             self.navigationController?.pushViewController(vc!, animated: true)
             

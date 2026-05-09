@@ -137,16 +137,7 @@ class UpdatePasswordVC: UIViewController,UITextFieldDelegate {
     }
     func setupLanguage() {
         
-        let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-        
-        if languageId == 1 {
-            UserDefaults.standard.set("en", forKey: "Language")
-            
-        } else if languageId == 2 {
-            UserDefaults.standard.set("es", forKey: "Language")
-            
-        }
-    }
+}
     override func viewWillAppear(_ animated: Bool) {
         addCustomBackbutton()
         setNewPasswordLbl.font = UIFont(name:Fonts().lexendMedium, size: 20.0)

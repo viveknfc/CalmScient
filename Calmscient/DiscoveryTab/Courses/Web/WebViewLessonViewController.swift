@@ -280,9 +280,7 @@ class WebViewLessonViewController: UIViewController, WKNavigationDelegate, WKScr
             case "1009":
                 let next = UIStoryboard(name: "CourseViewController", bundle: nil)
                 if let vc = next.instantiateViewController(withIdentifier: "CoursesViewController") as? CoursesViewController {
-                    vc.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1
-                        ? "Changing your response to stress"
-                        : "Cambiando tu respuesta al estrés"
+                    vc.title = "Changing your response to stress".localized
                     vc.courseID = 3
                     self.navigationController?.pushViewController(vc, animated: true)
                 }

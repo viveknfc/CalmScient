@@ -24,22 +24,35 @@ class UserIntroSelectionTableCell: UITableViewCell {
     
     private var cellType:UserEntryDayFeedbackTableCell! {
         didSet {
-             var languageId: Int?
-             languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
              self.titleLabel.font = UIFont(name: Fonts().lexendMedium, size: 16)
              
              var labelText: String
              if cellType == .UserMoodHoursCell {
-                 
-                 if UserDefaults.standard.bool(forKey: "Morning") {
+                 if let mood = instance.moodData {
+                     let trimmed = mood.moodQuestion.trimmingCharacters(in: .whitespacesAndNewlines)
+                     if !trimmed.isEmpty {
+                         labelText = mood.moodQuestion
+                     } else if UserDefaults.standard.bool(forKey: "Morning") {
+                         print("viv u r setting text for UserMoodHoursCell from here")
+                         labelText = AppHelper.getLocalizeString(str: "UserIntro_fallback_mood_morning")
+                     } else {
+                         labelText = AppHelper.getLocalizeString(str: "UserIntro_fallback_mood_today")
+                     }
+                 } else if UserDefaults.standard.bool(forKey: "Morning") {
                      print("viv u r setting text for UserMoodHoursCell from here")
-                     labelText = (languageId == 0 ? 1 : languageId) == 1 ? instance.moodData?.moodQuestion ?? "" : "Qué tal tu ánimo?" 
+                     labelText = AppHelper.getLocalizeString(str: "UserIntro_fallback_mood_morning")
                  } else {
-                     labelText = (languageId == 0 ? 1 : languageId) == 1 ? instance.moodData?.moodQuestion ?? "" : "¿Cómo estuvo tu estado de ánimo hoy?"
+                     labelText = AppHelper.getLocalizeString(str: "UserIntro_fallback_mood_today")
                  }
 
              } else {
-                 labelText = (languageId == 0 ? 1 : languageId) == 1 ? instance.timeSpendData?.timeSpendQuestion ?? "" : "¿Con quién pasaste tiempo?"
+                 let fallback = AppHelper.getLocalizeString(str: "UserIntro_fallback_time_spend")
+                 if let ts = instance.timeSpendData {
+                     let q = ts.timeSpendQuestion.trimmingCharacters(in: .whitespacesAndNewlines)
+                     labelText = q.isEmpty ? fallback : ts.timeSpendQuestion
+                 } else {
+                     labelText = fallback
+                 }
              }
              
              // Create an attributed string with red asterisk
@@ -95,35 +108,21 @@ class UserIntroSelectionTableCell: UITableViewCell {
     }
 
     
-    let dummyData:[String:[(String,String)]] = (UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 0 ? 1 : UserDefaults.standard.integer(forKey: "SelectedLanguageID")) == 1 ? ["UserMoodHoursCell":[
-        ("UserIntro_Bad","BAD"),
-        ("UserIntro_Couldbe","COULD BE BETTER"),
-        ("UserIntro_Fair","FAIR"),
-        ("UserIntro_Good","GOOD"),
-        ("UserIntro_Excellent","EXCELLENT")
-    ],"UserEntryTimeSpendCell":[
-        ("UserIntro_Family","FAMILY"),
-        ("UserIntro_Friends","FRIENDS"),
-        ("UserIntro_Workmates","WORKMATES"),
-        ("UserIntro_Others","OTHERS"),
-        ("UserIntro_Alone","ALONE")
-    ]]
-    
-    :
-    
-    ["UserMoodHoursCell":[
-        ("UserIntro_Bad","Mal"),
-        ("UserIntro_Couldbe","Podría ser mejor"),
-        ("UserIntro_Fair","Más o menos"),
-        ("UserIntro_Good","Bueno"),
-        ("UserIntro_Excellent","Excelente")
-    ],"UserEntryTimeSpendCell":[
-        ("UserIntro_Family","Familia"),
-        ("UserIntro_Friends","Amigos"),
-        ("UserIntro_Workmates","Compaňeros de trabajo"),
-        ("UserIntro_Others","Otras personas"),
-        ("UserIntro_Alone","Solo")
-    ]]
+    /// Image asset name, Localizable key for title (en / es / ja in `Localizable.strings`).
+    private static let moodOptionPairs: [(String, String)] = [
+        ("UserIntro_Bad", "UserIntro_Mood_BAD"),
+        ("UserIntro_Couldbe", "UserIntro_Mood_COULD_BE_BETTER"),
+        ("UserIntro_Fair", "UserIntro_Mood_FAIR"),
+        ("UserIntro_Good", "UserIntro_Mood_GOOD"),
+        ("UserIntro_Excellent", "UserIntro_Mood_EXCELLENT")
+    ]
+    private static let timeSpendPairs: [(String, String)] = [
+        ("UserIntro_Family", "UserIntro_Time_FAMILY"),
+        ("UserIntro_Friends", "UserIntro_Time_FRIENDS"),
+        ("UserIntro_Workmates", "UserIntro_Time_WORKMATES"),
+        ("UserIntro_Others", "UserIntro_Time_OTHERS"),
+        ("UserIntro_Alone", "UserIntro_Time_ALONE")
+    ]
     
     let selectedSmileyImgs = ["bad_selected","could_better_selected","fair_selected","good_selected","excellent_selected"]
     
@@ -148,7 +147,14 @@ class UserIntroSelectionTableCell: UITableViewCell {
     func updateUIWithCellInstance(instance:UserStartupScreenDayData, cellType:UserEntryDayFeedbackTableCell) {
         self.instance = instance
         self.cellType = cellType
-        self.collectionData = dummyData[cellType.rawValue]!
+        switch cellType {
+        case .UserMoodHoursCell:
+            self.collectionData = Self.moodOptionPairs
+        case .UserEntryTimeSpendCell:
+            self.collectionData = Self.timeSpendPairs
+        default:
+            self.collectionData = []
+        }
 
         self.tableCellCollectionView.delegate = self
         self.tableCellCollectionView.dataSource = self
@@ -308,7 +314,7 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegateFlowLayout, UICo
             
         }
         
-        cell.cellTitleLabel.text = cellData.1
+        cell.cellTitleLabel.text = cellData.1.localized
     }
     
     

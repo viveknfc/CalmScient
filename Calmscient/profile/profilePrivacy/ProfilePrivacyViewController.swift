@@ -62,14 +62,7 @@ class ProfilePrivacyViewController: UIViewController {
     
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        privacyLabel.text = AppHelper.getLocalizeString(str:"Privacy")
+privacyLabel.text = AppHelper.getLocalizeString(str:"Privacy")
         privacyDescription.text = AppHelper.getLocalizeString(str:"Data from Calmscient can be transmitted to your doctor for clinical review purposes. Please indicate which data you allow to be shared with your doctor by selecting either Yes or No next to each data element below")
         
         }
@@ -233,7 +226,6 @@ class ProfilePrivacyViewController: UIViewController {
     }
 }
 
-
 extension ProfilePrivacyViewController : UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return profilePrivacyData.count
@@ -321,5 +313,4 @@ extension ProfilePrivacyViewController : UITableViewDataSource, UITableViewDeleg
         }
     }
 }
-
 

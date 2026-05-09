@@ -13,9 +13,7 @@ class TobaccoFreeVC: ViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-        let title = selectedLanguageID == 1 ? "Complete" : "Finalizar"
-        completeButton.setTitle(title, for: .normal)
+        completeButton.setTitle("Complete".localized, for: .normal)
         completeButton.titleLabel?.font = UIFont(name: Fonts().lexendLight, size: 14)
     }
 

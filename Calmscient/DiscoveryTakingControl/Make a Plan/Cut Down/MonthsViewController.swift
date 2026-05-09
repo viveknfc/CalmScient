@@ -246,14 +246,7 @@ class MonthsViewController: UIViewController,UIPickerViewDataSource, UIPickerVie
     }
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        self.title = AppHelper.getLocalizeString(str:"Taking Control")
+self.title = AppHelper.getLocalizeString(str:"Taking Control")
         goodJobLabel.text = AppHelper.getLocalizeString(str: "Good job!")
         monthlyCountLabel.text = AppHelper.getLocalizeString(str: "Your suggested" )
         actualDrinksCountLabel.text = AppHelper.getLocalizeString(str:"Your monthly Drinks count")

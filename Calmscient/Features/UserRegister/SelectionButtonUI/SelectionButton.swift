@@ -104,14 +104,7 @@ class SelectionButton : UIView {
     }
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        contentLabel.text = AppHelper.getLocalizeString(str: "I agree to share my info with medical provider")
+contentLabel.text = AppHelper.getLocalizeString(str: "I agree to share my info with medical provider")
         rememberMeLabel.text = AppHelper.getLocalizeString(str: "Remember me")
         
         }

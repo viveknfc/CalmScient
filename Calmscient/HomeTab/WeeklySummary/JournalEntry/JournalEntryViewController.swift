@@ -52,7 +52,7 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
         datePickerView.locale = Locale(identifier: Utility.shared.getLocaleIdentifier())
         needToTalkButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str:"Need to talk with someone?"))
         
-        searchTF.placeholder = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Search" : "Buscar"
+        searchTF.placeholder = "Search".localized
         self.navigationController?.isNavigationBarHidden = false
         calenderButton.layer.cornerRadius = calenderButton.frame.height/2
 
@@ -115,7 +115,7 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
         pickerBackView.isHidden = true
         
         
-        nomedications.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "No data for this date" : "No hay datos para esta fecha"
+        nomedications.text = "No data for this date".localized
         nomedications.textColor = UIColor(named: "medicationscelldefaulttextcolor")
         nomedications.textAlignment = .center
         nomedications.font = UIFont.boldSystemFont(ofSize: 17)
@@ -131,7 +131,7 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
                 ])
         self.nomedications.isHidden = true
         
-        nomedications1.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "No data for this date" : "No hay datos para esta fecha"
+        nomedications1.text = "No data for this date".localized
         nomedications1.textColor = UIColor(named: "medicationscelldefaulttextcolor")
         nomedications1.textAlignment = .center
         nomedications1.font = UIFont.boldSystemFont(ofSize: 17)
@@ -148,7 +148,7 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
         self.nomedications1.isHidden = true
         
         
-        nomedications2.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "No data for this date" : "No hay datos para esta fecha"
+        nomedications2.text = "No data for this date".localized
         nomedications2.textColor = UIColor(named: "medicationscelldefaulttextcolor")
         nomedications2.textAlignment = .center
         nomedications2.font = UIFont.boldSystemFont(ofSize: 17)
@@ -166,17 +166,7 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
         
         journalDataFunc(date: "")
 
-        let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            let title1 = languageId == 1 ? "Quiz" : "Cuestionario"
-            quizButton.setTitle(title1, for: .normal)
-        let title2 = languageId == 1 ? "Daily journal" : "Diario"
-        dailyButton.setTitle(title2, for: .normal)
-        
-        let title3 = languageId == 1 ? "Discovery \nExcercise" : "Ejercicio de descubrimiento"
-        discoveryButton.setTitle(title3, for: .normal)
-        discoveryButton.titleLabel?.numberOfLines = 2
-        discoveryButton.titleLabel?.textAlignment = .center
-        discoveryButton.titleLabel?.lineBreakMode = .byWordWrapping
+        applyLocalizedJournalSegmentTitles()
         
         quizButton.isSelected = true
         addButton.isHidden = true
@@ -222,6 +212,17 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = false
+        applyLocalizedJournalSegmentTitles()
+        [discoveryButton, dailyButton, quizButton].compactMap { $0 }.forEach { updateButtonAppearance($0) }
+    }
+    
+    private func applyLocalizedJournalSegmentTitles() {
+        quizButton.setTitle("Quiz".localized, for: .normal)
+        dailyButton.setTitle("Daily jouneral".localized, for: .normal)
+        discoveryButton.setTitle("journal_discovery_exercise_segment".localized, for: .normal)
+        discoveryButton.titleLabel?.numberOfLines = 2
+        discoveryButton.titleLabel?.textAlignment = .center
+        discoveryButton.titleLabel?.lineBreakMode = .byWordWrapping
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -234,15 +235,7 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
     
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        
-        needToTalkButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str:"Need to talk with someone?"))
+needToTalkButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str:"Need to talk with someone?"))
  
         }
     
@@ -302,7 +295,6 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
                 print("Could not process createdAt for entry:", entry)
             }
         }
-
 
         sortedDates = journalDataByDate.keys.sorted(by: { $0 > $1 })
     }
@@ -696,7 +688,7 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
         
         // Check if updatedText is empty or just whitespace
         if updatedText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || updatedText == initialText {
-            let alertText = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Please enter journal details" : "Por favor, ingrese los detalles del diario"
+            let alertText = "Please enter journal details".localized
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 40, height: 40),
@@ -1073,7 +1065,6 @@ extension JournalEntryViewController : UITableViewDataSource,UITableViewDelegate
                 return cell
             }
 
-
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: "quizTableViewCell", for: indexPath)
@@ -1081,7 +1072,6 @@ extension JournalEntryViewController : UITableViewDataSource,UITableViewDelegate
             return cell
         }
     }
-
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 

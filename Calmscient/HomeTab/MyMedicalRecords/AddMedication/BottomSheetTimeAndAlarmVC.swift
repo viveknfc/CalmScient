@@ -100,7 +100,7 @@ class BottomSheetTimeAndAlarmVC: UIViewController {
     
     
     override func viewWillAppear(_ animated: Bool) {
-        timeLbl.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "Time" : "Tiempo"
+        timeLbl.text = "Time".localized
     }
     
     private func updateWithNewMedicationAlarmInstance() {

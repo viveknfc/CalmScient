@@ -48,18 +48,17 @@ class TakingControllIntro: ViewController,UITableViewDelegate,UITableViewDataSou
     
     override func viewWillAppear(_ animated: Bool) {
         
-        let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
         data = [
-            selectedLanguageID == 1 ? "AUDIT" : "AUDITORÍA",
-            selectedLanguageID == 1 ? "DAST-10" : "POLVO-10",
-            selectedLanguageID == 1 ? "CAGE" : "JAULA"
+            AppHelper.getLocalizeString(str: "AUDIT"),
+            AppHelper.getLocalizeString(str: "DAST-10"),
+            AppHelper.getLocalizeString(str: "CAGE")
         ]
         
-        headerLabel.text = (selectedLanguageID != 0) ? "Welcome to taking control!" : "¡Bienvenido a tomar el control!"
-        descriptionLabel.text = (selectedLanguageID != 0) ? "Thank you for being willing to talk about alcohol and drugs. Now let’s begin with a brief assessment." : "Gracias por estar dispuesto a hablar sobre el alcohol y las drogas. Ahora comencemos con una breve evaluación."
+        headerLabel.text = AppHelper.getLocalizeString(str: "Welcome to taking control!")
+        descriptionLabel.text = AppHelper.getLocalizeString(str: "Thank you for being willing to talk about alcohol and drugs. Now let’s begin with a brief assessment.")
         
-        doesttext = selectedLanguageID == 1 ? "Doesn't apply to me" : "No se aplica a mi"
-        applytometext = selectedLanguageID == 1 ? "Apply to me" : "Aplicarme"
+        doesttext = AppHelper.getLocalizeString(str: "Doesn't apply to me")
+        applytometext = AppHelper.getLocalizeString(str: "Apply to me")
 
     }
 

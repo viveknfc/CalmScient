@@ -27,7 +27,7 @@ class MyDrinkingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSou
             tableView.dataSource = self
         tableView.separatorStyle = .none
         
-        data = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? edata : sdata
+        data = localizedData
 
         // Do any additional setup after loading the view.
     }
@@ -52,19 +52,16 @@ class MyDrinkingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSou
         
     }
     
-    var edata = [
-        ("Moderate drinking", UIImage(named: "check") ?? UIImage(), ["Always drink with the moderate drinking standard.", "Can effortlessly commit alcohol free plan for week or month.", "Can choose to drink or not even though people around you are drinking."], false),
-        ("Moderate everyday drinking", UIImage(named: "check") ?? UIImage(), ["Always drink with the moderate drinking standard but struggles to have alcohol- free day.", "Drink daily as sleep aids or relaxation.", "Expect to have a drink after work or in the evening and get irritated or stressed when you can't have it."], false),
-        ("Social / weekend binge drinking", UIImage(named: "check") ?? UIImage(), ["Casual drinking turns into doing things that you normal wouldn't do or that go against your judgement while you're sober, such as driving under alcohol influence.", "Often seek the mood-altering effects (the buzz) or using alcohol as a coping mechanism, sometimes in isolation.", "Get defensive when someone tries to limit your consumption or asks you to stop.", "Remember? Binge drinking is: Men - Up to 5 or more drinks within 2 hrs Women - Up to 4 or more drinks within 2 hrs."], false),
-        ("Problematic drinking", UIImage(named: "check") ?? UIImage(), ["Drinking until drunk.", "Going to work drunk or drinking on the job.", "Driving while drunk or have driven while drunk.", "Getting in trouble with the law or being injured due to drinking.", "Doing something under the influence of alcohol that they would not otherwise do.", "Having problems at school, with social relationships, or with family members because of drinking.", "Using alcohol to decrease anxiety or sadness.", "Lying about or trying to hide drinking habits.", "Needing more alcohol to feel its effects.", "Feeling grouchy, resentful, or unreasonable when not drinking."], false)
+    static let localizedDataTemplate: [(String, UIImage, [String])] = [
+        ("Moderate drinking".localized, UIImage(named: "check") ?? UIImage(), ["Always drink with the moderate drinking standard.".localized, "Can effortlessly commit alcohol free plan for week or month.".localized, "Can choose to drink or not even though people around you are drinking.".localized]),
+        ("Moderate everyday drinking".localized, UIImage(named: "check") ?? UIImage(), ["Always drink with the moderate drinking standard but struggles to have alcohol- free day.".localized, "Drink daily as sleep aids or relaxation.".localized, "Expect to have a drink after work or in the evening and get irritated or stressed when you can't have it.".localized]),
+        ("Social / weekend binge drinking".localized, UIImage(named: "check") ?? UIImage(), ["Casual drinking turns into doing things that you normal wouldn't do or that go against your judgement while you're sober, such as driving under alcohol influence.".localized, "Often seek the mood-altering effects (the buzz) or using alcohol as a coping mechanism, sometimes in isolation.".localized, "Get defensive when someone tries to limit your consumption or asks you to stop.".localized, "Remember? Binge drinking is: Men - Up to 5 or more drinks within 2 hrs Women - Up to 4 or more drinks within 2 hrs.".localized]),
+        ("Problematic drinking".localized, UIImage(named: "check") ?? UIImage(), ["Drinking until drunk.".localized, "Going to work drunk or drinking on the job.".localized, "Driving while drunk or have driven while drunk.".localized, "Getting in trouble with the law or being injured due to drinking.".localized, "Doing something under the influence of alcohol that they would not otherwise do.".localized, "Having problems at school, with social relationships, or with family members because of drinking.".localized, "Using alcohol to decrease anxiety or sadness.".localized, "Lying about or trying to hide drinking habits.".localized, "Needing more alcohol to feel its effects.".localized, "Feeling grouchy, resentful, or unreasonable when not drinking.".localized])
     ]
     
-    var sdata = [
-        ("Consumo moderado", UIImage(named: "check") ?? UIImage(), ["Siempre bebes siguiendo el estándar de consumo moderado.", "Puedes comprometerte sin esfuerzo a un plan sin alcohol durante una semana o un mes.", "Puedes elegir beber o no, aunque las personas a tu alrededor estén bebiendo"], false),
-        ("Consumo moderado diario", UIImage(named: "check") ?? UIImage(), ["Siempre bebes siguiendo el estándar de consumo moderado, pero me cuesta tener un día sin alcohol.", "Bebes a diario como ayuda para dormir o para relajarte.", "Anhelas tomar un trago después del trabajo o por la noche, y te irritas cuando no puedes hacerlo."], false),
-        ("Consumo excesivo social / de fines de semana", UIImage(named: "check") ?? UIImage(), ["El consumo ocasional de alcohol te mueve a hacer cosas que normalmente no harías o que van en contra de tu juicio cuando estás sobrio, como conducir bajo los efectos del alcohol.", "A menudo buscas los efectos que alteran el estado de ánimo (el subidón) o usas el alcohol como un mecanismo de afrontamiento, a veces en aislamiento.", "Te pones a la defensiva cuando alguien intenta limitar tu consumo o te pide que dejes de beber.", "¿Recuerdas? El consumo excesivo ocasional (binge drinking) es: Hombres: hasta 5 o más bebidas dentro de las 2 horas Mujeres: hasta 4 o más bebidas dentro de las 2 horas"], false),
-        ("Consumo problemático", UIImage(named: "check") ?? UIImage(), ["Beber hasta emborracharse", "Ir a trabajar borracho o beber durante el trabajo", "Conducir bajo los efectos del alcohol o haber conducido borracho.", "Meterse en problemas con la ley o sufrir lesiones debido al consumo de alcohol.", "Hacer algo bajo la influencia del alcohol que no harían de otra manera.", "Tener problemas en la escuela, con las relaciones sociales o con los miembros de la familia a causa del consumo de alcohol.", "Usar el alcohol para disminuir la ansiedad o la tristeza.", "Mentir o intentar ocultar los hábitos de consumo de alcohol.", "Necesitar más alcohol para sentir sus efectos.", "Sentirse irritable, resentido o irrazonable cuando no se bebe."], false)
-    ]
+    var localizedData: [(String, UIImage, [String], Bool)] {
+        Self.localizedDataTemplate.map { ($0.0, $0.1, $0.2, false) }
+    }
     
    
 
@@ -125,7 +122,7 @@ extension MyDrinkingHabitVC {
         
         guard selectedRowIndex != nil else {
             
-            let alertText = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Please select the stage that applies to you." : "Por favor, seleccione la etapa que le corresponde"
+            let alertText = "Please select the stage that applies to you.".localized
             
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
@@ -231,7 +228,7 @@ extension MyDrinkingHabitVC {
             vc?.sectionID = sectionID6
             self.navigationController?.pushViewController(vc!, animated: true)
         } else {
-            let alertText = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Please select the stage that applies to you." : "Por favor, seleccione la etapa que le corresponde"
+            let alertText = "Please select the stage that applies to you.".localized
             
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),

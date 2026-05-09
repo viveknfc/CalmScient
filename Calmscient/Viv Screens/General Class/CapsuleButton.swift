@@ -80,7 +80,7 @@ class CapsuleButton1: UIButton {
     }
 
     private func getLocalizedTitle() -> String {
-        return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Complete" : "Finalizar"
+        return "Complete".localized
     }
 }
 

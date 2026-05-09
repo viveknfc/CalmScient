@@ -26,7 +26,7 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
         rightBox.layer.cornerRadius = 12
         rightBox.layer.masksToBounds = true
         
-        resourceData = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? eresourceData : sresourceData
+        resourceData = localizedResourceData()
         
         tableView.register(UINib(nibName: "IndexBasicTableCell", bundle: nil), forCellReuseIdentifier: "smokingBasicCell")
 
@@ -57,9 +57,25 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
     
     let data = [("Basic knowledge", UIImage(named: "check") ?? UIImage()), ("Make a plan", UIImage(named: "check") ?? UIImage()), ("Stay focused", UIImage(named: "check") ?? UIImage()), ("My progress", UIImage(named: "check") ?? UIImage())]
     
-    let eresourceData = [("Breathing exercises", "Let’s use breathing exercises to support your journey. They help reduce stress and cravings, and provide a calming distraction..", UIImage(named: "BreathingTechnic") ?? UIImage()), ("Managing anxiety course", "Anxiety can trigger drinking and smoking, but healthy coping strategies help you to stay strong", UIImage(named: "img1") ?? UIImage()), ("Screenings", "Let’s set a goal to screen for depression, anxiety, and alcohol and smoking regularly, as these can support your success", UIImage(named: "Screening_Cell") ?? UIImage())] //("Work your strengths", "Do something you're good at to build self-confidence, then tackle a tougher task.", UIImage(named: "Maskgroup") ?? UIImage())
-    
-    let sresourceData = [("Ejercicios de respiración", "Usemos ejercicios de respiración para apoyar tu viaje. Ayudan a reducir el estrés, los antojos, y proporcionan calma.", UIImage(named: "BreathingTechnic") ?? UIImage()), ("Curso de manejo de la ansiedad", "La ansiedad puede desencadenar el consumo de alcohol y tabaco, pero hay estrategias saludables que pueden ayuda", UIImage(named: "img1") ?? UIImage()), ("Evaluaciones", "Establezcamos metas para analizar la depresión, ansiedad, alcohol y tabaco de forma regular, esto puede apoyar tu éxito", UIImage(named: "Screening_Cell") ?? UIImage())] //("Work your strengths", "Do something you're good at to build self-confidence, then tackle a tougher task.", UIImage(named: "Maskgroup") ?? UIImage()),
+    func localizedResourceData() -> [(String, String, UIImage)] {
+        return [
+            (
+                AppHelper.getLocalizeString(str: "Breathing exercises"),
+                AppHelper.getLocalizeString(str: "SMOKING_CONTROL_RESOURCE_BREATHING_DESC"),
+                UIImage(named: "BreathingTechnic") ?? UIImage()
+            ),
+            (
+                AppHelper.getLocalizeString(str: "SMOKING_CONTROL_RESOURCE_MANAGING_ANXIETY_TITLE"),
+                AppHelper.getLocalizeString(str: "SMOKING_CONTROL_RESOURCE_MANAGING_ANXIETY_DESC"),
+                UIImage(named: "img1") ?? UIImage()
+            ),
+            (
+                AppHelper.getLocalizeString(str: "Screenings"),
+                AppHelper.getLocalizeString(str: "SMOKING_CONTROL_RESOURCE_SCREENINGS_DESC"),
+                UIImage(named: "Screening_Cell") ?? UIImage()
+            )
+        ]
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == self.tableView {

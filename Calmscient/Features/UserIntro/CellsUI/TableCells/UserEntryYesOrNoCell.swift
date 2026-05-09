@@ -20,7 +20,7 @@ class UserEntryYesOrNoCell: UITableViewCell, UITextViewDelegate {
         didSet {
             let toggleImage: UIImage
             if toggleValue == 1 {
-                toggleImage = UIImage(named: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "ToggleSwitch_Yes" : "ToggleSwitch_Si")!
+                toggleImage = UIImage(named: "ToggleSwitch_Yes".localized)!
                 instance.medicineAnswer = "1"
                 self.toggleImageView.tag = 1
             } else {
@@ -135,7 +135,7 @@ class UserEntryYesOrNoCell: UITableViewCell, UITextViewDelegate {
         var toggleImage:UIImage!
         if self.toggleImageView.tag == -1 {
             instance.medicineAnswer = "1"
-            toggleImage = UIImage(named: UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "ToggleSwitch_Yes" : "ToggleSwitch_Si")
+            toggleImage = UIImage(named: "ToggleSwitch_Yes".localized)
             self.toggleImageView.tag = 1
         } else {
             instance.medicineAnswer = "0"

@@ -110,15 +110,7 @@ class CustomAlertView1: UIView {
     }
     func setupLanguage() {
         
-            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-            
-            if languageId == 1 {
-                UserDefaults.standard.set("en", forKey: "Language")
-            } else if languageId == 2 {
-                UserDefaults.standard.set("es", forKey: "Language")
-            }
-        
-        messageLabel.text = AppHelper.getLocalizeString(str: "You selected more than what is suggested")
+messageLabel.text = AppHelper.getLocalizeString(str: "You selected more than what is suggested")
         dismissButton.titleLabel!.text = AppHelper.getLocalizeString(str: "Dismiss" )
         changeGoalButton.titleLabel!.text = AppHelper.getLocalizeString(str:"Change goal")
         

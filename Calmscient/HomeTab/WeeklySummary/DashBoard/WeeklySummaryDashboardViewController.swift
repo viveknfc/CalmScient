@@ -93,7 +93,7 @@ class WeeklySummaryDashboardViewController: ViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
-        self.title =  UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Weekly summary" : "Resumen semanal"
+        self.title =  "Weekly summary".localized
 
     }
     
@@ -128,9 +128,7 @@ extension WeeklySummaryDashboardViewController: UICollectionViewDelegateFlowLayo
         
         // MARK: - Internet Check Before Navigation
               guard hasNetworkConnection else {
-                  let noInternetMsg = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1
-                      ? "No internet connection. Please try again."
-                      : "Sin conexión a internet. Por favor, inténtalo de nuevo."
+                  let noInternetMsg = "No internet connection. Please try again.".localized
                   DispatchQueue.main.async {
                       NoInternetBanner.shared.openDetails()
                   }

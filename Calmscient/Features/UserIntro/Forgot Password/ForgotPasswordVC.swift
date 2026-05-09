@@ -145,17 +145,7 @@ class ForgotPasswordVC: ViewController {
     
     func setupLanguage() {
         
-        let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-        
-        if languageId == 1 {
-            UserDefaults.standard.set("en", forKey: "Language")
-            
-        } else if languageId == 2 {
-            UserDefaults.standard.set("es", forKey: "Language")
-            
-        }
-        
-        forgotPasswordNameLbl.text = AppHelper.getLocalizeString(str: "Forgot password")
+forgotPasswordNameLbl.text = AppHelper.getLocalizeString(str: "Forgot password")
         descriptionLbl.text = AppHelper.getLocalizeString(str: "Please enter your email to reset the password")
         emailPhoneNumberLbl.text = AppHelper.getLocalizeString(str: "Your email/Phone number ")
         

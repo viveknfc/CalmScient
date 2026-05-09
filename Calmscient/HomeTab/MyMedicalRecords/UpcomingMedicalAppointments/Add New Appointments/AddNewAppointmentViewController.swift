@@ -42,7 +42,7 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
             if calendar.isDateInToday(selectedDate) {
                 // If selected date is today, ensure time is now or in the future
                 if date < now {
-                    let msg = "Selected time is in the past for today"
+                    let msg = "appointment_selected_time_in_past".localized
                     
                     showGeneralAlert(
                         image: UIImage(named: "InfoIcon"),
@@ -69,7 +69,7 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
             let startOfToday = calendar.startOfDay(for: now)
             let startOfSelected = calendar.startOfDay(for: date)
             if startOfSelected < startOfToday {
-                let msg = "Past dates are not allowed"
+                let msg = "appointment_past_dates_not_allowed".localized
                 self.view.showToast(message: msg )
                 print("Past dates are not allowed. Ignoring.")
                 return
@@ -108,7 +108,7 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
     var filteredItems: [String] = []
     var filteredID: [Int] = []
     
-    let placeholderText = "Description"
+    var placeholderText: String { "appointment_description_placeholder".localized }
     
     var appointmentId = Int()
     var patientLocationId = Int()
@@ -137,30 +137,18 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
         hideKeyboardWhenTappedAround()
         
         if EditVc ?? false {
-            self.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Edit appointment" : "Editar cita"
+            self.title = "Edit appointment".localized
         } else {
-            self.title = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Add appointment" : "Agregar nueva cita"
+            self.title = "Add appointment".localized
         }
         
-        let language = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-        
-        if language == 1 {
-            alerts = [
-                (86400, AppHelper.getLocalizeString(str: "Upcoming Appointment"), AppHelper.getLocalizeString(str: "Don’t forget your medical appointment tomorrow")),
-                (7200, AppHelper.getLocalizeString(str: "Upcoming Appointment"), AppHelper.getLocalizeString(str: "Your medical appointment is in 2 hours"))
-            ]
-            providerAlert = "Provider name can't be empty"
-            locationAlert = "Location name cannot be empty"
-            patientAlert = "Patient name cannot be empty"
-        } else {
-            alerts = [
-                (86400, "Próxima cita", "No olvides tu cita médica de mañana."),
-                (7200, "Próxima cita", "Tu cita médica es en 2 horas.")
-            ]
-            providerAlert = "El nombre del proveedor no puede estar vacío"
-            locationAlert = "El nombre de la ubicación no puede estar vacío"
-            patientAlert = "El nombre del paciente no puede estar vacío"
-        }
+        alerts = [
+            (86400, "Upcoming Appointment".localized, "Don\u{2019}t forget your medical appointment tomorrow".localized),
+            (7200, "Upcoming Appointment".localized, "Your medical appointment is in 2 hours".localized)
+        ]
+        providerAlert = "appointment_validation_provider_name_empty".localized
+        locationAlert = "appointment_validation_location_name_empty".localized
+        patientAlert = "appointment_validation_patient_name_empty".localized
         
         addRedAsterisk(to: patientName)
         addRedAsterisk(to: providerrName)
@@ -359,7 +347,7 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 40, height: 40),
-                title: "Please fill all the mandatory fields.",
+                title: "Please fill all mandatory fields.".localized,
                 okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {
 
@@ -376,7 +364,7 @@ class AddNewAppointmentViewController: ViewController, NewPickerViewDelegate, UI
             showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 40, height: 40),
-                title: "Please fill all the mandatory fields.",
+                title: "Please fill all mandatory fields.".localized,
                 okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
                 okAction: {
 

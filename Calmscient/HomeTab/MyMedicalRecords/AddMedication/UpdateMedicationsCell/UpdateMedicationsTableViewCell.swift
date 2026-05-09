@@ -26,8 +26,15 @@ fileprivate enum collectionCellType {
         case .alarmCell:
             return ["05","10","15","20","25","30"]
         case .weekCell:
-            
-            return UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?   ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"] : ["Dom", "Lun", "Mar", "Mié", "Jue", "Vie", "Sáb"]
+            return [
+                "medication_weekday_sun".localized,
+                "medication_weekday_mon".localized,
+                "medication_weekday_tue".localized,
+                "medication_weekday_wed".localized,
+                "medication_weekday_thu".localized,
+                "medication_weekday_fri".localized,
+                "medication_weekday_sat".localized
+            ]
         }
     }
     
@@ -57,33 +64,37 @@ class UpdateMedicationsTableViewCell: UITableViewCell {
     weak var scheduledTime:MedicationAlarm?//ScheduledTimes?
     weak var medicationAlarm:MedicationAlarm?
     
-    let customOrder: [String: Int] = [
-        "Sun": 0,
-        "Mon": 1,
-        "Tue": 2,
-        "Wed": 3,
-        "Thu": 4,
-        "Fri": 5,
-        "Sat": 6,
-        
-        "Dom": 0,
-        "Lun": 1,
-        "Mar": 2,
-        "Mié": 3,
-        "Jue": 4,
-        "Vie": 5,
-        "Sáb": 6
-    ]
+    let customOrder: [String: Int] = {
+        let english = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
+        let spanish = ["Dom","Lun","Mar","Mié","Jue","Vie","Sáb"]
+        let japanese = ["日","月","火","水","木","金","土"]
+        let localized = [
+            "medication_weekday_sun".localized,
+            "medication_weekday_mon".localized,
+            "medication_weekday_tue".localized,
+            "medication_weekday_wed".localized,
+            "medication_weekday_thu".localized,
+            "medication_weekday_fri".localized,
+            "medication_weekday_sat".localized
+        ]
+        var map: [String: Int] = [:]
+        [english, spanish, japanese, localized].forEach { days in
+            days.enumerated().forEach { index, value in
+                map[value] = index
+            }
+        }
+        return map
+    }()
     
     var cellIndex:Int = 0 {
         didSet {
             if cellIndex == 1 {
-                titleLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ? "Repeat" : "Repetir"
+                titleLabel.text = "Repeat".localized
                 subTitleHeight.constant = 15
                 subTitleBottompadding.constant = 4
                 cellType = .weekCell
             } else {
-                titleLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "Alarm" : "Alarma"
+                titleLabel.text = "Alarm".localized
                 subTitleHeight.constant = 0
                 subTitleBottompadding.constant = 0
                 cellType = .alarmCell
@@ -134,7 +145,7 @@ class UpdateMedicationsTableViewCell: UITableViewCell {
                 return
             }
             if currentInstance.repeat.count == 7 {
-                subTitleLabel.text = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "EveryDay" : "todos los días."
+                subTitleLabel.text = "EveryDay".localized
             } else {
                 subTitleLabel.text = currentInstance.repeat.joined(separator: ",")
             }
@@ -163,7 +174,7 @@ class UpdateMedicationsTableViewCell: UITableViewCell {
                 return
             }
             if currentInstance.repeat.count == 7 {
-                subTitleLabel.text =  UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "EveryDay" : "todos los días."
+                subTitleLabel.text =  "EveryDay".localized
             } else {
                 subTitleLabel.text = currentInstance.repeat.joined(separator: ",")
             }
@@ -238,7 +249,7 @@ extension UpdateMedicationsTableViewCell: UICollectionViewDelegateFlowLayout, UI
                 }
                 currentInstance.repeat = getRepeatValues()
                 if currentInstance.repeat.count == 7 {
-                    subTitleLabel.text =  UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "EveryDay" : "todos los días."
+                    subTitleLabel.text =  "EveryDay".localized
                 } else {
                     subTitleLabel.text = currentInstance.repeat.joined(separator: ",")
                 }
@@ -277,7 +288,7 @@ extension UpdateMedicationsTableViewCell: UICollectionViewDelegateFlowLayout, UI
                 }
                 currentInstance.repeat = getRepeatValues()
                 if currentInstance.repeat.count == 7 {
-                    subTitleLabel.text =  UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 1 ?  "EveryDay" : "todos los días."
+                    subTitleLabel.text =  "EveryDay".localized
                 } else {
                     subTitleLabel.text = currentInstance.repeat.joined(separator: ",")
                 }
@@ -295,7 +306,7 @@ extension UpdateMedicationsTableViewCell: UICollectionViewDelegateFlowLayout, UI
                 selectedDate.append(obj[idxObj])
             }
         }
-        return selectedDate.sorted(by: {customOrder[$0]! < customOrder[$1]!})
+        return selectedDate.sorted(by: { (customOrder[$0] ?? 0) < (customOrder[$1] ?? 0) })
     }
     
 }
