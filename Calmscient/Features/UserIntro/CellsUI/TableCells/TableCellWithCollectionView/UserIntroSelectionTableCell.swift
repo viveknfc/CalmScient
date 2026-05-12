@@ -2,13 +2,11 @@
 //  UserIntroSelectionTableCell.swift
 //  HealthApp
 //
-//  Created by KA on 26/02/24.
-//
 
 import UIKit
 
 protocol UserIntroSelectionDelegate: AnyObject {
-    func didChangeSelectedIndex()
+    func didChangeSelectedIndex(forTag tag: Int, selectedIndex: Int)
 }
 
 class UserIntroSelectionTableCell: UITableViewCell {
@@ -22,36 +20,36 @@ class UserIntroSelectionTableCell: UITableViewCell {
     
     let spendOptions = ["FAMILY", "FRIENDS", "WORKMATES", "OTHERS", "ALONE"]
     
-    private var cellType:UserEntryDayFeedbackTableCell! {
+    // Use separate properties for different cell types
+    private var cellType: UserEntryDayFeedbackTableCell! {
         didSet {
-             var languageId: Int?
-             languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-             self.titleLabel.font = UIFont(name: Fonts().lexendMedium, size: 16)
-             
-             var labelText: String
-             if cellType == .UserMoodHoursCell {
-                 
-                 if UserDefaults.standard.bool(forKey: "Morning") {
-                     print("viv u r setting text for UserMoodHoursCell from here")
-                     labelText = (languageId == 0 ? 1 : languageId) == 1 ? instance.moodData?.moodQuestion ?? "" : "Qué tal tu ánimo?" 
-                 } else {
-                     labelText = (languageId == 0 ? 1 : languageId) == 1 ? instance.moodData?.moodQuestion ?? "" : "¿Cómo estuvo tu estado de ánimo hoy?"
-                 }
+            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 0
+                             ? 1 : UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+            self.titleLabel.font = UIFont(name: Fonts().lexendMedium, size: 16)
 
-             } else {
-                 labelText = (languageId == 0 ? 1 : languageId) == 1 ? instance.timeSpendData?.timeSpendQuestion ?? "" : "¿Con quién pasaste tiempo?"
-             }
-             
-             // Create an attributed string with red asterisk
-             let attributedText = NSMutableAttributedString(string: labelText)
-             let redAsterisk = NSAttributedString(
-                 string: " *",
-                 attributes: [.foregroundColor: UIColor.red]
-             )
-             attributedText.append(redAsterisk)
-             
-             self.titleLabel.attributedText = attributedText
-         }
+            var labelText: String
+            switch cellType {
+            case .UserMoodHoursCell:
+                labelText = languageId == 1
+                    ? (instance.moodData?.moodQuestion ?? "How's your mood so far?")
+                    : "¿Cómo está tu estado de ánimo?"
+
+            case .UserFocusHoursCell:
+                labelText = languageId == 1
+                    ? "How is your focus / mental clarity?"
+                    : "¿Cómo está tu concentración / claridad mental?"
+
+            default: // UserEntryTimeSpendCell
+                labelText = languageId == 1
+                    ? (instance.timeSpendData?.timeSpendQuestion ?? "")
+                    : "¿Con quién pasaste tiempo?"
+            }
+
+            let attributedText = NSMutableAttributedString(string: labelText)
+            let redAsterisk = NSAttributedString(string: " *", attributes: [.foregroundColor: UIColor.red])
+            attributedText.append(redAsterisk)
+            self.titleLabel.attributedText = attributedText
+        }
     }
     private var instance:UserStartupScreenDayData!
     
@@ -60,10 +58,10 @@ class UserIntroSelectionTableCell: UITableViewCell {
     
     var apiSelectedIndex = -1
 
-    var selectedIndex = -1 {
+    // ✅ Separate selected index for Mood
+    var selectedMoodIndex = -1 {
         willSet {
-            // Determine if delegate should be notified
-            if newValue != selectedIndex && newValue != apiSelectedIndex {
+            if newValue != selectedMoodIndex && newValue != apiSelectedIndex {
                 shouldNotifyDelegate = true
             } else {
                 shouldNotifyDelegate = false
@@ -71,9 +69,31 @@ class UserIntroSelectionTableCell: UITableViewCell {
         }
         didSet {
             tableCellCollectionView.reloadData()
+            // ✅ REMOVE the delegate call from here — handled in didSelectItemAt directly
+        }
+    }
 
-            if !isFromAPISetup, shouldNotifyDelegate {
-                delegate?.didChangeSelectedIndex()
+    var selectedFocusIndex = -1 {
+        willSet {
+            if newValue != selectedFocusIndex && newValue != apiSelectedIndex {
+                shouldNotifyDelegate = true
+            } else {
+                shouldNotifyDelegate = false
+            }
+        }
+        didSet {
+            tableCellCollectionView.reloadData()
+            // ✅ REMOVE the delegate call from here — handled in didSelectItemAt directly
+        }
+    }
+    
+    // Keep for backward compatibility - now routes to appropriate property
+    var selectedIndex = -1 {
+        didSet {
+            if cellType == .UserMoodHoursCell {
+                selectedMoodIndex = selectedIndex
+            } else if cellType == .UserFocusHoursCell {
+                selectedFocusIndex = selectedIndex
             }
         }
     }
@@ -89,11 +109,14 @@ class UserIntroSelectionTableCell: UITableViewCell {
         return instance.moodAnswer
     }
     
+    func getUpdatedData4FocusId() -> (Int?) {
+        return instance.focusAnswer
+    }
+    
     func getUpdatedData4SpendHours1() -> ([String]?) {
-        print("spend hours inside updated data isfor multi selection is", spendHoursAnswer1)
+        print("spend hours inside updated data is for multi selection is", spendHoursAnswer1)
         return (spendHoursAnswer1)
     }
-
     
     let dummyData:[String:[(String,String)]] = (UserDefaults.standard.integer(forKey: "SelectedLanguageID") == 0 ? 1 : UserDefaults.standard.integer(forKey: "SelectedLanguageID")) == 1 ? ["UserMoodHoursCell":[
         ("UserIntro_Bad","BAD"),
@@ -107,11 +130,7 @@ class UserIntroSelectionTableCell: UITableViewCell {
         ("UserIntro_Workmates","WORKMATES"),
         ("UserIntro_Others","OTHERS"),
         ("UserIntro_Alone","ALONE")
-    ]]
-    
-    :
-    
-    ["UserMoodHoursCell":[
+    ]] : ["UserMoodHoursCell":[
         ("UserIntro_Bad","Mal"),
         ("UserIntro_Couldbe","Podría ser mejor"),
         ("UserIntro_Fair","Más o menos"),
@@ -120,23 +139,22 @@ class UserIntroSelectionTableCell: UITableViewCell {
     ],"UserEntryTimeSpendCell":[
         ("UserIntro_Family","Familia"),
         ("UserIntro_Friends","Amigos"),
-        ("UserIntro_Workmates","Compaňeros de trabajo"),
+        ("UserIntro_Workmates","Compañeros de trabajo"),
         ("UserIntro_Others","Otras personas"),
         ("UserIntro_Alone","Solo")
     ]]
     
     let selectedSmileyImgs = ["bad_selected","could_better_selected","fair_selected","good_selected","excellent_selected"]
-    
     let selectedFamilyImages = ["family_selected","friends_selected","workmates_selected","others","alone_selected"]
     
     var collectionData:[(String,String)]!
+    
     fileprivate func addShadowAndBorder() {
         shadowView.layer.backgroundColor = UIColor.clear.cgColor
         shadowView.layer.shadowColor = UIColor(named: "AppViewShadowColor")?.cgColor
         shadowView.layer.shadowOffset = CGSize(width: 0, height: 1.0)
         shadowView.layer.shadowOpacity = 0.2
         shadowView.layer.shadowRadius = 2.0
-//        shadowView.applyShadow(radius: 8)
         
         borderContainerView.layer.cornerRadius = 8
         borderContainerView.layer.masksToBounds = true
@@ -145,19 +163,18 @@ class UserIntroSelectionTableCell: UITableViewCell {
         borderContainerView.applyShadow(cornerRadius: 8)
     }
     
-    func updateUIWithCellInstance(instance:UserStartupScreenDayData, cellType:UserEntryDayFeedbackTableCell) {
+    func updateUIWithCellInstance(instance: UserStartupScreenDayData, cellType: UserEntryDayFeedbackTableCell) {
         self.instance = instance
         self.cellType = cellType
-        self.collectionData = dummyData[cellType.rawValue]!
-
+        
+        let dataKey = cellType == .UserFocusHoursCell ? UserEntryDayFeedbackTableCell.UserMoodHoursCell.rawValue : cellType.rawValue
+        self.collectionData = dummyData[dataKey] ?? []
+        
         self.tableCellCollectionView.delegate = self
         self.tableCellCollectionView.dataSource = self
         self.tableCellCollectionView.allowsMultipleSelection = true
         self.tableCellCollectionView.reloadData()
-        
     }
-
-    
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -168,7 +185,6 @@ class UserIntroSelectionTableCell: UITableViewCell {
             layout.scrollDirection = .horizontal
         }
         tableCellCollectionView.showsHorizontalScrollIndicator = false
-        // Initialization code
     }
     
     override func layoutSubviews() {
@@ -177,10 +193,15 @@ class UserIntroSelectionTableCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
+//    override func prepareForReuse() {
+//        super.prepareForReuse()
+//
+//        selectedMoodIndex = -1
+//        selectedFocusIndex = -1
+//        shouldNotifyDelegate = false
+//    }
 }
 
 extension UserIntroSelectionTableCell : UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
@@ -201,34 +222,24 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegateFlowLayout, UICo
         
         switch self.cellType {
         case .UserMoodHoursCell:
-            // Use selectedIndex for UserMoodHoursCell
-            configureCell(cell, indexPath: indexPath, isSelected: indexPath.row == selectedIndex, cellData: cellData)
+            let isSelected = indexPath.row == selectedMoodIndex
+            configureCell(cell, indexPath: indexPath, isSelected: isSelected, cellData: cellData)
             
-        case .UserEntryTimeSpendCell:
-            
-            let answer = String(indexPath.row + 1)
-//            let answer = spendOptions[indexPath.row]
-
-            
-            
-            let isSelected = spendHoursAnswer1.contains(answer)
-
+        case .UserFocusHoursCell:
+            let isSelected = indexPath.row == selectedFocusIndex
             configureCell(cell, indexPath: indexPath, isSelected: isSelected, cellData: cellData)
 
-        case .none:
-            break
-        case .some(.UserIntroSleepCell):
-            break
-        case .some(.UserEntryMedicineCell):
-            break
-        case .some(.UserEntryJournalCell):
+        case .UserEntryTimeSpendCell:
+            let answer = String(indexPath.row + 1)
+            let isSelected = spendHoursAnswer1.contains(answer)
+            configureCell(cell, indexPath: indexPath, isSelected: isSelected, cellData: cellData)
+
+        default:
             break
         }
         
         return cell
     }
-    
-    //viv start
     
     private func configureCell(_ cell: UserIntroDayCollectionCell, indexPath: IndexPath, isSelected: Bool, cellData: (String, String)) {
         
@@ -236,7 +247,6 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegateFlowLayout, UICo
         let newSize = defaultSize * 1.1
         
         if isSelected {
-            // Configure the selected cell appearance
             cell.cellTitleLabel.textColor = self.cellType == .UserEntryTimeSpendCell ? UIColor(named: "barColor1") :
                 [
                     UIColor(hex: "#EF6D6D"),
@@ -246,49 +256,50 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegateFlowLayout, UICo
                     UIColor(hex: "#6E6BB3"),
                 ][indexPath.row]
             
-            //viv start
+            // ✅ Store answer based on cell type
+//            switch cellType {
+//            case .UserMoodHoursCell:
+//                instance.moodAnswer = indexPath.row + 1
+//                print("Setting moodAnswer to: \(indexPath.row + 1)")
+//                
+//            case .UserFocusHoursCell:
+//                instance.focusAnswer = indexPath.row + 2
+//                print("Setting focusAnswer to: \(indexPath.row + 2)")
+//            case .UserEntryTimeSpendCell:
+//                break
+//                
+//            default:
+//                break
+//            }
             switch cellType {
             case .UserMoodHoursCell:
-                print("the selected index value for UserMoodHoursCell is", selectedIndex,"and index path is",indexPath.row)
                 instance.moodAnswer = indexPath.row + 1
-                
-            case .UserEntryTimeSpendCell:
-                break
-                
+            case .UserFocusHoursCell:
+                instance.focusAnswer = indexPath.row + 1  // also +1, NOT +2
             default:
                 break
             }
   
-            //end
             cell.cellImageView.image = self.cellType == .UserEntryTimeSpendCell ? UIImage(named: self.selectedFamilyImages[indexPath.row]) : UIImage(named: "\(cellData.0)")
             
-            // Animate scaling for visual feedback
             UIView.animate(withDuration: 0.2) {
                 cell.cellWidth.constant = newSize
                 cell.cellHeight.constant = newSize
                 cell.layoutIfNeeded()
             }
             
-            // Rounded image with shadow and border
             cell.cellImageView.layer.cornerRadius = newSize / 2
             cell.cellImageView.clipsToBounds = false
             cell.cellImageView.layer.borderWidth = 3
             cell.cellImageView.layer.borderColor = UIColor.darkGray.cgColor
-            
-            // Apply shadow with glow effect
             cell.cellImageView.layer.shadowColor = UIColor.darkGray.cgColor
             cell.cellImageView.layer.shadowOpacity = 0.8
             cell.cellImageView.layer.shadowOffset = CGSize(width: 0, height: 4)
             cell.cellImageView.layer.shadowRadius = 8
             cell.cellImageView.layer.shadowPath = UIBezierPath(ovalIn: cell.cellImageView.bounds).cgPath
-            
-            // Optional – add slight scale effect for pop animation
             cell.transform = CGAffineTransform(scaleX: 1.05, y: 1.05)
-            
 
         } else {
-            // Configure the unselected cell appearance
-
             cell.cellWidth.constant = defaultSize
             cell.cellHeight.constant = defaultSize
             cell.cellImageView.layer.cornerRadius = defaultSize / 2
@@ -298,79 +309,69 @@ extension UserIntroSelectionTableCell : UICollectionViewDelegateFlowLayout, UICo
             cell.cellImageView.layer.borderWidth = 1
             cell.cellImageView.layer.borderColor = UIColor.clear.cgColor
             cell.cellImageView.layer.masksToBounds = true
-            
             cell.cellImageView.layer.shadowOpacity = 0
             cell.transform = .identity
             
             UIView.animate(withDuration: 0.2) {
                 cell.layoutIfNeeded()
             }
-            
         }
         
         cell.cellTitleLabel.text = cellData.1
     }
     
-    
-    //end
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            // Return the size of each item in your collection view
         let width = (collectionView.frame.width - (4*5) - 10) / 5
         let height = collectionView.frame.height - 10
         return CGSize(width: width, height: height)
-        }
-        
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-            return 0
-        }
-        
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-            return 5
-        }
-        
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-            return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
-        }
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 5
+    }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+    }
 }
 
 extension UserIntroSelectionTableCell : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
         switch cellType {
         case .UserMoodHoursCell:
-            selectedIndex = indexPath.row
-            print("Selected Index after update: \(selectedIndex)")
-            self.instance.moodAnswer = self.instance.moodData?.options[selectedIndex].optionTypeID
+            selectedMoodIndex = indexPath.row
+            print("Selected Mood Index after update: \(selectedMoodIndex)")
+            self.instance.moodAnswer = self.instance.moodData?.options[selectedMoodIndex].optionTypeID
             print("Selected moodAnswer after update: \(String(describing: self.instance.moodAnswer))")
+            // ✅ Directly call delegate
+            delegate?.didChangeSelectedIndex(forTag: self.tag, selectedIndex: selectedMoodIndex)
+
+        case .UserFocusHoursCell:
+            selectedFocusIndex = indexPath.row
+            print("Selected Focus Index after update: \(selectedFocusIndex)")
+            self.instance.focusAnswer = self.instance.focusData?.options[selectedFocusIndex].optionTypeID
+            print("Selected focusAnswer after update: \(String(describing: self.instance.focusAnswer))")
+            // ✅ Directly call delegate — don't rely on didSet chain
+            delegate?.didChangeSelectedIndex(forTag: self.tag, selectedIndex: selectedFocusIndex)
 
         case .UserEntryTimeSpendCell:
-            
             let answer = String(indexPath.row + 1)
-            
-//            let answer = spendOptions[indexPath.row]
-            
             if spendHoursAnswer1.contains(answer) {
-                
                 if let index = spendHoursAnswer1.firstIndex(of: answer) {
                     spendHoursAnswer1.remove(at: index)
-                    print("the index removed from time spend is :\(answer)")
                 }
             } else {
-                print("the index added from time spend is :\(answer)")
                 spendHoursAnswer1.append(answer)
             }
-            
             self.instance.timeSpendAnswer = spendHoursAnswer1
-            
+
         default:
             break
         }
-        collectionView.reloadItems(at: [indexPath])
-        
+        collectionView.reloadData()
     }
-    
 }

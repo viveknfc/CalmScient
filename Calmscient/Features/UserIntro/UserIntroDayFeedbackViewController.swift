@@ -8,27 +8,29 @@
 import UIKit
 import SwiftyJSON
 
-enum UserEntryDayFeedbackTableCell:String {
+// 1. Add new case to enum
+enum UserEntryDayFeedbackTableCell: String {
     case UserMoodHoursCell = "UserMoodHoursCell"
+    case UserFocusHoursCell = "UserFocusHoursCell"  // ADD THIS — second mood question
     case UserIntroSleepCell = "UserIntroSleepCell"
     case UserEntryTimeSpendCell = "UserEntryTimeSpendCell"
     case UserEntryMedicineCell = "UserEntryMedicineCell"
     case UserEntryJournalCell = "UserEntryJournalCell"
-    
+
     func getCellIdentifier() -> String {
         switch self {
-        case .UserMoodHoursCell, .UserEntryTimeSpendCell:
-            return "UserIntroSelectionTableCell"
+        case .UserMoodHoursCell, .UserFocusHoursCell, .UserEntryTimeSpendCell:
+            return "UserIntroSelectionTableCell"  // reuses same cell XIB
         case .UserIntroSleepCell:
             return "UserEntrySleepHoursCell"
         case .UserEntryMedicineCell, .UserEntryJournalCell:
             return "UserEntryYesOrNoCell"
         }
     }
-    
+
     func getCellHeight() -> CGFloat {
         switch self {
-        case .UserMoodHoursCell:
+        case .UserMoodHoursCell, .UserFocusHoursCell:
             return 170
         case .UserIntroSleepCell:
             return 160
@@ -74,9 +76,9 @@ class UserIntroDayFeedbackViewController: ViewController {
     var slpHours: String?
     var mediTaken: String?
     var journalText: String?
-    
+    var mediTaken2: String?      // ADD THIS
     var isJournalClearedByUser = false
-    
+    var medicineFlagString2: String?   // ADD THISprepareCellData
     var SpendTime1: [Int]?{
         didSet {
             feedbackTableView.reloadData()
@@ -88,6 +90,13 @@ class UserIntroDayFeedbackViewController: ViewController {
             feedbackTableView.reloadData()
         }
     }
+    
+    // ADD THIS - for focus mood question
+       var selectedCell2: Int? {
+           didSet {
+               feedbackTableView.reloadData()
+           }
+       }
 
 
     
@@ -231,6 +240,22 @@ class UserIntroDayFeedbackViewController: ViewController {
                 self.screenTitleLabel.text = GreetingTitle
                 mainTableTop.constant = 24
             }
+        // ✅ Reset stale answers before fetching fresh data
+         userDayWiseData?.journalAnswer = nil
+         userDayWiseData?.medicineAnswer = nil
+         userDayWiseData?.moodAnswer = nil
+         userDayWiseData?.focusAnswer = nil
+         userDayWiseData?.sleepAnswer = nil
+         userDayWiseData?.timeSpendAnswer = nil
+         
+         // reset local fetch vars too
+         journalText = nil
+         mediTaken = nil
+         slpHours = nil
+         selectedCell = nil
+         selectedCell2 = nil
+         SpendTime1 = nil
+         isJournalClearedByUser = false
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -295,83 +320,177 @@ class UserIntroDayFeedbackViewController: ViewController {
         }
     }
     
-    //MARK: - Fetch API Response
+    //
     
-    func getresponseforFetchMoodDataAPI(response:AnyObject, completion: @escaping () -> Void) {
-        
+//    func getresponseforFetchMoodDataAPI(response:AnyObject, completion: @escaping () -> Void) {
+//
+//        if let responseString = response as? String {
+//            print("Response received from Fetch API calling is", responseString)
+//
+//            DispatchQueue.main.async {
+//                let alertController = UIAlertController(title: "Error",
+//                                                        message: "Failed to fetch data. Would you like to retry?",
+//                                                        preferredStyle: .alert)
+//
+//                alertController.addAction(UIAlertAction(title: "Retry", style: .default, handler: { _ in
+//                    self.viewWillAppear(true)
+//                }))
+//
+//                alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+//
+//                self.present(alertController, animated: true)
+//            }
+//
+//        }
+//        else if let responseDict = response as? [String: Any] {
+//
+//            do {
+//                let responseData = try JSONSerialization.data(withJSONObject: responseDict, options: [])
+//                let loginResponse = try JSONDecoder().decode(UserStartupScreenDayData.self, from: responseData)
+//
+//                if let answersList = loginResponse.startupAnswersDtoList, !answersList.isEmpty {
+//                    print("data not empty")
+//
+//                    for answer in answersList {
+//                           switch answer.activitySection {
+//
+//                               // Replace the Mood Monitor case:
+//                               case "Mood Monitor":
+//                                   selectedCell = (Int(answer.activityResponse?.first ?? "-1") ?? 0) - 2
+//
+//                           case "Focus":
+//                               selectedCell2 = (Int(answer.activityResponse?.first ?? "-1") ?? 0) - 1
+//
+//                          case "Sleep Hours":
+////                              slpHours = String((Int(answer.activityResponse) ?? 0) - 1)
+//                              if let index = sleepData.firstIndex(of: answer.activityResponse?.first ?? "-1") {
+//                                  slpHours = String(index)
+//                              } else {
+//                                  slpHours = "0" // Default value if not found
+//                              }
+//
+//                          case "Medication":
+//                              mediTaken = answer.activityResponse?.first
+//                               print(answer.activityResponse)
+//                          case "Journal":
+//                              journalText = answer.activityResponse?.first
+//                          case "SpendTime":
+//                              let fetchedAnswers: [String] = answer.activityResponse?.compactMap { String($0) } ?? []
+//                              SpendTime1 = fetchedAnswers.compactMap { spendOptions.firstIndex(of: $0).map { $0 + 1 } }//answer.activityResponse?.compactMap { Int($0) }
+//                              print("the fetching answers for time spend is :\(String(describing: SpendTime1))")
+//                          default:
+//                              break
+//                          }
+//                      }
+//
+//                } else {
+//                    print("data empty")
+//                }
+//
+//            }
+//            catch {
+//               print("Failed to decode UserStartupScreenDayData:", error)
+//           }
+//
+//            DispatchQueue.main.async {
+//                self.feedbackTableView.reloadData()
+//            }
+//
+//        }
+//        else {
+//            print("Unsupported response type:", type(of: response))
+//        }
+//
+//        completion()
+//
+//    }
+    func getresponseforFetchMoodDataAPI(response: AnyObject, completion: @escaping () -> Void) {
+
         if let responseString = response as? String {
             print("Response received from Fetch API calling is", responseString)
-            
             DispatchQueue.main.async {
-                let alertController = UIAlertController(title: "Error",
-                                                        message: "Failed to fetch data. Would you like to retry?",
-                                                        preferredStyle: .alert)
-                
-                alertController.addAction(UIAlertAction(title: "Retry", style: .default, handler: { _ in
+                let alertController = UIAlertController(
+                    title: "Error",
+                    message: "Failed to fetch data. Would you like to retry?",
+                    preferredStyle: .alert
+                )
+                alertController.addAction(UIAlertAction(title: "Retry", style: .default) { _ in
                     self.viewWillAppear(true)
-                }))
-                
+                })
                 alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-                
                 self.present(alertController, animated: true)
             }
-            
-        }
-        else if let responseDict = response as? [String: Any] {
-            
+
+        } else if let responseDict = response as? [String: Any] {
+
             do {
                 let responseData = try JSONSerialization.data(withJSONObject: responseDict, options: [])
                 let loginResponse = try JSONDecoder().decode(UserStartupScreenDayData.self, from: responseData)
 
                 if let answersList = loginResponse.startupAnswersDtoList, !answersList.isEmpty {
                     print("data not empty")
-                    
-                    for answer in answersList {
-                          switch answer.activitySection {
-                          case "Mood Monitor":
-                              selectedCell = (Int(answer.activityResponse?.first ?? "-1") ?? 0) - 1
-                          case "Sleep Hours":
-//                              slpHours = String((Int(answer.activityResponse) ?? 0) - 1)
-                              
-                              if let index = sleepData.firstIndex(of: answer.activityResponse?.first ?? "-1") {
-                                  slpHours = String(index)
-                              } else {
-                                  slpHours = "0" // Default value if not found
-                              }
-                              
-                          case "Medication":
-                              mediTaken = answer.activityResponse?.first
-                          case "Journal":
-                              journalText = answer.activityResponse?.first
-                          case "SpendTime":
-                              let fetchedAnswers: [String] = answer.activityResponse?.compactMap { String($0) } ?? []
-                              SpendTime1 = fetchedAnswers.compactMap { spendOptions.firstIndex(of: $0).map { $0 + 1 } }//answer.activityResponse?.compactMap { Int($0) }
-                              print("the fetching answers for time spend is :\(String(describing: SpendTime1))")
-                          default:
-                              break
-                          }
-                      }
-                                            
+
+                    // Deduplicate: keep only the FIRST occurrence of each activitySection
+                    var seenSections = Set<String>()
+                    let dedupedAnswers = answersList.filter { answer in
+                        seenSections.insert(answer.activitySection).inserted
+                    }
+
+                    for answer in dedupedAnswers {
+                        switch answer.activitySection {
+
+                        case "Mood Monitor":
+                            // optionTypeID is 1-based → subtract 1 for 0-based selectedIndex
+                            selectedCell = (Int(answer.activityResponse?.first ?? "-1") ?? 0) - 1
+
+                        case "Focus":
+                            selectedCell2 = (Int(answer.activityResponse?.first ?? "-1") ?? 0) - 1
+
+                        case "Sleep Hours":
+                            if let index = sleepData.firstIndex(of: answer.activityResponse?.first ?? "-1") {
+                                slpHours = String(index)
+                            } else {
+                                slpHours = "0"
+                            }
+
+                        case "Medication":
+                            mediTaken = answer.activityResponse?.first
+                            print("Medication response:", answer.activityResponse ?? [])
+
+                        case "Journal":
+                            let rawJournal = answer.activityResponse?.first ?? ""
+                            // Accept any non-empty text including numeric (server may store count or real text)
+                            // Only reject empty
+                            journalText = rawJournal.isEmpty ? nil : rawJournal
+                            print("Journal response raw:", rawJournal)
+
+                        case "SpendTime":
+                            let fetchedAnswers: [String] = answer.activityResponse?.compactMap { String($0) } ?? []
+                            SpendTime1 = fetchedAnswers.compactMap { spendOptions.firstIndex(of: $0).map { $0 + 1 } }
+                            print("SpendTime fetched:", SpendTime1 ?? [])
+
+                        default:
+                            break
+                        }
+                    }
+
                 } else {
                     print("data empty")
                 }
 
+            } catch {
+                print("Failed to decode UserStartupScreenDayData:", error)
             }
-            catch {
-               print("Failed to decode UserStartupScreenDayData:", error)
-           }
- 
+
             DispatchQueue.main.async {
                 self.feedbackTableView.reloadData()
             }
-            
-        }
-        else {
+
+        } else {
             print("Unsupported response type:", type(of: response))
         }
-        
-        completion()
 
+        completion()
     }
     
     //END
@@ -393,6 +512,7 @@ class UserIntroDayFeedbackViewController: ViewController {
         savebutton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str: "Save"))
         
         }
+    // 2. Update prepareCellData() — add UserMoodHoursCell2, REMOVE UserEntryMedicineCell2
     private func prepareCellData() -> [UserEntryDayFeedbackTableCell] {
         guard let userDayWiseData = self.userDayWiseData, let dayTime = userDayWiseData.dayTimeValue else {
             return []
@@ -400,14 +520,11 @@ class UserIntroDayFeedbackViewController: ViewController {
         switch dayTime {
         case .Morning, .Afternoon:
             UserDefaults.standard.set(true, forKey: "Morning")
-//            return [.UserMoodHoursCell,.UserEntryTimeSpendCell,.UserEntryMedicineCell,.UserEntryJournalCell]
-            return [.UserMoodHoursCell,.UserIntroSleepCell,.UserEntryMedicineCell, .UserEntryJournalCell]
-//        case .Afternoon:
-//            return [.UserMoodHoursCell]
+            return [.UserMoodHoursCell, .UserFocusHoursCell, .UserIntroSleepCell, .UserEntryMedicineCell, .UserEntryJournalCell]
+
         case .Evening:
             UserDefaults.standard.set(false, forKey: "Morning")
-//            return [.UserMoodHoursCell,.UserIntroSleepCell,.UserEntryMedicineCell, .UserEntryJournalCell]
-            return [.UserMoodHoursCell,.UserEntryTimeSpendCell,.UserEntryMedicineCell,.UserEntryJournalCell]
+            return [.UserMoodHoursCell, .UserFocusHoursCell, .UserEntryTimeSpendCell, .UserEntryMedicineCell, .UserEntryJournalCell]
         }
     }
     
@@ -418,41 +535,82 @@ class UserIntroDayFeedbackViewController: ViewController {
         }
         
         for cell in feedbackTableView.visibleCells {
-            
-            if let cell = cell as? UserIntroSelectionTableCell {
-                        userDayWiseData.moodAnswer =  cell.getUpdatedData4MoodId()
-                        userDayWiseData.timeSpendAnswer = cell.getUpdatedData4SpendHours1()
-                    } else if let cell = cell as? UserEntrySleepHoursCell {
-                        let updatedSleepHours = cell.getUpdatedData() ?? 1
-                        print("the updatedSleepHours is", updatedSleepHours)
-
-                        if updatedSleepHours > 0 && updatedSleepHours <= sleepData.count {
-                            let sleepAns = sleepData[updatedSleepHours - 1]
-                            userDayWiseData.sleepAnswer = Int(sleepAns)
-                        } 
-                        else if updatedSleepHours <= 0 || updatedSleepHours > sleepData.count {
-                            showGeneralAlert(
-                                image: UIImage(named: "InfoIcon"),
-                                imageSize: CGSize(width: 60, height: 60),
-                                title: alertText ?? "",
-                                okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
-                                okAction: {},
-                                dismissAction: {}
-                            )
-                            return
-                        }
-
-                        
-                        
-                    } else if let cell = cell as? UserEntryYesOrNoCell {
-                        let journalEntry = cell.getUpdatedJournalData()
-                        userDayWiseData.medicineAnswer = cell.getUpdatedToggleData()
-                        print("the medicine answer is",userDayWiseData.medicineAnswer ?? "NA")
-                        userDayWiseData.journalAnswer = journalEntry
+//            if let cell = cell as? UserIntroSelectionTableCell {
+//                if cell.tag == 2001 {
+//                    userDayWiseData.moodAnswer = cell.getUpdatedData4MoodId()
+//                    
+//                } else if cell.tag == 2002 {
+//                    // Use same getter — it reads cell.selectedIndex which is
+//                    // correctly set to selectedCell2 for this cell
+//                    userDayWiseData.focusAnswer = cell.getUpdatedData4FocusId()
+//                }else if let cell = cell as? UserEntrySleepHoursCell {
+//                    let updatedSleepHours = cell.getUpdatedData() ?? 1
+//                    print("the updatedSleepHours is", updatedSleepHours)
+//                    
+//                    if updatedSleepHours > 0 && updatedSleepHours <= sleepData.count {
+//                        let sleepAns = sleepData[updatedSleepHours - 1]
+//                        userDayWiseData.sleepAnswer = Int(sleepAns)
+//                    } 
+//                    else if updatedSleepHours <= 0 || updatedSleepHours > sleepData.count {
+//                        showGeneralAlert(
+//                            image: UIImage(named: "InfoIcon"),
+//                            imageSize: CGSize(width: 60, height: 60),
+//                            title: alertText ?? "",
+//                            okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
+//                            okAction: {},
+//                            dismissAction: {}
+//                        )
+//                        return
+//                    }
+                if let cell = cell as? UserIntroSelectionTableCell {
+                    if cell.tag == 2001 {
+                        userDayWiseData.moodAnswer = cell.getUpdatedData4MoodId()
+                    } else if cell.tag == 2002 {
+                        userDayWiseData.focusAnswer = cell.getUpdatedData4FocusId()
                     }
+                } else if let cell = cell as? UserEntrySleepHoursCell {
+                    let updatedSleepHours = cell.getUpdatedData() ?? 1
+                    if updatedSleepHours > 0 && updatedSleepHours <= sleepData.count {
+                        userDayWiseData.sleepAnswer = Int(sleepData[updatedSleepHours - 1])
+                    } else {
+                        showGeneralAlert(
+                            image: UIImage(named: "InfoIcon"),
+                            imageSize: CGSize(width: 60, height: 60),
+                            title: alertText ?? "",
+                            okButtonTitle: AppHelper.getLocalizeString(str: "Ok"),
+                            okAction: {},
+                            dismissAction: {}
+                        )
+                        return
+                    }
+                 } else if let cell = cell as? UserEntryYesOrNoCell {
+                    if cell.tag == 1001 {
+                        userDayWiseData.medicineAnswer = cell.getUpdatedToggleData()
+                    } else if cell.tag == 1003 {
+                        userDayWiseData.journalAnswer = cell.getUpdatedJournalData()
+                    }
+                }
+            
+                    
+                    
+                    
+//                } else if let cell = cell as? UserEntryYesOrNoCell {
+//                    //                        let journalEntry = cell.getUpdatedJournalData()
+//                    //                        userDayWiseData.medicineAnswer = cell.getUpdatedToggleData()
+//                    //                        print("the medicine answer is",userDayWiseData.medicineAnswer ?? "NA")
+//                    //                        userDayWiseData.journalAnswer = journalEntry
+//                    if cell.tag == 1001 {
+//                        userDayWiseData.medicineAnswer = cell.getUpdatedToggleData()
+//                        print("medicine answer captured:", userDayWiseData.medicineAnswer ?? "nil")
+//                    } else if cell.tag == 1003 {
+//                        userDayWiseData.journalAnswer = cell.getUpdatedJournalData()
+//                    }
+//                }
+            
         }
-        
-        print("Mood ID: \(userDayWiseData.moodAnswer ?? -1), Sleep Hours: \(userDayWiseData.sleepAnswer ?? -2), Medicine Flag: \(userDayWiseData.medicineAnswer ?? "None"), Journal: \(userDayWiseData.journalAnswer ?? "None"), Spend Hours: \(userDayWiseData.timeSpendAnswer?.first ?? "")")
+        print("Mood: \(userDayWiseData.moodAnswer ?? -1), Focus: \(userDayWiseData.focusAnswer ?? -1)")
+
+        print("Mood ID: \(userDayWiseData.moodAnswer ?? -1),   focus ID: \(userDayWiseData.focusAnswer ?? -1), Sleep Hours: \(userDayWiseData.sleepAnswer ?? -2), Medicine Flag: \(userDayWiseData.medicineAnswer ?? "None"), Journal: \(userDayWiseData.journalAnswer ?? "None"), Spend Hours: \(userDayWiseData.timeSpendAnswer?.first ?? "")")
 
         
         let answers = PatientLog()
@@ -461,7 +619,7 @@ class UserIntroDayFeedbackViewController: ViewController {
         switch dayTime {
         case .Morning, .Afternoon:
             
-            guard let moodId = userDayWiseData.moodAnswer,
+            guard let moodId = userDayWiseData.moodAnswer, let focusId = userDayWiseData.focusAnswer,
                           let sleepHours = userDayWiseData.sleepAnswer,
                           let journal = userDayWiseData.journalAnswer, !journal.isEmpty else {
                 
@@ -485,14 +643,20 @@ class UserIntroDayFeedbackViewController: ViewController {
                     let medicineFlag = userDayWiseData.medicineAnswer
                     medicineFlagString = userDayWiseData.medicineAnswer
                     answers.moodId = moodId
+                    answers.focusId = focusId
                     answers.sleepHours = sleepHours
-                    answers.medicineFlag = Int(medicineFlag ?? "") ?? 0
+            switch medicineFlag {
+            case "1", "Yes":               answers.medicineFlag = 1
+            case "0", "No":                answers.medicineFlag = 0
+            case "2", "Not yet", "NotYet": answers.medicineFlag = 2
+            default:                       answers.medicineFlag = 0
+            }
                     answers.journal = journal
                     answers.activityDate = currentTime!
 
         case .Evening:
             
-            guard let moodId = userDayWiseData.moodAnswer,
+            guard let moodId = userDayWiseData.moodAnswer,let focusId = userDayWiseData.focusAnswer,
                          let spendTime = userDayWiseData.timeSpendAnswer, !spendTime.isEmpty,
                          let journal = userDayWiseData.journalAnswer, !journal.isEmpty else {
                 
@@ -525,7 +689,13 @@ class UserIntroDayFeedbackViewController: ViewController {
                 let medicineFlag = userDayWiseData.medicineAnswer
                 medicineFlagString = userDayWiseData.medicineAnswer
                answers.moodId = moodId
-               answers.medicineFlag = Int(medicineFlag ?? "") ?? 0
+               answers.focusId = focusId
+            switch medicineFlag {
+            case "1", "Yes":               answers.medicineFlag = 1
+            case "0", "No":                answers.medicineFlag = 0
+            case "2", "Not yet", "NotYet": answers.medicineFlag = 2
+            default:                       answers.medicineFlag = 0
+            }
                answers.spendTime = spendTimeMapped//spendTime
                answers.journal = journal
                answers.activityDate = currentTime!
@@ -543,6 +713,8 @@ class UserIntroDayFeedbackViewController: ViewController {
             self.view.showToast(message: "An Unknown error occured. Please check with Admin")
             return
         }
+        
+        print("payload: ----- \(answers)")
         NetworkAPIRequest.sendRequest(request: requestURL) { [weak self](response: ResponseDetails?, failureResponse: FailureResponse?, error: Error?) in
             DispatchQueue.main.async {
                 self?.view.hideToastActivity()
@@ -677,19 +849,46 @@ extension UserIntroDayFeedbackViewController : UITableViewDataSource,UITableView
         }
         let cellType = cellData[indexPath.row]
         switch cellType {
-        case .UserMoodHoursCell, .UserEntryTimeSpendCell:
+            
+        case .UserMoodHoursCell:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellType.getCellIdentifier(), for: indexPath) as? UserIntroSelectionTableCell else {
                 return UITableViewCell()
             }
-            cell.isFromAPISetup = true 
-            cell.selectedIndex = ((selectedCell ?? -1))
-            cell.apiSelectedIndex = ((selectedCell ?? -1))
+            cell.isFromAPISetup = true
+            cell.selectedMoodIndex = selectedCell ?? -1
+            cell.apiSelectedIndex = selectedCell ?? -1
             cell.spendHoursAnswer1 = (SpendTime1 ?? []).map { String($0) }
-            
-            print("the spend hours answer received is : \(String(describing: SpendTime1))")
-            
             cell.isFromAPISetup = false
+            cell.delegate = self
+            cell.tag = 2001  // Tag for first mood cell
+            cell.updateUIWithCellInstance(instance: userDayWiseData, cellType: cellType)
+            return cell
             
+        case .UserFocusHoursCell:
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: cellType.getCellIdentifier(), for: indexPath
+            ) as? UserIntroSelectionTableCell else {
+                return UITableViewCell()
+            }
+            cell.isFromAPISetup = true
+            cell.selectedFocusIndex = selectedCell2 ?? -1
+            cell.apiSelectedIndex = selectedCell2 ?? -1
+            // ❌ REMOVE spendHoursAnswer1 assignment here — not relevant to focus cell
+            cell.isFromAPISetup = false
+            cell.delegate = self
+            cell.tag = 2002
+            cell.updateUIWithCellInstance(instance: userDayWiseData, cellType: cellType)
+            return cell
+            // 3. In cellForRowAt — handle UserMoodHoursCell2 same as UserMoodHoursCell
+        case .UserEntryTimeSpendCell:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellType.getCellIdentifier(), for: indexPath) as? UserIntroSelectionTableCell else {
+                return UITableViewCell()
+            }
+            cell.isFromAPISetup = true
+            cell.selectedIndex = (selectedCell ?? -1)
+            cell.apiSelectedIndex = (selectedCell ?? -1)
+            cell.spendHoursAnswer1 = (SpendTime1 ?? []).map { String($0) }
+            cell.isFromAPISetup = false
             cell.delegate = self
             cell.updateUIWithCellInstance(instance: userDayWiseData, cellType: cellType)
             return cell
@@ -697,32 +896,69 @@ extension UserIntroDayFeedbackViewController : UITableViewDataSource,UITableView
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellType.getCellIdentifier(), for: indexPath) as? UserEntrySleepHoursCell else {
                 return UITableViewCell()
             }
-
+            
             cell.updateUIWithCellInstance(instance: userDayWiseData, cellType: cellType, slpHrs: Int(slpHours ?? "") ?? -1)
             return cell
+            //        case .UserEntryMedicineCell, .UserEntryJournalCell:
+            //            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellType.getCellIdentifier(), for: indexPath) as? UserEntryYesOrNoCell else {
+            //                return UITableViewCell()
+            //            }
+            //
+            //            cell.instance = userDayWiseData
+            //
+            //            if let mediTaken = mediTaken, !mediTaken.isEmpty {
+            //                cell.toggleValue = mediTaken == "No" ? 0 : 1
+            //                cell.toggleImageView.tag = mediTaken == "No" ? -1 : 1
+            ////                feedbackTableView.reloadRows(at: [indexPath], with: .automatic)
+            //            }
+            //            if !isJournalClearedByUser, let journalText = journalText, !journalText.isEmpty {
+            //
+            //                cell.journalTextView.text = journalText
+            //            } else {
+            //                cell.journalTextView.text = ""
+            //            }
+            //            cell.updateUIWithCellInstance(instance: userDayWiseData, cellType: cellType)
+            //            cell.configureJournalView(isJournalView: cellType == .UserEntryJournalCell)
+            //            return cell
+            //        }
+            //        return UITableViewCell()
         case .UserEntryMedicineCell, .UserEntryJournalCell:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellType.getCellIdentifier(), for: indexPath) as? UserEntryYesOrNoCell else {
                 return UITableViewCell()
             }
             
             cell.instance = userDayWiseData
-            
-            if let mediTaken = mediTaken, !mediTaken.isEmpty {
-                cell.toggleValue = mediTaken == "No" ? 0 : 1
-                cell.toggleImageView.tag = mediTaken == "No" ? -1 : 1
-//                feedbackTableView.reloadRows(at: [indexPath], with: .automatic)
-            }
-            if !isJournalClearedByUser, let journalText = journalText, !journalText.isEmpty {
-                
-                cell.journalTextView.text = journalText
-            } else {
-                cell.journalTextView.text = ""
-            }
             cell.updateUIWithCellInstance(instance: userDayWiseData, cellType: cellType)
             cell.configureJournalView(isJournalView: cellType == .UserEntryJournalCell)
+            
+            // Pre-fill medicine answer AFTER configureJournalView so buttons are visible
+            if cellType == .UserEntryMedicineCell {
+                cell.tag = 1001
+                if let mediTaken = mediTaken, !mediTaken.isEmpty {
+                    switch mediTaken {
+                    case "1", "Yes":                cell.toggleValue = 1
+                    case "0", "No":                 cell.toggleValue = 0
+                    case "2", "Not yet", "NotYet":  cell.toggleValue = 2
+                    default:                        cell.toggleValue = nil
+                    }
+                }
+            
+            } else if cellType == .UserEntryJournalCell {
+                cell.tag = 1003
+                // ✅ Always use journalText (from API fetch), not instance.journalAnswer
+                if !isJournalClearedByUser, let journalText = journalText, !journalText.isEmpty {
+                    cell.journalTextView.text = journalText
+                    cell.textCount.text = "\(journalText.count)/2000"
+                } else {
+                    cell.journalTextView.text = ""
+                    cell.textCount.text = "0/2000"
+                }
+                // ✅ Sync instance so textViewDidChange stays consistent
+                cell.instance.journalAnswer = cell.journalTextView.text.isEmpty ? nil : cell.journalTextView.text
+            }
+            
             return cell
         }
-//        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -762,44 +998,61 @@ extension UIView {
 }
 
 @available(iOS 16.0, *)
-extension UserIntroDayFeedbackViewController: UserIntroSelectionDelegate {
-    func didChangeSelectedIndex() {
-        if let journalText = journalText, !journalText.isEmpty {
-            showCustomClearJournalAlert()
-        } else {
-            // No journal text to clear, proceed without alert
-            print("No journal data to clear")
+    extension UserIntroDayFeedbackViewController: UserIntroSelectionDelegate {
+        func didChangeSelectedIndex(forTag tag: Int, selectedIndex: Int) {
+            if tag == 2001 {
+                selectedCell = selectedIndex
+                userDayWiseData?.setMoodAnswer(byIndex: selectedIndex)
+                // Show journal clear alert only for mood change
+                if let journalText = journalText, !journalText.isEmpty {
+                    showCustomClearJournalAlert(forTag: tag)
+                } else {
+                    print("No journal data to clear")
+                }
+            } else if tag == 2002 {
+                selectedCell2 = selectedIndex
+                userDayWiseData?.setFocusAnswer(byIndex: selectedIndex)
+                // Show separate alert for focus change
+                if let journalText = journalText, !journalText.isEmpty {
+                    showCustomClearJournalAlert(forTag: tag)
+                } else {
+                    print("No journal data to clear")
+                }
+            }
         }
-    }
-    
-    func showCustomClearJournalAlert() {
-        // Show the custom alert with Yes/No options
-        self.showGeneralAlertYesNo(
-            image: UIImage(named: "question2"),
-            imageSize: CGSize(width: 60, height: 60),
-            title: "", //Clear Journal Data
-            subTitle: AppHelper.getLocalizeString(str: "Would you like to update your mood?"),
-            okButtonTitle: AppHelper.getLocalizeString(str: "YES"),
-            cancelButtonTitle: AppHelper.getLocalizeString(str: "NO"),
-            okAction: {
-                // Clear the journal text when the user selects Yes
-                self.journalText = nil
-                self.isJournalClearedByUser = true
-                self.clearJournalDataInCell()
-                print("Journal data cleared")
-            }, cancelAction: {
-                // Simply print that the journal is not cleared
-                print("Journal data not cleared")
-            }, subtitleFontSize: 14
-        )
-    }
-    
-    func clearJournalDataInCell() {
-        // Reload the journal cell to clear its content
-        if let journalIndex = cellData.firstIndex(of: .UserEntryJournalCell) {
-            feedbackTableView.reloadRows(at: [IndexPath(row: journalIndex, section: 0)], with: .automatic)
+
+        func showCustomClearJournalAlert(forTag tag: Int) {
+            let subtitle = tag == 2001
+                ? AppHelper.getLocalizeString(str: "Would you like to update your mood?")
+                : AppHelper.getLocalizeString(str: "Would you like to update your focus?")
+            
+
+            self.showGeneralAlertYesNo(
+                image: UIImage(named: "question2"),
+                imageSize: CGSize(width: 60, height: 60),
+                title: "",
+                subTitle: subtitle,
+                okButtonTitle: AppHelper.getLocalizeString(str: "YES"),
+                cancelButtonTitle: AppHelper.getLocalizeString(str: "NO"),
+                okAction: {
+                    self.journalText = nil
+                    self.isJournalClearedByUser = true
+                    self.clearJournalDataInCell()
+                    print("Journal data cleared")
+                },
+                cancelAction: {
+                    print("Journal data not cleared")
+                },
+                subtitleFontSize: 14
+            )
         }
-    }
+
+        func clearJournalDataInCell() {
+            if let journalIndex = cellData.firstIndex(of: .UserEntryJournalCell) {
+                feedbackTableView.reloadRows(at: [IndexPath(row: journalIndex, section: 0)], with: .automatic)
+            }
+        }
+    
 }
 
 

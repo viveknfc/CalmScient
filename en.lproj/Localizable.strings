@@ -336,6 +336,8 @@ Here are resources that can assist you in achieving your goal?";
 "Don’t forget your medical appointment tomorrow" = "Don’t forget your medical appointment tomorrow.";
 "Upcoming Appointment" = "Upcoming Medical Appointments";
 "Would you like to update your mood?" = "Would you like to update your mood?";
+"Would you like to update your focus?" = "Would you like to update your focus?";
+
 
 //medication details view controller
 "Medications detail" = "Medications detail";

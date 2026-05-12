@@ -28,6 +28,34 @@
         "optionTypeID": 5,
         "image": "Risa"
       }
+    ],
+    "focusQuestion": "¿Cómo está tu enfoque o claridad mental?",
+    "options": [
+      {
+        "optionType": "MALO",
+        "optionTypeID": 1,
+        "image": "Enojado"
+      },
+      {
+        "optionType": "PODRÍA SER MEJOR",
+        "optionTypeID": 2,
+        "image": "Sonrisa"
+      },
+      {
+        "optionType": "REGULAR",
+        "optionTypeID": 3,
+        "image": "Risa"
+      },
+      {
+        "optionType": "BUENO",
+        "optionTypeID": 4,
+        "image": "Risa"
+      },
+      {
+        "optionType": "EXCELENTE",
+        "optionTypeID": 5,
+        "image": "Risa"
+      }
     ]
   },
   "sleepData": {

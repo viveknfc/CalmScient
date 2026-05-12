@@ -28,6 +28,35 @@
                 "optionTypeID": 5,
                 "image": "LAUGH"
             }
+        ],
+        
+        "focusQuestion": "How is your focus/mental clarity?",
+        "options": [
+            {
+                "optionType": "BAD",
+                "optionTypeID": 1,
+                "image": "Angry"
+            },
+            {
+                "optionType": "COULD BE BETTER",
+                "optionTypeID": 2,
+                "image": "SMILE"
+            },
+            {
+                "optionType": "FAIR",
+                "optionTypeID": 3,
+                "image": "LAUGH"
+            },
+            {
+                "optionType": "GOOD",
+                "optionTypeID": 4,
+                "image": "LAUGH"
+            },
+            {
+                "optionType": "EXCELLENT",
+                "optionTypeID": 5,
+                "image": "LAUGH"
+            }
         ]
     },
     "sleepData": {
@@ -53,7 +82,8 @@
     "medicineData": {
         "medicineQuestion": "Did you take your meds this morning?",
         "option1": "Yes",
-        "option2": "No"
+        "option2": "No",
+        "option3": "Not yet"
     },
     "journalData": {
         "journalKey": "Journal entry",
