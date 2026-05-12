@@ -45,7 +45,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             let selectedLanguage: String
             if let appLanguage = UserDefaults.standard.string(forKey: "appLanguage"), !appLanguage.isEmpty {
                 selectedLanguage = appLanguage
-            } else if languageId == 3 {
+            } else if languageId == 7 {
                 selectedLanguage = "ja"
             } else if languageId == 2 {
                 selectedLanguage = "es"

@@ -1,0 +1,17 @@
+---
+description: Every SwiftUI screen under Main/View must ship with an Xcode preview
+globs: Calmscient/Main/View/**/*.swift
+alwaysApply: false
+---
+
+# SwiftUI previews (`Main/View`)
+
+When adding or editing any `struct …: View` in `Calmscient/Main/View/`:
+
+1. **Always** add a preview at the bottom of the same file (after the main `View` type).
+2. Wrap previews in `#if DEBUG` so they are not compiled into Release unnecessarily.
+3. Match the view’s `@available` (e.g. iOS 16) with `@available(iOS 16.0, *)` on a `PreviewProvider` **or** use `#Preview` with an `if #available` fallback when the deployment target is lower than the view’s availability.
+4. Use a **realistic** `ViewModel` / host when possible (e.g. `LoginViewModel(loginVC: LoginVC())`). If the view needs heavy dependencies, add a small `fileprivate` preview helper or mock in the same file.
+5. Set **`.previewDisplayName("…")`** so multiple previews in the canvas are easy to tell apart.
+
+Do not leave new SwiftUI views without a working preview unless Xcode previews are technically impossible for that file (rare).

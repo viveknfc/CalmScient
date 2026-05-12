@@ -906,13 +906,10 @@ extension UserProfileViewController : UITableViewDataSource, UITableViewDelegate
                                     Bundle.setLanguage("en")
                                 }
                                 if languageId == 2 {
-                                    //UserDefaults.standard.set("es", forKey: "appLanguage")
-                                    //Bundle.setLanguage("es")
-                                    UserDefaults.standard.set("ja", forKey: "appLanguage")
-                                    Bundle.setLanguage("ja")
-                                    
+                                    UserDefaults.standard.set("es", forKey: "appLanguage")
+                                    Bundle.setLanguage("es")
                                 }
-                                if languageId == 3 {
+                                if languageId == 7 {
                                     UserDefaults.standard.set("ja", forKey: "appLanguage")
                                     Bundle.setLanguage("ja")
                                 }
