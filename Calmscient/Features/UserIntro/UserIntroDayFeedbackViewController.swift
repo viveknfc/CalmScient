@@ -37,7 +37,7 @@ enum UserEntryDayFeedbackTableCell: String {
         case .UserEntryTimeSpendCell:
             return 160
         case .UserEntryMedicineCell:
-            return 140
+            return 120
         case .UserEntryJournalCell:
             return 180
         }
