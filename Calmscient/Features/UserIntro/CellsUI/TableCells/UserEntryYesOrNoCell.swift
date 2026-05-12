@@ -143,7 +143,7 @@ class UserEntryYesOrNoCell: UITableViewCell, UITextViewDelegate {
             let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
             let labelText = languageId == 1 ? (instance.journalData?.journalKey ?? "Daily Journal") : "Diario"
             let attributed = NSMutableAttributedString(string: labelText)
-            attributed.append(NSAttributedString(string: " *", attributes: [.foregroundColor: UIColor.red]))
+            attributed.append(NSAttributedString(string: " ", attributes: [.foregroundColor: UIColor.red]))
             titleLabel.attributedText = attributed
             textCount.text = "\(journalTextView.text.count)/2000"
 
@@ -169,7 +169,7 @@ class UserEntryYesOrNoCell: UITableViewCell, UITextViewDelegate {
     private func addRedAsterisk() {
         guard let text = titleLabel.text else { return }
         let attributed = NSMutableAttributedString(string: text)
-        attributed.append(NSAttributedString(string: " *", attributes: [.foregroundColor: UIColor.red]))
+        attributed.append(NSAttributedString(string: " ", attributes: [.foregroundColor: UIColor.red]))
         titleLabel.attributedText = attributed
     }
 

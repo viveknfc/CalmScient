@@ -46,7 +46,7 @@ class UserIntroSelectionTableCell: UITableViewCell {
             }
 
             let attributedText = NSMutableAttributedString(string: labelText)
-            let redAsterisk = NSAttributedString(string: " *", attributes: [.foregroundColor: UIColor.red])
+            let redAsterisk = NSAttributedString(string: " ", attributes: [.foregroundColor: UIColor.red])
             attributedText.append(redAsterisk)
             self.titleLabel.attributedText = attributedText
         }

@@ -75,7 +75,7 @@ class UserEntrySleepHoursCell: UITableViewCell {
         
         let attributedText = NSMutableAttributedString(string: labelText)
         let redAsterisk = NSAttributedString(
-            string: " *",
+            string: " ",
             attributes: [.foregroundColor: UIColor.red]
         )
         attributedText.append(redAsterisk)
