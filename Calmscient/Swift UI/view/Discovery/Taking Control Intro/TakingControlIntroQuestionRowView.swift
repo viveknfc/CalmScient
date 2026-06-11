@@ -35,17 +35,28 @@ struct TakingControlIntroQuestionRowView: View {
                     action: onSelectNo
                 )
             }
+            .padding(.horizontal, 16)
         }
         .padding(.vertical, 8)
     }
-
+    
     private var questionLabel: some View {
-        Text(row.questionText)
-            .font(LoginDesignSystem.Typography.lexendRegular(size: 14))
-            .foregroundStyle(Color.primary)
-            .multilineTextAlignment(.leading)
-            .frame(maxWidth: .infinity, alignment: .leading)
-            .fixedSize(horizontal: false, vertical: true)
+
+        HStack(alignment: .top, spacing: 8) {
+
+            Text(row.questionNumber)
+                .font(LoginDesignSystem.Typography.lexendRegular(size: 14))
+                .foregroundStyle(Color.primary)
+                .frame(width: 24, alignment: .leading)
+
+            Text(row.trimmedQuestionText)
+                .font(LoginDesignSystem.Typography.lexendRegular(size: 14))
+                .foregroundStyle(Color.primary)
+                .multilineTextAlignment(.leading)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
     }
 }
 

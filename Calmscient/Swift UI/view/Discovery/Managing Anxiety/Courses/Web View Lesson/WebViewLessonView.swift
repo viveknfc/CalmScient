@@ -11,21 +11,22 @@
 import SwiftUI
 import WebKit
 
-@available(iOS 16.0, *)
 struct WebViewLessonView: View {
 
     @ObservedObject var viewModel: WebViewLessonViewModel
 
     var body: some View {
         WebViewLessonRepresentable(viewModel: viewModel)
+            .id(viewModel.lessonURLString)
             .ignoresSafeArea(edges: .bottom)
     }
 }
 
-@available(iOS 16.0, *)
+/// `viewModel` is intentionally not `@ObservedObject` here so WKWebView is not torn down
+/// when navigation title / bar visibility publishes from `nativeDispatch`.
 private struct WebViewLessonRepresentable: UIViewRepresentable {
 
-    @ObservedObject var viewModel: WebViewLessonViewModel
+    let viewModel: WebViewLessonViewModel
 
     func makeCoordinator() -> Coordinator {
         Coordinator(viewModel: viewModel)
@@ -45,14 +46,24 @@ private struct WebViewLessonRepresentable: UIViewRepresentable {
 
         viewModel.registerWebView(webView)
         viewModel.loadInitialRequestIfNeeded()
+        print("[WebViewLesson] makeUIView — handler registered")
         return webView
     }
 
     func updateUIView(_ webView: WKWebView, context: Context) {
         viewModel.registerWebView(webView)
+        if webView.navigationDelegate == nil {
+            webView.navigationDelegate = context.coordinator
+        }
+        if webView.uiDelegate == nil {
+            webView.uiDelegate = context.coordinator
+        }
     }
 
     static func dismantleUIView(_ uiView: WKWebView, coordinator: Coordinator) {
+        uiView.navigationDelegate = nil
+        uiView.uiDelegate = nil
+        uiView.stopLoading()
         uiView.configuration.userContentController.removeScriptMessageHandler(
             forName: WebViewLessonScriptBridge.handlerName
         )
@@ -67,46 +78,53 @@ private struct WebViewLessonRepresentable: UIViewRepresentable {
         }
 
         func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-            guard message.name == WebViewLessonScriptBridge.handlerName,
-                  let body = message.body as? [String: Any] else {
+            print("[WebViewLesson] nativeDispatch received name=\(message.name) body=\(message.body)")
+
+            guard message.name == WebViewLessonScriptBridge.handlerName else { return }
+
+            guard let body = message.body as? [String: Any] else {
+                print("[WebViewLesson] nativeDispatch body is not [String: Any], type=\(type(of: message.body))")
                 return
             }
+
             print("--------\(body)-----------")
-            viewModel.handleNativeDispatchMessage(body)
+            Task { @MainActor in
+                viewModel.handleNativeDispatchMessage(body)
+            }
         }
 
         func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
             webView.isHidden = false
+            print("[WebViewLesson] didFinish url=\(webView.url?.absoluteString ?? "nil")")
             viewModel.injectAccessTokenIfNeeded()
         }
 
         func webView(
             _ webView: WKWebView,
             decidePolicyFor navigationAction: WKNavigationAction,
-            preferences: WKWebpagePreferences
-        ) async -> WKNavigationActionPolicy {
+            preferences: WKWebpagePreferences,
+            decisionHandler: @escaping (WKNavigationActionPolicy, WKWebpagePreferences) -> Void
+        ) {
             preferences.allowsContentJavaScript = true
-            print("User Redirected to \(String(describing: navigationAction.request.url))")
-            return .allow
+            print("User Redirected to \(navigationAction.request.url?.absoluteString ?? "nil")")
+            decisionHandler(.allow, preferences)
         }
 
         func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-            print(error)
+            print("[WebViewLesson] didFail: \(error.localizedDescription)")
         }
 
         func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-            print(error)
+            print("[WebViewLesson] didFailProvisional: \(error.localizedDescription)")
         }
     }
 }
 
-@available(iOS 16.0, *)
 private enum WebViewLessonScriptBridge {
     static let handlerName = "nativeDispatch"
 }
 
 #if DEBUG
-@available(iOS 16.0, *)
 #Preview("Web lesson") {
     WebViewLessonView(
         viewModel: WebViewLessonViewModel(

@@ -31,15 +31,15 @@ class DrinkingCountVC: ViewController, UICollectionViewDataSource, UICollectionV
             }
         }
     
-    private var data: [DrinkingCountData] = [
-            DrinkingCountData(countImageName: "check", countLabelText: "1", centreImageName: "beerImage", centreLabelText: "Regular beer (12 fl oz) about 5% alcohol"),
-            DrinkingCountData(countImageName: "check", countLabelText: "2", centreImageName: "wine", centreLabelText: "Margarita (3 fl oz) about 33% alcohol"),
-            DrinkingCountData(countImageName: "check", countLabelText: "3", centreImageName: "flavour", centreLabelText: "Glass of table wine (5 fl oz) about 12% alcohol"),
-            DrinkingCountData(countImageName: "check", countLabelText: "1", centreImageName: "beerImage", centreLabelText: "Regular beer (12 fl oz) about 5% alcohol"),
-            DrinkingCountData(countImageName: "check", countLabelText: "2", centreImageName: "wine", centreLabelText: "Margarita (3 fl oz) about 33% alcohol"),
-            DrinkingCountData(countImageName: "check", countLabelText: "3", centreImageName: "flavour", centreLabelText: "Glass of table wine (5 fl oz) about 12% alcohol"),
-            DrinkingCountData(countImageName: "check", countLabelText: "1", centreImageName: "beerImage", centreLabelText: "Regular beer (12 fl oz) about 5% alcohol")
-        ]
+//    private var data: [DrinkingCountData] = [
+//            DrinkingCountData(countImageName: "check", countLabelText: "1", centreImageName: "beerImage", centreLabelText: "Regular beer (12 fl oz) about 5% alcohol"),
+//            DrinkingCountData(countImageName: "check", countLabelText: "2", centreImageName: "wine", centreLabelText: "Margarita (3 fl oz) about 33% alcohol"),
+//            DrinkingCountData(countImageName: "check", countLabelText: "3", centreImageName: "flavour", centreLabelText: "Glass of table wine (5 fl oz) about 12% alcohol"),
+//            DrinkingCountData(countImageName: "check", countLabelText: "1", centreImageName: "beerImage", centreLabelText: "Regular beer (12 fl oz) about 5% alcohol"),
+//            DrinkingCountData(countImageName: "check", countLabelText: "2", centreImageName: "wine", centreLabelText: "Margarita (3 fl oz) about 33% alcohol"),
+//            DrinkingCountData(countImageName: "check", countLabelText: "3", centreImageName: "flavour", centreLabelText: "Glass of table wine (5 fl oz) about 12% alcohol"),
+//            DrinkingCountData(countImageName: "check", countLabelText: "1", centreImageName: "beerImage", centreLabelText: "Regular beer (12 fl oz) about 5% alcohol")
+//        ]
 
     override func viewDidLoad() {
         super.viewDidLoad()

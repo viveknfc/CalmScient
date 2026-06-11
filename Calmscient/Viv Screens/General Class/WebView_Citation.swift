@@ -16,7 +16,7 @@ class CitationWebViewController: ViewController, WKUIDelegate, WKNavigationDeleg
           super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = false
         
-        self.title = "Sources and Citations"
+        self.title = "sources_and_citations_title".localized
         
 //        navigationItem.leftBarButtonItem = UIBarButtonItem(
 //            image: UIImage(systemName: "chevron.left"),
@@ -70,7 +70,7 @@ class CitationWebViewController: ViewController, WKUIDelegate, WKNavigationDeleg
        
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
             self.view.hideToastActivity()
-            title = "Sources and Citations"
+            title = "sources_and_citations_title".localized
         }
         
         func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {

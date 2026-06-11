@@ -239,8 +239,7 @@ extension ProfilePrivacyViewController : UITableViewDataSource, UITableViewDeleg
       //  DispatchQueue.main.async {
             let eventFlag1 = data["consentFlag"] as? Int
             if eventFlag1 == 1{
-                let lan = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-                if lan == 1 {
+                if PatientLanguagePreference.isEnglishForLocalizedAssets() {
                     cell.yesAndNobutton.setImage(UIImage(named: "ToggleSwitch_Yes"), for: .normal)
                 }else {
                     cell.yesAndNobutton.setImage(UIImage(named: "ToggleSwitch_Si"), for: .normal)
@@ -281,10 +280,9 @@ extension ProfilePrivacyViewController : UITableViewDataSource, UITableViewDeleg
         
         // Update the button image based on the new state
         DispatchQueue.main.async {
-            
-            let lan = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
+
             var img = UIImage()
-            if lan == 1 {
+            if PatientLanguagePreference.isEnglishForLocalizedAssets() {
                 img = UIImage(named: "ToggleSwitch_Yes")!
             }else {
                 img = UIImage(named: "ToggleSwitch_Si")!

@@ -81,8 +81,7 @@ class MedicationsDetailViewController: ViewController, UISheetPresentationContro
         super.viewWillDisappear(animated)
         self.title = AppHelper.getLocalizeString(str:"Medications detail")
         if let presentingVC = presentingViewController as? AddUserMedicationsViewController {
-            // Hide or remove the dimming view
-            presentingVC.dimmingView?.removeFromSuperview()
+            presentingVC.clearMedicationFlowDimming()
         }
     }
     
@@ -107,13 +106,11 @@ class MedicationsDetailViewController: ViewController, UISheetPresentationContro
     
     @IBAction func editButtonPressed(_ sender: Any) {
         
-        let next = UIStoryboard(name: "AddUserMedications", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "AddUserMedicationsViewController") as? AddUserMedicationsViewController
-        vc?.title = "Edit medications"
-        vc?.EditVc = true
-        vc?.medicationData = medicineDetails
+        let vm = AddEditMedicationViewModel(isEditMode: true, medicationData: medicineDetails, refreshControlClosure: nil)
+        let vc = AddUserMedicationsViewController(viewModel: vm)
+        vc.title = "Edit medications"
         print("the medicine details coming to add user VC via medication detail Edit",medicineDetails?.medicationDetailsByDate.first?.medicalDetails.scheduledTimeList.first?.scheduledTimes.first?.alarmId ?? "666")
-        self.navigationController?.pushViewController(vc!, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
         
     }
     
@@ -322,7 +319,7 @@ self.title = AppHelper.getLocalizeString(str:"Add Medications")
                 
                 let requestForm = UpdateMedicationsAlarmRequestForm(jsonData)
                 guard let requestURL = requestForm.getURLRequest() else {
-                    self?.view.showToast(message: "An Unknown error occured. Please check with Admin")
+                    self?.view.showToast(message: "An Unknown error occured. Please check with Admin".localized)
                     return
                 }
                 NetworkAPIRequest.sendRequest(request: requestURL) {(response: ResponseDetails?, failureResponse: FailureResponse?, error: Error?) in

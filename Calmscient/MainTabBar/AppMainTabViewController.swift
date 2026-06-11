@@ -5,200 +5,104 @@
 //  Created by KA on 13/03/24.
 //
 
+import SwiftUI
 import UIKit
-//protocol LanguageSelectionDelegate: AnyObject {
-//    func didSelectLanguage(languageId: Int)
-//}
 
 var tabTitles: [String] = []
 
-private let tabBarTitleKeys = ["Home", "Discovery", "Exercises", "Rewards"]
-
 @available(iOS 16.0, *)
-class AppMainTabViewController: UITabBarController {
+@available(iOS 16.0, *)
+final class AppMainTabViewController: UIViewController {
 
-    var isInitalView: Bool  = false
-   
-    let selectedImages:[String] =  ["MainTab_Home_Selected","MainTab_Discovery_Selected","MainTab_Exercises_Selected","MainTab_Rewards_Selected"]
-    let unselectedimages:[String] = ["MainTab_Home_Unselected","MainTab_Discovery_Unselected","MainTab_Exercises_Unselected","MainTab_Rewards_UnSelected"]
-    
+    private let viewModel = MainTabBarViewModel()
+
+    /// When `medicineFlagString == "0"`, the first tab shows medications instead of the home dashboard (typo preserved).
+    var isInitalView: Bool {
+        get { viewModel.isInitalView }
+        set { viewModel.isInitalView = newValue }
+    }
+
+    private var hostingController: UIHostingController<MainTabBarView>!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Register for language change notifications
-                NotificationCenter.default.addObserver(self, selector: #selector(languageChanged(_:)), name: .languageChanged, object: nil)
-        
-        self.navigationController?.isNavigationBarHidden = false
-                
-        if #available(iOS 15, *) {
-            let tabBarItemAppearence = UITabBarItemAppearance()
-            tabBarItemAppearence.normal.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "TabBarUnSelectedColor")!, NSAttributedString.Key.font: UIFont(name: Fonts().lexendRegular, size: 9)!]
-            tabBarItemAppearence.selected.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(named: "TabBarSelectedColor")!, NSAttributedString.Key.font: UIFont(name: Fonts().lexendRegular, size: 9)!]
-            let tabBarAppearance: UITabBarAppearance = UITabBarAppearance()
-            tabBarAppearance.configureWithOpaqueBackground()
-            tabBarAppearance.backgroundColor = UIColor(named: "TabBarBackgroundColor")
-            tabBarAppearance.stackedLayoutAppearance = tabBarItemAppearence
-            UITabBar.appearance().standardAppearance = tabBarAppearance
-            UITabBar.appearance().scrollEdgeAppearance = tabBarAppearance
-        }
 
-        delegate = self
-        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(languageChanged(_:)),
+            name: .languageChanged,
+            object: nil
+        )
+
+        navigationController?.setNavigationBarHidden(true, animated: false)
+
+        MainTabBarAppearance.apply()
+
+        let rootView = MainTabBarView(viewModel: viewModel)
+        hostingController = UIHostingController(rootView: rootView)
+        hostingController.view.backgroundColor = .clear
+        addChild(hostingController)
+        view.addSubview(hostingController.view)
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            hostingController.view.topAnchor.constraint(equalTo: view.topAnchor),
+            hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
+        hostingController.didMove(toParent: self)
     }
-    
+
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        ManagingAnxietyBeginStatusBarAppearance.usesLightContent ? .lightContent : .default
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        self.navigationController?.isNavigationBarHidden = false
-        
-        updateTabBarItems()
-        prepareTabs()
-        
-
-        
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        viewModel.prepareTabsCycle(reason: "viewWillAppear")
     }
 
+    @objc private func languageChanged(_ notification: Notification) {
+        viewModel.refreshLocalizedTabTitles()
+    }
 
-    @objc func languageChanged(_ notification: Notification) {
-            updateTabBarItems() // Update tab bar items when the language changes
-        }
     deinit {
-            NotificationCenter.default.removeObserver(self, name: .languageChanged, object: nil)
-        }
-    func updateTabBarItems() {
-            tabTitles = tabBarTitleKeys.map { $0.localized }
-            guard let items = tabBar.items else { return }
-            for i in 0..<items.count {
-//                print("the first title is",tabTitles[i])
-                items[i].title = tabTitles[i]
-            }
-        
-        }
-    
-    private func prepareTabs() {
-        print("prepare Tabs")
-        print("the initial view value is ",isInitalView)
-        
-        guard tabTitles.count >= 4 else {
-                print("Error: tabTitles does not have enough elements.")
-                return
-            }
-        
-        var tabVC:[UIViewController] = []
-        
-        let vmain = UIStoryboard(name: "DashboardHomeTab", bundle: nil).instantiateViewController(withIdentifier: "HomeTabDashboardViewController") as! HomeTabDashboardViewController
-        let navCview = UINavigationController(rootViewController: vmain)
-        
-        let vc1 = UIStoryboard(name: "UserMedications", bundle: nil).instantiateViewController(withIdentifier: "UserMedicationsViewController") as! UserMedicationsViewController
-        let navC = UINavigationController(rootViewController: vc1)
-
-        print("the initial view value is ", isInitalView)
-        let item1 = isInitalView ? navC : navCview
-        let icon1 = UITabBarItem(title: "\(tabTitles[0])" , image: UIImage(named: "\(unselectedimages[0])"), selectedImage: UIImage(named: "\(selectedImages[0])")) //\(tabTitles[0]) //"Home"
-        item1.tabBarItem = icon1
-        tabVC.append(item1)
-        print("Tab bar item title: \(item1.tabBarItem.title ?? "No title")")
-        
-        
-        let vcz = UIStoryboard(name: "DiscoveryMainDashboard", bundle: nil).instantiateViewController(withIdentifier: "DiscoveryMainViewController") as! DiscoveryMainViewController
-        let navC2 = UINavigationController(rootViewController: vcz)
-        
-        let item2 = navC2
-        item2.title = tabTitles[1]
-        let icon2 = UITabBarItem(title: "\(tabTitles[1])", image: UIImage(named: "\(unselectedimages[1])"), selectedImage: UIImage(named: "\(selectedImages[1])"))
-        item2.tabBarItem = icon2
-        tabVC.append(item2)
-        
-        let vcz3 = UIStoryboard(name: "Excercises", bundle: nil).instantiateViewController(withIdentifier: "Excercises") as! Excercises
-        let navC3 = UINavigationController(rootViewController: vcz3)
-        
-        
-        let item3 = navC3
-        item3.title = tabTitles[2]
-        let icon3 = UITabBarItem(title: "\(tabTitles[2])", image: UIImage(named: "\(unselectedimages[2])"), selectedImage: UIImage(named: "\(selectedImages[2])"))
-        item3.tabBarItem = icon3
-        tabVC.append(item3)
-        
-
-        let vcz4 = TestViewController4()
-        let navC4 = UINavigationController(rootViewController: vcz4)
-        let item4 = navC4 // Use the navigation controller instead of the direct VC
-
-        item4.title = tabTitles[3]
-        let icon4 = UITabBarItem(title: "\(tabTitles[3])", image: UIImage(named: "MainTab_Rewards_UnSelected"), selectedImage: UIImage(named: "MainTab_Rewards_Selected"))
-        item4.tabBarItem = icon4
-        tabVC.append(item4)
-        
-        self.viewControllers = tabVC
+        NotificationCenter.default.removeObserver(self, name: .languageChanged, object: nil)
     }
-    
-    private func updateTabBarAppearance() {
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "TabBarUnSelectedColor")!, NSAttributedString.Key.font: UIFont(name: Fonts().lexendRegular, size: 9)!], for: .normal)
-            
-        UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "TabBarSelectedColor")!, NSAttributedString.Key.font:UIFont(name: Fonts().lexendRegular, size: 9)!], for: .selected)
-        self.tabBarController?.tabBar.backgroundColor = UIColor(named: "TabBarBackgroundColor")
-    }
-
 }
 
 @available(iOS 16.0, *)
-extension AppMainTabViewController : UITabBarControllerDelegate {
-    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        print("Should select viewController: \(viewController.title ?? "") ?")
-        return true;
-    }
-    
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        print("Tab bar selecting from here")
-        isInitalView = false
-        
-        if !(viewController is FavoritesVideosWebViewController) {
-            NotificationCenter.default.post(name: .favLanUpdated, object: nil)
-            print("✅ Posted favLanUpdated when switching tabs")
-        }
-        
-        prepareTabs()
-    }
-}
+final class TestViewController4: UIViewController {
 
+    private let viewModel = TestViewController4ViewModel()
+    private var hostingController: UIHostingController<TestViewController4View>!
 
-class TestViewController4: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
 
-        view.backgroundColor = UIColor.white
-        print("item 1 loaded")
-        
-        // Load the image
-        guard let image = UIImage(named: "rewardImg") else { //comingsoon.png
-            print("Image not found")
-            return
-        }
-        
-        // Create and configure the UIImageView
-        let imageView = UIImageView(image: image)
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFit
-        
-        // Add the UIImageView to the view
-        view.addSubview(imageView)
-        
-        // Set up constraints to center the UIImageView
+        hostingController = UIHostingController(rootView: TestViewController4View(viewModel: viewModel))
+        hostingController.view.backgroundColor = .clear
+        addChild(hostingController)
+        view.addSubview(hostingController.view)
+        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: 300), // Adjust the width as needed
-            imageView.heightAnchor.constraint(equalToConstant: 200) // Adjust the height as needed
+            hostingController.view.topAnchor.constraint(equalTo: view.topAnchor),
+            hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
+        hostingController.didMove(toParent: self)
     }
 }
 
 extension UIColor {
     class func randomColor(randomAlpha: Bool = false) -> UIColor {
-        let redValue = CGFloat(arc4random_uniform(255)) / 255.0;
-        let greenValue = CGFloat(arc4random_uniform(255)) / 255.0;
-        let blueValue = CGFloat(arc4random_uniform(255)) / 255.0;
-        let alphaValue = randomAlpha ? CGFloat(arc4random_uniform(255)) / 255.0 : 1;
+        let redValue = CGFloat(arc4random_uniform(255)) / 255.0
+        let greenValue = CGFloat(arc4random_uniform(255)) / 255.0
+        let blueValue = CGFloat(arc4random_uniform(255)) / 255.0
+        let alphaValue = randomAlpha ? CGFloat(arc4random_uniform(255)) / 255.0 : 1
 
         return UIColor(red: redValue, green: greenValue, blue: blueValue, alpha: alphaValue)
     }

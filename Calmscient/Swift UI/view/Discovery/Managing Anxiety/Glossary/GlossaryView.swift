@@ -10,7 +10,6 @@
 
 import SwiftUI
 
-@available(iOS 16.0, *)
 struct GlossaryView: View {
 
     @ObservedObject var viewModel: GlossaryViewModel
@@ -36,7 +35,6 @@ struct GlossaryView: View {
 }
 
 #if DEBUG
-@available(iOS 16.0, *)
 #Preview("Glossary list") {
     let viewModel = GlossaryViewModel()
     viewModel.applyPreviewState(expandedTermID: 1)

@@ -21,7 +21,7 @@ enum DayFeedbackEveningReminderScheduler {
     private static let reminderHour = 19
     private static let reminderMinute = 0
     /// Same cutoff as `DayFeedbackSessionLogic` overnight branch (read-only; we do not mutate keys here).
-    private static let nextDayCutoffMinutes = 2 * 60 + 59
+    private static let nextDayCutoffMinutes = 4 * 60 + 59 // aligned with `DayFeedbackSessionLogic` (04:59 AM)
 
     private static let notificationTitle = "Calmscient"
     private static let bodyLocalizationKey = "Time to track your well-being."

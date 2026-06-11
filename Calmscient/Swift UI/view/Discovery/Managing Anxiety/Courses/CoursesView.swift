@@ -10,7 +10,6 @@
 
 import SwiftUI
 
-@available(iOS 16.0, *)
 struct CoursesView: View {
 
     @ObservedObject var viewModel: CoursesViewModel
@@ -42,7 +41,6 @@ struct CoursesView: View {
 }
 
 #if DEBUG
-@available(iOS 16.0, *)
 #Preview("Courses list") {
     let viewModel = CoursesViewModel()
     viewModel.applyPreviewState(

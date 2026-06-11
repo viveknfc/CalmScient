@@ -98,30 +98,36 @@ subTitleLabel.text = AppHelper.getLocalizeString(str:"Breathing exercises")
     
     @objc func bottomBackTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
-        let storyboard = UIStoryboard(name: "Excercises", bundle: nil)
-                let destinationVC = storyboard.instantiateViewController(withIdentifier: "BreathingTechniqueType1") as! BreathingTechniqueType1
-                
-                // Push to the destination view controller
-                self.navigationController?.pushViewController(destinationVC, animated: true)
+        if #available(iOS 16.0, *) {
+            BreathingTechniqueType1Navigation.push(from: self)
+        } else {
+            let storyboard = UIStoryboard(name: "Excercises", bundle: nil)
+            let destinationVC = storyboard.instantiateViewController(withIdentifier: "BreathingTechniqueType1") as! BreathingTechniqueType1
+            self.navigationController?.pushViewController(destinationVC, animated: true)
+        }
     }
     
     
     @objc func mindfulTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
-        let storyboard = UIStoryboard(name: "Excercises", bundle: nil)
-                let destinationVC = storyboard.instantiateViewController(withIdentifier: "MindfulBreathing") as! MindfulBreathing
-                
-                // Push to the destination view controller
-                self.navigationController?.pushViewController(destinationVC, animated: true)
+        if #available(iOS 16.0, *) {
+            MindfulBreathingNavigation.push(from: self)
+        } else {
+            let storyboard = UIStoryboard(name: "Excercises", bundle: nil)
+            let destinationVC = storyboard.instantiateViewController(withIdentifier: "MindfulBreathing") as! MindfulBreathing
+            self.navigationController?.pushViewController(destinationVC, animated: true)
+        }
     }
     
     
     @objc func diaphragmaticTapped(tapGestureRecognizer: UITapGestureRecognizer)
     {
-        let storyboard = UIStoryboard(name: "Excercises", bundle: nil)
-                let destinationVC = storyboard.instantiateViewController(withIdentifier: "DiagraphicBreathe") as! DiagraphicBreathe
-                
-                // Push to the destination view controller
-                self.navigationController?.pushViewController(destinationVC, animated: true)
+        if #available(iOS 16.0, *) {
+            DiaphragmaticBreathingNavigation.push(from: self)
+        } else {
+            let storyboard = UIStoryboard(name: "Excercises", bundle: nil)
+            let destinationVC = storyboard.instantiateViewController(withIdentifier: "DiagraphicBreathe") as! DiagraphicBreathe
+            self.navigationController?.pushViewController(destinationVC, animated: true)
+        }
     }
 }

@@ -15,6 +15,7 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var resourceTableView: UITableView!
+    @IBOutlet weak var needToTalkButton: LinearGradientButton!
     var basicData2: [Course]?
     
     var resourceData: [(String, String, UIImage)] = []
@@ -43,6 +44,7 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        needToTalkButton.applyNeedToTalkButtonVisibility()
         if let indexPath = tableView.indexPathForSelectedRow {
             tableView.deselectRow(at: indexPath, animated: true)
         }
@@ -161,23 +163,14 @@ class SmokingControl: ViewController, UITableViewDelegate, UITableViewDataSource
                 self.navigationController?.pushViewController(vc!, animated: true)
                 
             } else {
-                let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
-                if let customAlertVC = storyboard.instantiateViewController(withIdentifier: "FullComingSoonVC") as? FullComingSoonVC {
-                    customAlertVC.modalPresentationStyle = .overFullScreen
-                    customAlertVC.modalTransitionStyle = .crossDissolve
-                    self.present(customAlertVC, animated: true, completion: nil)
-                }
+                FullComingSoonViewModel.present(from: self)
             }
         } else if tableView == self.resourceTableView {
             print("resource table clicked")
             if indexPath.row == 0 {
-                let storyboard = UIStoryboard(name: "Excercises", bundle: nil)
-                let destinationVC = storyboard.instantiateViewController(withIdentifier: "BreathingTechnique") as! BreathingTechnique
-                self.navigationController?.pushViewController(destinationVC, animated: true)
+                BreathingTechniqueNavigation.push(from: self)
             } else if indexPath.row == 1 {
-                let next = UIStoryboard(name: "ManagingAnxietyBeginScreen", bundle: nil)
-                let vc = next.instantiateViewController(withIdentifier: "ManagingAnxietyBeginScreen") as? ManagingAnxietyBeginScreen
-                self.navigationController?.pushViewController(vc!, animated: true)
+                ManagingAnxietyBeginNavigation.push(from: self)
             } else if indexPath.row == 2 {
                 let next = UIStoryboard(name: "ScreeningListVC", bundle: nil)
                 let vc = next.instantiateViewController(withIdentifier: "ScreeningListVC") as? ScreeningListVC

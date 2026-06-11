@@ -145,7 +145,7 @@ class ProfileViewController: ViewController,UIScrollViewDelegate {
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 40, height: 40),
                 title: "Email is required.",
-                okButtonTitle: "Ok",
+                okButtonTitle: "Ok".localized,
                 okAction: {
 
                 },

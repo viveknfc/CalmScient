@@ -25,8 +25,7 @@ class BasicknowledgeVideo: ViewController {
     var timeObserverToken: Any?
     
     var isFav: Int = 0
-    let homeVC = HomeTabDashboardViewController()
-    
+
     var sectionID4: Int?
     //        @IBOutlet weak var timeLabel: UILabel!
     
@@ -99,34 +98,51 @@ class BasicknowledgeVideo: ViewController {
             fatalError("Unable to found Application Shared Info")
         }
         
-        homeVC.getPatientFavorites(plId: userInfo.patientLocationID, patientId: userInfo.patientID, clientId: userInfo.clientID, parentId: 0) { result in
-            switch result {
-            case .success(let data):
-                do {
-                    let decoded = try JSONDecoder().decode(FavoritesResponse.self, from: data)
-                    
-                    if let match = decoded.favorites.first(where: { $0.title == "What happens to your brain when you drink?" }) {
-                        print("Found → isFavorite = \(match.isFavorite)")
-                        self.isFav = match.isFavorite
-                        
-                        DispatchQueue.main.async {
-                            self.setFavImage()
-                            self.view.hideToastActivity()
-                        }
-                    } else {
-                        DispatchQueue.main.async {
-                            self.view.hideToastActivity()
-                        }
-                        print("Title not found in favorites")
-                    }
-                } catch {
+        let params: [String: Any] = [
+            "plId": userInfo.patientLocationID,
+            "patientId": userInfo.patientID,
+            "parentId": 0,
+            "clientId": userInfo.clientID,
+        ]
+        APIService.getPatientFavoritesAPICalling(
+            self,
+            params: params,
+            method: "POST",
+            accessToken: ApplicationSharedInfo.shared.tokenResponse?.accessToken ?? "",
+            acces: true,
+            parameterPlacement: "body"
+        ) { [weak self] obj in
+            guard let self else { return }
+            guard let dict = obj as? [String: Any],
+                  let data = try? JSONSerialization.data(withJSONObject: dict) else {
+                DispatchQueue.main.async {
                     self.view.hideToastActivity()
-                    print("Decoding error: \(error)")
                 }
-                
-            case .failure(let error):
-                self.view.hideToastActivity()
-                print("API failed: \(error)")
+                print("getPatientFavorites: unexpected response")
+                return
+            }
+            do {
+                let decoded = try JSONDecoder().decode(FavoritesResponse.self, from: data)
+
+                if let match = decoded.favorites.first(where: { $0.title == "What happens to your brain when you drink?" }) {
+                    print("Found → isFavorite = \(match.isFavorite)")
+                    self.isFav = match.isFavorite
+
+                    DispatchQueue.main.async {
+                        self.setFavImage()
+                        self.view.hideToastActivity()
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        self.view.hideToastActivity()
+                    }
+                    print("Title not found in favorites")
+                }
+            } catch {
+                DispatchQueue.main.async {
+                    self.view.hideToastActivity()
+                }
+                print("Decoding error: \(error)")
             }
         }
     }

@@ -11,7 +11,6 @@
 import SwiftUI
 import UIKit
 
-@available(iOS 16.0, *)
 final class WebViewLessonHostingController: UIViewController {
 
     private let viewModel: WebViewLessonViewModel
@@ -56,6 +55,7 @@ final class WebViewLessonHostingController: UIViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
         navigationController?.navigationBar.isHidden = false
         viewModel.onHostWillAppear()
+        viewModel.loadInitialRequestIfNeeded()
         applyNavigationChrome()
         configureBarButtons()
     }

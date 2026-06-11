@@ -85,8 +85,20 @@ enum ExcercisesTypeEnum: Int {
     }
         
         var destVC: UIViewController {
+            if #available(iOS 16.0, *) {
+                switch self {
+                case .breathingTechnique1:
+                    return BreathingTechniqueType1HostingController()
+                case .breathingTechnique2:
+                    return MindfulBreathingHostingController()
+                case .breathingTechnique3:
+                    return DiaphragmaticBreathingHostingController()
+                default:
+                    break
+                }
+            }
             let storyboard = UIStoryboard(name: "Excercises", bundle: nil)
-            return storyboard.instantiateViewController(withIdentifier: self.storyboardID);
+            return storyboard.instantiateViewController(withIdentifier: self.storyboardID)
         }
     
 }

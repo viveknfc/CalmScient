@@ -84,10 +84,12 @@ class TakingControlIndex: ViewController {
             self.navigationController?.popViewController(animated: true)
         } else {
             if #available(iOS 16.0, *) {
-                let vc = UIStoryboard(name: "DiscoveryMainDashboard", bundle: nil).instantiateViewController(withIdentifier: "DiscoveryMainViewController") as! DiscoveryMainViewController
+                let vc = DiscoveryMainHostingController()
                 self.navigationController?.setViewControllers([vc], animated: true)
             } else {
-                // Fallback on earlier versions
+                let vc = UIStoryboard(name: "DiscoveryMainDashboard", bundle: nil)
+                    .instantiateViewController(withIdentifier: "DiscoveryMainViewController") as! DiscoveryMainViewController
+                self.navigationController?.setViewControllers([vc], animated: true)
             }
         }
     }
@@ -105,9 +107,9 @@ class TakingControlIndex: ViewController {
         print("the move to intro value is",moveToIntro)
         
         if moveToIntro {
-            let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
-            let vc = next.instantiateViewController(withIdentifier: "VTakingControlIntroVC") as? VTakingControlIntroVC
-            self.navigationController?.pushViewController(vc!, animated: true)
+            if #available(iOS 16.0, *) {
+                TakingControlIntroNavigation.push(from: self, animated: true)
+            }
         }
         
     }

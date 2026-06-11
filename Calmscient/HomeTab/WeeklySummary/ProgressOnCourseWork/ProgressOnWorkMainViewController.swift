@@ -84,6 +84,7 @@ class ProgressOnWorkMainViewController: ViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         needTotTalkSomeOneButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str:"Need to talk with someone?"))
+        needTotTalkSomeOneButton.applyNeedToTalkButtonVisibility()
         self.title = "Progress on course work".localized
     }
     @IBAction func needToTalkButtonAction(_ sender: Any) {

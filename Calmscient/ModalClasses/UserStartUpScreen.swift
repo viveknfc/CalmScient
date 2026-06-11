@@ -18,6 +18,17 @@ class UserMoodOption: Codable {
     let image: String
 }
 
+class FocusData: Codable {
+    var focusQuestion: String
+    let options: [FocusOption]
+}
+
+class FocusOption: Codable {
+    let optionType: String
+    let optionTypeID: Int
+    let image: String
+}
+
 class UserSleepData: Codable {
     let sleepQuestion: String
     let option1: String
@@ -44,6 +55,7 @@ class UserMedicineData: Codable {
     var medicineQuestion: String
     let option1: String
     let option2: String
+    let option3: String?
 }
 
 class UserJournalData: Codable {
@@ -59,6 +71,7 @@ struct StartupAnswer: Codable {
 class UserStartupScreenDayData: Codable {
     var wish: String = ""
     var moodData: UserMoodData?
+    var focusData: FocusData?
     var sleepData: UserSleepData?
     var timeSpendData: UserTimeSpendData?
     var medicineData: UserMedicineData?
@@ -66,6 +79,7 @@ class UserStartupScreenDayData: Codable {
     var dayTimeValue:DayTimeValue?
     
     var moodAnswer:Int?
+    var focusAnswer: Int?
     var sleepAnswer:Int?
     var medicineAnswer:String?
     var timeSpendAnswer:[String]?
@@ -84,23 +98,26 @@ class UserStartupScreenDayData: Codable {
         
         print("the getStartUpScreenData is", dayWiseData)
 
-        dayWiseData.dayTimeValue = getDayTime(date: fromDate)
+        dayWiseData.dayTimeValue = DayFeedbackSessionLogic.moodDayPeriod(for: fromDate)
 //        dayWiseData.dayTimeValue = .Evening
         switch dayWiseData.dayTimeValue {
         case .Morning:
             dayWiseData.moodData?.moodQuestion = AppHelper.getLocalizeString(str: "How's_your_mood_so_far")
+            dayWiseData.focusData?.focusQuestion = AppHelper.getLocalizeString(str: "How is your focus/mental clarity")
             dayWiseData.medicineData?.medicineQuestion = AppHelper.getLocalizeString(str: "Did_you_take_your_meds_this_morning")
             dayWiseData.timeSpendData = nil
             
             dayWiseData.journalData?.journalKey = "Daily journal"
         case .Afternoon:
             dayWiseData.moodData?.moodQuestion = AppHelper.getLocalizeString(str: "How_is_your_mood_right_now")
+            dayWiseData.focusData?.focusQuestion = AppHelper.getLocalizeString(str: "How is your focus/mental clarity")
             dayWiseData.medicineData = nil
             dayWiseData.sleepData = nil
             dayWiseData.timeSpendData = nil
             dayWiseData.journalData = nil
         case .Evening:
             dayWiseData.moodData?.moodQuestion = AppHelper.getLocalizeString(str: "How_was_your_day")
+            dayWiseData.focusData?.focusQuestion = AppHelper.getLocalizeString(str: "How is your focus/mental clarity")
             dayWiseData.medicineData?.medicineQuestion = AppHelper.getLocalizeString(str: "Did_you_take_your_meds")
             dayWiseData.sleepData = nil
             dayWiseData.journalData?.journalKey = "Daily journal"
@@ -116,6 +133,7 @@ class UserStartupScreenDayData: Codable {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         wish = try container.decode(String.self, forKey: .wish)
         moodData = try container.decodeIfPresent(UserMoodData.self, forKey: .moodData)
+        focusData = try container.decodeIfPresent(FocusData.self, forKey: .focusData)
         sleepData = try container.decodeIfPresent(UserSleepData.self, forKey: .sleepData)
         timeSpendData = try container.decodeIfPresent(UserTimeSpendData.self, forKey: .timeSpendData)
         medicineData = try container.decodeIfPresent(UserMedicineData.self, forKey: .medicineData)
@@ -128,6 +146,7 @@ class UserStartupScreenDayData: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(wish, forKey: .wish)
         try container.encodeIfPresent(moodData, forKey: .moodData)
+        try container.encodeIfPresent(focusData, forKey: .focusData)
         try container.encodeIfPresent(sleepData, forKey: .sleepData)
         try container.encodeIfPresent(timeSpendData, forKey: .timeSpendData)
         try container.encodeIfPresent(medicineData, forKey: .medicineData)
@@ -140,27 +159,41 @@ class UserStartupScreenDayData: Codable {
     enum CodingKeys: String, CodingKey {
         case wish
         case moodData
+        case focusData
         case sleepData
         case timeSpendData
         case medicineData
         case journalData
         case startupAnswersDtoList
     }
-    
-    private static func getDayTime(date: Date = Date()) -> DayTimeValue {
-        let calendar = Calendar.current
-        let hour = calendar.component(.hour, from: date)
-        let minute = calendar.component(.minute, from: date)
 
-        // Calculate the total minutes since the start of the day
-        let totalMinutes = hour * 60 + minute
+    // MARK: - Convenience selection helpers
+    func setMoodAnswer(byIndex index: Int) {
+        guard let options = moodData?.options, options.indices.contains(index) else { return }
+        moodAnswer = options[index].optionTypeID
+    }
 
-        switch totalMinutes {
-        case (3 * 60)..<(18 * 60): // 3:00 AM to 5:59 PM
-            return DayTimeValue.Morning
-        default: // 6:00 PM to 2:59 AM
-            return DayTimeValue.Evening
-        }
+    func setFocusAnswer(byIndex index: Int) {
+        guard let options = focusData?.options, options.indices.contains(index) else { return }
+        focusAnswer = options[index].optionTypeID
+    }
+
+    func setMoodAnswer(byID id: Int) {
+        moodAnswer = id
+    }
+
+    func setFocusAnswer(byID id: Int) {
+        focusAnswer = id
+    }
+
+    func selectedMoodIndex() -> Int? {
+        guard let id = moodAnswer, let options = moodData?.options else { return nil }
+        return options.firstIndex { $0.optionTypeID == id }
+    }
+
+    func selectedFocusIndex() -> Int? {
+        guard let id = focusAnswer, let options = focusData?.options else { return nil }
+        return options.firstIndex { $0.optionTypeID == id }
     }
     
     private static func loadJson(filename fileName: String) -> Data? {
@@ -179,6 +212,7 @@ class UserStartupScreenDayData: Codable {
 
 public enum UserStartUpScreenDayTimeItems {
     case moodData
+    case focusData
     case sleepData
     case timeSpendData
     case medicineData
@@ -189,6 +223,9 @@ public enum UserStartUpScreenDayTimeItems {
         case .moodData:
             let moodData = instance.moodData
             return moodData as? T
+        case .focusData:
+            let focusData = instance.focusData
+            return focusData as? T
         case .sleepData:
             return instance.sleepData as? T
         case .timeSpendData:
@@ -207,9 +244,11 @@ class PatientLog: Codable {
     var clientId: Int = ApplicationSharedInfo.shared.loginResponse?.clientID ?? 0
     var patientId: Int = ApplicationSharedInfo.shared.loginResponse?.patientID ?? 0
     var moodId: Int = 0
+    var focusId: Int = 0
     var sleepHours: Int = 0
     var medicineFlag: Int = 0
     var moodQuestion: String = ""
+    var focusQuestion: String? = "How is your focus/mental clarity?"
     var sleepQuestion: String = ""
     var medicineQuestion: String = ""
     var spendQuestion: String = ""
@@ -229,9 +268,11 @@ class PatientLog: Codable {
         try container.encode(clientId, forKey: .clientId)
         try container.encode(patientId, forKey: .patientId)
         try container.encode(moodId, forKey: .moodId)
+        try container.encode(focusId, forKey: .focusId)
         try container.encode(sleepHours, forKey: .sleepHours)
         try container.encode(medicineFlag, forKey: .medicineFlag)
         try container.encode(moodQuestion, forKey: .moodQuestion)
+        try container.encode(focusQuestion, forKey: .focusQuestion)
         try container.encode(sleepQuestion, forKey: .sleepQuestion)
         try container.encode(medicineQuestion, forKey: .medicineQuestion)
         try container.encode(spendQuestion, forKey: .spendQuestion)
@@ -248,9 +289,11 @@ class PatientLog: Codable {
         clientId = try container.decode(Int.self, forKey: .clientId)
         patientId = try container.decode(Int.self, forKey: .patientId)
         moodId = try container.decode(Int.self, forKey: .moodId)
+        focusId = try container.decodeIfPresent(Int.self, forKey: .focusId) ?? 0
         sleepHours = try container.decode(Int.self, forKey: .sleepHours)
         medicineFlag = try container.decode(Int.self, forKey: .medicineFlag)
         moodQuestion = try container.decode(String.self, forKey: .moodQuestion)
+        focusQuestion = try container.decodeIfPresent(String.self, forKey: .focusQuestion)
         sleepQuestion = try container.decode(String.self, forKey: .sleepQuestion)
         medicineQuestion = try container.decode(String.self, forKey: .medicineQuestion)
         spendQuestion = try container.decode(String.self, forKey: .spendQuestion)
@@ -266,9 +309,11 @@ class PatientLog: Codable {
         case clientId
         case patientId
         case moodId
+        case focusId
         case sleepHours
         case medicineFlag
         case moodQuestion
+        case focusQuestion
         case sleepQuestion
         case medicineQuestion
         case spendQuestion
@@ -282,7 +327,7 @@ class PatientLog: Codable {
 class SaveUserStartupScreenDetailsRequestForm: EndPointRequest {
     
     var baseURL: String = baseURLString
-    var path: String = "patients/api/v1/patientDetails/savePatientStartupScreen"
+    var path: String = APIService.SavePatientStartupScreen
     var httpMethod: HTTPMethod = .post
     var requestBody: [String : Any]
     

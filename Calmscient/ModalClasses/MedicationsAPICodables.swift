@@ -476,7 +476,7 @@ class AddMedicationSavedResponse: Codable {
 
 class GetMedicationsRequestForm: EndPointRequest {
     var baseURL: String = baseURLString
-    var path: String = "patients/api/v1/medications/getMedications"
+    var path: String = APIService.GetMedications
     var httpMethod: HTTPMethod = .post
     var requestBody: [String : Any]
     
@@ -489,7 +489,7 @@ class GetMedicationsRequestForm: EndPointRequest {
 class AddMedicationsRequestForm: EndPointRequest {
     
     var baseURL: String = baseURLString
-    var path: String = "patients/api/v1/medications/addMedications"
+    var path: String = APIService.AddMedications
     var httpMethod: HTTPMethod = .post
     var requestBody: [String : Any] = [:]
     var jsonData:Data? = nil

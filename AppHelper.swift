@@ -31,18 +31,11 @@ class AppHelper: NSObject {
             return language
         }
 
-        let selectedLanguageID = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-        let fallbackLanguage: String
-        switch selectedLanguageID {
-        case 2:
-            fallbackLanguage = "es"
-        case 3:
-            fallbackLanguage = "ja"
-        default:
-            fallbackLanguage = "en"
-        }
-        UserDefaults.standard.set(fallbackLanguage, forKey: "Language")
-        return fallbackLanguage
+        let code = PatientLanguagePreference.bundleLocaleCode(
+            forDisplayName: PatientLanguagePreference.currentDisplayName()
+        )
+        UserDefaults.standard.set(code, forKey: "Language")
+        return code
     }
 }
 

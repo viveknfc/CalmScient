@@ -38,6 +38,7 @@ struct TakingControlIntroSecondView: View {
                         onTap: { viewModel.openDastFlow() }
                     )
                 }
+                .padding(.top, 30)
                 .padding(.horizontal, 20)
                 .padding(.bottom, 100)
             }

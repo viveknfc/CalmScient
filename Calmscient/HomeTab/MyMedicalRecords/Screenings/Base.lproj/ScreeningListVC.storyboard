@@ -56,9 +56,7 @@
                             <constraint firstItem="wht-93-KsS" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="yJt-EH-86w"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="screeningListTable" destination="wht-93-KsS" id="Uin-y3-qWO"/>
-                    </connections>
+                    <connections/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

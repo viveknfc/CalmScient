@@ -18,7 +18,7 @@
         <!--User Profile View Controller-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="UserProfileViewController" id="Y6W-OH-hqX" customClass="UserProfileViewController" customModule="CalmscientIOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UserProfileViewController" id="Y6W-OH-hqX" customClass="UserProfileHostingController" customModule="CalmscientIOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,13 +72,6 @@
                             <constraint firstItem="JSC-SF-YaH" firstAttribute="top" secondItem="P3M-le-Lhe" secondAttribute="bottom" constant="16" id="lDo-i3-maY"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="circleView" destination="eGN-oa-T0n" id="Wye-kN-D34"/>
-                        <outlet property="gallerySelectionImageView" destination="VWB-7o-Qek" id="bpK-fr-5fk"/>
-                        <outlet property="profileIcon" destination="mcS-hT-DD0" id="rpH-0B-8ii"/>
-                        <outlet property="profileTableView" destination="JSC-SF-YaH" id="hy5-k3-hhs"/>
-                        <outlet property="versionLabel" destination="P3M-le-Lhe" id="sza-IQ-3iD"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

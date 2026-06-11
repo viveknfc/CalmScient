@@ -1,82 +1,47 @@
 //
 //  HistoryVC.swift
-//  HealthScreeningApp
+//  Calmscient
 //
-//  Created by KA on 22/03/24.
+//  Storyboard shell that embeds `HistoryHostingController` (SwiftUI) on iOS 16+.
+//
+//  Vivek
+//  15 May 2026
 //
 
+import SwiftUI
 import UIKit
 
-class HistoryVC: ViewController {
-    
-    @IBOutlet weak var screeningTitle: UILabel!
-    @IBOutlet weak var historyTable: UITableView!
-    public weak var selectedScreening:Screening? = nil
-    var screeningHistoryData:[ScreeningHistory] = [] {
-        didSet {
-            self.historyTable.reloadData()
-        }
-    }
-    
+final class HistoryVC: ViewController {
+
+    public weak var selectedScreening: Screening?
+
+    private var historyHost: UIViewController?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "History".localized
-        historyTable.register(UINib(nibName: "HistoryCell", bundle: nil), forCellReuseIdentifier: "HistoryCell")
-        historyTable.delegate = self
-        historyTable.dataSource = self
-        getScreeningHistoryData()
-    }
-    
-    fileprivate func getScreeningHistoryData() {
-        self.view.showToastActivity()
-        var prepareRequestBodyParams:[String:Any] = [:]
-        guard let screeningObject = self.selectedScreening, let loginResponse = ApplicationSharedInfo.shared.loginResponse else {
-            return
-        }
-        screeningTitle.text = screeningObject.screeningType
-        prepareRequestBodyParams["screeningId"] = screeningObject.screeningID
-        prepareRequestBodyParams["assessmentId"] = screeningObject.assessmentID
-        
-        prepareRequestBodyParams["patientLocationId"] = loginResponse.patientLocationID
-        prepareRequestBodyParams["patientId"] = loginResponse.patientID
-        prepareRequestBodyParams["clientId"] = loginResponse.clientID
-       
-        let questonariesRequest = ScreeningHistoryRequestForm(prepareRequestBodyParams)
-        guard let requestURL = questonariesRequest.getURLRequest() else {
-            self.view.showToast(message: "An Unknown error occured. Please check with Admin")
-            return
-        }
-        NetworkAPIRequest.sendRequest(request: requestURL) { [weak self](response: ScreeningHistoryResponse?, failureResponse: FailureResponse?, error: Error?) in
-            DispatchQueue.main.async {
-                guard let self = self else {
-                    return
-                }
-                self.view.hideToastActivity()
-                if let _ = error {
-                    self.view.showToast(message: "An Unknown error occured. Please check with Admin")
-                } else if let response = response {
-                    self.screeningHistoryData = response.screeningHistory
-                } else if let failureResponse = failureResponse {
-                    self.view.showToast(message: failureResponse.statusResponse.responseMessage)
-                }
-            }
+        if #available(iOS 16.0, *) {
+            installSwiftUIHistoryHost()
         }
     }
-}
 
-extension HistoryVC: UITableViewDelegate, UITableViewDataSource{
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return screeningHistoryData.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell:HistoryCell = self.historyTable.dequeueReusableCell(withIdentifier: "HistoryCell") as? HistoryCell else {
-            return UITableViewCell()
+    @available(iOS 16.0, *)
+    private func installSwiftUIHistoryHost() {
+        view.subviews.forEach { $0.removeFromSuperview() }
+
+        let host = HistoryHostingController()
+        if let selectedScreening {
+            host.configure(selectedScreening: selectedScreening)
         }
-        
-        cell.selectionStyle = .none
-        cell.configureData(data: screeningHistoryData[indexPath.row])
-        return cell
+        historyHost = host
+        addChild(host)
+        host.view.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(host.view)
+        NSLayoutConstraint.activate([
+            host.view.topAnchor.constraint(equalTo: view.topAnchor),
+            host.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            host.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            host.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+        ])
+        host.didMove(toParent: self)
     }
-    
 }

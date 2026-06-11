@@ -2,7 +2,9 @@
 //  LicenseValidationView.swift
 //  Calmscient
 //
-
+//  Vivek
+//  14 May 2026
+//
 import SwiftUI
 
 @available(iOS 16.0, *)

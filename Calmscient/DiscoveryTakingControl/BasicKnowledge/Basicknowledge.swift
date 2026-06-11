@@ -132,21 +132,34 @@ class Basicknowledge: ViewController, UITableViewDelegate, UITableViewDataSource
             self.navigationController?.pushViewController(vc!, animated: true)
         }
         else if(indexPath.row == 5){
-            let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
-            let vc = next.instantiateViewController(withIdentifier: "HoldYourLiquorVC") as? HoldYourLiquorVC
             let newData = basicData2[indexPath.row]
-            vc?.sectionID7 = newData["sectionId"] as? Int
-            vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
-            self.navigationController?.pushViewController(vc!, animated: true)
+            let sectionId = newData["sectionId"] as? Int ?? 0
+            let title = AppHelper.getLocalizeString(str: "Basic Knowledge")
+            if #available(iOS 16.0, *) {
+                HoldYourLiquorNavigation.push(
+                    from: self,
+                    sectionId: sectionId,
+                    navigationTitle: title
+                )
+            }
         }
         else if(indexPath.row == 6){
-            let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
-            let vc = next.instantiateViewController(withIdentifier: "MyDrinkingHabitVC") as? MyDrinkingHabitVC
-            _ = basicData2[indexPath.row]
             let newData = basicData2[indexPath.row]
-            vc?.sectionID6 = newData["sectionId"] as? Int
-            vc?.title = AppHelper.getLocalizeString(str: "Basic Knowledge")
-            self.navigationController?.pushViewController(vc!, animated: true)
+            let sectionId = newData["sectionId"] as? Int ?? 0
+            let title = AppHelper.getLocalizeString(str: "Basic Knowledge")
+            if #available(iOS 16.0, *) {
+                MyDrinkingHabitNavigation.push(
+                    from: self,
+                    sectionId: sectionId,
+                    navigationTitle: title
+                )
+            } else {
+                let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+                let vc = next.instantiateViewController(withIdentifier: "MyDrinkingHabitVC") as? MyDrinkingHabitVC
+                vc?.sectionID6 = sectionId
+                vc?.title = title
+                self.navigationController?.pushViewController(vc!, animated: true)
+            }
         }
     }
     

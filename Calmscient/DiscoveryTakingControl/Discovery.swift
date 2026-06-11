@@ -65,9 +65,13 @@ class Discovery: ViewController,UITableViewDelegate,UITableViewDataSource {
     @objc func backButtonOverrideAction() {
         print("Back button tapped")
         // Perform the action you want here
-        let vcz = UIStoryboard(name: "DiscoveryMainDashboard", bundle: nil).instantiateViewController(withIdentifier: "DiscoveryMainViewController") as! DiscoveryMainViewController
-
-        self.navigationController?.pushViewController(vcz, animated: true)
+        if #available(iOS 16.0, *) {
+            self.navigationController?.pushViewController(DiscoveryMainHostingController(), animated: true)
+        } else {
+            let vcz = UIStoryboard(name: "DiscoveryMainDashboard", bundle: nil)
+                .instantiateViewController(withIdentifier: "DiscoveryMainViewController") as! DiscoveryMainViewController
+            self.navigationController?.pushViewController(vcz, animated: true)
+        }
 
         
     }
@@ -136,7 +140,7 @@ class Discovery: ViewController,UITableViewDelegate,UITableViewDataSource {
         case 1: return 1
         case 2: return courseLists.count
         case 3: return 1
-        case 4: return 1
+        case 4: return PatientLanguagePreference.shouldShowNeedToTalkButton() ? 1 : 0
         default:
             return 1
         }
@@ -249,6 +253,7 @@ class Discovery: ViewController,UITableViewDelegate,UITableViewDataSource {
             cell.selectionStyle = .none
             cell.button.setTitle(AppHelper.getLocalizeString(str:"Need to talk with someone?"), for: .normal)
             cell.button.titleLabel?.font =  UIFont(name: Fonts().lexendMedium, size: 18)
+            cell.button.applyNeedToTalkButtonVisibility()
 
             cell.button.addTarget(self, action: #selector(Discovery.needToTalkButtonClicked(_:)), for: .touchUpInside)
             return cell

@@ -21,7 +21,7 @@ struct BasicKnowledgeCompleteButtonView: View {
             Spacer()
             Button(action: onTap) {
                 Text(title)
-                    .font(LoginDesignSystem.Typography.lexendSemiBold(size: 16))
+                    .font(LoginDesignSystem.Typography.lexendMedium(size: 14))
                     .foregroundStyle(Color.white)
                     .padding(.horizontal, 20)
                     .frame(height: 40)
@@ -40,7 +40,7 @@ struct BasicKnowledgeCompleteButtonView: View {
 #if DEBUG
 @available(iOS 16.0, *)
 #Preview("Basic knowledge complete button") {
-    BasicKnowledgeCompleteButtonView(title: "Complete", onTap: {})
+    BasicKnowledgeCompleteButtonView(title: "Complete".localized, onTap: {})
         .background(Color(white: 0.98))
 }
 #endif

@@ -113,18 +113,17 @@ class UserRegistrationViewController: UIViewController {
             
         } else if let responseDict = response as? [String: Any] {
             print("The validate API response is", responseDict)
-            
-            if let statusResponse = responseDict["statusResponse"] as? [String: Any],
-               let responseCode = statusResponse["responseCode"] as? Int,
-               let responseMessage = statusResponse["responseMessage"] as? String {
-                
+
+            if let tuple = LicenseValidationResponseParser.status(from: response as AnyObject) {
+                let responseCode = tuple.code
+                let responseMessage = tuple.message
+
                 if responseCode == 200 {
-                    let successContent = "Your license key has been verified. \n\nPlease check your mail for login with temporary password."
+                    let successContent = AppHelper.getLocalizeString(str: "license_key_verified_success_message")
                     self.showSuccessAlert(successContent: successContent, centreImage: nil, okButtonAction: {
                         self.navigateToCreateAccount()
                     })
                 } else {
-                    
                     self.showGeneralAlert(
                         image: UIImage(named: "InfoIcon"),
                         imageSize: CGSize(width: 40, height: 40),
@@ -139,7 +138,7 @@ class UserRegistrationViewController: UIViewController {
             } else {
                 print("Invalid statusResponse format.")
             }
-            
+
         } else {
             print("Unsupported response type: \(type(of: response))")
         }
@@ -149,10 +148,7 @@ class UserRegistrationViewController: UIViewController {
     //END
     
     func navigateToCreateAccount() {
-        let homeController = UIStoryboard(name: "LoginVC", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-        let navC = UINavigationController(rootViewController: homeController)
-        navC.navigationBar.isHidden = true
-
+        let navC = LoginHostingController.loginNavigationRoot()
         if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
            let window = sceneDelegate.window {
             window.rootViewController = navC

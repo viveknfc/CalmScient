@@ -125,6 +125,7 @@ class DrinkingControl: UIViewController, NCalendarToViewDelegate { //CalendarToV
         super.viewWillAppear(animated)
         
         needToTalkButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str:"Need to talk with someone?"))
+        needToTalkButton.applyNeedToTalkButtonVisibility()
         getTakingControlIndexAPICalling()
         
     }
@@ -188,12 +189,7 @@ class DrinkingControl: UIViewController, NCalendarToViewDelegate { //CalendarToV
     
     @IBAction func drinkTrackerClicked(_ sender: Any) {
         print("drink tarcker button pressed")
-        let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
-        if let customAlertVC = storyboard.instantiateViewController(withIdentifier: "FullComingSoonVC") as? FullComingSoonVC {
-            customAlertVC.modalPresentationStyle = .overFullScreen
-            customAlertVC.modalTransitionStyle = .crossDissolve
-            self.present(customAlertVC, animated: true, completion: nil)
-        }
+        FullComingSoonViewModel.present(from: self)
     }
     
     //MARK: - Event Tracker Button Clicked
@@ -201,12 +197,7 @@ class DrinkingControl: UIViewController, NCalendarToViewDelegate { //CalendarToV
     
     @IBAction func eventTrackerButtonPressed(_ sender: Any) {
         print("event tarcker button pressed")
-        let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
-        if let customAlertVC = storyboard.instantiateViewController(withIdentifier: "FullComingSoonVC") as? FullComingSoonVC {
-            customAlertVC.modalPresentationStyle = .overFullScreen
-            customAlertVC.modalTransitionStyle = .crossDissolve
-            self.present(customAlertVC, animated: true, completion: nil)
-        }
+        FullComingSoonViewModel.present(from: self)
     }
     
     //MARK: - Need to Talk button Pressed
@@ -237,35 +228,20 @@ class DrinkingControl: UIViewController, NCalendarToViewDelegate { //CalendarToV
     //MARK: - Make A Plan Button
     
     @IBAction func makeAPlanButtonPressed(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
-        if let customAlertVC = storyboard.instantiateViewController(withIdentifier: "FullComingSoonVC") as? FullComingSoonVC {
-            customAlertVC.modalPresentationStyle = .overFullScreen
-            customAlertVC.modalTransitionStyle = .crossDissolve
-            self.present(customAlertVC, animated: true, completion: nil)
-        }
+        FullComingSoonViewModel.present(from: self)
     }
     
     //MARK: - Stay focussed Button Clicked
     
     @IBAction func stayFocussedButtonClicked(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
-        if let customAlertVC = storyboard.instantiateViewController(withIdentifier: "FullComingSoonVC") as? FullComingSoonVC {
-            customAlertVC.modalPresentationStyle = .overFullScreen
-            customAlertVC.modalTransitionStyle = .crossDissolve
-            self.present(customAlertVC, animated: true, completion: nil)
-        }
+        FullComingSoonViewModel.present(from: self)
     }
     
     //MARK: - My Progress Button Clicked
     
     
     @IBAction func myProgressButtoonClicked(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
-        if let customAlertVC = storyboard.instantiateViewController(withIdentifier: "FullComingSoonVC") as? FullComingSoonVC {
-            customAlertVC.modalPresentationStyle = .overFullScreen
-            customAlertVC.modalTransitionStyle = .crossDissolve
-            self.present(customAlertVC, animated: true, completion: nil)
-        }
+        FullComingSoonViewModel.present(from: self)
     }
     
     //MARK: - Resources
@@ -274,15 +250,11 @@ class DrinkingControl: UIViewController, NCalendarToViewDelegate { //CalendarToV
     }
     
     @IBAction func breathingExerciseButton(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Excercises", bundle: nil)
-        let destinationVC = storyboard.instantiateViewController(withIdentifier: "BreathingTechnique") as! BreathingTechnique
-        self.navigationController?.pushViewController(destinationVC, animated: true)
+        BreathingTechniqueNavigation.push(from: self)
     }
     
     @IBAction func managingAnxietyButton(_ sender: Any) {
-        let next = UIStoryboard(name: "ManagingAnxietyBeginScreen", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "ManagingAnxietyBeginScreen") as? ManagingAnxietyBeginScreen
-        self.navigationController?.pushViewController(vc!, animated: true)
+        ManagingAnxietyBeginNavigation.push(from: self)
     }
     
     @IBAction func screeningButton(_ sender: Any) {
@@ -293,11 +265,14 @@ class DrinkingControl: UIViewController, NCalendarToViewDelegate { //CalendarToV
     }
     
     @IBAction func drinkCountButton(_ sender: Any) {
-        let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "DrinkingCountVC") as? DrinkingCountVC
-        vc?.title = AppHelper.getLocalizeString(str: "Drink counts calculator") //Contador de bebidas
-
-        self.navigationController?.pushViewController(vc!, animated: true)
+        if #available(iOS 16.0, *) {
+            DrinkingCountNavigation.push(from: self)
+        } else {
+            let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+            let vc = next.instantiateViewController(withIdentifier: "DrinkingCountVC") as? DrinkingCountVC
+            vc?.title = AppHelper.getLocalizeString(str: "Drink counts calculator")
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
     }
     
 

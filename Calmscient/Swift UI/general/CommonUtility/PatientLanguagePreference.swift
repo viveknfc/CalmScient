@@ -58,6 +58,11 @@ enum PatientLanguagePreference {
         normalizedDisplayName(currentDisplayName()) == "english"
     }
 
+    /// Emergency “Need to talk with someone?” entry points are hidden for Japanese patients.
+    static func shouldShowNeedToTalkButton() -> Bool {
+        normalizedDisplayName(currentDisplayName()) != "japanese"
+    }
+
     static func persistLoginLanguage(languageId: Int) {
         let id = languageId == 0 ? 1 : languageId
         UserDefaults.standard.set(id, forKey: "SelectedLanguageID")

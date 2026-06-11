@@ -324,21 +324,6 @@ score</string>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="NcU-i7-SrY"/>
-                    <connections>
-                        <outlet property="cornerView" destination="IaX-mu-MhJ" id="Dr8-LZ-6LV"/>
-                        <outlet property="needToTalkButton" destination="Rg3-Jp-LCH" id="6j0-3c-Amx"/>
-                        <outlet property="progressBar" destination="50b-Nc-wxS" id="FLQ-zS-GHg"/>
-                        <outlet property="remindMeLabel" destination="Db0-YK-axE" id="EUo-dt-R65"/>
-                        <outlet property="remindOptionLbl" destination="eHb-d4-6jy" id="vEJ-RQ-hrj"/>
-                        <outlet property="scoreLbl" destination="DeR-c7-F4K" id="Wu0-zq-NLB"/>
-                        <outlet property="scoreMarkedLabel" destination="uKD-0v-E1g" id="qNp-pX-csU"/>
-                        <outlet property="screeningLabel" destination="Zrw-UP-fdG" id="86p-R6-7CR"/>
-                        <outlet property="shadowView" destination="Ewr-M7-nuu" id="06G-f9-uYy"/>
-                        <outlet property="testDateLbl" destination="sKQ-CZ-tjG" id="E6l-Bx-ngy"/>
-                        <outlet property="testTimeLbl" destination="Dan-LH-I8e" id="nai-O7-mYJ"/>
-                        <outlet property="totalScoreLbl" destination="ZKk-fK-RzN" id="hRE-tt-Iwd"/>
-                        <outlet property="totalscoreLabelText" destination="Oqc-E7-8Ac" id="4wV-pl-sar"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

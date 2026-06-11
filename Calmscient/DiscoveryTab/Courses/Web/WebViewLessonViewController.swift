@@ -23,7 +23,6 @@ class WebViewLessonViewController: UIViewController, WKNavigationDelegate, WKScr
         let configuration = WKWebViewConfiguration()
         configuration.userContentController.add(self, name: "nativeDispatch")
         
-        configuration.preferences.javaScriptEnabled = true
         webView = WKWebView(frame: CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height), configuration: configuration)
         self.view.addSubview(webView)
         webView.translatesAutoresizingMaskIntoConstraints = false
@@ -125,11 +124,7 @@ class WebViewLessonViewController: UIViewController, WKNavigationDelegate, WKScr
     }
     
     @objc func rightButtonTapped() {
-        
-        let next = UIStoryboard(name: "GlossyController", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "GlossyController") as? GlossyController
-        vc?.title = "Glossary"
-        self.navigationController?.pushViewController(vc!, animated: true)
+        GlossaryNavigation.push(from: self)
     }
     
     @objc func backButtonTapped() {
@@ -259,7 +254,7 @@ class WebViewLessonViewController: UIViewController, WKNavigationDelegate, WKScr
                     message: "Error occured. Please try again!!",
                     preferredStyle: .alert
                 )
-                let okAction = UIAlertAction(title: "OK", style: .default)
+                let okAction = UIAlertAction(title: "OK".localized, style: .default)
                 alertController.addAction(okAction)
                 self.present(alertController, animated: true, completion: nil)
                 break
@@ -278,12 +273,11 @@ class WebViewLessonViewController: UIViewController, WKNavigationDelegate, WKScr
                 break
 
             case "1009":
-                let next = UIStoryboard(name: "CourseViewController", bundle: nil)
-                if let vc = next.instantiateViewController(withIdentifier: "CoursesViewController") as? CoursesViewController {
-                    vc.title = "Changing your response to stress".localized
-                    vc.courseID = 3
-                    self.navigationController?.pushViewController(vc, animated: true)
-                }
+                CoursesNavigation.push(
+                    courseID: 3,
+                    title: "Changing your response to stress".localized,
+                    from: self
+                )
                 break
 
             default:
@@ -324,7 +318,12 @@ extension WebViewLessonViewController: WKUIDelegate {
         webView.evaluateJavaScript(js, completionHandler: nil)
     }
 
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction) async -> WKNavigationActionPolicy {
+    func webView(
+        _ webView: WKWebView,
+        decidePolicyFor navigationAction: WKNavigationAction,
+        preferences: WKWebpagePreferences
+    ) async -> WKNavigationActionPolicy {
+        preferences.allowsContentJavaScript = true
         print("User Redirected to \(String(describing: navigationAction.request.url))")
         return .allow
     }

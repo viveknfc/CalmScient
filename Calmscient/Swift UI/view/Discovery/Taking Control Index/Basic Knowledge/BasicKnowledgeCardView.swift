@@ -23,7 +23,7 @@ struct BasicKnowledgeCardView: View {
         Button(action: onTap) {
             HStack(alignment: .center, spacing: 12) {
                 Text(title)
-                    .font(LoginDesignSystem.Typography.lexendRegular(size: 18))
+                    .font(LoginDesignSystem.Typography.lexendRegular(size: 16))
                     .foregroundStyle(titlePurple)
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth: .infinity, alignment: .leading)
@@ -32,7 +32,7 @@ struct BasicKnowledgeCardView: View {
                     Image("check")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 30, height: 30)
+                        .frame(width: 22, height: 22)
                 }
             }
             .padding(.horizontal, 20)

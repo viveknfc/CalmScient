@@ -34,9 +34,15 @@ class CreateAccountVC: ViewController,UITextFieldDelegate {
     @IBAction func submitAction(_ sender: CapsuleButton) {
         self.view.endEditing(true)
         if validateInputFields(){
-            addAlertView(title: "Your profile has been updated successfully.", contentText: "Please click on continue to start using Calmscient.")
+            addAlertView(
+                title: AppHelper.getLocalizeString(str: "create_account_alert_success_title"),
+                contentText: AppHelper.getLocalizeString(str: "create_account_alert_success_message")
+            )
         }else{
-            addAlertView(title: "Alert", contentText: "Please enter all fields to proceed..")
+            addAlertView(
+                title: AppHelper.getLocalizeString(str: "create_account_alert_validation_title"),
+                contentText: AppHelper.getLocalizeString(str: "create_account_alert_validation_message")
+            )
         }
     }
     
@@ -134,6 +140,9 @@ class CreateAccountVC: ViewController,UITextFieldDelegate {
         
         phoneNumberLbl.text = AppHelper.getLocalizeString(str: "Phone Number")
         phoneNumberTF.placeholder = AppHelper.getLocalizeString(str: "Phone Number")
+
+        passwordLbl.text = AppHelper.getLocalizeString(str: "Password")
+        passwordTF.placeholder = AppHelper.getLocalizeString(str: "Password")
         
         confirmPasswordLbl.text = AppHelper.getLocalizeString(str: "Confirm Password")
         confirmPasswordTF.placeholder = AppHelper.getLocalizeString(str: "Confirm Password")

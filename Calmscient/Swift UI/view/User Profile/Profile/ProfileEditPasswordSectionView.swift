@@ -1,13 +1,13 @@
 //
-// Vivek
-// Date: May 14, 2026
-//
 //  ProfileEditPasswordSectionView.swift
 //  Calmscient
 //
+//  Date: May 14, 2026
 //  Card-style "Change password" block with outlined update action (matches profile spec layout).
 //
-
+//  Vivek
+//  14 May 2026
+//
 import SwiftUI
 
 @available(iOS 16.0, *)
@@ -18,14 +18,14 @@ struct ProfileEditPasswordSectionView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text(NSLocalizedString("Change password", comment: ""))
-                .font(LoginDesignSystem.Typography.lexendBold(size: 16))
+            Text("profile_edit_password_change_password".localized)
+                .font(LoginDesignSystem.Typography.lexendSemiBold(size: 16))
                 .foregroundStyle(Color.black)
                 .padding(.bottom, 16)
 
             TitledTextFieldView(
-                title: NSLocalizedString("Old password", comment: ""),
-                placeholder: NSLocalizedString("Old password", comment: ""),
+                title: "profile_edit_password_old_password".localized,
+                placeholder: "profile_edit_password_old_password".localized,
                 text: $viewModel.oldPassword,
                 isSecure: true,
                 isSecureVisible: $viewModel.oldPasswordVisible,
@@ -34,8 +34,8 @@ struct ProfileEditPasswordSectionView: View {
             )
 
             TitledTextFieldView(
-                title: NSLocalizedString("New password", comment: ""),
-                placeholder: NSLocalizedString("New password", comment: ""),
+                title: "profile_edit_password_new_password".localized,
+                placeholder: "profile_edit_password_new_password".localized,
                 text: $viewModel.newPassword,
                 isSecure: true,
                 isSecureVisible: $viewModel.newPasswordVisible,
@@ -45,8 +45,8 @@ struct ProfileEditPasswordSectionView: View {
             .padding(.top, 14)
 
             TitledTextFieldView(
-                title: NSLocalizedString("Confirm password", comment: ""),
-                placeholder: NSLocalizedString("Confirm password", comment: ""),
+                title: "profile_edit_password_confirm_password".localized,
+                placeholder: "profile_edit_password_confirm_password".localized,
                 text: $viewModel.confirmPassword,
                 isSecure: true,
                 isSecureVisible: $viewModel.confirmPasswordVisible,
@@ -58,7 +58,7 @@ struct ProfileEditPasswordSectionView: View {
             Button {
                 viewModel.updatePasswordTapped()
             } label: {
-                Text(NSLocalizedString("Update password", comment: ""))
+                Text("profile_edit_password_update_password".localized)
                     .font(LoginDesignSystem.Typography.lexendSemiBold(size: 16))
                     .foregroundStyle(Color(hex: "#6D6BB3"))
                     .frame(maxWidth: .infinity)

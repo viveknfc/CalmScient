@@ -3363,7 +3363,7 @@
     },
     "nrI-aq-CgL.text" : {
       "comment" : "Class = \"UILabel\"; text = \"You can customize how early the alarm should go on\"; ObjectID = \"nrI-aq-CgL\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -4263,7 +4263,7 @@
     },
     "tA9-X0-UjE.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Alarm settings\"; ObjectID = \"tA9-X0-UjE\";",
-      "extractionState" : "extracted_with_value",
+      "extractionState" : "stale",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -5295,18 +5295,6 @@
     },
     "YG7-dY-XZg.text" : {
       "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"YG7-dY-XZg\";",
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "new",
-            "value" : "Label"
-          }
-        }
-      }
-    },
-    "YhX-TR-85e.text" : {
-      "comment" : "Class = \"UILabel\"; text = \"Label\"; ObjectID = \"YhX-TR-85e\";",
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {

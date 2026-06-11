@@ -74,12 +74,7 @@ class CoursesViewController: ViewController {
     }
 
     @objc func rightBarButtonTapped() {
-        print("Right bar button tapped!")
-        let next = UIStoryboard(name: "GlossyController", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "GlossyController") as? GlossyController
-        vc?.title = "Glossary"
-        self.navigationController?.pushViewController(vc!, animated: true)
-        // Add your action here
+        GlossaryNavigation.push(from: self)
     }
     
     //END
@@ -137,14 +132,14 @@ extension CoursesViewController : UITableViewDataSource, UITableViewDelegate {
                 guard self?.courseSessionID != "" else {
                     return
                 }
-                let next = UIStoryboard(name: "WebViewLesson", bundle: nil)
-                let vc = next.instantiateViewController(withIdentifier: "WebViewLessonViewController") as? WebViewLessonViewController
                 let fullURLString = "\(urlString)&sessionId=\(self?.courseSessionID ?? "")"
-                vc?.urlString = fullURLString
-                vc?.index = 2
-                vc?.title = "\(title)"
-                
-                self?.navigationController?.pushViewController(vc!, animated: true)
+                let presentation = WebViewLessonPresentation(
+                    urlString: fullURLString,
+                    courseIndex: 2,
+                    initialNavigationTitle: title
+                )
+                guard let host = self else { return }
+                WebViewLessonNavigation.push(presentation: presentation, from: host)
             }
             cell.darkTheme = self.patientSessionDetails?.darkTheme ?? 0
             cell.languageName = self.patientSessionDetails?.languageName ?? ""
@@ -159,14 +154,14 @@ extension CoursesViewController : UITableViewDataSource, UITableViewDelegate {
                 guard self?.courseSessionID != "" else {
                     return
                 }
-                let next = UIStoryboard(name: "WebViewLesson", bundle: nil)
-                let vc = next.instantiateViewController(withIdentifier: "WebViewLessonViewController") as? WebViewLessonViewController
                 let fullURLString = "\(urlString)&sessionId=\(self?.courseSessionID ?? "")"
-                vc?.urlString = fullURLString
-//                vc?.title = "\(title)"
-                vc?.index = 3
-                vc?.pageTitle = title
-                self?.navigationController?.pushViewController(vc!, animated: true)
+                let presentation = WebViewLessonPresentation(
+                    urlString: fullURLString,
+                    courseIndex: 3,
+                    pageTitle: title
+                )
+                guard let host = self else { return }
+                WebViewLessonNavigation.push(presentation: presentation, from: host)
             }
             cell.darkTheme = self.patientSessionDetails?.darkTheme ?? 0
             cell.languageName = self.patientSessionDetails?.languageName ?? ""

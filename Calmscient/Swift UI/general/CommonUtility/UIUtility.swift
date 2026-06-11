@@ -6,7 +6,10 @@
 //
 
 import Foundation
+import ObjectiveC
 import UIKit
+
+private var needToTalkButtonStoredHeightKey: UInt8 = 0
 
 open class customUITextField: UITextField {
 
@@ -74,6 +77,32 @@ extension UIColor {
 }
 
 extension UIView {
+
+    func applyNeedToTalkButtonVisibility() {
+        let shouldShow = PatientLanguagePreference.shouldShowNeedToTalkButton()
+        isHidden = !shouldShow
+        isUserInteractionEnabled = shouldShow
+
+        guard let heightConstraint = constraints.first(where: {
+            $0.firstAttribute == .height && ($0.firstItem as? UIView) === self
+        }) else { return }
+
+        if shouldShow {
+            if let stored = objc_getAssociatedObject(self, &needToTalkButtonStoredHeightKey) as? CGFloat, stored > 0 {
+                heightConstraint.constant = stored
+            }
+        } else {
+            if objc_getAssociatedObject(self, &needToTalkButtonStoredHeightKey) == nil {
+                objc_setAssociatedObject(
+                    self,
+                    &needToTalkButtonStoredHeightKey,
+                    heightConstraint.constant,
+                    .OBJC_ASSOCIATION_RETAIN
+                )
+            }
+            heightConstraint.constant = 0
+        }
+    }
 
     func applyGradient(colours: [UIColor]) -> CAGradientLayer {
         return self.applyGradient(colours: colours, locations: nil)

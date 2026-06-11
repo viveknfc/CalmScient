@@ -19,11 +19,11 @@ enum DayFeedbackSessionLogic {
     static let savedDateUserDefaultsKey = "savedDate"
     static let savedTimeUserDefaultsKey = "savedTime"
 
-    private static let nextDayCutoffMinutes = 2 * 60 + 59 // 02:59 AM
+    private static let nextDayCutoffMinutes = 4 * 60 + 59 // 04:59 AM (last minute of evening)
 
     // MARK: - Mood period (device local clock)
 
-    /// Morning: 3:00 AM – 5:59 PM; Evening: 6:00 PM – 2:59 AM (same rules as legacy `getDayTime`).
+    /// Morning: 5:00 AM – 5:59 PM; Evening: 6:00 PM – 4:59 AM.
     static func moodDayPeriod(for date: Date = Date()) -> DayTimeValue {
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
@@ -31,7 +31,7 @@ enum DayFeedbackSessionLogic {
         let totalMinutes = hour * 60 + minute
 
         switch totalMinutes {
-        case (3 * 60)..<(18 * 60):
+        case (5 * 60)..<(18 * 60):
             return .Morning
         default:
             return .Evening

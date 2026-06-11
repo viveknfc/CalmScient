@@ -10,7 +10,6 @@
 
 import SwiftUI
 
-@available(iOS 16.0, *)
 struct CoursesLessonRowView: View {
 
     let lesson: CourseLessonRowPresentation
@@ -44,7 +43,6 @@ struct CoursesLessonRowView: View {
 }
 
 #if DEBUG
-@available(iOS 16.0, *)
 #Preview("Courses lesson row") {
     CoursesLessonRowView(
         lesson: CoursesPresentationPreviewData.sampleLessons[0],

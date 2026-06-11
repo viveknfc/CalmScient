@@ -162,9 +162,8 @@ class UpdatePasswordVC: UIViewController,UITextFieldDelegate {
     @IBAction func updateButtonAction(_ sender: Any) {
         updateView.removeFromSuperview()
         updateView.isHidden = true
-        let next = UIStoryboard(name: "LoginVC", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC
-        self.navigationController?.pushViewController(vc!, animated: true)
+        let vc = LoginHostingController()
+        self.navigationController?.pushViewController(vc, animated: true)
 
     }
     @objc func backAction () {
@@ -248,10 +247,7 @@ class UpdatePasswordVC: UIViewController,UITextFieldDelegate {
                             print(json)
                             self.showSuccessAlert(successContent: "Password updated successfully", centreImage: nil, okButtonAction: {
                                 if #available(iOS 16.0, *) {
-                                    let homeController = UIStoryboard(name: "LoginVC", bundle: nil).instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-                                    let navC = UINavigationController(rootViewController: homeController)
-                                    navC.navigationBar.isHidden = true
-                                    
+                                    let navC = LoginHostingController.loginNavigationRoot()
                                     if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
                                        let window = sceneDelegate.window {
                                         window.rootViewController = navC

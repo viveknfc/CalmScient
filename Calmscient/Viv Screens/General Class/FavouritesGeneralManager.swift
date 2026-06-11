@@ -72,26 +72,30 @@ class FavoriteManager {
     }
 
     func fetchFavoritesIfNeeded(plId: Int, patientId: Int, clientId: Int, parentId: Int, completion: @escaping () -> Void) {
-        
-        HomeTabDashboardViewController.shared.getMeniItems(plId: plId, patientId: patientId, clientId: clientId, parentId: parentId) { result in
-            switch result {
-            case .success(let data):
-                do {
-                    if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any], let favoriteItems = json["favorites"] as? [[String: Any]] {
-                        
-                        DispatchQueue.main.async {
-                            self.favorites = favoriteItems
-                            self.saveFavoritesToUserDefaults()
-                            NotificationCenter.default.post(name: .favoritesUpdated, object: nil)
-                            completion()
-                        }
-                    }
-                } catch {
-                    print("Error parsing favorites JSON: \(error)")
-                    completion()
-                }
-            case .failure(let error):
-                print("API Error: \(error)")
+        let params: [String: Any] = [
+            "plId": plId,
+            "patientId": patientId,
+            "parentId": parentId,
+            "clientId": clientId,
+        ]
+        let token = ApplicationSharedInfo.shared.tokenResponse?.accessToken ?? ""
+
+        APIService.fetchMenusAPICalling(
+            nil,
+            params: params,
+            method: "POST",
+            accessToken: token,
+            acces: true,
+            parameterPlacement: "body"
+        ) { result in
+            if let dict = result as? [String: Any],
+               let favoriteItems = dict["favorites"] as? [[String: Any]] {
+                self.favorites = favoriteItems
+                self.saveFavoritesToUserDefaults()
+                NotificationCenter.default.post(name: .favoritesUpdated, object: nil)
+                completion()
+            } else {
+                print("fetchMenus favorites: unexpected response \(result)")
                 completion()
             }
         }

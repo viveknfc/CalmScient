@@ -99,7 +99,6 @@ final class CitationWebHostingController: UIViewController {
     }
 }
 
-@available(iOS 16.0, *)
 enum CitationWebNavigation {
     static func pushSourcesAndCitations(from navigationController: UINavigationController?) {
         guard let navigationController else { return }

@@ -1,22 +1,19 @@
 //
-// Vivek
-// Date: May 14, 2026
-//
 //  ProfileEditNavigationBarView.swift
 //  Calmscient
 //
+//  Date: May 14, 2026
 //  Custom top bar (back + title) for the patient profile edit SwiftUI screen.
 //
-
+//  Vivek
+//  14 May 2026
+//
 import SwiftUI
 
 @available(iOS 16.0, *)
 struct ProfileEditNavigationBarView: View {
     let title: String
     let onBack: () -> Void
-
-    private let backFill = Color(red: 0.93, green: 0.9, blue: 0.98)
-    private let backIcon = Color(red: 0.35, green: 0.22, blue: 0.62)
 
     var body: some View {
         ZStack {
@@ -25,14 +22,7 @@ struct ProfileEditNavigationBarView: View {
                 .foregroundStyle(Color.black)
 
             HStack {
-                Button(action: onBack) {
-                    Image(systemName: "chevron.left")
-                        .font(.system(size: 16, weight: .semibold))
-                        .foregroundStyle(backIcon)
-                        .frame(width: 40, height: 40)
-                        .background(Circle().fill(backFill))
-                }
-                .buttonStyle(.plain)
+                MedicationNavigationBackButton(onBack: onBack)
                 Spacer()
             }
         }

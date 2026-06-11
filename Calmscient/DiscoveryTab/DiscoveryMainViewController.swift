@@ -7,8 +7,7 @@
 
 import UIKit
 
-@available(iOS 16.0, *)
-class DiscoveryMainViewController: ViewController{
+class DiscoveryMainViewController: ViewController {
     var tutorialFlag : Int?
     
     @IBOutlet weak var tableView: UITableView!
@@ -59,19 +58,12 @@ class DiscoveryMainViewController: ViewController{
     }
     
     @objc func profileButtonPressed() {
-
-        let userProfileViewController = UIStoryboard(name: "UserProfile", bundle: nil).instantiateViewController(withIdentifier: "UserProfileViewController") as! UserProfileViewController
         UserDefaults.standard.set(true, forKey: "shouldPopToDis")
-        self.navigationController?.pushViewController(userProfileViewController, animated: true)
-        }
-    
+        navigationController?.pushViewController(UserProfileHostingController(), animated: true)
+    }
+
     @objc func settingsButtonPressed() {
-        print("settingsButton tapped")
-        
-        let next = UIStoryboard(name: "WebView_Ciitation", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "CitationWebViewController") as? CitationWebViewController
-        vc?.favURL = "https://calmscient.in/courses/sources-and-citations"
-        self.navigationController?.pushViewController(vc!, animated: true)
+        CitationWebNavigation.pushSourcesAndCitations(from: navigationController)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -135,22 +127,15 @@ extension DiscoveryMainViewController : UITableViewDataSource,UITableViewDelegat
         
         if indexPath.row == 0 {
             
-            let backItem = UIBarButtonItem()
-            backItem.title = "" // Set an empty string for the back button
-            self.navigationItem.backBarButtonItem = backItem
-            
-            let next = UIStoryboard(name: "ManagingAnxietyBeginScreen", bundle: nil)
-            let vc = next.instantiateViewController(withIdentifier: "ManagingAnxietyBeginScreen") as? ManagingAnxietyBeginScreen
-
-            self.navigationController?.pushViewController(vc!, animated: true)
+            ManagingAnxietyBeginNavigation.push(from: self)
             
         } else if indexPath.row == 1 {
             
-            let next = UIStoryboard(name: "CourseViewController", bundle: nil)
-            let vc = next.instantiateViewController(withIdentifier: "CoursesViewController") as? CoursesViewController
-            vc?.title =  "Changing your response to stress".localized
-            vc?.courseID = 3
-            self.navigationController?.pushViewController(vc!, animated: true)
+            CoursesNavigation.push(
+                courseID: 3,
+                title: "Changing your response to stress".localized,
+                from: self
+            )
             
         } else {
             

@@ -56,9 +56,6 @@
                                 <state key="normal">
                                     <color key="titleColor" name="6E6BB3ColorOnly"/>
                                 </state>
-                                <connections>
-                                    <action selector="takeAllButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="lyp-Nz-WU4"/>
-                                </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="5hp-bX-iTQ">
                                 <rect key="frame" x="5" y="438" width="383" height="32"/>
@@ -104,9 +101,6 @@
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" image="AddButton"/>
-                                <connections>
-                                    <action selector="didClickOnAddMedications:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="d9I-2h-7yn"/>
-                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cgw-he-Dtb">
                                 <rect key="frame" x="115" y="55" width="163" height="30"/>
@@ -153,16 +147,6 @@
                             <constraint firstItem="Z0L-YV-6mO" firstAttribute="leading" secondItem="Uap-N1-2Ai" secondAttribute="trailing" constant="10" id="zlq-UU-Yag"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="addMedicationsButton" destination="jyH-u9-huW" id="dd7-Ke-3SF"/>
-                        <outlet property="calendar" destination="rrM-9w-xsV" id="3sI-Re-aXH"/>
-                        <outlet property="calendarHeightConstraint" destination="5qw-sO-C8V" id="d91-7Q-nyT"/>
-                        <outlet property="infoLabel" destination="Z0L-YV-6mO" id="88b-Fk-aMp"/>
-                        <outlet property="medicationsTableView" destination="SJB-WW-OCj" id="QQo-Wk-ODP"/>
-                        <outlet property="saveButton" destination="nyN-BW-CX0" id="btb-FH-A0w"/>
-                        <outlet property="tabBarButton" destination="5hp-bX-iTQ" id="0Gd-Au-I8K"/>
-                        <outlet property="takeAllButton" destination="yFp-Kd-bSm" id="svt-ks-UHe"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

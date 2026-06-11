@@ -10,7 +10,6 @@
 
 import SwiftUI
 
-@available(iOS 16.0, *)
 struct CoursesChapterCardView: View {
 
     let chapter: CourseChapterPresentation
@@ -77,7 +76,6 @@ struct CoursesChapterCardView: View {
 }
 
 #if DEBUG
-@available(iOS 16.0, *)
 #Preview("Courses chapter card") {
     CoursesChapterCardView(
         chapter: CoursesPresentationPreviewData.sampleLessons[0].chapters[0],

@@ -190,11 +190,17 @@ class VTakingControlIntroVC: UIViewController {
                 
                 // ✅ Show success alert with extracted message
                 self.showSuccessAlert(successContent: responseMessage, centreImage: nil, okButtonAction: {
-                    let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
-                    if let vc = next.instantiateViewController(withIdentifier: "IntroSecondPageVC") as? IntroSecondPageVC {
-                        vc.auditData = self.auditScreeningData
-                        vc.dastData = self.dast10ScreeningData
-                        self.navigationController?.pushViewController(vc, animated: true)
+                    if #available(iOS 16.0, *) {
+                        let host = TakingControlIntroSecondHostingController()
+                        host.configure(auditData: self.auditScreeningData, dastData: self.dast10ScreeningData)
+                        self.navigationController?.pushViewController(host, animated: true)
+                    } else {
+                        let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+                        if let vc = next.instantiateViewController(withIdentifier: "IntroSecondPageVC") as? IntroSecondPageVC {
+                            vc.auditData = self.auditScreeningData
+                            vc.dastData = self.dast10ScreeningData
+                            self.navigationController?.pushViewController(vc, animated: true)
+                        }
                     }
                 })
             } else {

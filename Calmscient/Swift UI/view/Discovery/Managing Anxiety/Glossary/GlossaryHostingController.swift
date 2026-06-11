@@ -11,7 +11,6 @@
 import SwiftUI
 import UIKit
 
-@available(iOS 16.0, *)
 final class GlossaryHostingController: UIViewController {
 
     private let viewModel = GlossaryViewModel()

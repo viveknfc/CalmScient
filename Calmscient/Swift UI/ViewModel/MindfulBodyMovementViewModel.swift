@@ -1,0 +1,87 @@
+//
+//  MindfulBodyMovementViewModel.swift
+//  Calmscient
+//
+//  State, favorites, and navigation for mindful body movement.
+//
+//  Vivek
+//  26 May 2026
+//
+
+import SwiftUI
+import UIKit
+
+@available(iOS 16.0, *)
+@MainActor
+final class MindfulBodyMovementViewModel: ObservableObject {
+
+    weak var hostViewController: UIViewController?
+
+    @Published private(set) var screenTitle: String = ""
+    @Published private(set) var descriptionText: String = ""
+    @Published private(set) var completeButtonTitle: String = ""
+    @Published private(set) var isFavorited = false
+
+    private var isFav = 0
+    private var anchorView: UIView? { hostViewController?.view }
+
+    var favoriteImageName: String {
+        isFavorited ? "redFav" : "fav"
+    }
+
+    func onHostWillAppear() {
+        reloadLocalizedStrings()
+        loadFavoriteState()
+    }
+
+    func reloadLocalizedStrings() {
+        screenTitle = MindfulBodyMovementPresentation.screenTitleKey.localized
+        descriptionText = MindfulBodyMovementPresentation.descriptionKey.localized
+        completeButtonTitle = MindfulBodyMovementPresentation.completeButtonTitleKey.localized
+    }
+
+    func openBack() {
+        hostViewController?.navigationController?.popViewController(animated: true)
+    }
+
+    func completeTapped() {
+        hostViewController?.navigationController?.popViewController(animated: true)
+    }
+
+    func toggleFavorite() {
+        ExerciseFavoriteToggle.toggle(
+            currentIsFav: isFav,
+            request: ExerciseFavoriteToggleRequest(pageId: 1, exercise: .mindfulBodyMovement),
+            anchorView: anchorView
+        ) { [weak self] newIsFav in
+            self?.applyFavoriteState(newIsFav)
+        }
+    }
+
+    private func loadFavoriteState() {
+        applyFavoriteState(ExerciseFavoriteToggle.loadIsFav(exercise: .mindfulBodyMovement))
+    }
+
+    private func applyFavoriteState(_ newIsFav: Int) {
+        isFav = newIsFav
+        isFavorited = newIsFav == 1
+    }
+
+    #if DEBUG
+    func applyPreviewState() {
+        reloadLocalizedStrings()
+        isFavorited = false
+        isFav = 0
+    }
+    #endif
+}
+
+// MARK: - Navigation
+
+@available(iOS 16.0, *)
+enum MindfulBodyMovementNavigation {
+    static func push(from host: UIViewController, animated: Bool = true) {
+        guard let nav = host.navigationController else { return }
+        nav.pushViewController(MindfulBodyMovementHostingController(), animated: animated)
+    }
+}

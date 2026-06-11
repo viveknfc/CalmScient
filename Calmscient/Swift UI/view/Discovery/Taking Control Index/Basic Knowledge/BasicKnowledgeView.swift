@@ -20,7 +20,7 @@ struct BasicKnowledgeView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             ScrollView {
-                LazyVStack(spacing: 10) {
+                LazyVStack(spacing: 20) {
                     ForEach(viewModel.rows) { row in
                         BasicKnowledgeCardView(
                             title: row.title,

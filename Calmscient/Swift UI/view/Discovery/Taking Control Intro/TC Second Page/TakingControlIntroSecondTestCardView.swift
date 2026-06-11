@@ -20,7 +20,7 @@ struct TakingControlIntroSecondTestCardView: View {
         Button(action: onTap) {
             HStack(alignment: .center, spacing: 12) {
                 Text(title)
-                    .font(LoginDesignSystem.Typography.lexendMedium(size: 16))
+                    .font(LoginDesignSystem.Typography.lexendRegular(size: 16))
                     .foregroundStyle(.primary)
 
                 Spacer(minLength: 8)

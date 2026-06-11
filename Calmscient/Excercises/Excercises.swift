@@ -81,10 +81,16 @@ class Excercises: ViewController {
         // Action when right bar button is tapped
         print("Right bar button tapped")
         
-        let next = UIStoryboard(name: "WebView_Ciitation", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "CitationWebViewController") as? CitationWebViewController
-        vc?.favURL = "https://calmscient.in/courses/sources-and-citations"
-        self.navigationController?.pushViewController(vc!, animated: true)
+        if #available(iOS 16.0, *) {
+            CitationWebNavigation.pushSourcesAndCitations(from: navigationController)
+        } else {
+            let next = UIStoryboard(name: "WebView_Ciitation", bundle: nil)
+            let vc = next.instantiateViewController(withIdentifier: "CitationWebViewController") as? CitationWebViewController
+            vc?.favURL = CitationWebPresentation.defaultSourcesURL
+            if let vc {
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        }
     }
     
     func setupLanguage() {
@@ -196,12 +202,7 @@ extension Excercises: UICollectionViewDelegate, UICollectionViewDataSource {
                     self.navigationController?.pushViewController(destinationVC, animated: true)
         }
         else if(indexPath.item == 8){
-            //HandOverYourHeart
-            let storyboard = UIStoryboard(name: "Excercises", bundle: nil)
-                    let destinationVC = storyboard.instantiateViewController(withIdentifier: "BreathingTechnique") as! BreathingTechnique
-                    
-                    // Push to the destination view controller
-                    self.navigationController?.pushViewController(destinationVC, animated: true)
+            BreathingTechniqueNavigation.push(from: self)
         }
         //
         

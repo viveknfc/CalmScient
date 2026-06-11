@@ -251,7 +251,7 @@ class ScreeningQuestionsViewController: ViewController {
     
     @IBAction func didClickOnInfoButton(_ sender: Any) {
         let alertController = UIAlertController(title: AppHelper.getLocalizeString(str:"Information") , message: selectedScreening?.screeningReminder ?? "", preferredStyle: .alert)
-        let cancelAction =  UIAlertAction(title: "Ok", style: .default)
+        let cancelAction =  UIAlertAction(title: "Ok".localized, style: .default)
         alertController.addAction(cancelAction)
         // Present the alert
         self.present(alertController, animated: true, completion: nil)
@@ -304,7 +304,7 @@ class ScreeningQuestionsViewController: ViewController {
             let alert = UIAlertController(title: "", message:"Please answer the questions".localized, preferredStyle: UIAlertController.Style.alert)
 
                     // add an action (button)
-                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
+                    alert.addAction(UIAlertAction(title: "OK".localized, style: UIAlertAction.Style.default, handler: nil))
 
                     // show the alert
                     self.present(alert, animated: true, completion: nil)

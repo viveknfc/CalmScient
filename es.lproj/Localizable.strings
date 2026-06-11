@@ -42,6 +42,12 @@
 "Summary" = "Resumen";
 "Drink tracker" = "Rastreador de bebidas";
 "Taking control introduction" = "Introducción a la toma de control" ;
+"taking_control_title" = "Introducción a la toma de control";
+"intro_instruction" = "Si respondió SÍ a alguna de las cuatro preguntas, realice la prueba de seguimiento correspondiente.";
+"audit_title" = "AUDIT";
+"audit_subtitle" = "Para el consumo de alcohol";
+"dast_title" = "DAST-10";
+"dast_subtitle" = "tabaquismo y consumo de drogas";
 "Make a plan" = "Haz un plan";
 "How to use" = "Cómo utilizar";
 "Events tracker" = "Rastreador de eventos";
@@ -51,6 +57,8 @@
 "Basic Knowledge" = "Conocimientos básicos";
 "What’s a standard drink" = "¿Qué es una bebida estándar?";
 "standard drink description" = "En los Estados Unidos, una “bebida estándar” (también conocida como equivalente de bebida alcohólica) se define como cualquier bebida que contiene aproximadamente 0.6 onzas líquidas o 14 gramos de alcohol puro. Aunque las bebidas que se muestran aquí son de diferentes tamaños, cada una contiene aproximadamente la misma cantidad de alcohol y cuenta como una bebida estándar estadounidense o un equivalente de bebida alcohólica.";
+"standard drink highlight fluid ounces" = "0.6 onzas líquidas";
+"standard drink highlight grams" = "14 gramos";
 
 "standard drink description2" = "Cada bebida representada arriba equivale a una bebida estándar (o un equivalente de bebida alcohólica), definida en los Estados Unidos como cualquier bebida que contenga 0.6 oz o 14 gramos de alcohol puro. El porcentaje de alcohol puro, expresado aquí como alcohol por volumen (alc/vol), varía dentro y entre los tipos de bebidas. Aunque las cantidades de bebidas estándar son útiles para seguir las pautas de salud, pueden no reflejar los tamaños de porciones habituales.";
 "Glossary" = "Glosario";
@@ -58,16 +66,35 @@
 //US guide lines
 "What are the U.S. guidelines for drinking?" = "¿Cuáles son las pautas de EE. UU. para beber?";
 
+"us_guidelines_dietary_subheader" = "Las Guías Alimentarias 2020-2025 recomiendan:";
+"us_guidelines_label_men" = "Hombres";
+"us_guidelines_label_women" = "Mujeres";
+"us_guidelines_men_standard" = "Hasta 2 bebidas al día";
+"us_guidelines_women_standard" = "Hasta 1 bebida al día";
+"us_guidelines_what_is_prefix" = "¿Qué es";
+"us_guidelines_alcohol_misuse_suffix" = "el uso indebido del alcohol?";
+"us_guidelines_niaaa_heavy" = "El NIAAA define el consumo excesivo de la siguiente manera:";
+"us_guidelines_men_heavy_line1" = "Hasta 5 o más bebidas en";
+"us_guidelines_men_heavy_line2" = "cualquier día o 15 o más bebidas por semana";
+"us_guidelines_women_heavy_line1" = "Hasta 4 o más bebidas en";
+"us_guidelines_women_heavy_line2" = "cualquier día o 8 o más bebidas por semana";
+"us_guidelines_binge_suffix" = "el consumo excesivo ocasional?";
+"us_guidelines_niaaa_binge" = "El NIAAA lo define de la siguiente manera";
+"us_guidelines_men_binge_line1" = "Hasta 5 o más bebidas";
+"us_guidelines_men_binge_line2" = "en aproximadamente 2 horas";
+"us_guidelines_women_binge_line1" = "Hasta 4 o más bebidas";
+"us_guidelines_women_binge_line2" = "en aproximadamente 2 horas";
+
 "US guidelines part1" = "Las Guías Alimentarias para los Estadounidenses 2020-2025 establecen que los adultos en edad legal para beber pueden optar por no beber o beber con moderación limitando el consumo a 2 bebidas o menos al día para los hombres y 1 bebida o menos al día para las mujeres cuando se consume alcohol. Beber menos es mejor para la salud que beber más.";
 
 "US guidelines part2" = "Hay algunos adultos que no deben beber alcohol, como las mujeres que están embarazadas. Los adultos que eligen beber y no se encuentran entre los individuos que no deben beber, se les recomienda limitar el consumo diario de alcohol para alinearse con las Guías Alimentarias. Las personas que no beben no deben empezar a beber por ninguna razón.";
-
-//Taking control Intro
 
 "Taking control Intro" = "¡Bienvenido a Taking control!\n\nGracias por estar dispuesto a hablar sobre alcohol y drogas. Ahora, comencemos con una breve evaluación.\n\nCuestionario CAGE-AID\n\nAl pensar en el consumo de drogas, incluya tanto el uso de drogas ilegales como el uso de medicamentos recetados de una manera distinta a la indicada por el médico.";
 
 "Welcome to taking control!" = "¡Bienvenido a Taking control!";
 "CAGE-AID Questionnaire" = "Cuestionario CAGE-AID";
+"Your points" = "Tus puntos";
+"Taking control CAGE interpretation" = "Interpretación: \nUna o más respuestas \"Sí\" se consideran una prueba de detección positiva, lo que indica un posible consumo de sustancias y la necesidad de una evaluación adicional. ";
 
 //moderation
 "When is drinking in moderation still too much?" = "¿Cuándo es beber con moderación todavía demasiado?";
@@ -82,6 +109,40 @@
 "moderation_full_text" = "Además, ciertas personas, especialmente los adultos mayores, que planean conducir un vehículo o operar maquinaria—o que están participando en actividades que requieren destreza, coordinación y alerta—deben evitar el alcohol por completo.\n\n¿Qué es el abuso de alcohol?\n\nEl NIAAA define el consumo excesivo de alcohol de la siguiente manera:\n\nPara mujeres:\n4 o más bebidas en un día o 8 o más por semana.\n\nPara hombres:\n5 o más bebidas en un día o 15 o más por semana.";
 "moderation_target_women" = "4 o más bebidas en un día o 8 o más por semana.";
 "moderation_target_men" = "5 o más bebidas en un día o 15 o más por semana.";
+
+// Hold your liquor
+"hold_your_liquor_header" = "¿Por qué es una preocupación poder “retener el licor”?";
+"hold_your_liquor_body_paragraph_1" = "Para algunas personas que beben, se necesitan bastantes tragos para “sentirse bien” o relajarse, y es menos probable que muestren signos de intoxicación en comparación con otros. A esto a veces se le llama poder “retener el licor” o “beberle a alguien debajo de la mesa”.";
+"hold_your_liquor_body_paragraph_2" = "A menudo, estas personas no son conscientes de que la menor respuesta de su cuerpo a los efectos intoxicantes del alcohol no es una protección contra los problemas del alcohol, sino que es un motivo de precaución.";
+"hold_your_liquor_body_paragraph_3" = "Estas personas tienden a beber más, socializar con personas que beben mucho y desarrollar tolerancia al alcohol (es decir, se necesita cada vez más alcohol para sentirse o actuar intoxicado). Como resultado, tienen un mayor riesgo de desarrollar AUD. Alguien que hace un uso indebido del alcohol, especialmente a largo plazo, puede experimentar daños permanentes en el hígado, el corazón o el cerebro. Y todas las personas que beben, independientemente de la cantidad, deben ser conscientes de que las habilidades críticas para tomar decisiones y las habilidades relacionadas con la conducción ya están disminuidas mucho antes de que una persona muestre signos físicos de intoxicación.";
+
+// Tobacco (smoking basic knowledge)
+"tobacco_header" = "¿Qué es el tabaco?";
+"tobacco_body_paragraph_1" = "El tabaco proviene de las hojas de la planta Nicotiana y se utiliza en cosas como cigarrillos, puros y tabaco de mascar. Lo principal en el tabaco es la nicotina, una sustancia natural que puede ser adictiva y afectar tu cerebro.";
+"tobacco_body_paragraph_2" = "Cuando las personas fuman cigarrillos, inhalan más de 7,000 químicos, y la nicotina es la que hace que fumar sea adictivo. También se añaden otros químicos para que el humo tenga mejor sabor y para que la nicotina se absorba más fácilmente.";
+"tobacco_body_paragraph_3" = "Cada vez que alguien fuma un cigarrillo, recibe aproximadamente 1-2 miligramos de nicotina, que llega rápidamente a su cerebro y hace que su corazón lata más rápido, aumenta su presión arterial y acelera su respiración. Es como un impulso rápido de energía, pero puede convertirse en un hábito.";
+"tobacco_body_paragraph_4" = "Los cigarrillos están diseñados para que alguien que fuma regularmente reciba alrededor de 200 \"dosis\" de nicotina en su cerebro cada día. Otros productos de tabaco, como el tabaco de mascar, también contienen nicotina. Algunas personas usan cigarrillos electrónicos para obtener nicotina sin todos los químicos adicionales en el humo del tabaco.";
+"tobacco_body_paragraph_5" = "La nicotina actúa en el cerebro de manera que te hace sentir bien y puede convertirse en un hábito porque brinda una sensación de placer. Por eso es importante entender qué contiene el tabaco y qué efectos puede tener en tu cuerpo y cerebro.";
+
+// Vaping (smoking basic knowledge)
+"vaping_header" = "¿Cómo es que vapear (cigarrillos electrónicos) es más seguro que fumar tabaco?";
+"vaping_body_paragraph_1" = "Los cigarrillos electrónicos tienen muchos nombres, como \"e-cigs,\" \"vapes\" o \"lapiceros de vapeo.\" Pueden parecer cigarrillos normales o incluso parecer otras cosas como USBs o lapiceros.";
+"vaping_body_paragraph_2" = "Estos dispositivos funcionan con baterías y permiten a las personas inhalar algo llamado aerosol. El vapeo se hizo popular porque algunos pensaron que podría ser una opción menos dañina en comparación con fumar cigarrillos normales.";
+"vaping_body_paragraph_3" = "Dentro de ese aerosol, generalmente hay nicotina (aunque no siempre), sabores y algunos otros químicos. Los dispositivos pueden ser recargables, desechables o venir con tanques de recarga.";
+"vaping_body_paragraph_4" = "¿Es más seguro que el tabaco?\nEl aerosol de los cigarrillos electrónicos generalmente contiene menos químicos tóxicos que la mortal mezcla de 7,000 químicos en el humo de los cigarrillos normales. Sin embargo, el aerosol de los cigarrillos electrónicos no es inofensivo. Puede contener sustancias nocivas y potencialmente dañinas, incluyendo nicotina, metales pesados como el plomo, compuestos orgánicos volátiles y agentes cancerígenos.";
+"vaping_reference_url" = "https://www.cdc.gov/tobacco/basic_information/e-cigarettes/pdfs/Electronic-Cigarettes-Infographic-p.pdf";
+
+// Smoking relax (smoking basic knowledge)
+"smoking_relax_header" = "¿Por qué parece que fumar me relaja?";
+"smoking_relax_body_paragraph_1" = "La nicotina hace cosas en tu cerebro que te hacen sentir bien y más despierto. Libera químicos como la dopamina, norepinefrina y serotonina, que son los responsables de esas sensaciones de \"sentirse bien\" y \"estar despierto\". La nicotina también te da un rápido impulso de endorfinas, lo que puede ayudarte a relajarte y aliviar cualquier dolor.";
+"smoking_relax_body_paragraph_2" = "Por eso algunas personas, tanto adultos como adolescentes, fuman para \"reiniciar\" su estado de ánimo, emociones y atención. Especialmente para aquellos que luchan con la ansiedad y depresión, fumar podría ser una manera en la que intentan sentirse mejor. Pero es importante saber que hay formas más saludables de lidiar con estos sentimientos.";
+
+// Smoking and mental health (smoking basic knowledge)
+"smoking_mental_health_header" = "¿Cómo es que fumar afecta tu salud mental?";
+"smoking_mental_health_body_paragraph_1" = "Muchas personas creen que fumar alivia el estrés. Sin embargo, la nicotina hace algo interesante en tu cerebro: libera una sustancia química llamada dopamina. La dopamina es como una señal de felicidad y te hace sentir bien. Algunas personas con depresión tienen niveles bajos de dopamina, por lo que podrían fumar para obtener un impulso rápido.";
+"smoking_mental_health_body_paragraph_2" = "Pero aquí está el problema… una vez que tu cerebro se acostumbra a los estímulos de la nicotina, pedirá más cigarrillos cuando no reciba suficiente nicotina. Así, tu concentración disminuye, el corazón late más rápido, y te sientes más ansioso y estresado.";
+"smoking_mental_health_body_paragraph_3" = "Como resultado, fumas para reducir el estrés causado por la falta de nicotina, no tu estrés real. Este es un círculo vicioso que afecta tu ansiedad y estado de ánimo.";
+"smoking_mental_health_body_paragraph_4" = "La depresión es común porque, cuando fumas mucho, tu cerebro prácticamente apaga su propia manera de producir dopamina. A largo plazo, tu cerebro produce menos dopamina, lo cual afecta tu estado de ánimo.";
 
 // Make a plan - ChangeCell / DefineMakeCell
 "make_plan_change_full_text" = "¿Pensando en un cambio?\n\n¡Queremos que sepas que la decisión de reducir el consumo de alcohol/drogas es completamente tuya!\n\nPero si te encuentras superando constantemente las pautas recomendadas para el consumo de alcohol, sería prudente considerar detener, reducir o disminuir tu consumo.\nEs normal tener sentimientos encontrados.\n\n¿Has pensado en los pros y contras de hacerlo?";
@@ -109,6 +170,10 @@
 
 "What are the consequence?" =
 "¿Cuáles son las consecuencias?";
+
+"consequences_intro_body" = "Existe una amplia gama de consecuencias a corto y largo plazo asociadas con el abuso de alcohol. Para algunas personas, cualquier cantidad de bebida podría ser potencialmente dañina";
+"consequences_intro_see_some" = "Veamos algunos de ellos.";
+"Alcohol-related mental dysfunction" = "Disfunción mental relacionada con el alcohol";
 
 "typesOfconsequence" = "Existe una amplia gama de consecuencias a corto y largo plazo asociadas con el abuso de alcohol.
 Para algunas personas, cualquier cantidad de bebida podría ser potencialmente dañina.
@@ -196,7 +261,14 @@ Estos individuos tienden a beber más, socializar con personas que beben mucho y
 //check mail vc
 "Check your email" = "Consultar su correo electrónico";
 "Enter the 4-digit code that we have sent via email xxxxxxxxxx@gmail.com" = "Introduce el código de 4 dígitos que te hemos enviado al correo electrónico xxxxxxxxxx@gmail.com";
+"check_mail_otp_instruction_email_format" = "Introduce el código de 4 dígitos que te hemos enviado a %@";
+"check_mail_resend_prompt" = "¿Aún no has recibido el correo? ";
+"Resend email" = "Reenviar correo";
+"check_mail_please_fill_otp" = "Introduce el código completo de 4 dígitos";
 "Verify Code" = "Verificar código";
+
+// license validation success (modal)
+"license_key_verified_success_message" = "Tu clave de licencia ha sido verificada. \n\nRevisa tu correo para iniciar sesión con la contraseña temporal.";
 
 
 //forgot password
@@ -211,6 +283,11 @@ Estos individuos tienden a beber más, socializar con personas que beben mucho y
 "Password" = "Contraseña";
 "Confirm Password" = "Confirmar Contraseña";
 "Update Password" = "Actualiza contraseña";
+"profile_edit_password_change_password" = "Cambiar contraseña";
+"profile_edit_password_old_password" = "Contraseña actual";
+"profile_edit_password_new_password" = "Nueva contraseña";
+"profile_edit_password_confirm_password" = "Confirmar contraseña";
+"profile_edit_password_update_password" = "Actualizar contraseña";
 
 //user intro screen
 "Good morning!" = "¡Buenos días!";
@@ -233,6 +310,10 @@ been verified." = "Tu clave de licencia ha sido verificada.";
 
 "Please complete your profile to start using Calmscient." = "Por favor completa tu perfil para empezar a usar Calmscient.";
 "Continue" = "Continuar";
+"create_account_alert_success_title" = "Tu perfil se ha actualizado correctamente.";
+"create_account_alert_success_message" = "Haz clic en continuar para comenzar a usar Calmscient.";
+"create_account_alert_validation_title" = "Alerta";
+"create_account_alert_validation_message" = "Por favor, completa todos los campos para continuar.";
 
 //selection button
 "I agree to share my info with medical provider" = "Acepto compartir mi información con el proveedor médico";
@@ -317,6 +398,7 @@ Aquí hay recursos que pueden ayudarle a lograr su objetivo.";
 //ProgressOnCourseWorkHeaderView
 "Course" = "Curso";
 "Completed" = "Completado";
+"Sections" = "Secciones";
 
 //home tab dashboard viewcontroller
 "No favorites found for this patient" = "No se encontraron favoritos para este paciente";
@@ -364,6 +446,7 @@ Aquí hay recursos que pueden ayudarle a lograr su objetivo.";
 "Appointment Details" = "Detalles de la Cita";
 "Contact" = "Contacto";
 "Appointment Detail" = "Detalle de la Cita";
+"Send an alert notification" = "Enviar la notificación";
 "Address" = "Dirección";
 
 // screening result vc
@@ -447,6 +530,7 @@ Cuando te sientas molesto, desubicado, agitado o irritable, intenta darte un abr
 "Don’t forget your medical appointment tomorrow" = "Próxima cita: No olvides tu cita médica de mañana.";
 "Upcoming Appointment" = "Próximas Cita Médicas";
 "Would you like to update your mood?" = "¿Quieres actualizar tu estado de ánimo?";
+"You saved your mood successfully" = "Guardaste tu estado de ánimo con éxito";
 
 "Movement: running" = "Movimiento: correr";
 
@@ -569,6 +653,8 @@ Pay careful attention to the following video." = "Ahora, vamos a intentarlo. \nP
 "Next appointments" = "Próximas citas";
 "No appointments" = "Sin citas";
 "Screenings" = "Exámenes";
+"Please complete all of the following screenings" = "Por favor completa todas las siguientes evaluaciones.";
+"Even if you feel they may not apply to you. These assessments helps us better understand your overall wellbeing." = "Incluso si sientes que quizá no se apliquen a ti. Estas evaluaciones nos ayudan a comprender mejor tu bienestar general.";
 "Good morning!" = "¡Buenos días!";
 "Good afternoon!" = "¡Buenas tardes!";
 "Good evening!" = "¡Buenas noches!";
@@ -644,6 +730,8 @@ Pero, tienes el control total sobre la decisión respecto a tu hábito.
 "DRINKING_CONTROL_Video_Message" = "Este video destaca las transformaciones positivas que ocurren al dejar el alcohol, como la mejora del bienestar, la hidratación, la pérdida de peso y la salud en general. También explica los posibles síntomas de abstinencia y ofrece consejos prácticos para superar este período.";
 "DRINKING_CONTROL_Video_Header" = "¿Qué esperar cuando dejas de beber?";
 "DRINKING_CONTROL_Video_Sub_Header" = "Veamos los videos.";
+"BASIC_KNOWLEDGE_Tipsy_Truth" = "Tipsy Truth";
+"BASIC_KNOWLEDGE_Brain_Video_URL" = "https://media.calmscient.in/uploads/course/Tipsy_truth_with_subtitle.mp4";
 
 "Mood_by_date_range" = "Estado de ánimo por rango de fechas";
 "Sleep_by_date_range" = "Sueño por rango de fechas";
@@ -671,6 +759,10 @@ Pero, tienes el control total sobre la decisión respecto a tu hábito.
 "text3" = "¿Fumas y quieres dejarlo? \n\nNuestro Coach para dejar de fumar puede ayudarte.";
 "text4" = "Siempre puedes volver a tomar las pruebas AUDIT y DAST-10 en esta app.";
 "text5" = "No mostrar este tutorial la próxima vez.";
+"thank_you_heading" = "Gracias por hacer el test.";
+"taking_intro_last_btn_drinking_coach" = "Drinking Coach";
+"taking_intro_last_btn_smoking_coach" = "Smoking Coach";
+"taking_intro_last_fab_back_a11y" = "Volver a la pantalla anterior";
 
 // Added for SelectedLanguageID .localized migration
 "0 counts" = "0 conteos";
@@ -682,6 +774,9 @@ Pero, tienes el control total sobre la decisión respecto a tu hábito.
 "Add appointment" = "Agregar nueva cita";
 "Alarm" = "Alarma";
 "Alarm settings" = "Configuración de alarma";
+"Alarm settings subtitle" = "Puedes personalizar cuánto antes debe sonar la alarma";
+"alarm_time_unit_min" = "min";
+"Please select a time interval before proceeding." = "Selecciona un intervalo de tiempo antes de continuar.";
 "Alcohol free days" = "Días sin alcohol.";
 "Also you need to consider the following factors to determine what to do." = "También debe considerar los siguientes factores para determinar qué hacer.";
 "Are you ready?" = "¿Estás listo?";
@@ -716,6 +811,8 @@ Pero, tienes el control total sobre la decisión respecto a tu hábito.
 "My medical records" = "Mis registros médicos";
 "No Data Found" = "No se encontraron datos";
 "No Records" = "No hay registros";
+"medication_no_records_toast" = "No hay registros";
+"medication_request_timeout_toast" = "La solicitud superó el tiempo de espera. Inténtalo de nuevo.";
 "No content available" = "No hay contenido disponible.";
 "No data for this date" = "No hay datos para esta fecha";
 "No internet connection. Please try again." = "No internet connection. Please try again.";
@@ -826,11 +923,36 @@ lay down." = "Primero busca una posicion comoda para sentarte o acostarte.";
 "DAST-10" = "POLVO-10";
 "CAGE" = "JAULA";
 "Apply to me" = "Aplicarme";
+"DRINKING_CONTROL_ALERT_DUI_TITLE" = "¿Sabías que?";
 "DRINKING_CONTROL_ALERT_DUI_BODY" = "Aproximadamente 1.5 millones de personas son arrestadas cada año por conducir bajo los efectos del alcohol o las drogas. Las citaciones por conducir bajo la influencia (DUI, por sus siglas en ingles) generalmente permanecen en tu historial criminal durante muchos anos, lo que conlleva tasas de seguro mas altas, dificultades para conseguir empleo y muchos otros problemas. ¿Puedes imaginar las consecuencias negativas a largo plazo en tu vida y el estres que podria causar? Si alguien tiene mas de dos DUI, no importa si ocurren dentro de dias o en un periodo de diez anos. Seran consideradas como infracciones acumulativas, lo que resultara en penas mas severas y posible encarcelamiento.";
+"DRINKING_CONTROL_Consequence_Sub1_Intro" = "Las muertes relacionadas con el alcohol están aumentando en los Estados Unidos.";
+"DRINKING_CONTROL_Consequence_Sub1_Factor_Intro" = "El alcohol es un factor en:";
+"DRINKING_CONTROL_Consequence_Sub2_Intro" = "El consumo excesivo de alcohol puede tener un impacto negativo significativo en la capacidad mental.";
+"DRINKING_CONTROL_Consequence_Sub2_Item_One" = "Problemas de memoria; el alcohol puede afectar la memoria a corto y largo plazo. Puede provocar apagones (no recordar eventos que ocurrieron mientras se está intoxicado).";
+"DRINKING_CONTROL_Consequence_Sub2_Item_Two" = "Función cognitiva reducida; afecta negativamente la atención, la concentración y la velocidad de procesamiento, lo que dificulta realizar tareas que requieren claridad mental y concentración.";
+"DRINKING_CONTROL_Consequence_Sub2_Item_Three" = "Cambios de humor y ansiedad; el alcohol es un “depresivo” que provoca cambios de humor, irritabilidad y mayor riesgo de desarrollar depresión y ansiedad.";
+"DRINKING_CONTROL_Consequence_Four_Intro" = "Beber está asociado con una serie de problemas de salud y puede empeorar ciertos problemas de salud crónicos.";
 "SMOKING_CONTROL_RESOURCE_BREATHING_DESC" = "Usemos ejercicios de respiracion para apoyar tu viaje. Ayudan a reducir el estres, los antojos, y proporcionan calma.";
 "SMOKING_CONTROL_RESOURCE_MANAGING_ANXIETY_TITLE" = "Curso de manejo de la ansiedad";
 "SMOKING_CONTROL_RESOURCE_MANAGING_ANXIETY_DESC" = "La ansiedad puede desencadenar el consumo de alcohol y tabaco, pero hay estrategias saludables que pueden ayuda";
 "SMOKING_CONTROL_RESOURCE_SCREENINGS_DESC" = "Establezcamos metas para analizar la depresion, ansiedad, alcohol y tabaco de forma regular, esto puede apoyar tu exito";
+"DRINKING_CONTROL_RESOURCE_CALCULATOR_DESC" = "Usa esta calculadora para planificar y controlar tu habito de beber.";
+"DRINKING_COUNT_SELECT_DRINK_INSTRUCTION" = "Selecciona la bebida y la cantidad.";
+
+// Taking Control index (SwiftUI)
+"Drinking" = "Bebida";
+"Smoking" = "Fumar";
+"Stay focused" = "Mantenerse enfocado";
+"My progress" = "Mi progreso";
+"Smoking free time" = "Tiempo libre de fumar";
+"Saving" = "Ahorro";
+"Days" = "Dias";
+"USD($)" = "USD($)";
+"Alcohol-free day" = "Dia sin alcohol";
+"Upcoming alcohol-free day" = "Proximo dia sin alcohol";
+"Hangover, argument, accident" = "Resaca, discusion, accidente";
+"Drink more than moderation" = "Beber mas de la moderacion";
+"Drink in moderation" = "Beber con moderacion";
 
 // MakePlan / Question / InfoAlert / Glossary localized keys
 "mkpln_pro_1" = "Mejorar mi salud";
@@ -902,6 +1024,15 @@ lay down." = "Primero busca una posicion comoda para sentarte o acostarte.";
 "gls_sum_21" = "La ventana de tolerancia se refiere a un concepto en psicología que describe un rango óptimo de excitación o activación que permite a un individuo afrontar y responder eficazmente a los factores estresantes y las emociones.";
 
 // MyDrinkingHabit / ChallengingToQuit localization
+"drinking_habit_header_title" = "Mi hábito de consumo";
+"drinking_habit_question" = "Después de aprender sobre el consumo de alcohol, ¿qué hábito de consumo se aplica a ti?";
+"drinking_habit_moderate_definition_intro" = "Recuerda, el consumo moderado se define como:";
+"drinking_habit_men_label" = "Hombres:";
+"drinking_habit_men_limit" = "Hasta 2 bebidas al día";
+"drinking_habit_women_label" = "Mujeres:";
+"drinking_habit_women_limit" = "Hasta 1 bebida al día";
+"drinking_habit_know_counts_prompt" = "¿Te gustaría conocer tu conteo de bebidas?";
+"drinking_habit_forward_fab_a11y" = "Siguiente";
 "Moderate drinking" = "Consumo moderado";
 "Always drink with the moderate drinking standard." = "Siempre bebes siguiendo el estándar de consumo moderado.";
 "Can effortlessly commit alcohol free plan for week or month." = "Puedes comprometerte sin esfuerzo a un plan sin alcohol durante una semana o un mes.";
@@ -916,6 +1047,21 @@ lay down." = "Primero busca una posicion comoda para sentarte o acostarte.";
 "Get defensive when someone tries to limit your consumption or asks you to stop." = "Te pones a la defensiva cuando alguien intenta limitar tu consumo o te pide que dejes de beber.";
 "Remember? Binge drinking is: Men - Up to 5 or more drinks within 2 hrs Women - Up to 4 or more drinks within 2 hrs." = "¿Recuerdas? El consumo excesivo ocasional (binge drinking) es: Hombres: hasta 5 o más bebidas dentro de las 2 horas Mujeres: hasta 4 o más bebidas dentro de las 2 horas";
 "Problematic drinking" = "Consumo problemático";
+
+// Moderate drinking education screens
+"moderate_drinking_body_1" = "¡Estás haciendo un trabajo fantástico manteniendo la moderación en tu consumo de alcohol! A medida que continúes con este hábito saludable, recuerda desarrollar otras prácticas de bienestar como ejercicio regular, una dieta equilibrada y dormir lo suficiente.";
+"moderate_drinking_body_2" = "Concéntrate en manejar el estrés sin recurrir al alcohol ni a soluciones rápidas. Cuidar tu cuerpo y tu mente te ayudará a mantenerte en el camino y reducir la necesidad de beber para aliviar el estrés.";
+"moderate_drinking_body_3" = "¡Sigue con el gran trabajo: estás sentando las bases para una vida más sana y feliz!";
+"moderate_drinking_body_4_full" = "Siéntete libre de usar la sección Mi progreso para hacer seguimiento de tu hábito de consumo si lo deseas.";
+"moderate_everyday_body_1" = "¡Me enorgullece que estés poniendo un límite al consumo de alcohol! Estás dando un paso muy importante al reconocer tu dependencia diaria del alcohol, y eso es motivo de orgullo.";
+"moderate_everyday_body_2_full" = "Te mostraremos cambios pequeños pero significativos en la sección Haz un plan.";
+"moderate_social_binge_body_1" = "¡Me enorgullece que reconozcas la necesidad de controlar tu patrón de consumo! Reconocer tus patrones de consumo es un primer paso crucial hacia hábitos más saludables.";
+"moderate_social_binge_body_2" = "Es importante reflexionar sobre tus hábitos de consumo, especialmente durante eventos sociales, y considerar cómo puedes disfrutar esos momentos sin excederte. Al dar pequeños pasos para reducir tu consumo, comenzarás a ver los beneficios tanto para tu salud como para tus relaciones.";
+"moderate_social_binge_body_3_full" = "En la sección Haz un plan, te guiaremos con estrategias prácticas para ayudarte a hacer estos cambios. ¡Tú puedes!";
+"moderate_problematic_body_1" = "¡Me enorgullece que reconozcas la necesidad de abordar tu consumo excesivo de alcohol! Reconocer que tus patrones de consumo pueden ser problemáticos es un primer paso crucial hacia una vida más saludable.";
+"moderate_problematic_body_2" = "Es esencial reflexionar sobre cómo tu consumo de alcohol afecta tu bienestar y tus relaciones. Al comprometerte con el cambio y dar pequeños pasos para reducir tu consumo, puedes comenzar a experimentar los beneficios de un estilo de vida más equilibrado.";
+"moderate_problematic_body_3_full" = "En la sección Haz un plan, te guiaremos con estrategias prácticas para ayudarte a manejar tu consumo de manera más efectiva. Recuerda, no estás solo en este camino.";
+
 "Drinking until drunk." = "Beber hasta emborracharse";
 "Going to work drunk or drinking on the job." = "Ir a trabajar borracho o beber durante el trabajo";
 "Driving while drunk or have driven while drunk." = "Conducir bajo los efectos del alcohol o haber conducido borracho.";
@@ -961,6 +1107,10 @@ lay down." = "Primero busca una posicion comoda para sentarte o acostarte.";
 "journal_edit_char_count_format" = "%d/2000";
 "journal_discovery_exercise_segment" = "Ejercicio de\ndescubrimiento";
 
+// My smoking habit
+"smoking_habit_header_title" = "Mi hábito de fumar";
+"smoking_habit_stage_question" = "Después de revisar los conocimientos básicos sobre el tabaquismo, ¿en qué etapa cree que se encuentra?";
+
 // My smoking habit stages
 "smoking_habit_stage_thinking_title" = "Está pensando en dejar de fumar";
 "smoking_habit_stage_thinking_body" = "¡Está perfectamente bien! Te guiaremos para que veas los beneficios de dejar de fumar, y luego podrás decidir si deseas crear un plan para dejarlo.\nIr a Crear un plan.";
@@ -971,15 +1121,67 @@ lay down." = "Primero busca una posicion comoda para sentarte o acostarte.";
 "smoking_habit_stage_smokefree_title" = "Permanecer libre de humo";
 "smoking_habit_stage_smokefree_body" = "Te estás enfocando en evitar recaídas y mantener tu progreso.\n\nEso es fantástico. Es importante no bajar la guardia. Estaremos aquí para apoyarte y ayudarte a mantenerte firme.\nIr a Crear un plan para registrar el día en que comenzaste a dejar de fumar, luego podrás usar la opción Mantente enfocado.";
 
+// Challenging to quit journey (Swift UI)
+"challenging_to_quit_header" = "¿Por qué es difícil dejar de fumar?";
+"challenging_to_quit_body_paragraph_1" = "La mayoría de los adolescentes que fuman piensan que dejarán en sus 20 y en realidad no lo hacen hasta sus 40. Dejar de fumar implica hacer un cambio, y no somos muy buenos en eso; de hecho, dejar de fumar puede ser un largo viaje de intentos y recaídas, como un largo paseo en montaña rusa. No hay una solución mágica ni un medicamento que convierta a alguien en no fumador de la noche a la mañana, aunque algunas personas tienen el gen para poder dejar de fumar o beber sin grandes dificultades.";
+"challenging_to_quit_body_paragraph_2" = "¿Cómo se ve este viaje de cambio? Hay 4 pasos y estrategias útiles que puedes tomar.";
+"challenging_to_quit_topic_thinking" = "\"Estoy pensando en dejarlo\"";
+"challenging_to_quit_topic_ready" = "\"Preparándome para dejar de fumar\"";
+"challenging_to_quit_topic_quitting" = "\"Dejando de fumar\"";
+"challenging_to_quit_topic_smoke_free" = "\"Mantenerme libre de humo\"";
+"thinking_about_quitting_header" = "\"Estoy pensando en dejarlo\"";
+"thinking_about_quitting_body_paragraph_1" = "Aproximadamente el 75 % de los fumadores quiere dejar de fumar, pero el 25 % no está interesado. Tal vez lo estés pensando, pero aún no estés listo para actuar. Aunque los cigarrillos son caros, quizá aún te gusten las sensaciones de fumar. También puedes sentir presión para dejar de fumar porque la gente fuma en el descanso o vives con alguien que también fuma.";
+"thinking_about_quitting_body_paragraph_2" = "Pero debes saber que pensar en dejar de fumar ya es un gran primer paso hacia el cambio. Es normal sentirse intimidado al tomar acción. Nadie quiere fracasar. Pero piensa en esto: si va a ser un desafío ahora y va a ser un desafío en 5 años, ¿por qué no hacerlo ahora sin gastar más dinero en cigarrillos?";
+"ready_to_quit_header" = "\"Estoy listo para dejar de fumar\"";
+"ready_to_quit_body_paragraph_1" = "Si alguna vez intentaste dejar de fumar en el pasado, tienes una idea de cómo se siente, los desafíos que experimentaste y qué te hizo volver a fumar. Eso significa que ya has probado este camino y sabes lo complicado que puede ser. Hay pequeños pasos que puedes dar ahora para ayudarte a dejar de fumar para siempre y aumentar tus posibilidades de éxito. Aprende las habilidades que te ayudarán a lograr permanentemente una vida libre de tabaco.";
+"ready_to_quit_body_paragraph_2" = "En las siguientes secciones, puedes aprender estrategias recomendadas para superar los posibles desafíos que puedas encontrar.";
+"trying_to_quit_header" = "\"Estoy intentando dejar de fumar\"";
+"trying_to_quit_body_paragraph_1" = "Has llegado a tu fecha para dejar de fumar y te has comprometido a una vida libre de tabaco.";
+"trying_to_quit_body_paragraph_2" = "¡Siéntete orgulloso! Dejar de fumar es como una ruptura y pasar por algunas pérdidas. Puede que tengas que cambiar un poco tu rutina para evitar ciertos lugares, amigos, y empezar una nueva rutina para distraerte. El plan requiere que pienses en más que solo dejar de fumar, sino en cambios en tu estilo de vida.";
+"trying_to_quit_body_paragraph_3" = "Hay algunas claves para lograr una vida permanentemente libre de tabaco.";
+"trying_to_quit_body_paragraph_4" = "¿Qué puedes hacer?";
+"trying_to_quit_habits_heading" = "¿Qué nuevos hábitos te ayudan a seguir adelante?";
+"trying_to_quit_habit_bullet_1" = "Haz algo para mantenerte activo en casa";
+"trying_to_quit_habit_bullet_2" = "Llama o visita a un amigo o familiar";
+"trying_to_quit_habit_bullet_3" = "Cepíllate los dientes";
+"trying_to_quit_habit_bullet_4" = "Juega con una mascota";
+"trying_to_quit_habit_bullet_5" = "Actualiza tu lista de contactos en tu teléfono móvil";
+"trying_to_quit_habit_bullet_6" = "Prueba un nuevo pasatiempo";
+"trying_to_quit_habit_bullet_7" = "Cambia a café con menos cafeína o productos descafeinados";
+"trying_to_quit_rewards_heading" = "¿Cuánto dinero has ahorrado al dejar el tabaco? ¿Cómo te estás recompensando?";
+"trying_to_quit_celebrate_heading" = "Celebra estar libre de tabaco durante:";
+"trying_to_quit_milestone_3_days" = "3 días";
+"trying_to_quit_milestone_7_days" = "7 días";
+"trying_to_quit_milestone_2_weeks" = "2 semanas";
+"trying_to_quit_milestone_1_month" = "1 mes";
+"trying_to_quit_milestone_3_months" = "3 meses";
+"trying_to_quit_milestone_6_months" = "6 meses";
+"trying_to_quit_milestone_1_year" = "1 año";
+"tobacco_free_header" = "\"Estoy libre de tabaco\"";
+"tobacco_free_body_paragraph_1" = "Ahora eres un no fumador y estás tratando de mantenerte así. Cuando hacemos cambios, es fundamental reflexionar sobre qué tan importante es este cambio para ti y qué tan seguro te sientes al hacerlo. Quieres prestar atención a cómo se sienten de manera diferente tu mente, cuerpo y regulación emocional, cómo cambió tu actitud y qué has empezado a hacer en su lugar para un mejor autocuidado.";
+"tobacco_free_body_paragraph_2" = "Pensar en ello te ayuda a no volver a tu antigua relación con el tabaco.";
+"tobacco_free_body_paragraph_3" = "Ahora sabes qué esperar en este camino. No te sorprenderá cuando esperes altibajos en este viaje. Recuerda que se trata de encontrar una estrategia que funcione para ti, no de tu fuerza de voluntad.";
+"tobacco_free_body_paragraph_4" = "¿Ya saliste del peligro? Muchas personas quieren saber cuánto tiempo tarda antes de que la posibilidad de volver al tabaco deje de ser una preocupación. La recaída ocurre con mayor frecuencia en los primeros uno a tres meses después de dejar de fumar.";
+"tobacco_free_body_paragraph_5" = "Sin embargo, siempre es prudente estar alerta";
+
 // Add / edit appointment
+"Patient name" = "Nombre del paciente";
+"Provider name" = "Nombre del proveedor";
+"Location" = "Ubicación";
+"Date" = "Fecha";
 "appointment_description_placeholder" = "Descripción";
 "appointment_validation_patient_name_empty" = "El nombre del paciente no puede estar vacío";
 "appointment_validation_provider_name_empty" = "El nombre del proveedor no puede estar vacío";
 "appointment_validation_location_name_empty" = "El nombre de la ubicación no puede estar vacío";
+"appointment_validation_mandatory_fields" = "Por favor, completa todos los campos obligatorios.";
 "appointment_selected_time_in_past" = "La hora seleccionada ya pasó para hoy";
 "appointment_past_dates_not_allowed" = "No se permiten fechas pasadas";
 
 // Medical records rows / tab bar / sleep intro / user intro selection (es)
+"main_tab_bar_home" = "Inicio";
+"main_tab_bar_discovery" = "Descubrimiento";
+"main_tab_bar_exercises" = "Ejercicios";
+"main_tab_bar_rewards" = "Recompensas";
 "Upcoming medical appointments" = "Próximas citas médicas";
 "Rewards" = "Recompensas";
 "sleep_hours_question_last_night" = "¿Cuántas horas dormiste anoche?";
@@ -990,6 +1192,11 @@ lay down." = "Primero busca una posicion comoda para sentarte o acostarte.";
 "sleep_summary_hours_format" = "%@ horas";
 "UserIntro_Mood_BAD" = "Mal";
 "UserIntro_Mood_COULD_BE_BETTER" = "Podría ser mejor";
+"MoodChart_BAD" = "MAL";
+"MoodChart_COULD_BE_BETTER" = "PODRÍA SER\nMEJOR";
+"MoodChart_FAIR" = "MAS O\nMENOS";
+"MoodChart_GOOD" = "BUENO";
+"MoodChart_EXCELLENT" = "EXCELENTE";
 "UserIntro_Mood_FAIR" = "Más o menos";
 "UserIntro_Mood_GOOD" = "Bueno";
 "UserIntro_Mood_EXCELLENT" = "Excelente";
@@ -1001,3 +1208,105 @@ lay down." = "Primero busca una posicion comoda para sentarte o acostarte.";
 "UserIntro_fallback_mood_morning" = "¿Qué tal tu ánimo?";
 "UserIntro_fallback_mood_today" = "¿Cómo estuvo tu estado de ánimo hoy?";
 "UserIntro_fallback_time_spend" = "¿Con quién pasaste tiempo?";
+
+// Journal entry hub (Swift UI)
+"nav_title_journal_entry" = "Entrada de diario";
+"search_placeholder" = "Buscar";
+"filter_questionnaire" = "Cuestionario";
+"filter_diary_journal" = "Diario personal";
+"filter_discovery_exercise" = "Ejercicio de descubrimiento";
+"filter_discovery_capsule" = "Descubrimiento";
+"no_internet_msg" = "Sin conexión a internet.";
+"help_button_text" = "¿Necesitas hablar con alguien?";
+
+// Sources and citations (Swift UI)
+"sources_and_citations_title" = "Fuentes y citas";
+
+// Day feedback evening reminder (local notification body)
+"Time to track your well-being." = "Es hora de registrar tu bienestar.";
+
+// Full coming soon modal (Swift UI)
+"full_coming_soon_title" = "¡Próximamente!";
+"full_coming_soon_subtitle" = "¡La versión completa estará disponible pronto!";
+"full_coming_soon_features_question" = "¿Qué funciones podrás usar en la versión completa?";
+"full_coming_soon_feature_tracking" = "Seguimiento de tus hábitos de consumo del alcohol y cigarros";
+"full_coming_soon_feature_action_plan" = "Plan de acción personalizado para que puedas controlar tus hábitos de consumo";
+"full_coming_soon_feature_resources" = "Recursos y herramientas para apoyarte en el camino";
+
+// Ready-to-quit symptom modals (Swift UI)
+"quit_symptom_irritability_title" = "Irritabilidad y cambios de humor";
+"quit_symptom_difficulty_title" = "Dificultad para concentrarse";
+"quit_symptom_sleep_title" = "Trastornos del sueño";
+"quit_symptom_depression_title" = "Depresión y ansiedad";
+"quit_symptom_nicotine_intro" = "Cuando intentas dejar de fumar, casi todos sienten ganas de fumar de vez en cuando. Puede ser una sensación leve o a veces muy fuerte. ¿Y sabes qué?\n\nManejar estos antojos es clave para mantenerte libre de humo.\n\nAquí tienes algunas formas de manejarlo:";
+"quit_symptom_nicotine_medicines_heading" = "Usa medicamentos para dejar de fumar";
+"quit_symptom_nicotine_patch_combo" = "Un parche de nicotina más una pastilla (mentas/pastillas para la tos) o chicle es la combinación más común y puedes conseguirlos en cualquier farmacia.";
+"quit_symptom_nicotine_timeline_patch" = "Ponte un parche nuevo cada mañana para mantener un nivel estable de nicotina que reducirá tus antojos y síntomas de abstinencia durante el día.";
+"quit_symptom_nicotine_timeline_fast_acting" = "Usa un medicamento de nicotina de acción rápida como pastillas o chicle para combatir los antojos rápidamente";
+"quit_symptom_nicotine_timeline_control" = "Puedes controlar con qué frecuencia usas el medicamento de acción rápida, así no recibirás más nicotina de la que quieres.";
+"quit_symptom_nicotine_timeline_early_start" = "Está bien empezar con parches, chicle o pastillas de nicotina una o dos semanas antes de dejar de fumar. Esto puede ayudarte a prepararte y quizá reducir tu consumo. Empezar el medicamento, especialmente el parche de nicotina, antes de dejar de fumar puede mejorar tus probabilidades de éxito.";
+"quit_symptom_nicotine_also_try_full" = "También puedes probar…\n\nUn medicamento sin nicotina (se requiere receta de tu médico). La vareniclina es una pastilla que actúa de forma diferente a otros medicamentos. No contiene nicotina. Actúa uniéndose a las mismas partes del cerebro que estimula la nicotina. Esto significa que la nicotina del cigarrillo tiene menos lugares donde unirse porque la vareniclina ya está ahí. Esto hace más difícil obtener una \"sensación\" de nicotina.";
+"quit_symptom_nicotine_timeline_reduces_urge" = "Reduce tu deseo de fumar y el placer de los cigarrillos.";
+"quit_symptom_nicotine_timeline_strongest_chance" = "Te da la mayor probabilidad de éxito de cualquier medicamento por sí solo.";
+"quit_symptom_nicotine_timeline_start_early" = "Puede empezarse una semana o más antes de dejar de fumar.";
+"quit_symptom_nicotine_triggers_full" = "Conoce tus desencadenantes:\n\nCiertas cosas pueden hacerte querer fumar, como estar con amigos con quienes solías fumar o en un lugar donde fumabas a menudo. Incluso recuerdos o sentimientos pueden provocarlo.\n\nPensamientos positivos:\n\nRecuerda por qué decidiste dejar de fumar. Tú tienes el control, y los antojos no duran para siempre. Pasarán.";
+"quit_symptom_irritability_intro" = "Cuando intentas dejar de fumar, es totalmente normal sentirte un poco irritable o de mal humor. Incluso quienes nunca fumaron lo experimentan; es parte del proceso. Así que no te preocupes, no estás solo en sentirte así.\n\nAsí puedes manejarlo:";
+"quit_symptom_irritability_remind_heading" = "Recuérdate que es normal";
+"quit_symptom_irritability_remind_body" = "Sentirse de mal humor es solo tu cuerpo adaptándose a no tener nicotina.";
+"quit_symptom_irritability_breaths_heading" = "Respira profundo";
+"quit_symptom_irritability_breaths_body" = "Cuando llegue la irritación, respira profundo varias veces para calmarte. Puedes encontrarlos en \"ejercicios\".";
+"quit_symptom_irritability_why_heading" = "Recuerda por qué dejaste de fumar";
+"quit_symptom_irritability_why_body" = "Piensa en por qué decidiste dejar de fumar. Es un gran motivador para superar los momentos de mal humor.";
+"quit_symptom_difficulty_intro" = "Justo después de dejar de fumar, puede costarte un poco concentrarte. No te preocupes, le pasa a mucha gente.\n\nEsto es lo que puedes hacer:";
+"quit_symptom_difficulty_kind_heading" = "Sé amable contigo mismo";
+"quit_symptom_difficulty_kind_body" = "Date un respiro, especialmente en los primeros días después de dejar de fumar.";
+"quit_symptom_difficulty_easy_heading" = "Tómatelo con calma";
+"quit_symptom_difficulty_easy_body" = "Si puedes, trata de no hacer cosas que requieran mucha concentración de inmediato.";
+"quit_symptom_appetite_intro" = "Cuando dejas de fumar, es totalmente normal que tu apetito aumente un poco. Tu cuerpo puede no quemar calorías tan rápido y quizá comas más, tal vez porque dejar de fumar puede ser estresante o solo quieres algo que hacer con las manos y la boca. Además, la comida puede saber aún mejor porque tu olfato y gusto ya no están opacados por el humo\n\nEsto es lo que puedes hacer para manejarlo:";
+"quit_symptom_appetite_snacking_heading" = "Snacks inteligentes";
+"quit_symptom_appetite_snacking_body" = "Elige snacks saludables como apio, zanahorias o mentas sin azúcar cuando quieras picar entre comidas. También puedes mantener ocupadas tus manos y boca con un palillo o una pajilla.";
+"quit_symptom_appetite_moving_heading" = "Muévete";
+"quit_symptom_appetite_moving_body" = "No necesitas ir al gimnasio; incluso una caminata simple es excelente para tu salud.";
+"quit_symptom_appetite_focus_heading" = "Concéntrate en comer";
+"quit_symptom_appetite_focus_body" = "Cuando comas, trata de prestar atención a lo que comes. Apaga la TV o guarda el teléfono. Comer un poco más despacio y saborear tu comida puede ayudarte a notar cuando estás lleno.";
+"quit_symptom_sleep_intro" = "Después de dejar de fumar, al principio puede costarte dormir bien. ¡Pero no te preocupes, mejora! Si te molesta mucho, habla con tu proveedor de salud; puede ayudarte. Porque si estás muy cansado por no dormir bien, puede ser más difícil mantenerte libre de humo.\n\nAsí puedes manejarlo:";
+"quit_symptom_sleep_caffeine_heading" = "Cuida tu consumo de cafeína";
+"quit_symptom_sleep_caffeine_body" = "Si tomas café, té u otras bebidas con cafeína, evítalas por la tarde o noche. Después de dejar de fumar, la cafeína permanece más tiempo en tu cuerpo.";
+"quit_symptom_sleep_patch_heading" = "Consejo del parche de nicotina";
+"quit_symptom_sleep_patch_body" = "Si usas el parche de nicotina, intenta quitártelo una hora antes de acostarte. A veces, la nicotina del parche puede afectar tu sueño.";
+"quit_symptom_sleep_space_heading" = "Crea un espacio favorable para dormir";
+"quit_symptom_sleep_space_body" = "Sin TV, teléfonos ni dispositivos en la cama. Haz que tu habitación sea tranquila, oscura, relajante y cómoda.\nEvita comidas pesadas o alcohol justo antes de dormir.";
+"quit_symptom_sleep_active_heading" = "Mantente activo";
+"quit_symptom_sleep_active_body" = "Haz actividad física durante el día (solo no justo antes de acostarte).";
+"quit_symptom_sleep_routine_heading" = "Rutina de sueño";
+"quit_symptom_sleep_routine_body" = "Intenta acostarte y levantarte a la misma hora todos los días, incluso los fines de semana.";
+"quit_symptom_depression_intro" = "Las personas que fuman tienen más probabilidades de tener ansiedad o depresión que quienes no fuman. Algunas personas sienten cambios de humor por poco tiempo después de dejar de fumar. Para algunas, fumar puede parecer que ayuda con la ansiedad o depresión, pero no te dejes engañar. Fumar puede hacerte sentir mejor a corto plazo, pero es porque la nicotina de los cigarrillos detiene la incomodidad de la abstinencia, no porque ayude con la ansiedad o depresión. ¡Hay mejores formas de manejar los síntomas de abstinencia y los cambios de humor que volver a fumar! La buena noticia es que, después de unos meses sin fumar, los niveles de ansiedad y depresión suelen ser más bajos que cuando fumaban.\n\nAsí puedes manejarlo:";
+"quit_symptom_depression_moving_heading" = "Muévete";
+"quit_symptom_depression_moving_body" = "El ejercicio puede mejorar mucho tu estado de ánimo. Empieza con algo pequeño y ve aumentando. Puede ser difícil cuando te sientes bajo, ¡pero vale la pena!";
+"quit_symptom_depression_busy_heading" = "Mantente ocupado";
+"quit_symptom_depression_busy_body" = "Mantente ocupado y ten una rutina. Incluso salir de casa un rato puede marcar la diferencia.";
+"quit_symptom_depression_connect_heading" = "Conéctate con otros";
+"quit_symptom_depression_connect_body" = "Habla con personas que te apoyan al dejar de fumar. Tener a alguien con quien charlar cada día puede levantarte el ánimo.";
+"quit_symptom_depression_treat_heading" = "Date un gusto";
+"quit_symptom_depression_treat_body" = "Haz cosas que disfrutes, aunque sean pequeñas. Esas pequeñas cosas pueden hacerte sentir mejor.";
+"quit_symptom_depression_talk_heading" = "Habla con alguien";
+"quit_symptom_depression_talk_body" = "Si después de un par de semanas aún no te sientes bien o es demasiado, busca ayuda de un proveedor de salud.\nLlama al 1-800-QUIT-NOW; puedes hablar de forma confidencial con un coach especializado.";
+"quit_symptom_depression_stress_heading" = "Explora formas de manejar el estrés y la ansiedad";
+"quit_symptom_depression_discovery_body" = "¿Has revisado \"descubrimiento\"? ¡Hay muchos cursos útiles que pueden ayudarte a manejar el estrés y la ansiedad!";
+"quit_symptom_jumpy_title" = "Sentirse nervioso o inquieto";
+"quit_symptom_jumpy_intro" = "Cuando dejas de fumar por primera vez, es totalmente normal sentirse un poco nervioso o inquieto. Es como si tu cuerpo se estuviera ajustando a la falta de nicotina, y esto puede afectar no solo tu mente, sino también el resto de tu cuerpo.\n\nAquí tienes cómo manejarlo:";
+"quit_symptom_jumpy_move_heading" = "Muévete:";
+"quit_symptom_jumpy_move_body" = "Hacer algo de actividad física puede realmente ayudar con esa sensación de nerviosismo. Da una corta caminata o simplemente levántate y estírate si te sientes inquieto.";
+"quit_symptom_jumpy_caffeine_heading" = "Cuida tu cafeína";
+"quit_symptom_jumpy_caffeine_body" = "Si te gustan el café, el té u otras bebidas con cafeína, trata de reducirlas un poco. Después de dejar de fumar, la cafeína permanece en tu cuerpo por más tiempo.";
+"quit_symptom_jumpy_success_heading" = "Aumenta tus posibilidades de éxito";
+"quit_symptom_jumpy_timeline_schedule" = "Programa la fecha en la que dejarás de fumar. Hazlo pronto, preferiblemente dentro de un mes, para que sigas entusiasmado por liberarte del tabaco. Reduce tu consumo de tabaco disminuyendo un cigarro cada dos días antes de dejarlo completamente en la fecha que has establecido. Intenta comenzar a dejar de fumar por completo cuando hayas reducido a menos de 10 cigarrillos al día.";
+"quit_symptom_jumpy_timeline_quit_day" = "Cuando llegue tu fecha para dejar de fumar, deshazte de todos tus cigarrillos y/o tabaco de mascar.";
+"quit_symptom_jumpy_timeline_clean" = "Limpia tu casa para eliminar el olor a tabaco de tu ropa, muebles y coche.";
+"quit_symptom_jumpy_timeline_ashtrays" = "Deshazte de ceniceros, encendedores y fósforos.";
+"quit_symptom_jumpy_timeline_medication" = "Considera usar un parche de reemplazo de nicotina y/o medicamentos para dejar de fumar.";
+"exercise_audio_silent_mode_toast" = "El telefono esta en modo silencio";
+"profile_language_english" = "Ingles";
+"profile_language_spanish" = "Espanol";
+"profile_language_japanese" = "Japones";
+"profile_language_asl" = "ASL";

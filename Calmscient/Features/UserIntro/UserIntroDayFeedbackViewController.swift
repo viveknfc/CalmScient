@@ -159,15 +159,12 @@ class UserIntroDayFeedbackViewController: ViewController {
         // Do any additional setup after loading the view.
     }
     override func viewWillAppear(_ animated: Bool) {
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone.current //TimeZone(abbreviation: "GMT")
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Specify the desired format
         let sampleTime = Date()
         print("the fetching time in local is ", sampleTime)
-        
+
         fetchDateTime() //for userintro in scene delegate
-        
-        currentTime = dateFormatter.string(from: sampleTime)
+
+        currentTime = DayFeedbackSessionLogic.apiTimestamp(from: sampleTime)
         setupLanguage()
         
         if TokenManager.shared.isTokenExpired() {
@@ -182,7 +179,6 @@ class UserIntroDayFeedbackViewController: ViewController {
 //                         self.view.showToast(message: "Token refresh failed")
                          // Handle failure (e.g., logout user, show alert)
                          
-                         let next = UIStoryboard(name: "LoginVC", bundle: nil)
                          UserDefaults.standard.set(0, forKey: "rememberMe")
                          
                          UserDefaultsHelper.clearLoginDetailsFromUserDefaults()
@@ -190,9 +186,10 @@ class UserIntroDayFeedbackViewController: ViewController {
                          ApplicationSharedInfo.shared.tokenResponse = nil
 
                              if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
-                                 let newViewController = next.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-                                 let navController = UINavigationController(rootViewController: newViewController)
-                                 sceneDelegate.changeRootViewController(to: navController)
+                                 if #available(iOS 16.0, *) {
+                                     let navController = LoginHostingController.loginNavigationRoot()
+                                     sceneDelegate.changeRootViewController(to: navController)
+                                 }
                              }
 
                          
@@ -207,8 +204,12 @@ class UserIntroDayFeedbackViewController: ViewController {
         
         // Check if we are coming from the home dashboard
           if let viewControllers = self.navigationController?.viewControllers, viewControllers.count > 1 {
-              // If we have more than one view controller in the stack, we're coming from a previous screen (likely the home screen)
-              if viewControllers[viewControllers.count - 2] is HomeTabDashboardViewController {
+              let previous = viewControllers[viewControllers.count - 2]
+              var fromHomeDashboard = previous is HomeTabDashboardViewController
+              if #available(iOS 16.0, *) {
+                  fromHomeDashboard = fromHomeDashboard || previous is HomeDashboardHostingController
+              }
+              if fromHomeDashboard {
                   // If the previous view controller is the HomeDashboard, show the navigation bar
                   self.navigationController?.isNavigationBarHidden = false
                   title = GreetingTitle
@@ -227,13 +228,19 @@ class UserIntroDayFeedbackViewController: ViewController {
                 mainTableTop.constant = 24
             }
     }
-    
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        DayFeedbackEveningReminderScheduler.cancelEveningReminder()
+    }
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         // Make sure to reset the navigation bar visibility when leaving this view controller
         // This is especially important if you want to ensure the state is consistent when navigating back
         self.navigationController?.isNavigationBarHidden = true
+        DayFeedbackEveningReminderScheduler.refreshSchedulingIfNeeded()
     }
     
     //MARK: - For Journal Text View
@@ -540,8 +547,13 @@ class UserIntroDayFeedbackViewController: ViewController {
                     if response.responseCode == 200 {
                         
                         self.fetchDateTime()
+                        if self.userDayWiseData?.dayTimeValue == .Evening {
+                            DayFeedbackEveningReminderScheduler.cancelEveningReminder()
+                        }
                         
-                        self.showSuccessAlert() {
+                        self.showSuccessAlert(
+                            successContent: AppHelper.getLocalizeString(str: "You saved your mood successfully")
+                        ) {
                             print("alert shown")
                                if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
                                    guard let window = sceneDelegate.window else { return }
@@ -553,6 +565,7 @@ class UserIntroDayFeedbackViewController: ViewController {
                                    window.rootViewController = homeController
                                    window.makeKeyAndVisible()
                                }
+                               DayFeedbackEveningReminderScheduler.refreshSchedulingIfNeeded()
                            }
                         
                     } else {
@@ -569,69 +582,8 @@ class UserIntroDayFeedbackViewController: ViewController {
     //MARK: - Fetch Date and TIme
     
     func fetchDateTime() {
-        let now = Date()
-
-        // Extract Date (yyyy-MM-dd)
-        let dateFormatter = DateFormatter()
-        dateFormatter.timeZone = TimeZone.current
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        let dateString = dateFormatter.string(from: now)
-
-        // Extract Time (HH:mm:ss)
-        let timeFormatter = DateFormatter()
-        timeFormatter.timeZone = TimeZone.current
-        timeFormatter.dateFormat = "HH:mm:ss"
-        let timeString = timeFormatter.string(from: now)
-
-        // Save in UserDefaults
-        UserDefaults.standard.set(dateString, forKey: "savedDate")
-        UserDefaults.standard.set(timeString, forKey: "savedTime")
+        DayFeedbackSessionLogic.recordLastSessionPeriod()
     }
-    
-    //MARK: - Save Alert View
-    
-    func showSuccessAlert(completion: @escaping () -> Void) {
-        
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let window = windowScene.windows.first else { return }
-        
-        // Create a semi-transparent background view
-        let backgroundView = UIView(frame: window.bounds)
-        backgroundView.backgroundColor = UIColor.black.withAlphaComponent(0.5)
-        backgroundView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        
-        // Add the background view to the main view
-        window.addSubview(backgroundView)
-        
-        // Create the alert view
-        let successAlert = SuccessAlertView()
-        successAlert.translatesAutoresizingMaskIntoConstraints = false
-        successAlert.okButtonAction = {
-            backgroundView.removeFromSuperview() // Remove the background view
-            successAlert.removeFromSuperview()  // Remove the alert view
-            completion()
-        }
-        
-        // Add the alert view to the background view
-        backgroundView.addSubview(successAlert)
-        
-        // Set Auto Layout constraints for the alert view
-        NSLayoutConstraint.activate([
-            successAlert.leadingAnchor.constraint(equalTo: backgroundView.leadingAnchor, constant: 20),
-            successAlert.trailingAnchor.constraint(equalTo: backgroundView.trailingAnchor, constant: -20),
-            successAlert.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
-            successAlert.heightAnchor.constraint(equalToConstant: 300)
-        ])
-        
-        // Animate the appearance of the alert
-            backgroundView.alpha = 0
-            successAlert.alpha = 0
-            UIView.animate(withDuration: 0.3) {
-                backgroundView.alpha = 1
-                successAlert.alpha = 1
-            }
-    }
-
     
     @IBAction func didClickOnSkipButton(_ sender: BorderShadowButton) {
         
@@ -646,6 +598,7 @@ class UserIntroDayFeedbackViewController: ViewController {
             window.makeKeyAndVisible()
         }
 
+        DayFeedbackEveningReminderScheduler.refreshSchedulingIfNeeded()
     }
     
 }

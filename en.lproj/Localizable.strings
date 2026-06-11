@@ -38,6 +38,8 @@
 "Basic Knowledge" = "Basic knowledge";
 "What’s a standard drink" = "What’s a standard drink";
 "standard drink description" = "In the United States, a “standard drink” (also known as an alcoholic drink equivalent) is defined as any drink that contains about 0.6 fluid ounces or 14 grams of pure alcohol. Although the drinks pictured here are different sizes, each contains approximately the same amount of alcohol and counts as one U.S. standard drink or one alcoholic drink equivalent.";
+"standard drink highlight fluid ounces" = "0.6 fluid ounces";
+"standard drink highlight grams" = "14 grams";
 
 "standard drink description2" = "Each beverage portrayed above represents one standard drink (or one alcoholic drink equivalent), defined in the United States as any beverage containing 0.6 oz or 14 grams of pure alcohol. The percentage of pure alcohol, expressed here as alcohol by volume (alc/vol), varies within and across beverage types. Although the standard drink amounts are helpful for following health guidelines, they may not reflect customary serving sizes";
 
@@ -45,6 +47,25 @@
 
 //us guide lines
 "What are the U.S. guidelines for drinking?" = "What are the U.S. guidelines for drinking?";
+
+"us_guidelines_dietary_subheader" = "The 2020–2025 Dietary Guidelines recommend:";
+"us_guidelines_label_men" = "Men";
+"us_guidelines_label_women" = "Women";
+"us_guidelines_men_standard" = "Up to 2 drinks per day";
+"us_guidelines_women_standard" = "Up to 1 drink per day";
+"us_guidelines_what_is_prefix" = "What is";
+"us_guidelines_alcohol_misuse_suffix" = "alcohol misuse?";
+"us_guidelines_niaaa_heavy" = "NIAAA defines heavy drinking as follows:";
+"us_guidelines_men_heavy_line1" = "Up to 5 or more drinks on";
+"us_guidelines_men_heavy_line2" = "any day or 15 drinks or more per week";
+"us_guidelines_women_heavy_line1" = "Up to 4 or more drinks on";
+"us_guidelines_women_heavy_line2" = "any day or 8 drinks or more per week";
+"us_guidelines_binge_suffix" = "binge drinking?";
+"us_guidelines_niaaa_binge" = "NIAAA defines it as follows";
+"us_guidelines_men_binge_line1" = "Up to 5 or more drinks";
+"us_guidelines_men_binge_line2" = "within about 2 hours";
+"us_guidelines_women_binge_line1" = "Up to 4 or more drinks";
+"us_guidelines_women_binge_line2" = "within about 2 hours";
 
 "US guidelines part1" = "The 2020–2025 Dietary Guidelines for Americans states that adults of legal drinking age can choose not to drink or to drink in moderation by limiting intake to 2 drinks or less in a day for men and 1 drink or less in a day for women when alcohol is consumed. Drinking less is better for health than drinking more.";
 
@@ -56,6 +77,8 @@
 
 "Welcome to taking control!" = "Welcome to taking control!";
 "CAGE-AID Questionnaire" = "CAGE-AID Questionnaire";
+"Your points" = "Your points";
+"Taking control CAGE interpretation" = "Interpretation: \nOne or more “Yes” responses is regarded as a positive screening test, indication possible substance use and need for further evaluation. ";
 
 //moderation
 "When is drinking in moderation still too much?" = "When is drinking in moderation still too much?";
@@ -70,6 +93,54 @@
 "moderation_full_text" = "In addition, certain individuals, particularly older adults, who are planning to drive a vehicle or operate machinery—or who are participating in activities that require skill, coordination, and alertness—should avoid alcohol completely.\n\nWhat is alcohol misuse?\n\nNIAAA defines heavy drinking as follows:\n\nFor women:\n4 or more drinks on any day or 8 or more per week.\n\nFor men:\n5 or more drinks on any day or 15 or more per week.";
 "moderation_target_women" = "4 or more drinks on any day or 8 or more per week.";
 "moderation_target_men" = "5 or more drinks on any day or 15 or more per week.";
+
+// Hold your liquor
+"hold_your_liquor_header" = "Why is being able to “hold your liquor” a concern?";
+"hold_your_liquor_body_paragraph_1" = "For some people who drink, it takes quite a few drinks to “get a buzz” or feel relaxed, and they may be less likely to show signs of intoxication compared to others. This is sometimes called being able to “hold your liquor” or “drink someone under the table.”";
+"hold_your_liquor_body_paragraph_2" = "Often these individuals are unaware that their body’s lower response to the intoxicating effects of alcohol isn’t protection from alcohol problems but instead is a reason for caution.";
+"hold_your_liquor_body_paragraph_3" = "These individuals tend to drink more, socialize with people who drink a lot, and develop a tolerance to alcohol (i.e., it takes more and more alcohol to feel or act intoxicated). As a result, they have an increased risk for developing AUD. Someone who misuses alcohol, especially over the long-term, can experience permanent liver, heart, or brain damage. And all people who drink, regardless of the amount, need to be aware that critical decision-making abilities and driving-related skills are already diminished long before a person shows physical signs of intoxication.";
+
+// Tobacco (smoking basic knowledge)
+"tobacco_header" = "What is tobacco?";
+"tobacco_body_paragraph_1" = "Tobacco comes from the leaves of the Nicotiana plant and is used in things like cigarettes, cigars, and chewing tobacco. The main thing in tobacco is nicotine, a natural substance that can be addictive and affect your brain";
+"tobacco_body_paragraph_2" = "When people smoke cigarettes, they inhale over 7,000 chemicals, and nicotine is the one that makes smoking addictive. There are also other chemicals added to make the smoke taste better and for the nicotine to be absorbed more easily.";
+"tobacco_body_paragraph_3" = "Each time someone smokes a cigarette, they get about 1-2 milligrams of nicotine, which quickly goes to their brain and makes their heart beat faster, raises their blood pressure, and increases their breathing. It's kind of like a quick energy boost, but it can become a habit.";
+"tobacco_body_paragraph_4" = "Cigarettes are designed so that someone who smokes regularly gets around 200 \"hits\" of nicotine to their brain every day. Other tobacco products, like chewing tobacco, also have nicotine. Some people use e-cigarettes to get nicotine without all the extra chemicals in tobacco smoke.";
+"tobacco_body_paragraph_5" = "Nicotine works on the brain in a way that makes it feel good and can become a habit because it gives a sense of pleasure. That's why it's important to understand what's in tobacco and the effects it can have on your body and brain.";
+
+// Vaping (smoking basic knowledge)
+"vaping_header" = "How is vaping (E-cigarettes) safer than tobacco?";
+"vaping_body_paragraph_1" = "E-cigarettes go by many names like \"e-cigs,\" vapes,\" and \"vape pens.\" They can look like regular cigarettes or even things like USB flash drives and pens.";
+"vaping_body_paragraph_2" = "These devices run on batteries and let people inhale something called aerosol. Vaping became popular because some thought it might be a less harmful choice compared to regular smoking.";
+"vaping_body_paragraph_3" = "Inside that aerosol, there's usually nicotine (though not always), flavors, and some other chemicals. The devices can be rechargeable, disposable, or come with tanks and mods.";
+"vaping_body_paragraph_4" = "Is it safer than tobacco?\nE-cigarette aerosol generally contains fewer toxic chemicals than the deadly mix of 7,000 chemicals in smoke from regular cigarettes. However, e-cigarette aerosol is not harmless. It can contain harmful and potentially harmful substances, including nicotine, heavy metals like lead, volatile organic compounds and cancer-causing agents.";
+"vaping_reference_url" = "https://www.cdc.gov/tobacco/basic_information/e-cigarettes/pdfs/Electronic-Cigarettes-Infographic-p.pdf";
+
+// Smoking relax (smoking basic knowledge)
+"smoking_relax_header" = "Why does smoking seem to relax me?";
+"smoking_relax_body_paragraph_1" = "Nicotine does things in your brain that make you feel good and more awake. It releases chemicals like dopamine, norepinephrine, and serotonin, which are responsible for those \"feeling good\" and \"being awake\" vibes. Nicotine also gives you a quick boost of endorphins, which can help you relax and ease any pains.";
+"smoking_relax_body_paragraph_2" = "That's why some people, both adults and teens, use smoking to kind of \"reset\" their mood, emotions, and attention. Especially for those who struggle with anxiety or feeling down, smoking might be a way they try to make themselves feel better. But it's important to know that there are healthier ways to deal with these feelings.";
+
+// Smoking and mental health (smoking basic knowledge)
+"smoking_mental_health_header" = "How does smoking affect your mental health?";
+"smoking_mental_health_body_paragraph_1" = "Many people think smoking relieves stress. However, Nicotine does something interesting in your brain – it releases a chemical called dopamine. Dopamine is like a happiness signal and makes you feel good. Some people with depression have low levels of dopamine, so they might smoke to get a quick boost.";
+"smoking_mental_health_body_paragraph_2" = "But here's the problem... once your brain gets used to nicotine boosters, it will cry for more smoking when it is not getting enough nicotine. Thus, your concentration goes down, your heart beats faster, and you get more anxious and stressed.";
+"smoking_mental_health_body_paragraph_3" = "As a result, you smoke to reduce your nicotine stress, not your real stress. This is a vicious cycle that affects your anxiety and mood.";
+"smoking_mental_health_body_paragraph_4" = "Depression is common because when you smoke a lot, your brain kind of switches off its own way of making dopamine. So, in the long run, your brain has less dopamine that affects your mood.";
+
+// Moderate drinking education screens
+"moderate_drinking_body_1" = "You're doing a fantastic job maintaining moderation with your drinking! As you continue this healthy habit, remember to build other wellness practices like regular exercise, a balanced diet, and enough sleep.";
+"moderate_drinking_body_2" = "Focus on managing stress without turning to alcohol or quick fixes. Taking care of your body and mind will help you stay on track and reduce the urge to drink as a stress reliever.";
+"moderate_drinking_body_3" = "Keep up the great work—you're laying the groundwork for a healthier, happier life!";
+"moderate_drinking_body_4_full" = "Feel free to use My progress section to track your drinking habit if you'd like to.";
+"moderate_everyday_body_1" = "I'm proud of you setting a limit to alcohol consumption! You're taking a really important first step by recognizing your daily reliance on alcohol, and that's something to be proud of.";
+"moderate_everyday_body_2_full" = "We will show you small but significant changes in Make a plan section.";
+"moderate_social_binge_body_1" = "I'm proud of you for recognizing the need to control your drinking pattern! Acknowledging your drinking patterns is a crucial first step toward healthier habits.";
+"moderate_social_binge_body_2" = "It's important to reflect on your drinking habits, especially during social events, and consider how you can enjoy those moments without going overboard. By taking small steps to reduce your consumption, you'll start to see the benefits for both your health and your relationships.";
+"moderate_social_binge_body_3_full" = "In the Make a plan section, we'll guide you through practical strategies to help you make these changes. You've got this!";
+"moderate_problematic_body_1" = "I'm proud of you for recognizing the need to address your heavy drinking! Acknowledging that your drinking patterns may be problematic is a crucial first step toward a healthier life.";
+"moderate_problematic_body_2" = "It's essential to reflect on how your alcohol consumption impacts your well-being and relationships. By committing to change and taking small steps to reduce your drinking, you can begin to experience the benefits of a more balanced lifestyle.";
+"moderate_problematic_body_3_full" = "In the Make a plan section, we'll guide you through practical strategies to help you manage your drinking more effectively. Remember, you're not alone in this journey!";
 
 // Make a plan - ChangeCell / DefineMakeCell
 "make_plan_change_full_text" = "Thinking about a change?\n\nWe want you to know that the decision to reduce alcohol/drug consumption is entirely yours!\n\nBut If you find yourself consistently exceeding recommended guidelines for alcohol consumption, it would be wise to consider stopping, cutting down, or reducing your drinking.\nMixed feelings are normal.\n\nHave you thought about the pros and cons of doing so?";
@@ -89,7 +160,11 @@
 "This video explains the impact of alcohol on the brain and its subsequent effects. Having this knowledge will help you consider your drinking habits." = "This video explains the impact of alcohol on the brain and its subsequent effects. Having this knowledge will help you consider your drinking habits.";
 
 //consequences
-"What are the consequence?" = "What are the consequence?";
+"What are the consequence?" = "What are the consequences?";
+
+"consequences_intro_body" = "There is a wide range of short- and long-term consequences associated with alcohol misuse. For some individuals, any amount of drinking could be potentially harmful";
+"consequences_intro_see_some" = "Let's see some of them.";
+"Alcohol-related mental dysfunction" = "Alcohol-related mental dysfunction";
 
 "typesOfconsequence" = "There is a wide range of short- and long-term consequences associated with alcohol misuse.
 For some individuals, any amount of drinking could be potentially harmful.
@@ -174,7 +249,14 @@ These individual tend to drink more, socialize with people who drink a lot, and 
 //check mail vc
 "Check your email" = "Check your email";
 "Enter the 4-digit code that we have sent via email xxxxxxxxxx@gmail.com" = "Enter the 4-digit code that we have sent via email xxxxxxxxxx@gmail.com";
+"check_mail_otp_instruction_email_format" = "Enter the 4-digit code that we have sent via email %@";
+"check_mail_resend_prompt" = "Haven't got the email yet? ";
+"Resend email" = "Resend email";
+"check_mail_please_fill_otp" = "Please enter the complete 4-digit code";
 "Verify Code" = "Verify code";
+
+// license validation success (modal)
+"license_key_verified_success_message" = "Your license key has been verified. \n\nPlease check your mail for login with temporary password.";
 
 //forgot passowrd
 "Forgot password" = "Forgot password";
@@ -188,6 +270,11 @@ These individual tend to drink more, socialize with people who drink a lot, and 
 "Password" = "Password";
 "Confirm Password" = "Confirm Password";
 "Update Password" = "Update Password";
+"profile_edit_password_change_password" = "Change password";
+"profile_edit_password_old_password" = "Old password";
+"profile_edit_password_new_password" = "New password";
+"profile_edit_password_confirm_password" = "Confirm password";
+"profile_edit_password_update_password" = "Update password";
 
 //user intro screen
  "Good morning!"=  "Good morning!";
@@ -209,11 +296,15 @@ These individual tend to drink more, socialize with people who drink a lot, and 
 "Your License key has
 been verified." = "Your License key has
 been verified.";
-"Ok" = "Ok";
+"Ok" = "OK";
 "License Key" = "License Key";
 
 "Please complete your profile to start using Calmscient." = "Please complete your profile to start using Calmscient.";
 "Continue" = "Continue";
+"create_account_alert_success_title" = "Your profile has been updated successfully.";
+"create_account_alert_success_message" = "Please click on continue to start using Calmscient.";
+"create_account_alert_validation_title" = "Alert";
+"create_account_alert_validation_message" = "Please enter all fields to proceed.";
 
 //selection button
 "I agree to share my info with medical provider" = "I agree to share my info with medical provider";
@@ -291,6 +382,12 @@ Here are resources that can assist you in achieving your goal?";
 "Summary" = "Summary";
 "Drink tracker" = "Drink tracker";
 "Taking control introduction" = "Taking control introduction";
+"taking_control_title" = "Taking control introduction";
+"intro_instruction" = "If you answered YES to any of the four questions, please take the applicable follow-up test.";
+"audit_title" = "AUDIT";
+"audit_subtitle" = "For alcohol use";
+"dast_title" = "DAST-10";
+"dast_subtitle" = "smoking and drug use";
 "Make a plan" = "Make a plan";
 "How to use" = "How to use";
 "Events tracker" = "Events tracker";
@@ -311,6 +408,10 @@ Here are resources that can assist you in achieving your goal?";
 "text3" = "Smoke and want to quit? \n\nOur Smoking Coach can help.";
 "text4" = "You can always re-take the AUDIT and DUST-10 in this app";
 "text5" = "Do not show this tutorial from the next time";
+"thank_you_heading" = "Thank you for taking the test.";
+"taking_intro_last_btn_drinking_coach" = "Drinking Coach";
+"taking_intro_last_btn_smoking_coach" = "Smoking Coach";
+"taking_intro_last_fab_back_a11y" = "Go back to previous screen";
 
 //journal entry view controller
 "Quiz" = "Quiz";
@@ -320,6 +421,7 @@ Here are resources that can assist you in achieving your goal?";
 //ProgressOnCourseWorkHeaderView
 "Course" = "Course";
 "Completed" = "Completed";
+"Sections" = "Sections";
 
 
 //home tab dashboard
@@ -363,6 +465,7 @@ Here are resources that can assist you in achieving your goal?";
 "Don’t forget your medical appointment tomorrow" = "Don’t forget your medical appointment tomorrow.";
 "Upcoming Appointment" = "Upcoming Medical Appointments";
 "Would you like to update your mood?" = "Would you like to update your mood?";
+"You saved your mood successfully" = "You saved your mood successfully";
 
 //medication details view controller
 "Medications detail" = "Medications detail";
@@ -377,6 +480,7 @@ Here are resources that can assist you in achieving your goal?";
 "Appointment Details" = "Appointment details";
 "Contact" = "Contact";
 "Appointment Detail" = "Appointment detail";
+"Send an alert notification" = "Send an alert notification";
 "Address" = "Address";
 
 //Confirm Delete
@@ -569,6 +673,8 @@ lay down.";
 "Next appointments" = "Next appointments";
 "No appointments" = "No appointments";
 "Screenings" = "Screenings";
+"Please complete all of the following screenings" = "Please complete all of the following screenings";
+"Even if you feel they may not apply to you. These assessments helps us better understand your overall wellbeing." = "Even if you feel they may not apply to you. These assessments helps us better understand your overall wellbeing.";
 
 "Good morning!" = "Good morning!";
 "Good afternoon!" = "Good afternoon!";
@@ -640,6 +746,8 @@ Ready?";
 "DRINKING_CONTROL_Video_Message" = "This video highlights the positive transformations that occur when quitting alcohol, such as improved well-being, hydration, weight loss, and overall health. It also explains potential withdrawal symptoms and offers practical tips for navigating this period.";
 "DRINKING_CONTROL_Video_Header" = "What to expect when you quit drinking?";
 "DRINKING_CONTROL_Video_Sub_Header" = "Let’s watch the videos";
+"BASIC_KNOWLEDGE_Tipsy_Truth" = "Tipsy Truth";
+"BASIC_KNOWLEDGE_Brain_Video_URL" = "https://media.calmscient.in/uploads/course/Tipsy_truth_with_subtitle.mp4";
 
 "Mood_by_date_range" = "Mood by date range";
 "Sleep_by_date_range" = "Sleep by date range";
@@ -671,6 +779,9 @@ Ready?";
 "Add appointment" = "Add appointment";
 "Alarm" = "Alarm";
 "Alarm settings" = "Alarm settings";
+"Alarm settings subtitle" = "You can customize how early the alarm should go on";
+"alarm_time_unit_min" = "min";
+"Please select a time interval before proceeding." = "Please select a time interval before proceeding.";
 "Also you need to consider the following factors to determine what to do." = "Also you need to consider the following factors to determine what to do.";
 "Are you ready?" = "Are you ready?";
 "Are you sure you want to logout?" = "Are you sure you want to logout?";
@@ -705,6 +816,8 @@ Ready?";
 "My medical records" = "My medical records";
 "No Data Found" = "No Data Found";
 "No Records" = "No Records";
+"medication_no_records_toast" = "No Records";
+"medication_request_timeout_toast" = "Request timed out. Please try again.";
 "No content available" = "No content available";
 "No data for this date" = "No data for this date";
 "No internet connection. Please try again." = "No internet connection. Please try again.";
@@ -802,11 +915,36 @@ Ready?";
 "DAST-10" = "DAST-10";
 "CAGE" = "CAGE";
 "Apply to me" = "Apply to me";
+"DRINKING_CONTROL_ALERT_DUI_TITLE" = "Did you know?";
+"DRINKING_CONTROL_Consequence_Sub1_Intro" = "Alcohol-related deaths are increasing in the United States.";
+"DRINKING_CONTROL_Consequence_Sub1_Factor_Intro" = "Alcohol is a factor in:";
+"DRINKING_CONTROL_Consequence_Sub2_Intro" = "Excessive alcohol consumption can have a significant negative impact on mental capacity.";
+"DRINKING_CONTROL_Consequence_Sub2_Item_One" = "Memory problem; alcohol can impair both short-term and long-term memory. I can lead to blackouts(Can’t recall events that occurred while one is intoxicated).";
+"DRINKING_CONTROL_Consequence_Sub2_Item_Two" = "Reduced cognitive function; negatively affects one’s attention, concentration, and processing speed, makes and perform tasks that require mental clarity and concentration.";
+"DRINKING_CONTROL_Consequence_Sub2_Item_Three" = "Mood swings and anxiety; alcohol is a “depressant” that leads to mood swings, irritability, and increased risk of developing depression and anxiety.";
+"DRINKING_CONTROL_Consequence_Four_Intro" = "Drinking is associated with a number of health problems and can make certain chronic health problems worse.";
 "DRINKING_CONTROL_ALERT_DUI_BODY" = "Above 1.5 million people are arrested each year for driving under the influence of alcohol or drugs. DUI citations typically remain on your criminal record for many years, leading to higher insurance rates, difficulty in securing employment, and many other problems. Can you imagine the long-term negative consequences on your life and the stress it could cause? If someone has more than two DUIs, it doesn’t matter if they occur within days or over a ten-year period. They will be regarded as compounding offenses, resulting in increased penalties and possible imprisonment.";
 "SMOKING_CONTROL_RESOURCE_BREATHING_DESC" = "Let’s use breathing exercises to support your journey. They help reduce stress and cravings, and provide a calming distraction.";
 "SMOKING_CONTROL_RESOURCE_MANAGING_ANXIETY_TITLE" = "Managing anxiety course";
 "SMOKING_CONTROL_RESOURCE_MANAGING_ANXIETY_DESC" = "Anxiety can trigger drinking and smoking, but healthy coping strategies help you to stay strong";
 "SMOKING_CONTROL_RESOURCE_SCREENINGS_DESC" = "Let’s set a goal to screen for depression, anxiety, and alcohol and smoking regularly, as these can support your success";
+"DRINKING_CONTROL_RESOURCE_CALCULATOR_DESC" = "Use this calculator to plan to control your drinking habit.";
+"DRINKING_COUNT_SELECT_DRINK_INSTRUCTION" = "Select the drink and quantity.";
+
+// Taking Control index (SwiftUI)
+"Drinking" = "Drinking";
+"Smoking" = "Smoking";
+"Stay focused" = "Stay focused";
+"My progress" = "My progress";
+"Smoking free time" = "Smoking free time";
+"Saving" = "Saving";
+"Days" = "Days";
+"USD($)" = "USD($)";
+"Alcohol-free day" = "Alcohol-free day";
+"Upcoming alcohol-free day" = "Upcoming alcohol-free day";
+"Hangover, argument, accident" = "Hangover, argument, accident";
+"Drink more than moderation" = "Drink more than moderation";
+"Drink in moderation" = "Drink in moderation";
 
 // MakePlan / Question / InfoAlert / Glossary localized keys
 "mkpln_pro_1" = "To improve my health";
@@ -878,6 +1016,15 @@ Ready?";
 "gls_sum_21" = "Window of tolerance refers to a concept in psychology that describes an optimal range of arousal or activation that allows an individual to effectively cope with and respond to stressors and emotions. The window of tolerance suggests that individuals have a range in which they can handle and adapt to stressors without becoming overwhelmed or shutting down. When a person is within their window of tolerance, they are able to think clearly, make rational decisions, and engage in effective problem-solving. They are also able to experience and regulate emotions in a balanced and healthy manner.";
 
 // MyDrinkingHabit / ChallengingToQuit localization
+"drinking_habit_header_title" = "My drinking habit";
+"drinking_habit_question" = "After learning about drinking, which drinking habit applies to you?";
+"drinking_habit_moderate_definition_intro" = "Remember, moderate drinking is defined as:";
+"drinking_habit_men_label" = "Men:";
+"drinking_habit_men_limit" = "Up to 2 drinks/day";
+"drinking_habit_women_label" = "Women:";
+"drinking_habit_women_limit" = "Up to 1 drink/day";
+"drinking_habit_know_counts_prompt" = "Would you like to know your drink counts?";
+"drinking_habit_forward_fab_a11y" = "Next";
 "Moderate drinking" = "Moderate drinking";
 "Always drink with the moderate drinking standard." = "Always drink with the moderate drinking standard.";
 "Can effortlessly commit alcohol free plan for week or month." = "Can effortlessly commit alcohol free plan for week or month.";
@@ -937,6 +1084,10 @@ Ready?";
 "journal_edit_char_count_format" = "%d/2000";
 "journal_discovery_exercise_segment" = "Discovery \nExercise";
 
+// My smoking habit
+"smoking_habit_header_title" = "My smoking habit";
+"smoking_habit_stage_question" = "After going through a basic knowledge about smoking, which stage do you think you are at?";
+
 // My smoking habit stages
 "smoking_habit_stage_thinking_title" = "Thinking about quitting";
 "smoking_habit_stage_thinking_body" = "You are considering it but haven't made a decision yet.\n\nThat's perfectly ok! We will guide you through the benefits of quitting smoking, and then you can decide if you'd like to create a plan for quitting.\nMove to Make a plan.";
@@ -947,15 +1098,67 @@ Ready?";
 "smoking_habit_stage_smokefree_title" = "Staying smoke-free";
 "smoking_habit_stage_smokefree_body" = "You're focusing on avoiding relapse and keeping up your progress.\n\nThat's fantastic. It's important not to let your guard down. We will be here to support you to stay strong.\nMove to Make a plan to register the day you started quitting smoking, then you can use Stay focused.";
 
+// Challenging to quit journey (Swift UI)
+"challenging_to_quit_header" = "Why is it challenging to quit?";
+"challenging_to_quit_body_paragraph_1" = "Most teens who smoke think they will quit in their 20s and actually don't until their 40s. Stopping smoking is about making a change and that is something we're not too good at, in fact smoking cessation can be a long journey of trying and relapsing, just like a long ride on a roller coaster. There is no magic solution or medication to transform one to a non-smoker overnight, though some people have the gene to be able to quit smoking or drinking without any struggles.";
+"challenging_to_quit_body_paragraph_2" = "So what does this ride of change look like? There are 4 steps and helpful strategies you can take!";
+"challenging_to_quit_topic_thinking" = "\"I'm thinking about quitting\"";
+"challenging_to_quit_topic_ready" = "\"Getting ready to quit\"";
+"challenging_to_quit_topic_quitting" = "\"Quitting\"";
+"challenging_to_quit_topic_smoke_free" = "\"Staying smoke-free\"";
+"thinking_about_quitting_header" = "\"I'm thinking about quitting\"";
+"thinking_about_quitting_body_paragraph_1" = "Approximately 75% of smokers want to quit, but 25% are not interested. Perhaps you are thinking about it, but not quite ready to act. Although, cigarettes are expensive, you might still like the sensations of smoking. You may also feel pressured to quit because people smoke on the break or you live with someone who also smokes.";
+"thinking_about_quitting_body_paragraph_2" = "But just so you know, thinking about quitting is already a first big step forward toward change! It's normal to feel intimidated by taking action. No one wants to fail.. But think about this.. If it's going to be a challenge now and it's going to be a challenge in 5 years, why not do it now without spending more money on cigarettes?";
+"ready_to_quit_header" = "\"I'm ready to quit\"";
+"ready_to_quit_body_paragraph_1" = "If you have even tried to quit once in the past, you have some idea how it feels, the challenges you experienced, and what caused you to start smoking again. That means you've already tasted this journey and know how tricky it can be. There are small steps you can take now to help you quit for good and increase your chances of success. Learn the skills that will help you permanently achieve a tobacco-free life.";
+"ready_to_quit_body_paragraph_2" = "In the following sections, you can learn about recommended strategies for overcoming potential challenges you may encounter!";
+"trying_to_quit_header" = "\"I'm trying to quit\"";
+"trying_to_quit_body_paragraph_1" = "You've reached your quit date and committed yourself to a tobacco-free life.";
+"trying_to_quit_body_paragraph_2" = "Be proud! Quit smoking is like a relationship breakup and going through some losses.. You might have to break up your routine a little bit to avoid certain places, friends, and start a new routine to distract yourself. The plan requires you to think about more than just quitting smoking, but changes to your lifestyle.";
+"trying_to_quit_body_paragraph_3" = "There are some keys to achieve a permanent tobacco-free life.";
+"trying_to_quit_body_paragraph_4" = "What can you do?";
+"trying_to_quit_habits_heading" = "What new habits are helping you keep going?";
+"trying_to_quit_habit_bullet_1" = "Do something to stay active at home";
+"trying_to_quit_habit_bullet_2" = "Call or visit a friend or family member";
+"trying_to_quit_habit_bullet_3" = "Brush your teeth";
+"trying_to_quit_habit_bullet_4" = "Play with a pet";
+"trying_to_quit_habit_bullet_5" = "Update your contact list on your cell phone";
+"trying_to_quit_habit_bullet_6" = "Try a new hobby";
+"trying_to_quit_habit_bullet_7" = "Switch to coffee with less caffeine or decaf products";
+"trying_to_quit_rewards_heading" = "How much money have you saved by quitting tobacco? How are you rewarding yourself?";
+"trying_to_quit_celebrate_heading" = "Celebrate being tobacco-free for:";
+"trying_to_quit_milestone_3_days" = "3 days";
+"trying_to_quit_milestone_7_days" = "7 days";
+"trying_to_quit_milestone_2_weeks" = "2 weeks";
+"trying_to_quit_milestone_1_month" = "1 month";
+"trying_to_quit_milestone_3_months" = "3 months";
+"trying_to_quit_milestone_6_months" = "6 months";
+"trying_to_quit_milestone_1_year" = "1 year";
+"tobacco_free_header" = "\"I'm tobacco free\"";
+"tobacco_free_body_paragraph_1" = "Now you are a non-smoker and are trying to stay that way. When we make changes, it's critical to meditate on how important this change is to you and how confident you are in making this change. You want to pay attention to how your mind, body, and emotional regulation feel differently, how your attitude changed, and what you have started doing instead for better self-care.";
+"tobacco_free_body_paragraph_2" = "Thinking about it helps you to not go back to your old relationship with smoking.";
+"tobacco_free_body_paragraph_3" = "Now you know what to expect on this ride. It won't hit you as a surprise when you expect ups and downs of this journey! Remember it's all about coming up with a strategy that works for you, it's not about your will power.";
+"tobacco_free_body_paragraph_4" = "Are you out of the woods? Many people want to know how long it takes before the chance of going back to tobacco is no longer a concern. Relapse most commonly happens in the first one to three months after quitting.";
+"tobacco_free_body_paragraph_5" = "However, it's always wise to be on guard";
+
 // Add / edit appointment
+"Patient name" = "Patient name";
+"Provider name" = "Provider name";
+"Location" = "Location";
+"Date" = "Date";
 "appointment_description_placeholder" = "Description";
 "appointment_validation_patient_name_empty" = "Patient name cannot be empty";
 "appointment_validation_provider_name_empty" = "Provider name can't be empty";
 "appointment_validation_location_name_empty" = "Location name cannot be empty";
+"appointment_validation_mandatory_fields" = "Please fill all mandatory fields.";
 "appointment_selected_time_in_past" = "Selected time is in the past for today";
 "appointment_past_dates_not_allowed" = "Past dates are not allowed";
 
 // Medical records rows / tab bar / sleep intro / user intro selection (en)
+"main_tab_bar_home" = "Home";
+"main_tab_bar_discovery" = "Discovery";
+"main_tab_bar_exercises" = "Exercises";
+"main_tab_bar_rewards" = "Rewards";
 "Upcoming medical appointments" = "Upcoming medical appointments";
 "Rewards" = "Rewards";
 "sleep_hours_question_last_night" = "How many hours did you sleep last night?";
@@ -966,6 +1169,11 @@ Ready?";
 "sleep_summary_hours_format" = "%@ Hours";
 "UserIntro_Mood_BAD" = "BAD";
 "UserIntro_Mood_COULD_BE_BETTER" = "COULD BE BETTER";
+"MoodChart_BAD" = "BAD";
+"MoodChart_COULD_BE_BETTER" = "COULD BE\nBETTER";
+"MoodChart_FAIR" = "FAIR";
+"MoodChart_GOOD" = "GOOD";
+"MoodChart_EXCELLENT" = "EXCELLENT";
 "UserIntro_Mood_FAIR" = "FAIR";
 "UserIntro_Mood_GOOD" = "GOOD";
 "UserIntro_Mood_EXCELLENT" = "EXCELLENT";
@@ -977,3 +1185,105 @@ Ready?";
 "UserIntro_fallback_mood_morning" = "How are you feeling so far?";
 "UserIntro_fallback_mood_today" = "How was your mood today?";
 "UserIntro_fallback_time_spend" = "Who did you spend time with?";
+
+// Journal entry hub (Swift UI)
+"nav_title_journal_entry" = "Journal Entry";
+"search_placeholder" = "Search";
+"filter_questionnaire" = "Questionnaire";
+"filter_diary_journal" = "Diary Journal";
+"filter_discovery_exercise" = "Discovery Exercise";
+"filter_discovery_capsule" = "Discovery";
+"no_internet_msg" = "No internet connection.";
+"help_button_text" = "Need to talk to someone?";
+
+// Sources and citations (Swift UI)
+"sources_and_citations_title" = "Sources and Citations";
+
+// Day feedback evening reminder (local notification body)
+"Time to track your well-being." = "Time to track your well-being.";
+
+// Full coming soon modal (Swift UI)
+"full_coming_soon_title" = "Coming Soon!";
+"full_coming_soon_subtitle" = "Full version will be available soon!";
+"full_coming_soon_features_question" = "What features can you use\nin full version?";
+"full_coming_soon_feature_tracking" = "Tracking your smoking and drinking\nhabit";
+"full_coming_soon_feature_action_plan" = "Personalized action plan to control\nyour drinking and smoking habit";
+"full_coming_soon_feature_resources" = "Resources and tools to support\nyour journey";
+
+// Ready-to-quit symptom modals (Swift UI)
+"quit_symptom_irritability_title" = "Irritability and Mood Swings";
+"quit_symptom_difficulty_title" = "Difficulty Concentrating";
+"quit_symptom_sleep_title" = "Sleep Disturbances";
+"quit_symptom_depression_title" = "Depression and Anxiety";
+"quit_symptom_nicotine_intro" = "When you're trying to quit smoking, pretty much everyone feels the urge to smoke from time to time. It can be a small feeling or sometimes really strong. But guess what?\n\nDealing with these cravings is a big deal for staying smoke-free.\n\nHere are some ways to handle it:";
+"quit_symptom_nicotine_medicines_heading" = "Use quit-smoking medicines";
+"quit_symptom_nicotine_patch_combo" = "A nicotine patch plus a lozenge (mints/cough drops) or gum is the most common combination and you can get them at any drug store.";
+"quit_symptom_nicotine_timeline_patch" = "Put on a new patch each morning to get a steady level of nicotine that will reduce your cravings and withdrawal symptoms throughout the day.";
+"quit_symptom_nicotine_timeline_fast_acting" = "Use a fast-acting nicotine medicine like lozenges or gum to quickly combat cravings";
+"quit_symptom_nicotine_timeline_control" = "You can control how often you use the fast-acting medicine, so you won't get more nicotine than you want.";
+"quit_symptom_nicotine_timeline_early_start" = "It's OK to start nicotine patches, gum, or lozenges a week or two before you quit smoking. This can help you get ready and may cut down on your smoking. Starting medicine, especially the nicotine patch, before you quit may improve your chances of quitting successfully.";
+"quit_symptom_nicotine_also_try_full" = "You can also try…\n\nOne non-nicotine medicine (prescription from your doctor is required). Varenicline is a pill that works differently from other medicines. It does not contain nicotine. It works by attaching to the same parts of your brain that are stimulated by nicotine. This means that nicotine from a cigarette has fewer places to attach because the varenicline is already there. This makes it harder to get a nicotine \"buzz\".";
+"quit_symptom_nicotine_timeline_reduces_urge" = "Reduces your urge to smoke and enjoyment of cigarettes.";
+"quit_symptom_nicotine_timeline_strongest_chance" = "Gives you the strongest chance for success of any single medicine.";
+"quit_symptom_nicotine_timeline_start_early" = "Can start a week or more before you quit smoking.";
+"quit_symptom_nicotine_triggers_full" = "Know your triggers:\n\nCertain things can make you want to smoke, like being around friends you used to smoke with or being in a place where you often smoked. Even memories or feelings can bring it on.\n\nPositive thoughts:\n\nRemember why you decided to quit. You're in control, and cravings don't last forever. They'll pass.";
+"quit_symptom_irritability_intro" = "When you're trying to quit smoking, it's totally normal to feel a bit irritated or grouchy. Even folks who never smoked get it - it's just part of the quitting process. So, don't worry, you're not alone in feeling this way.\n\nHere's how to deal with it:";
+"quit_symptom_irritability_remind_heading" = "Remind yourself it's normal";
+"quit_symptom_irritability_remind_body" = "Feeling grumpy is just your body adjusting to not having nicotine.";
+"quit_symptom_irritability_breaths_heading" = "Take deep breaths";
+"quit_symptom_irritability_breaths_body" = "When irritation hits, take a few deep breaths to calm yourself. You can find them in \"exercise\".";
+"quit_symptom_irritability_why_heading" = "Remember why you quit";
+"quit_symptom_irritability_why_body" = "Think about why you decided to quit. It's a great motivator to push through the grumpy moments.";
+"quit_symptom_difficulty_intro" = "Right after you quit smoking, you might find it a bit tough to concentrate. Don't worry, it happens to a lot of people.\n\nHere's what you can do:";
+"quit_symptom_difficulty_kind_heading" = "Be kind to yourself";
+"quit_symptom_difficulty_kind_body" = "Give yourself a break, especially in the first few days after quitting.";
+"quit_symptom_difficulty_easy_heading" = "Take it easy";
+"quit_symptom_difficulty_easy_body" = "If you can, try not to do things that need a lot of focus right away.";
+"quit_symptom_appetite_intro" = "When you quit smoking, it's totally normal for your appetite to go up a bit. Your body might not burn calories as fast, and you might find yourself eating more, maybe because quitting can be a bit stressful, or you just want something to do with your hands and mouth. Plus, food might taste even better since your sense of smell and taste aren't dulled by smoke\n\nHere's what you can do to manage it:";
+"quit_symptom_appetite_snacking_heading" = "Smart snacking";
+"quit_symptom_appetite_snacking_body" = "Choose healthy snacks like celery, carrots, or sugar-free mints when you feel like munching between meals. You can also keep your hands and mouth busy with a toothpick or a straw.";
+"quit_symptom_appetite_moving_heading" = "Get moving";
+"quit_symptom_appetite_moving_body" = "You don't need to hit the gym, even a simple walk is great for your health.";
+"quit_symptom_appetite_focus_heading" = "Focus on eating";
+"quit_symptom_appetite_focus_body" = "When you eat, try to pay attention to what you're eating. Turn off the TV or put away your phone. Eating a bit slower and really savoring your food can help you notice when you're full.";
+"quit_symptom_sleep_intro" = "After you quit smoking, you might find it a bit tricky to get a good night's sleep at first. But don't worry, it gets better! If it's really bothering you, talk to your healthcare provider—they can help. Because if you're super tired from not sleeping well, it can make it tougher to stay smoke-free.\n\nHere's how you can manage it:";
+"quit_symptom_sleep_caffeine_heading" = "Watch your caffeine";
+"quit_symptom_sleep_caffeine_body" = "If you're into coffee, tea, or other caffeinated drinks, avoid them in the late afternoon or evening. After quitting smoking, caffeine sticks around longer in your body.";
+"quit_symptom_sleep_patch_heading" = "Nicotine patch tip";
+"quit_symptom_sleep_patch_body" = "If you're using the nicotine patch, try taking it off an hour before bedtime. Sometimes, nicotine from the patch can mess with your sleep.";
+"quit_symptom_sleep_space_heading" = "Create a sleep-friendly space";
+"quit_symptom_sleep_space_body" = "No TV, phones, or gadgets in bed. Make your bedroom quiet, dark, relaxing, and comfy.\nSkip heavy meals or alcohol right before bedtime.";
+"quit_symptom_sleep_active_heading" = "Stay active";
+"quit_symptom_sleep_active_body" = "Do some physical activity during the day (just not right before bed).";
+"quit_symptom_sleep_routine_heading" = "Sleep routine";
+"quit_symptom_sleep_routine_body" = "Try going to bed and waking up around the same time every day, even on weekends.";
+"quit_symptom_depression_intro" = "People who smoke are more likely to have anxiety or depression than people who don't smoke. Some people feel mood changes for a short time after they quit smoking. For some people, smoking may seem like it helps with anxiety or depression, but don't be tricked. Smoking might make you feel better in the short-term, but that's because the nicotine in cigarettes stops the discomfort of withdrawal, and not because it is helping with anxiety or depression. There are much better ways to deal with withdrawal symptoms and mood changes than returning to smoking! The good news is that once people have been smoke-free for a few months, their anxiety and depression levels are often lower than when they were smoking.\n\nHere's how you can manage it:";
+"quit_symptom_depression_moving_heading" = "Get moving";
+"quit_symptom_depression_moving_body" = "Exercise can really boost your mood. Start with something small and work your way up. It might be tough when you're feeling low, but it's worth it!";
+"quit_symptom_depression_busy_heading" = "Stay busy";
+"quit_symptom_depression_busy_body" = "Keep yourself occupied and have a routine. Even getting out of the house for a bit can make a difference.";
+"quit_symptom_depression_connect_heading" = "Connect with others";
+"quit_symptom_depression_connect_body" = "Talk to people who support you in quitting smoking. Having someone to chat with every day can lift your spirits.";
+"quit_symptom_depression_treat_heading" = "Treat yourself";
+"quit_symptom_depression_treat_body" = "Do things you enjoy, even if they're small. Those little things can make you feel better.";
+"quit_symptom_depression_talk_heading" = "Talk to someone";
+"quit_symptom_depression_talk_body" = "If you're still not feeling great after a couple of weeks or if it's just too much, reach out to a healthcare provider.\nYou call 1-800-QUIT-NOW, you can speak confidentially with a highly trained quit coach.";
+"quit_symptom_depression_stress_heading" = "Explore ways to handle stress and anxiety";
+"quit_symptom_depression_discovery_body" = "Have you checked out \"discovery\"? There are lots of useful courses that can help you manage stress and anxiety!";
+"quit_symptom_jumpy_title" = "Feeling Jumpy or Restless";
+"quit_symptom_jumpy_intro" = "When you first quit smoking, it's totally normal to feel a bit jumpy or restless. It's like your body is adjusting without nicotine, and it can affect not just your mind but the rest of you too.\n\nHere's how you can handle it:";
+"quit_symptom_jumpy_move_heading" = "Move around:";
+"quit_symptom_jumpy_move_body" = "Doing some physical activity can really help with that jumpy feeling. Take a short walk or just get up and stretch if you're feeling restless.";
+"quit_symptom_jumpy_caffeine_heading" = "Watch your caffeine";
+"quit_symptom_jumpy_caffeine_body" = "If you're into coffee, tea, or other caffeinated drinks, try cutting back a bit. After quitting smoking, caffeine hangs around in your body longer.";
+"quit_symptom_jumpy_success_heading" = "Increase your chance to success";
+"quit_symptom_jumpy_timeline_schedule" = "Schedule the date when you will quit. Make it soon, preferably within a month, so you will still be excited to become tobacco-free. Cut back on your tobacco use by one cigarette every two days before you completely give up tobacco on your quit date. Aim to start quitting completely when you are down to at least 10 cigarettes per day.";
+"quit_symptom_jumpy_timeline_quit_day" = "When your quit day arrives, get rid of all your cigarettes and/or chewing tobacco.";
+"quit_symptom_jumpy_timeline_clean" = "Clean your house to remove the odour of tobacco from your clothes, furnitures and car.";
+"quit_symptom_jumpy_timeline_ashtrays" = "Get rid of ashtrays, lighters and matches.";
+"quit_symptom_jumpy_timeline_medication" = "Consider using a nicotine replacement patch and/or tobacco-cessation medication.";
+"exercise_audio_silent_mode_toast" = "Phone is in silent mode";
+"profile_language_english" = "English";
+"profile_language_spanish" = "Spanish";
+"profile_language_japanese" = "Japanese";
+"profile_language_asl" = "ASL";

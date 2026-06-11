@@ -44,10 +44,14 @@ class MyDrinkingHabitVC: ViewController, UITableViewDelegate, UITableViewDataSou
         backItem.title = "" // Set an empty string for the back button
         self.navigationItem.backBarButtonItem = backItem
         
-        let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "DrinkingCountVC") as? DrinkingCountVC
-        vc?.title = AppHelper.getLocalizeString(str: "Drink counts calculator")
-        self.navigationController?.pushViewController(vc!, animated: true)
+        if #available(iOS 16.0, *) {
+            DrinkingCountNavigation.push(from: self)
+        } else {
+            let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+            let vc = next.instantiateViewController(withIdentifier: "DrinkingCountVC") as? DrinkingCountVC
+            vc?.title = AppHelper.getLocalizeString(str: "Drink counts calculator")
+            self.navigationController?.pushViewController(vc!, animated: true)
+        }
         
         
     }

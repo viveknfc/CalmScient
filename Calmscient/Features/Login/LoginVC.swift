@@ -229,7 +229,7 @@ class LoginVC: UIViewController,UITextFieldDelegate, UITextViewDelegate {
         
         if userNameText.contains(" ") || passwordText.contains(" ") {
                let alert = UIAlertController(title: "Error", message: "Username and Password should not contain spaces.", preferredStyle: .alert)
-               alert.addAction(UIAlertAction(title: "OK", style: .default))
+               alert.addAction(UIAlertAction(title: "OK".localized, style: .default))
                self.present(alert, animated: true)
                return
            }
@@ -332,35 +332,16 @@ class LoginVC: UIViewController,UITextFieldDelegate, UITextViewDelegate {
                             UserDefaultsHelper.saveLoginDetailsToUserDefaults(loginDetails: loginResponse.loginDetails, tokenResponse: loginResponse.tokenResponse)
                             
                             UserDefaults.standard.set("\(loginResponse.loginDetails.firstName)", forKey: "titleString")
-                            UserDefaults.standard.set("\(loginResponse.loginDetails.languageId)", forKey: "SelectedLanguageID")
-                            
-                            let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-                            print("the language id after login is getting as ", languageId as Any)
-                            
-                            if languageId == 1 {
-                                UserDefaults.standard.set("en", forKey: "appLanguage")
-                                Bundle.setLanguage("en")
-                            }
-                            if languageId == 2 {
-                                UserDefaults.standard.set("es", forKey: "appLanguage")
-                                Bundle.setLanguage("es")                                
-                            }
-                            if languageId == 7 {
-                                UserDefaults.standard.set("ja", forKey: "appLanguage")
-                                Bundle.setLanguage("ja")
-                            }
+                            PatientLanguagePreference.persistLoginLanguage(languageId: loginResponse.loginDetails.languageId)
                             
                             let loginCount = loginResponse.loginDetails.loginCount
                             
                             if loginCount == 1 {
-                                let storyboard = UIStoryboard(name: "UpdatePasswordVC", bundle: nil)
-                                if let vc = storyboard.instantiateViewController(withIdentifier: "UpdatePasswordVC") as? UpdatePasswordVC {
-                                    vc.updateEmailString = loginResponse.loginDetails.email
-                                    let nav = UINavigationController(rootViewController: vc)
-                                    if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
-                                        vc.view.hideToastActivity()
-                                        sceneDelegate.changeRootViewController(to: nav)
-                                    }
+                                let vc = UpdatePasswordHostingController(email: loginResponse.loginDetails.email)
+                                let nav = UINavigationController(rootViewController: vc)
+                                if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+                                    vc.view.hideToastActivity()
+                                    sceneDelegate.changeRootViewController(to: nav)
                                 }
                             } else {
                                 self.userStartUpAPICall ()
@@ -398,14 +379,11 @@ class LoginVC: UIViewController,UITextFieldDelegate, UITextViewDelegate {
         guard let loginResponse = ApplicationSharedInfo.shared.loginResponse else {
             return
         }
-        let plId = loginResponse.patientLocationID
-        let patientId = loginResponse.patientID
-        let clientId = loginResponse.clientID
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss" // Specify the desired format
-        let currentDate = Date()
-        let formattedDate = dateFormatter.string(from: currentDate)
-        
-        let params: [String: Any] = ["patientLocationId": plId, "clientId": clientId, "patientId": patientId, "time": formattedDate]
+        let params = DayFeedbackSessionLogic.userStartupAPIParameters(
+            patientLocationId: loginResponse.patientLocationID,
+            clientId: loginResponse.clientID,
+            patientId: loginResponse.patientID
+        )
         
         print("params for the user startup api is", params)
 
@@ -446,18 +424,12 @@ class LoginVC: UIViewController,UITextFieldDelegate, UITextViewDelegate {
 
                 if let responseMessage = responseDict["saved"] as? Int {
                     
-                    if responseMessage != 1 {
+                    if DayFeedbackSessionLogic.shouldShowDayFeedbackAfterLogin(saved: responseMessage) {
                         
                         print("entering mood screen from startup api true")
-                        
-                        let storyboard = UIStoryboard(name: "UserIntro", bundle: nil)
-                            let homeViewController = storyboard.instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as! UserIntroDayFeedbackViewController
-                        homeViewController.afternoonVC = true
-                        if let titleString = UserDefaults.standard.string(forKey: "titleString") {
-                            homeViewController.titleString = titleString
-                        }
 
-                            // Wrap the home view controller in a navigation controller if needed
+                        let homeViewController = DayFeedbackHostingController()
+                        homeViewController.afternoonVC = true
                         self.navController = UINavigationController(rootViewController: homeViewController)
                         
                     } else {
@@ -473,6 +445,10 @@ class LoginVC: UIViewController,UITextFieldDelegate, UITextViewDelegate {
                     
                     if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
                         sceneDelegate.changeRootViewController(to: self.navController!)
+                    }
+
+                    DispatchQueue.main.async {
+                        DayFeedbackEveningReminderScheduler.refreshSchedulingIfNeeded()
                     }
 
                } else {

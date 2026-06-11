@@ -58,55 +58,48 @@ class IntroSecondPageVC: ViewController {
     }
     
     @IBAction func firstButtonPressed(_ sender: Any) {
-        let next = UIStoryboard(name: "ScreeningQuestions", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "ScreeningQuestionsViewController") as? ScreeningQuestionsViewController
-        vc?.selectedScreening = auditData[0]
-
-        vc?.screeningAllQuestionsSuccessfullySubmittedClosure = { [weak self] obj in
-            guard let self = self else {
-                return
-            }
-            let next = UIStoryboard(name: "ScreeningResultVC", bundle: nil)
-            let vc = next.instantiateViewController(withIdentifier: "ScreeningResultVC") as? ScreeningResultVC
-            vc?.selectedScreening = obj
-            vc?.isComingFromParticularVC2 = true
-            self.navigationController?.pushViewController(vc!, animated: true)
+        guard #available(iOS 16.0, *) else { return }
+        let host = ScreeningQuestionsHostingController()
+        host.configure(selectedScreening: auditData[0]) { [weak self] obj in
+            guard let self, let obj else { return }
+            let host = ScreeningResultHostingController()
+            host.configure(selectedScreening: obj, isComingFromParticularVC2: true)
+            self.navigationController?.pushViewController(host, animated: true)
         }
-        self.navigationController?.pushViewController(vc!, animated: true)
+        navigationController?.pushViewController(host, animated: true)
     }
     
     
     @IBAction func secondButtonPressed(_ sender: Any) {
-        let next = UIStoryboard(name: "ScreeningQuestions", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "ScreeningQuestionsViewController") as? ScreeningQuestionsViewController
-        vc?.selectedScreening = dastData[0]
-
-        vc?.screeningAllQuestionsSuccessfullySubmittedClosure = { [weak self] obj in
-            guard let self = self else {
-                return
-            }
-            let next = UIStoryboard(name: "ScreeningResultVC", bundle: nil)
-            let vc = next.instantiateViewController(withIdentifier: "ScreeningResultVC") as? ScreeningResultVC
-            vc?.selectedScreening = obj
-            vc?.isComingFromParticularVC2 = true
-            self.navigationController?.pushViewController(vc!, animated: true)
+        guard #available(iOS 16.0, *) else { return }
+        let host = ScreeningQuestionsHostingController()
+        host.configure(selectedScreening: dastData[0]) { [weak self] obj in
+            guard let self, let obj else { return }
+            let host = ScreeningResultHostingController()
+            host.configure(selectedScreening: obj, isComingFromParticularVC2: true)
+            self.navigationController?.pushViewController(host, animated: true)
         }
-        self.navigationController?.pushViewController(vc!, animated: true)
-
+        navigationController?.pushViewController(host, animated: true)
     }
     
     
     @IBAction func forwardButtonPressed(_ sender: Any) {
-        let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "TakingIntroLastVC") as? TakingIntroLastVC
-        self.navigationController?.pushViewController(vc!, animated: true)
+        if #available(iOS 16.0, *) {
+            let host = TakingIntroLastHostingController()
+            navigationController?.pushViewController(host, animated: true)
+        } else {
+            let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
+            let vc = next.instantiateViewController(withIdentifier: "TakingIntroLastVC") as? TakingIntroLastVC
+            if let vc {
+                navigationController?.pushViewController(vc, animated: true)
+            }
+        }
     }
     
     
     @IBAction func backwardButtonPressed(_ sender: Any) {
-        let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "VTakingControlIntroVC") as? VTakingControlIntroVC
-        self.navigationController?.pushViewController(vc!, animated: true)
+        guard #available(iOS 16.0, *) else { return }
+        TakingControlIntroNavigation.push(from: self, animated: true)
     }
     
     

@@ -4,7 +4,7 @@
 //
 //  SwiftUI alarm interval sheet (matches design: header, subtitle, interval list).
 //
-//  NFC Solutions
+//  Vivek
 //  14 May 2026
 //
 import SwiftUI

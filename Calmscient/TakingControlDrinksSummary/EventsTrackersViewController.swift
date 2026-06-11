@@ -358,14 +358,13 @@ extension EventsTrackersViewController : UITableViewDataSource,UITableViewDelega
                     DispatchQueue.main.async {
                         cell.eventsImageView.image = UIImage(data: data)
                         let eventFlag1 = event["eventFlag"] as? Int
-                        if eventFlag1 == 1{
-                            let lan = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-                            if lan == 1 {
+                        if eventFlag1 == 1 {
+                            if PatientLanguagePreference.isEnglishForLocalizedAssets() {
                                 cell.yesAndNobutton.setImage(UIImage(named: "ToggleSwitch_Yes"), for: .normal)
-                            }else {
+                            } else {
                                 cell.yesAndNobutton.setImage(UIImage(named: "ToggleSwitch_Si"), for: .normal)
                             }
-                            
+
                         }
                         else{
                             cell.yesAndNobutton.setImage(UIImage(named: "ToggleSwitch_No"), for: .normal)
@@ -379,10 +378,9 @@ extension EventsTrackersViewController : UITableViewDataSource,UITableViewDelega
                             cell.yesAndNobuttonAction = { [weak self, weak cell] in
                                 guard let self = self, let cell = cell else { return }
                                 if cell.yesAndNobutton.currentImage == UIImage(named: "ToggleSwitch_No") {
-                                    let lan = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-                                    if lan == 1 {
+                                    if PatientLanguagePreference.isEnglishForLocalizedAssets() {
                                         cell.yesAndNobutton.setImage(UIImage(named: "ToggleSwitch_Yes"), for: .normal)
-                                    }else {
+                                    } else {
                                         cell.yesAndNobutton.setImage(UIImage(named: "ToggleSwitch_Si"), for: .normal)
                                     }
                                 } else {
@@ -427,13 +425,12 @@ extension EventsTrackersViewController : UITableViewDataSource,UITableViewDelega
     @objc func toggleButtonImage(_ sender: UIButton) {
             // Check the current image and toggle it
             if sender.currentImage == UIImage(named: "ToggleSwitch_No") {
-                let lan = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-                if lan == 1 {
+                if PatientLanguagePreference.isEnglishForLocalizedAssets() {
                     sender.setImage(UIImage(named: "ToggleSwitch_Yes"), for: .normal)
-                }else {
+                } else {
                     sender.setImage(UIImage(named: "ToggleSwitch_Si"), for: .normal)
                 }
-                
+
             } else {
                 sender.setImage(UIImage(named: "ToggleSwitch_No"), for: .normal)
             }

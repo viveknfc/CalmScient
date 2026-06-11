@@ -49,6 +49,7 @@ class ProgressOnWorkDetailViewController: ViewController, UITableViewDataSource,
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         needToTalkSomeOneButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str:"Need to talk with someone?"))
+        needToTalkSomeOneButton.applyNeedToTalkButtonVisibility()
     }
     
     @IBAction func needToTalkButtonAction(_ sender: Any) {

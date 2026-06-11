@@ -242,7 +242,7 @@ checkMailLbl.text = AppHelper.getLocalizeString(str: "Check your email")
                                     //self.view.showToast(message: json["responseMessage"] as! String)
                                     let alertController = UIAlertController(title: "Alert", message: json["responseMessage"] as? String, preferredStyle: .alert)
                                     
-                                    let yesAction = UIAlertAction(title: "OK", style: .default) { _ in
+                                    let yesAction = UIAlertAction(title: "OK".localized, style: .default) { _ in
                                        
                                         alertController.dismiss(animated: true)
                                     }
@@ -256,10 +256,15 @@ checkMailLbl.text = AppHelper.getLocalizeString(str: "Check your email")
                                     
                                     self.view.hideToastActivity()
                                     self.view.endEditing(true)
-                                    let next = UIStoryboard(name: "UpdatePasswordVC", bundle: nil)
-                                    let vc = next.instantiateViewController(withIdentifier: "UpdatePasswordVC") as? UpdatePasswordVC
-                                    vc?.updateEmailString = emailString
-                                    self.navigationController?.pushViewController(vc!, animated: true)
+                                    if #available(iOS 16.0, *) {
+                                        let vc = UpdatePasswordHostingController(email: emailString)
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                    } else {
+                                        let next = UIStoryboard(name: "UpdatePasswordVC", bundle: nil)
+                                        guard let vc = next.instantiateViewController(withIdentifier: "UpdatePasswordVC") as? UpdatePasswordVC else { return }
+                                        vc.updateEmailString = emailString
+                                        self.navigationController?.pushViewController(vc, animated: true)
+                                    }
                                 }
                             }
                             

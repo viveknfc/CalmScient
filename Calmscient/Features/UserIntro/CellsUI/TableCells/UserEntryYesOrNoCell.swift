@@ -40,10 +40,10 @@ class UserEntryYesOrNoCell: UITableViewCell, UITextViewDelegate {
     private var cellType:UserEntryDayFeedbackTableCell! {
         didSet {
             if cellType == .UserEntryJournalCell {
-                let languageId = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
-
                 var labelText: String
-                labelText = languageId == 1 ? (instance.journalData?.journalKey ?? "") : "Diario"
+                labelText = PatientLanguagePreference.isEnglishForLocalizedAssets()
+                    ? (instance.journalData?.journalKey ?? "")
+                    : "Diario"
 
                 // Create an attributed string with red asterisk
                 let attributedText = NSMutableAttributedString(string: labelText)

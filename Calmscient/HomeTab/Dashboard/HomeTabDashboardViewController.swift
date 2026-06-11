@@ -9,8 +9,6 @@ import UIKit
 
 class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
     
-    static let shared = HomeTabDashboardViewController()
-    
     @IBOutlet weak var noFavsLabel: UILabel!
     @IBOutlet weak var screenTitleLabel: UILabel!
     @IBOutlet weak var dashboardTableView: UITableView!
@@ -119,7 +117,6 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
     }
     
     private func handleTokenFailure() {
-        let next = UIStoryboard(name: "LoginVC", bundle: nil)
         UserDefaults.standard.set(0, forKey: "rememberMe")
         UserDefaultsHelper.clearLoginDetailsFromUserDefaults()
         ApplicationSharedInfo.shared.loginResponse = nil
@@ -127,15 +124,14 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
 
         if #available(iOS 16.0, *) {
             if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
-                let newVC = next.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-                let navController = UINavigationController(rootViewController: newVC)
+                let navController = LoginHostingController.loginNavigationRoot()
                 sceneDelegate.changeRootViewController(to: navController)
             }
         }
     }
     
     @IBAction func didClickOnProfile(_ sender: UIButton) {
-        let userProfileViewController = UIStoryboard(name: "UserProfile", bundle: nil).instantiateViewController(withIdentifier: "UserProfileViewController") as! UserProfileViewController
+        let userProfileViewController = UserProfileHostingController()
         UserDefaults.standard.removeObject(forKey: "shouldPopToDis")
         self.navigationController?.pushViewController(userProfileViewController, animated: true)
         
@@ -177,6 +173,7 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
 noFavsLabel.text = AppHelper.getLocalizeString(str: "No favorites found for this patient")
         myFavourites.text = AppHelper.getLocalizeString(str: "My Favorites")
         actionButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str: "Need to talk with someone?"))
+        actionButton.applyNeedToTalkButtonVisibility()
         dashboardTableView.reloadData()
         
         // Notify observers that language has changed
@@ -209,133 +206,6 @@ noFavsLabel.text = AppHelper.getLocalizeString(str: "No favorites found for this
         vc?.title = "Emergency resource"
         self.navigationController?.pushViewController(vc!, animated: true)
     }
-    func getPatientFavorites(plId: Int, patientId: Int, clientId: Int,parentId: Int, completion: @escaping (Result<Data, Error>) -> Void) {
-        guard NetworkMonitor.shared.isConnected else {
-            DispatchQueue.main.async {
-                NoInternetBanner.shared.show()
-            }
-            return
-        }
-        
-        guard let url = URL(string: "\(baseURLString)patients/api/v1/course/getPatientFavorites") else {
-            print("Invalid URL")
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer \(ApplicationSharedInfo.shared.tokenResponse?.accessToken ?? "")", forHTTPHeaderField: "Authorization")
-        
-        
-        let payload: [String: Any] = [
-            "plId": plId,
-            "patientId": patientId,
-            "parentId" : parentId,
-            "clientId": clientId,
-        ]
-        do {
-            let jsonData = try JSONSerialization.data(withJSONObject: payload, options: [])
-            request.httpBody = jsonData
-            print(jsonData)
-        } catch {
-            print("Error converting payload to JSON: \(error)")
-            completion(.failure(error))
-            return
-        }
-        
-        let startTime = Date()
-        
-        // Create the URLSession data task
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            
-            let endTime = Date()
-            let responseTIme = endTime.timeIntervalSince(startTime)
-            print("the response TIme taking for Fav API from home dashboard is: \(responseTIme) seconds")
-            
-            if let error = error {
-                print("Error with request: \(error)")
-                completion(.failure(error))
-                return
-            }
-            
-            guard let data = data else {
-                print("No data received")
-                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
-                return
-            }
-            
-            // If needed, handle the response here
-            completion(.success(data))
-        }
-        
-        // Start the data task
-        task.resume()
-    }
-    func getMeniItems(plId: Int, patientId: Int, clientId: Int,parentId: Int, completion: @escaping (Result<Data, Error>) -> Void) {
-        guard NetworkMonitor.shared.isConnected else {
-            DispatchQueue.main.async {
-                NoInternetBanner.shared.show()
-            }
-            return
-        }
-        
-        // Define the URL
-        guard let url = URL(string: "\(baseURLString)identity/api/v1/menu/fetchMenus") else {
-            print("Invalid URL")
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("Bearer \(ApplicationSharedInfo.shared.tokenResponse?.accessToken ?? "")", forHTTPHeaderField: "Authorization")
-        
-        
-        let payload: [String: Any] = [
-            "plId": plId,
-            "patientId": patientId,
-            "parentId" : parentId,
-            "clientId": clientId,
-        ]
-        do {
-            let jsonData = try JSONSerialization.data(withJSONObject: payload, options: [])
-            request.httpBody = jsonData
-            print(jsonData)
-        } catch {
-            print("Error converting payload to JSON: \(error)")
-            completion(.failure(error))
-            return
-        }
-        
-        let startTime = Date()
-        
-        // Create the URLSession data task
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
-            
-            let endTime = Date()
-            let responseTIme = endTime.timeIntervalSince(startTime)
-            print("the response TIme taking for login VC is: \(responseTIme) seconds")
-            
-            if let error = error {
-                print("Error with request: \(error)")
-                completion(.failure(error))
-                return
-            }
-            
-            guard let data = data else {
-                print("No data received")
-                completion(.failure(NSError(domain: "", code: -1, userInfo: [NSLocalizedDescriptionKey: "No data received"])))
-                return
-            }
-            
-            // If needed, handle the response here
-            completion(.success(data))
-        }
-        
-        // Start the data task
-        task.resume()
-    }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
@@ -363,24 +233,28 @@ noFavsLabel.text = AppHelper.getLocalizeString(str: "No favorites found for this
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            let next = UIStoryboard(name: "UserMedicalRecords", bundle: nil)
-            let vc = next.instantiateViewController(withIdentifier: "UserMedicalRecordsViewController") as? UserMedicalRecordsViewController
-            self.navigationController?.pushViewController(vc!, animated: true)
-        } else if indexPath.row == 1 {
-            let next = UIStoryboard(name: "WeeklySummaryDashboard", bundle: nil)
-            let vc = next.instantiateViewController(withIdentifier: "WeeklySummaryDashboardViewController") as? WeeklySummaryDashboardViewController
-            self.navigationController?.pushViewController(vc!, animated: true)
-        } else if indexPath.row == 2 {
-            
-            let next = UIStoryboard(name: "UserIntro", bundle: nil)
             if #available(iOS 16.0, *) {
-                let vc = next.instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as? UserIntroDayFeedbackViewController
-                
-                vc?.title = "Mental wellbeing tracker".localized
-                vc?.hideSkipButton = true
-                self.navigationController?.pushViewController(vc!, animated: true)
+                self.navigationController?.pushViewController(UserMedicalRecordsHostingController(), animated: true)
             } else {
-                // Fallback on earlier versions
+                let next = UIStoryboard(name: "UserMedicalRecords", bundle: nil)
+                let vc = next.instantiateViewController(withIdentifier: "UserMedicalRecordsViewController") as? UserMedicalRecordsViewController
+                if let vc { self.navigationController?.pushViewController(vc, animated: true) }
+            }
+        } else if indexPath.row == 1 {
+            if #available(iOS 16.0, *) {
+                navigationController?.pushViewController(WeeklySummaryDashboardHostingController(), animated: true)
+            } else {
+                let next = UIStoryboard(name: "WeeklySummaryDashboard", bundle: nil)
+                let vc = next.instantiateViewController(withIdentifier: "WeeklySummaryDashboardViewController") as? WeeklySummaryDashboardViewController
+                if let vc { navigationController?.pushViewController(vc, animated: true) }
+            }
+        } else if indexPath.row == 2 {
+            if #available(iOS 16.0, *) {
+                let vc = DayFeedbackHostingController(
+                    hideSkipButton: true,
+                    dashboardNavigationTitle: "Mental wellbeing tracker".localized
+                )
+                self.navigationController?.pushViewController(vc, animated: true)
             }
             
         }

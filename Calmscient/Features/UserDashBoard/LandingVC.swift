@@ -40,6 +40,7 @@ class LandingVC: UIViewController {
     func setupLanguage() {
         
 needToTalkButton.titleLabel!.text = AppHelper.getLocalizeString(str: "Need to talk with someone?")
+        needToTalkButton.applyNeedToTalkButtonVisibility()
         happyToSeeYouLbl.text = AppHelper.getLocalizeString(str: "We are happy to see you")
         //helloLabel have attributed string
         

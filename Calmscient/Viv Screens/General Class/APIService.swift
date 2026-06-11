@@ -14,13 +14,17 @@ class APIService: UIViewController {
     static var DevURL = "http://147.93.41.160/api/"
     
     static var Url4Courses = "https://calmscient.in/courses/" //"http://147.93.41.160/courses/" //
-    static var BaseUrl = ProducitonURL
+    static var BaseUrl = DevURL
     
     static var versionCheck = "identity/api/v1/settings/getAppVersion"
     
     static var RefreshToken = "identity/api/v1/user/refreshToken"
     static var DeleteMedication = "patients/api/v1/medications/deleteMedication"
     static var MarkMedication = "patients/api/v1/medications/markMedication"
+    static var GetMedications = "patients/api/v1/medications/getMedications"
+    static var AddMedications = "patients/api/v1/medications/addMedications"
+    static var SavePatientStartupScreen = "patients/api/v1/patientDetails/savePatientStartupScreen"
+    static var forgetPassword = "identity/api/v1/settings/forgetPassword"
     static var AddJournal = "patients/api/v1/patientDetails/addPatientJournalEntry"
     static var FetchMoodScreenData = "patients/api/v1/patientDetails/getPatientStartupScreen"
     static var JournalData = "patients/api/v1/patientDetails/getPatientJournalByPatientIdForMobile"
@@ -29,15 +33,21 @@ class APIService: UIViewController {
 
     static var GetTakingControlIndex = "patients/api/v1/takingControl/getTakingControlIndex"
     static var CreateDrinkTracking = "patients/api/v1/alcohol/createDrinkTracking"
+    static var GetDrinksList = "patients/api/v1/alcohol/getDrinksList"
     
     static var DeleteeAppointment = "patients/api/v1/appointments/deactivate"
     static var EditAppointment = "patients/api/v1/appointments/update"
     static var SaveAppointment = "patients/api/v1/appointments/create"
+    static var getMedicalAppointmentsByPatientId = "patients/api/v1/patientDetails/getMedicalAppointmentsByPatientId"
     static var LocationDetails = "identity/api/v1/location/getLocationList"
     static var ProviderDetails = "identity/api/v1/location/getAllProviders"
+    static var getPatientPrivacy = "identity/api/v1/settings/getPatientPrivacy"
+    static var updatePatientConsent = "identity/api/v1/settings/updatePatientConsent"
     
     static var UserStartUpScreen = "patients/api/v1/patientDetails/hasSavedStartupScreen"
     static var updatePassword = "identity/api/v1/settings/changePasswordForMob"
+    static var getPatientProfileDetails = "identity/api/v1/settings/getPatientProfileDetails"
+    static var updatePatientProfileDetails = "identity/api/v1/settings/updatePatientProfileDetails"
     
     static var DBasicKnowledgeQuestions = "patients/api/v1/takingControl/getBasicKnowledgeIndex"
     static var DUpdateBasicKnowledge = "patients/api/v1/takingControl/updateBasicKnowledgeIndex"
@@ -53,13 +63,29 @@ class APIService: UIViewController {
     static var alarmSettings = "identity/api/v1/settings/saveAlarmDurationTime"
     
     static var profilePic = "identity/api/v1/settings/getUserProfile"
+    static var getPatientLanguages = "identity/api/v1/settings/getPatientLanguages"
+    static var updateUserLanguage = "identity/api/v1/settings/updateUserLanguage"
+    static var uploadProfileImage = "identity/api/v1/settings/uploadProfileImage"
     
     static var ScreeningList4AssessmentId = "patients/api/v1/screening/getScreeningListForMobile"
+    static var ScreeningHistoryForMobile = "patients/api/v1/screening/getScreeningHistoryForMobile"
+    static var ScreeningResultsForMobile = "patients/api/v1/screening/getScreeningResultsForMobile"
     static var TakingControlIntroFirstScreen = "patients/api/v1/screening/getScreeningQuestionnaireForMobile"
     static var TakingControlIntroFirstAns = "patients/api/v1/screening/savePatientAnswersForMobile"
     
     static var generateOTP = "identity/api/v1/settings/generateOTP"
-    
+    static var validateOTP = "identity/api/v1/settings/validateOTP"
+    static var userLogin = "identity/api/v1/settings/userLogin"
+
+    /// Home tab / favorites: menu payload includes `favorites` array (used by `FavoriteManager`).
+    static var FetchMenus = "identity/api/v1/menu/fetchMenus"
+    /// Course favorites for patient (e.g. basic knowledge video favorite state).
+    static var GetPatientFavorites = "patients/api/v1/course/getPatientFavorites"
+    /// Save or remove an exercise favorite (every exercise fav button).
+    static var SavePatientExercisesFavorites = "patients/api/v1/course/savePatientExercisesFavorites"
+    static var getPatientCourseWorkPercentageDetailsForMobile =
+        "patients/api/v1/course/getPatientCourseWorkPercentageDetailsForMobile"
+    static var getPatientCourseIndex = "patients/api/v1/course/getPatientCourseIndex"
 
     //MARK: - Version CHeck API
     
@@ -84,6 +110,95 @@ class APIService: UIViewController {
         let urlString = APIService.BaseUrl+APIService.generateOTP
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
+
+    //MARK: - Validate OTP API Calling
+
+    static func validateOTPAPICalling(_ view: UIViewController?, params: [String: Any], method: String, accessToken: String, acces: Bool, parameterPlacement: String, callBack: @escaping (AnyObject) -> ()) {
+
+        let urlString = APIService.BaseUrl + APIService.validateOTP
+        APIService.getRequestWithToken(viewController: view, urlString: urlString, params: params, method: method, accessToken: accessToken, acces: acces, timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+
+    //MARK: - User Login API Calling
+
+    static func userLoginAPICalling(_ view: UIViewController?, params: [String: Any], method: String, accessToken: String, acces: Bool, parameterPlacement: String, callBack: @escaping (AnyObject) -> ()) {
+
+        let urlString = APIService.BaseUrl + APIService.userLogin
+        APIService.getRequestWithToken(viewController: view, urlString: urlString, params: params, method: method, accessToken: accessToken, acces: acces, timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+
+    // MARK: - Home dashboard / favorites (menus)
+
+    static func fetchMenusAPICalling(
+        _ view: UIViewController?,
+        params: [String: Any],
+        method: String,
+        accessToken: String,
+        acces: Bool,
+        parameterPlacement: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        let urlString = APIService.BaseUrl + APIService.FetchMenus
+        APIService.getRequestWithToken(
+            viewController: view,
+            urlString: urlString,
+            params: params,
+            method: method,
+            accessToken: accessToken,
+            acces: acces,
+            timeOut: 6,
+            parameterPlacement: parameterPlacement,
+            callback: callBack
+        )
+    }
+
+    static func getPatientFavoritesAPICalling(
+        _ view: UIViewController?,
+        params: [String: Any],
+        method: String,
+        accessToken: String,
+        acces: Bool,
+        parameterPlacement: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        let urlString = APIService.BaseUrl + APIService.GetPatientFavorites
+        APIService.getRequestWithToken(
+            viewController: view,
+            urlString: urlString,
+            params: params,
+            method: method,
+            accessToken: accessToken,
+            acces: acces,
+            timeOut: 6,
+            parameterPlacement: parameterPlacement,
+            callback: callBack
+        )
+    }
+
+    // MARK: - Save patient exercise favorite
+
+    static func savePatientExercisesFavoritesAPICalling(
+        _ view: UIViewController?,
+        params: [String: Any],
+        method: String,
+        accessToken: String,
+        acces: Bool,
+        parameterPlacement: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        let urlString = APIService.BaseUrl + APIService.SavePatientExercisesFavorites
+        APIService.getRequestWithToken(
+            viewController: view,
+            urlString: urlString,
+            params: params,
+            method: method,
+            accessToken: accessToken,
+            acces: acces,
+            timeOut: 6,
+            parameterPlacement: parameterPlacement,
+            callback: callBack
+        )
+    }
     
     //MARK: - Alarm Settings API Calling
     
@@ -99,6 +214,218 @@ class APIService: UIViewController {
         
         let urlString = APIService.BaseUrl+APIService.profilePic
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+
+    // MARK: - Patient profile (edit screen)
+
+    static func getPatientProfileDetailsAPICalling(
+        _ view: UIViewController?,
+        params: [String: Any],
+        method: String,
+        accessToken: String,
+        acces: Bool,
+        parameterPlacement: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        let urlString = APIService.BaseUrl + APIService.getPatientProfileDetails
+        APIService.getRequestWithToken(
+            viewController: view,
+            urlString: urlString,
+            params: params,
+            method: method,
+            accessToken: accessToken,
+            acces: acces,
+            timeOut: 6,
+            parameterPlacement: parameterPlacement,
+            callback: callBack
+        )
+    }
+
+    static func updatePatientProfileDetailsAPICalling(
+        _ view: UIViewController?,
+        params: [String: Any],
+        method: String,
+        accessToken: String,
+        acces: Bool,
+        parameterPlacement: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        let urlString = APIService.BaseUrl + APIService.updatePatientProfileDetails
+        APIService.getRequestWithToken(
+            viewController: view,
+            urlString: urlString,
+            params: params,
+            method: method,
+            accessToken: accessToken,
+            acces: acces,
+            timeOut: 6,
+            parameterPlacement: parameterPlacement,
+            callback: callBack
+        )
+    }
+
+    // MARK: - Settings: patient languages
+
+    static func getPatientLanguagesAPICalling(
+        _ view: UIViewController?,
+        params: [String: Any],
+        method: String,
+        accessToken: String,
+        acces: Bool,
+        parameterPlacement: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        let urlString = APIService.BaseUrl + APIService.getPatientLanguages
+        APIService.getRequestWithToken(
+            viewController: view,
+            urlString: urlString,
+            params: params,
+            method: method,
+            accessToken: accessToken,
+            acces: acces,
+            timeOut: 6,
+            parameterPlacement: parameterPlacement,
+            callback: callBack
+        )
+    }
+
+    static func updateUserLanguageAPICalling(
+        _ view: UIViewController?,
+        params: [String: Any],
+        method: String,
+        accessToken: String,
+        acces: Bool,
+        parameterPlacement: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        let urlString = APIService.BaseUrl + APIService.updateUserLanguage
+        APIService.getRequestWithToken(
+            viewController: view,
+            urlString: urlString,
+            params: params,
+            method: method,
+            accessToken: accessToken,
+            acces: acces,
+            timeOut: 6,
+            parameterPlacement: parameterPlacement,
+            callback: callBack
+        )
+    }
+
+    /// Multipart upload cannot use JSON `getRequestWithToken`; mirrors its URL, auth, connectivity, and status handling.
+    static func uploadProfileImageAPICalling(
+        _: UIViewController?,
+        patientId: Int,
+        clientId: Int,
+        fileData: Data,
+        fileName: String,
+        accessToken: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        guard NetworkMonitor.shared.isConnected else {
+            DispatchQueue.main.async {
+                NoInternetBanner.shared.show()
+            }
+            callBack("Error: No Internet Connection" as AnyObject)
+            return
+        }
+
+        let urlString = APIService.BaseUrl + APIService.uploadProfileImage
+        guard let url = URL(string: urlString) else {
+            Crashlytics.crashlytics().log("Invalid URL: \(urlString)")
+            callBack("Error: Invalid URL" as AnyObject)
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        let boundary = UUID().uuidString
+        request.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+
+        var body = Data()
+        body.append("--\(boundary)\r\n")
+        body.append("Content-Disposition: form-data; name=\"patientId\"\r\n\r\n")
+        body.append("\(patientId)\r\n")
+        body.append("--\(boundary)\r\n")
+        body.append("Content-Disposition: form-data; name=\"clientId\"\r\n\r\n")
+        body.append("\(clientId)\r\n")
+        body.append("--\(boundary)\r\n")
+        body.append("Content-Disposition: form-data; name=\"file\"; filename=\"\(fileName)\"\r\n")
+        body.append("Content-Type: image/jpeg\r\n\r\n")
+        body.append(fileData)
+        body.append("\r\n")
+        body.append("--\(boundary)--\r\n\r\n")
+        request.httpBody = body
+        request.setValue("\(body.count)", forHTTPHeaderField: "Content-Length")
+        request.timeoutInterval = 6
+
+        Crashlytics.crashlytics().setCustomValue(urlString, forKey: "api_url")
+        Crashlytics.crashlytics().setCustomValue("POST", forKey: "http_method")
+
+        let session = URLSession(configuration: .default)
+        let task = session.dataTask(with: request) { data, response, error in
+            if let error = error {
+                let nsError = error as NSError
+                if nsError.code == NSURLErrorNotConnectedToInternet ||
+                    nsError.code == NSURLErrorNetworkConnectionLost {
+                    DispatchQueue.main.async {
+                        NoInternetBanner.shared.show()
+                    }
+                    callBack("Error: No Internet Connection" as AnyObject)
+                    return
+                }
+                Crashlytics.crashlytics().log("Network error: \(error.localizedDescription)")
+                OperationQueue.main.addOperation {
+                    callBack("Error: \(error.localizedDescription)" as AnyObject)
+                }
+                return
+            }
+
+            guard let httpResponse = response as? HTTPURLResponse else {
+                OperationQueue.main.addOperation {
+                    callBack("Error: Invalid response" as AnyObject)
+                }
+                return
+            }
+
+            guard let data = data else {
+                OperationQueue.main.addOperation {
+                    callBack("Error: No data received" as AnyObject)
+                }
+                return
+            }
+
+            if httpResponse.statusCode != 200 {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                    let errorMessage = (json as? [String: Any])?["message"] as? String ?? "Unknown error"
+                    Crashlytics.crashlytics().log("API \(urlString) returned status code \(httpResponse.statusCode) — Error: \(errorMessage)")
+                    OperationQueue.main.addOperation {
+                        callBack("Error: \(errorMessage)" as AnyObject)
+                    }
+                } catch let parseError {
+                    Crashlytics.crashlytics().log("Error parsing error JSON for URL: \(urlString) — \(parseError.localizedDescription)")
+                    OperationQueue.main.addOperation {
+                        callBack("Error parsing error response JSON: \(parseError.localizedDescription)" as AnyObject)
+                    }
+                }
+                return
+            }
+
+            do {
+                let json = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+                OperationQueue.main.addOperation {
+                    callBack(json as AnyObject)
+                }
+            } catch let parseError {
+                Crashlytics.crashlytics().log("JSON parse error for URL \(urlString): \(parseError.localizedDescription)")
+                OperationQueue.main.addOperation {
+                    callBack("Error parsing JSON: \(parseError.localizedDescription)" as AnyObject)
+                }
+            }
+        }
+        task.resume()
     }
     
     //MARK: - user StartUp API Calling
@@ -143,7 +470,7 @@ class APIService: UIViewController {
     
     //MARK: - Edit Appointment
     
-    static func editSaveAppointmentAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+    static func editSaveAppointmentAPICalling(_ view: UIViewController?, params: [String: Any], method: String, accessToken: String, acces: Bool, parameterPlacement: String, callBack: @escaping (AnyObject) -> ()) {
         
         let urlString = APIService.BaseUrl+APIService.EditAppointment
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
@@ -151,7 +478,7 @@ class APIService: UIViewController {
     
     //MARK: - Save Appointment
     
-    static func SaveAppointmentAPICalling(_ view:UIViewController,params:[String:Any],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+    static func SaveAppointmentAPICalling(_ view: UIViewController?, params: [String: Any], method: String, accessToken: String, acces: Bool, parameterPlacement: String, callBack: @escaping (AnyObject) -> ()) {
         
         let urlString = APIService.BaseUrl+APIService.SaveAppointment
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
@@ -179,6 +506,134 @@ class APIService: UIViewController {
         
         let urlString = APIService.BaseUrl+APIService.ScreeningList4AssessmentId
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+
+    //MARK: - Weekly summary graph API Calling
+
+    static func weeklySummaryGraphAPICalling(
+        _ view: UIViewController?,
+        summaryItem: WeeklySummaryItems,
+        startDate: String,
+        endDate: String,
+        method: String,
+        accessToken: String,
+        acces: Bool,
+        parameterPlacement: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        let requestForm = summaryItem.getAPIRequestForWeeklySummary(with: startDate, endDate: endDate)
+        let urlString = requestForm.baseURL + requestForm.path
+        APIService.getRequestWithToken(
+            viewController: view,
+            urlString: urlString,
+            params: requestForm.requestBody,
+            method: method,
+            accessToken: accessToken,
+            acces: acces,
+            timeOut: 6,
+            parameterPlacement: parameterPlacement,
+            callback: callBack
+        )
+    }
+
+    //MARK: - Screening history API Calling
+
+    static func screeningHistoryAPICalling(
+        _ view: UIViewController?,
+        params: [String: Any],
+        method: String,
+        accessToken: String,
+        acces: Bool,
+        parameterPlacement: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        let urlString = APIService.BaseUrl + APIService.ScreeningHistoryForMobile
+        APIService.getRequestWithToken(
+            viewController: view,
+            urlString: urlString,
+            params: params,
+            method: method,
+            accessToken: accessToken,
+            acces: acces,
+            timeOut: 6,
+            parameterPlacement: parameterPlacement,
+            callback: callBack
+        )
+    }
+
+    //MARK: - Screening results API Calling
+
+    static func screeningResultsAPICalling(
+        _ view: UIViewController?,
+        params: [String: Any],
+        method: String,
+        accessToken: String,
+        acces: Bool,
+        parameterPlacement: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        let urlString = APIService.BaseUrl + APIService.ScreeningResultsForMobile
+        APIService.getRequestWithToken(
+            viewController: view,
+            urlString: urlString,
+            params: params,
+            method: method,
+            accessToken: accessToken,
+            acces: acces,
+            timeOut: 6,
+            parameterPlacement: parameterPlacement,
+            callback: callBack
+        )
+    }
+
+    //MARK: - Screening questionnaire API Calling
+
+    static func screeningQuestionnaireAPICalling(
+        _ view: UIViewController?,
+        params: [String: Any],
+        method: String,
+        accessToken: String,
+        acces: Bool,
+        parameterPlacement: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        let urlString = APIService.BaseUrl + APIService.TakingControlIntroFirstScreen
+        APIService.getRequestWithToken(
+            viewController: view,
+            urlString: urlString,
+            params: params,
+            method: method,
+            accessToken: accessToken,
+            acces: acces,
+            timeOut: 6,
+            parameterPlacement: parameterPlacement,
+            callback: callBack
+        )
+    }
+
+    //MARK: - Screening save patient answers API Calling
+
+    static func screeningSavePatientAnswersAPICalling(
+        _ view: UIViewController?,
+        params: [String: Any],
+        method: String,
+        accessToken: String,
+        acces: Bool,
+        parameterPlacement: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        let urlString = APIService.BaseUrl + APIService.TakingControlIntroFirstAns
+        APIService.getRequestWithToken(
+            viewController: view,
+            urlString: urlString,
+            params: params,
+            method: method,
+            accessToken: accessToken,
+            acces: acces,
+            timeOut: 6,
+            parameterPlacement: parameterPlacement,
+            callback: callBack
+        )
     }
     
     //MARK: - Taking control Intro First Screen API Calling
@@ -221,9 +676,132 @@ class APIService: UIViewController {
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
     
+    // MARK: - Course lesson index (Discovery courses)
+
+    static func getPatientCourseIndexAPICalling(
+        _ view: UIViewController?,
+        params: [String: Any],
+        method: String,
+        accessToken: String,
+        acces: Bool,
+        parameterPlacement: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        let urlString = APIService.BaseUrl + APIService.getPatientCourseIndex
+        APIService.getRequestWithToken(
+            viewController: view,
+            urlString: urlString,
+            params: params,
+            method: method,
+            accessToken: accessToken,
+            acces: acces,
+            timeOut: 6,
+            parameterPlacement: parameterPlacement,
+            callback: callBack
+        )
+    }
+
+    // MARK: - Course work progress (weekly summary)
+
+    static func getPatientCourseWorkPercentageDetailsAPICalling(
+        _ view: UIViewController?,
+        params: [String: Any],
+        method: String,
+        accessToken: String,
+        acces: Bool,
+        parameterPlacement: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        let urlString = APIService.BaseUrl + APIService.getPatientCourseWorkPercentageDetailsForMobile
+        APIService.getRequestWithToken(
+            viewController: view,
+            urlString: urlString,
+            params: params,
+            method: method,
+            accessToken: accessToken,
+            acces: acces,
+            timeOut: 6,
+            parameterPlacement: parameterPlacement,
+            callback: callBack
+        )
+    }
+
+    // MARK: - Medical appointments list (next appointments)
+
+    static func getMedicalAppointmentsAPICalling(
+        _ view: UIViewController?,
+        params: [String: Any],
+        method: String,
+        accessToken: String,
+        acces: Bool,
+        parameterPlacement: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        let urlString = APIService.BaseUrl + APIService.getMedicalAppointmentsByPatientId
+        APIService.getRequestWithToken(
+            viewController: view,
+            urlString: urlString,
+            params: params,
+            method: method,
+            accessToken: accessToken,
+            acces: acces,
+            timeOut: 6,
+            parameterPlacement: parameterPlacement,
+            callback: callBack
+        )
+    }
+
+    // MARK: - Patient privacy (profile consent sheet)
+
+    static func getPatientPrivacyAPICalling(
+        _ view: UIViewController?,
+        params: [String: Any],
+        method: String,
+        accessToken: String,
+        acces: Bool,
+        parameterPlacement: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        let urlString = APIService.BaseUrl + APIService.getPatientPrivacy
+        APIService.getRequestWithToken(
+            viewController: view,
+            urlString: urlString,
+            params: params,
+            method: method,
+            accessToken: accessToken,
+            acces: acces,
+            timeOut: 6,
+            parameterPlacement: parameterPlacement,
+            callback: callBack
+        )
+    }
+
+    static func updatePatientConsentAPICalling(
+        _ view: UIViewController?,
+        params: [String: Any],
+        method: String,
+        accessToken: String,
+        acces: Bool,
+        parameterPlacement: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        let urlString = APIService.BaseUrl + APIService.updatePatientConsent
+        APIService.getRequestWithToken(
+            viewController: view,
+            urlString: urlString,
+            params: params,
+            method: method,
+            accessToken: accessToken,
+            acces: acces,
+            timeOut: 6,
+            parameterPlacement: parameterPlacement,
+            callback: callBack
+        )
+    }
+
     //MARK: - Get Location Details in Appointment
     
-    static func LocationDetailsAPICalling(_ view:UIViewController,params:[String:Int],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+    static func LocationDetailsAPICalling(_ view: UIViewController?, params: [String: Int], method: String, accessToken: String, acces: Bool, parameterPlacement: String, callBack: @escaping (AnyObject) -> ()) {
         
         let urlString = APIService.BaseUrl+APIService.LocationDetails
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
@@ -231,7 +809,7 @@ class APIService: UIViewController {
     
     //MARK: - Get Provider Details in Appointment
     
-    static func ProviderDetailsAPICalling(_ view:UIViewController,params:[String:Int],method:String,accessToken:String, acces:Bool,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {
+    static func ProviderDetailsAPICalling(_ view: UIViewController?, params: [String: Int], method: String, accessToken: String, acces: Bool, parameterPlacement: String, callBack: @escaping (AnyObject) -> ()) {
         
         let urlString = APIService.BaseUrl+APIService.ProviderDetails
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
@@ -243,6 +821,74 @@ class APIService: UIViewController {
         
         let urlString = APIService.BaseUrl+APIService.MarkMedication
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+
+    // MARK: - Get / add medications (typed NetworkAPIRequest)
+
+    static func getMedicationsAPICalling(
+        params: [String: Any],
+        callBack: @escaping NetworkRequestCompletionHandler<MedicationDetailsResponse>
+    ) {
+        let requestForm = GetMedicationsRequestForm(params)
+        guard let requestURL = requestForm.getURLRequest() else {
+            callBack(nil, nil, DefaultError())
+            return
+        }
+        NetworkAPIRequest.sendRequest(request: requestURL, completionHandler: callBack)
+    }
+
+    static func addMedicationsAPICalling(
+        jsonData: Data,
+        callBack: @escaping NetworkRequestCompletionHandler<AddMedicationSavedResponse>
+    ) {
+        let requestForm = AddMedicationsRequestForm(jsonData)
+        guard let requestURL = requestForm.getURLRequest() else {
+            callBack(nil, nil, DefaultError())
+            return
+        }
+        NetworkAPIRequest.sendRequest(request: requestURL, completionHandler: callBack)
+    }
+
+    // MARK: - Save patient startup screen (day feedback)
+
+    static func savePatientStartupScreenAPICalling(
+        answers: PatientLog,
+        callBack: @escaping NetworkRequestCompletionHandler<ResponseDetails>
+    ) {
+        guard let requestForm = SaveUserStartupScreenDetailsRequestForm(answers),
+              let requestURL = requestForm.getURLRequest() else {
+            callBack(nil, nil, DefaultError())
+            return
+        }
+        NetworkAPIRequest.sendRequest(request: requestURL, completionHandler: callBack)
+    }
+
+    // MARK: - Forget password (reset after OTP)
+
+    static func forgetPasswordAPICalling(
+        _ view: UIViewController?,
+        emailId: String,
+        password: String,
+        confirmPassword: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        let params: [String: Any] = [
+            "emailId": emailId,
+            "password": password,
+            "confirmPassword": confirmPassword,
+        ]
+        let urlString = APIService.BaseUrl + APIService.forgetPassword
+        APIService.getRequestWithToken(
+            viewController: view,
+            urlString: urlString,
+            params: params,
+            method: "POST",
+            accessToken: "",
+            acces: false,
+            timeOut: 6,
+            parameterPlacement: "body",
+            callback: callBack
+        )
     }
     
     //MARK: - Add Journal
@@ -309,6 +955,13 @@ class APIService: UIViewController {
         
         let urlString = APIService.BaseUrl+APIService.CreateDrinkTracking
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+
+    // MARK: - Drinking getDrinksList
+
+    static func getDrinksListAPICalling(_ view: UIViewController, params: [String: Any], method: String, accessToken: String, acces: Bool, parameterPlacement: String, callBack: @escaping (AnyObject) -> ()) {
+        let urlString = APIService.BaseUrl + APIService.GetDrinksList
+        APIService.getRequestWithToken(viewController: view, urlString: urlString, params: params, method: method, accessToken: accessToken, acces: acces, timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
     }
 
     
@@ -516,4 +1169,10 @@ class APIService: UIViewController {
     
 
 
+}
+
+private extension Data {
+    mutating func append(_ string: String) {
+        if let d = string.data(using: .utf8) { append(d) }
+    }
 }

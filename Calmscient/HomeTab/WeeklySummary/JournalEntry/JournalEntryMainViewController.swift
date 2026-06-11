@@ -62,6 +62,7 @@ class JournalEntryMainViewController: ViewController, PopOverActionDelegate, Ale
         super.viewDidLoad()
         calendar.calendarToViewDelegate = self
         needToTalkSomeOneButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str:"Need to talk with someone?"))
+        needToTalkSomeOneButton.applyNeedToTalkButtonVisibility()
         setUpTableView()
         getJournalData()
         // Do any additional setup after loading the view.
@@ -69,6 +70,7 @@ class JournalEntryMainViewController: ViewController, PopOverActionDelegate, Ale
     
     override func viewWillAppear(_ animated: Bool) {
         needToTalkSomeOneButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str:"Need to talk with someone?"))
+        needToTalkSomeOneButton.applyNeedToTalkButtonVisibility()
     }
     
     private func getJournalData() {

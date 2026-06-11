@@ -11,7 +11,6 @@
 import SwiftUI
 import UIKit
 
-@available(iOS 16.0, *)
 final class CoursesHostingController: UIViewController {
 
     private let viewModel = CoursesViewModel()

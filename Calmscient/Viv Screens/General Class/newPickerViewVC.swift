@@ -30,28 +30,48 @@ class newPickerViewVC: UIViewController {
     var maximumDate: Date?
     
     var pickerMode: PickerMode = .date // Default mode
-    
+
+    /// When set, overrides the default title for the current `pickerMode`.
+    var pickerTitle: String?
+    var okButtonTitle: String?
+    var cancelButtonTitle: String?
+    var initialDate: Date?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         dateSelector.locale = Locale(identifier: Utility.shared.getLocaleIdentifier())
-        
+        if #available(iOS 13.4, *) {
+            dateSelector.preferredDatePickerStyle = .wheels
+        }
+
         switch pickerMode {
         case .date:
             dateSelector.datePickerMode = .date
-            titleLabel.text = "Please select date".localized
+            titleLabel.text = pickerTitle ?? "Please select date".localized
         case .time:
             dateSelector.datePickerMode = .time
-            titleLabel.text = "Please select time".localized
+            titleLabel.text = pickerTitle ?? "Please select time".localized
         }
-        
+
+        if let okButtonTitle {
+            okButton.setTitle(okButtonTitle, for: .normal)
+        }
+        if let cancelButtonTitle {
+            cancelButton.setTitle(cancelButtonTitle, for: .normal)
+        }
+
         if let minimumDate = minimumDate {
             dateSelector.minimumDate = minimumDate
-           }
-        
+        }
+
         if let maximumDate = maximumDate {
             dateSelector.maximumDate = maximumDate
-           }
+        }
+
+        if let initialDate {
+            dateSelector.date = initialDate
+        }
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
          tapGesture.cancelsTouchesInView = false

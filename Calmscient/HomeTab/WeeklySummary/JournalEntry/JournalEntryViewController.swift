@@ -51,6 +51,7 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
         super.viewDidLoad()
         datePickerView.locale = Locale(identifier: Utility.shared.getLocaleIdentifier())
         needToTalkButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str:"Need to talk with someone?"))
+        needToTalkButton.applyNeedToTalkButtonVisibility()
         
         searchTF.placeholder = "Search".localized
         self.navigationController?.isNavigationBarHidden = false
@@ -236,6 +237,7 @@ class JournalEntryViewController: ViewController,UITextFieldDelegate, JournalEnt
     func setupLanguage() {
         
 needToTalkButton.setAttributedTitleWithGradientDefaults(title: AppHelper.getLocalizeString(str:"Need to talk with someone?"))
+        needToTalkButton.applyNeedToTalkButtonVisibility()
  
         }
     

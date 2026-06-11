@@ -356,10 +356,10 @@ class TakingControllIntro: ViewController,UITableViewDelegate,UITableViewDataSou
             }
             else if auditFlag == 1{
                 if let selectedScreening = screeningData.filter({ $0.screeningID == screeningID }).first {
-                    let storyboard = UIStoryboard(name: "ScreeningQuestions", bundle: nil)
-                    if let vc = storyboard.instantiateViewController(withIdentifier: "ScreeningQuestionsViewController") as? ScreeningQuestionsViewController {
-                        vc.selectedScreening = selectedScreening
-                        self.navigationController?.pushViewController(vc, animated: true)
+                    if #available(iOS 16.0, *) {
+                        let host = ScreeningQuestionsHostingController()
+                        host.configure(selectedScreening: selectedScreening)
+                        self.navigationController?.pushViewController(host, animated: true)
                     }
                 }
                 
@@ -372,10 +372,10 @@ class TakingControllIntro: ViewController,UITableViewDelegate,UITableViewDataSou
             }
             else if dastFlag == 1 {
                 if let selectedScreening = screeningData.filter({ $0.screeningID == screeningID1 }).first {
-                    let storyboard = UIStoryboard(name: "ScreeningQuestions", bundle: nil)
-                    if let vc = storyboard.instantiateViewController(withIdentifier: "ScreeningQuestionsViewController") as? ScreeningQuestionsViewController {
-                        vc.selectedScreening = selectedScreening
-                        self.navigationController?.pushViewController(vc, animated: true)
+                    if #available(iOS 16.0, *) {
+                        let host = ScreeningQuestionsHostingController()
+                        host.configure(selectedScreening: selectedScreening)
+                        self.navigationController?.pushViewController(host, animated: true)
                     }
                 }
             }

@@ -32,25 +32,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             UITabBarItem.appearance().setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor(named: "TabBarSelectedColor")!, NSAttributedString.Key.font:UIFont(name: Fonts().lexendRegular, size: 9)!], for: .selected)
             UINavigationBar.appearance().titleTextAttributes = [NSAttributedString.Key.font:UIFont(name: Fonts().lexendMedium, size: 20)!]
             
-            if let navBar = UINavigationBar.appearance() as? UINavigationBar {
-                let bottomBorder = UIView(frame: CGRect(x: 0, y: 44, width: UIScreen.main.bounds.width, height: 1))
-                bottomBorder.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
-                navBar.addSubview(bottomBorder)
-            }
-            
             var languageId: Int? = UserDefaults.standard.integer(forKey: "SelectedLanguageID")
             languageId = (languageId == 0) ? 1 : languageId
             UserDefaults.standard.set(languageId, forKey: "SelectedLanguageID")
 
+            if (UserDefaults.standard.string(forKey: PatientLanguagePreference.displayNameUserDefaultsKey) ?? "")
+                .trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                UserDefaults.standard.set(
+                    PatientLanguagePreference.displayName(forLanguageId: languageId ?? 1),
+                    forKey: PatientLanguagePreference.displayNameUserDefaultsKey
+                )
+            }
+
             let selectedLanguage: String
             if let appLanguage = UserDefaults.standard.string(forKey: "appLanguage"), !appLanguage.isEmpty {
                 selectedLanguage = appLanguage
-            } else if languageId == 7 {
-                selectedLanguage = "ja"
-            } else if languageId == 2 {
-                selectedLanguage = "es"
             } else {
-                selectedLanguage = "en"
+                let displayName = PatientLanguagePreference.currentDisplayName()
+                selectedLanguage = PatientLanguagePreference.bundleLocaleCode(forDisplayName: displayName)
             }
             UserDefaults.standard.set(selectedLanguage, forKey: "Language")
             UserDefaults.standard.set(selectedLanguage, forKey: "appLanguage")
@@ -81,6 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         // Handle what happens when the user taps on the notification
         func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+            DayFeedbackEveningReminderScheduler.handleNotificationResponseIfNeeded(response)
             // Handle the action when the notification is tapped
             if response.actionIdentifier == "STOP_ACTION" {
                         // Logic to stop the alarm sound (if needed)
@@ -189,6 +189,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 }
 
 extension UIApplication {
+
+    /// Topmost visible view controller (used by splash update alert, no-internet banner, etc.).
+    class func topViewController(base: UIViewController? = UIApplication.shared.connectedScenes
+        .compactMap { ($0 as? UIWindowScene)?.keyWindow }
+        .first?.rootViewController) -> UIViewController? {
+        if let nav = base as? UINavigationController {
+            return topViewController(base: nav.visibleViewController)
+        }
+        if let tab = base as? UITabBarController {
+            return topViewController(base: tab.selectedViewController)
+        }
+        if let presented = base?.presentedViewController {
+            return topViewController(base: presented)
+        }
+        return base
+    }
     
     // Function to get the topmost view controller
     class func getTopViewController(base: UIViewController? = UIApplication.shared.getKeyWindow()?.rootViewController) -> UIViewController? {

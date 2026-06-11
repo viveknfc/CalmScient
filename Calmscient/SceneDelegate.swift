@@ -32,21 +32,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         // Initialize the window
         window = UIWindow(windowScene: windowScene)
-        let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
-        print("📘 Storyboard loaded")
-        let vc = storyboard.instantiateViewController(withIdentifier: "LaunchScreenVC")
-        print("🧩 ViewController instantiated: \(vc)")
-
-        if let splashVC = vc as? LaunchScreenVC {
-            splashVC.sceneDelegate = self
-            window?.rootViewController = splashVC
-            window?.makeKeyAndVisible()
-            isSplashScreenShowing = true
-            print("🌟 Window made key and visible: \(window?.isKeyWindow == true)")
-            print("✅ LaunchScreenVC set as root")
-        } else {
-            print("❌ Could not cast to LaunchScreenVC")
-        }
+        let splashVC = LaunchScreenHostingController()
+        splashVC.sceneDelegate = self
+        window?.rootViewController = splashVC
+        window?.makeKeyAndVisible()
+        isSplashScreenShowing = true
+        print("🌟 Window made key and visible: \(window?.isKeyWindow == true)")
+        print("✅ LaunchScreenHostingController set as root")
   
         
         if let isDarkMode = UserDefaults.standard.value(forKey: "isDarkMode") as? Bool {
@@ -82,10 +74,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             }
         } else {
             DispatchQueue.main.async {
-                let homeController = UIStoryboard(name: "LoginVC", bundle: nil)
-                    .instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
-                let navC = UINavigationController(rootViewController: homeController)
-                navC.navigationBar.isHidden = true
+                let navC = LoginHostingController.loginNavigationRoot()
                 self.window?.rootViewController = navC
                 self.window?.makeKeyAndVisible()
             }
@@ -107,19 +96,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
 
         
-        let plId = loginResponse.patientLocationID
-        let patientId = loginResponse.patientID
-        let clientId = loginResponse.clientID
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let formattedDate = dateFormatter.string(from: Date())
-
-        let params: [String: Any] = [
-            "patientLocationId": plId,
-            "clientId": clientId,
-            "patientId": patientId,
-            "time": formattedDate
-        ]
+        let params = DayFeedbackSessionLogic.userStartupAPIParameters(
+            patientLocationId: loginResponse.patientLocationID,
+            clientId: loginResponse.clientID,
+            patientId: loginResponse.patientID
+        )
 
         print("Params for user startup API from scene delegate is :", params)
         
@@ -154,10 +135,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
 
-        if responseMessage == 0 {
+        if DayFeedbackSessionLogic.shouldShowDayFeedbackOnRememberMe(saved: responseMessage) {
             navigateToUserIntro()
         } else {
             navigateToDashboard()
+        }
+
+        DispatchQueue.main.async {
+            DayFeedbackEveningReminderScheduler.refreshSchedulingIfNeeded()
         }
     }
 
@@ -200,6 +185,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func sceneDidBecomeActive(_ scene: UIScene) {
         // Called when the scene has moved from an inactive state to an active state.
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
+        if !isSplashScreenShowing {
+            DayFeedbackEveningReminderScheduler.refreshSchedulingIfNeeded()
+        }
     }
 
     func sceneWillResignActive(_ scene: UIScene) {
@@ -223,7 +211,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             ApplicationSharedInfo.shared.loginResponse = loginDetails
             ApplicationSharedInfo.shared.tokenResponse = tokenResponse
 
-            if TimeZoneHelper.isTimeZoneChanged() {
+            if DayFeedbackSessionLogic.shouldPromptDayFeedbackOnForeground() {
                 print("Time zone has changed. Navigating to UserIntroDayFeedbackViewController")
                 navigateToUserIntro()
             }
@@ -234,8 +222,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             // If no login details are found, navigate to Login screen
             navigateToLogin()
         }
-            
 
+        DayFeedbackEveningReminderScheduler.refreshSchedulingIfNeeded()
     }
 
     func sceneDidEnterBackground(_ scene: UIScene) {
@@ -263,17 +251,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
 
-        let storyboard = UIStoryboard(name: "UserIntro", bundle: nil)
-        if let homeController = storyboard.instantiateViewController(withIdentifier: "UserIntroDayFeedbackViewController") as? UserIntroDayFeedbackViewController {
-            
+        if #available(iOS 16.0, *) {
+            let homeController = DayFeedbackHostingController()
             let navC = UINavigationController(rootViewController: homeController)
-
-            // ✅ Smooth transition from splash screen to User Intro
             UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
                 window.rootViewController = navC
             })
         } else {
-            print("❌ Failed to load UserIntroDayFeedbackViewController")
+            print("❌ Day feedback requires iOS 16")
         }
     }
     
@@ -283,19 +268,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             return
         }
 
-        let storyboard = UIStoryboard(name: "LoginVC", bundle: nil)
-        if let homeController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as? LoginVC {
-            
-            let navC = UINavigationController(rootViewController: homeController)
-            navC.navigationBar.isHidden = true
+        let navC = LoginHostingController.loginNavigationRoot()
 
-            // ✅ Smooth transition to Login screen
-            UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
-                window.rootViewController = navC
-            })
-        } else {
-            print("❌ Failed to load LoginVC")
-        }
+        UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: {
+            window.rootViewController = navC
+        })
     }
 
     

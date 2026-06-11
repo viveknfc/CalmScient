@@ -4,7 +4,7 @@
 //
 //  UIKit host for the alarm settings sheet (replaces storyboard `settingsAlarmVC`).
 //
-//  NFC Solutions
+//  Vivek
 //  14 May 2026
 //
 import SwiftUI
