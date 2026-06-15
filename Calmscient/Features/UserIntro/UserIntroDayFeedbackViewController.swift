@@ -305,15 +305,15 @@ class UserIntroDayFeedbackViewController: ViewController {
             print("Response received from Fetch API calling is", responseString)
             
             DispatchQueue.main.async {
-                let alertController = UIAlertController(title: "Error",
-                                                        message: "Failed to fetch data. Would you like to retry?",
+                let alertController = UIAlertController(title: "Error".localized,
+                                                        message: "Failed to fetch data. Would you like to retry?".localized,
                                                         preferredStyle: .alert)
                 
-                alertController.addAction(UIAlertAction(title: "Retry", style: .default, handler: { _ in
+                alertController.addAction(UIAlertAction(title: "Retry".localized, style: .default, handler: { _ in
                     self.viewWillAppear(true)
                 }))
                 
-                alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                alertController.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel))
                 
                 self.present(alertController, animated: true)
             }

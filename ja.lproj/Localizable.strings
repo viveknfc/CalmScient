@@ -10,17 +10,16 @@
 
 
 "Profile" = "プロフィール";
-"Username" = "ユーザー名";
+"Username" = "ユーザーネーム";
 "Password" = "パスワード";
-"Forgot Password" = "パスワードをお忘れですか？";
+"Forgot Password" = "パスワードを忘れましたか？";
 "All fields are required" = "すべての項目は必須です。";
 "First Name" = "ファーストネーム";
 "Last Name" = "苗字";
 "Email" = "メール";
-
 "Accept Terms and Conditions" = "利用規約に同意する";
 "Terms and Conditions" = "利用規約";
-"Validate your license key" = "ライセンスキーを確認する";
+"Validate your license key" = "ライセンスキーを確認";
 "Login" = "ログイン";
 
 "Phone Number" = "電話";
@@ -59,6 +58,8 @@
 "Your points" = "あなたのポイント";
 "Taking control CAGE interpretation" = "解釈：\n「はい」と答えた項目が1つ以上ある場合、スクリーニングは陽性とみなされ、物質使用の可能性があり、さらなる評価が必要であることを示します。";
 "When is drinking in moderation still too much?" = "適度な飲酒であっても、いつから飲み過ぎになるのでしょうか？";
+
+"Taking control" = "コントロールを取り戻す";
 
 // Moderation (localized blocks)
 "moderation_intro_text" = "2020〜2025年版の米国食事ガイドラインによると、ある特定の人はアルコールを摂取すべきではありません。次に当てはまる場合は、アルコールを完全に避けるのが最も安全です。\n\n";
@@ -163,7 +164,7 @@
 "create_account_alert_validation_title" = "アラート";
 "create_account_alert_validation_message" = "続行するには、すべての項目を入力してください。";
 "I agree to share my info with medical provider" = "私は自分の情報を医療機関と共有することに同意します";
-"Remember me" = "私を覚えてますか";
+"Remember me" = "ログイン状態を保持する";
 "Hello " = "こんにちは";
 "Need to talk with someone?" = "誰かと話したいですか？";
 "   Your total alcohol free days are" = "あなたのアルコールを飲まない日数は合計で";
@@ -293,8 +294,8 @@
 "Even if you feel they may not apply to you. These assessments helps us better understand your overall wellbeing." = "当てはまらないと思う項目があっても、これらのスクリーニングは現在の心身の状態をより正確に理解するために役立ちます。";
 "Time" = "時間";
 "Information" = "情報";
-" So be determined to dedicate time to following along and completing the exercises. Each section has interesting and informative content that is designed to keep you actively thinking about your specific challenges. But, like taking a road trip to an unknown destination, you’ll need to be committed to following the map! It may be a little more work than you’re used to, but it will absolutely pay off in the end." = "ですから、時間をかけてじっくりと取り組み、練習問題をこなしていく覚悟を持ってください。各セクションには、あなたの具体的な課題について積極的に考え続けるよう設計された、興味深く有益なコンテンツが満載です。しかし、未知の目的地へのロードトリップのように、地図をしっかりとたどっていく覚悟が必要です。普段より少し手間がかかるかもしれませんが、最終的には必ず報われるでしょう。";
-"The Calmscient discovery will only be as effective as you make it." = "Calmscientの発見は、あなたがそれをどれだけ効果的に活用するかによって決まります。";
+"So be determined to dedicate time to following along and completing the exercises. Each section has interesting and informative content that is designed to keep you actively thinking about your specific challenges. But, like taking a road trip to an unknown destination, you’ll need to be committed to following the map! It may be a little more work than you’re used to, but it will absolutely pay off in the end." = "時間を使って、エクササイズに取り組んでください。各セクションは、自分自身の生活やパターンについて考えられるように作られています。知らない目的地へ向かう旅と同じで、地図にそって進むことが大切です。少し大変に感じるかもしれませんが、必ず成果につながります。";
+"The Calmscient discovery will only be as effective as you make it." = "このプログラムは、続けて取り組むほど効果が出ます。";
 "Days at each Mood" = "それぞれの気分の日数";
 "Summary Of Mood" = "気分の要約";
 "Summary of sleep" = "睡眠の概要";
@@ -348,7 +349,7 @@
 "Please select a time interval before proceeding." = "続行する前に時間間隔を選択してください。";
 "Also you need to consider the following factors to determine what to do." = "また、何をするかを決めるために以下の要因も考慮する必要があります。";
 "An Unknown error occured. Please check with Admin" = "問題が発生しました。後でもう一度お試しください";
-"Are you ready?" = "準備はできましたか？";
+"Are you ready?" = "準備はいいですか？";
 "Are you sure you want to logout?" = "ログアウトしますか？";
 "BAD" = "悪い";
 "COULD BE\\\n BETTER" = "もう少し\n良くなれる";
@@ -375,7 +376,7 @@
 "Home" = "ホーム";
 "Journal entry" = "日記エントリー";
 "Learn more" = "もっと学ぶ";
-"Let's begin!" = "始めましょう";
+"Let's begin!" = "でははじめましょう。";
 "Managing anxiety" = "不安を管理する";
 "Medication" = "お薬";
 "Mindfulness - what is it?" = "マインドフルネスとは？";
@@ -413,7 +414,6 @@
 "Settings" = "設定";
 "Smoking Control" = "喫煙コントロール";
 "Smoking control" = "喫煙コントロール";
-"So be determined to dedicate time to following along and completing the exercises. Each section has interesting and informative content that is designed to keep you actively thinking about your specific challenges. But, like taking a road trip to an unknown destination, you’ll need to be committed to following the map! It may be a little more work than you’re used to, but it will absolutely pay off in the end." = "ですから、時間をかけてじっくりと取り組み、練習問題をこなしていく覚悟を持ってください。各セクションには、あなたの具体的な課題について積極的に考え続けるよう設計された、興味深く有益なコンテンツが満載です。しかし、未知の目的地へのロードトリップのように、地図をしっかりとたどっていく覚悟が必要です。普段より少し手間がかかるかもしれませんが、最終的には必ず報われるでしょう。";
 "Summary of AUDIT" = "AUDITサマリー";
 "Summary of CAGE" = "CAGEサマリー";
 "Summary of DAST-10" = "DASTサマリー";
@@ -474,7 +474,7 @@
 "standard drink description" = "米国では「標準ドリンク」（アルコール飲料1杯相当）は、純アルコール約14グラム（0.6液量オンス）を含む飲み物を指します。見た目の量が違っても、ここに示す各飲料はほぼ同量のアルコールを含み、米国の標準ドリンク1杯に相当します。";
 "standard drink highlight fluid ounces" = "0.6液量オンス";
 "standard drink highlight grams" = "14グラム";
-"Taking control Intro" = "主導権を握るへようこそ！";
+    
 "According to the 2020-2025 Dietary Guidelines for Americans, certain individuals should not consume alcohol. It’s safest to void alcohol altogether if you are: Taking medications that interact with alcohol Managing a medical condition that can be made Worse by drinking Under the age of 21, the minimum legal drinking age in the United States Recovering from alcohol use disorder (AUD) or unable to control the amount you drink Pregnant or might be pregnant In addition, certain individuals, particularly older adults, who are planning to drive a vehicle or operate machinery-or who are participating in activities that require skill, coordination, and alertness-should avoid alcohol completely." = "2020〜2025年の米国人のための食事ガイドラインによると、特定の人はアルコールを消費すべきではありません。次の場合はアルコールを完全に避えることがより安全です：\n\n• アルコールと相互作用する薬を服用している場合。\n\n• アルコール摂取で悪化する可能性のある病気がある場合。\n\n• 米国での法定飲酒年齢21歳未満の場合。\n\n• アルコール使用障害（AUD）から回復中または飲む量をコントロールできない場合。\n\n• 妊娠中または妊娠の可能性がある場合。\n\nさらに、特定の人々、特に高齢者で、車両や機械を運転する予定の方、またはスキル、調整、注意を必要とする活動に参加する方は、アルコールを完全に避けるべきです。";
 "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda." = "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
 "What are the consequence?" = "どのような影響がありますか？";
@@ -857,8 +857,8 @@ lay down." = "まず、座るか横になるか、楽な姿勢を取りましょ
 
 // Add / edit appointment
 "Patient name" = "患者名";
-"Provider name" = "医療者名";
-"Location" = "場所";
+"Provider name" = "医療機関または医師";
+"Location" = "住所";
 "Date" = "日付";
 "appointment_description_placeholder" = "内容・メモ";
 "appointment_validation_patient_name_empty" = "患者名を入力してください";
@@ -1009,3 +1009,8 @@ lay down." = "まず、座るか横になるか、楽な姿勢を取りましょ
 "profile_language_spanish" = "スペイン語";
 "profile_language_japanese" = "日本語";
 "profile_language_asl" = "ASL";
+
+// fetch failure retry alert
+"Error" = "エラー";
+"Failed to fetch data. Would you like to retry?" = "データの取得に失敗しました。再試行しますか？";
+"Retry" = "再試行";

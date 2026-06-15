@@ -684,7 +684,7 @@ lay down.";
 "Screening" = "Screening";
 
 //Mangingscreen
-" So be determined to dedicate time to following along and completing the exercises. Each section has interesting and informative content that is designed to keep you actively thinking about your specific challenges. But, like taking a road trip to an unknown destination, you’ll need to be committed to following the map! It may be a little more work than you’re used to, but it will absolutely pay off in the end." = "So be determined to dedicate time to following along and completing the exercises. Each section has interesting and informative content that is designed to keep you actively thinking about your specific challenges. But, like taking a road trip to an unknown destination, you’ll need to be committed to following the map! It may be a little more work than you’re used to, but it will absolutely pay off in the end.";
+"So be determined to dedicate time to following along and completing the exercises. Each section has interesting and informative content that is designed to keep you actively thinking about your specific challenges. But, like taking a road trip to an unknown destination, you’ll need to be committed to following the map! It may be a little more work than you’re used to, but it will absolutely pay off in the end." = "So be determined to dedicate time to following along and completing the exercises. Each section has interesting and informative content that is designed to keep you actively thinking about your specific challenges. But, like taking a road trip to an unknown destination, you’ll need to be committed to following the map! It may be a little more work than you’re used to, but it will absolutely pay off in the end.";
 
 
 "The Calmscient discovery will only be as effective as you make it." = "The Calmscient discovery will only be as effective as you make it.";
@@ -844,7 +844,6 @@ Ready?";
 "Settings" = "Settings";
 "Smoking Control" = "Smoking Control";
 "Smoking control" = "Smoking control";
-"So be determined to dedicate time to following along and completing the exercises. Each section has interesting and informative content that is designed to keep you actively thinking about your specific challenges. But, like taking a road trip to an unknown destination, you’ll need to be committed to following the map! It may be a little more work than you’re used to, but it will absolutely pay off in the end." = "So be determined to dedicate time to following along and completing the exercises. Each section has interesting and informative content that is designed to keep you actively thinking about your specific challenges. But, like taking a road trip to an unknown destination, you’ll need to be committed to following the map! It may be a little more work than you’re used to, but it will absolutely pay off in the end.";
 "Summary of AUDIT" = "Summary of AUDIT";
 "Summary of CAGE" = "Summary of CAGE";
 "Summary of DAST-10" = "Summary of DAST-10";
@@ -1287,3 +1286,8 @@ Ready?";
 "profile_language_spanish" = "Spanish";
 "profile_language_japanese" = "Japanese";
 "profile_language_asl" = "ASL";
+
+// fetch failure retry alert
+"Error" = "Error";
+"Failed to fetch data. Would you like to retry?" = "Failed to fetch data. Would you like to retry?";
+"Retry" = "Retry";

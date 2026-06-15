@@ -405,16 +405,16 @@ class LoginVC: UIViewController,UITextFieldDelegate, UITextViewDelegate {
             print("Response received from User Startup API calling is", responseString)
             
             // Show alert with retry button
-                   let alertController = UIAlertController(title: "Error",
-                                                           message: "Failed to fetch data. Would you like to retry?",
+                   let alertController = UIAlertController(title: "Error".localized,
+                                                           message: "Failed to fetch data. Would you like to retry?".localized,
                                                            preferredStyle: .alert)
                    
-                   alertController.addAction(UIAlertAction(title: "Retry", style: .default, handler: { _ in
+                   alertController.addAction(UIAlertAction(title: "Retry".localized, style: .default, handler: { _ in
                        // Call the API again or reload the view
                        self.loginButton.sendActions(for: .touchUpInside)
                    }))
                    
-                   alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+                   alertController.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel))
                    
                    self.present(alertController, animated: true)
             

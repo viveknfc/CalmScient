@@ -244,14 +244,14 @@ final class LoginViewModel: ObservableObject {
 
         if response is String {
             let alertController = UIAlertController(
-                title: "Error",
-                message: "Failed to fetch data. Would you like to retry?",
+                title: "Error".localized,
+                message: "Failed to fetch data. Would you like to retry?".localized,
                 preferredStyle: .alert
             )
-            alertController.addAction(UIAlertAction(title: "Retry", style: .default) { [weak self] _ in
+            alertController.addAction(UIAlertAction(title: "Retry".localized, style: .default) { [weak self] _ in
                 self?.retryLoginAfterStartupFailure()
             })
-            alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+            alertController.addAction(UIAlertAction(title: "Cancel".localized, style: .cancel))
             hostViewController?.present(alertController, animated: true)
             return
         }
