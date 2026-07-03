@@ -104,14 +104,36 @@ final class WebViewLessonViewModel: ObservableObject {
         configuration.userContentController.addUserScript(WebViewLessonScripts.disableZoomUserScript)
         return configuration
     }
-
+    
     func injectAccessTokenIfNeeded() {
         guard let webView,
               let token = ApplicationSharedInfo.shared.tokenResponse?.accessToken else {
             return
         }
-        webView.evaluateJavaScript(WebViewLessonScripts.accessTokenInjection(token: token), completionHandler: nil)
+
+        let js = """
+        (function waitForFn(){
+            if (typeof window.onAccessTokenReceived === 'function') {
+                window.onAccessTokenReceived('\(token)');
+                console.log('Token injected successfully');
+            } else {
+                setTimeout(waitForFn, 500);
+            }
+        })();
+        """
+
+        webView.evaluateJavaScript(js) { _, error in
+            print("Inject Error:", error as Any)
+        }
     }
+
+//    func injectAccessTokenIfNeeded() {
+//        guard let webView,
+//              let token = ApplicationSharedInfo.shared.tokenResponse?.accessToken else {
+//            return
+//        }
+//        webView.evaluateJavaScript(WebViewLessonScripts.accessTokenInjection(token: token), completionHandler: nil)
+//    }
 
     // MARK: - Script bridge (`nativeDispatch`)
 
@@ -139,6 +161,7 @@ final class WebViewLessonViewModel: ObservableObject {
         case "1003":
             setNavigationBarHidden(true)
         case "401":
+            print("401 received from web page")
             setNavigationBarHidden(false)
             presentGenericErrorAlert()
         case "1005":
