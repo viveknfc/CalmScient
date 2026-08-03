@@ -127,9 +127,14 @@ open class YAxisRendererHorizontalBarChart: YAxisRenderer
         
         let from = axis.isDrawBottomYLabelEntryEnabled ? 0 : 1
         let to = axis.isDrawTopYLabelEntryEnabled ? axis.entryCount : (axis.entryCount - 1)
-        
+
         let xOffset = axis.labelXOffset
-        
+
+        // Guard against an invalid range (e.g. no axis entries when the value
+        // range is zero), which would otherwise crash constructing `from..<to`
+        // with "Range requires lowerBound <= upperBound".
+        guard from < to, to <= positions.count else { return }
+
         for i in from..<to
         {
             let text = axis.getFormattedLabel(i)

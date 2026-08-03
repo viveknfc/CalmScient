@@ -86,10 +86,11 @@ final class HomeDashboardViewModel: ObservableObject {
         }
     }
 
-    func fetchFavoritesFromNetwork() {
-        hostViewController?.view.showToastActivity()
+    func fetchFavoritesFromNetwork(showsToast: Bool = true, completion: (() -> Void)? = nil) {
+        if showsToast { hostViewController?.view.showToastActivity() }
         guard let userInfo = ApplicationSharedInfo.shared.loginResponse else {
             hostViewController?.view.hideToastActivity()
+            completion?()
             return
         }
 
@@ -103,6 +104,19 @@ final class HomeDashboardViewModel: ObservableObject {
                 UserDefaults.standard.set(true, forKey: "hasFetchedFavorites")
                 self?.syncFavoritesFromManager()
                 self?.hostViewController?.view.hideToastActivity()
+                completion?()
+            }
+        }
+    }
+
+    /// Pull-to-refresh entry point. Force-fetches favorites and completes when
+    /// the response returns so the refresh spinner ends correctly.
+    func refresh() async {
+        await withCheckedContinuation { (continuation: CheckedContinuation<Void, Never>) in
+            Task { @MainActor in
+                fetchFavoritesFromNetwork(showsToast: false) {
+                    continuation.resume()
+                }
             }
         }
     }

@@ -32,6 +32,7 @@ struct UserProfileView: View {
                 .padding(.top, 16)
             }
         }
+        .refreshable { await viewModel.refresh() }
         .background(Color(UIColor.systemBackground))
         .onAppear { viewModel.onAppear() }
     }

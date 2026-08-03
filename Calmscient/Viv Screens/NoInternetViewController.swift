@@ -32,18 +32,14 @@ class NoInternetViewController: UIViewController {
         // Title
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
-        title.text = "No Internet Connection"
+        title.text = "no_internet_title".localized
         title.font = UIFont.systemFont(ofSize: 17, weight: .semibold) // Android-like
         title.textColor = .black
         
         // Description (Android-style bullets)
         let desc = UILabel()
         desc.translatesAutoresizingMaskIntoConstraints = false
-        desc.text = """
-        • Actions taken will only be reflected when internet is restored
-        • Connect to internet for accurate real time data
-        • If multiple actions are taken between web and mobile, latest action will be updated when connected
-        """
+        desc.text = "no_internet_desc".localized
         desc.numberOfLines = 0
         desc.font = UIFont.systemFont(ofSize: 16) // smaller like Android
         desc.textColor = .darkGray

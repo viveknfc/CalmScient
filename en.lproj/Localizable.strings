@@ -289,7 +289,6 @@ These individual tend to drink more, socialize with people who drink a lot, and 
 
 //discovery main view controller
 "Managing Anxiety" = "Managing Anxiety";
-"Managing Stress" = "Managing Stress";
 "Taking control" = "Taking control";
 
 //custom alert view
@@ -416,7 +415,6 @@ Here are resources that can assist you in achieving your goal?";
 //journal entry view controller
 "Quiz" = "Quiz";
 "Daily jouneral" = "Daily journal";
-"Discovery Excercise" = "Discovery Excercise";
 
 //ProgressOnCourseWorkHeaderView
 "Course" = "Course";
@@ -429,7 +427,6 @@ Here are resources that can assist you in achieving your goal?";
 "My Favorites" = "My favorites";
 
 //login vc
-"Accept Terms & Conditions" = "Accept Terms & Conditions";
 
 //add user medications view controller
 "Save" = "Save";
@@ -526,15 +523,10 @@ Here are resources that can assist you in achieving your goal?";
 
 "Have you ever caught your mind wandering or daydreaming while you are in the middle of a familiar or repetitive task? You could be walking, working or even driving your car, and your mind is miles away, perhaps fantasizing about going on vacation, thinking about your to-do list, or worrying about some upcoming event." = "Have you ever caught your mind wandering or daydreaming while you are in the middle of a familiar or repetitive task? You could be walking, working or even driving your car, and your mind is miles away, perhaps fantasizing about going on vacation, thinking about your to-do list, or worrying about some upcoming event.";
                      
-                     "Mindfulness is the opposite of automatic pilot. It is about experiencing the world that is firmly in the ‘here and now’. This is referred to as the being mode. It liberates you from automatic and unhelpful thoughts and responses." = "Mindfulness is the opposite of automatic pilot. It is about experiencing the world that is firmly in the ‘here and now’. This is referred to as the being mode. It liberates you from automatic and unhelpful thoughts and responses.";
                      
-                     "How does mindfulness help with anxiety?" = "How does mindfulness help with anxiety?";
                      
-    "Mindfulness reminds us that we don’t have to take immediate control of, remove or fix unpleasant experiences. Instead, we can identify and actively engage in something that will give us a sense of safety and connection." = "Mindfulness reminds us that we don’t have to take immediate control of, remove or fix unpleasant experiences. Instead, we can identify and actively engage in something that will give us a sense of safety and connection.";
                      
-                     "As a simple example: Instead of focusing on how many miles you walked in the morning, can you be mindfully aware of the birds singing, actively feel the fresh air, and sense the changing of the season? When you connect your senses to nature, animals, people and your own body, you capture the attention of your nervous system, which in turn soothes your anxiety. When you return home, you will be in a better frame of mind and more prepared to face your day." = "As a simple example: Instead of focusing on how many miles you walked in the morning, can you be mindfully aware of the birds singing, actively feel the fresh air, and sense the changing of the season? When you connect your senses to nature, animals, people and your own body, you capture the attention of your nervous system, which in turn soothes your anxiety. When you return home, you will be in a better frame of mind and more prepared to face your day.";
                      
-                     "Which mindfulness exercises would you like to make part of your daily routine? Calmscient can remind you of some easy mindfulness routines that will help you stay in a healthy, being mode." = "Which mindfulness exercises would you like to make part of your daily routine? Calmscient can remind you of some easy mindfulness routines that will help you stay in a healthy, being mode.";
 
 "Progressive muscle relaxation" = "Progressive muscle relaxation";
 
@@ -658,7 +650,6 @@ lay down.";
 "Place your hand on the tummy and other on the upper chest." = "Place your hand on the tummy and other on the upper chest.";
 
 "Step 2: Inhale" = "Step 2: Inhale";
-"Inhale through your nose about 4 seconds,\nFocusing on the tummy rising." = "Inhale through your nose about 4 seconds,\nFocusing on the tummy rising.";
 "Step 3: Hold" = "Step 3: Hold";
 
 "Hold your breath for 2 seconds." = "Hold your breath for 2 seconds.";
@@ -690,7 +681,6 @@ lay down.";
 "The Calmscient discovery will only be as effective as you make it." = "The Calmscient discovery will only be as effective as you make it.";
 
 // WeeklySummaryInner
-"Days at each Mood" = "Days at each Mood";
 
 
 "Summary Of Mood" = "Summary Of Mood";
@@ -701,7 +691,6 @@ lay down.";
 "Summary Of Dast" = "Summary Of Dast";
 "Progress On Course Work" = "Progress On Course Work";
 "Journal Entry" = "Journal Entry";
-"DISCOVERY" = "DISCOVERY";
 
 "Fatalities and injuries" = "Fatalities and injuries";
 
@@ -724,10 +713,6 @@ family and the community.
 But , you have full control over the decision
 regarding your habit.
 Ready?";
-"DRINKING_CONTROL_Drink_Coach" = "Drink Coach";
-"DRINKING_CONTROL_Substance_Coach" = "Substance Coach";
-"DRINKING_CONTROL_Do_Not_Show_Checkbox_text" = "Do not show this tutorial from the next time";
-"DRINKING_CONTROL_Intro_Message" = "Remember, you can always take the AUDIT, DUST-10 and CAGE test, in the My medical records section";
 "DRINKING_CONTROL_Thirty_percent_Of_Suicides" = "30% of suicides.";
 "DRINKING_CONTROL_Forty_Of_Fatal_Burn_Injuries" = "40% of fatal burn injuries.";
 "DRINKING_CONTROL_Fifty_Of_Fatal_Drownings_And_Of_Homicides_And_About_Message" = "50% of fatal drownings and of homicides, and about 65 percent of fatal falls.";
@@ -775,18 +760,15 @@ Ready?";
 "A family history of alcohol problems." = "A family history of alcohol problems.";
 "A history of drinking-related injuries." = "A history of drinking-related injuries.";
 "AM" = "AM";
-"According to the 2020-2025 Dietary Guidelines for Americans, certain individuals should not consume alcohol. It’s safest to avoid alcohol altogether if you are:\\n\\n" = "According to the 2020-2025 Dietary Guidelines for Americans, certain individuals should not consume alcohol. It’s safest to avoid alcohol altogether if you are:\\n\\n";
 "Add appointment" = "Add appointment";
 "Alarm" = "Alarm";
 "Alarm settings" = "Alarm settings";
 "Alarm settings subtitle" = "You can customize how early the alarm should go on";
-"alarm_time_unit_min" = "min";
 "Please select a time interval before proceeding." = "Please select a time interval before proceeding.";
 "Also you need to consider the following factors to determine what to do." = "Also you need to consider the following factors to determine what to do.";
 "Are you ready?" = "Are you ready?";
 "Are you sure you want to logout?" = "Are you sure you want to logout?";
 "BAD" = "BAD";
-"COULD BE\\n BETTER" = "COULD BE\\n BETTER";
 "Changing your response to stress" = "Changing your response to stress";
 "Complete" = "Complete";
 "Confirmation" = "Confirmation";
@@ -820,7 +802,6 @@ Ready?";
 "medication_request_timeout_toast" = "Request timed out. Please try again.";
 "No content available" = "No content available";
 "No data for this date" = "No data for this date";
-"No internet connection. Please try again." = "No internet connection. Please try again.";
 "No title available" = "No title available";
 "Notify to PCP" = "Notify to PCP";
 "Others" = "Others";
@@ -852,7 +833,6 @@ Ready?";
 "Summary of mood" = "Summary of mood";
 "Symptoms such as a sleep, pain, or anxiety disorder and sexual dysfunction." = "Symptoms such as a sleep, pain, or anxiety disorder and sexual dysfunction.";
 "The Discovery" = "The Discovery";
-"This assessment is based on the Patient Health Questionnaire (PHQ), which is a self-administered version of the PRIME-MD diagnostic instrument for common mental disorders.\\n\\nPHQ9 Copyright © Pfizer Inc. All rights reserved. Reproduced with permission. PRIME-MD ® is a trademark of Pfizer Inc." = "This assessment is based on the Patient Health Questionnaire (PHQ), which is a self-administered version of the PRIME-MD diagnostic instrument for common mental disorders.\\n\\nPHQ9 Copyright © Pfizer Inc. All rights reserved. Reproduced with permission. PRIME-MD ® is a trademark of Pfizer Inc.";
 "ToggleSwitch_Yes" = "ToggleSwitch_Yes";
 "US National Institute of HealthAmerican Psychological AssociationStamford University" = "US National Institute of HealthAmerican Psychological AssociationStamford University";
 "Update Time & Alarm" = "Update Time & Alarm";
@@ -1159,7 +1139,6 @@ Ready?";
 "main_tab_bar_exercises" = "Exercises";
 "main_tab_bar_rewards" = "Rewards";
 "Upcoming medical appointments" = "Upcoming medical appointments";
-"Rewards" = "Rewards";
 "sleep_hours_question_last_night" = "How many hours did you sleep last night?";
 "sleep_circle_less" = "Less";
 "sleep_circle_more" = "More";
@@ -1188,12 +1167,9 @@ Ready?";
 // Journal entry hub (Swift UI)
 "nav_title_journal_entry" = "Journal Entry";
 "search_placeholder" = "Search";
-"filter_questionnaire" = "Questionnaire";
 "filter_diary_journal" = "Diary Journal";
 "filter_discovery_exercise" = "Discovery Exercise";
-"filter_discovery_capsule" = "Discovery";
 "no_internet_msg" = "No internet connection.";
-"help_button_text" = "Need to talk to someone?";
 
 // Sources and citations (Swift UI)
 "sources_and_citations_title" = "Sources and Citations";
@@ -1291,3 +1267,8 @@ Ready?";
 "Error" = "Error";
 "Failed to fetch data. Would you like to retry?" = "Failed to fetch data. Would you like to retry?";
 "Retry" = "Retry";
+
+// no internet connection screen
+"no_internet_title" = "No Internet Connection";
+"no_internet_desc" = "• Actions taken will only be reflected when internet is restored\n• Connect to internet for accurate real time data\n• If multiple actions are taken between web and mobile, latest action will be updated when connected";
+"alarm_time_unit_min" = "min";

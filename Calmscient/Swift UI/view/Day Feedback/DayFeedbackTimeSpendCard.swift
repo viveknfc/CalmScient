@@ -62,7 +62,7 @@ private struct DayFeedbackTimeSpendOptionsRow: View {
                         .frame(maxWidth: .infinity)
 
                         Text(AppHelper.getLocalizeString(str: pair.1))
-                            .font(.system(size: 8, weight: .medium))
+                            .font(.system(size: 10, weight: .medium))
                             .foregroundStyle(isOn ? Color("barColor1") : Color("UserIntroCollectionCellBackgroundColor"))
                             .multilineTextAlignment(.center)
                             .lineLimit(1)

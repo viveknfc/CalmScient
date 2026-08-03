@@ -100,13 +100,14 @@ private struct DayFeedbackSelectionCard: View {
                                 .frame(maxWidth: .infinity)
 
                                 Text(AppHelper.getLocalizeString(str: pair.1))
-                                    .font(.system(size: 8, weight: .medium))
+                                    .font(.system(size: 10, weight: .medium))
                                     .foregroundStyle(isOn ? selectedColors[idx] : Color("UserIntroCollectionCellBackgroundColor"))
                                     .multilineTextAlignment(.center)
-                                    .lineLimit(1)
-                                    .minimumScaleFactor(0.45)
+                                    .lineLimit(2)
+                                    .minimumScaleFactor(0.75)
+                                    .fixedSize(horizontal: false, vertical: true)
                                     .frame(maxWidth: .infinity)
-                                    .frame(height: DayFeedbackSelectionLayout.captionLineHeight, alignment: .center)
+                                    .frame(height: DayFeedbackSelectionLayout.captionTwoLineHeight, alignment: .top)
                             }
                             .frame(maxWidth: .infinity, alignment: .top)
                         }

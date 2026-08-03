@@ -331,6 +331,9 @@ final class AddNewAppointmentViewModel: ObservableObject {
         }
 
         let providerParams: [String: Int] = ["locationId": patientLocationId, "clientId": clientId]
+        
+        print("param of providers is \(providerParams)")
+        
         APIService.ProviderDetailsAPICalling(
             host,
             params: providerParams,

@@ -26,7 +26,7 @@ struct DayFeedbackSleepCard: View {
                             viewModel.setSleepIndex(idx)
                         } label: {
                             Text(UserIntroDayFeedbackViewModel.sleepCircleLabel(at: idx))
-                                .font(.system(size: 10, weight: .semibold))
+                                .font(.system(size: 8, weight: .semibold))
                                 .foregroundStyle(
                                     Color(uiColor: isOn
                                             ? UIColor.white

@@ -16,11 +16,11 @@ enum MainTabBarAppearance {
         let tabBarItemAppearance = UITabBarItemAppearance()
         tabBarItemAppearance.normal.titleTextAttributes = [
             .foregroundColor: UIColor(named: "TabBarUnSelectedColor")!,
-            .font: UIFont(name: Fonts().lexendRegular, size: 9)!,
+            .font: UIFont(name: Fonts().lexendRegular, size: 12)!,
         ]
         tabBarItemAppearance.selected.titleTextAttributes = [
             .foregroundColor: UIColor(named: "TabBarSelectedColor")!,
-            .font: UIFont(name: Fonts().lexendRegular, size: 9)!,
+            .font: UIFont(name: Fonts().lexendRegular, size: 12)!,
         ]
         let tabBarAppearance = UITabBarAppearance()
         tabBarAppearance.configureWithOpaqueBackground()

@@ -15,7 +15,6 @@
 		335389A72E8C1FC40041E61F /* Favourite Response Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335389A62E8C1FBC0041E61F /* Favourite Response Modal.swift */; };
 		3379D6092E9434CF00D8C68F /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 3379D6082E9434CF00D8C68F /* FirebaseMessaging */; };
 		33C3B9CE2FB342A0000DE599 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C3B9CD2FB3429B000DE599 /* Extensions.swift */; };
-		33C3B9D22FB342A1000DE600 /* SwiftUIHostingControllerPreviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C3B9D12FB342A1000DE600 /* SwiftUIHostingControllerPreviews.swift */; };
 		431C24172C46624D00909C24 /* DashboardHomeTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 431C24162C46624D00909C24 /* DashboardHomeTab.storyboard */; };
 		431C24742C46992B00909C24 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 431C24722C46992B00909C24 /* Localizable.strings */; };
 		431C24772C469B7300909C24 /* AppHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 431C24762C469B7300909C24 /* AppHelper.swift */; };
@@ -138,7 +137,6 @@
 		4A08538B2C21684B00202C02 /* FeelDrinkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A08533B2C21684B00202C02 /* FeelDrinkController.swift */; };
 		4A08538C2C21684B00202C02 /* FeelDrinkingHabbit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A08533C2C21684B00202C02 /* FeelDrinkingHabbit.storyboard */; };
 		4A08538D2C21684B00202C02 /* FeelDrinkingHabbit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A08533D2C21684B00202C02 /* FeelDrinkingHabbit.swift */; };
-		4A08538E2C21684B00202C02 /* AlcoholGuidelinesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A08533F2C21684B00202C02 /* AlcoholGuidelinesViewController.swift */; };
 		4A08538F2C21684B00202C02 /* Basicknowledge.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A0853402C21684B00202C02 /* Basicknowledge.storyboard */; };
 		4A0853902C21684B00202C02 /* Basicknowledge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0853412C21684B00202C02 /* Basicknowledge.swift */; };
 		4A0853912C21684B00202C02 /* BasicknowledgeVideo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A0853422C21684B00202C02 /* BasicknowledgeVideo.storyboard */; };
@@ -181,7 +179,6 @@
 		4A0853B82C21684B00202C02 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A08536C2C21684B00202C02 /* CustomButton.swift */; };
 		4A0853B92C21684B00202C02 /* CustomButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A08536D2C21684B00202C02 /* CustomButton.xib */; };
 		4A0853BA2C21684B00202C02 /* CustomHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A08536E2C21684B00202C02 /* CustomHeaderView.swift */; };
-		4A0853BB2C21684B00202C02 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A08536F2C21684B00202C02 /* CustomLabel.swift */; };
 		4A0853BC2C21684B00202C02 /* CustomSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0853702C21684B00202C02 /* CustomSegmentedControl.swift */; };
 		4A0853BD2C21684B00202C02 /* Discovery.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A0853712C21684B00202C02 /* Discovery.storyboard */; };
 		4A0853BE2C21684B00202C02 /* Discovery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0853722C21684B00202C02 /* Discovery.swift */; };
@@ -189,7 +186,6 @@
 		4A0853C02C21684B00202C02 /* ResourceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A0853742C21684B00202C02 /* ResourceCell.xib */; };
 		4A0853C22C21784A00202C02 /* TakingControlIndexCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0853C12C21784A00202C02 /* TakingControlIndexCodable.swift */; };
 		4A0853C42C22F0C100202C02 /* TakingControlAssets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A0853C32C22F0C100202C02 /* TakingControlAssets.xcassets */; };
-		4A0853D32C23C0A600202C02 /* CustomProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0853C52C23C0A600202C02 /* CustomProgressBar.swift */; };
 		4A0853D42C23C0A600202C02 /* DrinksTrackerCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0853C62C23C0A600202C02 /* DrinksTrackerCollectionCell.swift */; };
 		4A0853D52C23C0A600202C02 /* DrinksTrackerCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A0853C72C23C0A600202C02 /* DrinksTrackerCollectionCell.xib */; };
 		4A0853D62C23C0A600202C02 /* DrinksTrackerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A0853C82C23C0A600202C02 /* DrinksTrackerViewController.storyboard */; };
@@ -206,7 +202,6 @@
 		4A0E1F3E2BE470BF008389C4 /* ApplicationSharedInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0E1F3D2BE470BF008389C4 /* ApplicationSharedInfo.swift */; };
 		4A0E1F7B2BE69D00008389C4 /* Disposable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0E1F782BE69D00008389C4 /* Disposable.swift */; };
 		4A0E1F7C2BE69D00008389C4 /* Observable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0E1F792BE69D00008389C4 /* Observable.swift */; };
-		4A0E1F8F2BE69D07008389C4 /* MockAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0E1F7D2BE69D07008389C4 /* MockAPI.swift */; };
 		4A0E1F902BE69D07008389C4 /* JSONParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0E1F7F2BE69D07008389C4 /* JSONParameterEncoder.swift */; };
 		4A0E1F912BE69D07008389C4 /* ParameterEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0E1F802BE69D07008389C4 /* ParameterEncoding.swift */; };
 		4A0E1F922BE69D07008389C4 /* URLParameterEncoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0E1F812BE69D07008389C4 /* URLParameterEncoder.swift */; };
@@ -217,8 +212,6 @@
 		4A0E1F972BE69D07008389C4 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0E1F892BE69D07008389C4 /* HTTPMethod.swift */; };
 		4A0E1F982BE69D07008389C4 /* HTTPTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0E1F8A2BE69D07008389C4 /* HTTPTask.swift */; };
 		4A0E1F992BE69D07008389C4 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0E1F8B2BE69D07008389C4 /* NetworkLogger.swift */; };
-		4A0E1F9A2BE69D07008389C4 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0E1F8C2BE69D07008389C4 /* Router.swift */; };
-		4A0E1F9C2BEB3AAA008389C4 /* ScreeningsAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0E1F9B2BEB3AAA008389C4 /* ScreeningsAPIRequest.swift */; };
 		4A0E1F9E2BEB3C44008389C4 /* NetworkAPIRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0E1F9D2BEB3C44008389C4 /* NetworkAPIRequest.swift */; };
 		4A0E1FA12BEB4D14008389C4 /* ScreeningsAPICodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0E1FA02BEB4D14008389C4 /* ScreeningsAPICodables.swift */; };
 		4A178C962C0572F100371517 /* WebViewLesson.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A178C952C0572F100371517 /* WebViewLesson.storyboard */; };
@@ -283,7 +276,6 @@
 		4A78A1332BDF2A0400D1EFC1 /* ProgressCollapsableTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4A78A1322BDF2A0400D1EFC1 /* ProgressCollapsableTableCell.xib */; };
 		4A78A1342BDF2A0400D1EFC1 /* ProgressCollapsableTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A78A1312BDF2A0400D1EFC1 /* ProgressCollapsableTableCell.swift */; };
 		4A78A1362BDF300A00D1EFC1 /* MainScreenAssetsAdded.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A78A1352BDF300A00D1EFC1 /* MainScreenAssetsAdded.xcassets */; };
-		4A78A1382BDF333600D1EFC1 /* ProgressOnWorkExpansionTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A78A1372BDF333600D1EFC1 /* ProgressOnWorkExpansionTableView.swift */; };
 		4A78A13A2BDF356E00D1EFC1 /* ProgressOnWorkMain.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A78A1392BDF356E00D1EFC1 /* ProgressOnWorkMain.storyboard */; };
 		4A78A13C2BDF358D00D1EFC1 /* ProgressOnWorkMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A78A13B2BDF358D00D1EFC1 /* ProgressOnWorkMainViewController.swift */; };
 		4A78A13E2BDF3BAD00D1EFC1 /* ProgressOnWorkDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A78A13D2BDF3BAD00D1EFC1 /* ProgressOnWorkDetail.storyboard */; };
@@ -441,8 +433,6 @@
 		6A22C79717BE42F8862D5763 /* TakingControlCalendarStripView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247DF8A513E1442A9121678E /* TakingControlCalendarStripView.swift */; };
 		6B5789C72C7C3C7500EFB8FF /* bell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6B5789C62C7C3C7500EFB8FF /* bell.mp3 */; };
 		6B5CC41C2C673C14007DDEE5 /* UserStartUpScreenDayDataSpanish.json in Resources */ = {isa = PBXBuildFile; fileRef = 6B5CC41B2C673C14007DDEE5 /* UserStartUpScreenDayDataSpanish.json */; };
-		6B75829C2C6B9A62008EB4EF /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B75829B2C6B9A61008EB4EF /* Header.swift */; };
-		6BE9FE6D2C6F7C1800178B92 /* CustomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BE9FE6C2C6F7C1800178B92 /* CustomViewController.swift */; };
 		7FBA59D2DEBB438C96A93ACE /* TakingControlStatCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CA8A077BA1945A8B556D6E2 /* TakingControlStatCardView.swift */; };
 		834893909F61718D5C74AA25 /* PatientLanguagePreference.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD28C2DEEF6929B7094DBA7F /* PatientLanguagePreference.swift */; };
 		9C23B657A2254E13B28756C6 /* TakingControlResourceCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62A8A087F28F402C9F374C68 /* TakingControlResourceCardView.swift */; };
@@ -540,7 +530,6 @@
 		BT8T1C02EFE052000000D02 /* BreathingTechniqueType1ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BT8T1C02EFE052000000C02 /* BreathingTechniqueType1ViewModel.swift */; };
 		BT8T1C02EFE052000000D03 /* BreathingTechniqueType1PreparationCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BT8T1C02EFE052000000C03 /* BreathingTechniqueType1PreparationCardView.swift */; };
 		BT8T1C02EFE052000000D04 /* BreathingTechniqueType1StepCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BT8T1C02EFE052000000C04 /* BreathingTechniqueType1StepCardView.swift */; };
-		BT8T1C02EFE052000000D05 /* BreathingTechniqueType1StepRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BT8T1C02EFE052000000C05 /* BreathingTechniqueType1StepRowView.swift */; };
 		BT8T1C02EFE052000000D06 /* BreathingTechniqueType1VideoPlayerRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = BT8T1C02EFE052000000C06 /* BreathingTechniqueType1VideoPlayerRepresentable.swift */; };
 		BT8T1C02EFE052000000D07 /* BreathingTechniqueType1VideoSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BT8T1C02EFE052000000C07 /* BreathingTechniqueType1VideoSectionView.swift */; };
 		BT8T1C02EFE052000000D08 /* BreathingTechniqueType1CompleteButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BT8T1C02EFE052000000C08 /* BreathingTechniqueType1CompleteButtonView.swift */; };
@@ -593,7 +582,6 @@
 		C26AA7A42CF85E1600F9A424 /* Taking Control Index.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26AA7A32CF85E1600F9A424 /* Taking Control Index.swift */; };
 		C26AA7A62CF8642500F9A424 /* Drinking Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26AA7A52CF8642500F9A424 /* Drinking Control.swift */; };
 		C26AA7A82CF8644600F9A424 /* Smoking Control.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26AA7A72CF8644600F9A424 /* Smoking Control.swift */; };
-		C26AA7AE2CF8D05B00F9A424 /* FontLL18.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26AA7AD2CF8D05B00F9A424 /* FontLL18.swift */; };
 		C26AA7B02CF8D08F00F9A424 /* FontLM18.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26AA7AF2CF8D08F00F9A424 /* FontLM18.swift */; };
 		C26AA7B22CF8D75000F9A424 /* FontLM38.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26AA7B12CF8D75000F9A424 /* FontLM38.swift */; };
 		C26AA7B42CF8DF8800F9A424 /* FontLR18.swift in Sources */ = {isa = PBXBuildFile; fileRef = C26AA7B32CF8DF8800F9A424 /* FontLR18.swift */; };
@@ -608,7 +596,6 @@
 		C28D0E2B2D00948A00517693 /* FontLL12.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28D0E2A2D00948A00517693 /* FontLL12.swift */; };
 		C28D0E2D2D00B16000517693 /* ConSub1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28D0E2C2D00B16000517693 /* ConSub1VC.swift */; };
 		C28D0E2F2D00CB6200517693 /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C28D0E2E2D00CB6200517693 /* AlertVC.swift */; };
-		C29462142D4B849D00EF94DA /* TimeZoneHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C29462132D4B849D00EF94DA /* TimeZoneHelper.swift */; };
 		C2948E1B2CFF164C00D6FC55 /* USGuideLineForDrinkingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2948E1A2CFF164C00D6FC55 /* USGuideLineForDrinkingVC.swift */; };
 		C2948E1D2CFF374900D6FC55 /* CustomView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2948E1C2CFF374900D6FC55 /* CustomView1.swift */; };
 		C2948E1F2CFF44BF00D6FC55 /* FontLL15.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2948E1E2CFF44BF00D6FC55 /* FontLL15.swift */; };
@@ -650,7 +637,6 @@
 		C2CFEF712D81CABE00192126 /* MySmokingHabitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2CFEF702D81CABE00192126 /* MySmokingHabitVC.swift */; };
 		C2D1A3042D019C1D009CAB47 /* ConSub2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D1A3032D019C1D009CAB47 /* ConSub2VC.swift */; };
 		C2D1A3062D01C40D009CAB47 /* ConSub3VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D1A3052D01C40D009CAB47 /* ConSub3VC.swift */; };
-		C2D3EE412D475EF9008A49D2 /* CustomDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D3EE402D475EF9008A49D2 /* CustomDropDown.swift */; };
 		C2D48F6C2D9676420058677F /* GeneralAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C2D48F6B2D9676420058677F /* GeneralAlertView.xib */; };
 		C2D48F6E2D96782D0058677F /* GeneralAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2D48F6D2D96782D0058677F /* GeneralAlert.swift */; };
 		C2E111CF2D89D81F00FF5358 /* FavouritesGeneralManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2E111CE2D89D81F00FF5358 /* FavouritesGeneralManager.swift */; };
@@ -971,7 +957,6 @@
 		QSMHEAD01EFE052000000D05 /* QuitSymptomModalPurpleHeadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = QSMHEAD01EFE052000000C05 /* QuitSymptomModalPurpleHeadingView.swift */; };
 		QSMHIL01EFE052000000D05 /* QuitSymptomModalHighlightedTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = QSMHIL01EFE052000000C05 /* QuitSymptomModalHighlightedTextView.swift */; };
 		QSMPRE01EFE052000000D01 /* QuitSymptomModalPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = QSMPRE01EFE052000000C01 /* QuitSymptomModalPresentation.swift */; };
-		QSMROW01EFE052000000D05 /* QuitSymptomModalTimelineRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = QSMROW01EFE052000000C05 /* QuitSymptomModalTimelineRowView.swift */; };
 		QSMSEC01EFE052000000D05 /* QuitSymptomModalSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = QSMSEC01EFE052000000C05 /* QuitSymptomModalSectionView.swift */; };
 		QSMTBLK01EFE052000000D05 /* QuitSymptomModalTimelineBlockView.swift in Sources */ = {isa = PBXBuildFile; fileRef = QSMTBLK01EFE052000000C05 /* QuitSymptomModalTimelineBlockView.swift */; };
 		QSMTCARD01EFE05200000D05 /* QuitSymptomModalTimelineCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = QSMTCARD01EFE05200000C05 /* QuitSymptomModalTimelineCardView.swift */; };
@@ -1118,7 +1103,6 @@
 		334BDED72E8D31D200CEAD4A /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/UserMedications.xcstrings; sourceTree = "<group>"; };
 		335389A62E8C1FBC0041E61F /* Favourite Response Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favourite Response Modal.swift"; sourceTree = "<group>"; };
 		33C3B9CD2FB3429B000DE599 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		33C3B9D12FB342A1000DE600 /* SwiftUIHostingControllerPreviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIHostingControllerPreviews.swift; sourceTree = "<group>"; };
 		429FBD6DDA154737A753B57D /* TakingControlIndexHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakingControlIndexHostingController.swift; sourceTree = "<group>"; };
 		431C24152C46624D00909C24 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/DashboardHomeTab.storyboard; sourceTree = "<group>"; };
 		431C24182C46624D00909C24 /* mul */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = mul; path = mul.lproj/DashboardHomeTab.xcstrings; sourceTree = "<group>"; };
@@ -1250,7 +1234,6 @@
 		4A08533B2C21684B00202C02 /* FeelDrinkController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeelDrinkController.swift; sourceTree = "<group>"; };
 		4A08533C2C21684B00202C02 /* FeelDrinkingHabbit.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = FeelDrinkingHabbit.storyboard; sourceTree = "<group>"; };
 		4A08533D2C21684B00202C02 /* FeelDrinkingHabbit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeelDrinkingHabbit.swift; sourceTree = "<group>"; };
-		4A08533F2C21684B00202C02 /* AlcoholGuidelinesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlcoholGuidelinesViewController.swift; sourceTree = "<group>"; };
 		4A0853402C21684B00202C02 /* Basicknowledge.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Basicknowledge.storyboard; sourceTree = "<group>"; };
 		4A0853412C21684B00202C02 /* Basicknowledge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Basicknowledge.swift; sourceTree = "<group>"; };
 		4A0853422C21684B00202C02 /* BasicknowledgeVideo.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = BasicknowledgeVideo.storyboard; sourceTree = "<group>"; };
@@ -1293,7 +1276,6 @@
 		4A08536C2C21684B00202C02 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		4A08536D2C21684B00202C02 /* CustomButton.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomButton.xib; sourceTree = "<group>"; };
 		4A08536E2C21684B00202C02 /* CustomHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeaderView.swift; sourceTree = "<group>"; };
-		4A08536F2C21684B00202C02 /* CustomLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		4A0853702C21684B00202C02 /* CustomSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomSegmentedControl.swift; sourceTree = "<group>"; };
 		4A0853712C21684B00202C02 /* Discovery.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discovery.storyboard; sourceTree = "<group>"; };
 		4A0853722C21684B00202C02 /* Discovery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Discovery.swift; sourceTree = "<group>"; };
@@ -1301,7 +1283,6 @@
 		4A0853742C21684B00202C02 /* ResourceCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ResourceCell.xib; sourceTree = "<group>"; };
 		4A0853C12C21784A00202C02 /* TakingControlIndexCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakingControlIndexCodable.swift; sourceTree = "<group>"; };
 		4A0853C32C22F0C100202C02 /* TakingControlAssets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = TakingControlAssets.xcassets; sourceTree = "<group>"; };
-		4A0853C52C23C0A600202C02 /* CustomProgressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomProgressBar.swift; sourceTree = "<group>"; };
 		4A0853C62C23C0A600202C02 /* DrinksTrackerCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DrinksTrackerCollectionCell.swift; sourceTree = "<group>"; };
 		4A0853C72C23C0A600202C02 /* DrinksTrackerCollectionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DrinksTrackerCollectionCell.xib; sourceTree = "<group>"; };
 		4A0853C82C23C0A600202C02 /* DrinksTrackerViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = DrinksTrackerViewController.storyboard; sourceTree = "<group>"; };
@@ -1318,7 +1299,6 @@
 		4A0E1F3D2BE470BF008389C4 /* ApplicationSharedInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationSharedInfo.swift; sourceTree = "<group>"; };
 		4A0E1F782BE69D00008389C4 /* Disposable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Disposable.swift; sourceTree = "<group>"; };
 		4A0E1F792BE69D00008389C4 /* Observable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observable.swift; sourceTree = "<group>"; };
-		4A0E1F7D2BE69D07008389C4 /* MockAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockAPI.swift; sourceTree = "<group>"; };
 		4A0E1F7F2BE69D07008389C4 /* JSONParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONParameterEncoder.swift; sourceTree = "<group>"; };
 		4A0E1F802BE69D07008389C4 /* ParameterEncoding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParameterEncoding.swift; sourceTree = "<group>"; };
 		4A0E1F812BE69D07008389C4 /* URLParameterEncoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLParameterEncoder.swift; sourceTree = "<group>"; };
@@ -1329,8 +1309,6 @@
 		4A0E1F892BE69D07008389C4 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		4A0E1F8A2BE69D07008389C4 /* HTTPTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPTask.swift; sourceTree = "<group>"; };
 		4A0E1F8B2BE69D07008389C4 /* NetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
-		4A0E1F8C2BE69D07008389C4 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		4A0E1F9B2BEB3AAA008389C4 /* ScreeningsAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreeningsAPIRequest.swift; sourceTree = "<group>"; };
 		4A0E1F9D2BEB3C44008389C4 /* NetworkAPIRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAPIRequest.swift; sourceTree = "<group>"; };
 		4A0E1FA02BEB4D14008389C4 /* ScreeningsAPICodables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreeningsAPICodables.swift; sourceTree = "<group>"; };
 		4A178C952C0572F100371517 /* WebViewLesson.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = WebViewLesson.storyboard; sourceTree = "<group>"; };
@@ -1398,7 +1376,6 @@
 		4A78A1312BDF2A0400D1EFC1 /* ProgressCollapsableTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCollapsableTableCell.swift; sourceTree = "<group>"; };
 		4A78A1322BDF2A0400D1EFC1 /* ProgressCollapsableTableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressCollapsableTableCell.xib; sourceTree = "<group>"; };
 		4A78A1352BDF300A00D1EFC1 /* MainScreenAssetsAdded.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = MainScreenAssetsAdded.xcassets; sourceTree = "<group>"; };
-		4A78A1372BDF333600D1EFC1 /* ProgressOnWorkExpansionTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressOnWorkExpansionTableView.swift; sourceTree = "<group>"; };
 		4A78A1392BDF356E00D1EFC1 /* ProgressOnWorkMain.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProgressOnWorkMain.storyboard; sourceTree = "<group>"; };
 		4A78A13B2BDF358D00D1EFC1 /* ProgressOnWorkMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressOnWorkMainViewController.swift; sourceTree = "<group>"; };
 		4A78A13D2BDF3BAD00D1EFC1 /* ProgressOnWorkDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ProgressOnWorkDetail.storyboard; sourceTree = "<group>"; };
@@ -1553,8 +1530,6 @@
 		62A8A087F28F402C9F374C68 /* TakingControlResourceCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakingControlResourceCardView.swift; sourceTree = "<group>"; };
 		6B5789C62C7C3C7500EFB8FF /* bell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = bell.mp3; sourceTree = "<group>"; };
 		6B5CC41B2C673C14007DDEE5 /* UserStartUpScreenDayDataSpanish.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = UserStartUpScreenDayDataSpanish.json; sourceTree = "<group>"; };
-		6B75829B2C6B9A61008EB4EF /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
-		6BE9FE6C2C6F7C1800178B92 /* CustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomViewController.swift; sourceTree = "<group>"; };
 		7529B37CF70844E4AFE94428 /* SmokingControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmokingControlView.swift; sourceTree = "<group>"; };
 		7A02806DB8B2441EAABC16CE /* DrinkingControlViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkingControlViewModel.swift; sourceTree = "<group>"; };
 		7CA8A077BA1945A8B556D6E2 /* TakingControlStatCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakingControlStatCardView.swift; sourceTree = "<group>"; };
@@ -1657,7 +1632,6 @@
 		BT8T1C02EFE052000000C02 /* BreathingTechniqueType1ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingTechniqueType1ViewModel.swift; sourceTree = "<group>"; };
 		BT8T1C02EFE052000000C03 /* BreathingTechniqueType1PreparationCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingTechniqueType1PreparationCardView.swift; sourceTree = "<group>"; };
 		BT8T1C02EFE052000000C04 /* BreathingTechniqueType1StepCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingTechniqueType1StepCardView.swift; sourceTree = "<group>"; };
-		BT8T1C02EFE052000000C05 /* BreathingTechniqueType1StepRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingTechniqueType1StepRowView.swift; sourceTree = "<group>"; };
 		BT8T1C02EFE052000000C06 /* BreathingTechniqueType1VideoPlayerRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingTechniqueType1VideoPlayerRepresentable.swift; sourceTree = "<group>"; };
 		BT8T1C02EFE052000000C07 /* BreathingTechniqueType1VideoSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingTechniqueType1VideoSectionView.swift; sourceTree = "<group>"; };
 		BT8T1C02EFE052000000C08 /* BreathingTechniqueType1CompleteButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BreathingTechniqueType1CompleteButtonView.swift; sourceTree = "<group>"; };
@@ -1710,7 +1684,6 @@
 		C26AA7A32CF85E1600F9A424 /* Taking Control Index.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Taking Control Index.swift"; sourceTree = "<group>"; };
 		C26AA7A52CF8642500F9A424 /* Drinking Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Drinking Control.swift"; sourceTree = "<group>"; };
 		C26AA7A72CF8644600F9A424 /* Smoking Control.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Smoking Control.swift"; sourceTree = "<group>"; };
-		C26AA7AD2CF8D05B00F9A424 /* FontLL18.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLL18.swift; sourceTree = "<group>"; };
 		C26AA7AF2CF8D08F00F9A424 /* FontLM18.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLM18.swift; sourceTree = "<group>"; };
 		C26AA7B12CF8D75000F9A424 /* FontLM38.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLM38.swift; sourceTree = "<group>"; };
 		C26AA7B32CF8DF8800F9A424 /* FontLR18.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLR18.swift; sourceTree = "<group>"; };
@@ -1726,7 +1699,6 @@
 		C28D0E2A2D00948A00517693 /* FontLL12.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLL12.swift; sourceTree = "<group>"; };
 		C28D0E2C2D00B16000517693 /* ConSub1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConSub1VC.swift; sourceTree = "<group>"; };
 		C28D0E2E2D00CB6200517693 /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
-		C29462132D4B849D00EF94DA /* TimeZoneHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeZoneHelper.swift; sourceTree = "<group>"; };
 		C2948E1A2CFF164C00D6FC55 /* USGuideLineForDrinkingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = USGuideLineForDrinkingVC.swift; sourceTree = "<group>"; };
 		C2948E1C2CFF374900D6FC55 /* CustomView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomView1.swift; sourceTree = "<group>"; };
 		C2948E1E2CFF44BF00D6FC55 /* FontLL15.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontLL15.swift; sourceTree = "<group>"; };
@@ -1770,7 +1742,6 @@
 		C2CFEF702D81CABE00192126 /* MySmokingHabitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MySmokingHabitVC.swift; sourceTree = "<group>"; };
 		C2D1A3032D019C1D009CAB47 /* ConSub2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConSub2VC.swift; sourceTree = "<group>"; };
 		C2D1A3052D01C40D009CAB47 /* ConSub3VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConSub3VC.swift; sourceTree = "<group>"; };
-		C2D3EE402D475EF9008A49D2 /* CustomDropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDropDown.swift; sourceTree = "<group>"; };
 		C2D48F6B2D9676420058677F /* GeneralAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GeneralAlertView.xib; sourceTree = "<group>"; };
 		C2D48F6D2D96782D0058677F /* GeneralAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralAlert.swift; sourceTree = "<group>"; };
 		C2E111CE2D89D81F00FF5358 /* FavouritesGeneralManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouritesGeneralManager.swift; sourceTree = "<group>"; };
@@ -2088,7 +2059,6 @@
 		QSMHEAD01EFE052000000C05 /* QuitSymptomModalPurpleHeadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitSymptomModalPurpleHeadingView.swift; sourceTree = "<group>"; };
 		QSMHIL01EFE052000000C05 /* QuitSymptomModalHighlightedTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitSymptomModalHighlightedTextView.swift; sourceTree = "<group>"; };
 		QSMPRE01EFE052000000C01 /* QuitSymptomModalPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitSymptomModalPresentation.swift; sourceTree = "<group>"; };
-		QSMROW01EFE052000000C05 /* QuitSymptomModalTimelineRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitSymptomModalTimelineRowView.swift; sourceTree = "<group>"; };
 		QSMSEC01EFE052000000C05 /* QuitSymptomModalSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitSymptomModalSectionView.swift; sourceTree = "<group>"; };
 		QSMTBLK01EFE052000000C05 /* QuitSymptomModalTimelineBlockView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitSymptomModalTimelineBlockView.swift; sourceTree = "<group>"; };
 		QSMTCARD01EFE05200000C05 /* QuitSymptomModalTimelineCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuitSymptomModalTimelineCardView.swift; sourceTree = "<group>"; };
@@ -2408,7 +2378,6 @@
 				43A08DB12C3EE5F20082F47B /* Lexend-Regular.ttf */,
 				43A08DA92C3EE5EE0082F47B /* Lexend-SemiBold.ttf */,
 				43A08DB02C3EE5F10082F47B /* Lexend-Thin.ttf */,
-				C26AA7AD2CF8D05B00F9A424 /* FontLL18.swift */,
 				C26AA7AF2CF8D08F00F9A424 /* FontLM18.swift */,
 				C26AA7B12CF8D75000F9A424 /* FontLM38.swift */,
 				C26AA7B32CF8DF8800F9A424 /* FontLR18.swift */,
@@ -2431,7 +2400,6 @@
 			isa = PBXGroup;
 			children = (
 				43AB774D2C64511B00740BA6 /* BreathingTechnique.swift */,
-				6B75829B2C6B9A61008EB4EF /* Header.swift */,
 				43AB77492C64511900740BA6 /* BreathingTechniqueType1.swift */,
 				43AB77432C64511500740BA6 /* DiagraphicBreathe.swift */,
 				43AB774B2C64511A00740BA6 /* Excercises.swift */,
@@ -2536,7 +2504,6 @@
 			isa = PBXGroup;
 			children = (
 				4A08533E2C21684B00202C02 /* Drinkinghabit */,
-				4A08533F2C21684B00202C02 /* AlcoholGuidelinesViewController.swift */,
 				4A0853402C21684B00202C02 /* Basicknowledge.storyboard */,
 				4A0853412C21684B00202C02 /* Basicknowledge.swift */,
 				4A0853422C21684B00202C02 /* BasicknowledgeVideo.storyboard */,
@@ -2600,7 +2567,6 @@
 				4A08536C2C21684B00202C02 /* CustomButton.swift */,
 				4A08536D2C21684B00202C02 /* CustomButton.xib */,
 				4A08536E2C21684B00202C02 /* CustomHeaderView.swift */,
-				4A08536F2C21684B00202C02 /* CustomLabel.swift */,
 				4A0853702C21684B00202C02 /* CustomSegmentedControl.swift */,
 				4A0853712C21684B00202C02 /* Discovery.storyboard */,
 				4A0853722C21684B00202C02 /* Discovery.swift */,
@@ -2619,7 +2585,6 @@
 		4A0853D22C23C0A600202C02 /* TakingControlDrinksSummary */ = {
 			isa = PBXGroup;
 			children = (
-				4A0853C52C23C0A600202C02 /* CustomProgressBar.swift */,
 				4A0853C62C23C0A600202C02 /* DrinksTrackerCollectionCell.swift */,
 				4A0853C72C23C0A600202C02 /* DrinksTrackerCollectionCell.xib */,
 				4A0853C82C23C0A600202C02 /* DrinksTrackerViewController.storyboard */,
@@ -2676,7 +2641,6 @@
 		4A0E1F7E2BE69D07008389C4 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				4A0E1F7D2BE69D07008389C4 /* MockAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -2715,7 +2679,6 @@
 				4A0E1F892BE69D07008389C4 /* HTTPMethod.swift */,
 				4A0E1F8A2BE69D07008389C4 /* HTTPTask.swift */,
 				4A0E1F8B2BE69D07008389C4 /* NetworkLogger.swift */,
-				4A0E1F8C2BE69D07008389C4 /* Router.swift */,
 				4A0E1F9D2BEB3C44008389C4 /* NetworkAPIRequest.swift */,
 			);
 			path = Service;
@@ -3012,7 +2975,6 @@
 				4A78A1262BDEDF1B00D1EFC1 /* TableCell */,
 				4A78A1212BDEDA7900D1EFC1 /* HeaderView */,
 				4A78A12F2BDF29C500D1EFC1 /* ExpandCell */,
-				4A78A1372BDF333600D1EFC1 /* ProgressOnWorkExpansionTableView.swift */,
 				4A78A1392BDF356E00D1EFC1 /* ProgressOnWorkMain.storyboard */,
 				4A78A13B2BDF358D00D1EFC1 /* ProgressOnWorkMainViewController.swift */,
 				4A78A13D2BDF3BAD00D1EFC1 /* ProgressOnWorkDetail.storyboard */,
@@ -3483,7 +3445,6 @@
 				E7F1A2C02EFE051400000C10 /* MedicationTimeSlot.swift */,
 				4AD5D11F2BD7A6C100E4C945 /* UserMedicationsTableCell */,
 				4AD5D1222BD7A6C100E4C945 /* UserMedicationsViewController.swift */,
-				6BE9FE6C2C6F7C1800178B92 /* CustomViewController.swift */,
 				334BDED52E8D31D200CEAD4A /* UserMedications.storyboard */,
 			);
 			path = Medications;
@@ -3595,7 +3556,6 @@
 				4AD5D1462BD7A6C100E4C945 /* ScreeningResultVC.swift */,
 				4AD5D1472BD7A6C100E4C945 /* HistoryCell.swift */,
 				4AD5D1482BD7A6C100E4C945 /* QuestionCell.xib */,
-				4A0E1F9B2BEB3AAA008389C4 /* ScreeningsAPIRequest.swift */,
 				C2C81A492DF85B8700D84A36 /* ScreeningUpdatedCell.swift */,
 				C2C81A4B2DF85BBF00D84A36 /* ScreeningUpdatedCell.xib */,
 			);
@@ -3650,7 +3610,6 @@
 				33C3B9CD2FB3429B000DE599 /* Extensions.swift */,
 				C2815F732D2C1A0900B2A641 /* SuccessAlertPresenter.swift */,
 				M1A2B3C32EFE192000000D01 /* StatusBarBackgroundOverlay.swift */,
-				33C3B9D12FB342A1000DE600 /* SwiftUIHostingControllerPreviews.swift */,
 				A1B2C3F12FAA800100000001 /* LoginDesignSystem.swift */,
 				N1A2B3C02EFE051500000C01 /* MedicalCalendarStripLogic.swift */,
 				2AB19F9723DE4E77B807148E /* TakingControlCalendarStripLogic.swift */,
@@ -3981,7 +3940,6 @@
 			children = (
 				BT8T1C02EFE052000000C03 /* BreathingTechniqueType1PreparationCardView.swift */,
 				BT8T1C02EFE052000000C04 /* BreathingTechniqueType1StepCardView.swift */,
-				BT8T1C02EFE052000000C05 /* BreathingTechniqueType1StepRowView.swift */,
 				BT8T1C02EFE052000000C0B /* BreathingTechniqueType1StepsSectionView.swift */,
 				BT8T1C02EFE052000000C06 /* BreathingTechniqueType1VideoPlayerRepresentable.swift */,
 				BT8T1C02EFE052000000C07 /* BreathingTechniqueType1VideoSectionView.swift */,
@@ -4102,8 +4060,6 @@
 				C21BD5992D2C44AB005BA00D /* KeyChainFile.swift */,
 				C25576982D2E56DE008E9D2F /* APIService.swift */,
 				C237E9C62D30586000E895FA /* newPickerViewVC.swift */,
-				C2D3EE402D475EF9008A49D2 /* CustomDropDown.swift */,
-				C29462132D4B849D00EF94DA /* TimeZoneHelper.swift */,
 				C267D18A2D5DE2E100564FE3 /* TokenExpiryCheck.swift */,
 				C2B94B122D6A1B11006C0D91 /* CapsuleButton3.swift */,
 				C2B8E9882D81694C003962A7 /* TextHighlighter.swift */,
@@ -4710,7 +4666,6 @@
 				QSMSEC01EFE052000000C05 /* QuitSymptomModalSectionView.swift */,
 				QSMHIL01EFE052000000C05 /* QuitSymptomModalHighlightedTextView.swift */,
 				QSMTCARD01EFE05200000C05 /* QuitSymptomModalTimelineCardView.swift */,
-				QSMROW01EFE052000000C05 /* QuitSymptomModalTimelineRowView.swift */,
 				QSMTBLK01EFE052000000C05 /* QuitSymptomModalTimelineBlockView.swift */,
 				QSMTSEC02EFE052000000C05 /* QuitSymptomModalTimelineSectionView.swift */,
 				QSMBACK01EFE052000000C05 /* QuitSymptomModalGoBackButtonView.swift */,
@@ -5332,7 +5287,6 @@
 				433E538A2C45604000A37E84 /* ProfileLanguage1CollectionViewCell.swift in Sources */,
 				4A0E1F7B2BE69D00008389C4 /* Disposable.swift in Sources */,
 				4A0853AB2C21684B00202C02 /* IntroductionPageController.swift in Sources */,
-				6BE9FE6D2C6F7C1800178B92 /* CustomViewController.swift in Sources */,
 				4A9A2EC22BF4CF6400E1DF74 /* Array+Extension.swift in Sources */,
 				C26E59E32D8D405000CC2443 /* AppointmentLocationModal.swift in Sources */,
 				4AD5D1112BD7A6A500E4C945 /* CustomCalender.swift in Sources */,
@@ -5357,7 +5311,6 @@
 				C23A2A632DD1CD9700F36781 /* VTakingControlIntroVC.swift in Sources */,
 				C2AEBC5D2D0C5AF400B65DBB /* Modarate3VC.swift in Sources */,
 				4AC1F44A2BF2865E002F5E44 /* MedicationsAPICodables.swift in Sources */,
-				4A0E1F9A2BE69D07008389C4 /* Router.swift in Sources */,
 				4AA705542BDDD7C20013932B /* WeeklySummaryDashboardCell.swift in Sources */,
 				4AD5D1722BD7A6C100E4C945 /* HistoryCell.swift in Sources */,
 				A3B8827C2CC7B3DF003C5133 /* SleepSummaryTableViewCell.swift in Sources */,
@@ -5365,7 +5318,6 @@
 				C28D0E2F2D00CB6200517693 /* AlertVC.swift in Sources */,
 				4A98BFF12BF72E4A00C9D043 /* ProfilePrivacyViewController.swift in Sources */,
 				4A7B04722BDCE21D0052BBB8 /* ScreeningQuestionsViewController.swift in Sources */,
-				4A0853D32C23C0A600202C02 /* CustomProgressBar.swift in Sources */,
 				C2B8233C2D1D403C00FC1291 /* SmokingBasicIndexTableCell.swift in Sources */,
 				C2B8E98D2D81BB99003962A7 /* SmokingAffectMentalHealthVC.swift in Sources */,
 				4A404C5D2BF6712B000790C8 /* ProfileDefaultTableViewCell.swift in Sources */,
@@ -5389,7 +5341,6 @@
 				C2948E1B2CFF164C00D6FC55 /* USGuideLineForDrinkingVC.swift in Sources */,
 				4A98BFEA2BF6902E00C9D043 /* ProfilePrivacyTableViewCell.swift in Sources */,
 				C2FDECB42D26940E005EE6BA /* TryingToQuitVC.swift in Sources */,
-				4A0853BB2C21684B00202C02 /* CustomLabel.swift in Sources */,
 				43AB775C2C64511C00740BA6 /* BreathingTechnique.swift in Sources */,
 				43A08D852C34EB340082F47B /* WhatToExpectViewController.swift in Sources */,
 				4A65C3372BD6859800809222 /* Utility.swift in Sources */,
@@ -5418,7 +5369,6 @@
 				4A0853A12C21684B00202C02 /* USGuidlines.swift in Sources */,
 				4A78A1402BDF3BCB00D1EFC1 /* ProgressOnWorkDetailViewController.swift in Sources */,
 				4A967FC62BD6892800FCE646 /* UserIntroDayCollectionCell.swift in Sources */,
-				4A08538E2C21684B00202C02 /* AlcoholGuidelinesViewController.swift in Sources */,
 				4A967FC82BD6892800FCE646 /* UserEntrySleepHoursCell.swift in Sources */,
 				432EBE302C2C0B07000BB69A /* LogoutTableViewCell.swift in Sources */,
 				4A0853B42C21684B00202C02 /* AlcholFreeCell.swift in Sources */,
@@ -5437,7 +5387,6 @@
 				C2D1A3042D019C1D009CAB47 /* ConSub2VC.swift in Sources */,
 				C25576992D2E56DE008E9D2F /* APIService.swift in Sources */,
 				4A87C1452C011245004E04CC /* CheckMailVC.swift in Sources */,
-				C2D3EE412D475EF9008A49D2 /* CustomDropDown.swift in Sources */,
 				331F25612E45C33900606A53 /* WebView_Citation.swift in Sources */,
 				4A78A1482BDF47E200D1EFC1 /* TablePopOverViewController.swift in Sources */,
 				4A0853972C21684B00202C02 /* Consequences_six.swift in Sources */,
@@ -5446,7 +5395,6 @@
 				43AB77552C64511C00740BA6 /* HandOverYourHeart.swift in Sources */,
 				C2948E212CFF45A200D6FC55 /* FontLM16.swift in Sources */,
 				4A0853982C21684B00202C02 /* Consequences_three.swift in Sources */,
-				C29462142D4B849D00EF94DA /* TimeZoneHelper.swift in Sources */,
 				432EBE1D2C2BF49F000BB69A /* FactorCell.swift in Sources */,
 				C2EED5E42CFA69B0005C1E1F /* ImageView.swift in Sources */,
 				432EBE242C2BF49F000BB69A /* MakePlan.swift in Sources */,
@@ -5485,7 +5433,6 @@
 				C2AEBC592D0C468700B65DBB /* ModerateDrinkingVC.swift in Sources */,
 				4AD5D1522BD7A6C100E4C945 /* DashboardMainTableCell.swift in Sources */,
 				4A65C32F2BD6859800809222 /* UIUtility.swift in Sources */,
-				C26AA7AE2CF8D05B00F9A424 /* FontLL18.swift in Sources */,
 				C230434D2D10903B001E152B /* FontLM14.swift in Sources */,
 				43508AE32C4D73CF000B5645 /* NeedToTalkViewController.swift in Sources */,
 				4A98BFE02BF67C9400C9D043 /* ProfileLanguageTableViewCell.swift in Sources */,
@@ -5494,7 +5441,6 @@
 				C226A57A2D08ABCE0080397A /* MyDrinkingHabitVC.swift in Sources */,
 				C20245E92D1F37B1001CBDDC /* SmokingRelaxVC.swift in Sources */,
 				C26AA7A82CF8644600F9A424 /* Smoking Control.swift in Sources */,
-				4A0E1F8F2BE69D07008389C4 /* MockAPI.swift in Sources */,
 				4A0853992C21684B00202C02 /* Consequences_two.swift in Sources */,
 				4A0853BF2C21684B00202C02 /* ResourceCell.swift in Sources */,
 				4A80447E2BD91E370054A120 /* AlarmCell.swift in Sources */,
@@ -5575,7 +5521,6 @@
 				4A03EB272BDC0E74006AE8C4 /* AddNewMedicationSwitchTableCell.swift in Sources */,
 				C2D1A3062D01C40D009CAB47 /* ConSub3VC.swift in Sources */,
 				33C3B9CE2FB342A0000DE599 /* Extensions.swift in Sources */,
-				33C3B9D22FB342A1000DE600 /* SwiftUIHostingControllerPreviews.swift in Sources */,
 				4AED7C3D2BFCA9070087F9D3 /* UserStartUpScreen.swift in Sources */,
 				C23043412D1024E8001E152B /* DrinkingCountVC.swift in Sources */,
 				4A6DCA282BE2217100F2EB7C /* DiscoveryMainViewController.swift in Sources */,
@@ -5608,10 +5553,8 @@
 				C2FDECB62D269C9E005EE6BA /* TobaccoFreeVC.swift in Sources */,
 				4A0853962C21684B00202C02 /* Consequences_four.swift in Sources */,
 				C2CFEF712D81CABE00192126 /* MySmokingHabitVC.swift in Sources */,
-				4A78A1382BDF333600D1EFC1 /* ProgressOnWorkExpansionTableView.swift in Sources */,
 				C2A7F2262DA4E7B300E41D5A /* scheduleAlarmNotification.swift in Sources */,
 				4A0E1F902BE69D07008389C4 /* JSONParameterEncoder.swift in Sources */,
-				4A0E1F9C2BEB3AAA008389C4 /* ScreeningsAPIRequest.swift in Sources */,
 				43508ADF2C4A87B1000B5645 /* JournalEntryViewController.swift in Sources */,
 				43A08D932C3D35280082F47B /* FavoritesVideosWebViewController.swift in Sources */,
 				4AC1F44D2BF35079002F5E44 /* Date+Extension.swift in Sources */,
@@ -5838,7 +5781,6 @@
 				BT8T1C02EFE052000000D02 /* BreathingTechniqueType1ViewModel.swift in Sources */,
 				BT8T1C02EFE052000000D03 /* BreathingTechniqueType1PreparationCardView.swift in Sources */,
 				BT8T1C02EFE052000000D04 /* BreathingTechniqueType1StepCardView.swift in Sources */,
-				BT8T1C02EFE052000000D05 /* BreathingTechniqueType1StepRowView.swift in Sources */,
 				BT8T1C02EFE052000000D0B /* BreathingTechniqueType1StepsSectionView.swift in Sources */,
 				BT8T1C02EFE052000000D06 /* BreathingTechniqueType1VideoPlayerRepresentable.swift in Sources */,
 				BT8T1C02EFE052000000D07 /* BreathingTechniqueType1VideoSectionView.swift in Sources */,
@@ -5919,7 +5861,6 @@
 				QSMSEC01EFE052000000D05 /* QuitSymptomModalSectionView.swift in Sources */,
 				QSMHIL01EFE052000000D05 /* QuitSymptomModalHighlightedTextView.swift in Sources */,
 				QSMTCARD01EFE05200000D05 /* QuitSymptomModalTimelineCardView.swift in Sources */,
-				QSMROW01EFE052000000D05 /* QuitSymptomModalTimelineRowView.swift in Sources */,
 				QSMTBLK01EFE052000000D05 /* QuitSymptomModalTimelineBlockView.swift in Sources */,
 				QSMTSEC02EFE052000000D05 /* QuitSymptomModalTimelineSectionView.swift in Sources */,
 				QSMBACK01EFE052000000D05 /* QuitSymptomModalGoBackButtonView.swift in Sources */,
@@ -6176,7 +6117,6 @@
 				4A0E1F952BE69D07008389C4 /* NetworkHelper.swift in Sources */,
 				C2948E1F2CFF44BF00D6FC55 /* FontLL15.swift in Sources */,
 				C2EED5E62CFA6CB8005C1E1F /* FontLR12.swift in Sources */,
-				6B75829C2C6B9A62008EB4EF /* Header.swift in Sources */,
 				C23043472D102609001E152B /* DrinkingCountCell.swift in Sources */,
 				4A80447D2BD91E370054A120 /* AddMedicationVC.swift in Sources */,
 			);
@@ -6439,7 +6379,7 @@
 				CODE_SIGN_ENTITLEMENTS = Calmscient/Calmscient.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 842J5G3PU2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Calmscient/Info.plist;
@@ -6482,7 +6422,7 @@
 				CODE_SIGN_ENTITLEMENTS = Calmscient/Calmscient.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 9;
+				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 842J5G3PU2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Calmscient/Info.plist;

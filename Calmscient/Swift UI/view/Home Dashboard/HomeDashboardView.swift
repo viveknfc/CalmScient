@@ -15,7 +15,8 @@ struct HomeDashboardView: View {
     @ObservedObject var viewModel: HomeDashboardViewModel
 
     var body: some View {
-
+        GeometryReader { proxy in
+            ScrollView {
             VStack(alignment: .leading, spacing: 0) {
                 HomeDashboardHeaderView(
                     firstName: viewModel.firstName,
@@ -55,8 +56,12 @@ struct HomeDashboardView: View {
                     .padding(.bottom, 32)
                 }
             }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-            .background(LoginDesignSystem.ColorName.pageBackground.ignoresSafeArea())
+            .frame(minHeight: proxy.size.height, alignment: .top)
+            .frame(maxWidth: .infinity)
+            }
+            .refreshable { await viewModel.refresh() }
+        }
+        .background(LoginDesignSystem.ColorName.pageBackground.ignoresSafeArea())
     }
 }
 

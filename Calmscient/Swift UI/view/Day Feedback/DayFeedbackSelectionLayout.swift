@@ -13,6 +13,8 @@ import SwiftUI
 enum DayFeedbackSelectionLayout {
     /// Single-line caption under each icon so every column keeps emojis on one horizontal line.
     static let captionLineHeight: CGFloat = 14
+    /// Two-line caption height for cards whose wording is longer and should wrap instead of shrink.
+    static let captionTwoLineHeight: CGFloat = 28
     /// Fixed row height so every emoji sits on the same baseline regardless of selection scale.
     static let iconSlotHeight: CGFloat = 56
 }

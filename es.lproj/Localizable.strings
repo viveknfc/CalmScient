@@ -301,7 +301,6 @@ Estos individuos tienden a beber más, socializar con personas que beben mucho y
 
 //discovery main view controller
 "Managing Anxiety" = "Manejando la ansiedad";
-"Managing Stress" = "Manejando el estrés";
 "Taking control" = "Tomando el control";
 
 //custom alert view
@@ -622,7 +621,6 @@ Pay careful attention to the following video." = "Ahora, vamos a intentarlo. \nP
 
 "Let’s learn how to do the diaphragmatic breathing exercise." = "Vamos a aprender a hacer el ejercicio de respiración diafragmática. ";
 
-"Inhale through your nose about 4 seconds,\nFocusing on the tummy rising." = "Inhala por la nariz durante unos 4 segundos,\nconcentrándote en la elevación del abdomen.";
 
 "First find a comfortable to either sit down or lay down." = "Primero, encuentra un lugar cómodo para sentarte o acostarte.";
 
@@ -670,7 +668,6 @@ Pay careful attention to the following video." = "Ahora, vamos a intentarlo. \nP
 "The Calmscient discovery will only be as effective as you make it." = "El descubrimiento de Calmscient será tan efectivo como usted lo haga.";
 
 // WeeklySummaryInner
-"Days at each Mood" = "Días en cada estado de ánimo";
 
 "Summary Of Mood" = "Resumen del estado de ánimo";
 "Summary of sleep" = "Resumen del sueño";
@@ -681,7 +678,6 @@ Pay careful attention to the following video." = "Ahora, vamos a intentarlo. \nP
 "Progress On Course Work" = "Progreso en el trabajo del curso";
 "Journal Entry" = "Entrada de diario";
 
-"DISCOVERY" = "DESCUBRIMIENTO";
 
 "Fatalities and injuries" = "Muertes y heridos";
 "Alcohol-related deaths are increasing in the United States.\n\nAlcohol is a factor in:" = "Las muertes relacionadas con el alcohol están aumentando en los Estados Unidos.
@@ -708,10 +704,6 @@ Bueno, poder hablar abiertamente sobre tu consumo de alcohol o drogas es crucial
 Pero, tienes el control total sobre la decisión respecto a tu hábito.
 
 ¿Listo?";
-"DRINKING_CONTROL_Drink_Coach" = "Coach de Bebidas";
-"DRINKING_CONTROL_Substance_Coach" = "Coach de Sustancias";
-"DRINKING_CONTROL_Do_Not_Show_Checkbox_text" = "No mostrar este tutorial la próxima vez.";
-"DRINKING_CONTROL_Intro_Message" = "Recuerda, siempre puedes realizar los tests AUDIT, DUST-10 y CAGE en la sección Mis registros médicos.";
 "DRINKING_CONTROL_Thirty_percent_Of_Suicides" = "30% de los suicidios.";
 "DRINKING_CONTROL_Forty_Of_Fatal_Burn_Injuries" = "40% de las lesiones fatales por quemaduras.";
 "DRINKING_CONTROL_Fifty_Of_Fatal_Drownings_And_Of_Homicides_And_About_Message" = "50% de los ahogamientos fatales y de los homicidios, y aproximadamente el 65% de las caídas fatales.";
@@ -770,19 +762,16 @@ Pero, tienes el control total sobre la decisión respecto a tu hábito.
 "A family history of alcohol problems." = "Antecedentes familiares de problemas con el alcohol.";
 "A history of drinking-related injuries." = "Antecedentes de lesiones relacionadas con el consumo de alcohol.";
 "AM" = "AM";
-"According to the 2020-2025 Dietary Guidelines for Americans, certain individuals should not consume alcohol. It’s safest to avoid alcohol altogether if you are:\\\n\\\n" = "Según las Guías Alimentarias para Estadounidenses 2020-2025, ciertas personas no deben consumir alcohol. Es más seguro evitar el alcohol por completo si eres:\\\n\\\n";
 "Add appointment" = "Agregar nueva cita";
 "Alarm" = "Alarma";
 "Alarm settings" = "Configuración de alarma";
 "Alarm settings subtitle" = "Puedes personalizar cuánto antes debe sonar la alarma";
-"alarm_time_unit_min" = "min";
 "Please select a time interval before proceeding." = "Selecciona un intervalo de tiempo antes de continuar.";
 "Alcohol free days" = "Días sin alcohol.";
 "Also you need to consider the following factors to determine what to do." = "También debe considerar los siguientes factores para determinar qué hacer.";
 "Are you ready?" = "¿Estás listo?";
 "Are you sure you want to logout?" = "¿Estás seguro de que quieres cerrar sesión?";
 "BAD" = "MALO";
-"COULD BE\\\n BETTER" = "PODRÍA SER\\\n MEJOR";
 "Changing your response to stress" = "Cambiar tu respuesta al estrés";
 "Complete" = "Finalizar";
 "Confirmation" = "Confirmation";
@@ -815,7 +804,6 @@ Pero, tienes el control total sobre la decisión respecto a tu hábito.
 "medication_request_timeout_toast" = "La solicitud superó el tiempo de espera. Inténtalo de nuevo.";
 "No content available" = "No hay contenido disponible.";
 "No data for this date" = "No hay datos para esta fecha";
-"No internet connection. Please try again." = "No internet connection. Please try again.";
 "No title available" = "Título no disponible.";
 "Notify to PCP" = "Notificar al médico de atención primaria";
 "Others" = "Otros";
@@ -847,7 +835,6 @@ Pero, tienes el control total sobre la decisión respecto a tu hábito.
 "Summary of mood" = "Resumen del estado de ánimo";
 "Symptoms such as a sleep, pain, or anxiety disorder and sexual dysfunction." = "Síntomas como trastorno del sueño, dolor o ansiedad y disfunción sexual.";
 "The Discovery" = "El Descubrimiento";
-"This assessment is based on the Patient Health Questionnaire (PHQ), which is a self-administered version of the PRIME-MD diagnostic instrument for common mental disorders.\\\n\\\nPHQ9 Copyright © Pfizer Inc. All rights reserved. Reproduced with permission. PRIME-MD ® is a trademark of Pfizer Inc." = "Esta evaluación se basa en el Cuestionario de salud del paciente (PHQ), que es una versión autoadministrada del instrumento de diagnóstico PRIME-MD para trastornos mentales comunes.\\\n\\\nPHQ9 Copyright © Pfizer Inc. Todos los derechos reservados. Reproducido con permiso. PRIME-MD® es una marca comercial de Pfizer Inc.";
 "ToggleSwitch_Yes" = "ToggleSwitch_Si";
 "US National Institute of HealthAmerican Psychological AssociationStamford University" = "Instituto Nacional de Salud de EE. UU.Asociación Americana de PsicologíaUniversidad de Stamford";
 "Update Time & Alarm" = "Actualizar Hora y Alarma.";
@@ -895,13 +882,8 @@ Pero, tienes el control total sobre la decisión respecto a tu hábito.
 "Pros" = "Ventajas";
 "Cons" = "Desventajas";
 "Daily jouneral" = "Diario diario";
-"Discovery Excercise" = "Ejercicio de descubrimiento";
-"Accept Terms & Conditions" = "Aceptar Términos y Condiciones";
 "First find a comfortable to either sit down or
 lay down." = "Primero busca una posicion comoda para sentarte o acostarte.";
-"According to the 2020-2025 Dietary Guidelines for Americans, certain individuals should not consume alcohol. It’s safest to avoid alcohol altogether if you are:\\n\\n" = "Segun las Guias Alimentarias para los Estadounidenses 2020-2025, ciertas personas no deben consumir alcohol. Es mas seguro evitar el alcohol por completo si usted es:\\n\\n";
-"COULD BE\\n BETTER" = "PODRIA SER\\n MEJOR";
-"This assessment is based on the Patient Health Questionnaire (PHQ), which is a self-administered version of the PRIME-MD diagnostic instrument for common mental disorders.\\n\\nPHQ9 Copyright © Pfizer Inc. All rights reserved. Reproduced with permission. PRIME-MD ® is a trademark of Pfizer Inc." = "Esta evaluacion se basa en el Cuestionario de Salud del Paciente (PHQ), que es una version autoadministrada del instrumento diagnostico PRIME-MD para trastornos mentales comunes.\\n\\nPHQ9 Copyright © Pfizer Inc. Todos los derechos reservados. Reproducido con permiso. PRIME-MD ® es una marca registrada de Pfizer Inc.";
 
 // Mindfulness screen localized keys
 "mindfulness_intro_highlight" = "¿Alguna vez estuviste pensando en otra cosa o sonando despierto";
@@ -1182,7 +1164,6 @@ lay down." = "Primero busca una posicion comoda para sentarte o acostarte.";
 "main_tab_bar_exercises" = "Ejercicios";
 "main_tab_bar_rewards" = "Recompensas";
 "Upcoming medical appointments" = "Próximas citas médicas";
-"Rewards" = "Recompensas";
 "sleep_hours_question_last_night" = "¿Cuántas horas dormiste anoche?";
 "sleep_circle_less" = "Menos";
 "sleep_circle_more" = "Más";
@@ -1211,12 +1192,9 @@ lay down." = "Primero busca una posicion comoda para sentarte o acostarte.";
 // Journal entry hub (Swift UI)
 "nav_title_journal_entry" = "Entrada de diario";
 "search_placeholder" = "Buscar";
-"filter_questionnaire" = "Cuestionario";
 "filter_diary_journal" = "Diario personal";
 "filter_discovery_exercise" = "Ejercicio de descubrimiento";
-"filter_discovery_capsule" = "Descubrimiento";
 "no_internet_msg" = "Sin conexión a internet.";
-"help_button_text" = "¿Necesitas hablar con alguien?";
 
 // Sources and citations (Swift UI)
 "sources_and_citations_title" = "Fuentes y citas";
@@ -1314,3 +1292,8 @@ lay down." = "Primero busca una posicion comoda para sentarte o acostarte.";
 "Error" = "Error";
 "Failed to fetch data. Would you like to retry?" = "No se pudieron obtener los datos. ¿Desea volver a intentarlo?";
 "Retry" = "Reintentar";
+
+// no internet connection screen
+"no_internet_title" = "Sin conexión a internet";
+"no_internet_desc" = "• Las acciones realizadas solo se reflejarán cuando se restablezca la conexión a internet\n• Conéctese a internet para obtener datos precisos en tiempo real\n• Si se realizan varias acciones entre la web y el móvil, la última acción se actualizará al conectarse";
+"alarm_time_unit_min" = "min";

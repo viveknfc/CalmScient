@@ -20,7 +20,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         IQKeyboardManager.shared.isEnabled = true
         
         FirebaseApp.configure()
-                
+
+        // Global no-internet popup: shows on whichever screen is active when the
+        // connection drops, and auto-dismisses when it returns.
+        NoInternetOverlayPresenter.shared.start()
+
         DispatchQueue.main.async {
             self.checkNotificationPermission()
             UNUserNotificationCenter.current().delegate = self

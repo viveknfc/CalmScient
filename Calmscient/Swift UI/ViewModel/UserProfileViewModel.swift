@@ -30,6 +30,10 @@ final class UserProfileViewModel: ObservableObject {
     @Published private(set) var licenseKey: String = ""
     @Published private(set) var alarmMinutes: Int = 0
 
+    /// Observes app-wide connectivity so Settings reloads once the connection returns.
+    private var networkObserver: NSObjectProtocol?
+    private var isObservingNetwork = false
+
     private let profileSvgIcons = [
         "profile_svg", "language_svg", "privacy_svg", "alarm_svg",
         "notification_svg", "license_svg", "helpNsupport_svg", "logout_svg",
@@ -39,13 +43,57 @@ final class UserProfileViewModel: ObservableObject {
         AppHelper.getLocalizeString(str: "Version 1.0.1")
     }
 
+    deinit {
+        if let networkObserver {
+            NotificationCenter.default.removeObserver(networkObserver)
+        }
+    }
+
     func onAppear() {
         reloadLocalizedChrome()
         if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" {
             populateSwiftUIPreviewSampleDataIfNeeded()
             return
         }
+        startObservingNetworkIfNeeded()
         loadInitialData()
+    }
+
+    /// Pull-to-refresh entry point. Reloads settings and completes when the
+    /// profile-settings response returns, so the refresh spinner ends correctly.
+    func refresh() async {
+        await withCheckedContinuation { (continuation: CheckedContinuation<Void, Never>) in
+            loadInitialData(showsToast: false) {
+                continuation.resume()
+            }
+        }
+    }
+
+    // MARK: - Network restore
+
+    private func startObservingNetworkIfNeeded() {
+        guard !isObservingNetwork else { return }
+        isObservingNetwork = true
+
+        networkObserver = NotificationCenter.default.addObserver(
+            forName: .networkStatusChanged,
+            object: nil,
+            queue: .main
+        ) { [weak self] note in
+            let connected = (note.object as? Bool) ?? NetworkMonitor.shared.isConnected
+            guard connected else { return }
+            Task { @MainActor in
+                self?.reloadIfDataMissing()
+            }
+        }
+    }
+
+    /// When the connection returns, reload only if the earlier (offline) attempt
+    /// left the screen without content — avoids unnecessary refetches.
+    private func reloadIfDataMissing() {
+        if cellTitles.isEmpty {
+            loadInitialData()
+        }
     }
 
     /// Fills list + language chips for Xcode SwiftUI previews only (no API calls).
@@ -255,12 +303,13 @@ final class UserProfileViewModel: ObservableObject {
         return nil
     }
 
-    private func loadInitialData() {
+    private func loadInitialData(showsToast: Bool = true, completion: (() -> Void)? = nil) {
         guard let userInfo = ApplicationSharedInfo.shared.loginResponse,
               let token = ApplicationSharedInfo.shared.tokenResponse?.accessToken else {
+            completion?()
             return
         }
-        anchorView?.showToastActivity()
+        if showsToast { anchorView?.showToastActivity() }
 
         APIService.getPatientLanguagesAPICalling(
             hostViewController,
@@ -295,6 +344,7 @@ final class UserProfileViewModel: ObservableObject {
             Task { @MainActor in
                 self?.applyProfileSettingsResponse(response)
                 self?.anchorView?.hideToastActivity()
+                completion?()
             }
         }
     }

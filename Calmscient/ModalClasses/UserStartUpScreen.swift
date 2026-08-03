@@ -244,13 +244,13 @@ class PatientLog: Codable {
     var clientId: Int = ApplicationSharedInfo.shared.loginResponse?.clientID ?? 0
     var patientId: Int = ApplicationSharedInfo.shared.loginResponse?.patientID ?? 0
     var moodId: Int = 0
-    var focusId: Int = 0
+    var medsTrackingId: Int = 0 //focusId
     var sleepHours: Int = 0
-    var medicineFlag: Int = 0
+    var mentalClarityId: Int = 0 //medicineFlag
     var moodQuestion: String = ""
-    var focusQuestion: String? = "How is your focus/mental clarity?"
+    var medsTrackingQuestion: String? = "How is your focus/mental clarity?" //focusQuestion
     var sleepQuestion: String = ""
-    var medicineQuestion: String = ""
+    var mentalClarityQuestion: String = "" //medicineQuestion
     var spendQuestion: String = ""
     var spendTime: [String] = []
     var journal: String = ""
@@ -268,13 +268,13 @@ class PatientLog: Codable {
         try container.encode(clientId, forKey: .clientId)
         try container.encode(patientId, forKey: .patientId)
         try container.encode(moodId, forKey: .moodId)
-        try container.encode(focusId, forKey: .focusId)
+        try container.encode(medsTrackingId, forKey: .focusId)
         try container.encode(sleepHours, forKey: .sleepHours)
-        try container.encode(medicineFlag, forKey: .medicineFlag)
+        try container.encode(mentalClarityId, forKey: .medicineFlag)
         try container.encode(moodQuestion, forKey: .moodQuestion)
-        try container.encode(focusQuestion, forKey: .focusQuestion)
+        try container.encode(medsTrackingQuestion, forKey: .focusQuestion)
         try container.encode(sleepQuestion, forKey: .sleepQuestion)
-        try container.encode(medicineQuestion, forKey: .medicineQuestion)
+        try container.encode(mentalClarityQuestion, forKey: .medicineQuestion)
         try container.encode(spendQuestion, forKey: .spendQuestion)
         try container.encode(spendTime, forKey: .spendTime)
         try container.encode(journal, forKey: .journal)
@@ -289,13 +289,13 @@ class PatientLog: Codable {
         clientId = try container.decode(Int.self, forKey: .clientId)
         patientId = try container.decode(Int.self, forKey: .patientId)
         moodId = try container.decode(Int.self, forKey: .moodId)
-        focusId = try container.decodeIfPresent(Int.self, forKey: .focusId) ?? 0
+        medsTrackingId = try container.decodeIfPresent(Int.self, forKey: .focusId) ?? 0
         sleepHours = try container.decode(Int.self, forKey: .sleepHours)
-        medicineFlag = try container.decode(Int.self, forKey: .medicineFlag)
+        mentalClarityId = try container.decode(Int.self, forKey: .medicineFlag)
         moodQuestion = try container.decode(String.self, forKey: .moodQuestion)
-        focusQuestion = try container.decodeIfPresent(String.self, forKey: .focusQuestion)
+        medsTrackingQuestion = try container.decodeIfPresent(String.self, forKey: .focusQuestion)
         sleepQuestion = try container.decode(String.self, forKey: .sleepQuestion)
-        medicineQuestion = try container.decode(String.self, forKey: .medicineQuestion)
+        mentalClarityQuestion = try container.decode(String.self, forKey: .medicineQuestion)
         spendQuestion = try container.decode(String.self, forKey: .spendQuestion)
         spendTime = try container.decode([String].self, forKey: .spendTime)
         journal = try container.decode(String.self, forKey: .journal)

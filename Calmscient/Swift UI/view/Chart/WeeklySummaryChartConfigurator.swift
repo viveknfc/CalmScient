@@ -177,7 +177,10 @@ enum WeeklySummaryChartConfigurator {
 
         leftAxis.granularity = granularity
         leftAxis.granularityEnabled = true
-        let adjustedMaxY = ceil(Double(maxYValue) / granularity) * granularity
+        // Floor the axis maximum to at least one granularity step so a data set
+        // whose values are all 0 doesn't produce a zero-height range (which
+        // yields no axis entries and crashed YAxisRenderer.drawYLabels).
+        let adjustedMaxY = max(ceil(Double(maxYValue) / granularity) * granularity, granularity)
         leftAxis.axisMaximum = adjustedMaxY
         leftAxis.axisMinimum = 0
         leftAxis.labelCount = Int((adjustedMaxY / granularity) + 1)

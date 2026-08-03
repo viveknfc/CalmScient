@@ -478,7 +478,7 @@ class UserIntroDayFeedbackViewController: ViewController {
                     medicineFlagString = userDayWiseData.medicineAnswer
                     answers.moodId = moodId
                     answers.sleepHours = sleepHours
-                    answers.medicineFlag = Int(medicineFlag ?? "") ?? 0
+                    answers.mentalClarityId = Int(medicineFlag ?? "") ?? 0
                     answers.journal = journal
                     answers.activityDate = currentTime!
 
@@ -517,7 +517,7 @@ class UserIntroDayFeedbackViewController: ViewController {
                 let medicineFlag = userDayWiseData.medicineAnswer
                 medicineFlagString = userDayWiseData.medicineAnswer
                answers.moodId = moodId
-               answers.medicineFlag = Int(medicineFlag ?? "") ?? 0
+               answers.mentalClarityId = Int(medicineFlag ?? "") ?? 0
                answers.spendTime = spendTimeMapped//spendTime
                answers.journal = journal
                answers.activityDate = currentTime!

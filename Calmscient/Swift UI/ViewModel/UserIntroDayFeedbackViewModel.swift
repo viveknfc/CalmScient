@@ -207,9 +207,9 @@ final class UserIntroDayFeedbackViewModel: ObservableObject {
             let medicineFlag = dayData.medicineAnswer
             medicineFlagString = medicineFlag
             answers.moodId = moodId
-            answers.focusId = focusId
+            answers.medsTrackingId = focusId
             answers.sleepHours = sleepAns
-            answers.medicineFlag = medicineFlagCode(from: medicineFlag)
+            answers.mentalClarityId = medicineFlagCode(from: medicineFlag)
             answers.journal = journalText
             answers.activityDate = currentTimeString ?? DayFeedbackSessionLogic.apiTimestamp()
             applyQuestionPayload(from: dayData, to: answers)
@@ -237,8 +237,8 @@ final class UserIntroDayFeedbackViewModel: ObservableObject {
             medicineFlagString = medicineFlag
             let answers = PatientLog()
             answers.moodId = moodId
-            answers.focusId = focusId
-            answers.medicineFlag = medicineFlagCode(from: medicineFlag)
+            answers.medsTrackingId = focusId
+            answers.mentalClarityId = medicineFlagCode(from: medicineFlag)
             answers.sleepHours = sleepAns
             answers.journal = journalText
             answers.activityDate = currentTimeString ?? DayFeedbackSessionLogic.apiTimestamp()
@@ -532,9 +532,9 @@ final class UserIntroDayFeedbackViewModel: ObservableObject {
 
     private func applyQuestionPayload(from dayData: UserStartupScreenDayData, to answers: PatientLog) {
         answers.moodQuestion = dayData.moodData?.moodQuestion ?? ""
-        answers.focusQuestion = dayData.focusData?.focusQuestion ?? "How is your focus/mental clarity?"
+        answers.medsTrackingQuestion = dayData.focusData?.focusQuestion ?? "How is your focus/mental clarity?"
         answers.sleepQuestion = dayData.sleepData?.sleepQuestion ?? ""
-        answers.medicineQuestion = dayData.medicineData?.medicineQuestion ?? ""
+        answers.mentalClarityQuestion = dayData.medicineData?.medicineQuestion ?? ""
         answers.spendQuestion = dayData.timeSpendData?.timeSpendQuestion ?? ""
         answers.wish = dayData.wish
     }
