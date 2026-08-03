@@ -341,7 +341,7 @@ class UserIntroDayFeedbackViewController: ViewController {
                                   slpHours = "0" // Default value if not found
                               }
                               
-                          case "Medication":
+                          case "Medication", "Meds Tracking":
                               mediTaken = answer.activityResponse?.first
                           case "Journal":
                               journalText = answer.activityResponse?.first

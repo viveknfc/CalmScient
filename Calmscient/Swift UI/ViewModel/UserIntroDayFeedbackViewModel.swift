@@ -371,7 +371,7 @@ final class UserIntroDayFeedbackViewModel: ObservableObject {
                                 dayData.moodAnswer = raw
                             }
                         }
-                    case "Focus":
+                    case "Focus", "Mental Clarity":
                         let raw = Int(answer.activityResponse?.first ?? "-1") ?? 0
                         let idx = raw - 1
                         if (0 ..< 5).contains(idx) {
@@ -393,7 +393,7 @@ final class UserIntroDayFeedbackViewModel: ObservableObject {
                             sleepCollectionIndex = nil
                             sleepSummaryText = ""
                         }
-                    case "Medication":
+                    case "Medication", "Meds Tracking":
                         if let first = answer.activityResponse?.first {
                             let normalized: String
                             switch first {
