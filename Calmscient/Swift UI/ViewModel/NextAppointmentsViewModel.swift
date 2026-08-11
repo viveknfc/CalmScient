@@ -109,6 +109,8 @@ final class NextAppointmentsViewModel: ObservableObject, MedicalCalendarHeaderPr
             anchorView?.hideToastActivity()
             return
         }
+        
+        print("the param for fetch appointment is: \(params)")
 
         APIService.getMedicalAppointmentsAPICalling(
             host,

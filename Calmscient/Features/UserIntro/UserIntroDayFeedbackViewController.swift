@@ -478,7 +478,7 @@ class UserIntroDayFeedbackViewController: ViewController {
                     medicineFlagString = userDayWiseData.medicineAnswer
                     answers.moodId = moodId
                     answers.sleepHours = sleepHours
-                    answers.mentalClarityId = Int(medicineFlag ?? "") ?? 0
+                    answers.medsTrackingId = Int(medicineFlag ?? "") ?? 1
                     answers.journal = journal
                     answers.activityDate = currentTime!
 
@@ -517,7 +517,7 @@ class UserIntroDayFeedbackViewController: ViewController {
                 let medicineFlag = userDayWiseData.medicineAnswer
                 medicineFlagString = userDayWiseData.medicineAnswer
                answers.moodId = moodId
-               answers.mentalClarityId = Int(medicineFlag ?? "") ?? 0
+               answers.medsTrackingId = Int(medicineFlag ?? "") ?? 1
                answers.spendTime = spendTimeMapped//spendTime
                answers.journal = journal
                answers.activityDate = currentTime!
@@ -558,8 +558,8 @@ class UserIntroDayFeedbackViewController: ViewController {
                                if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
                                    guard let window = sceneDelegate.window else { return }
                                    let homeController = UIStoryboard(name: "AppTabBar", bundle: nil).instantiateViewController(withIdentifier: "AppMainTabViewController") as! AppMainTabViewController
-//                                   homeController.isInitalView = (self.medicineFlagString == "0")
-                                   homeController.isInitalView = ((self.medicineFlagString ?? "0") == "0")
+//                                   homeController.isInitalView = (self.medicineFlagString == "1")
+                                   homeController.isInitalView = ((self.medicineFlagString ?? "1") == "1")
                                    print("the medicineFlagString",self.medicineFlagString ?? "none")
                                    print("the initial view value is",homeController.isInitalView)
                                    window.rootViewController = homeController
@@ -646,8 +646,10 @@ extension UserIntroDayFeedbackViewController : UITableViewDataSource,UITableView
             cell.instance = userDayWiseData
             
             if let mediTaken = mediTaken, !mediTaken.isEmpty {
-                cell.toggleValue = mediTaken == "No" ? 0 : 1
-                cell.toggleImageView.tag = mediTaken == "No" ? -1 : 1
+                // "No" is now encoded as 1 (was 0). Accept both the numeric code and the text label.
+                let isNo = (mediTaken == "No" || mediTaken == "1")
+                cell.toggleValue = isNo ? 0 : 1
+                cell.toggleImageView.tag = isNo ? -1 : 1
 //                feedbackTableView.reloadRows(at: [indexPath], with: .automatic)
             }
             if !isJournalClearedByUser, let journalText = journalText, !journalText.isEmpty {

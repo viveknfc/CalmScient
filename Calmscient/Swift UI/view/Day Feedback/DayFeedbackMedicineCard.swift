@@ -23,8 +23,8 @@ struct DayFeedbackMedicineCard: View {
                     .fixedSize(horizontal: false, vertical: true)
 
                 HStack(spacing: 12) {
-                    medicineButton(title: "Yes", value: "1")
-                    medicineButton(title: "No", value: "0")
+                    medicineButton(title: "Yes", value: "3")
+                    medicineButton(title: "No", value: "1")
                     medicineButton(title: "Not yet", value: "2")
                 }
 //                .padding(.top, 16)
@@ -66,7 +66,7 @@ struct DayFeedbackMedicineCard: View {
 @available(iOS 16.0, *)
 #Preview("Medicine Card") {
     let vm = UserIntroDayFeedbackViewModel()
-    vm.medicineSelectionValue = "1"
+    vm.medicineSelectionValue = "3"
     return DayFeedbackMedicineCard(viewModel: vm)
         .padding()
         .background(Color(red: 0.96, green: 0.96, blue: 0.97))
