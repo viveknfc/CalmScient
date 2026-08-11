@@ -1272,3 +1272,11 @@ Ready?";
 "no_internet_title" = "No Internet Connection";
 "no_internet_desc" = "• Actions taken will only be reflected when internet is restored\n• Connect to internet for accurate real time data\n• If multiple actions are taken between web and mobile, latest action will be updated when connected";
 "alarm_time_unit_min" = "min";
+
+// WebView lesson generic error alert
+"Error Occurred" = "Error Occurred";
+"Something went wrong. Please try again." = "Something went wrong. Please try again.";
+
+// Medication reminder (local notification)
+"Medication Alert" = "Medication Alert";
+"Please take your medication to stay healthy" = "Please take your medication to stay healthy";

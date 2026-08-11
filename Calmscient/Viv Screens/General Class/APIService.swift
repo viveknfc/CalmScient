@@ -14,7 +14,7 @@ class APIService: UIViewController {
     static var DevURL = "http://147.93.41.160/api/"
     
     static var Url4Courses = "https://calmscient.in/courses/" //"http://147.93.41.160/courses/" //
-    static var BaseUrl = DevURL
+    static var BaseUrl = ProducitonURL
     
     static var versionCheck = "identity/api/v1/settings/getAppVersion"
     

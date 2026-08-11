@@ -1297,3 +1297,11 @@ lay down." = "Primero busca una posicion comoda para sentarte o acostarte.";
 "no_internet_title" = "Sin conexión a internet";
 "no_internet_desc" = "• Las acciones realizadas solo se reflejarán cuando se restablezca la conexión a internet\n• Conéctese a internet para obtener datos precisos en tiempo real\n• Si se realizan varias acciones entre la web y el móvil, la última acción se actualizará al conectarse";
 "alarm_time_unit_min" = "min";
+
+// WebView lesson generic error alert
+"Error Occurred" = "Se produjo un error";
+"Something went wrong. Please try again." = "Algo salió mal. Vuelve a intentarlo.";
+
+// Medication reminder (local notification)
+"Medication Alert" = "Recordatorio de medicación";
+"Please take your medication to stay healthy" = "Por favor, toma tu medicación para mantenerte saludable.";

@@ -24,6 +24,7 @@ final class WebViewLessonViewModel: ObservableObject {
     private let presentation: WebViewLessonPresentation
     private var hasAlreadyPopped = false
     private var hasLoadedInitialRequest = false
+    private var hasAttemptedRefreshAfter401 = false
     private var loadingToastDismissWorkItem: DispatchWorkItem?
 
     weak var webView: WKWebView?
@@ -86,7 +87,7 @@ final class WebViewLessonViewModel: ObservableObject {
 
     func loadInitialRequestIfNeeded() {
         guard !hasLoadedInitialRequest else { return }
-        guard let webView else {
+        guard webView != nil else {
             print("[WebViewLesson] load skipped: webView is nil")
             return
         }
@@ -95,6 +96,33 @@ final class WebViewLessonViewModel: ObservableObject {
             return
         }
         hasLoadedInitialRequest = true
+
+        // Ensure a valid (non-expired) access token before loading the lesson web page.
+        // The page performs an authenticated handshake immediately, so a stale token
+        // would otherwise surface as a 401 ("invalid session") inside the WebView.
+        if TokenManager.shared.isTokenExpired() {
+            print("[WebViewLesson] access token expired — refreshing before load")
+            TokenManager.shared.refreshAccessToken(from: hostViewController) { [weak self] success in
+                Task { @MainActor in
+                    guard let self else { return }
+                    if success {
+                        self.loadRequest(url)
+                    } else {
+                        print("[WebViewLesson] token refresh failed — routing to login")
+                        self.handleTokenFailure()
+                    }
+                }
+            }
+        } else {
+            loadRequest(url)
+        }
+    }
+
+    private func loadRequest(_ url: URL) {
+        guard let webView else {
+            print("[WebViewLesson] load skipped after token check: webView is nil")
+            return
+        }
         print("[WebViewLesson] loading \(url.absoluteString)")
         webView.load(URLRequest(url: url))
     }
@@ -163,7 +191,7 @@ final class WebViewLessonViewModel: ObservableObject {
         case "401":
             print("401 received from web page")
             setNavigationBarHidden(false)
-            presentGenericErrorAlert()
+            handleWebSessionExpired()
         case "1005":
             break
         case "1008":
@@ -268,12 +296,60 @@ final class WebViewLessonViewModel: ObservableObject {
     private func presentGenericErrorAlert() {
         guard let host = hostViewController else { return }
         let alert = UIAlertController(
-            title: "Error Occured",
-            message: "Error occured. Please try again!!",
+            title: "Error Occurred".localized,
+            message: "Something went wrong. Please try again.".localized,
             preferredStyle: .alert
         )
         alert.addAction(UIAlertAction(title: "OK".localized, style: .default))
         host.present(alert, animated: true)
+    }
+
+    // MARK: - Session recovery
+
+    /// Called when the web page reports a 401 ("invalid session"). Attempts a single
+    /// silent token refresh + reload before falling back to the error alert, and routes
+    /// to login if the refresh token itself is no longer valid.
+    private func handleWebSessionExpired() {
+        guard !hasAttemptedRefreshAfter401 else {
+            presentGenericErrorAlert()
+            return
+        }
+        hasAttemptedRefreshAfter401 = true
+        print("[WebViewLesson] 401 from web page — attempting token refresh + reload")
+        TokenManager.shared.refreshAccessToken(from: hostViewController) { [weak self] success in
+            Task { @MainActor in
+                guard let self else { return }
+                if success {
+                    self.reloadWebView()
+                } else {
+                    print("[WebViewLesson] token refresh after 401 failed — routing to login")
+                    self.handleTokenFailure()
+                }
+            }
+        }
+    }
+
+    private func reloadWebView() {
+        guard let webView, let url = requestURL else {
+            print("[WebViewLesson] reload skipped: webView or URL unavailable")
+            return
+        }
+        print("[WebViewLesson] reloading lesson after token refresh")
+        webView.load(URLRequest(url: url))
+    }
+
+    /// Clears the local session and returns to the login root — mirrors the behaviour
+    /// used by the home dashboard when a refresh token can no longer be renewed.
+    private func handleTokenFailure() {
+        UserDefaults.standard.set(0, forKey: "rememberMe")
+        UserDefaultsHelper.clearLoginDetailsFromUserDefaults()
+        ApplicationSharedInfo.shared.loginResponse = nil
+        ApplicationSharedInfo.shared.tokenResponse = nil
+
+        if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate {
+            let navController = LoginHostingController.loginNavigationRoot()
+            sceneDelegate.changeRootViewController(to: navController)
+        }
     }
 
     #if DEBUG

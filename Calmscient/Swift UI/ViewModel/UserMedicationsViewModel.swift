@@ -457,8 +457,8 @@ final class UserMedicationsViewModel: ObservableObject, MedicalCalendarHeaderPro
 
     private func scheduleAlarmNotification(hour: Int, minute: Int, identifier: String, repeatDays: [Int]) {
         let content = UNMutableNotificationContent()
-        content.title = "Medication Alert"
-        content.body = "Please take your medication to stay healthy"
+        content.title = AppHelper.getLocalizeString(str: "Medication Alert")
+        content.body = AppHelper.getLocalizeString(str: "Please take your medication to stay healthy")
         content.categoryIdentifier = "ALARM_CATEGORY"
         content.interruptionLevel = .critical
         content.sound = UNNotificationSound.criticalSoundNamed(UNNotificationSoundName(rawValue: "bell.mp3"))

@@ -991,3 +991,11 @@ lay down." = "まず、座るか横になるか、楽な姿勢を取りましょ
 "no_internet_title" = "インターネットに接続されていません";
 "no_internet_desc" = "・インターネットに再接続すると、オフライン中の操作が反映されます。\n・最新の情報を表示するには、インターネットに接続してください。";
 "alarm_time_unit_min" = "分";
+
+// WebView lesson generic error alert
+"Error Occurred" = "エラーが発生しました";
+"Something went wrong. Please try again." = "問題が発生しました。もう一度お試しください。";
+
+// Medication reminder (local notification)
+"Medication Alert" = "服薬のお知らせ";
+"Please take your medication to stay healthy" = "健康を保つために、お薬を服用してください。";
