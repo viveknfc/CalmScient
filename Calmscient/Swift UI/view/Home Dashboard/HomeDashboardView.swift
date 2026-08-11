@@ -37,6 +37,15 @@ struct HomeDashboardView: View {
                 }
                 .padding(.horizontal, 20)
 
+                // Standalone "Health Metrics" button, above the favorites section.
+                HomeDashboardMenuCardView(
+                    title: "Health Metrics".localized,
+                    imageName: "heart.text.square.fill",
+                    onTap: { viewModel.openHealthMetrics() }
+                )
+                .padding(.horizontal, 20)
+                .padding(.top, 14)
+
                 HomeDashboardFavoritesSectionView(
                     title: viewModel.myFavoritesSectionTitle,
                     emptyMessage: viewModel.emptyFavoritesMessage,

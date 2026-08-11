@@ -155,6 +155,11 @@ final class HomeDashboardViewModel: ObservableObject {
         }
     }
 
+    func openHealthMetrics() {
+        guard let nav = hostViewController?.navigationController else { return }
+        nav.pushViewController(HealthMetricsHostingController(), animated: true)
+    }
+
     func openFavorite(_ item: [String: Any]) {
         guard let nav = hostViewController?.navigationController else { return }
 

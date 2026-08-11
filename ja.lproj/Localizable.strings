@@ -235,7 +235,7 @@
 "Touch and the butterfly hug" = "触れ合いと蝶の抱擁";
 "Interlock your thumbs to form a butterfly shape" = "親指同士を組んで蝶の形を作る";
 "Place both hands over your chest, and alternate tapping your middle finger just below your collarbone" = "両手を胸の前で交差させ、親指を組んで蝶の形を作ります。両腕を胸の上で交差させ、鎖骨の下あたりを左右交互にやさしくトントン、とタップします。";
-"Hand over your heart" = "あなたの心を差し出してください";
+"Hand over your heart" = "胸に手を当てる";
 "Movement: running" = "ランニング";
 "It’s not easy to move when you have a shutdown or are feeling numb. Running can quickly shift you out of the shutdown state and re-energize you." = "気分が落ち込んでいたり、心身から力が湧いてこないように感じる時、体を動かしてみることが難しく感じられることがあります。でも、軽いジョギングでも心と体を活性化し、気分転換やストレス解消に役立ちます。無理のないペースで走ることで、活力を取り戻し、心身のバランスを整えることができます。";
 "Mindful body movement" = "マインドフル・ストレッチ";
@@ -580,7 +580,7 @@ lay down." = "まず、座るか横になるか、楽な姿勢を取りましょ
 "mindfulness_opposite_highlight_secondary" = "存在";
 "mindfulness_anxiety_title" = "マインドフルネスは不安の軽減にどのように役立つのでしょうか？";
 "mindfulness_anxiety_body" = "私たちの中で「オートパイロット状態」になると、未来のことを過度に心配したり、過去の出来事を繰り返し考えたりすることがあります。こうした思考の習慣は、不安やストレスを強める原因になります。マインドフルネスは、自分の思考や感情に気づき、それらにとらわれすぎないように心のバランスをとり戻すためのスキルです。練習を重ねることで、自動的に湧いてくる心配や不安に振り回されにくくなり、より落ち着いて物事に向き合えるようになります";
-"mindfulness_reminder_body" = "マインドフルネスは、不快な体験をすぐにコントロールしたり、取り除いたり、解決したりしなくてもよいことを思い出させてくれます。代わりに、安全感やつながりを与えてくれるものを見つけ、そこに積極的に関わることができます。";
+"mindfulness_reminder_body" = "マインドフルネスは、不快な感情や経験をすぐに変えようとするのではなく、そのまま受け止める姿勢を育てます。そして、自分に安心感を与えてくれるものに意識を向けることで、心の安定を取り戻しやすくなります。";
 "mindfulness_example_body" = "たとえば、朝の散歩中に「何歩、歩いたか」と達成したことだけに意識するのではなく、鳥のさえずりに耳を傾けたり、新鮮な空気を感じたり、周囲の景色の変化に気づいたりしてみましょう。自然や動物、人々、そして身体感覚に意識を向けることで、「今この瞬間」とのつながりを深めることができます。こうした気づきは心を落ち着かせ、不安を和らげる助けになります。その結果、一日をより穏やかで前向きな気持ちで始められるでしょう。";
 "mindfulness_daily_routine_body" = "あなたの日常に取り入れたいマインドフルネス習慣はありますか？Calmscientでは、心身の健康維持に役立つシンプルなマインドフルネス習慣を紹介しています。リマインダーを活用して、毎日の習慣として続けてみましょう。";
 

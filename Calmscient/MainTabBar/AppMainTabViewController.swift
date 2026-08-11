@@ -16,7 +16,7 @@ final class AppMainTabViewController: UIViewController {
 
     private let viewModel = MainTabBarViewModel()
 
-    /// When `medicineFlagString == "0"`, the first tab shows medications instead of the home dashboard (typo preserved).
+    /// When `medicineFlagString == "1"` (meds answer "No"), the first tab shows medications instead of the home dashboard (typo preserved).
     var isInitalView: Bool {
         get { viewModel.isInitalView }
         set { viewModel.isInitalView = newValue }

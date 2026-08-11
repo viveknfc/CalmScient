@@ -31,9 +31,9 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.isNavigationBarHidden = true
-        
+
         setupViews()
-        
+
         checkTokenAndFetchFavorites()
    
     }
@@ -159,7 +159,7 @@ class HomeTabDashboardViewController: UIViewController, UITableViewDataSource,UI
         
         noFavsLabel.isHidden = true
     }
-    
+
     //MARK: - Setup Observers
     
     private func setupObservers() {
@@ -256,7 +256,7 @@ noFavsLabel.text = AppHelper.getLocalizeString(str: "No favorites found for this
                 )
                 self.navigationController?.pushViewController(vc, animated: true)
             }
-            
+
         }
     }
     

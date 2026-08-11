@@ -26,6 +26,13 @@ struct HomeDashboardMenuCardView: View {
                             .resizable()
                             .scaledToFit()
                             .frame(width: 52, height: 52)
+                    } else if let symbol = UIImage(systemName: imageName) {
+                        // Fallback: treat `imageName` as an SF Symbol name.
+                        Image(uiImage: symbol)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 28, height: 28)
+                            .foregroundStyle(LoginDesignSystem.ColorName.purple)
                     }
                 }
 

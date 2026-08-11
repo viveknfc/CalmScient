@@ -21,11 +21,11 @@ class UserEntryYesOrNoCell: UITableViewCell, UITextViewDelegate {
             let toggleImage: UIImage
             if toggleValue == 1 {
                 toggleImage = UIImage(named: "ToggleSwitch_Yes".localized)!
-                instance.medicineAnswer = "1"
+                instance.medicineAnswer = "3"
                 self.toggleImageView.tag = 1
             } else {
                 toggleImage = UIImage(named: "ToggleSwitch_No")!
-                instance.medicineAnswer = "0"
+                instance.medicineAnswer = "1"
                 self.toggleImageView.tag = -1
             }
             UIView.transition(with: self.toggleImageView,
@@ -134,11 +134,11 @@ class UserEntryYesOrNoCell: UITableViewCell, UITextViewDelegate {
         print("the toggle value is",self.toggleImageView.tag)
         var toggleImage:UIImage!
         if self.toggleImageView.tag == -1 {
-            instance.medicineAnswer = "1"
+            instance.medicineAnswer = "3"
             toggleImage = UIImage(named: "ToggleSwitch_Yes".localized)
             self.toggleImageView.tag = 1
         } else {
-            instance.medicineAnswer = "0"
+            instance.medicineAnswer = "1"
             toggleImage = UIImage(named: "ToggleSwitch_No")
             self.toggleImageView.tag = -1
         }

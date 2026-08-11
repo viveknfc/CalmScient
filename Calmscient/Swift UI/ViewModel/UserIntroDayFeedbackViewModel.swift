@@ -207,9 +207,9 @@ final class UserIntroDayFeedbackViewModel: ObservableObject {
             let medicineFlag = dayData.medicineAnswer
             medicineFlagString = medicineFlag
             answers.moodId = moodId
-            answers.medsTrackingId = focusId
+            answers.mentalClarityId = focusId
             answers.sleepHours = sleepAns
-            answers.mentalClarityId = medicineFlagCode(from: medicineFlag)
+            answers.medsTrackingId = medicineFlagCode(from: medicineFlag)
             answers.journal = journalText
             answers.activityDate = currentTimeString ?? DayFeedbackSessionLogic.apiTimestamp()
             applyQuestionPayload(from: dayData, to: answers)
@@ -237,8 +237,8 @@ final class UserIntroDayFeedbackViewModel: ObservableObject {
             medicineFlagString = medicineFlag
             let answers = PatientLog()
             answers.moodId = moodId
-            answers.medsTrackingId = focusId
-            answers.mentalClarityId = medicineFlagCode(from: medicineFlag)
+            answers.mentalClarityId = focusId
+            answers.medsTrackingId = medicineFlagCode(from: medicineFlag)
             answers.sleepHours = sleepAns
             answers.journal = journalText
             answers.activityDate = currentTimeString ?? DayFeedbackSessionLogic.apiTimestamp()
@@ -397,14 +397,14 @@ final class UserIntroDayFeedbackViewModel: ObservableObject {
                         if let first = answer.activityResponse?.first {
                             let normalized: String
                             switch first {
-                            case "1", "Yes":
+                            case "3", "Yes":
+                                normalized = "3"
+                            case "1", "No":
                                 normalized = "1"
-                            case "0", "No":
-                                normalized = "0"
                             case "2", "Not yet", "NotYet":
                                 normalized = "2"
                             default:
-                                normalized = "0"
+                                normalized = "1"
                             }
                             medicineSelectionValue = normalized
                             dayData.medicineAnswer = normalized
@@ -457,7 +457,7 @@ final class UserIntroDayFeedbackViewModel: ObservableObject {
                                    let window = sceneDelegate.window {
                                     let homeController = UIStoryboard(name: "AppTabBar", bundle: nil)
                                         .instantiateViewController(withIdentifier: "AppMainTabViewController") as! AppMainTabViewController
-                                    homeController.isInitalView = ((self.medicineFlagString ?? "0") == "0")
+                                    homeController.isInitalView = ((self.medicineFlagString ?? "1") == "1")
                                     window.rootViewController = homeController
                                     window.makeKeyAndVisible()
                                 }
@@ -519,22 +519,22 @@ final class UserIntroDayFeedbackViewModel: ObservableObject {
 
     private func medicineFlagCode(from value: String?) -> Int {
         switch value {
-        case "1", "Yes":
+        case "3", "Yes":
+            return 3
+        case "1", "No":
             return 1
-        case "0", "No":
-            return 0
         case "2", "Not yet", "NotYet":
             return 2
         default:
-            return 0
+            return 1
         }
     }
 
     private func applyQuestionPayload(from dayData: UserStartupScreenDayData, to answers: PatientLog) {
         answers.moodQuestion = dayData.moodData?.moodQuestion ?? ""
-        answers.medsTrackingQuestion = dayData.focusData?.focusQuestion ?? "How is your focus/mental clarity?"
+        answers.mentalClarityQuestion = dayData.focusData?.focusQuestion ?? "How is your focus/mental clarity?"
         answers.sleepQuestion = dayData.sleepData?.sleepQuestion ?? ""
-        answers.mentalClarityQuestion = dayData.medicineData?.medicineQuestion ?? ""
+        answers.medsTrackingQuestion = dayData.medicineData?.medicineQuestion ?? ""
         answers.spendQuestion = dayData.timeSpendData?.timeSpendQuestion ?? ""
         answers.wish = dayData.wish
     }
