@@ -34,9 +34,9 @@ struct HomeDashboardView: View {
                             onTap: { viewModel.openMenuRow(at: index) }
                         )
 
-                        // "Health Metrics" sits between "Weekly summary" (index 1)
-                        // and "Mental wellbeing tracker" (index 2).
-                        if index == 1 {
+                        // "Health Metrics" sits right after "Mental wellbeing
+                        // tracker" (index 2), as the last menu item.
+                        if index == 2 {
                             HomeDashboardMenuCardView(
                                 title: "Health Metrics".localized,
                                 imageName: "heart.text.square.fill",
