@@ -33,18 +33,19 @@ struct HomeDashboardView: View {
                             imageName: row.imageName,
                             onTap: { viewModel.openMenuRow(at: index) }
                         )
+
+                        // "Health Metrics" sits between "Weekly summary" (index 1)
+                        // and "Mental wellbeing tracker" (index 2).
+                        if index == 1 {
+                            HomeDashboardMenuCardView(
+                                title: "Health Metrics".localized,
+                                imageName: "heart.text.square.fill",
+                                onTap: { viewModel.openHealthMetrics() }
+                            )
+                        }
                     }
                 }
                 .padding(.horizontal, 20)
-
-                // Standalone "Health Metrics" button, above the favorites section.
-                HomeDashboardMenuCardView(
-                    title: "Health Metrics".localized,
-                    imageName: "heart.text.square.fill",
-                    onTap: { viewModel.openHealthMetrics() }
-                )
-                .padding(.horizontal, 20)
-                .padding(.top, 14)
 
                 HomeDashboardFavoritesSectionView(
                     title: viewModel.myFavoritesSectionTitle,
