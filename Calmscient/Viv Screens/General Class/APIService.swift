@@ -87,6 +87,10 @@ class APIService: UIViewController {
         "patients/api/v1/course/getPatientCourseWorkPercentageDetailsForMobile"
     static var getPatientCourseIndex = "patients/api/v1/course/getPatientCourseIndex"
 
+    /// Cross-platform wearable health data (shared schema with the Android /
+    /// Health Connect client). GET with `patientId` + `date` query params.
+    static var WearableData = "patients/api/v1/health/wearable-data"
+
     //MARK: - Version CHeck API
     
     static func validateVersionAPICalling(_ view:UIViewController?,params:[String:Any],method:String,parameterPlacement:String,callBack:@escaping (AnyObject)->()) {

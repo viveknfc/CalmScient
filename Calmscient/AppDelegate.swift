@@ -25,12 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // connection drops, and auto-dismisses when it returns.
         NoInternetOverlayPresenter.shared.start()
 
-        // Start the phone <-> watch bridge so the paired Apple Watch can receive
-        // medication data and send back mood check-ins / mindful sessions.
-        if #available(iOS 16.0, *) {
-            PhoneConnectivityManager.shared.activate()
-        }
-
         DispatchQueue.main.async {
             self.checkNotificationPermission()
             UNUserNotificationCenter.current().delegate = self

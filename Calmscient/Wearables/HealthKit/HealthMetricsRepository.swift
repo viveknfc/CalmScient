@@ -45,6 +45,7 @@ final class HealthMetricsRepository: @unchecked Sendable {
         types.insert(HKQuantityType(.basalEnergyBurned))   // for total Calories
         types.insert(HKCategoryType(.sleepAnalysis))
         types.insert(HKCategoryType(.mindfulSession))
+        types.insert(HKObjectType.workoutType())           // for exerciseType
         return types
     }
 
@@ -111,6 +112,96 @@ final class HealthMetricsRepository: @unchecked Sendable {
             case .wellness: return await mindfulMinutesToday()
             default:        return nil
             }
+        }
+    }
+
+    // MARK: - Unified cross-platform payload (Android-compatible schema)
+
+    /// Numeric current value for a metric (already display-scaled), or nil.
+    /// Public so the unified serializer can build a payload that shares the exact
+    /// keys the Android (Health Connect) client posts.
+    func currentValue(for metric: HealthMetricType) async -> Double? {
+        switch metric {
+        case .stress:
+            return nil // No HealthKit source (Android's `stressLevel`).
+        case .bloodPressure:
+            return (await latestBloodPressure())?.systolic
+        case .calories:
+            let active = await todaysSum(.activeEnergyBurned, unit: .kilocalorie())
+            let basal = await todaysSum(.basalEnergyBurned, unit: .kilocalorie())
+            let total = (active ?? 0) + (basal ?? 0)
+            return total > 0 ? total : nil
+        default:
+            return await currentRawValue(for: metric)
+        }
+    }
+
+    /// Latest workout's activity type, mapped to the shared `exerciseType`
+    /// vocabulary (Walking, Running, …). Nil when there's no recent workout.
+    func latestExerciseType() async -> String? {
+        await withCheckedContinuation { continuation in
+            let sort = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
+            let query = HKSampleQuery(sampleType: HKObjectType.workoutType(),
+                                      predicate: nil, limit: 1, sortDescriptors: [sort]) { _, samples, _ in
+                let name = (samples?.first as? HKWorkout).map { Self.exerciseTypeName(for: $0.workoutActivityType) }
+                continuation.resume(returning: name)
+            }
+            store.execute(query)
+        }
+    }
+
+    /// Builds one day's snapshot in the canonical cross-platform schema from live
+    /// HealthKit reads. The result serializes to the same JSON keys the Android
+    /// client and backend use, so a single parser/serializer covers both.
+    func buildUnifiedDay(patientId: Int,
+                         date: Date = Date(),
+                         sourceDevice: String = "iPhone") async -> WearableHealthDay {
+        var values: [HealthMetricType: Double] = [:]
+        await withTaskGroup(of: (HealthMetricType, Double?).self) { group in
+            for metric in HealthMetricType.allCases where metric != .bloodPressure {
+                group.addTask { (metric, await self.currentValue(for: metric)) }
+            }
+            for await (metric, value) in group {
+                if let value { values[metric] = value }
+            }
+        }
+        async let bloodPressure = latestBloodPressure()
+        async let exerciseType = latestExerciseType()
+
+        return await WearableHealthDay.make(
+            patientId: patientId,
+            date: date,
+            sourceDevice: sourceDevice,
+            values: values,
+            bloodPressure: bloodPressure,
+            exerciseType: exerciseType
+        )
+    }
+
+    /// Maps a HealthKit workout type onto the shared exercise-type names.
+    private static func exerciseTypeName(for type: HKWorkoutActivityType) -> String {
+        switch type {
+        case .walking:                 return "Walking"
+        case .running:                 return "Running"
+        case .cycling:                 return "Cycling"
+        case .hiking:                  return "Hiking"
+        case .swimming:                return "Swimming"
+        case .yoga:                    return "Yoga"
+        case .traditionalStrengthTraining,
+             .functionalStrengthTraining: return "Strength Training"
+        case .elliptical:              return "Elliptical"
+        case .rowing:                  return "Rowing"
+        case .stairClimbing, .stairs:  return "Stair Climbing"
+        case .basketball:              return "Basketball"
+        case .soccer:                  return "Football"
+        case .cricket:                 return "Cricket"
+        case .tennis:                  return "Tennis"
+        case .badminton:               return "Badminton"
+        case .dance, .cardioDance:     return "Dance"
+        case .mixedCardio:             return "Aerobics"
+        case .highIntensityIntervalTraining: return "HIIT"
+        case .pilates:                 return "Pilates"
+        default:                       return "Other"
         }
     }
 

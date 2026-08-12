@@ -10,7 +10,6 @@
 
 import SwiftUI
 import UIKit
-import Combine
 
 @available(iOS 16.0, *)
 @MainActor
@@ -38,55 +37,34 @@ final class HealthMetricsViewModel: ObservableObject {
     @Published private(set) var isLoading = false
     @Published private(set) var authorizationDenied = false
 
-    private let repository = HealthMetricsRepository.shared
-
-    /// Formatted values read from HealthKit on the phone, keyed by metric rawValue.
-    private var healthKitValues: [String: String] = [:]
-    /// Values pushed from the Apple Watch (display units), keyed by metric rawValue.
-    private var watchValues: [String: Double] = [:]
-    private var cancellables = Set<AnyCancellable>()
+    /// The canonical cross-platform day fetched from the backend (fed by the
+    /// paired device through the shared Android/Health Connect schema). This is
+    /// the ONLY source for the dashboard: a metric shows a value only when the
+    /// API carries it, otherwise the row is empty ("--"). Local HealthKit samples
+    /// are never shown here.
+    private var unifiedDay: WearableHealthDay?
 
     init() {
         rebuildRows()
-        // Apply the last snapshot the watch already sent, and observe future ones.
-        if let existing = PhoneConnectivityManager.shared.lastHealthSnapshot {
-            watchValues = existing.values
-            rebuildRows()
-        }
-        PhoneConnectivityManager.shared.$lastHealthSnapshot
-            .compactMap { $0 }
-            .receive(on: RunLoop.main)
-            .sink { [weak self] snapshot in
-                self?.applyWatchSnapshot(snapshot)
-            }
-            .store(in: &cancellables)
     }
 
-    /// Rebuilds the section/row list, preferring watch-provided values over the
-    /// phone's HealthKit reads when the watch has sent that metric.
+    /// Applies a canonical-schema day and rebuilds the rows from it.
+    func apply(unifiedDay day: WearableHealthDay) {
+        unifiedDay = day
+        rebuildRows()
+    }
+
+    /// Rebuilds the section/row list purely from the server day. A metric with no
+    /// value in the API response renders as "--".
     private func rebuildRows() {
         sections = HealthCategory.allCases.map { category in
             let rows = HealthMetricType.allCases
                 .filter { $0.category == category }
-                .map { metric -> Row in
-                    if let watchValue = watchValues[metric.rawValue] {
-                        return Row(metric: metric, value: formatted(watchValue, metric))
-                    }
-                    return Row(metric: metric, value: healthKitValues[metric.rawValue] ?? "--")
+                .map { metric in
+                    Row(metric: metric, value: unifiedDay?.displayString(for: metric) ?? "--")
                 }
             return Section(category: category, rows: rows)
         }
-    }
-
-    private func formatted(_ value: Double, _ metric: HealthMetricType) -> String {
-        String(format: "%.\(metric.fractionDigits)f", value)
-    }
-
-    /// Called when a fresh health snapshot arrives from the watch.
-    private func applyWatchSnapshot(_ snapshot: WearableHealthSnapshot) {
-        print("📱 [HealthMetrics] Applying watch snapshot (\(snapshot.values.count) metrics) to UI.")
-        watchValues = snapshot.values
-        rebuildRows()
     }
 
     func onAppear() {
@@ -103,35 +81,16 @@ final class HealthMetricsViewModel: ObservableObject {
     private var isBusy = false
 
     private func load() async {
-        guard repository.isHealthDataAvailable else {
-            authorizationDenied = true
-            return
-        }
         guard !isBusy else { return }
         isBusy = true
         defer { isBusy = false }
 
         isLoading = true
-        let authorized = await repository.requestAuthorization()
-        print("🩺 [HealthMetrics] Authorization request completed (granted sheet: \(authorized)). Fetching \(HealthMetricType.allCases.count) metrics…")
-
-        // Fetch every metric's current value concurrently.
-        let repository = self.repository
-        var values: [String: String] = [:]
-        await withTaskGroup(of: (String, String).self) { group in
-            for metric in HealthMetricType.allCases {
-                group.addTask {
-                    let value = await repository.currentDisplayValue(for: metric)
-                    return (metric.rawValue, value)
-                }
-            }
-            for await (key, value) in group {
-                values[key] = value
-            }
-        }
-
-        healthKitValues = values
-        rebuildRows()
+        // The dashboard is driven ONLY by the wearable API (server), which is fed
+        // by the paired device via the cross-platform schema. If the API has no
+        // data for this patient/date, every row stays empty ("--") — we never
+        // fall back to the phone's local HealthKit samples.
+        await loadServerDay()
         isLoading = false
 
         print("🩺 [HealthMetrics] ===== Fetched values =====")
@@ -142,6 +101,39 @@ final class HealthMetricsViewModel: ObservableObject {
             }
         }
         print("🩺 [HealthMetrics] ==========================")
+    }
+
+    /// The date whose wearable data is shown. Defaults to today (current date);
+    /// the backend is queried for this date and its values override local reads.
+    var selectedDate: Date = Date()
+
+    /// Fetches the canonical day from the backend for the **logged-in patient**
+    /// and the **selected date** (today by default). When the API returns data,
+    /// the rows show it; when it returns null/empty, the rows are cleared to "--".
+    /// Silent on failure (no login, no network) — rows simply stay empty.
+    private func loadServerDay() async {
+        guard let patientId = ApplicationSharedInfo.shared.loginResponse?.patientID else {
+            print("📥 [HealthMetrics] Skipping server fetch — no logged-in patient.")
+            unifiedDay = nil
+            rebuildRows()
+            return
+        }
+        let date = selectedDate
+        do {
+            let day = try await WearableHealthService.fetch(patientId: patientId, date: date)
+            if let day, !day.isEmpty {
+                unifiedDay = day
+                print("📥 [HealthMetrics] Applied server day (device: \(day.sourceDevice ?? "—"), date: \(day.date ?? "—")). Values come from the API response.")
+            } else {
+                unifiedDay = nil
+                print("📥 [HealthMetrics] API returned no wearable data for patient \(patientId) on \(WearableHealthDay.dayFormatter.string(from: date)); rows left empty.")
+            }
+            rebuildRows()
+        } catch {
+            unifiedDay = nil
+            rebuildRows()
+            print("⚠️ [HealthMetrics] Wearable fetch failed: \(error.localizedDescription); rows left empty.")
+        }
     }
 
     // MARK: - Navigation
