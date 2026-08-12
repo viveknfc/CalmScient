@@ -37,6 +37,11 @@ final class HealthMetricsViewModel: ObservableObject {
     @Published private(set) var isLoading = false
     @Published private(set) var authorizationDenied = false
 
+    private let repository = HealthMetricsRepository.shared
+
+    /// Ensures the HealthKit permission sheet is requested only once per screen.
+    private var didRequestAuthorization = false
+
     /// The canonical cross-platform day fetched from the backend (fed by the
     /// paired device through the shared Android/Health Connect schema). This is
     /// the ONLY source for the dashboard: a metric shows a value only when the
@@ -68,11 +73,26 @@ final class HealthMetricsViewModel: ObservableObject {
     }
 
     func onAppear() {
+        // Kick the HealthKit permission sheet off immediately so it appears on
+        // the FIRST entry to Health Metrics — not gated behind the (slower)
+        // server fetch. HealthKit only presents the sheet once; later calls are
+        // no-ops. The detail trend charts rely on this grant.
+        Task { await requestAuthorizationIfNeeded() }
         Task { await load() }
     }
 
     func refresh() {
+        Task { await requestAuthorizationIfNeeded() }
         Task { await load() }
+    }
+
+    /// Requests HealthKit read authorization once, presenting the system sheet
+    /// promptly. Safe to call repeatedly.
+    private func requestAuthorizationIfNeeded() async {
+        guard !didRequestAuthorization, repository.isHealthDataAvailable else { return }
+        didRequestAuthorization = true
+        let granted = await repository.requestAuthorization()
+        print("🩺 [HealthMetrics] HealthKit authorization requested on entry (sheet shown: \(granted)).")
     }
 
     /// Guards against overlapping loads (SwiftUI `.onAppear` + the hosting
