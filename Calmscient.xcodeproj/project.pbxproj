@@ -11,6 +11,8 @@
 		335389A72E8C1FC40041E61F /* Favourite Response Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335389A62E8C1FBC0041E61F /* Favourite Response Modal.swift */; };
 		3379D6092E9434CF00D8C68F /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 3379D6082E9434CF00D8C68F /* FirebaseMessaging */; };
 		33C13688302B8AC9009BD63D /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C13687302B8AC9009BD63D /* HealthKitManager.swift */; };
+		33C13704302B8AC9009BD63D /* WearableSavePayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C13703302B8AC9009BD63D /* WearableSavePayload.swift */; };
+		33C13702302B8AC9009BD63D /* HealthSyncService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C13701302B8AC9009BD63D /* HealthSyncService.swift */; };
 		33C1368A302B8ADA009BD63D /* HealthMetric.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C13689302B8ADA009BD63D /* HealthMetric.swift */; };
 		33C1368C302B8AE8009BD63D /* HealthMetricSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C1368B302B8AE8009BD63D /* HealthMetricSample.swift */; };
 		33C13695302B8B8F009BD63D /* HealthMetricsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C13694302B8B8F009BD63D /* HealthMetricsViewModel.swift */; };
@@ -706,6 +708,8 @@
 		331A14302FAA5D62004A1747 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
 		335389A62E8C1FBC0041E61F /* Favourite Response Modal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Favourite Response Modal.swift"; sourceTree = "<group>"; };
 		33C13687302B8AC9009BD63D /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
+		33C13703302B8AC9009BD63D /* WearableSavePayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearableSavePayload.swift; sourceTree = "<group>"; };
+		33C13701302B8AC9009BD63D /* HealthSyncService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSyncService.swift; sourceTree = "<group>"; };
 		33C13689302B8ADA009BD63D /* HealthMetric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMetric.swift; sourceTree = "<group>"; };
 		33C1368B302B8AE8009BD63D /* HealthMetricSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMetricSample.swift; sourceTree = "<group>"; };
 		33C13694302B8B8F009BD63D /* HealthMetricsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMetricsViewModel.swift; sourceTree = "<group>"; };
@@ -1403,6 +1407,8 @@
 			children = (
 				33C1384B302C7814009BD63D /* FavoriteMetricsStore.swift */,
 				33C13687302B8AC9009BD63D /* HealthKitManager.swift */,
+				33C13703302B8AC9009BD63D /* WearableSavePayload.swift */,
+				33C13701302B8AC9009BD63D /* HealthSyncService.swift */,
 				33C13689302B8ADA009BD63D /* HealthMetric.swift */,
 				33C1368B302B8AE8009BD63D /* HealthMetricSample.swift */,
 			);
@@ -3219,6 +3225,8 @@
 				C267D18B2D5DE2E100564FE3 /* TokenExpiryCheck.swift in Sources */,
 				C2A7F2262DA4E7B300E41D5A /* scheduleAlarmNotification.swift in Sources */,
 				33C13688302B8AC9009BD63D /* HealthKitManager.swift in Sources */,
+				33C13704302B8AC9009BD63D /* WearableSavePayload.swift in Sources */,
+				33C13702302B8AC9009BD63D /* HealthSyncService.swift in Sources */,
 				4A0E1F9E2BEB3C44008389C4 /* NetworkAPIRequest.swift in Sources */,
 				4A87C14B2C011D3E004E04CC /* WeeklySummaryAPICodables.swift in Sources */,
 				4AD5D1022BD7A60E00E4C945 /* AppMainTabViewController.swift in Sources */,

@@ -89,6 +89,8 @@ class APIService: UIViewController {
     
     static var GetWearableData = "patients/api/v1/health/wearable-data"
     static var GetWearableDataRange = "patients/api/v1/health/wearable-data/range"
+    /// Same path as `GetWearableData`; the verb is what separates read from write.
+    static var SaveWearableData = "patients/api/v1/health/wearable-data"
 
     //MARK: - Version CHeck API
     
@@ -479,6 +481,32 @@ class APIService: UIViewController {
             acces: false,
             timeOut: 6,
             parameterPlacement: "url",
+            callback: callBack
+        )
+    }
+    
+    //MARK: - Wearable API Calling save (HealthKit upload)
+    
+    /// Uploads a HealthKit snapshot. Unlike the two reads above, the parameters are a
+    /// nested JSON body, so this goes out as `POST` with `parameterPlacement: "body"`.
+    /// The timeout is longer than the reads' 6s because this runs unattended in the
+    /// background, where a marginal connection is worth waiting out rather than failing.
+    static func saveWearableDataAPICalling(
+        _ view: UIViewController?,
+        params: [String: Any],
+        accessToken: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        let urlString = APIService.BaseUrl + APIService.SaveWearableData
+        APIService.getRequestWithToken(
+            viewController: view,
+            urlString: urlString,
+            params: params,
+            method: "POST",
+            accessToken: accessToken,
+            acces: false,
+            timeOut: 30,
+            parameterPlacement: "body",
             callback: callBack
         )
     }

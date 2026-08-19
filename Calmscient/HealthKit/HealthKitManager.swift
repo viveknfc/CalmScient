@@ -7,6 +7,7 @@
 
 import Foundation
 import HealthKit
+import UIKit
 
 @available(iOS 16.0, *)
 final class HealthKitManager {
@@ -259,19 +260,31 @@ final class HealthKitManager {
     /// through noon, which is the convention Health uses to decide which day a night
     /// belongs to. Afternoon naps fall outside it, as they should.
     private func lastNightSleepHours() async -> HealthLatestValue {
-        guard let type = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) else {
+        guard let breakdown = await lastNightSleepBreakdown() else {
             return HealthLatestValue(value: nil, displayText: "--")
         }
+        return HealthLatestValue(value: breakdown.totalHours,
+                                 displayText: String(format: "%.1f hrs", breakdown.totalHours))
+    }
+
+    /// Last night split into its stages, for the sync payload.
+    ///
+    /// Same night window and the same clamping as the row above — the total here and the
+    /// number on the Sleep row are computed from one pass so they can never disagree.
+    /// `asleepUnspecified` samples (watches that don't stage sleep) land in the total
+    /// only, which is why deep + light + rem may add up to less than `totalHours`.
+    func lastNightSleepBreakdown() async -> HealthSleepBreakdown? {
+        guard let type = HKObjectType.categoryType(forIdentifier: .sleepAnalysis) else { return nil }
         let cal = Calendar.current
         let now = Date()
         // Noon today is the anchor; before noon we clamp the end to "now" so someone
         // checking at 6am still sees the night they just finished.
         guard let noonToday = cal.date(bySettingHour: 12, minute: 0, second: 0, of: now),
               let windowStart = cal.date(byAdding: .hour, value: -18, to: noonToday) else {
-            return HealthLatestValue(value: nil, displayText: "--")
+            return nil
         }
         let windowEnd = min(noonToday, now)
-        guard windowEnd > windowStart else { return HealthLatestValue(value: nil, displayText: "--") }
+        guard windowEnd > windowStart else { return nil }
 
         // `options: []` so a session that began before 6pm still counts; its duration is
         // then clamped to the window below so the overlap isn't double-counted.
@@ -285,15 +298,51 @@ final class HealthKitManager {
         }
 
         let asleep = samples.filter { Self.asleepCategoryValues.contains($0.value) }
-        guard !asleep.isEmpty else { return HealthLatestValue(value: nil, displayText: "--") }
+        guard !asleep.isEmpty else { return nil }
 
-        let seconds = asleep.reduce(0.0) { total, sample in
+        var total = 0.0, deep = 0.0, light = 0.0, rem = 0.0
+        for sample in asleep {
             let from = max(sample.startDate, windowStart)
             let to   = min(sample.endDate, windowEnd)
-            return total + max(0, to.timeIntervalSince(from))
+            let seconds = max(0, to.timeIntervalSince(from))
+            total += seconds
+            switch sample.value {
+            case HKCategoryValueSleepAnalysis.asleepDeep.rawValue: deep += seconds
+            case HKCategoryValueSleepAnalysis.asleepCore.rawValue: light += seconds
+            case HKCategoryValueSleepAnalysis.asleepREM.rawValue:  rem  += seconds
+            default: break   // asleepUnspecified — counted in the total only
+            }
         }
-        let hrs = seconds / 3600.0
-        return HealthLatestValue(value: hrs, displayText: String(format: "%.1f hrs", hrs))
+        return HealthSleepBreakdown(totalHours: total / 3600.0,
+                                    deepHours: deep / 3600.0,
+                                    lightHours: light / 3600.0,
+                                    remHours: rem / 3600.0)
+    }
+
+    // MARK: - Recording device
+
+    /// Best guess at what actually produced the data, for the payload's `sourceDevice`.
+    ///
+    /// HealthKit stamps every sample with its origin, so an Apple Watch write reports
+    /// "Apple Watch" here even though the read happened on the phone. Falls back to the
+    /// phone itself when nothing has been written yet.
+    func sourceDeviceName() async -> String {
+        let fallback = UIDevice.current.model    // "iPhone" / "iPad"
+        let candidates: [HKQuantityTypeIdentifier] = [.heartRate, .stepCount, .activeEnergyBurned]
+        for id in candidates {
+            guard let type = HKQuantityType.quantityType(forIdentifier: id) else { continue }
+            let sort = [NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)]
+            let sample: HKSample? = await withCheckedContinuation { cont in
+                let q = HKSampleQuery(sampleType: type, predicate: nil, limit: 1, sortDescriptors: sort) { _, s, _ in
+                    cont.resume(returning: s?.first)
+                }
+                store.execute(q)
+            }
+            if let name = sample?.device?.name ?? sample?.sourceRevision.source.name, !name.isEmpty {
+                return name
+            }
+        }
+        return fallback
     }
 
     private func sleepSeries(timeframe: HealthTimeframe) async -> [HealthDataPoint] {
@@ -323,11 +372,24 @@ final class HealthKitManager {
     // MARK: - Blood pressure (correlation)
 
     private func latestBloodPressure() async -> HealthLatestValue {
+        guard let pair = await latestBloodPressurePair() else {
+            return HealthLatestValue(value: nil, displayText: "--")
+        }
+        return HealthLatestValue(value: pair.systolic,
+                                 displayText: "\(Int(pair.systolic))/\(Int(pair.diastolic)) mmHg")
+    }
+
+    /// Both halves of the newest blood-pressure reading.
+    ///
+    /// The dashboard row only needs the "120/80 mmHg" string, but the sync payload sends
+    /// systolic and diastolic as two separate numbers — parsing them back out of the
+    /// display text would be fragile, so the pair is exposed directly.
+    func latestBloodPressurePair() async -> (systolic: Double, diastolic: Double)? {
         async let sys = latestScalar(.bloodPressureSystolic, unit: .millimeterOfMercury())
         async let dia = latestScalar(.bloodPressureDiastolic, unit: .millimeterOfMercury())
         let (s, d) = await (sys, dia)
-        guard let s, let d else { return HealthLatestValue(value: nil, displayText: "--") }
-        return HealthLatestValue(value: s, displayText: "\(Int(s))/\(Int(d)) mmHg")
+        guard let s, let d else { return nil }
+        return (s, d)
     }
 
     private func latestScalar(_ id: HKQuantityTypeIdentifier, unit: HKUnit) async -> Double? {

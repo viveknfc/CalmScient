@@ -134,8 +134,11 @@ final class HealthMetricsViewModel: ObservableObject {
         isLoading = false
         isInitialLoadFinished = true
 
-        // Optional: forward latest values to your backend here.
-        // HealthSyncService.shared.pushLatest(rows: sections, from: hostViewController)
+        // Upload to the backend, but only if five hours have passed since the last
+        // successful one — the service itself owns that decision, so this stays a plain
+        // "here is fresh data" call that can fire on every load without spamming.
+        // Values are handed over so the service doesn't re-read HealthKit for them.
+        HealthSyncService.shared.syncIfDue(latest: cache)
     }
 
     /// Builds Favorites (if any) + category sections from the cache. No HealthKit access.

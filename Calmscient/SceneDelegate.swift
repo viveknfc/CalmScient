@@ -202,6 +202,14 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to restart any tasks that were paused (or not yet started) when the scene was inactive.
         if !isSplashScreenShowing {
             DayFeedbackEveningReminderScheduler.refreshSchedulingIfNeeded()
+
+            // Second chance for the five-hourly HealthKit upload. Without this it would
+            // only ever fire while someone is looking at the Health Metrics screen; here
+            // it also catches the far commoner case of the app simply being opened.
+            // The service no-ops unless the interval has actually elapsed.
+            if #available(iOS 16.0, *) {
+                HealthSyncService.shared.syncIfDue()
+            }
         }
     }
 

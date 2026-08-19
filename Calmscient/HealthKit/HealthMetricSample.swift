@@ -32,3 +32,14 @@ enum HealthTimeframe: String, CaseIterable, Identifiable {
     var id: String { rawValue }
     var localizedTitle: String { rawValue.localized }
 }
+
+/// Last night's sleep split into stages.
+///
+/// `deepHours + lightHours + remHours` can be less than `totalHours`: trackers that
+/// don't stage sleep write `asleepUnspecified`, which only the total counts.
+struct HealthSleepBreakdown: Equatable {
+    let totalHours: Double
+    let deepHours: Double
+    let lightHours: Double
+    let remHours: Double
+}
