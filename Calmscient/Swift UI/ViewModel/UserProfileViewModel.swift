@@ -17,8 +17,68 @@ final class UserProfileViewModel: ObservableObject {
 
     weak var hostViewController: UIViewController?
 
+    // MARK: - SwiftUI navigation
+    //
+    // Set by `HomeTabView` when this screen is shown inside the Home `NavigationStack`.
+    // While nil, every call below falls through to the existing UIKit push/pop, which is
+    // what the still-UIKit Discovery tab uses when it pushes into these screens.
+    var onOpenRoute: ((HomeRoute) -> Void)?
+    var onClose: (() -> Void)?
+    var onCloseToRoot: (() -> Void)?
+
     private var profileHost: UserProfileHostingController? {
         hostViewController as? UserProfileHostingController
+    }
+
+    // MARK: - Sheet scrim / picker delegate
+    //
+    // The legacy flow leaned on `UserProfileHostingController` for the dimming overlay and
+    // as the image-picker delegate. Inside the SwiftUI Home stack the host is a plain
+    // container, so the view model owns both itself.
+
+    private var fallbackDimmingView: UIView?
+    private var removeDimmingObserver: NSObjectProtocol?
+    private lazy var imagePickerProxy: ProfileImagePickerProxy = {
+        let proxy = ProfileImagePickerProxy()
+        proxy.viewModel = self
+        return proxy
+    }()
+
+    private func addDimmingOverlay() {
+        if let profileHost {
+            profileHost.addDimmingView()
+            return
+        }
+        guard fallbackDimmingView == nil,
+              let window = UIApplication.shared.connectedScenes
+                .compactMap({ $0 as? UIWindowScene })
+                .first(where: { $0.activationState == .foregroundActive })?
+                .windows.first(where: { $0.isKeyWindow }) else {
+            return
+        }
+        let overlay = UIView(frame: window.bounds)
+        overlay.backgroundColor = UIColor.black.withAlphaComponent(0.5)
+        overlay.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        window.addSubview(overlay)
+        fallbackDimmingView = overlay
+    }
+
+    private func removeDimmingOverlay() {
+        profileHost?.removeDimmingViewIfNeeded()
+        fallbackDimmingView?.removeFromSuperview()
+        fallbackDimmingView = nil
+    }
+
+    /// The privacy / alarm sheets post this when they close.
+    private func startObservingDimmingDismissalIfNeeded() {
+        guard removeDimmingObserver == nil else { return }
+        removeDimmingObserver = NotificationCenter.default.addObserver(
+            forName: Notification.Name("RemoveDimmingView"),
+            object: nil,
+            queue: .main
+        ) { [weak self] _ in
+            Task { @MainActor in self?.removeDimmingOverlay() }
+        }
     }
 
     /// When true, back pops this screen instead of navigating home.
@@ -51,6 +111,7 @@ final class UserProfileViewModel: ObservableObject {
 
     func onAppear() {
         reloadLocalizedChrome()
+        startObservingDimmingDismissalIfNeeded()
         if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" {
             populateSwiftUIPreviewSampleDataIfNeeded()
             return
@@ -142,10 +203,16 @@ final class UserProfileViewModel: ObservableObject {
     }
 
     func handleRowTap(at index: Int) {
-        guard let nav = hostViewController?.navigationController else { return }
+        // NOTE: no `guard let nav` up here — rows 2/3/5/7 present rather than push, and
+        // on the SwiftUI path there is no navigation controller at all.
         switch index {
         case 0:
-            if #available(iOS 16.0, *) {
+            if let onOpenRoute {
+                onOpenRoute(.patientProfileEdit)
+                return
+            }
+            if #available(iOS 16.0, *),
+               let nav = hostViewController?.navigationController {
                 let next = PatientProfileEditHostingController()
                 nav.pushViewController(next, animated: true)
             }
@@ -185,8 +252,10 @@ final class UserProfileViewModel: ObservableObject {
         // Update chip selection immediately so the UI does not wait on the network or refresh cycle.
         markLanguagePreferredLocally(resolved.canonicalName)
 
-        profileHost?.addDimmingView()
-        hostViewController?.view.showToastActivity()
+        addDimmingOverlay()
+        // Same anchor `loadInitialData` uses, so the reload below reuses this one
+        // spinner instead of adding a second one on a different view.
+        anchorView?.showToastActivity()
 
         PatientLanguagePreference.persistProfileSelection(
             canonicalDisplayName: resolved.canonicalName,
@@ -212,13 +281,17 @@ final class UserProfileViewModel: ObservableObject {
             Task { @MainActor in
                 guard let self else { return }
                 if self.isUpdateUserLanguageSuccess(response) {
-                    NotificationCenter.default.post(name: .favLanUpdated, object: nil)
-                    self.profileHost?.removeDimmingViewIfNeeded()
+                    NotificationCenter.default.post(
+                        name: .favLanUpdated,
+                        object: nil,
+                        userInfo: FavLanUpdate.languageChangeUserInfo
+                    )
+                    self.removeDimmingOverlay()
                     // Keep the spinner running into `loadInitialData` so there is no dead gap;
                     // `loadInitialData` hides it when profile settings return.
                     self.loadInitialData()
                 } else {
-                    self.profileHost?.removeDimmingViewIfNeeded()
+                    self.removeDimmingOverlay()
                     UserDefaults.standard.set(previousLanguageId, forKey: "SelectedLanguageID")
                     UserDefaults.standard.set(previousAppLanguage, forKey: "appLanguage")
                     Bundle.setLanguage(previousAppLanguage)
@@ -277,7 +350,9 @@ final class UserProfileViewModel: ObservableObject {
 
     // MARK: - Private
 
-    private var anchorView: UIView? { hostViewController?.view }
+    /// Falls back to the key window so this screen still shows toasts when it is
+    /// presented without a `hostViewController` (SwiftUI-navigated Home tab).
+    private var anchorView: UIView? { Toast.resolvedAnchor(hostViewController?.view) }
 
     /// Updates `preferred` flags locally so language chips reflect the new choice without waiting for API.
     private func markLanguagePreferredLocally(_ languageDisplayName: String) {
@@ -421,7 +496,7 @@ final class UserProfileViewModel: ObservableObject {
     private func presentPrivacySheet() {
         guard let host = hostViewController else { return }
         let privacy = ProfilePrivacyHostingController()
-        profileHost?.addDimmingView()
+        addDimmingOverlay()
         if let sheet = privacy.sheetPresentationController {
             sheet.detents = [.medium(), .large()]
             sheet.largestUndimmedDetentIdentifier = .medium
@@ -435,8 +510,11 @@ final class UserProfileViewModel: ObservableObject {
 
     private func presentAlarmSheet() {
         guard let host = hostViewController else { return }
-        let settingsVC = AlarmSettingsHostingController(initialAlarmMinutes: alarmMinutes, delegate: profileHost)
-        profileHost?.addDimmingView()
+        // Legacy handed the hosting controller in as the delegate; without one the view
+        // model receives the updated alarm itself.
+        let alarmDelegate: SettingsAlarmDelegate = profileHost ?? self
+        let settingsVC = AlarmSettingsHostingController(initialAlarmMinutes: alarmMinutes, delegate: alarmDelegate)
+        addDimmingOverlay()
         if let sheet = settingsVC.sheetPresentationController {
             sheet.detents = [.medium(), .large()]
             sheet.largestUndimmedDetentIdentifier = .medium
@@ -483,14 +561,16 @@ final class UserProfileViewModel: ObservableObject {
             host.view.hideToastActivity()
             return
         }
-        guard let profileHost = host as? UserProfileHostingController else {
-            host.view.hideToastActivity()
-            return
-        }
         let picker = UIImagePickerController()
         picker.sourceType = .photoLibrary
-        picker.delegate = profileHost
-        profileHost.present(picker, animated: true)
+        // Legacy used the hosting controller as the delegate; inside the SwiftUI Home
+        // stack there is none, so fall back to the view model's own proxy.
+        if let profileHost {
+            picker.delegate = profileHost
+        } else {
+            picker.delegate = imagePickerProxy
+        }
+        host.present(picker, animated: true)
     }
 
     private func resizeImage(image: UIImage, targetSize: CGSize) -> UIImage? {
@@ -510,5 +590,38 @@ final class UserProfileViewModel: ObservableObject {
     /// Matches legacy check: successful JSON object dictionary from update-language POST.
     private func isUpdateUserLanguageSuccess(_ response: AnyObject) -> Bool {
         response is [String: Any]
+    }
+}
+
+// MARK: - Alarm sheet delegate
+
+extension UserProfileViewModel: SettingsAlarmDelegate {
+    func didUpdateAlarmValue(_ newValue: Int) {
+        didUpdateAlarmFromSettings(newValue)
+    }
+}
+
+// MARK: - Image picker delegate
+
+/// Stand-in for `UserProfileHostingController` when the settings screen is shown from the
+/// SwiftUI Home stack. Mirrors that controller's delegate methods exactly.
+@MainActor
+final class ProfileImagePickerProxy: NSObject, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+    weak var viewModel: UserProfileViewModel?
+
+    func imagePickerController(
+        _ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
+    ) {
+        picker.dismiss(animated: true)
+        viewModel?.hostViewController?.view.hideToastActivity()
+        guard let image = info[.originalImage] as? UIImage else { return }
+        viewModel?.handlePickedProfileImage(image)
+    }
+
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        viewModel?.hostViewController?.view.hideToastActivity()
+        picker.dismiss(animated: true)
     }
 }

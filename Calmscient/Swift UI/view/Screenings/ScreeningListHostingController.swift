@@ -17,12 +17,7 @@ final class ScreeningListHostingController: UIViewController {
     let viewModel = ScreeningListViewModel()
     private var hostingController: UIHostingController<ScreeningListView>!
 
-    private var navigationItemOwner: UIViewController {
-        if let parent = parent as? ScreeningListVC {
-            return parent
-        }
-        return self
-    }
+    private var navigationItemOwner: UIViewController { self }
 
     func configure(
         isComingFromParticularVC: Bool = false,

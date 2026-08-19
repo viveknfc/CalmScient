@@ -18,6 +18,15 @@ final class ProgressOnCourseWorkDetailViewModel: ObservableObject {
 
     weak var hostViewController: UIViewController?
 
+    // MARK: - SwiftUI navigation
+    //
+    // Set by `HomeTabView` when this screen is shown inside the Home `NavigationStack`.
+    // While nil, every call below falls through to the existing UIKit push/pop, which is
+    // what the still-UIKit Discovery tab uses when it pushes into these screens.
+    var onOpenRoute: ((HomeRoute) -> Void)?
+    var onClose: (() -> Void)?
+    var onCloseToRoot: (() -> Void)?
+
     @Published private(set) var summary = ProgressOnCourseWorkSummaryPresentation(
         title: "",
         percentageText: "0.0%",
@@ -27,7 +36,7 @@ final class ProgressOnCourseWorkDetailViewModel: ObservableObject {
     )
     @Published private(set) var sections: [ProgressOnCourseWorkSectionPresentation] = []
 
-    private(set) var navigationChromeTitle: String = ""
+    @Published private(set) var navigationChromeTitle: String = ""
     private(set) var sectionsColumnTitle: String = ""
     private(set) var completedColumnTitle: String = ""
     private(set) var needToTalkButtonTitle: String = ""
@@ -39,6 +48,12 @@ final class ProgressOnCourseWorkDetailViewModel: ObservableObject {
         self.courses = courses
         self.selectedIndex = selectedIndex
         rebuildPresentation()
+    }
+
+    /// Seeds the localized chrome up front so the navigation title is correct on the
+    /// very first SwiftUI body evaluation (the UIKit host used to set it in `viewWillAppear`).
+    init() {
+        reloadLocalizedStrings()
     }
 
     func onHostWillAppear() {
@@ -61,16 +76,20 @@ final class ProgressOnCourseWorkDetailViewModel: ObservableObject {
     // MARK: - Navigation
 
     func openBack() {
+        if let onClose {
+            onClose()
+            return
+        }
         hostViewController?.navigationController?.popViewController(animated: true)
     }
 
     func openNeedToTalk() {
-        guard let nav = hostViewController?.navigationController else { return }
-        let storyboard = UIStoryboard(name: "NeedToTalkViewController", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "NeedToTalkViewController") as? NeedToTalkViewController
-        vc?.title = "Emergency resources".localized
-        guard let vc else { return }
-        nav.pushViewController(vc, animated: true)
+        if let onOpenRoute {
+            onOpenRoute(.needToTalk)
+            return
+        }
+        guard let host = hostViewController else { return }
+        NeedToTalkNavigation.push(from: host)
     }
 
     // MARK: - Presentation

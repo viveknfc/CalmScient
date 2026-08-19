@@ -180,20 +180,20 @@ final class LoginViewModel: ObservableObject {
         ApplicationSharedInfo.shared.loginResponse = loginResponse.loginDetails
         ApplicationSharedInfo.shared.tokenResponse = loginResponse.tokenResponse
 
-        if rememberMeSelected {
-            UserDefaults.standard.set(1, forKey: "rememberMe")
-        } else {
-            UserDefaults.standard.set(0, forKey: "rememberMe")
-        }
+        UserDefaultsHelper.setRememberMeEnabled(rememberMeSelected)
 
         TokenManager.shared.saveTokenData(
             accessToken: loginResponse.tokenResponse.accessToken,
             expiresIn: loginResponse.tokenResponse.expiresIn
         )
 
-        UserDefaultsHelper.saveLoginDetailsToUserDefaults(
+        // Only a "Remember Me" session is written to disk. Without it the session stays in
+        // `ApplicationSharedInfo` for this process only, so a relaunch lands on Login and a
+        // background/foreground round trip cannot silently restore it.
+        UserDefaultsHelper.persistLoginDetailsIfRemembered(
             loginDetails: loginResponse.loginDetails,
-            tokenResponse: loginResponse.tokenResponse
+            tokenResponse: loginResponse.tokenResponse,
+            remembered: rememberMeSelected
         )
 
         UserDefaults.standard.set("\(loginResponse.loginDetails.firstName)", forKey: "titleString")
@@ -272,8 +272,7 @@ final class LoginViewModel: ObservableObject {
             homeViewController.afternoonVC = true
             navController = UINavigationController(rootViewController: homeViewController)
         } else {
-            let storyboard = UIStoryboard(name: "AppTabBar", bundle: nil)
-            let homeViewController = storyboard.instantiateViewController(withIdentifier: "AppMainTabViewController") as! AppMainTabViewController
+            let homeViewController = AppMainTabViewController()
             homeViewController.isInitalView = false
             navController = UINavigationController(rootViewController: homeViewController)
             navController.navigationBar.isHidden = true

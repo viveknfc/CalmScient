@@ -18,6 +18,15 @@ final class PatientProfileEditViewModel: ObservableObject {
 
     weak var hostViewController: UIViewController?
 
+    // MARK: - SwiftUI navigation
+    //
+    // Set by `HomeTabView` when this screen is shown inside the Home `NavigationStack`.
+    // While nil, every call below falls through to the existing UIKit push/pop, which is
+    // what the still-UIKit Discovery tab uses when it pushes into these screens.
+    var onOpenRoute: ((HomeRoute) -> Void)?
+    var onClose: (() -> Void)?
+    var onCloseToRoot: (() -> Void)?
+
     @Published var firstName: String = ""
     @Published var lastName: String = ""
     @Published var email: String = ""
@@ -36,7 +45,9 @@ final class PatientProfileEditViewModel: ObservableObject {
 
     private let passwordRegex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?\":{}|<>])[A-Za-z\\d!@#$%^&*(),.?\":{}|<>]{8,}$"
 
-    private var anchorView: UIView? { hostViewController?.view }
+    /// Falls back to the key window so this screen still shows toasts when it is
+    /// presented without a `hostViewController` (SwiftUI-navigated Home tab).
+    private var anchorView: UIView? { Toast.resolvedAnchor(hostViewController?.view) }
 
     func onAppear() {
         if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" {
@@ -47,6 +58,10 @@ final class PatientProfileEditViewModel: ObservableObject {
     }
 
     func dismissScreen() {
+        if let onClose {
+            onClose()
+            return
+        }
         hostViewController?.navigationController?.popViewController(animated: true)
     }
 
@@ -251,7 +266,12 @@ final class PatientProfileEditViewModel: ObservableObject {
         }
         let message = dict["responseMessage"] as? String
         hostViewController?.showSuccessAlert(successContent: message, centreImage: nil) { [weak self] in
-            self?.hostViewController?.navigationController?.popViewController(animated: true)
+            guard let self else { return }
+            if let onClose = self.onClose {
+                onClose()
+                return
+            }
+            self.hostViewController?.navigationController?.popViewController(animated: true)
         }
     }
 

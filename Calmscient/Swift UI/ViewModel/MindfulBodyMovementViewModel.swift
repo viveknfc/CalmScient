@@ -17,16 +17,35 @@ final class MindfulBodyMovementViewModel: ObservableObject {
 
     weak var hostViewController: UIViewController?
 
+    // MARK: - SwiftUI navigation
+    //
+    // Set by `ExercisesTabView` when this screen is shown inside the Exercises
+    // `NavigationStack`. When nil the screen falls back to the UIKit push/pop below,
+    // which is what the Home ▸ favourites path (`ExcercisesTypeEnum.destVC`) still uses.
+    var onOpenRoute: ((ExercisesRoute) -> Void)?
+    var onClose: (() -> Void)?
+    var onCloseToRoot: (() -> Void)?
+
     @Published private(set) var screenTitle: String = ""
     @Published private(set) var descriptionText: String = ""
     @Published private(set) var completeButtonTitle: String = ""
     @Published private(set) var isFavorited = false
 
     private var isFav = 0
-    private var anchorView: UIView? { hostViewController?.view }
+    /// Falls back to the key window so this screen still shows toasts when it is
+    /// presented without a `hostViewController` (SwiftUI-navigated Exercises tab).
+    private var anchorView: UIView? { Toast.resolvedAnchor(hostViewController?.view) }
 
     var favoriteImageName: String {
         isFavorited ? "redFav" : "fav"
+    }
+
+    /// Seeds the localized chrome up front so the navigation title is right on the
+    /// very first SwiftUI body evaluation. The UIKit host set it in `viewWillAppear`,
+    /// which on a `NavigationStack` lands *after* the first render — the title would
+    /// pop in a beat late.
+    init() {
+        reloadLocalizedStrings()
     }
 
     func onHostWillAppear() {
@@ -41,10 +60,18 @@ final class MindfulBodyMovementViewModel: ObservableObject {
     }
 
     func openBack() {
+        if let onClose {
+            onClose()
+            return
+        }
         hostViewController?.navigationController?.popViewController(animated: true)
     }
 
     func completeTapped() {
+        if let onClose {
+            onClose()
+            return
+        }
         hostViewController?.navigationController?.popViewController(animated: true)
     }
 

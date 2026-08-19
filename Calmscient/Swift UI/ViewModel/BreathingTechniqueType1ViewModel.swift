@@ -19,6 +19,15 @@ final class BreathingTechniqueType1ViewModel: ObservableObject, BreathingExercis
 
     weak var hostViewController: UIViewController?
 
+    // MARK: - SwiftUI navigation
+    //
+    // Set by `ExercisesTabView` when this screen is shown inside the Exercises
+    // `NavigationStack`. When nil the screen falls back to the UIKit push/pop below,
+    // which is what the Home ▸ favourites path (`ExcercisesTypeEnum.destVC`) still uses.
+    var onOpenRoute: ((ExercisesRoute) -> Void)?
+    var onClose: (() -> Void)?
+    var onCloseToRoot: (() -> Void)?
+
     @Published private(set) var screenTitle: String = ""
     @Published private(set) var preparationHeader: String = ""
     @Published private(set) var preparationBody: String = ""
@@ -39,7 +48,9 @@ final class BreathingTechniqueType1ViewModel: ObservableObject, BreathingExercis
     private var remainingTimeObserverToken: Any?
     private var isFav = 0
 
-    private var anchorView: UIView? { hostViewController?.view }
+    /// Falls back to the key window so this screen still shows toasts when it is
+    /// presented without a `hostViewController` (SwiftUI-navigated Exercises tab).
+    private var anchorView: UIView? { Toast.resolvedAnchor(hostViewController?.view) }
 
     // MARK: - Lifecycle
 
@@ -49,10 +60,20 @@ final class BreathingTechniqueType1ViewModel: ObservableObject, BreathingExercis
         setupPlayer()
     }
 
+    /// Seeds the localized chrome up front so the navigation title is right on the
+    /// very first SwiftUI body evaluation. The UIKit host set it in `viewWillAppear`,
+    /// which on a `NavigationStack` lands *after* the first render — the title would
+    /// pop in a beat late.
+    init() {
+        reloadLocalizedStrings()
+    }
+
     func onHostWillAppear() {
         reloadLocalizedStrings()
         tabBarController?.tabBar.isHidden = false
-        tabBarController?.tabBar.selectedItem?.title = "main_tab_bar_home".localized
+        // Removed: this hard-coded the *Home* tab label onto whichever tab was
+        // selected, renaming the Exercises tab. `MainTabStoryboardHost.updateUIViewController`
+        // already restores each tab's correct title.
     }
 
     func onHostWillDisappear() {
@@ -106,6 +127,10 @@ final class BreathingTechniqueType1ViewModel: ObservableObject, BreathingExercis
     // MARK: - Navigation
 
     func openBack() {
+        if let onClose {
+            onClose()
+            return
+        }
         hostViewController?.navigationController?.popViewController(animated: true)
     }
 
@@ -150,7 +175,10 @@ final class BreathingTechniqueType1ViewModel: ObservableObject, BreathingExercis
     }
 
     func openFullscreenPlayer() {
-        guard let player, let host = hostViewController else { return }
+        // `hostViewController` is nil when this screen is shown from the SwiftUI
+        // Exercises tab; fall back to the topmost controller for presentation.
+        guard let player,
+              let host = hostViewController ?? UIApplication.topViewController() else { return }
         let controller = AVPlayerViewController()
         controller.player = player
         controller.modalPresentationStyle = .overFullScreen

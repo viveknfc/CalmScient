@@ -14,9 +14,7 @@
 // Login
 
 "Username" = "Usuario";
-"Password" = "Contraseña";
 "Forgot Password" = "¿Has olvidado tu contraseña?";
-"Create an New account" = "Crea una cuenta nueva";
 "Validate your license key" = "Valida tu clave de licencia";
 "Login" = "Login";
 
@@ -35,8 +33,6 @@
 "Last Name" = "Apellido";
 "Email" = "Correo Electrónico";
 "Phone Number" = "Número de Teléfono";
-"Password" = "Contraseña";
-"Confirm Password" = "Confirmar Contraseña";
 "Submit" = "Enviar";
 
 "Summary" = "Resumen";
@@ -55,7 +51,6 @@
 
 //basic standard drink
 "Basic Knowledge" = "Conocimientos básicos";
-"What’s a standard drink" = "¿Qué es una bebida estándar?";
 "standard drink description" = "En los Estados Unidos, una “bebida estándar” (también conocida como equivalente de bebida alcohólica) se define como cualquier bebida que contiene aproximadamente 0.6 onzas líquidas o 14 gramos de alcohol puro. Aunque las bebidas que se muestran aquí son de diferentes tamaños, cada una contiene aproximadamente la misma cantidad de alcohol y cuenta como una bebida estándar estadounidense o un equivalente de bebida alcohólica.";
 "standard drink highlight fluid ounces" = "0.6 onzas líquidas";
 "standard drink highlight grams" = "14 gramos";
@@ -159,8 +154,7 @@
 
 
 //basic knowledge video
-"What’s a standard drink" = "¿Qué le sucede a tu cerebro cuando
-¿bebes?";
+"What’s a standard drink" = "¿Qué es una bebida estándar?";
 
 "Let’s watch the videos " = "veamos los videos";
 "This video explains the impact of alcohol on the brain and its subsequent effects. Having this knowledge will help you consider your drinking habits." = "Este vídeo explica el impacto del alcohol en el cerebro y sus efectos posteriores. Tener este conocimiento le ayudará a considerar sus hábitos de bebida.
@@ -182,14 +176,6 @@ Veamos algunos de ellos.";
 
 //consequences 2
 
-"consequences2" = "Las muertes relacionadas con el alcohol están aumentando en los Estados Unidos.
-
-El alcohol es un factor en:
-30% de los suicidios.
-El 40% de las quemaduras mortales.
-el 50% de los ahogamientos mortales y de los homicidios, y alrededor del 65 por ciento de las caídas mortales.
-El 31 % de todos los accidentes mortales en 2021.
-Un número importante de agresiones sexuales.";
 
 //consqquences 3
 "Alcohol-related blackouts" = "Apagones relacionados con el alcohol";
@@ -228,28 +214,17 @@ Estos individuos tienden a beber más, socializar con personas que beben mucho y
 "Drink counts calculator" = "Contador de bebidas";
 
 //drinkning habbit controller
-"How many days a week do you drink?" = "¿Cuántos días a la semana bebes?";
-"1. Now let’s see what drinking habits do you have" = "1. Ahora veamos qué hábitos de bebida tienes";
 
 "None" = "Ninguna";
-"Less than 2 days" = "Menos de 2 días";
-"3-5 days" = "3-5 días";
-"Almost everyday" = "Casi todos los días";
 "Everyday" = "Cada día";
-"1. How many days a week do you drink?" = "1. ¿Cuántos días a la semana bebes?";
 "Now let's see what drinking habits do you have" = "Ahora veamos qué hábitos de bebida tienes";
 
 //Drinkning habbit
-"Now let’s see what drinking habits do you have" = "Ahora veamos qué hábitos de bebida tienes";
-"What kind of alcohol do you drink each time? and how much?" = "¿Qué tipo de alcohol bebes cada vez? ¿Y cuánto?";
 
 //feel drink controller
-"4. What is the reason behind?" = "4. ¿Cuál es el motivo?";
 "Save it to weekly summary journal entry" = "Guárdelo en la entrada del diario resumido semanal";
 
 //feel drink habbit
-"3. What do you feel about your drinking habit?" = "3. ¿Qué sientes acerca de tu hábito de beber?";
-"Please select any option" = "Por favor seleccione cualquier opción";
 
 //taking control intro
 "Thank you for being willing to talk about alcohol and drugs. Now let’s begin with a brief assessment." = "Gracias por estar dispuesto a hablar sobre el alcohol y las drogas. Ahora comencemos con una breve evaluación.";
@@ -290,13 +265,9 @@ Estos individuos tienden a beber más, socializar con personas que beben mucho y
 "profile_edit_password_update_password" = "Actualizar contraseña";
 
 //user intro screen
-"Good morning!" = "¡Buenos días!";
-"Good afternoon!" = "¡Buenas tardes!";
-"Good evening!" = "¡Buenas noches!";
 "Hello" = "Hola";
 "Good evening" = "Buenas noches";
 "Please fill all mandatory fields." = "Por favor, completa todos los campos obligatorios.";
-"Save" = "Guardar";
 "Skip" = "Omitir";
 
 //discovery main view controller
@@ -304,15 +275,7 @@ Estos individuos tienden a beber más, socializar con personas que beben mucho y
 "Taking control" = "Tomando el control";
 
 //custom alert view
-"Your License key has
-been verified." = "Tu clave de licencia ha sido verificada.";
 
-"Please complete your profile to start using Calmscient." = "Por favor completa tu perfil para empezar a usar Calmscient.";
-"Continue" = "Continuar";
-"create_account_alert_success_title" = "Tu perfil se ha actualizado correctamente.";
-"create_account_alert_success_message" = "Haz clic en continuar para comenzar a usar Calmscient.";
-"create_account_alert_validation_title" = "Alerta";
-"create_account_alert_validation_message" = "Por favor, completa todos los campos para continuar.";
 
 //selection button
 "I agree to share my info with medical provider" = "Acepto compartir mi información con el proveedor médico";
@@ -321,7 +284,6 @@ been verified." = "Tu clave de licencia ha sido verificada.";
 //landing vc
 "Hello " = "Hola ";
 "We are happy to see you" = "Estamos felices de verte";
-"Need to talk with someone?" = "¿Necesitas hablar con alguien?";
 
 //monthly drinks count vc
 "Congratulations text" = "¡Felicitaciones por tomar la firme decisión de cambiar tu consumo de bebidas!
@@ -366,7 +328,6 @@ sugerido de bebidas";
 
 
 //tellus cell
-"Yes" = "Sí";
 "Just track the alcohol consumption" = "Solo registrar el consumo de alcohol";
 "Quit or cut down drinking" = "Dejar o reducir el consumo de alcohol";
 
@@ -405,8 +366,6 @@ Aquí hay recursos que pueden ayudarle a lograr su objetivo.";
 
 // add user medications view controller
 "Save" = "Guardar";
-"Cancel" = "Cancelar";
-"Add Medications" = "Agregar medicamentos";
 "Are you sure you want to cancel?" = "¿Estás seguro de que quieres cancelar?";
 "Medications" = "Medicamentos";
 "Medication" = "Medicamento";
@@ -415,7 +374,6 @@ Aquí hay recursos que pueden ayudarle a lograr su objetivo.";
 "An Unknown error occured. Please check with Admin" = "Ocurrió un error desconocido. Por favor, consulta con el administrador";
 "Add Medication" = "Agregar Medicamento";
 "OK" = "OK";
-"Add Time & Alarm" = "Agregar Hora y Alarma";
 "Name" = "Nombre";
 "Provider" = "Proveedor";
 "Dosage" = "Dosis";
@@ -424,10 +382,7 @@ Aquí hay recursos que pueden ayudarle a lograr su objetivo.";
 
 // add medication vc
 "Add Medications" = "Agregar medicamentos";
-"With Meal" = "Con alimentos";
 "Morning" = "Mañana";
-"08:00AM" = "08:00AM";
-"07:50AM" = "07:50AM";
 "Afternoon" = "Tarde";
 "Night" = "Noche";
 "Schedule Time & Alarm" = "Programar Hora y Alarma";
@@ -437,7 +392,6 @@ Aquí hay recursos que pueden ayudarle a lograr su objetivo.";
 "Medications detail" = "Detalles de los Medicamentos";
 
 // add appointments view controller
-"Choose Date and Time" = "Elegir Fecha y Hora";
 
 // appointment details vc
 "Date and Time" = "Fecha y Hora";
@@ -449,9 +403,6 @@ Aquí hay recursos que pueden ayudarle a lograr su objetivo.";
 "Address" = "Dirección";
 
 // screening result vc
-"Need to talk with someone?" = "¿Necesitas hablar con alguien?";
-"Score\nmarked" = "Puntuación\nmarcada";
-"Total score" = "Puntuación";
 
 // screening result vc
 "Need to talk with someone?" = "¿Necesitas hablar con alguien?";
@@ -460,8 +411,6 @@ Aquí hay recursos que pueden ayudarle a lograr su objetivo.";
 "Remind me" = "Recuérdame";
 
 // questioner vc
-"Over the last 2 weeks, how often have you been bothered by the following problems?" = "En las últimas 2 semanas, ¿con qué frecuencia te han molestado los siguientes problemas?";
-"1. Feeling nervous, anxious or on edge" = "1. Sentirse nervioso, ansioso o irritable";
 
 // profile privacy vc
 "Data from Calmscient can be transmitted to your doctor for clinical review purposes. Please indicate which data you allow to be shared with your doctor by selecting either Yes or No next to each data element below" = "Los datos de Calmscient pueden ser transmitidos a su médico para fines de revisión clínica. Por favor, indique qué datos permite que se compartan con su médico seleccionando Sí o No junto a cada elemento de datos a continuación";
@@ -475,7 +424,6 @@ Aquí hay recursos que pueden ayudarle a lograr su objetivo.";
 "Breathing technique" = "Técnica de respiración";
 "Breathing exercises" = "Ejercicios de respiración";
 "4-7-8 Breathing exercise" = "Ejercicio de respiración 4-7-8";
-"Mindful breathing exercise" = "Ejercicio de respiración consciente";
 "Diaphragmatic breathing exercise" = "Ejercicio de respiración diafragmática";
 
 //Excersices
@@ -487,25 +435,10 @@ Aquí hay recursos que pueden ayudarle a lograr su objetivo.";
 =
 "¿Alguna vez has notado que tu mente se dispersa o se pone a soñar despierto mientras estás en medio de una tarea familiar o repetitiva? Podrías estar caminando, trabajando o incluso conduciendo tu coche, y tu mente está a kilómetros de distancia, tal vez fantaseando con irte de vacaciones, pensando en tu lista de tareas pendientes o preocupándote por algún evento próximo.";
 
-"Mindfulness is the opposite of automatic pilot. It is about experiencing the world that is firmly in the ‘here and now’. This is referred to as the being mode. It liberates you from automatic and unhelpful thoughts and responses."
-=
-"El mindfulness es lo opuesto al piloto automático. Se trata de experimentar el mundo firmemente en el 'aquí y ahora'. Esto se refiere al modo de ser. Te libera de pensamientos y respuestas automáticos y poco útiles.";
 
-"How does mindfulness help with anxiety?"
-=
-"¿Cómo ayuda el mindfulness con la ansiedad?";
 
-"Mindfulness reminds us that we don’t have to take immediate control of, remove or fix unpleasant experiences. Instead, we can identify and actively engage in something that will give us a sense of safety and connection."
-=
-"El mindfulness nos recuerda que no tenemos que tomar control inmediato, eliminar o arreglar experiencias desagradables. En cambio, podemos identificar y participar activamente en algo que nos brinde una sensación de seguridad y conexión.";
 
-"As a simple example: Instead of focusing on how many miles you walked in the morning, can you be mindfully aware of the birds singing, actively feel the fresh air, and sense the changing of the season? When you connect your senses to nature, animals, people and your own body, you capture the attention of your nervous system, which in turn soothes your anxiety. When you return home, you will be in a better frame of mind and more prepared to face your day."
-=
-"Como ejemplo sencillo: en lugar de centrarte en cuántas millas caminaste por la mañana, ¿puedes estar consciente del canto de los pájaros, sentir activamente el aire fresco y percibir el cambio de estación? Cuando conectas tus sentidos con la naturaleza, los animales, las personas y tu propio cuerpo, captas la atención de tu sistema nervioso, lo que a su vez calma tu ansiedad. Cuando vuelvas a casa, estarás en un mejor estado mental y más preparado para enfrentar tu día.";
 
-"Which mindfulness exercises would you like to make part of your daily routine? Calmscient can remind you of some easy mindfulness routines that will help you stay in a healthy, being mode."
-=
-"¿Qué ejercicios de mindfulness te gustaría incorporar a tu rutina diaria? Calmscient puede recordarte algunas rutinas de mindfulness fáciles que te ayudarán a mantenerte en un modo saludable de ser.";
 
 "Progressive muscle relaxation" = "Relajación Progresiva de los Músculos";
 
@@ -555,7 +488,6 @@ Cuando te sientas molesto, desubicado, agitado o irritable, intenta darte un abr
 
 //4-7-8 breathing
 "4-7-8 Breathing excercise" = "Ejercicio de respiración 4-7-8";
-"Preparation" = "Preparación";
 "First find a comfortable seated position. Ensure that you are at ease before beginning the rhythmic breathing pattern.\n\nPlace the tip of your tongue gently against the tissue just behind your top front teeth" = "Primero, encuentra una posición cómoda para sentarte. Asegúrate de sentirte relajado antes de comenzar el patrón de respiración rítmica. \n\nColoca suavemente la punta de la lengua contra el tejido justo detrás de los dientes frontales superiores.";
 
 "Let’s learn how to do the 4-7-8 breathing exercise." = "Aprendamos cómo hacer el ejercicio de respiración 4-7-8.";
@@ -575,10 +507,8 @@ Siente cómo el aire entra en tu cuerpo, trayendo calma.";
 
 "Exhale forcefully through your mouth, pursing your lips, and create a distinct “whoosh” sound for 8 seconds. Feel the release of tension as you expel the breath." = "Exhala con fuerza a través de tu boca, frunciendo los labios, y crea un sonido distintivo de “whoosh” durante 8 segundos. Siente la liberación de tensión mientras expulsa el aire.";
 
-"Step 5: Repeat the process" = "Paso 5: Repite el proceso";
 "Repeat this entire cycle up to 4 times. Each repetition contributes to a deepening sense of relaxation." = "Repite todo este ciclo hasta 4 veces. Cada repetición contribuye a una sensación de relajación más profunda.";
 
-"Now, let’s dive into it.\nPay careful attention to the following video." = "Ahora, vamos a intentarlo. Presta atención cuidadosamente al siguiente video.";
 "Engage in this practice regularly, allowing the 4-7-8 technique to guide you towards a state of tranquility and mindful breathing." = "Practica este ejercicio regularmente, permitiendo que la técnica 4-7-8 te guíe hacia un estado de tranquilidad y respiración consciente.";
 
 //Mindfull breathing exercise
@@ -611,10 +541,7 @@ Siente cómo el aire entra en tu cuerpo, trayendo calma.";
 
 "Carry on until feeling calm, then start to be aware of how the body and mind feel." = "Continúa hasta sentirte tranquilo y luego comienza a ser consciente de cómo se siente el cuerpo y la mente.";
 
-"Now, let’s dive into it.
-Pay careful attention to the following video." = "Ahora, vamos a intentarlo. \nPresta atención cuidadosamente al siguiente video.";
 
-"Engage in this practice regularly, allowing the diaphragmatic breathing technique to guide you towards a state of tranquility and mindful breathing." = "Practica esta técnica regularmente, permitiendo que la técnica de respiración consciente te guíe hacia un estado de tranquilidad y respiración consciente.";
 
 //Diagraphic breathing
 "Doctors usually recommend diaphragmatic breathing to people with a lung condition called chronic obstructive pulmonary disease. A 2017 study found that it could also help reduce anxiety." = "Los médicos suelen recomendar la respiración diafragmática a las personas con una afección pulmonar llamada enfermedad pulmonar obstructiva crónica (EPOC). Un estudio de 2017 encontró que también podría ayudar a reducir la ansiedad.";
@@ -719,8 +646,6 @@ Pero, tienes el control total sobre la decisión respecto a tu hábito.
 "DRINKING_CONTROL_Consequence_What_Happens_To_Your_Brain_When_You_Drink" = "¿Qué le sucede a tu cerebro cuando bebes?";
 "DRINKING_CONTROL_Total" = "Total";
 "DRINKING_CONTROL_Count" = "Recuento";
-"DRINKING_CONTROL_Video_Message" = "Este video destaca las transformaciones positivas que ocurren al dejar el alcohol, como la mejora del bienestar, la hidratación, la pérdida de peso y la salud en general. También explica los posibles síntomas de abstinencia y ofrece consejos prácticos para superar este período.";
-"DRINKING_CONTROL_Video_Header" = "¿Qué esperar cuando dejas de beber?";
 "DRINKING_CONTROL_Video_Sub_Header" = "Veamos los videos.";
 "BASIC_KNOWLEDGE_Tipsy_Truth" = "Tipsy Truth";
 "BASIC_KNOWLEDGE_Brain_Video_URL" = "https://media.calmscient.in/uploads/course/Tipsy_truth_with_subtitle.mp4";
@@ -731,6 +656,7 @@ Pero, tienes el control total sobre la decisión respecto a tu hábito.
 "GAD_by_date_range" = "GAD-7 por rango de fechas";
 "Audit_by_date_range" = "AUDIT por rango de fechas";
 "Dast_by_date_range" = "DAST-10 por rango de fechas";
+"CAGE_by_date_range" = "CAGE por rango de fechas";
 "More_sleep_needed" = "Se necesita más sueño";
 "Average_sleep_score" = "Puntuación promedio de sueño";
 "Most_hours_slept" = "Mayor número de horas dormidas";
@@ -811,10 +737,7 @@ Pero, tienes el control total sobre la decisión respecto a tu hábito.
 "Please answer the questions" = "Por favor, responde las preguntas";
 "Please enter" = "Por favor ingresa";
 "Please enter journal details" = "Por favor, ingrese los detalles del diario";
-"Please fill textfield one" = "Por favor complete el campo de texto uno";
-"Please fill textfield two" = "Por favor complete el campo de texto dos";
 "Please select date" = "Por favor, seleccione la fecha";
-"Please select one option" = "Por favor seleccione una opción";
 "Please select the medication you are currently taking." = "Selecciona el medicamento de la lista si lo has tomado hoy";
 "Please select the stage that applies to you." = "Por favor, seleccione la etapa que le corresponde";
 "Please select time" = "Por favor, seleccione la hora";
@@ -882,8 +805,6 @@ Pero, tienes el control total sobre la decisión respecto a tu hábito.
 "Pros" = "Ventajas";
 "Cons" = "Desventajas";
 "Daily jouneral" = "Diario diario";
-"First find a comfortable to either sit down or
-lay down." = "Primero busca una posicion comoda para sentarte o acostarte.";
 
 // Mindfulness screen localized keys
 "mindfulness_intro_highlight" = "¿Alguna vez estuviste pensando en otra cosa o sonando despierto";
@@ -949,16 +870,7 @@ lay down." = "Primero busca una posicion comoda para sentarte o acostarte.";
 "mkpln_con_3" = "No encajaría con algunos de mis amigos";
 "mkpln_con_4" = "El cambio puede ser difícil";
 
-"qvc_hdr_1" = "1. ¿Cuál es su comprensión de cómo estas cosas le afectan a usted mismo?";
-"qvc_hdr_2" = "2. ¿Cuál es su comprensión de cómo estas cosas afectan a las personas?";
-"qvc_hdr_3" = "3. Y si se siente cómodo compartiendo, ¿con cuál de estos impactos está lidiando en este momento?";
 
-"ialrt_cap_1" = "(Test de Identificación de Trastornos por Consumo de Alcohol)";
-"ialrt_cap_2" = "(Test de Detección de Abuso de Drogas)";
-"ialrt_cap_3" = "(Cortar, Molestar, Culpable y Ojo)";
-"ialrt_desc_1" = "¿Disfruta de una bebida de vez en cuando? Muchos de nosotros lo hacemos, a menudo cuando socializamos con amigos y familiares. Echemos un vistazo a sus patrones de consumo de alcohol y cómo pueden afectar su salud. El cuestionario AUDIT está diseñado para ayudar en la autoevaluación del consumo de alcohol e identificar cualquier implicación para la salud y el bienestar de la persona, ahora y en el futuro. Realice una autoevaluación rápida con AUDIT arriba. Haga clic en \"Enviar\" al final para obtener una evaluación instantánea.";
-"ialrt_desc_2" = "\"Consumo de drogas\" se refiere al uso de medicamentos recetados o de venta libre en exceso de las indicaciones, y cualquier uso no médico de drogas. Las diversas clases de drogas pueden incluir cannabis (marihuana, hachís), solventes (por ejemplo, diluyente de pintura), tranquilizantes (por ejemplo, valium), barbitúricos, cocaína, estimulantes (por ejemplo, speed), alucinógenos (por ejemplo, LSD) o narcóticos (por ejemplo, heroína). Las preguntas no incluyen bebidas alcohólicas. Por favor, responda las preguntas de esta encuesta. Si tiene dificultades con una afirmación, simplemente elija la mejor respuesta posible. Estas preguntas se refieren al uso de drogas en los últimos 12 meses. Por favor responda NO o SÍ a cada pregunta.";
-"ialrt_desc_3" = "El cuestionario CAGE para fumar (modificado del familiar cuestionario CAGE para el alcoholismo), la prueba de las \"cuatro Cs\" y el Test de Fagerstrom para la Dependencia a la Nicotina ayudan a diagnosticar la dependencia a la nicotina según criterios estándar. Se pueden usar preguntas adicionales para determinar la disposición del paciente para cambiar y la naturaleza del refuerzo que recibe al fumar. Estas herramientas pueden ayudar a los médicos de familia a guiar a los pacientes a dejar de fumar, lo más importante que los fumadores pueden hacer para mejorar su salud.";
 
 "gls_term_1" = "Adrenalina";
 "gls_term_2" = "Ataque de ansiedad";
@@ -1072,7 +984,6 @@ lay down." = "Primero busca una posicion comoda para sentarte o acostarte.";
 "“Quitting”" = "“Dejar de fumar”";
 "“Staying smoke-free”" = "“Mantenerse libre de fumar”";
 "You can also try…" = "También puedes probar…";
-"One non-nicotine medicine (prescription from your doctor is required). Varenicline is a pill that works differently from other medicines. It does not contain nicotine. It works by attaching to the same parts of your brain that are stimulated by nicotine. This means that nicotine from a cigarette has fewer places to attach because the varenicline is already there. This makes it harder to get a nicotine \"buzz\"." = "Un medicamento sin nicotina (se requiere receta médica). La vareniclina es una pastilla que actúa de manera diferente a otros medicamentos. No contiene nicotina. Funciona al unirse a las mismas partes de tu cerebro que son estimuladas por la nicotina. Esto significa que la nicotina de un cigarrillo tiene menos lugares a los que unirse porque la vareniclina ya está ahí.";
 "The benefits of Varenicline are:" = "Los beneficios de la Vareniclina son:";
 "Know your triggers:" = "Conoce tus desencadenantes:";
 "Certain things can make you want to smoke, like being around friends you used to smoke with or being in a place where you often smoked. Even memories or feelings can bring it on." = "Ciertas cosas pueden hacer que quieras fumar, como estar cerca de amigos con los que solías fumar o estar en un lugar donde solías fumar frecuentemente. Incluso los recuerdos o sentimientos pueden desencadenarlo.";
@@ -1305,3 +1216,48 @@ lay down." = "Primero busca una posicion comoda para sentarte o acostarte.";
 // Medication reminder (local notification)
 "Medication Alert" = "Recordatorio de medicación";
 "Please take your medication to stay healthy" = "Por favor, toma tu medicación para mantenerte saludable.";
+
+
+/* ===== Health Metrics screen (favorites + reset + metrics) ===== */
+"Health Metrics" = "Métricas de salud";
+"No health data yet. Add data in the Health app, then pull to refresh." = "Aún no hay datos de salud. Agrega datos en la app Salud y desliza para actualizar.";
+"Favorites" = "Favoritos";
+"Reset" = "Restablecer";
+"Replaced your oldest favorite." = "Se reemplazó tu favorito más antiguo.";
+"Vitals" = "Signos vitales";
+"Activity" = "Actividad";
+"Sleep" = "Sueño";
+"Body" = "Cuerpo";
+"Nutrition" = "Nutrición";
+"Wellness" = "Bienestar";
+"Heart Rate" = "Frecuencia cardíaca";
+"SpO2" = "SpO2";
+"Stress" = "Estrés";
+"Resting HR" = "FC en reposo";
+"Respiratory Rate" = "Frecuencia respiratoria";
+"Blood Pressure" = "Presión arterial";
+"Heart Rate Variability" = "Variabilidad de la frecuencia cardíaca";
+"Exercise" = "Ejercicio";
+"Steps" = "Pasos";
+"Active Calories" = "Calorías activas";
+"Distance" = "Distancia";
+"Weight" = "Peso";
+"Height" = "Altura";
+"Body Fat" = "Grasa corporal";
+"Blood Glucose" = "Glucosa en sangre";
+"BMR" = "Metabolismo basal";
+"Hydration" = "Hidratación";
+
+/* Health metrics date range browser */
+"Select Date(s)" = "Seleccionar fecha(s)";
+"Select a date range" = "Seleccione un rango de fechas";
+"Please select a date." = "Por favor, seleccione una fecha.";
+"Health Data" = "Datos de salud";
+"No data for the selected range." = "No hay datos para el rango seleccionado.";
+"Calories" = "Calorías";
+"Resting Heart Rate" = "Frecuencia cardíaca en reposo";
+"Heart Rate Variability (HRV)" = "Variabilidad de la frecuencia cardíaca (VFC)";
+"Sleep Hours" = "Horas de sueño";
+"Exercise Type" = "Tipo de ejercicio";
+"No records" = "Sin registros";
+"Clear" = "Borrar";

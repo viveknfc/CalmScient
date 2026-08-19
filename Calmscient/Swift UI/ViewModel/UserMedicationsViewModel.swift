@@ -19,8 +19,35 @@ final class UserMedicationsViewModel: ObservableObject, MedicalCalendarHeaderPro
 
     weak var hostViewController: UIViewController?
 
+    // MARK: - SwiftUI navigation
+    //
+    // Set by `HomeTabView` when this screen is shown inside the Home `NavigationStack`.
+    // While nil, every call below falls through to the existing UIKit push/pop, which is
+    // what the still-UIKit Discovery tab uses when it pushes into these screens.
+    var onOpenRoute: ((HomeRoute) -> Void)?
+    var onClose: (() -> Void)?
+    var onCloseToRoot: (() -> Void)?
+
     /// Presents the same bottom-sheet date picker used elsewhere (`newPickerViewVC`).
     var presentFullDatePickerFromBottom: (() -> Void)?
+
+    /// Legacy `UserMedicationsHostingController.presentMonthDatePickerFromBottom()`.
+    /// The presentation lived on the hosting controller, so on the SwiftUI path tapping
+    /// the month header did nothing at all — the view model owns it now and both paths
+    /// route through `presentFullDatePickerFromBottom`.
+    private let monthDatePickerPresenter = BottomSheetDatePickerPresenter()
+
+    func presentMonthDatePicker() {
+        guard let host = hostViewController else { return }
+        let configuration = BottomSheetDatePickerConfiguration(
+            pickerMode: .date,
+            initialDate: selectedMedicationDate
+        )
+        monthDatePickerPresenter.present(from: host, configuration: configuration) { [weak self] date, isTimePicker in
+            guard !isTimePicker else { return }
+            self?.selectMedicationDateFromMonthPicker(date)
+        }
+    }
 
     var selectedCalendarDate: Date { selectedMedicationDate }
 
@@ -42,18 +69,30 @@ final class UserMedicationsViewModel: ObservableObject, MedicalCalendarHeaderPro
         Calendar.current.startOfDay(for: Date())
     }
 
-    private var anchorView: UIView? { hostViewController?.view }
+    /// Falls back to the key window so this screen still shows toasts when it is
+    /// presented without a `hostViewController` (SwiftUI-navigated Home tab).
+    private var anchorView: UIView? { Toast.resolvedAnchor(hostViewController?.view) }
     private let noRecordsToastKey = "medication_no_records_toast"
     private let medicationRequestTimeoutToastKey = "medication_request_timeout_toast"
 
+    /// Seeds the localized chrome up front so the navigation title is correct on the
+    /// very first SwiftUI body evaluation (the UIKit host used to set it in `viewWillAppear`).
+    init() {
+        reloadLocalizedChrome()
+    }
+
     func onHostWillAppear() {
-        navigationChromeTitle = "Medications".localized
-        tabBarHomeTitle = "main_tab_bar_home".localized
+        reloadLocalizedChrome()
         fetchMedications(for: selectedMedicationDate)
     }
 
+    func reloadLocalizedChrome() {
+        navigationChromeTitle = "Medications".localized
+        tabBarHomeTitle = "main_tab_bar_home".localized
+    }
+
     /// Applied by hosting controller / parent for tab bar parity with legacy screen.
-    var navigationChromeTitle: String = ""
+    @Published var navigationChromeTitle: String = ""
     var tabBarHomeTitle: String = ""
 
     func selectCalendarDate(_ date: Date) {
@@ -76,12 +115,15 @@ final class UserMedicationsViewModel: ObservableObject, MedicalCalendarHeaderPro
     }
 
     func openBackToMedicalRecords() {
+        if let onClose {
+            onClose()
+            return
+        }
         guard let nav = hostViewController?.navigationController else { return }
         nav.pushViewController(UserMedicalRecordsHostingController(), animated: true)
     }
 
     func openAddMedication() {
-        guard let nav = hostViewController?.navigationController else { return }
         let vm = AddEditMedicationViewModel(
             isEditMode: false,
             medicationData: nil,
@@ -89,11 +131,15 @@ final class UserMedicationsViewModel: ObservableObject, MedicalCalendarHeaderPro
                 self?.fetchMedications(for: self?.selectedMedicationDate ?? Date())
             }
         )
-        nav.pushViewController(AddUserMedicationsViewController(viewModel: vm), animated: true)
+        if let onOpenRoute {
+            onOpenRoute(.addEditMedication(RouteBox(vm)))
+            return
+        }
+        guard let nav = hostViewController?.navigationController else { return }
+        nav.pushViewController(AddEditMedicationHostingController(viewModel: vm), animated: true)
     }
 
     func openEditMedication(_ row: MedicineDetails) {
-        guard let nav = hostViewController?.navigationController else { return }
         let vm = AddEditMedicationViewModel(
             isEditMode: true,
             medicationData: row,
@@ -101,15 +147,24 @@ final class UserMedicationsViewModel: ObservableObject, MedicalCalendarHeaderPro
                 self?.fetchMedications(for: self?.selectedMedicationDate ?? Date())
             }
         )
-        let vc = AddUserMedicationsViewController(viewModel: vm)
+        if let onOpenRoute {
+            onOpenRoute(.addEditMedication(RouteBox(vm)))
+            return
+        }
+        guard let nav = hostViewController?.navigationController else { return }
+        let vc = AddEditMedicationHostingController(viewModel: vm)
         vc.title = "Edit medications"
         nav.pushViewController(vc, animated: true)
     }
 
     func openMedicationDetail(_ row: MedicineDetails) {
-        guard let nav = hostViewController?.navigationController else { return }
         let expired = row.medicationDetailsByDate.first?.medicalDetails.expired ?? 0
         guard expired != 1 else { return }
+        if let onOpenRoute {
+            onOpenRoute(.medicationsDetail(RouteBox(row)))
+            return
+        }
+        guard let nav = hostViewController?.navigationController else { return }
         nav.pushViewController(MedicationsDetailHostingController(medicineDetails: row), animated: true)
     }
 

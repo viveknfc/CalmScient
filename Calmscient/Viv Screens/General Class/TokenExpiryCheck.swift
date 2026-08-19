@@ -73,8 +73,16 @@ class TokenManager{
                 
                 saveTokenData(accessToken: loginResponse.accessToken, expiresIn: loginResponse.expiresIn)
                 
-                UserDefaultsHelper.saveLoginDetailsToUserDefaults(loginDetails: ApplicationSharedInfo.shared.loginResponse!, tokenResponse: loginResponse)
-                
+                // Refresh must not resurrect an on-disk session for a user who did not tick
+                // "Remember Me" — mirror the login rule here too. (Also avoids the previous
+                // force-unwrap of `loginResponse`.)
+                if let loginDetails = ApplicationSharedInfo.shared.loginResponse {
+                    UserDefaultsHelper.persistLoginDetailsIfRemembered(
+                        loginDetails: loginDetails,
+                        tokenResponse: loginResponse
+                    )
+                }
+
                 return true
             } catch {
                 print("Failed to decode LoginResponse:", error)

@@ -93,19 +93,10 @@ final class ConsequenceViewModel: ObservableObject {
             break
         }
 
-        guard let nav = host.navigationController else { return }
-
-        let backItem = UIBarButtonItem()
-        backItem.title = ""
-        host.navigationItem.backBarButtonItem = backItem
-
-        let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
-        guard let vc = storyboard.instantiateViewController(withIdentifier: row.storyboardIdentifier) as? UIViewController else {
-            return
-        }
-
-        vc.title = navigationChromeTitle
-        nav.pushViewController(vc, animated: true)
+        // Every row is handled by the switch above (all five cases return), so
+        // there is no remaining fallback. The old storyboard path pushed scenes
+        // from `Taking Control Index.storyboard`, whose view controllers no
+        // longer exist.
     }
 
     func completeTapped() {

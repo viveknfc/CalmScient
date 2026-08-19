@@ -17,6 +17,15 @@ final class MindfulnessViewModel: ObservableObject {
 
     weak var hostViewController: UIViewController?
 
+    // MARK: - SwiftUI navigation
+    //
+    // Set by `ExercisesTabView` when this screen is shown inside the Exercises
+    // `NavigationStack`. When nil the screen falls back to the UIKit push/pop below,
+    // which is what the Home ▸ favourites path (`ExcercisesTypeEnum.destVC`) still uses.
+    var onOpenRoute: ((ExercisesRoute) -> Void)?
+    var onClose: (() -> Void)?
+    var onCloseToRoot: (() -> Void)?
+
     @Published private(set) var screenTitle: String = ""
     @Published private(set) var stepIndex: Int = 0
     @Published private(set) var step: MindfulnessStepPresentation = MindfulnessPresentation.step(at: 0, isDarkMode: false)
@@ -32,16 +41,30 @@ final class MindfulnessViewModel: ObservableObject {
 
     // MARK: - Lifecycle
 
+    /// Seeds the localized chrome up front so the navigation title is right on the
+    /// very first SwiftUI body evaluation (the UIKit host set it in `viewWillAppear`).
+    init() {
+        reloadLocalizedStrings()
+    }
+
     func onHostWillAppear() {
-        screenTitle = "Mindfulness - what is it?".localized
-        completeButtonTitle = "Complete".localized
+        reloadLocalizedStrings()
         loadFavoriteState()
         applyStep(animated: false)
+    }
+
+    func reloadLocalizedStrings() {
+        screenTitle = "Mindfulness - what is it?".localized
+        completeButtonTitle = "Complete".localized
     }
 
     // MARK: - Navigation
 
     func openBack() {
+        if let onClose {
+            onClose()
+            return
+        }
         hostViewController?.navigationController?.popViewController(animated: true)
     }
 
@@ -67,7 +90,7 @@ final class MindfulnessViewModel: ObservableObject {
         ExerciseFavoriteToggle.toggle(
             currentIsFav: isFav,
             request: ExerciseFavoriteToggleRequest(pageId: 6, exercise: .mindfulness),
-            anchorView: hostViewController?.view
+            anchorView: Toast.resolvedAnchor(hostViewController?.view)
         ) { [weak self] newIsFav in
             self?.applyFavoriteState(newIsFav)
         }

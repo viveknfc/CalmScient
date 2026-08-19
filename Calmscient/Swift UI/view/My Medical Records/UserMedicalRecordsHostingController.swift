@@ -18,12 +18,7 @@ final class UserMedicalRecordsHostingController: UIViewController {
     private var hostingController: UIHostingController<UserMedicalRecordsView>!
 
     /// When embedded under `UserMedicalRecordsViewController`, the navigation bar shows that parent’s `navigationItem` (top of the stack).
-    private var navigationItemOwner: UIViewController {
-        if let parent = parent as? UserMedicalRecordsViewController {
-            return parent
-        }
-        return self
-    }
+    private var navigationItemOwner: UIViewController { self }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +32,7 @@ final class UserMedicalRecordsHostingController: UIViewController {
         view.addSubview(hostingController.view)
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
 
-        let topLayoutGuide: UILayoutGuide = {
-            if let parentVC = parent as? UserMedicalRecordsViewController {
-                return parentVC.view.safeAreaLayoutGuide
-            }
-            return view.safeAreaLayoutGuide
-        }()
+        let topLayoutGuide: UILayoutGuide = view.safeAreaLayoutGuide
 
         NSLayoutConstraint.activate([
             hostingController.view.topAnchor.constraint(equalTo: topLayoutGuide.topAnchor),

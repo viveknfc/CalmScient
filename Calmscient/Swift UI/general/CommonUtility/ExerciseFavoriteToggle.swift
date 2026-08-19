@@ -199,6 +199,10 @@ enum ExerciseFavoriteToggle {
         let previousIsFav = currentIsFav
         let optimisticIsFav = previousIsFav == 0 ? 1 : 0
 
+        // Falls back to the key window so screens without a `hostViewController`
+        // (SwiftUI-navigated ones) still get the same toast feedback.
+        let anchorView = Toast.resolvedAnchor(anchorView)
+
         onIsFavChanged(optimisticIsFav)
         anchorView?.showToastActivity()
 

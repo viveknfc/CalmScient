@@ -135,11 +135,6 @@ final class UserProfileHostingController: UIViewController {
             if #available(iOS 16.0, *) {
                 let homeRoot = HomeDashboardHostingController()
                 navigationController?.pushViewController(homeRoot, animated: true)
-            } else {
-                let storyboard = UIStoryboard(name: "DashboardHomeTab", bundle: nil)
-                if let homeTabVC = storyboard.instantiateViewController(withIdentifier: "HomeTabDashboardViewController") as? HomeTabDashboardViewController {
-                    navigationController?.pushViewController(homeTabVC, animated: true)
-                }
             }
         }
     }

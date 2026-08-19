@@ -43,9 +43,17 @@ final class MainTabBarViewModel: ObservableObject {
     }
 
     /// Equivalent to legacy `updateTabBarItems` (titles only, no stack rebuild).
+    ///
+    /// Publishes only when the titles actually changed. This runs on every appearance,
+    /// every tab switch and every `languageChanged` notification, so re-publishing the
+    /// identical array both re-rendered the whole tab bar and — whenever the caller sat
+    /// inside a SwiftUI view update — logged "Publishing changes from within view updates
+    /// is not allowed".
     func refreshLocalizedTabTitles() {
-        tabTitles = mainTabBarTitleKeys.map { $0.localized }
-        localizedTitles = tabTitles
+        let titles = mainTabBarTitleKeys.map { $0.localized }
+        tabTitles = titles
+        guard localizedTitles != titles else { return }
+        localizedTitles = titles
     }
 
     /// Equivalent to legacy `updateTabBarItems` + `prepareTabs` refresh cycle.
@@ -58,6 +66,19 @@ final class MainTabBarViewModel: ObservableObject {
             return
         }
         contentGeneration &+= 1
+    }
+
+    /// Entry point for `MainTabBarView`'s `onChange(of:)`.
+    ///
+    /// SwiftUI delivers `onChange` inside the view update that changed the selection, and
+    /// the work below publishes (`contentGeneration`, `localizedTitles`) and posts a
+    /// notification observers answer by publishing too — all of which SwiftUI rejects
+    /// mid-update. Scheduling a new main-actor turn runs the identical sequence right
+    /// after the update finishes.
+    func userSelectedTab(_ tab: MainTab) {
+        Task { @MainActor [weak self] in
+            self?.onUserSelectedTab(tab)
+        }
     }
 
     /// Legacy `tabBarController(_:didSelect:)` side effects + full tab rebuild.

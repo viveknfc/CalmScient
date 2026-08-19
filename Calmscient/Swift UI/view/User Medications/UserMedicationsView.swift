@@ -64,14 +64,10 @@ struct UserMedicationsView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.white.ignoresSafeArea())
-        .overlay {
-            if viewModel.isLoading {
-                ProgressView()
-                    .progressViewStyle(.circular)
-                    .padding(24)
-                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12))
-            }
-        }
+        // Loading is shown by the app-wide toast activity indicator that the view model
+        // drives (`showToastActivity` / `hideToastActivity`). A second SwiftUI
+        // `ProgressView` overlay used to be stacked on top of it here, which made two
+        // spinners appear at once.
     }
 
     private var infoAndTakeAllRow: some View {

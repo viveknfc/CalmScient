@@ -9,9 +9,7 @@
 "Profile" = "Profile";
 "Version 1.0.1" = "Version 1.0.5";
 "Username" = "Username";
-"Password" = "Password";
 "Forgot Password" = "Forgot Password?";
-"Create an New account" = "Create an New account";
 "All fields are required" = "All fields are required";
 
 "Accept Terms and Conditions" = "Accept Terms and Conditions";
@@ -24,8 +22,6 @@
 "Last Name" = "Last Name";
 "Email" = "Email";
 "Phone Number" = "Phone Number";
-"Password" = "Password";
-"Confirm Password" = "Confirm Password";
 "Submit" = "Submit";
 
 "View history" = "View history";
@@ -36,7 +32,6 @@
 
 //basic standard drink
 "Basic Knowledge" = "Basic knowledge";
-"What’s a standard drink" = "What’s a standard drink";
 "standard drink description" = "In the United States, a “standard drink” (also known as an alcoholic drink equivalent) is defined as any drink that contains about 0.6 fluid ounces or 14 grams of pure alcohol. Although the drinks pictured here are different sizes, each contains approximately the same amount of alcohol and counts as one U.S. standard drink or one alcoholic drink equivalent.";
 "standard drink highlight fluid ounces" = "0.6 fluid ounces";
 "standard drink highlight grams" = "14 grams";
@@ -171,14 +166,6 @@ For some individuals, any amount of drinking could be potentially harmful.
 
 Let's see some of them.";
 
-"consequences2" = "Alcohol-related deaths are increasing in the United States.
-
-Alcohol is a factor in:
-30% of suicides.
-40% of fatal burn injuries.
-50% of fatal drownings and of homicides, and about 65 percent of fatal falls.
-31% of all fatal crashes in 2021.
-A significant number of sexual assaults.";
 
 //consequences 3
 
@@ -214,32 +201,20 @@ Birth defects. Prenatal alcohol exposure can result in brain damage and other se
 These individual tend to drink more, socialize with people who drink a lot, and develop a tolerance to alcohol(i.e., it takes more and more alcohol to feel or act intoxicated). As a result , they have an increased risk for developing AUD. Someone who misuses alcohol, especially over the long=term, can experience permanent liver, heart, or brain damage. And all people who drink, regardless of thr amount, need to be aware that critical decision-making abilities and driving-related skills are already diminished long before a person shows physical signs of intoxication.";
 
 //drinking habbit controller
-"How many days a week do you drink?" = "How many days a week do you drink?";
-"1. Now let’s see what drinking habits do you have" = "1. Now let’s see what drinking habits do you have";
 "None" = "None";
-"Less than 2 days" = "Less than 2 days";
-"3-5 days" = "3-5 days";
-"Almost everyday" = "Almost everyday";
 "Everyday" = "Everyday";
-"1. How many days a week do you drink?" = "1. How many days a week do you drink?";
 "Now let's see what drinking habits do you have" = "Now let's see what drinking habits do you have";
 
 //Drinking habbit
-"Now let’s see what drinking habits do you have" = "Now let’s see what drinking habits do you have";
-"What kind of alcohol do you drink each time? and how much?" = "What kind of alcohol do you drink each time? and how much?";
 
 //feel drink controller
-"4. What is the reason behind?" = "4. What is the reason behind?";
 "Quitting is strongly advised if you:" = "Quitting is strongly advised if you:";
 
 //feel drink habbit
-"3. What do you feel about your drinking habit?" = "3. What do you feel about your drinking habit?";
-"Please select any option" = "Please select any option";
 
 //taking control intro
 "Thank you for being willing to talk about alcohol and drugs. Now let’s begin with a brief assessment." = "Thank you for being willing to talk about alcohol and drugs. Now let’s begin with a brief assessment.";
 "Doesn't apply to me" = "Doesn't apply to me";
-"Doesn't apply to me" = "No se aplica a mí";
 
 
 "Monthly goal" = "Monthly goal";
@@ -277,13 +252,9 @@ These individual tend to drink more, socialize with people who drink a lot, and 
 "profile_edit_password_update_password" = "Update password";
 
 //user intro screen
- "Good morning!"=  "Good morning!";
-"Good afternoon!" = "Good afternoon!";
-"Good evening!" = "Good evening!";
 "Hello" = "Hello";
 "Good evening" = "Good evening";
 "Please fill all mandatory fields." = "Please fill all mandatory fields.";
-"Save" = "Save";
 "Skip" = "Skip";
 
 
@@ -292,18 +263,9 @@ These individual tend to drink more, socialize with people who drink a lot, and 
 "Taking control" = "Taking control";
 
 //custom alert view
-"Your License key has
-been verified." = "Your License key has
-been verified.";
 "Ok" = "OK";
 "License Key" = "License Key";
 
-"Please complete your profile to start using Calmscient." = "Please complete your profile to start using Calmscient.";
-"Continue" = "Continue";
-"create_account_alert_success_title" = "Your profile has been updated successfully.";
-"create_account_alert_success_message" = "Please click on continue to start using Calmscient.";
-"create_account_alert_validation_title" = "Alert";
-"create_account_alert_validation_message" = "Please enter all fields to proceed.";
 
 //selection button
 "I agree to share my info with medical provider" = "I agree to share my info with medical provider";
@@ -312,7 +274,6 @@ been verified.";
 //landing vc
 "Hello " = "Hello ";
 "We are happy to see you" = "We are happy to see you";
-"Need to talk with someone?" = "Need to talk with someone?";
 
 //monthly drinks count vc
 "Congratulations text" = "Congratulations on making a firm decision on changing your drink consumption!
@@ -359,7 +320,6 @@ Drinks count";
 
 
 //tellus cell
-"Yes" = "Yes";
 "Just track the alcohol consumption" = "Just track the alcohol consumption";
 "Quit or cut down drinking" = "Quit or cut down drinking";
 
@@ -387,7 +347,6 @@ Here are resources that can assist you in achieving your goal?";
 "audit_subtitle" = "For alcohol use";
 "dast_title" = "DAST-10";
 "dast_subtitle" = "smoking and drug use";
-"Make a plan" = "Make a plan";
 "How to use" = "How to use";
 "Events tracker" = "Events tracker";
 //make a plan
@@ -430,8 +389,6 @@ Here are resources that can assist you in achieving your goal?";
 
 //add user medications view controller
 "Save" = "Save";
-"Cancel" = "Cancel";
-"Add Medications" = "Add medications";
 "Are you sure you want to cancel?" = "Are you sure you want to cancel?";
 "Medications" = "Medications";
 "YES" = "YES";
@@ -440,7 +397,6 @@ Here are resources that can assist you in achieving your goal?";
 "Add Medication" = "Add Medication";
 "OK" = "OK";
 "Cancel" = "Cancel";
-"Add Time & Alarm" = "Add Time & Alarm";
 "Name" = "Name";
 "Provider" = "Provider";
 "Dosage" = "Dosage";
@@ -450,10 +406,7 @@ Here are resources that can assist you in achieving your goal?";
 
 //add medication vc
 "Add Medications" = "Add medications";
-"With Meal" = "With meal";
 "Morning" = "Morning";
-"08:00AM" = "08:00AM";
-"07:50AM"  = "07:50AM";
 "Afternoon" = "Afternoon";
 "Night" = "Night";
 "Schedule Time & Alarm" = "Schedule Time & Alarm";
@@ -469,7 +422,6 @@ Here are resources that can assist you in achieving your goal?";
 
 
 //add appointments view controller
-"Choose Date and Time" = "Choose Date and Time";
 
 //appointmenr details vc
 "Date and Time" = "Date and Time";
@@ -495,8 +447,6 @@ Here are resources that can assist you in achieving your goal?";
 "Remind me" = "Remind me";
 
 //questioner vc
-"Over the last 2 weeks, how often have you been bothered by the following problems?" = "Over the last 2 weeks, how often have you been bothered by the following problems?";
-"1. Feeling nervous, anxious or on edge" = "1. Feeling nervous, anxious or on edge";
 
 
 //profile privacy vc
@@ -512,7 +462,6 @@ Here are resources that can assist you in achieving your goal?";
 "Breathing technique" = "Breathing technique";
 "Breathing exercises" = "Breathing exercises";
 "4-7-8 Breathing exercise" = "4-7-8 Breathing exercise";
-"Mindful breathing exercise" = "Mindful breathing exercise";
 "Diaphragmatic breathing exercise" = "Diaphragmatic breathing exercise";
 
 //Exercises
@@ -571,7 +520,6 @@ When you are feeling upset, ungrounded, agitated or irritable, try giving yourse
 //4-7-8 breating
 
 "4-7-8 Breathing excercise" = "4-7-8 Breathing excercise";
-"Preparation" = "Preparation";
 "First find a comfortable seated position. Ensure that you are at ease before beginning the rhythmic breathing pattern.\n\nPlace the tip of your tongue gently against the tissue just behind your top front teeth" = "First find a comfortable seated position. Ensure that you are at ease before beginning the rhythmic breathing pattern.\n\nPlace the tip of your tongue gently against the tissue just behind your top front teeth.";
 
 "Let’s learn how to do the 4-7-8 breathing exercise." = "Let’s learn how to do the 4-7-8 breathing exercise.";
@@ -588,13 +536,9 @@ When you are feeling upset, ungrounded, agitated or irritable, try giving yourse
 
 "Exhale forcefully through your mouth, pursing your lips, and create a distinct “whoosh” sound for 8 seconds. Feel the release of tension as you expel the breath." = "Exhale forcefully through your mouth, pursing your lips, and create a distinct “whoosh” sound for 8 seconds. Feel the release of tension as you expel the breath.";
 
-"Step 5: Repeat the process" = "Step 5: Repeat the process";
-"Repeat this entire cycle up to 4 times. Each repetition contributes to a deepening sense of relaxation." = "Repeat this entire cycle up to 4 times. Each repetition contributes to a deepening sense of relaxation.";
 
-"Step 5: Repeat the process" = "Step 5: Repeat the process";
 
 "Repeat this entire cycle up to 4 times. Each repetition contributes to a deepening sense of relaxation." = "Repeat this entire cycle up to 4 times. Each repetition contributes to a deepening sense of relaxation.";
-"Now, let’s dive into it.\nPay careful attention to the following video." = "Now, let’s dive into it.\nPay careful attention to the following video.";
 "Engage in this practice regularly, allowing the 4-7-8 technique to guide you towards a state of tranquility and mindful breathing." = "Engage in this practice regularly, allowing the 4-7-8 technique to guide you towards a state of tranquility and mindful breathing.";
 
 // mindful breathing exercise
@@ -626,13 +570,7 @@ When you are feeling upset, ungrounded, agitated or irritable, try giving yourse
 
 "Carry on until feeling calm, then start to be aware of how the body and mind feel." = "Carry on until feeling calm, then start to be aware of how the body and mind feel.";
 
-"Now, let’s dive into it.
-Pay careful attention to the following video." = "Now, let’s dive into it. \nPay careful attention to the following video.";
-"Now, let’s dive into it.
-Pay careful attention to the following video." = "Now, let’s dive into it.
-Pay careful attention to the following video.";
 
-"Engage in this practice regularly, allowing the diaphragmatic breathing technique to guide you towards a state of tranquility and mindful breathing." = "Engage in this practice regularly, allowing the diaphragmatic breathing technique to guide you towards a state of tranquility and mindful breathing.";
 
 "Exhale slowly through your mouse. And repeat the process." = "Exhale slowly through your mouse. And repeat the process.";
 
@@ -641,9 +579,6 @@ Pay careful attention to the following video.";
 
 "Let’s learn how to do the diaphragmatic breathing exercise." = "Let’s learn how to do the diaphragmatic breathing exercise.";
 
-"First find a comfortable to either sit down or
-lay down." = "First find a comfortable to either sit down or
-lay down.";
 
 "Step 1: Place your hands"  =  "Step 1: Place your hands";
 
@@ -728,8 +663,6 @@ Ready?";
 "DRINKING_CONTROL_Consequence_What_Happens_To_Your_Brain_When_You_Drink" = "What happens to your brain when you drink?";
 "DRINKING_CONTROL_Total" = "Total";
 "DRINKING_CONTROL_Count" = "Count";
-"DRINKING_CONTROL_Video_Message" = "This video highlights the positive transformations that occur when quitting alcohol, such as improved well-being, hydration, weight loss, and overall health. It also explains potential withdrawal symptoms and offers practical tips for navigating this period.";
-"DRINKING_CONTROL_Video_Header" = "What to expect when you quit drinking?";
 "DRINKING_CONTROL_Video_Sub_Header" = "Let’s watch the videos";
 "BASIC_KNOWLEDGE_Tipsy_Truth" = "Tipsy Truth";
 "BASIC_KNOWLEDGE_Brain_Video_URL" = "https://media.calmscient.in/uploads/course/Tipsy_truth_with_subtitle.mp4";
@@ -740,6 +673,7 @@ Ready?";
 "GAD_by_date_range" = "GAD-7 by date range";
 "Audit_by_date_range" = "AUDIT by date range";
 "Dast_by_date_range" = "DAST-10 by date range";
+"CAGE_by_date_range" = "Summary of CAGE by date range";
 "More_sleep_needed" = "More sleep needed";
 "Average_sleep_score" = "Average sleep score";
 "Most_hours_slept" = "Most hours slept";
@@ -809,10 +743,7 @@ Ready?";
 "Please answer the questions" = "Please answer the questions";
 "Please enter" = "Please enter";
 "Please enter journal details" = "Please enter journal details";
-"Please fill textfield one" = "Please fill textfield one";
-"Please fill textfield two" = "Please fill textfield two";
 "Please select date" = "Please select date";
-"Please select one option" = "Please select one option";
 "Please select the medication you are currently taking." = "Please select the medication you are currently taking.";
 "Please select the stage that applies to you." = "Please select the stage that applies to you.";
 "Please select time" = "Please select time";
@@ -939,16 +870,7 @@ Ready?";
 "mkpln_con_3" = "I wouldn't fit in with some of my friends";
 "mkpln_con_4" = "Change can be hard";
 
-"qvc_hdr_1" = "1. What is your understanding of how these things are affect yourself?";
-"qvc_hdr_2" = "2. What is your understanding of how these things are affect people?";
-"qvc_hdr_3" = "3. And if you are comfortable sharing, which of these impact are you dealing with right now?";
 
-"ialrt_cap_1" = "(Alcohol Use Disorder Identification Test)";
-"ialrt_cap_2" = "(Drug Abuse Screening Test)";
-"ialrt_cap_3" = "(Cut, Annoyed, Guilty and Eye)";
-"ialrt_desc_1" = "Do you enjoy a drink now or then? Many of us do, often when socializing with friends and family. Let's take a look at your drinking patterns and how they may affect your health.\n\nThe AUDIT questionnaire is designed to help in the self-assessment of alcohol consumption and to identify any implications for the person's health and well being, now and in the future.\n\nConduct a quick self-test with AUDIT above. Click on \"Submit\" at the end for an instant assessment.";
-"ialrt_desc_2" = "\"Drug use\" refers to\n\n1. the use of prescribed or over-the-counter drugs in excess of the directions, and\n2. any non medical use of drugs.\n\nThe various classes of drugs may include cannabis (marijuana, hashish), solvents (e.g., paint thinner), tranquilizers (e.g., valium), barbiturates, cocaine, stimulants (e.g., speed), hallucinogens (e.g., LSD) or narcotics (e.g., heroin). The questions do not include alcoholic beverages.\n\nPlease answer the questions in this survey. If you have difficulty with a statement, simply choose the best response possible.\n\nThese questions refer to drug use in the past 12 months. Please answer NO or YES to each question.";
-"ialrt_desc_3" = "The CAGE questionnaire for smoking (modified from the familiar CAGE questionnaire for alcoholism), the \"four Cs\" test and the Fagerstrom Test for Nicotine Dependence help diagnose nicotine dependence based on standard criteria. Additional questions can be used to determine a patient's readiness to change and the nature of reinforcement the patient receives from smoking. These tools can assist family physicians in guiding patients to quit smoking-the single most important thing smokers can do to improve their health.";
 
 "gls_term_1" = "Adrenaline";
 "gls_term_2" = "Anxiety attack";
@@ -1047,7 +969,6 @@ Ready?";
 "“Quitting”" = "“Quitting”";
 "“Staying smoke-free”" = "“Staying smoke-free”";
 "You can also try…" = "You can also try…";
-"One non-nicotine medicine (prescription from your doctor is required). Varenicline is a pill that works differently from other medicines. It does not contain nicotine. It works by attaching to the same parts of your brain that are stimulated by nicotine. This means that nicotine from a cigarette has fewer places to attach because the varenicline is already there. This makes it harder to get a nicotine \"buzz\"." = "One non-nicotine medicine (prescription from your doctor is required). Varenicline is a pill that works differently from other medicines. It does not contain nicotine. It works by attaching to the same parts of your brain that are stimulated by nicotine. This means that nicotine from a cigarette has fewer places to attach because the varenicline is already there. This makes it harder to get a nicotine \"buzz\".";
 "The benefits of Varenicline are:" = "The benefits of Varenicline are:";
 "Know your triggers:" = "Know your triggers:";
 "Certain things can make you want to smoke, like being around friends you used to smoke with or being in a place where you often smoked. Even memories or feelings can bring it on." = "Certain things can make you want to smoke, like being around friends you used to smoke with or being in a place where you often smoked. Even memories or feelings can bring it on.";
@@ -1280,3 +1201,48 @@ Ready?";
 // Medication reminder (local notification)
 "Medication Alert" = "Medication Alert";
 "Please take your medication to stay healthy" = "Please take your medication to stay healthy";
+
+
+/* ===== Health Metrics screen (favorites + reset + metrics) ===== */
+"Health Metrics" = "Health Metrics";
+"No health data yet. Add data in the Health app, then pull to refresh." = "No health data yet. Add data in the Health app, then pull to refresh.";
+"Favorites" = "Favorites";
+"Reset" = "Reset";
+"Replaced your oldest favorite." = "Replaced your oldest favorite.";
+"Vitals" = "Vitals";
+"Activity" = "Activity";
+"Sleep" = "Sleep";
+"Body" = "Body";
+"Nutrition" = "Nutrition";
+"Wellness" = "Wellness";
+"Heart Rate" = "Heart Rate";
+"SpO2" = "SpO2";
+"Stress" = "Stress";
+"Resting HR" = "Resting HR";
+"Respiratory Rate" = "Respiratory Rate";
+"Blood Pressure" = "Blood Pressure";
+"Heart Rate Variability" = "Heart Rate Variability";
+"Exercise" = "Exercise";
+"Steps" = "Steps";
+"Active Calories" = "Active Calories";
+"Distance" = "Distance";
+"Weight" = "Weight";
+"Height" = "Height";
+"Body Fat" = "Body Fat";
+"Blood Glucose" = "Blood Glucose";
+"BMR" = "BMR";
+"Hydration" = "Hydration";
+
+/* Health metrics date range browser */
+"Select Date(s)" = "Select Date(s)";
+"Select a date range" = "Select a date range";
+"Please select a date." = "Please select a date.";
+"Health Data" = "Health Data";
+"No data for the selected range." = "No data for the selected range.";
+"Calories" = "Calories";
+"Resting Heart Rate" = "Resting Heart Rate";
+"Heart Rate Variability (HRV)" = "Heart Rate Variability (HRV)";
+"Sleep Hours" = "Sleep Hours";
+"Exercise Type" = "Exercise Type";
+"No records" = "No records";
+"Clear" = "Clear";

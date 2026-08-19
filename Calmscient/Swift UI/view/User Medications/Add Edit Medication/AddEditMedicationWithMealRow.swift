@@ -30,7 +30,7 @@ struct AddEditMedicationWithMealRow: View {
     }
 
     private func mealToggleImage(isOn: Bool) -> some View {
-        let name = isOn ? "ToggleSwitch_Yes".localized : "ToggleSwitch_No".localized
+        let name = isOn ? "ToggleSwitch_Yes".localizedImageName : "ToggleSwitch_No".localizedImageName
         return Image(name)
             .resizable()
             .scaledToFit()

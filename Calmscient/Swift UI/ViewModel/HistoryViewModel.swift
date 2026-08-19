@@ -18,19 +18,36 @@ final class HistoryViewModel: ObservableObject {
 
     weak var hostViewController: UIViewController?
 
+    // MARK: - SwiftUI navigation
+    //
+    // Set by `HomeTabView` when this screen is shown inside the Home `NavigationStack`.
+    // While nil, every call below falls through to the existing UIKit push/pop, which is
+    // what the still-UIKit Discovery tab uses when it pushes into these screens.
+    var onOpenRoute: ((HomeRoute) -> Void)?
+    var onClose: (() -> Void)?
+    var onCloseToRoot: (() -> Void)?
+
     private(set) var selectedScreening: Screening?
 
     @Published private(set) var screeningTitle: String = ""
     @Published private(set) var rows: [HistoryRowPresentation] = []
     @Published private(set) var isLoading = false
 
-    private(set) var navigationChromeTitle: String = ""
+    @Published private(set) var navigationChromeTitle: String = ""
 
-    private var anchorView: UIView? { hostViewController?.view }
+    /// Falls back to the key window so this screen still shows toasts when it is
+    /// presented without a `hostViewController` (SwiftUI-navigated Home tab).
+    private var anchorView: UIView? { Toast.resolvedAnchor(hostViewController?.view) }
 
     func configure(selectedScreening: Screening) {
         self.selectedScreening = selectedScreening
         screeningTitle = selectedScreening.screeningType
+    }
+
+    /// Seeds the localized chrome up front so the navigation title is correct on the
+    /// very first SwiftUI body evaluation (the UIKit host used to set it in `viewWillAppear`).
+    init() {
+        reloadLocalizedStrings()
     }
 
     func onHostWillAppear() {
@@ -45,6 +62,10 @@ final class HistoryViewModel: ObservableObject {
     // MARK: - Navigation
 
     func openBack() {
+        if let onClose {
+            onClose()
+            return
+        }
         hostViewController?.navigationController?.popViewController(animated: true)
     }
 

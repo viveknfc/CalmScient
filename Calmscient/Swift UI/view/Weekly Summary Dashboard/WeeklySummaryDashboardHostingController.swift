@@ -17,12 +17,7 @@ final class WeeklySummaryDashboardHostingController: UIViewController {
     private let viewModel = WeeklySummaryDashboardViewModel()
     private var hostingController: UIHostingController<WeeklySummaryDashboardView>!
 
-    private var navigationItemOwner: UIViewController {
-        if let parent = parent as? WeeklySummaryDashboardViewController {
-            return parent
-        }
-        return self
-    }
+    private var navigationItemOwner: UIViewController { self }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +32,7 @@ final class WeeklySummaryDashboardHostingController: UIViewController {
         view.addSubview(hostingController.view)
         hostingController.view.translatesAutoresizingMaskIntoConstraints = false
 
-        let topLayoutGuide: UILayoutGuide = {
-            if let parentVC = parent as? WeeklySummaryDashboardViewController {
-                return parentVC.view.safeAreaLayoutGuide
-            }
-            return view.safeAreaLayoutGuide
-        }()
+        let topLayoutGuide: UILayoutGuide = view.safeAreaLayoutGuide
 
         NSLayoutConstraint.activate([
             hostingController.view.topAnchor.constraint(equalTo: topLayoutGuide.topAnchor),

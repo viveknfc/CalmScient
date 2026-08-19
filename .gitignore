@@ -1,21 +1,17 @@
-## macOS
+# macOS
 .DS_Store
 
-## Xcode
+# Xcode
 DerivedData/
 build/
+
+# Xcode user data
+xcuserdata/
 *.xcuserstate
 *.xccheckout
 *.xcscmblueprint
 
-## Xcode user data (never commit)
-**/xcuserdata/
-**/*.xcuserdatad/
-**/xcdebugger/
-*.xcbkptlist
-
-## SwiftPM
+# Swift Package Manager
 .build/
 Packages/
 Package.resolved
-

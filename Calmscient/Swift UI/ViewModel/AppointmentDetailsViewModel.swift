@@ -18,6 +18,15 @@ final class AppointmentDetailsViewModel: ObservableObject {
 
     weak var hostViewController: UIViewController?
 
+    // MARK: - SwiftUI navigation
+    //
+    // Set by `HomeTabView` when this screen is shown inside the Home `NavigationStack`.
+    // While nil, every call below falls through to the existing UIKit push/pop, which is
+    // what the still-UIKit Discovery tab uses when it pushes into these screens.
+    var onOpenRoute: ((HomeRoute) -> Void)?
+    var onClose: (() -> Void)?
+    var onCloseToRoot: (() -> Void)?
+
     @Published private(set) var presentation: AppointmentDetailPresentation?
     @Published private(set) var navigationTitle: String = ""
     @Published private(set) var dateTimeLabel: String = ""
@@ -41,6 +50,10 @@ final class AppointmentDetailsViewModel: ObservableObject {
     }
 
     func openBack() {
+        if let onClose {
+            onClose()
+            return
+        }
         hostViewController?.navigationController?.popViewController(animated: true)
     }
 

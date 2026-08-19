@@ -18,6 +18,15 @@ final class MedicationsDetailViewModel: ObservableObject {
 
     weak var hostViewController: UIViewController?
 
+    // MARK: - SwiftUI navigation
+    //
+    // Set by `HomeTabView` when this screen is shown inside the Home `NavigationStack`.
+    // While nil, every call below falls through to the existing UIKit push/pop, which is
+    // what the still-UIKit Discovery tab uses when it pushes into these screens.
+    var onOpenRoute: ((HomeRoute) -> Void)?
+    var onClose: (() -> Void)?
+    var onCloseToRoot: (() -> Void)?
+
     private(set) var medicineDetails: MedicineDetails
 
     @Published private(set) var medicineTitle: String = ""
@@ -28,7 +37,9 @@ final class MedicationsDetailViewModel: ObservableObject {
 
     @Published private(set) var scheduleSectionTitle: String = "Schedule Time & Alarm".localized
 
-    private var anchorView: UIView? { hostViewController?.view }
+    /// Falls back to the key window so this screen still shows toasts when it is
+    /// presented without a `hostViewController` (SwiftUI-navigated Home tab).
+    private var anchorView: UIView? { Toast.resolvedAnchor(hostViewController?.view) }
 
     init(medicineDetails: MedicineDetails) {
         self.medicineDetails = medicineDetails
@@ -64,7 +75,6 @@ final class MedicationsDetailViewModel: ObservableObject {
     }
 
     func openEditMedication() {
-        guard let nav = hostViewController?.navigationController else { return }
         let vm = AddEditMedicationViewModel(
             isEditMode: true,
             medicationData: medicineDetails,
@@ -72,7 +82,12 @@ final class MedicationsDetailViewModel: ObservableObject {
                 self?.recomputeDisplay()
             }
         )
-        let vc = AddUserMedicationsViewController(viewModel: vm)
+        if let onOpenRoute {
+            onOpenRoute(.addEditMedication(RouteBox(vm)))
+            return
+        }
+        guard let nav = hostViewController?.navigationController else { return }
+        let vc = AddEditMedicationHostingController(viewModel: vm)
         vc.title = "Edit medications"
         nav.pushViewController(vc, animated: true)
     }
@@ -125,7 +140,11 @@ final class MedicationsDetailViewModel: ObservableObject {
            let responseMessage = responseDict["responseMessage"] as? String {
             print("Response Message:", responseMessage)
             anchorView?.showToast(message: responseMessage)
-            hostViewController?.navigationController?.popViewController(animated: true)
+            if let onClose {
+            onClose()
+            return
+        }
+        hostViewController?.navigationController?.popViewController(animated: true)
         } else {
             print("Response Message not found or is not a string.")
         }

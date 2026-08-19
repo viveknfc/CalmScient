@@ -36,6 +36,9 @@ final class AppMainTabViewController: UIViewController {
 
         navigationController?.setNavigationBarHidden(true, animated: false)
 
+        // The retired `AppTabBar.storyboard` scene set only this on its view.
+        view.backgroundColor = UIColor(named: "TabBarBackgroundColor")
+
         MainTabBarAppearance.apply()
 
         let rootView = MainTabBarView(viewModel: viewModel)
@@ -69,31 +72,6 @@ final class AppMainTabViewController: UIViewController {
 
     deinit {
         NotificationCenter.default.removeObserver(self, name: .languageChanged, object: nil)
-    }
-}
-
-@available(iOS 16.0, *)
-final class TestViewController4: UIViewController {
-
-    private let viewModel = TestViewController4ViewModel()
-    private var hostingController: UIHostingController<TestViewController4View>!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        view.backgroundColor = .white
-
-        hostingController = UIHostingController(rootView: TestViewController4View(viewModel: viewModel))
-        hostingController.view.backgroundColor = .clear
-        addChild(hostingController)
-        view.addSubview(hostingController.view)
-        hostingController.view.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            hostingController.view.topAnchor.constraint(equalTo: view.topAnchor),
-            hostingController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            hostingController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            hostingController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        ])
-        hostingController.didMove(toParent: self)
     }
 }
 

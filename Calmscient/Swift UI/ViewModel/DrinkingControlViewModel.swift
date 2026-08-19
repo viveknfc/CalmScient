@@ -259,12 +259,7 @@ final class DrinkingControlViewModel: ObservableObject {
 
     private func pushNeedToTalk() {
         guard let host = hostViewController else { return }
-        let storyboard = UIStoryboard(name: "NeedToTalkViewController", bundle: nil)
-        guard let vc = storyboard.instantiateViewController(withIdentifier: "NeedToTalkViewController") as? NeedToTalkViewController else {
-            return
-        }
-        vc.title = "Emergency resource"
-        host.navigationController?.pushViewController(vc, animated: true)
+        NeedToTalkNavigation.push(from: host)
     }
 
     #if DEBUG

@@ -28,6 +28,15 @@ final class JournalEntryViewModel: ObservableObject {
 
     weak var hostViewController: UIViewController?
 
+    // MARK: - SwiftUI navigation
+    //
+    // Set by `HomeTabView` when this screen is shown inside the Home `NavigationStack`.
+    // While nil, every call below falls through to the existing UIKit push/pop, which is
+    // what the still-UIKit Discovery tab uses when it pushes into these screens.
+    var onOpenRoute: ((HomeRoute) -> Void)?
+    var onClose: (() -> Void)?
+    var onCloseToRoot: (() -> Void)?
+
     @Published var searchText: String = ""
     @Published var selectedSegment: JournalEntrySegment = .questionnaire
     @Published private(set) var quizRows: [JournalQuizRowPresentation] = []
@@ -38,7 +47,7 @@ final class JournalEntryViewModel: ObservableObject {
     @Published var isAddJournalPresented = false
     @Published private(set) var isOffline = false
 
-    private(set) var navigationChromeTitle: String = ""
+    @Published private(set) var navigationChromeTitle: String = ""
 
     private var quizData: [[String: Any]] = []
     private var dailyData: [[String: Any]] = []
@@ -48,18 +57,31 @@ final class JournalEntryViewModel: ObservableObject {
     private var pathMonitor: NWPathMonitor?
     private let pathMonitorQueue = DispatchQueue(label: "journal.entry.path.monitor")
 
-    private var anchorView: UIView? { hostViewController?.view }
+    /// Falls back to the key window so this screen still shows toasts when it is
+    /// presented without a `hostViewController` (SwiftUI-navigated Home tab).
+    private var anchorView: UIView? { Toast.resolvedAnchor(hostViewController?.view) }
 
     func onHostViewDidLoad() {
         reloadLocalizedChrome()
         loadJournalData(fromDate: "")
     }
 
+    /// Seeds the localized chrome up front so the navigation title is correct on the
+    /// very first SwiftUI body evaluation (the UIKit host used to set it in `viewWillAppear`).
+    init() {
+        reloadLocalizedChrome()
+    }
+
     func onHostWillAppear() {
         startPathMonitor()
-        navigationController?.setNavigationBarHidden(false, animated: true)
-        tabBarController?.tabBar.isHidden = false
-        tabBarController?.tabBar.selectedItem?.title = "main_tab_bar_home".localized
+        // Only poke the UIKit chrome on the legacy path. Inside the SwiftUI Home stack
+        // the navigation bar and tab bar belong to SwiftUI, and reaching past it leaves
+        // the two out of sync.
+        if onClose == nil {
+            navigationController?.setNavigationBarHidden(false, animated: true)
+            tabBarController?.tabBar.isHidden = false
+            tabBarController?.tabBar.selectedItem?.title = "main_tab_bar_home".localized
+        }
         reloadLocalizedChrome()
     }
 
@@ -153,16 +175,20 @@ final class JournalEntryViewModel: ObservableObject {
     // MARK: - Navigation
 
     func openBack() {
+        if let onClose {
+            onClose()
+            return
+        }
         hostViewController?.navigationController?.popViewController(animated: true)
     }
 
     func openNeedToTalk() {
-        let storyboard = UIStoryboard(name: "NeedToTalkViewController", bundle: nil)
-        guard let vc = storyboard.instantiateViewController(withIdentifier: "NeedToTalkViewController") as? NeedToTalkViewController else {
+        if let onOpenRoute {
+            onOpenRoute(.needToTalk)
             return
         }
-        vc.title = "Emergency resource"
-        hostViewController?.navigationController?.pushViewController(vc, animated: true)
+        guard let host = hostViewController else { return }
+        NeedToTalkNavigation.push(from: host)
     }
 
     // MARK: - API — fetch combined journal payload

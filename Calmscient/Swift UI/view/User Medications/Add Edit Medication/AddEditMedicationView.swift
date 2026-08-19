@@ -90,6 +90,11 @@ struct AddEditMedicationView: View {
             .padding(.vertical, 16)
         }
         .background(Color("AppBackGroundColor").ignoresSafeArea())
+        // Replaces the host's `UITapGestureRecognizer` (which used
+        // `cancelsTouchesInView = false`); `simultaneousGesture` likewise lets taps
+        // still reach buttons and fields underneath.
+        .simultaneousGesture(TapGesture().onEnded { focusedField = nil })
+        .scrollDismissesKeyboard(.interactively)
     }
 }
 

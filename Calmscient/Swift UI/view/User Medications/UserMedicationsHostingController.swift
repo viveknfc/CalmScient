@@ -18,12 +18,7 @@ final class UserMedicationsHostingController: UIViewController {
     private let monthDatePickerPresenter = BottomSheetDatePickerPresenter()
     private var hostingController: UIHostingController<UserMedicationsView>!
 
-    private var navigationItemOwner: UIViewController {
-        if let parent = parent as? UserMedicationsViewController {
-            return parent
-        }
-        return self
-    }
+    private var navigationItemOwner: UIViewController { self }
 
     override func viewDidLoad() {
         super.viewDidLoad()

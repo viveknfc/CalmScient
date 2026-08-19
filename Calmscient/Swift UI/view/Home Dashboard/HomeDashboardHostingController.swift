@@ -44,15 +44,20 @@ final class HomeDashboardHostingController: UIViewController {
             queue: .main
         ) { [weak self] _ in
             self?.viewModel.syncFavoritesFromManager()
-            self?.view.hideToastActivity()
+            self?.viewModel.hideFavoritesActivityIfOwned()
         }
 
         favLanguageObserver = NotificationCenter.default.addObserver(
             forName: .favLanUpdated,
             object: nil,
             queue: .main
-        ) { [weak self] _ in
-            self?.viewModel.fetchFavoritesFromNetwork()
+        ) { [weak self] notification in
+            // Favorite titles are localized on read; republish the chrome so a language
+            // switch re-renders them even if the payload is unchanged.
+            self?.viewModel.reloadLocalizedChrome()
+            // Settings owns the spinner for a language change, so this refresh stays
+            // silent there and keeps its spinner for every other post.
+            self?.viewModel.fetchFavoritesFromNetwork(showsToast: !notification.isFavLanLanguageChange)
         }
 
         viewModel.initialLoad()

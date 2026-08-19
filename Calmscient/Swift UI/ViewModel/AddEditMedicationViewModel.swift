@@ -18,6 +18,15 @@ final class AddEditMedicationViewModel: ObservableObject {
 
     weak var hostViewController: UIViewController?
 
+    // MARK: - SwiftUI navigation
+    //
+    // Set by `HomeTabView` when this screen is shown inside the Home `NavigationStack`.
+    // While nil, every call below falls through to the existing UIKit push/pop, which is
+    // what the still-UIKit Discovery tab uses when it pushes into these screens.
+    var onOpenRoute: ((HomeRoute) -> Void)?
+    var onClose: (() -> Void)?
+    var onCloseToRoot: (() -> Void)?
+
     var refreshControlClosure: ((Bool) -> Void)?
 
     let isEditMode: Bool
@@ -32,16 +41,25 @@ final class AddEditMedicationViewModel: ObservableObject {
     /// Three rows: morning / afternoon / evening (same references used for save payload).
     @Published private(set) var slotAlarms: [MedicationAlarm] = []
 
-    /// Host presents shared `newPickerViewVC` bottom sheet (see `presentExpiryDatePicker`).
-    var presentExpiryDatePicker: (() -> Void)?
+    /// Shared bottom-sheet date picker for the expiry field (owned here, matching the
+    /// other view models — the host no longer has to wire up a closure).
+    private let expiryDatePickerPresenter = BottomSheetDatePickerPresenter()
 
     /// Bump to refresh schedule rows when mutating `MedicationAlarm` in place.
     @Published private(set) var slotAlarmsVersion: Int = 0
 
     private var prescriptionId: Int = 0
-    private var anchorView: UIView? { hostViewController?.view }
+    /// Falls back to the key window so this screen still shows toasts when it is
+    /// presented without a `hostViewController` (SwiftUI-navigated Home tab).
+    private var anchorView: UIView? { Toast.resolvedAnchor(hostViewController?.view) }
 
-    weak var medicationFlowHost: AddUserMedicationsViewController?
+    weak var medicationFlowHost: AddEditMedicationHostingController?
+
+    /// Legacy parked the time & alarm sheet's scrim on `AddEditMedicationHostingController`.
+    /// Inside the SwiftUI Home stack there is no such controller, so nothing held the
+    /// overlay: it stayed on the window swallowing every touch, with no way to take it
+    /// down. The view model owns it when the legacy shell is absent.
+    private var fallbackDimmingView: UIView?
 
     init(isEditMode: Bool, medicationData: MedicineDetails?, refreshControlClosure: ((Bool) -> Void)?) {
         self.isEditMode = isEditMode
@@ -116,8 +134,22 @@ final class AddEditMedicationViewModel: ObservableObject {
         )
     }
 
+    /// Moved from `AddUserMedicationsViewController.presentExpiryDatePicker()`.
     func openExpiryPicker() {
-        presentExpiryDatePicker?()
+        guard let host = hostViewController else { return }
+
+        let configuration = BottomSheetDatePickerConfiguration(
+            pickerMode: .date,
+            title: "Expiry date".localized,
+            okButtonTitle: AppHelper.getLocalizeString(str: "Save"),
+            cancelButtonTitle: AppHelper.getLocalizeString(str: "Cancel"),
+            minimumDate: Calendar.current.startOfDay(for: Date()),
+            initialDate: expiryDateForPickerPresentation()
+        )
+        expiryDatePickerPresenter.present(from: host, configuration: configuration) { [weak self] date, isTimePicker in
+            guard !isTimePicker, let self else { return }
+            self.applyExpiryDateFromPicker(date)
+        }
     }
 
     func expiryDateForPickerPresentation() -> Date {
@@ -140,7 +172,12 @@ final class AddEditMedicationViewModel: ObservableObject {
             preferredStyle: .alert
         )
         alert.addAction(UIAlertAction(title: AppHelper.getLocalizeString(str: "YES"), style: .default) { [weak self] _ in
-            self?.hostViewController?.navigationController?.popViewController(animated: true)
+            guard let self else { return }
+            if let onClose = self.onClose {
+                onClose()
+                return
+            }
+            self.hostViewController?.navigationController?.popViewController(animated: true)
         })
         alert.addAction(UIAlertAction(title: AppHelper.getLocalizeString(str: "NO"), style: .cancel))
         hostViewController?.present(alert, animated: true)
@@ -192,14 +229,17 @@ final class AddEditMedicationViewModel: ObservableObject {
                 } else if let response = response {
                     let title = response.response.responseMessage
                     self.hostViewController?.showSuccessAlert(successContent: title, okButtonAction: { [weak self] in
-                        guard let self, let nav = self.hostViewController?.navigationController else { return }
-                        let next = UIStoryboard(name: "UserMedications", bundle: nil)
+                        guard let self else { return }
+                        // SwiftUI Home tab: medications is the screen underneath, so pop back
+                        // to it. The UIKit path had to push a fresh medications screen.
+                        if let onClose = self.onClose {
+                            onClose()
+                            self.refreshControlClosure?(true)
+                            return
+                        }
+                        guard let nav = self.hostViewController?.navigationController else { return }
                         if #available(iOS 16.0, *) {
-                            if let vc = next.instantiateViewController(withIdentifier: "UserMedicationsViewController") as? UserMedicationsViewController {
-                                nav.pushViewController(vc, animated: true)
-                            }
-                        } else {
-                            // Fallback on earlier versions
+                            nav.pushViewController(UserMedicationsHostingController(), animated: true)
                         }
                         self.refreshControlClosure?(true)
                     })
@@ -252,6 +292,8 @@ final class AddEditMedicationViewModel: ObservableObject {
     func clearDimmingView() {
         medicationFlowHost?.dimmingView?.removeFromSuperview()
         medicationFlowHost?.dimmingView = nil
+        fallbackDimmingView?.removeFromSuperview()
+        fallbackDimmingView = nil
     }
 
     // MARK: - Private
@@ -325,30 +367,32 @@ final class AddEditMedicationViewModel: ObservableObject {
     private func presentTimeAlarmSheet(instance: MedicationAlarm) {
         guard let host = hostViewController else { return }
 
-        let storyboard = UIStoryboard(name: "BottomSheetTimeAndAlarmVC", bundle: nil)
-        guard let vc = storyboard.instantiateViewController(withIdentifier: "BottomSheetTimeAndAlarmVC") as? BottomSheetTimeAndAlarmVC else {
-            return
-        }
+        // `medicineDose` / `medicineName` were assigned on the legacy controller but never
+        // read by it, so they are not carried over.
+        let vc = TimeAndAlarmSheetPresentation.make(
+            medicationAlarm: instance,
+            headingLabelString: isEditMode
+                ? AppHelper.getLocalizeString(str: "Update Time & Alarm")
+                : AppHelper.getLocalizeString(str: "Add Time & Alarm"),
+            onSheetClosed: { [weak self] in
+                self?.bumpSlotRefresh()
+                self?.clearDimmingView()
+            }
+        )
 
-        vc.isNewMedicationCreation = true
-        vc.newMedicationInstance = instance
-        vc.onScheetClosed = { [weak self] in
-            self?.bumpSlotRefresh()
-            self?.clearDimmingView()
-        }
-
-        vc.headingLabelString = isEditMode
-            ? AppHelper.getLocalizeString(str: "Update Time & Alarm")
-            : AppHelper.getLocalizeString(str: "Add Time & Alarm")
-        vc.medicineDose = dosage
-        vc.medicineName = medicationName
-
+        // Clear any leftover scrim before adding another, so a missed teardown can never
+        // stack two of them.
+        clearDimmingView()
         if let window = host.view.window {
             let dim = UIView(frame: window.bounds)
             dim.backgroundColor = UIColor.black.withAlphaComponent(0.5)
             dim.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             window.addSubview(dim)
-            medicationFlowHost?.dimmingView = dim
+            if let medicationFlowHost {
+                medicationFlowHost.dimmingView = dim
+            } else {
+                fallbackDimmingView = dim
+            }
         }
 
         if let sheet = vc.sheetPresentationController {
@@ -361,9 +405,6 @@ final class AddEditMedicationViewModel: ObservableObject {
                 sheet.delegate = shell
             }
         }
-
-        vc.loadViewIfNeeded()
-        vc.tableView.isHidden = true
 
         host.present(vc, animated: true)
     }

@@ -18,7 +18,32 @@ final class NextAppointmentsViewModel: ObservableObject, MedicalCalendarHeaderPr
 
     weak var hostViewController: UIViewController?
 
+    // MARK: - SwiftUI navigation
+    //
+    // Set by `HomeTabView` when this screen is shown inside the Home `NavigationStack`.
+    // While nil, every call below falls through to the existing UIKit push/pop, which is
+    // what the still-UIKit Discovery tab uses when it pushes into these screens.
+    var onOpenRoute: ((HomeRoute) -> Void)?
+    var onClose: (() -> Void)?
+    var onCloseToRoot: (() -> Void)?
+
     var presentFullDatePickerFromBottom: (() -> Void)?
+
+    /// Legacy `NextAppointmentsHostingController.presentMonthDatePickerFromBottom()` —
+    /// see the note on `UserMedicationsViewModel.presentMonthDatePicker()`.
+    private let monthDatePickerPresenter = BottomSheetDatePickerPresenter()
+
+    func presentMonthDatePicker() {
+        guard let host = hostViewController else { return }
+        let configuration = BottomSheetDatePickerConfiguration(
+            pickerMode: .date,
+            initialDate: selectedAnchorDate
+        )
+        monthDatePickerPresenter.present(from: host, configuration: configuration) { [weak self] date, isTimePicker in
+            guard !isTimePicker else { return }
+            self?.selectAnchorDateFromMonthPicker(date)
+        }
+    }
 
     var selectedCalendarDate: Date { selectedAnchorDate }
 
@@ -26,15 +51,27 @@ final class NextAppointmentsViewModel: ObservableObject, MedicalCalendarHeaderPr
     @Published private(set) var rows: [NextAppointmentRowPresentation] = []
     @Published private(set) var isLoading: Bool = false
 
-    var navigationChromeTitle: String = ""
+    @Published var navigationChromeTitle: String = ""
     var tabBarHomeTitle: String = ""
 
-    private var anchorView: UIView? { hostViewController?.view }
+    /// Falls back to the key window so this screen still shows toasts when it is
+    /// presented without a `hostViewController` (SwiftUI-navigated Home tab).
+    private var anchorView: UIView? { Toast.resolvedAnchor(hostViewController?.view) }
+
+    /// Seeds the localized chrome up front so the navigation title is correct on the
+    /// very first SwiftUI body evaluation (the UIKit host used to set it in `viewWillAppear`).
+    init() {
+        reloadLocalizedChrome()
+    }
 
     func onHostWillAppear() {
+        reloadLocalizedChrome()
+        fetchAppointments(for: selectedAnchorDate)
+    }
+
+    func reloadLocalizedChrome() {
         navigationChromeTitle = "Next appointments".localized
         tabBarHomeTitle = "main_tab_bar_home".localized
-        fetchAppointments(for: selectedAnchorDate)
     }
 
     func selectCalendarDate(_ date: Date) {
@@ -47,22 +84,38 @@ final class NextAppointmentsViewModel: ObservableObject, MedicalCalendarHeaderPr
     }
 
     func openBackToMedicalRecords() {
+        if let onClose {
+            onClose()
+            return
+        }
         guard let nav = hostViewController?.navigationController else { return }
         nav.pushViewController(UserMedicalRecordsHostingController(), animated: true)
     }
 
     func openAddAppointment() {
+        if let onOpenRoute {
+            onOpenRoute(.addNewAppointment)
+            return
+        }
         guard let nav = hostViewController?.navigationController else { return }
         let vc = AddNewAppointmentHostingController(isEditMode: false, editPayload: nil)
         nav.pushViewController(vc, animated: true)
     }
 
     func openAppointmentDetail(_ appointment: MedicalAppointmentDetailsByDate) {
+        if let onOpenRoute {
+            onOpenRoute(.appointmentDetails(RouteBox(appointment)))
+            return
+        }
         guard let nav = hostViewController?.navigationController else { return }
         nav.pushViewController(AppointmentDetailsHostingController(medicalAppointment: appointment), animated: true)
     }
 
     func openEditAppointment(_ appointment: MedicalAppointmentDetailsByDate) {
+        if let onOpenRoute {
+            onOpenRoute(.editAppointment(RouteBox(appointment)))
+            return
+        }
         guard let nav = hostViewController?.navigationController else { return }
         let vc = AddNewAppointmentHostingController(isEditMode: true, editPayload: appointment)
         nav.pushViewController(vc, animated: true)

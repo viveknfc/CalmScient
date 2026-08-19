@@ -18,19 +18,36 @@ final class ScreeningListViewModel: ObservableObject {
 
     weak var hostViewController: UIViewController?
 
+    // MARK: - SwiftUI navigation
+    //
+    // Set by `HomeTabView` when this screen is shown inside the Home `NavigationStack`.
+    // While nil, every call below falls through to the existing UIKit push/pop, which is
+    // what the still-UIKit Discovery tab uses when it pushes into these screens.
+    var onOpenRoute: ((HomeRoute) -> Void)?
+    var onClose: (() -> Void)?
+    var onCloseToRoot: (() -> Void)?
+
     var isComingFromParticularVC = false
     var isComingFromParticularVC1 = false
 
     @Published private(set) var rows: [ScreeningRowPresentation] = []
     @Published private(set) var isLoading = false
 
-    private(set) var navigationChromeTitle: String = ""
+    @Published private(set) var navigationChromeTitle: String = ""
     private(set) var headerTitle: String = ""
     private(set) var headerSubtitle: String = ""
     private(set) var viewHistoryTitle: String = ""
     private(set) var takeScreeningTitle: String = ""
 
-    private var anchorView: UIView? { hostViewController?.view }
+    /// Falls back to the key window so this screen still shows toasts when it is
+    /// presented without a `hostViewController` (SwiftUI-navigated Home tab).
+    private var anchorView: UIView? { Toast.resolvedAnchor(hostViewController?.view) }
+
+    /// Seeds the localized chrome up front so the navigation title is correct on the
+    /// very first SwiftUI body evaluation (the UIKit host used to set it in `viewWillAppear`).
+    init() {
+        reloadLocalizedStrings()
+    }
 
     func onHostWillAppear() {
         reloadLocalizedStrings()
@@ -50,6 +67,17 @@ final class ScreeningListViewModel: ObservableObject {
     // MARK: - Navigation
 
     func openBack() {
+        if let onOpenRoute {
+            if isComingFromParticularVC {
+                onOpenRoute(.takingControlIndex(initialSegment: 0))
+            } else if isComingFromParticularVC1 {
+                onOpenRoute(.takingControlIndex(initialSegment: 1))
+            } else {
+                onOpenRoute(.userMedicalRecords)
+            }
+            return
+        }
+
         guard let nav = hostViewController?.navigationController else { return }
 
         if isComingFromParticularVC {
@@ -70,6 +98,10 @@ final class ScreeningListViewModel: ObservableObject {
     }
 
     func openHistory(for row: ScreeningRowPresentation) {
+        if let onOpenRoute {
+            onOpenRoute(.screeningHistory(RouteBox(row.screening)))
+            return
+        }
         guard let nav = hostViewController?.navigationController else { return }
         let host = HistoryHostingController()
         host.configure(selectedScreening: row.screening)
@@ -77,6 +109,14 @@ final class ScreeningListViewModel: ObservableObject {
     }
 
     func openScreeningQuestions(for row: ScreeningRowPresentation) {
+        if let onOpenRoute {
+            onOpenRoute(.screeningQuestions(
+                RouteBox(row.screening),
+                fromParticular: isComingFromParticularVC,
+                fromParticular1: isComingFromParticularVC1
+            ))
+            return
+        }
         guard let nav = hostViewController?.navigationController else { return }
         let host = ScreeningQuestionsHostingController()
         host.configure(selectedScreening: row.screening) { [weak self] submitted in

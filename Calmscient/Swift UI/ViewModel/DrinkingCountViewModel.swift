@@ -46,7 +46,9 @@ final class DrinkingCountViewModel: ObservableObject {
         reloadLocalizedStrings()
         navigationController?.setNavigationBarHidden(false, animated: true)
         tabBarController?.tabBar.isHidden = false
-        tabBarController?.tabBar.selectedItem?.title = "main_tab_bar_home".localized
+        // Removed: this hard-coded the *Home* tab label onto whichever tab was
+        // selected, renaming the Discovery tab. `MainTabStoryboardHost.updateUIViewController`
+        // already restores each tab's correct title.
     }
 
     func reloadLocalizedStrings() {

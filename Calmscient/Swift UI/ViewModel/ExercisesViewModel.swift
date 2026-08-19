@@ -17,8 +17,25 @@ final class ExercisesViewModel: ObservableObject {
 
     weak var hostViewController: UIViewController?
 
+    // MARK: - SwiftUI navigation
+    //
+    // Set by `ExercisesTabView` when this screen is shown inside the Exercises
+    // `NavigationStack`. When nil the screen falls back to the UIKit push/pop below,
+    // which is what the Home ▸ favourites path (`ExcercisesTypeEnum.destVC`) still uses.
+    var onOpenRoute: ((ExercisesRoute) -> Void)?
+    var onClose: (() -> Void)?
+    var onCloseToRoot: (() -> Void)?
+
     @Published private(set) var screenTitle: String = ""
     @Published private(set) var cards: [ExercisesCardItem] = []
+
+    /// Seeds the localized chrome up front so the navigation title is right on the
+    /// very first SwiftUI body evaluation. The UIKit host set it in `viewWillAppear`,
+    /// which on a `NavigationStack` lands *after* the first render — the title would
+    /// pop in a beat late.
+    init() {
+        reloadLocalizedStrings()
+    }
 
     func onHostWillAppear() {
         reloadLocalizedStrings()
@@ -91,6 +108,21 @@ final class ExercisesViewModel: ObservableObject {
     // MARK: - Navigation
 
     func openCard(_ card: ExercisesCardItem) {
+        if let onOpenRoute {
+            switch card.destination {
+            case .mindfulness:                 onOpenRoute(.mindfulness)
+            case .progressiveMuscleRelaxation: onOpenRoute(.progressive)
+            case .touchAndButterflyHug:        onOpenRoute(.touchButterflyIntro)
+            case .handOverYourHeart:           onOpenRoute(.handOverYourHeart)
+            case .mindfulWalking:              onOpenRoute(.mindfulWalking)
+            case .movementDance:               onOpenRoute(.movementDance)
+            case .movementRunning:             onOpenRoute(.movementRunning)
+            case .mindfulBodyMovement:         onOpenRoute(.mindfulBodyMovement)
+            case .breathingTechnique:          onOpenRoute(.breathingTechnique)
+            }
+            return
+        }
+
         guard let host = hostViewController else { return }
 
         switch card.destination {
@@ -120,11 +152,6 @@ final class ExercisesViewModel: ObservableObject {
         CitationWebNavigation.pushSourcesAndCitations(from: nav)
     }
 
-    private func pushStoryboardExercise(from host: UIViewController, storyboardId: String) {
-        let storyboard = UIStoryboard(name: "Excercises", bundle: nil)
-        let destination = storyboard.instantiateViewController(withIdentifier: storyboardId)
-        host.navigationController?.pushViewController(destination, animated: true)
-    }
 
     #if DEBUG
     func applyPreviewState() {

@@ -17,6 +17,14 @@ final class UserIntroDayFeedbackViewModel: ObservableObject {
 
     weak var hostViewController: UIViewController?
 
+    // MARK: - SwiftUI navigation
+    //
+    // Set by `HomeTabView` when this screen is shown inside the Home `NavigationStack`.
+    // While nil the screen keeps its existing UIKit behaviour.
+    var onOpenRoute: ((HomeRoute) -> Void)?
+    var onClose: (() -> Void)?
+    var onCloseToRoot: (() -> Void)?
+
     /// When non-nil, inline greeting is hidden and the navigation item title is set (dashboard push).
     var dashboardNavigationTitle: String?
 
@@ -67,6 +75,12 @@ final class UserIntroDayFeedbackViewModel: ObservableObject {
     ) {
         self.startupDayData = startupDayData ?? UserStartupScreenDayData.getStartUpScreenData()
         self.rows = DayFeedbackRow.rows(for: self.startupDayData?.dayTimeValue)
+        // Legacy `prepareCellData()` wrote this flag while building the rows. The mood and
+        // medicine cards still read it to pick "…this morning?" over "…today?", so without
+        // it they are stuck on whatever the last UIKit run left behind.
+        if let dayTime = self.startupDayData?.dayTimeValue {
+            UserDefaults.standard.set(dayTime != .Evening, forKey: "Morning")
+        }
         self.dashboardNavigationTitle = dashboardNavigationTitle
         self.hideSkipButton = hideSkipButton
         self.mandatoryAlertMessage = AppHelper.getLocalizeString(str: "Please fill all mandatory fields.")
@@ -78,7 +92,11 @@ final class UserIntroDayFeedbackViewModel: ObservableObject {
     func configureNavigationChrome() {
         if let dashboardNavigationTitle, !dashboardNavigationTitle.isEmpty {
             useLargeInlineGreeting = false
-            hostViewController?.navigationItem.title = greetingTitle
+            // The SwiftUI Home stack binds its navigation title to `greetingTitle`
+            // instead; writing to `navigationItem` there fights SwiftUI.
+            if onClose == nil {
+                hostViewController?.navigationItem.title = greetingTitle
+            }
         } else {
             useLargeInlineGreeting = true
         }
@@ -253,15 +271,16 @@ final class UserIntroDayFeedbackViewModel: ObservableObject {
     func skip() {
         guard let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
               let window = sceneDelegate.window else { return }
-        let homeController = UIStoryboard(name: "AppTabBar", bundle: nil)
-            .instantiateViewController(withIdentifier: "AppMainTabViewController") as! AppMainTabViewController
+        let homeController = AppMainTabViewController()
         homeController.isInitalView = false
         window.rootViewController = homeController
         window.makeKeyAndVisible()
         DayFeedbackEveningReminderScheduler.refreshSchedulingIfNeeded()
     }
 
-    private var anchorView: UIView? { hostViewController?.view }
+    /// Falls back to the key window so this screen still shows toasts when it is
+    /// presented without a `hostViewController` (SwiftUI-navigated Home tab).
+    private var anchorView: UIView? { Toast.resolvedAnchor(hostViewController?.view) }
 
     private static func buildGreeting(dayTime: DayTimeValue?, titleString: String) -> String {
         guard let dayTime else { return "\(titleString)" }
@@ -455,8 +474,7 @@ final class UserIntroDayFeedbackViewModel: ObservableObject {
                                 guard let self else { return }
                                 if let sceneDelegate = UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate,
                                    let window = sceneDelegate.window {
-                                    let homeController = UIStoryboard(name: "AppTabBar", bundle: nil)
-                                        .instantiateViewController(withIdentifier: "AppMainTabViewController") as! AppMainTabViewController
+                                    let homeController = AppMainTabViewController()
                                     homeController.isInitalView = ((self.medicineFlagString ?? "1") == "1")
                                     window.rootViewController = homeController
                                     window.makeKeyAndVisible()

@@ -17,12 +17,23 @@ final class AlarmSettingsViewModel: ObservableObject {
     static let allowedMinutes = [5, 10, 15, 20, 25, 30]
 
     weak var hostViewController: UIViewController?
+
+    // MARK: - SwiftUI navigation
+    //
+    // Set by `HomeTabView` when this screen is shown inside the Home `NavigationStack`.
+    // While nil, every call below falls through to the existing UIKit push/pop, which is
+    // what the still-UIKit Discovery tab uses when it pushes into these screens.
+    var onOpenRoute: ((HomeRoute) -> Void)?
+    var onClose: (() -> Void)?
+    var onCloseToRoot: (() -> Void)?
     weak var delegate: SettingsAlarmDelegate?
 
     @Published var selectedMinutes: Int?
     @Published private(set) var isSubmitting: Bool = false
 
-    private var anchorView: UIView? { hostViewController?.view }
+    /// Falls back to the key window so this screen still shows toasts when it is
+    /// presented without a `hostViewController` (SwiftUI-navigated Home tab).
+    private var anchorView: UIView? { Toast.resolvedAnchor(hostViewController?.view) }
 
     init(initialAlarmMinutes: Int) {
         if Self.allowedMinutes.contains(initialAlarmMinutes) {

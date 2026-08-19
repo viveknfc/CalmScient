@@ -53,23 +53,21 @@ struct MainTabStoryboardHost: UIViewControllerRepresentable {
         let nav: UINavigationController
         switch tab {
         case .home:
-            if showMedicationsAsHome {
-                let vc = UIStoryboard(name: "UserMedications", bundle: nil)
-                    .instantiateViewController(withIdentifier: "UserMedicationsViewController") as! UserMedicationsViewController
-                nav = UINavigationController(rootViewController: vc)
-            } else {
-                let homeRoot = HomeDashboardHostingController()
-                nav = UINavigationController(rootViewController: homeRoot)
-            }
+            // Home is rendered natively by `HomeTabView`.
+            assertionFailure("Home tab is rendered by HomeTabView, not MainTabStoryboardHost")
+            nav = UINavigationController(rootViewController: HomeDashboardHostingController())
         case .discovery:
             let discoveryRoot = DiscoveryMainHostingController()
             nav = UINavigationController(rootViewController: discoveryRoot)
         case .exercises:
-            let exercisesRoot = ExercisesHostingController()
-            nav = UINavigationController(rootViewController: exercisesRoot)
+            // Exercises is rendered natively by `ExercisesTabView`.
+            assertionFailure("Exercises tab is rendered by ExercisesTabView, not MainTabStoryboardHost")
+            nav = UINavigationController(rootViewController: ExercisesHostingController())
         case .rewards:
-            let vcz4 = TestViewController4()
-            nav = UINavigationController(rootViewController: vcz4)
+            // Rewards is rendered natively by `RewardsTabView`; `MainTabBarView` never
+            // routes this tab through the representable any more.
+            assertionFailure("Rewards tab is rendered by RewardsTabView, not MainTabStoryboardHost")
+            nav = UINavigationController(rootViewController: UIViewController())
         }
 
         if tab != .home, !navigationTitle.isEmpty {

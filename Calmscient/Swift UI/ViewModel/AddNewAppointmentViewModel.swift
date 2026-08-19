@@ -17,8 +17,26 @@ final class AddNewAppointmentViewModel: ObservableObject {
 
     weak var hostViewController: UIViewController?
 
+    // MARK: - SwiftUI navigation
+    //
+    // Set by `HomeTabView` when this screen is shown inside the Home `NavigationStack`.
+    // While nil, every call below falls through to the existing UIKit push/pop, which is
+    // what the still-UIKit Discovery tab uses when it pushes into these screens.
+    var onOpenRoute: ((HomeRoute) -> Void)?
+    var onClose: (() -> Void)?
+    var onCloseToRoot: (() -> Void)?
+
+    /// Wired by `AddNewAppointmentHostingController` on the UIKit path and by
+    /// `AddNewAppointmentRoute` on the SwiftUI (Home tab) path. Both now funnel into
+    /// `presentDatePickerSheet()` / `presentTimePickerSheet()` below.
     var presentDatePicker: (() -> Void)?
     var presentTimePicker: (() -> Void)?
+
+    /// The bottom-sheet presentation used to live only on the hosting controller, so on
+    /// the SwiftUI path tapping Date / Time did nothing at all. The view model owns it
+    /// now, mirroring `UserMedicationsViewModel.presentMonthDatePicker()`.
+    private let datePickerPresenter = BottomSheetDatePickerPresenter()
+    private let timePickerPresenter = BottomSheetDatePickerPresenter()
 
     let isEditMode: Bool
     private let editPayload: MedicalAppointmentDetailsByDate?
@@ -49,11 +67,19 @@ final class AddNewAppointmentViewModel: ObservableObject {
     private var clientId: Int = 0
     private var userId: Int = 0
 
+    /// Title most recently written by `selectSuggestion(_:field:)`. Used to swallow the
+    /// single echo SwiftUI sends back through the text-field binding so the dropdown
+    /// closes on the first tap. Cleared as soon as the user types anything different.
+    private var appliedProviderSuggestionTitle: String?
+    private var appliedLocationSuggestionTitle: String?
+
     private var didApplyEditPayload = false
     private var locationsLoaded = false
     private var providersLoaded = false
 
-    private var anchorView: UIView? { hostViewController?.view }
+    /// Falls back to the key window so this screen still shows toasts when it is
+    /// presented without a `hostViewController` (SwiftUI-navigated Home tab).
+    private var anchorView: UIView? { Toast.resolvedAnchor(hostViewController?.view) }
 
     var screenTitle: String {
         isEditMode ? "Edit appointment".localized : "Add appointment".localized
@@ -105,9 +131,19 @@ final class AddNewAppointmentViewModel: ObservableObject {
         Binding(
             get: { self.providerName },
             set: { newValue in
-                self.providerName = self.sanitizedField(newValue)
+                let cleaned = self.sanitizedField(newValue)
+                self.providerName = cleaned
+                // Picking a suggestion writes the title into `providerName`, and while the
+                // text field is still first responder SwiftUI echoes that programmatic
+                // change straight back through this setter. Re-running the search would
+                // re-open the dropdown on the very tap that was meant to close it — which
+                // is why dismissing it used to take a second tap. The echo carries exactly
+                // the applied title, so it is ignored once; any real edit differs and
+                // clears the marker.
+                guard cleaned != self.appliedProviderSuggestionTitle else { return }
+                self.appliedProviderSuggestionTitle = nil
                 self.providerId = nil
-                self.refreshProviderSuggestions(for: self.providerName)
+                self.refreshProviderSuggestions(for: cleaned)
                 self.activeAutocomplete = .provider
             }
         )
@@ -117,9 +153,13 @@ final class AddNewAppointmentViewModel: ObservableObject {
         Binding(
             get: { self.locationName },
             set: { newValue in
-                self.locationName = self.sanitizedField(newValue)
+                let cleaned = self.sanitizedField(newValue)
+                self.locationName = cleaned
+                // See `bindingForProvider()` — same post-selection echo guard.
+                guard cleaned != self.appliedLocationSuggestionTitle else { return }
+                self.appliedLocationSuggestionTitle = nil
                 self.locationId = nil
-                self.refreshLocationSuggestions(for: self.locationName)
+                self.refreshLocationSuggestions(for: cleaned)
                 self.activeAutocomplete = .location
             }
         )
@@ -166,10 +206,13 @@ final class AddNewAppointmentViewModel: ObservableObject {
             providerName = suggestion.title
             providerId = suggestion.id
             providerSuggestions = []
+            // Stored sanitized because the echo arrives through `sanitizedField(_:)`.
+            appliedProviderSuggestionTitle = sanitizedField(suggestion.title)
         case .location:
             locationName = suggestion.title
             locationId = suggestion.id
             locationSuggestions = []
+            appliedLocationSuggestionTitle = sanitizedField(suggestion.title)
         default:
             break
         }
@@ -182,12 +225,63 @@ final class AddNewAppointmentViewModel: ObservableObject {
 
     func openDatePicker() {
         dismissAutocomplete()
-        presentDatePicker?()
+        anchorView?.endEditing(true)
+        // Falls back to presenting directly when no host wired a closure, so the row is
+        // never dead regardless of which navigation path opened this screen.
+        if let presentDatePicker {
+            presentDatePicker()
+        } else {
+            presentDatePickerSheet()
+        }
     }
 
     func openTimePicker() {
         dismissAutocomplete()
-        presentTimePicker?()
+        anchorView?.endEditing(true)
+        if let presentTimePicker {
+            presentTimePicker()
+        } else {
+            presentTimePickerSheet()
+        }
+    }
+
+    // MARK: - Bottom-sheet date / time pickers
+    //
+    // Bodies are the ones that previously lived in
+    // `AddNewAppointmentHostingController.presentDatePicker()` / `.presentTimePicker()`,
+    // moved here so the SwiftUI Home-tab route can reach them too.
+
+    func presentDatePickerSheet() {
+        guard let host = hostViewController else { return }
+        let configuration = BottomSheetDatePickerConfiguration(
+            pickerMode: .date,
+            minimumDate: Date(),
+            initialDate: Self.mmddyyyyFormatter().date(from: trimmedDateText) ?? Date()
+        )
+        datePickerPresenter.present(from: host, configuration: configuration) { [weak self] date, isTimePicker in
+            guard !isTimePicker else { return }
+            self?.applyDateFromPicker(date)
+        }
+    }
+
+    func presentTimePickerSheet() {
+        guard let host = hostViewController else { return }
+        let configuration = BottomSheetDatePickerConfiguration(
+            pickerMode: .time,
+            initialDate: Self.hhmmaFormatter().date(from: trimmedTimeText) ?? Date()
+        )
+        timePickerPresenter.present(from: host, configuration: configuration) { [weak self] date, isTimePicker in
+            guard isTimePicker else { return }
+            self?.applyTimeFromPicker(date)
+        }
+    }
+
+    private var trimmedDateText: String {
+        dateMMddYYYY.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
+    private var trimmedTimeText: String {
+        timeHhmma.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 
     func applyDateFromPicker(_ date: Date) {
@@ -204,9 +298,12 @@ final class AddNewAppointmentViewModel: ObservableObject {
     func applyTimeFromPicker(_ date: Date) {
         let calendar = Calendar.current
         let now = Date()
-        guard let selectedDate = Self.mmddyyyyFormatter().date(from: dateMMddYYYY) else { return }
+        // The "time is in the past" rule only applies once a date has been chosen and
+        // that date is today. Previously an unparsable (i.e. still empty) date bailed
+        // out early, so picking Time before Date silently left the field blank.
+        let selectedDate = Self.mmddyyyyFormatter().date(from: dateMMddYYYY.trimmingCharacters(in: .whitespacesAndNewlines))
 
-        if calendar.isDateInToday(selectedDate), date < now {
+        if let selectedDate, calendar.isDateInToday(selectedDate), date < now {
             hostViewController?.showGeneralAlert(
                 image: UIImage(named: "InfoIcon"),
                 imageSize: CGSize(width: 60, height: 60),
@@ -223,6 +320,10 @@ final class AddNewAppointmentViewModel: ObservableObject {
 
     func cancel() {
         dismissAutocomplete()
+        if let onClose {
+            onClose()
+            return
+        }
         hostViewController?.navigationController?.popViewController(animated: true)
     }
 
@@ -480,7 +581,12 @@ final class AddNewAppointmentViewModel: ObservableObject {
         if let responseDict = response as? [String: Any],
            let responseMessage = responseDict["message"] as? String {
             hostViewController?.showSuccessAlert(successContent: responseMessage, centreImage: nil, okButtonAction: { [weak self] in
-                self?.hostViewController?.navigationController?.popViewController(animated: true)
+                guard let self else { return }
+                if let onClose = self.onClose {
+                    onClose()
+                    return
+                }
+                self.hostViewController?.navigationController?.popViewController(animated: true)
             })
         } else if let responseString = response as? String, responseString.hasPrefix("Error:") {
             anchorView?.showToast(message: responseString)

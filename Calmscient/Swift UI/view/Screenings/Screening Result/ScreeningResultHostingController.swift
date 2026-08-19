@@ -22,12 +22,7 @@ final class ScreeningResultHostingController: UIViewController {
 
     private static let moreInfoOverlayTag = 9_001
 
-    private var navigationItemOwner: UIViewController {
-        if let parent = parent as? ScreeningResultVC {
-            return parent
-        }
-        return self
-    }
+    private var navigationItemOwner: UIViewController { self }
 
     func configure(
         selectedScreening: Screening,

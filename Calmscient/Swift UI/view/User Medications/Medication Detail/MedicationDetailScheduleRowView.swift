@@ -20,7 +20,7 @@ struct MedicationDetailScheduleRowView: View {
 
     private var alarmToggleImageName: String {
         let base = row.alarmEnabled ? "ToggleSwitch_Yes" : "ToggleSwitch_No"
-        return base.localized
+        return base.localizedImageName
     }
 
     var body: some View {

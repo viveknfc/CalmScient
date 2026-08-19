@@ -108,3 +108,31 @@ extension Notification.Name {
     static let networkStatusChanged = Notification.Name("networkStatusChanged")
 }
 
+// MARK: - `favLanUpdated` origin
+//
+// `favLanUpdated` is posted from two very different places: a tab switch (the Home
+// dashboard is about to be shown, so its own spinner is the right feedback) and a
+// Settings language change (Settings already shows a spinner for the update, and the
+// dashboard listener below refreshes a screen that is *not* in front). Untagged, the
+// language flow therefore put a second spinner on screen on top of the Settings one.
+//
+// Tagging the post lets the listeners keep doing the exact same refresh work while
+// skipping only the duplicate spinner.
+
+enum FavLanUpdate {
+    static let reasonKey = "favLanUpdateReason"
+    static let languageChangeReason = "languageChange"
+
+    /// `userInfo` for a `favLanUpdated` post triggered by a language change.
+    static var languageChangeUserInfo: [String: Any] {
+        [reasonKey: languageChangeReason]
+    }
+}
+
+extension Notification {
+    /// True only for a `favLanUpdated` post that a language change tagged.
+    var isFavLanLanguageChange: Bool {
+        (userInfo?[FavLanUpdate.reasonKey] as? String) == FavLanUpdate.languageChangeReason
+    }
+}
+

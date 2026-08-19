@@ -18,12 +18,7 @@ final class NextAppointmentsHostingController: UIViewController {
     private let monthDatePickerPresenter = BottomSheetDatePickerPresenter()
     private var hostingController: UIHostingController<NextAppointmentsView>!
 
-    private var navigationItemOwner: UIViewController {
-        if let parent = parent as? NextAppointmentsViewController {
-            return parent
-        }
-        return self
-    }
+    private var navigationItemOwner: UIViewController { self }
 
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -17,12 +17,7 @@ final class HistoryHostingController: UIViewController {
     let viewModel = HistoryViewModel()
     private var hostingController: UIHostingController<HistoryView>!
 
-    private var navigationItemOwner: UIViewController {
-        if let parent = parent as? HistoryVC {
-            return parent
-        }
-        return self
-    }
+    private var navigationItemOwner: UIViewController { self }
 
     func configure(selectedScreening: Screening) {
         viewModel.configure(selectedScreening: selectedScreening)

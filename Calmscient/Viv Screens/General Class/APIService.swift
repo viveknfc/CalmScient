@@ -14,7 +14,7 @@ class APIService: UIViewController {
     static var DevURL = "http://147.93.41.160/api/"
     
     static var Url4Courses = "https://calmscient.in/courses/" //"http://147.93.41.160/courses/" //
-    static var BaseUrl = ProducitonURL
+    static var BaseUrl = DevURL
     
     static var versionCheck = "identity/api/v1/settings/getAppVersion"
     
@@ -86,6 +86,9 @@ class APIService: UIViewController {
     static var getPatientCourseWorkPercentageDetailsForMobile =
         "patients/api/v1/course/getPatientCourseWorkPercentageDetailsForMobile"
     static var getPatientCourseIndex = "patients/api/v1/course/getPatientCourseIndex"
+    
+    static var GetWearableData = "patients/api/v1/health/wearable-data"
+    static var GetWearableDataRange = "patients/api/v1/health/wearable-data/range"
 
     //MARK: - Version CHeck API
     
@@ -434,6 +437,50 @@ class APIService: UIViewController {
         
         let urlString = APIService.BaseUrl+APIService.UserStartUpScreen
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+    
+    //MARK: - Wearable API Calling daily
+    
+    static func getWearableDataAPICalling(
+        _ view: UIViewController?,
+        params: [String: Any],
+        accessToken: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        let urlString = APIService.BaseUrl + APIService.GetWearableData
+        APIService.getRequestWithToken(
+            viewController: view,
+            urlString: urlString,
+            params: params,
+            method: "GET",
+            accessToken: accessToken,
+            acces: false,
+            timeOut: 6,
+            parameterPlacement: "url",
+            callback: callBack
+        )
+    }
+    
+    //MARK: - Wearable API Calling Date Range
+    
+    static func getWearableDataRangeAPICalling(
+        _ view: UIViewController?,
+        params: [String: Any],
+        accessToken: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        let urlString = APIService.BaseUrl + APIService.GetWearableDataRange
+        APIService.getRequestWithToken(
+            viewController: view,
+            urlString: urlString,
+            params: params,
+            method: "GET",
+            accessToken: accessToken,
+            acces: false,
+            timeOut: 6,
+            parameterPlacement: "url",
+            callback: callBack
+        )
     }
     
     //MARK: - Update Password API Calling

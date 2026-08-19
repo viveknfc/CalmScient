@@ -26,9 +26,15 @@ struct WeeklySummaryDashboardView: View {
 
     var body: some View {
         GeometryReader { geometry in
-            let gridWidth = geometry.size.width - (edgeGutter * 2)
+            // `GeometryReader` reports 0 (and, mid-transition, occasionally a non-finite
+            // value) before the first layout pass. Subtracting the gutters from that made
+            // `gridWidth` negative, which UIKit rejects with
+            // "Invalid frame dimension (negative or non-finite)". Sanitising the proposed
+            // width keeps every derived dimension >= 0 without changing the laid-out sizes.
+            let availableWidth = Self.sanitized(geometry.size.width)
+            let gridWidth = max(0, availableWidth - (edgeGutter * 2))
             let columnWidth = Self.columnWidth(
-                for: geometry.size.width,
+                for: availableWidth,
                 edgeGutter: edgeGutter,
                 columnSpacing: columnSpacing
             )
@@ -60,6 +66,12 @@ struct WeeklySummaryDashboardView: View {
         columnSpacing: CGFloat
     ) -> CGFloat {
         max(0, (totalWidth - (edgeGutter * 2) - columnSpacing) / 2)
+    }
+
+    /// Non-finite or negative proposals become 0 — never a frame UIKit will reject.
+    private static func sanitized(_ value: CGFloat) -> CGFloat {
+        guard value.isFinite, value > 0 else { return 0 }
+        return value
     }
 
     private func fixedGutter(width: CGFloat) -> some View {

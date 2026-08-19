@@ -16,11 +16,28 @@ final class BreathingTechniqueViewModel: ObservableObject {
 
     weak var hostViewController: UIViewController?
 
+    // MARK: - SwiftUI navigation
+    //
+    // Set by `ExercisesTabView` when this screen is shown inside the Exercises
+    // `NavigationStack`. When nil the screen falls back to the UIKit push/pop below,
+    // which is what the Home ▸ favourites path (`ExcercisesTypeEnum.destVC`) still uses.
+    var onOpenRoute: ((ExercisesRoute) -> Void)?
+    var onClose: (() -> Void)?
+    var onCloseToRoot: (() -> Void)?
+
     @Published private(set) var exerciseRows: [BreathingExerciseRowPresentation] = []
     @Published private(set) var sectionTitle: String = ""
     @Published private(set) var screenTitle: String = ""
 
     let heroImageName = "breathingTechnique"
+
+    /// Seeds the localized chrome up front so the navigation title is right on the
+    /// very first SwiftUI body evaluation. The UIKit host set it in `viewWillAppear`,
+    /// which on a `NavigationStack` lands *after* the first render — the title would
+    /// pop in a beat late.
+    init() {
+        reloadLocalizedStrings()
+    }
 
     func onHostWillAppear() {
         reloadLocalizedStrings()
@@ -39,10 +56,24 @@ final class BreathingTechniqueViewModel: ObservableObject {
     // MARK: - Navigation
 
     func openBack() {
+        if let onClose {
+            onClose()
+            return
+        }
         hostViewController?.navigationController?.popViewController(animated: true)
     }
 
     func openExercise(at id: Int) {
+        if let onOpenRoute {
+            switch id {
+            case 0: onOpenRoute(.breathingType1)
+            case 1: onOpenRoute(.mindfulBreathing)
+            case 2: onOpenRoute(.diaphragmaticBreathing)
+            default: break
+            }
+            return
+        }
+
         guard let host = hostViewController else { return }
 
         switch id {

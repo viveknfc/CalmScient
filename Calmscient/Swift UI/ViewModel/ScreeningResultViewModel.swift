@@ -18,6 +18,15 @@ final class ScreeningResultViewModel: ObservableObject {
 
     weak var hostViewController: UIViewController?
 
+    // MARK: - SwiftUI navigation
+    //
+    // Set by `HomeTabView` when this screen is shown inside the Home `NavigationStack`.
+    // While nil, every call below falls through to the existing UIKit push/pop, which is
+    // what the still-UIKit Discovery tab uses when it pushes into these screens.
+    var onOpenRoute: ((HomeRoute) -> Void)?
+    var onClose: (() -> Void)?
+    var onCloseToRoot: (() -> Void)?
+
     private(set) var selectedScreening: Screening?
 
     var isComingFromParticularVC = false
@@ -28,17 +37,25 @@ final class ScreeningResultViewModel: ObservableObject {
     @Published private(set) var isLoading = false
     @Published var showsMoreInfo = false
 
-    private(set) var navigationChromeTitle: String = ""
+    @Published private(set) var navigationChromeTitle: String = ""
     private(set) var remindMeTitle: String = ""
     private(set) var remindOptionTitle: String = ""
     private(set) var scoreMarkedTitle: String = ""
     private(set) var totalScoreTitle: String = ""
     private(set) var needToTalkButtonTitle: String = ""
 
-    private var anchorView: UIView? { hostViewController?.view }
+    /// Falls back to the key window so this screen still shows toasts when it is
+    /// presented without a `hostViewController` (SwiftUI-navigated Home tab).
+    private var anchorView: UIView? { Toast.resolvedAnchor(hostViewController?.view) }
 
     func configure(selectedScreening: Screening) {
         self.selectedScreening = selectedScreening
+    }
+
+    /// Seeds the localized chrome up front so the navigation title is correct on the
+    /// very first SwiftUI body evaluation (the UIKit host used to set it in `viewWillAppear`).
+    init() {
+        reloadLocalizedStrings()
     }
 
     func onHostWillAppear() {
@@ -58,21 +75,28 @@ final class ScreeningResultViewModel: ObservableObject {
     // MARK: - Navigation
 
     func openBack() {
+        if let onOpenRoute {
+            if isComingFromParticularVC2 {
+                onOpenRoute(.takingControlIntroSecond)
+            } else {
+                onOpenRoute(.screeningList)
+            }
+            return
+        }
+
         guard let nav = hostViewController?.navigationController else { return }
 
         if isComingFromParticularVC {
-            let next = UIStoryboard(name: "ScreeningListVC", bundle: nil)
-            let vc = next.instantiateViewController(withIdentifier: "ScreeningListVC") as? ScreeningListVC
-            vc?.isComingFromParticularVC = true
-            nav.pushViewController(vc!, animated: true)
+            let host = ScreeningListHostingController()
+            host.configure(isComingFromParticularVC: true)
+            nav.pushViewController(host, animated: true)
             return
         }
 
         if isComingFromParticularVC1 {
-            let next = UIStoryboard(name: "ScreeningListVC", bundle: nil)
-            let vc = next.instantiateViewController(withIdentifier: "ScreeningListVC") as? ScreeningListVC
-            vc?.isComingFromParticularVC1 = true
-            nav.pushViewController(vc!, animated: true)
+            let host = ScreeningListHostingController()
+            host.configure(isComingFromParticularVC1: true)
+            nav.pushViewController(host, animated: true)
             return
         }
 
@@ -81,27 +105,21 @@ final class ScreeningResultViewModel: ObservableObject {
                 let host = TakingControlIntroSecondHostingController()
                 host.configure(auditData: [], dastData: [])
                 nav.pushViewController(host, animated: true)
-            } else {
-                let next = UIStoryboard(name: "Taking Control Index", bundle: nil)
-                if let vc = next.instantiateViewController(withIdentifier: "IntroSecondPageVC") as? IntroSecondPageVC {
-                    nav.pushViewController(vc, animated: true)
-                }
             }
             return
         }
 
-        let next = UIStoryboard(name: "ScreeningListVC", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "ScreeningListVC") as? ScreeningListVC
-        nav.pushViewController(vc!, animated: true)
+        let host = ScreeningListHostingController()
+        nav.pushViewController(host, animated: true)
     }
 
     func openNeedToTalk() {
-        guard let nav = hostViewController?.navigationController else { return }
-        let next = UIStoryboard(name: "NeedToTalkViewController", bundle: nil)
-        let vc = next.instantiateViewController(withIdentifier: "NeedToTalkViewController") as? NeedToTalkViewController
-        vc?.title = "Emergency resource"
-        guard let vc else { return }
-        nav.pushViewController(vc, animated: true)
+        if let onOpenRoute {
+            onOpenRoute(.needToTalk)
+            return
+        }
+        guard let host = hostViewController else { return }
+        NeedToTalkNavigation.push(from: host)
     }
 
     func presentMoreInfo() {

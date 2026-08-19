@@ -2,10 +2,16 @@
 //  BottomSheetDatePickerPresenter.swift
 //  Calmscient
 //
-//  Shared presentation for the storyboard `newPickerViewVC` bottom sheet
+//  Shared presentation for the bottom-sheet date/time picker
 //  (same UI as medications month picker and legacy date/time pickers).
 //
+//  Now backed by SwiftUI `NewPickerView` via `NewPickerHostingController`.
+//  Previously instantiated the storyboard `newPickerViewVC` scene from
+//  `Taking Control Index.storyboard`; the public API here is unchanged, so all
+//  nine call sites are untouched.
+//
 
+import SwiftUI
 import UIKit
 
 struct BottomSheetDatePickerConfiguration {
@@ -36,19 +42,15 @@ final class BottomSheetDatePickerPresenter: NSObject {
         self.onDateSelected = onDateSelected
         self.onDismiss = onDismiss
 
-        let storyboard = UIStoryboard(name: "Taking Control Index", bundle: nil)
-        guard let picker = storyboard.instantiateViewController(withIdentifier: "newPickerViewVC") as? newPickerViewVC else {
-            fatalError("Could not instantiate newPickerViewVC")
-        }
-
-        picker.delegate = self
-        picker.pickerMode = configuration.pickerMode
-        picker.pickerTitle = configuration.title
-        picker.okButtonTitle = configuration.okButtonTitle
-        picker.cancelButtonTitle = configuration.cancelButtonTitle
-        picker.minimumDate = configuration.minimumDate
-        picker.maximumDate = configuration.maximumDate
-        picker.initialDate = configuration.initialDate
+        let picker = NewPickerHostingController(
+            configuration: configuration,
+            onDateSelected: { [weak self] date, isTimePicker in
+                self?.handleDateSelected(date, isTimePicker: isTimePicker)
+            },
+            onDismissPicker: { [weak self] in
+                self?.handleDismissPicker()
+            }
+        )
 
         if configuration.showsDimmingOverlay {
             addDimmingOverlay()
@@ -57,7 +59,11 @@ final class BottomSheetDatePickerPresenter: NSObject {
         if #available(iOS 15.0, *) {
             if let sheet = picker.sheetPresentationController {
                 if #available(iOS 16.0, *) {
-                    let customDetent = UISheetPresentationController.Detent.custom { _ in 270 }
+                    // Sized from the picker's own content so the `.wheel` date picker
+                    // (216pt intrinsic) is never clipped out of view. The previous
+                    // hard-coded 270 was ~60pt short and hid the wheels.
+                    let sheetHeight = NewPickerView.preferredSheetHeight
+                    let customDetent = UISheetPresentationController.Detent.custom { _ in sheetHeight }
                     sheet.detents = [customDetent]
                 } else {
                     sheet.detents = [.medium()]
@@ -90,15 +96,21 @@ final class BottomSheetDatePickerPresenter: NSObject {
     }
 }
 
-extension BottomSheetDatePickerPresenter: NewPickerViewDelegate {
+// MARK: - Picker callbacks
+//
+// Bodies preserved verbatim from the previous `NewPickerViewDelegate` conformance,
+// so the (intentional) double `onDismiss` on OK — once here, once from
+// `handleDismissPicker` — behaves exactly as before.
 
-    func didSelectDate(_ date: Date, indexPath: IndexPath?, isTimePicker: Bool) {
+private extension BottomSheetDatePickerPresenter {
+
+    func handleDateSelected(_ date: Date, isTimePicker: Bool) {
         onDateSelected?(date, isTimePicker)
         removeDimmingOverlay()
         onDismiss?()
     }
 
-    func didDismissPicker() {
+    func handleDismissPicker() {
         removeDimmingOverlay()
         onDismiss?()
     }

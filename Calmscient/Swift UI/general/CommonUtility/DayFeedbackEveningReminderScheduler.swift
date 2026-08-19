@@ -165,7 +165,7 @@ enum DayFeedbackEveningReminderScheduler {
     }
 
     private static func viewControllerHierarchyContainsDayFeedback(_ vc: UIViewController) -> Bool {
-        if vc is DayFeedbackHostingController || vc is UserIntroDayFeedbackViewController {
+        if vc is DayFeedbackHostingController {
             return true
         }
         if let nav = vc as? UINavigationController {

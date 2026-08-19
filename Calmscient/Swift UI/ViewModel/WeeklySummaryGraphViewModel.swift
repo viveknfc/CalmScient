@@ -18,6 +18,15 @@ final class WeeklySummaryGraphViewModel: ObservableObject {
 
     weak var hostViewController: UIViewController?
 
+    // MARK: - SwiftUI navigation
+    //
+    // Set by `HomeTabView` when this screen is shown inside the Home `NavigationStack`.
+    // While nil, every call below falls through to the existing UIKit push/pop, which is
+    // what the still-UIKit Discovery tab uses when it pushes into these screens.
+    var onOpenRoute: ((HomeRoute) -> Void)?
+    var onClose: (() -> Void)?
+    var onCloseToRoot: (() -> Void)?
+
     private(set) var summaryType: WeeklySummaryItems = .WeeklySummarySummaryOfMood
 
     @Published private(set) var navigationChromeTitle: String = ""
@@ -40,7 +49,9 @@ final class WeeklySummaryGraphViewModel: ObservableObject {
         Date()
     )
     private let dateWindowDays = -6
-    private var anchorView: UIView? { hostViewController?.view }
+    /// Falls back to the key window so this screen still shows toasts when it is
+    /// presented without a `hostViewController` (SwiftUI-navigated Home tab).
+    private var anchorView: UIView? { Toast.resolvedAnchor(hostViewController?.view) }
     private let datePickerPresenter = BottomSheetDatePickerPresenter()
 
     func configure(summaryType: WeeklySummaryItems) {
@@ -75,16 +86,20 @@ final class WeeklySummaryGraphViewModel: ObservableObject {
     // MARK: - Navigation
 
     func openBack() {
+        if let onClose {
+            onClose()
+            return
+        }
         hostViewController?.navigationController?.popViewController(animated: true)
     }
 
     func openNeedToTalk() {
-        guard let nav = hostViewController?.navigationController else { return }
-        let storyboard = UIStoryboard(name: "NeedToTalkViewController", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "NeedToTalkViewController") as? NeedToTalkViewController
-        vc?.title = "Emergency resources".localized
-        guard let vc else { return }
-        nav.pushViewController(vc, animated: true)
+        if let onOpenRoute {
+            onOpenRoute(.needToTalk)
+            return
+        }
+        guard let host = hostViewController else { return }
+        NeedToTalkNavigation.push(from: host)
     }
 
     func presentDatePicker() {
