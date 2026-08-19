@@ -9,6 +9,12 @@ import Foundation
 import SwiftUI
 import UIKit
 
+/// Backs the metric trend screen: a Weekly / Monthly / Yearly control over one chart.
+///
+/// This replaced a From/To/Go date-range form that listed one row per day. The chart is
+/// fed by `wearable-data/average`, which buckets a whole period server-side — so the
+/// screen no longer asks the user to pick two dates before it can show them anything, and
+/// the client no longer aggregates day rows itself.
 @available(iOS 16.0, *)
 @MainActor
 final class HealthMetricDetailViewModel: ObservableObject {
@@ -26,207 +32,114 @@ final class HealthMetricDetailViewModel: ObservableObject {
 
     let metric: HealthMetric
 
-    @Published var fromDate: Date = Date()
-    @Published var toDate: Date = Date()
-    @Published private(set) var rows: [HealthMetricDayValue] = []
+    /// Starts on the leading tab, as the Android screen does.
+    @Published private(set) var period: HealthTrendPeriod = .weekly
+    @Published private(set) var chart: HealthTrendChartData = .empty
     @Published private(set) var isLoading = false
 
+    let dataSources: [HealthTrendDataSource] = HealthTrendDataSource.all
+    @Published var selectedDataSourceId: String = HealthTrendDataSource.allSources.id
+
     var screenTitle: String { metric.titleKey.localized }
+    var chartTitle: String { "\(metric.titleKey.localized) \("Trend".localized)" }
+    var insightText: String { HealthMetricInsight.text(for: metric) }
 
-    /// Display text for the reused date fields (same format as Weekly Summary).
-    var fromDateText: String { fromDate.dateToString(format: "MM/dd/yyyy") }
-    var toDateText: String { toDate.dateToString(format: "MM/dd/yyyy") }
-
-    /// Shared app-wide bottom sheet calendar (same one used by Weekly Summary graphs).
-    private let datePickerPresenter = BottomSheetDatePickerPresenter()
+    /// Set once a load has finished, so the first frame shows the spinner rather than the
+    /// "no data" copy that an empty `chart` would otherwise trigger.
+    @Published private(set) var hasLoadedOnce = false
 
     init(metric: HealthMetric) {
         self.metric = metric
-        let today = Date()
-        self.fromDate = today
-        self.toDate = today
     }
 
     private var patientId: Int? { ApplicationSharedInfo.shared.loginResponse?.patientID }
     private var accessToken: String? { ApplicationSharedInfo.shared.tokenResponse?.accessToken }
 
-    // MARK: - Date pickers (reuses the shared BottomSheetDatePickerPresenter)
+    /// Guards against the tab being tapped again while its request is in flight; without
+    /// it a slow first response could land after a faster second one and win.
+    private var inFlightPeriod: HealthTrendPeriod?
 
-    func presentFromDatePicker() {
-        guard let host = hostViewController else { return }
-        datePickerPresenter.present(
-            from: host,
-            configuration: BottomSheetDatePickerConfiguration(
-                pickerMode: .date,
-                maximumDate: toDate,          // From can't be after To
-                initialDate: fromDate
-            )
-        ) { [weak self] selectedDate, _ in
-            self?.fromDate = selectedDate
-        }
+    // MARK: - Loading
+
+    func onAppear() {
+        guard !hasLoadedOnce else { return }
+        load()
     }
 
-    func presentToDatePicker() {
-        guard let host = hostViewController else { return }
-        datePickerPresenter.present(
-            from: host,
-            configuration: BottomSheetDatePickerConfiguration(
-                pickerMode: .date,
-                minimumDate: fromDate,        // To can't be before From
-                maximumDate: Date(),          // and not in the future
-                initialDate: toDate
-            )
-        ) { [weak self] selectedDate, _ in
-            self?.toDate = selectedDate
-        }
+    func select(period newPeriod: HealthTrendPeriod) {
+        guard newPeriod != period else { return }
+        period = newPeriod
+        // Clear immediately: keeping the previous period's bars under the new tab's label
+        // reads as data for a range it isn't.
+        chart = .empty
+        load()
     }
 
-    // MARK: - Default load (current date, single-day API)
+    func refresh() { load() }
 
-    func loadCurrentDate() {
-        let today = Date()
-        fromDate = today
-        toDate = today
-        loadSingleDate(today)
-    }
+    private func load() {
+        guard let patientId, let token = accessToken, !token.isEmpty else { return }
 
-    private func loadSingleDate(_ date: Date) {
-        guard let patientId, let token = accessToken else { return }
-
+        let requested = period
+        inFlightPeriod = requested
         isLoading = true
-        hostViewController?.view.showToastActivity()
 
-        let dateString = date.dateToString(format: "yyyy-MM-dd")
         let params: [String: Any] = [
             "patientId": patientId,
-            "date": dateString
+            // Any date inside the period; the server expands it to the full week / month /
+            // year and returns every bucket in that span.
+            "date": Date().dateToString(format: "yyyy-MM-dd"),
+            "period": requested.apiValue
         ]
 
-        APIService.getWearableDataAPICalling(
+        APIService.getWearableAverageAPICalling(
             hostViewController,
             params: params,
             accessToken: token
         ) { [weak self] response in
             Task { @MainActor in
-                self?.handleSingleResponse(response, fallbackDate: dateString)
-            }
-        }
-    }
-
-    // MARK: - Go button (date range API)
-
-    func loadRange() {
-        guard fromDate <= toDate else {
-            hostViewController?.view.showToast(message: "From date must be on or before To date.".localized)
-            return
-        }
-        guard let patientId, let token = accessToken else { return }
-
-        isLoading = true
-        hostViewController?.view.showToastActivity()
-
-        let start = fromDate.dateToString(format: "yyyy-MM-dd")
-        let end = toDate.dateToString(format: "yyyy-MM-dd")
-        let params: [String: Any] = [
-            "patientId": patientId,
-            "startDate": start,
-            "endDate": end
-        ]
-
-        APIService.getWearableDataRangeAPICalling(
-            hostViewController,
-            params: params,
-            accessToken: token
-        ) { [weak self] response in
-            Task { @MainActor in
-                self?.handleRangeResponse(response)
+                self?.handle(response, requested: requested)
             }
         }
     }
 
     // MARK: - Response handling
 
-    private func handleSingleResponse(_ response: AnyObject, fallbackDate: String) {
+    private func handle(_ response: AnyObject, requested: HealthTrendPeriod) {
+        // A response for a tab the user has already left is stale — drop it rather than
+        // draw it under the current tab's heading.
+        guard requested == period else { return }
+
+        inFlightPeriod = nil
         isLoading = false
-        hostViewController?.view.hideToastActivity()
+        hasLoadedOnce = true
 
         if let errorMessage = response as? String, errorMessage.hasPrefix("Error:") {
-            rows = []
-            hostViewController?.view.showToast(message: errorMessage.replacingOccurrences(of: "Error: ", with: ""))
+            chart = .empty
+            hostViewController?.view.showToast(
+                message: errorMessage.replacingOccurrences(of: "Error: ", with: ""))
             return
         }
 
         guard let json = response as? [String: Any],
               let data = try? JSONSerialization.data(withJSONObject: json),
-              let decoded = try? JSONDecoder().decode(WearableDataResponse.self, from: data) else {
-            rows = []
-            hostViewController?.view.showToast(message: "An Unknown error occured. Please check with Admin".localized)
+              let decoded = try? JSONDecoder().decode(WearableAverageResponse.self, from: data) else {
+            chart = .empty
+            hostViewController?.view.showToast(
+                message: "An Unknown error occured. Please check with Admin".localized)
             return
         }
 
         guard decoded.statusResponse.responseCode == 200 else {
-            rows = []
+            chart = .empty
             hostViewController?.view.showToast(message: decoded.statusResponse.responseMessage)
             return
         }
 
-        rows = [ makeRow(from: decoded.data, fallbackDate: fallbackDate) ]
+        chart = HealthTrendChartBuilder.make(from: decoded.data?.buckets ?? [], metric: metric)
     }
 
-    private func handleRangeResponse(_ response: AnyObject) {
-        isLoading = false
-        hostViewController?.view.hideToastActivity()
-
-        if let errorMessage = response as? String, errorMessage.hasPrefix("Error:") {
-            rows = []
-            hostViewController?.view.showToast(message: errorMessage.replacingOccurrences(of: "Error: ", with: ""))
-            return
-        }
-
-        guard let json = response as? [String: Any],
-              let data = try? JSONSerialization.data(withJSONObject: json),
-              let decoded = try? JSONDecoder().decode(WearableDataRangeResponse.self, from: data) else {
-            rows = []
-            hostViewController?.view.showToast(message: "An Unknown error occured. Please check with Admin".localized)
-            return
-        }
-
-        guard decoded.statusResponse.responseCode == 200 else {
-            rows = []
-            hostViewController?.view.showToast(message: decoded.statusResponse.responseMessage)
-            return
-        }
-
-        let days = decoded.data ?? []
-        // Each date becomes a header; newest first.
-        rows = days
-            .sorted { ($0.date ?? "") > ($1.date ?? "") }
-            .map { makeRow(from: $0, fallbackDate: $0.date ?? "") }
-
-        if rows.isEmpty {
-            hostViewController?.view.showToast(message: "No data for the selected range.".localized)
-        }
-    }
-
-    private func makeRow(from data: WearableData?, fallbackDate: String) -> HealthMetricDayValue {
-        let dateString = data?.date ?? fallbackDate
-        return HealthMetricDayValue(
-            dateHeader: Self.headerLabel(from: dateString),
-            valueText: WearableMetricValueMapper.value(for: metric, in: data))
-    }
-
-    /// "2026-07-19" -> "19 Jul 2026" (falls back to the raw string).
-    private static func headerLabel(from apiDate: String) -> String {
-        let input = DateFormatter()
-        input.dateFormat = "yyyy-MM-dd"
-        input.timeZone = TimeZone(identifier: Calendar.current.timeZone.identifier)
-        guard let date = input.date(from: apiDate) else { return apiDate }
-
-        let output = DateFormatter()
-        output.dateFormat = "dd MMM yyyy"
-        output.timeZone = TimeZone(identifier: Calendar.current.timeZone.identifier)
-        return output.string(from: date)
-    }
+    // MARK: - Navigation
 
     func openBack() {
         if let onClose {
@@ -241,15 +154,25 @@ final class HealthMetricDetailViewModel: ObservableObject {
 @available(iOS 16.0, *)
 extension HealthMetricDetailViewModel {
 
-    /// Preview-only model with dummy dated rows. Not used in release builds.
+    /// Preview-only model with a dummy monthly series. Not used in release builds.
     static func previewModel(metricId: String = "heart_rate") -> HealthMetricDetailViewModel {
         let metric = HealthMetric.metric(for: metricId)!
         let vm = HealthMetricDetailViewModel(metric: metric)
-        vm.rows = [
-            HealthMetricDayValue(dateHeader: "19 Jul 2026", valueText: "72 bpm"),
-            HealthMetricDayValue(dateHeader: "18 Jul 2026", valueText: "75 bpm"),
-            HealthMetricDayValue(dateHeader: "17 Jul 2026", valueText: "--"),
-        ]
+        let labels = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN",
+                      "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"]
+        let points = labels.enumerated().map { index, label -> HealthTrendPoint in
+            let value: Double? = index == 6 ? 79.79 : (index == 7 ? 58.4 : nil)
+            return HealthTrendPoint(
+                label: label,
+                value: value,
+                displayValue: value.map { String(Int($0.rounded())) } ?? "0",
+                daysWithData: value == nil ? 0 : 24)
+        }
+        vm.chart = HealthTrendChartData(points: points,
+                                        axisMaximum: 180,
+                                        average: 69.1,
+                                        averageText: "69 bpm")
+        vm.hasLoadedOnce = true
         return vm
     }
 }

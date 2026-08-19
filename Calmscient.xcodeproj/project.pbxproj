@@ -21,9 +21,11 @@
 		33C1369B302B979C009BD63D /* HealthMetricScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C1369A302B979C009BD63D /* HealthMetricScreen.swift */; };
 		33C1369D302B9825009BD63D /* HealthMetricDetailPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C1369C302B9821009BD63D /* HealthMetricDetailPresentation.swift */; };
 		33C1369F302C534A009BD63D /* HealthMetricRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C1369E302C534A009BD63D /* HealthMetricRowView.swift */; };
+		33C13713302B8AC9009BD63D /* HealthTrendChartCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C13712302B8AC9009BD63D /* HealthTrendChartCardView.swift */; };
 		33C136A1302C537F009BD63D /* HealthMetricSectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C136A0302C537F009BD63D /* HealthMetricSectionView.swift */; };
 		33C1384C302C781C009BD63D /* FavoriteMetricsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C1384B302C7814009BD63D /* FavoriteMetricsStore.swift */; };
 		33C1384E302CA395009BD63D /* WearableDataAPICodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C1384D302CA392009BD63D /* WearableDataAPICodables.swift */; };
+		33C13711302B8AC9009BD63D /* WearableAverageAPICodables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C13710302B8AC9009BD63D /* WearableAverageAPICodables.swift */; };
 		33C13850302CA642009BD63D /* WearableDataRangeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C1384F302CA641009BD63D /* WearableDataRangeResponse.swift */; };
 		33C13852302CAA89009BD63D /* WearableMetricValueMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C13851302CAA87009BD63D /* WearableMetricValueMapper.swift */; };
 		33C13854302CAC40009BD63D /* HealthMetricDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C13853302CAC40009BD63D /* HealthMetricDetailView.swift */; };
@@ -271,6 +273,7 @@
 		CHRT2C02EFE051800000D01 /* WeeklySummaryChartConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CHRT2C02EFE051800000C01 /* WeeklySummaryChartConfigurator.swift */; };
 		CHRT2C02EFE051800000D02 /* ChartLineChartRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CHRT2C02EFE051800000C02 /* ChartLineChartRepresentable.swift */; };
 		CHRT2C02EFE051800000D03 /* ChartBarChartRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CHRT2C02EFE051800000C03 /* ChartBarChartRepresentable.swift */; };
+		CHRT2C02EFE051800000D99 /* HealthTrendChartConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = CHRT2C02EFE051800000C99 /* HealthTrendChartConfigurator.swift */; };
 		CHRT2C02EFE051800000D04 /* ChartViewTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CHRT2C02EFE051800000C04 /* ChartViewTableCellView.swift */; };
 		CHRT2C02EFE051800000D10 /* WeeklySummaryChartFormatters.swift in Sources */ = {isa = PBXBuildFile; fileRef = CHRT2C02EFE051800000C10 /* WeeklySummaryChartFormatters.swift */; };
 		CHRT2C02EFE051800000D11 /* WeeklySummaryChartMarkers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CHRT2C02EFE051800000C11 /* WeeklySummaryChartMarkers.swift */; };
@@ -718,9 +721,11 @@
 		33C1369A302B979C009BD63D /* HealthMetricScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMetricScreen.swift; sourceTree = "<group>"; };
 		33C1369C302B9821009BD63D /* HealthMetricDetailPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMetricDetailPresentation.swift; sourceTree = "<group>"; };
 		33C1369E302C534A009BD63D /* HealthMetricRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMetricRowView.swift; sourceTree = "<group>"; };
+		33C13712302B8AC9009BD63D /* HealthTrendChartCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTrendChartCardView.swift; sourceTree = "<group>"; };
 		33C136A0302C537F009BD63D /* HealthMetricSectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMetricSectionView.swift; sourceTree = "<group>"; };
 		33C1384B302C7814009BD63D /* FavoriteMetricsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMetricsStore.swift; sourceTree = "<group>"; };
 		33C1384D302CA392009BD63D /* WearableDataAPICodables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearableDataAPICodables.swift; sourceTree = "<group>"; };
+		33C13710302B8AC9009BD63D /* WearableAverageAPICodables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearableAverageAPICodables.swift; sourceTree = "<group>"; };
 		33C1384F302CA641009BD63D /* WearableDataRangeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearableDataRangeResponse.swift; sourceTree = "<group>"; };
 		33C13851302CAA87009BD63D /* WearableMetricValueMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearableMetricValueMapper.swift; sourceTree = "<group>"; };
 		33C13853302CAC40009BD63D /* HealthMetricDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMetricDetailView.swift; sourceTree = "<group>"; };
@@ -974,6 +979,7 @@
 		CHRT2C02EFE051800000C01 /* WeeklySummaryChartConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklySummaryChartConfigurator.swift; sourceTree = "<group>"; };
 		CHRT2C02EFE051800000C02 /* ChartLineChartRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartLineChartRepresentable.swift; sourceTree = "<group>"; };
 		CHRT2C02EFE051800000C03 /* ChartBarChartRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartBarChartRepresentable.swift; sourceTree = "<group>"; };
+		CHRT2C02EFE051800000C99 /* HealthTrendChartConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthTrendChartConfigurator.swift; sourceTree = "<group>"; };
 		CHRT2C02EFE051800000C04 /* ChartViewTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewTableCellView.swift; sourceTree = "<group>"; };
 		CHRT2C02EFE051800000C10 /* WeeklySummaryChartFormatters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklySummaryChartFormatters.swift; sourceTree = "<group>"; };
 		CHRT2C02EFE051800000C11 /* WeeklySummaryChartMarkers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeeklySummaryChartMarkers.swift; sourceTree = "<group>"; };
@@ -1421,6 +1427,7 @@
 				33C1369A302B979C009BD63D /* HealthMetricScreen.swift */,
 				CA1E7DA7E0000000000A000C /* HealthDateRangePickerView.swift */,
 				33C1369E302C534A009BD63D /* HealthMetricRowView.swift */,
+				33C13712302B8AC9009BD63D /* HealthTrendChartCardView.swift */,
 				33C136A0302C537F009BD63D /* HealthMetricSectionView.swift */,
 				33C13853302CAC40009BD63D /* HealthMetricDetailView.swift */,
 				CA1E7DA7E0000000000A000E /* HealthDataRangeView.swift */,
@@ -1722,6 +1729,7 @@
 				CA1E7DA7E0000000000A0002 /* WearableRangeDayPresentation.swift */,
 				33C1384F302CA641009BD63D /* WearableDataRangeResponse.swift */,
 				33C1384D302CA392009BD63D /* WearableDataAPICodables.swift */,
+				33C13710302B8AC9009BD63D /* WearableAverageAPICodables.swift */,
 				33C1369C302B9821009BD63D /* HealthMetricDetailPresentation.swift */,
 				33C13698302B9582009BD63D /* HealthMetricRowPresentation.swift */,
 				A1B2C3F22FAA800100000002 /* LoginRequestPayload.swift */,
@@ -2185,6 +2193,7 @@
 				CHRT2C02EFE051800000C01 /* WeeklySummaryChartConfigurator.swift */,
 				CHRT2C02EFE051800000C02 /* ChartLineChartRepresentable.swift */,
 				CHRT2C02EFE051800000C03 /* ChartBarChartRepresentable.swift */,
+				CHRT2C02EFE051800000C99 /* HealthTrendChartConfigurator.swift */,
 				CHRT2C02EFE051800000C04 /* ChartViewTableCellView.swift */,
 				CHRT2C02EFE051800000C10 /* WeeklySummaryChartFormatters.swift */,
 				CHRT2C02EFE051800000C11 /* WeeklySummaryChartMarkers.swift */,
@@ -3344,6 +3353,7 @@
 				CHRT2C02EFE051800000D01 /* WeeklySummaryChartConfigurator.swift in Sources */,
 				CHRT2C02EFE051800000D02 /* ChartLineChartRepresentable.swift in Sources */,
 				CHRT2C02EFE051800000D03 /* ChartBarChartRepresentable.swift in Sources */,
+				CHRT2C02EFE051800000D99 /* HealthTrendChartConfigurator.swift in Sources */,
 				CHRT2C02EFE051800000D04 /* ChartViewTableCellView.swift in Sources */,
 				CHRT2C02EFE051800000D10 /* WeeklySummaryChartFormatters.swift in Sources */,
 				CHRT2C02EFE051800000D11 /* WeeklySummaryChartMarkers.swift in Sources */,
@@ -3634,6 +3644,7 @@
 				CONSUB52C02EFE052000000D02 /* ConSub5ViewModel.swift in Sources */,
 				CONSUB52C02EFE052000000D03 /* ConSub5HostingController.swift in Sources */,
 				33C1369F302C534A009BD63D /* HealthMetricRowView.swift in Sources */,
+				33C13713302B8AC9009BD63D /* HealthTrendChartCardView.swift in Sources */,
 				CONSUB52C02EFE052000000D04 /* ConSub5View.swift in Sources */,
 				BKVID2C02EFE052000000D01 /* BasicKnowledgeVideoPresentation.swift in Sources */,
 				BKVID2C02EFE052000000D02 /* BasicKnowledgeVideoViewModel.swift in Sources */,
@@ -3751,6 +3762,7 @@
 				JEJR2C02EFE052000000D05 /* JournalEntrySearchBarView.swift in Sources */,
 				JEJR2C02EFE052000000D06 /* JournalEntryFilterPillsView.swift in Sources */,
 				33C1384E302CA395009BD63D /* WearableDataAPICodables.swift in Sources */,
+				33C13711302B8AC9009BD63D /* WearableAverageAPICodables.swift in Sources */,
 				JEJR2C02EFE052000000D07 /* JournalEntryQuizCardView.swift in Sources */,
 				JEJR2C02EFE052000000D08 /* JournalEntryExpandableJournalRowView.swift in Sources */,
 				JEJR2C02EFE052000000D09 /* JournalEntryBottomChromeView.swift in Sources */,

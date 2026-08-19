@@ -91,6 +91,8 @@ class APIService: UIViewController {
     static var GetWearableDataRange = "patients/api/v1/health/wearable-data/range"
     /// Same path as `GetWearableData`; the verb is what separates read from write.
     static var SaveWearableData = "patients/api/v1/health/wearable-data"
+    /// Period averages bucketed server-side, for the metric trend charts.
+    static var GetWearableAverage = "patients/api/v1/health/wearable-data/average"
 
     //MARK: - Version CHeck API
     
@@ -480,6 +482,32 @@ class APIService: UIViewController {
             accessToken: accessToken,
             acces: false,
             timeOut: 6,
+            parameterPlacement: "url",
+            callback: callBack
+        )
+    }
+    
+    //MARK: - Wearable API Calling period averages (trend charts)
+    
+    /// `patientId` + any `date` inside the period + `period` (week / month / year).
+    /// The server expands the date to the whole period and answers with one bucket per
+    /// day, month or year — including the empty ones, which the chart needs in order to
+    /// draw a complete axis.
+    static func getWearableAverageAPICalling(
+        _ view: UIViewController?,
+        params: [String: Any],
+        accessToken: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        let urlString = APIService.BaseUrl + APIService.GetWearableAverage
+        APIService.getRequestWithToken(
+            viewController: view,
+            urlString: urlString,
+            params: params,
+            method: "GET",
+            accessToken: accessToken,
+            acces: false,
+            timeOut: 15,
             parameterPlacement: "url",
             callback: callBack
         )

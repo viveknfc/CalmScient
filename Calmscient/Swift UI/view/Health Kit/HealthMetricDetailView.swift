@@ -8,119 +8,144 @@
 import SwiftUI
 import UIKit
 
-// MARK: - Detail screen (date range + dated value list)
+// MARK: - Metric trend screen (period control + chart + data source + insight)
 
 @available(iOS 16.0, *)
 struct HealthMetricDetailView: View {
 
     @ObservedObject var viewModel: HealthMetricDetailViewModel
 
+    /// `#6D6BB3` — the brand purple behind the calendar's Search button, and the colour the
+    /// rest of the app reaches for under this same name. Not the login flow's
+    /// `ColorName.purple`, which is a noticeably more saturated violet.
+    private let brandPurple = LoginDesignSystem.ColorName.primaryGradientTop
+
+    /// The unselected pill / segmented track. Same tint and opacity as the date picker's
+    /// in-range band, so the two screens read as one family.
+    private var brandPurpleSoft: Color { brandPurple.opacity(0.14) }
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 22) {
+                periodControl
 
-                // Date range selection (reuses the app-wide calendar bottom sheet)
-                VStack(alignment: .leading, spacing: 14) {
-                    dateField(title: "From".localized,
-                              valueText: viewModel.fromDateText) {
-                        viewModel.presentFromDatePicker()
-                    }
-
-                    dateField(title: "To".localized,
-                              valueText: viewModel.toDateText) {
-                        viewModel.presentToDatePicker()
-                    }
-
-                    Button {
-                        viewModel.loadRange()
-                    } label: {
-                        Text("Go".localized)
-                            .font(.system(size: 16, weight: .semibold))
-                            .foregroundStyle(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 12)
-                            .background(LoginDesignSystem.ColorName.loginGradient)
-                            .clipShape(RoundedRectangle(cornerRadius: 12))
-                    }
-                    .padding(.top, 4)
-                    .padding(.horizontal, 20)
-                }
-
-                // Dated value list
-                if viewModel.rows.isEmpty && !viewModel.isLoading {
-                    Text("No data for the selected date.".localized)
-                        .font(.footnote)
-                        .foregroundStyle(.secondary)
-                        .frame(maxWidth: .infinity)
-                        .padding(.top, 40)
-                } else {
-                    ForEach(viewModel.rows) { row in
-                        VStack(alignment: .leading, spacing: 10) {
-                            Text(row.dateHeader)
-                                .font(.system(size: 15, weight: .semibold))
-                                .foregroundStyle(.secondary)
-                                .padding(.horizontal, 4)
-
-                            valueCard(valueText: row.valueText)
-                        }
-                        .padding(.horizontal, 20)
+                ZStack {
+                    HealthTrendChartCardView(
+                        title: viewModel.chartTitle,
+                        unit: viewModel.metric.unit,
+                        data: viewModel.chart
+                    )
+                    // The spinner sits over the card instead of replacing it, so switching
+                    // tabs doesn't collapse the layout and bounce the sections below.
+                    if viewModel.isLoading {
+                        ProgressView()
                     }
                 }
+
+                dataSourceSection
+                insightCard
             }
+            .padding(.horizontal, 18)
             .padding(.vertical, 16)
         }
         .background(Color(.systemGroupedBackground))
-        .overlay {
-            if viewModel.isLoading && viewModel.rows.isEmpty {
-                ProgressView()
-            }
-        }
-        .onAppear { if viewModel.rows.isEmpty { viewModel.loadCurrentDate() } }
+        .onAppear { viewModel.onAppear() }
     }
 
-    // A "From"/"To" label above the shared calendar field (WeeklySummaryGraphDateRangeHeaderView).
-    private func dateField(title: String,
-                           valueText: String,
-                           onTap: @escaping () -> Void) -> some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Text(title)
+    // MARK: - Weekly / Monthly / Yearly
+
+    private var periodControl: some View {
+        HStack(spacing: 0) {
+            ForEach(HealthTrendPeriod.allCases) { period in
+                let isSelected = period == viewModel.period
+                Button {
+                    viewModel.select(period: period)
+                } label: {
+                    Text(period.localizedTitle)
+                        .font(.custom(isSelected ? Fonts().lexendMedium : Fonts().lexendRegular,
+                                      size: 15))
+                        .foregroundStyle(isSelected ? Color.white : Color.primary.opacity(0.7))
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 11)
+                        .background {
+                            if isSelected {
+                                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                                    .fill(brandPurple)
+                            }
+                        }
+                }
+                .buttonStyle(.plain)
+                .accessibilityAddTraits(isSelected ? [.isSelected, .isButton] : .isButton)
+            }
+        }
+        .padding(3)
+        .background(
+            RoundedRectangle(cornerRadius: 13, style: .continuous)
+                .fill(brandPurpleSoft)
+        )
+        .animation(.easeInOut(duration: 0.2), value: viewModel.period)
+    }
+
+    // MARK: - Data source
+
+    private var dataSourceSection: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text("Data Source".localized)
                 .font(.custom(Fonts().lexendRegular, size: 13))
                 .foregroundStyle(.secondary)
-                .padding(.horizontal, 20)
 
-            WeeklySummaryGraphDateRangeHeaderView(
-                dateRangeText: valueText,
-                onCalendarTap: onTap
-            )
+            ForEach(viewModel.dataSources) { source in
+                let isSelected = source.id == viewModel.selectedDataSourceId
+                Button {
+                    viewModel.selectedDataSourceId = source.id
+                } label: {
+                    Text(source.title)
+                        .font(.custom(isSelected ? Fonts().lexendMedium : Fonts().lexendRegular,
+                                      size: 15))
+                        .foregroundStyle(isSelected ? Color.white : Color.primary.opacity(0.75))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, 16)
+                        .padding(.vertical, 13)
+                        .background(
+                            RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                .fill(isSelected
+                                      ? AnyShapeStyle(brandPurple)
+                                      : AnyShapeStyle(brandPurpleSoft))
+                        )
+                }
+                .buttonStyle(.plain)
+                .accessibilityAddTraits(isSelected ? [.isSelected, .isButton] : .isButton)
+            }
         }
     }
 
-    // Mirrors HealthMetricRowView's look (icon + title + value), without the star.
-    private func valueCard(valueText: String) -> some View {
-        HStack(spacing: 14) {
-            ZStack {
-                Circle()
-                    .fill(Color(.secondarySystemBackground))
-                    .frame(width: 40, height: 40)
-                Image(systemName: viewModel.metric.iconName)
-                    .font(.system(size: 18, weight: .medium))
-                    .foregroundStyle(Color.pink)
+    // MARK: - Insight
+
+    private var insightCard: some View {
+        HStack(alignment: .top, spacing: 12) {
+            Image(systemName: "info")
+                .font(.system(size: 11, weight: .bold))
+                .foregroundStyle(.white)
+                .frame(width: 22, height: 22)
+                .background(Circle().fill(brandPurple))
+
+            VStack(alignment: .leading, spacing: 6) {
+                Text("Insight".localized)
+                    .font(.custom(Fonts().lexendMedium, size: 16))
+                    .foregroundStyle(.primary)
+
+                Text(viewModel.insightText)
+                    .font(.custom(Fonts().lexendRegular, size: 14))
+                    .foregroundStyle(.primary.opacity(0.75))
+                    .fixedSize(horizontal: false, vertical: true)
             }
 
-            Text(viewModel.metric.titleKey.localized)
-                .font(.system(size: 16))
-                .foregroundStyle(.primary)
-
-            Spacer()
-
-            Text(valueText)
-                .font(.system(size: 16, weight: .semibold))
-                .foregroundStyle(.secondary)
+            Spacer(minLength: 0)
         }
-        .padding(.vertical, 12)
-        .padding(.horizontal, 16)
+        .padding(16)
+        .frame(maxWidth: .infinity, alignment: .leading)
         .background(Color(.systemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 14))
+        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
     }
 }
 
