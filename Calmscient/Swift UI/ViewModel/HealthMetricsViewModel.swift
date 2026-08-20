@@ -103,6 +103,12 @@ final class HealthMetricsViewModel: ObservableObject {
         Task {
             do {
                 try await HealthKitManager.shared.requestAuthorization()
+
+                // The other place access can be granted. Same reason as in `HealthAccessPrompt`:
+                // background delivery could not be enabled at launch because nothing was
+                // authorised yet, and the "already started" flag would otherwise block the retry.
+                HealthSyncCoordinator.shared.restartBackgroundTriggers()
+
                 await loadAll()
             } catch {
                 authorizationDenied = true
@@ -134,8 +140,10 @@ final class HealthMetricsViewModel: ObservableObject {
         isLoading = false
         isInitialLoadFinished = true
 
-        // Optional: forward latest values to your backend here.
-        // HealthSyncService.shared.pushLatest(rows: sections, from: hostViewController)
+        // Opening this screen is a free chance to fill the current slot: HealthKit has just been
+        // read anyway and the user is present. `syncNow` returns immediately when the slot has
+        // already been sent, so repeated visits cost nothing.
+        HealthSyncCoordinator.shared.syncNow(trigger: .foreground)
     }
 
     /// Builds Favorites (if any) + category sections from the cache. No HealthKit access.

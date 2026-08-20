@@ -1261,3 +1261,35 @@ Pero, tienes el control total sobre la decisión respecto a tu hábito.
 "Exercise Type" = "Tipo de ejercicio";
 "No records" = "Sin registros";
 "Clear" = "Borrar";
+
+/* Health access prompt (dashboard) */
+"Share your health data?" = "¿Compartir tus datos de salud?";
+"Calmscient can read your heart rate, activity and sleep so your care team can see how you're doing between visits." = "Calmscient puede leer tu frecuencia cardíaca, actividad y sueño para que tu equipo de atención vea cómo estás entre visitas.";
+"On the next screen, tap Turn All Categories On." = "En la siguiente pantalla, activa todas las categorías.";
+"Not now" = "Ahora no";
+"Connect" = "Conectar";
+
+/* Health metric averages chart (Week / Month / Year) */
+"Week" = "Semana";
+"Month" = "Mes";
+"Year" = "Año";
+"Daily average" = "Promedio diario";
+"Monthly average" = "Promedio mensual";
+"Yearly average" = "Promedio anual";
+"Insights" = "Información";
+"Average" = "Promedio";
+"Highest" = "Máximo";
+"Lowest" = "Mínimo";
+"Highest systolic" = "Sistólica más alta";
+"Lowest systolic" = "Sistólica más baja";
+"Change" = "Cambio";
+"Days with data" = "Días con datos";
+"vs" = "frente a";
+"Systolic" = "Sistólica";
+"Diastolic" = "Diastólica";
+"Period" = "Período";
+"Value" = "Valor";
+"Series" = "Serie";
+"No data available for this period." = "No hay datos disponibles para este período.";
+"Highest diastolic" = "Diastólica más alta";
+"Lowest diastolic" = "Diastólica más baja";

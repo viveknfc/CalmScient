@@ -301,7 +301,7 @@
 "Sleep_by_date_range" = "日付範囲別睡眠時間";
 "PHQ-9_by_date_range" = "期間中のPHQ-9スコア";
 "GAD_by_date_range" = "期間中のGAD-7スコア";
-"Audit_by_date_range" = "期間中のAuditスコア";
+"Audit_by_date_range" = "期間中のAUDITスコア";
 "More_sleep_needed" = "もっと睡眠が必要";
 "Average_sleep_score" = "平均睡眠時間";
 "Most_hours_slept" = "最長睡眠時間";
@@ -530,7 +530,7 @@ Pay careful attention to the following video." = "それでは始めましょう
 "DRINKING_CONTROL_Consequence_Four_Message_Five" = "安全でない性行動のリスクも高まります。";
 "DRINKING_CONTROL_Consequence_Four_Message_Six" = "胎児への影響があるため妊娠中は飲酒すべきではありません。";
 "Dast_by_date_range" = "期間中のDAST-10スコア";
-"CAGE_by_date_range" = "期間中のCAGEスコア";
+"CAGE_by_date_range" = "期間中のCAGE-AIDスコア";
 "How's_your_mood_so_far" = "今までの気分はどうですか？";
 "How_was_your_day" = "今日の気分はどうでしたか？";
 "Done" = "完了";
@@ -999,3 +999,35 @@ Pay careful attention to the following video." = "それでは始めましょう
 "Exercise Type" = "運動の種類";
 "No records" = "記録がありません";
 "Clear" = "クリア";
+
+/* Health access prompt (dashboard) */
+"Share your health data?" = "ヘルスデータを共有しますか？";
+"Calmscient can read your heart rate, activity and sleep so your care team can see how you're doing between visits." = "Calmscientは心拍数、アクティビティ、睡眠のデータを読み取り、通院の合間もケアチームがあなたの状態を確認できるようにします。";
+"On the next screen, tap Turn All Categories On." = "次の画面ですべての項目をオンにしてください。";
+"Not now" = "今はしない";
+"Connect" = "連携する";
+
+/* Health metric averages chart (Week / Month / Year) */
+"Week" = "週";
+"Month" = "月";
+"Year" = "年";
+"Daily average" = "1日の平均";
+"Monthly average" = "月間平均";
+"Yearly average" = "年間平均";
+"Insights" = "インサイト";
+"Average" = "平均";
+"Highest" = "最高";
+"Lowest" = "最低";
+"Highest systolic" = "収縮期血圧の最高";
+"Lowest systolic" = "収縮期血圧の最低";
+"Change" = "変化";
+"Days with data" = "データがある日数";
+"vs" = "対";
+"Systolic" = "収縮期";
+"Diastolic" = "拡張期";
+"Period" = "期間";
+"Value" = "値";
+"Series" = "系列";
+"No data available for this period." = "この期間のデータはありません。";
+"Highest diastolic" = "拡張期血圧の最高";
+"Lowest diastolic" = "拡張期血圧の最低";

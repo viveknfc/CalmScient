@@ -89,6 +89,8 @@ class APIService: UIViewController {
     
     static var GetWearableData = "patients/api/v1/health/wearable-data"
     static var GetWearableDataRange = "patients/api/v1/health/wearable-data/range"
+    static var PostWearableData = "patients/api/v1/health/wearable-data"
+    static var GetWearableAverage = "patients/api/v1/health/wearable-data/average"
 
     //MARK: - Version CHeck API
     
@@ -482,6 +484,28 @@ class APIService: UIViewController {
             callback: callBack
         )
     }
+
+    //MARK: - Wearable API Calling Period Averages
+
+    static func getWearableDataAverageAPICalling(
+        _ view: UIViewController?,
+        params: [String: Any],
+        accessToken: String,
+        callBack: @escaping (AnyObject) -> ()
+    ) {
+        let urlString = APIService.BaseUrl + APIService.GetWearableAverage
+        APIService.getRequestWithToken(
+            viewController: view,
+            urlString: urlString,
+            params: params,
+            method: "GET",
+            accessToken: accessToken,
+            acces: false,
+            timeOut: 6,
+            parameterPlacement: "url",
+            callback: callBack
+        )
+    }
     
     //MARK: - Update Password API Calling
     
@@ -497,6 +521,84 @@ class APIService: UIViewController {
         
         let urlString = APIService.BaseUrl+APIService.RefreshToken
         APIService.getRequestWithToken(viewController:view, urlString: urlString, params: params, method:method, accessToken: accessToken, acces: acces,timeOut: 6, parameterPlacement: parameterPlacement, callback: callBack)
+    }
+
+    //MARK: - Wearable health data upload
+
+    enum WearableUploadResult {
+        case success
+        /// The token was rejected. The caller may refresh headlessly and retry once.
+        case unauthorized
+        case failure(String)
+    }
+
+    /// Uploads one health snapshot to `patients/api/v1/health/wearable-data`.
+    ///
+    /// Built as its own request rather than routed through `getRequestWithToken`, following the
+    /// same shape as `uploadProfileImageAPICalling`, for two reasons:
+    ///
+    ///  - That path calls `NoInternetBanner.shared.show()` on failure. This upload runs from
+    ///    background wake-ups with nobody looking at the screen, and a banner raised then would
+    ///    surface on whatever the user next opens, unprompted.
+    ///  - It takes `[String: Any]`, so a typed body would have to be round-tripped through a
+    ///    dictionary, giving up control over how empty values are encoded.
+    ///
+    /// `async` because every caller is the sync coordinator, not a view model, and returns a
+    /// typed result so a 401 can be told apart from a genuine failure — the difference between
+    /// "refresh the token and retry" and "leave the slot unmarked and try on the next wake-up".
+    static func postWearableData(_ payload: WearableDataUploadRequest,
+                                 accessToken: String) async -> WearableUploadResult {
+
+        // The same reachability guard the rest of APIService applies, minus the banner.
+        guard NetworkMonitor.shared.isConnected else {
+            return .failure("No internet connection")
+        }
+
+        let urlString = APIService.BaseUrl + APIService.PostWearableData
+        guard let url = URL(string: urlString) else {
+            Crashlytics.crashlytics().log("Invalid URL: \(urlString)")
+            return .failure("Invalid URL")
+        }
+
+        let body: Data
+        do {
+            body = try JSONEncoder().encode(payload)
+        } catch {
+            return .failure("Failed to encode payload: \(error.localizedDescription)")
+        }
+
+        var request = URLRequest(url: url)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
+        request.httpBody = body
+        request.timeoutInterval = HealthSyncConfiguration.requestTimeout
+
+        Crashlytics.crashlytics().setCustomValue(urlString, forKey: "api_url")
+        Crashlytics.crashlytics().setCustomValue("POST", forKey: "http_method")
+
+        do {
+            // `URLSession.shared` rather than a fresh session: a session created per call is
+            // never invalidated and leaks its delegate queue, which matters more here than for a
+            // one-off profile image because this runs several times a day forever.
+            let (data, response) = try await URLSession.shared.data(for: request)
+
+            guard let http = response as? HTTPURLResponse else {
+                return .failure("Non-HTTP response")
+            }
+
+            switch http.statusCode {
+            case 200...299:
+                return .success
+            case 401, 403:
+                return .unauthorized
+            default:
+                let bodyText = String(data: data, encoding: .utf8) ?? ""
+                return .failure("HTTP \(http.statusCode): \(bodyText.prefix(300))")
+            }
+        } catch {
+            return .failure(error.localizedDescription)
+        }
     }
     
     //MARK: - Delete Medication

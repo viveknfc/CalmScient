@@ -104,6 +104,11 @@ final class HomeDashboardViewModel: ObservableObject {
         reloadLocalizedChrome()
         syncFavoritesFromManager()
         NotificationCenter.default.post(name: .languageChanged, object: nil)
+
+        // Patients who never open Health Metrics are precisely the ones background sync exists
+        // for, and until now nothing ever asked them for HealthKit access. The prompt gates itself
+        // on whether asking would achieve anything, so for everyone else this call does nothing.
+        HealthAccessPrompt.presentIfNeeded(from: hostViewController)
     }
 
     private func checkTokenAndFetchFavoritesIfNeeded() {

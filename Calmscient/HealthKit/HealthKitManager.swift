@@ -56,7 +56,32 @@ final class HealthKitManager {
         // For BMR formula fallback we also want these characteristics/quantities:
         if let dob = HKObjectType.characteristicType(forIdentifier: .dateOfBirth) { types.insert(dob) }
         if let sex = HKObjectType.characteristicType(forIdentifier: .biologicalSex) { types.insert(sex) }
+
+        // Workouts back the `exerciseType` field of the wearable-data upload. This is the only
+        // read type not derived from the metric catalog, because no dashboard row displays it.
+        // Adding it means already-authorised users see the Health permission sheet once more,
+        // listing just this row.
+        types.insert(HKObjectType.workoutType())
+
         return types
+    }
+
+    /// Whether asking for authorization would actually put anything on screen.
+    ///
+    /// `.shouldRequest` means at least one requested type has never been answered by this user.
+    /// Note this says nothing about whether access was *granted* — Apple deliberately hides read
+    /// authorization so an app cannot detect what the user is withholding. It only answers "would
+    /// the sheet appear?", which is exactly what a pre-prompt needs to know.
+    ///
+    /// Lives here because `store` and `readTypes` are private to this file.
+    func needsAuthorizationRequest() async -> Bool {
+        guard isHealthDataAvailable else { return false }
+        let types = readTypes
+        return await withCheckedContinuation { cont in
+            store.getRequestStatusForAuthorization(toShare: [], read: types) { status, _ in
+                cont.resume(returning: status == .shouldRequest)
+            }
+        }
     }
 
     func requestAuthorization() async throws {
@@ -417,5 +442,205 @@ final class HealthKitManager {
             }
             return String(format: "%.1f %@", value, metric.unit)
         }
+    }
+
+    // MARK: - Background delivery
+
+    /// Retained so a later call can stop them.
+    ///
+    /// Without this, re-arming after the user grants access would leave the first, useless set of
+    /// queries running alongside the new one — every future write to HealthKit would wake the app
+    /// twice, forever, for no extra data.
+    private var observerQueries: [HKObserverQuery] = []
+
+    /// Stops every observer query started by `startObserverQueries(for:frequency:onChange:)`.
+    ///
+    /// Does **not** disable background delivery — that survives process death and is turned off
+    /// separately, on logout.
+    func stopObserverQueries() {
+        for query in observerQueries {
+            store.stop(query)
+        }
+        observerQueries.removeAll()
+    }
+
+    /// Starts a long-lived observer query per type and asks HealthKit to keep delivering while the
+    /// app is not running.
+    ///
+    /// Two rules govern this and both are unforgiving:
+    ///
+    ///  - `onChange` is handed HealthKit's completion handler and **must** call it, on every path
+    ///    including failure. iOS reads a missing acknowledgement as the app being unable to cope
+    ///    and quietly stops waking it.
+    ///  - Observer queries do not survive a process restart, so this has to run on every launch.
+    ///    `enableBackgroundDelivery` is the half that does persist.
+    ///
+    /// Frequency is `.hourly` rather than `.immediate` deliberately: a Watch writes heart rate
+    /// every few minutes, and immediate delivery would mean dozens of wake-ups a day for a
+    /// cadence that only needs four.
+    func startObserverQueries(for types: [HKObjectType],
+                              frequency: HKUpdateFrequency = .hourly,
+                              onChange: @escaping (@escaping () -> Void) -> Void) {
+        guard isHealthDataAvailable else { return }
+
+        // Never stack a second set on top of an existing one.
+        stopObserverQueries()
+
+        for type in types {
+            guard let sampleType = type as? HKSampleType else { continue }
+
+            let query = HKObserverQuery(sampleType: sampleType, predicate: nil) { _, completionHandler, error in
+                if let error = error {
+                    print("HealthKit observer error (\(sampleType.identifier)): \(error.localizedDescription)")
+                    completionHandler()
+                    return
+                }
+                onChange(completionHandler)
+            }
+            store.execute(query)
+            observerQueries.append(query)
+
+            store.enableBackgroundDelivery(for: sampleType, frequency: frequency) { success, error in
+                if let error = error {
+                    print("HealthKit background delivery failed (\(sampleType.identifier)): \(error.localizedDescription)")
+                } else {
+                    print("HealthKit background delivery \(success ? "enabled" : "unavailable") (\(sampleType.identifier))")
+                }
+            }
+        }
+    }
+
+    // MARK: - Reads for the wearable-data upload
+    //
+    // Everything below is additive and exists only to fill fields of the backend payload that the
+    // dashboard has no row for. Nothing here changes what `latestValue(for:)` or `series(for:)`
+    // return, so the Health Metrics screen behaves exactly as before.
+    //
+    // These live inside the class rather than in an extension in the sync folder because `store`,
+    // `latestScalar` and `sumQuantity` are `private`, and Swift scopes that to the file.
+
+    /// Systolic and diastolic as separate numbers.
+    ///
+    /// `latestBloodPressure()` puts systolic in `value` and "120/80 mmHg" in `displayText`, which
+    /// is right for a dashboard row but leaves the upload with no way to reach diastolic as a
+    /// number. This exposes both without touching that method.
+    func latestBloodPressurePair() async -> (systolic: Double?, diastolic: Double?) {
+        async let sys = latestScalar(.bloodPressureSystolic, unit: .millimeterOfMercury())
+        async let dia = latestScalar(.bloodPressureDiastolic, unit: .millimeterOfMercury())
+        return await (sys, dia)
+    }
+
+    /// Today's active, basal and combined energy in one pass.
+    ///
+    /// Returned together rather than as three calls because the upload needs `activeCalories`,
+    /// `bmr` and `totalCalories`, and querying basal energy twice inside a background wake-up's
+    /// short window is waste. The sum is confirmed against the API example: 420 active + 1680
+    /// basal = 2100 total.
+    ///
+    /// `total` is nil only when neither type has a sample today, so a device reporting just one
+    /// of the two still contributes a number instead of a gap.
+    func todayEnergySummary() async -> (active: Double?, basal: Double?, total: Double?) {
+        async let activeTask = todaySum(identifier: .activeEnergyBurned, unit: .kilocalorie())
+        async let basalTask  = todaySum(identifier: .basalEnergyBurned,  unit: .kilocalorie())
+        let (active, basal) = await (activeTask, basalTask)
+
+        guard active != nil || basal != nil else {
+            return (active, basal, nil)
+        }
+        return (active, basal, (active ?? 0) + (basal ?? 0))
+    }
+
+    /// Sums a cumulative type from midnight to now. Nil when there are no samples at all today,
+    /// which lets a caller tell "no data" from a genuine zero.
+    private func todaySum(identifier: HKQuantityTypeIdentifier, unit: HKUnit) async -> Double? {
+        guard let type = HKQuantityType.quantityType(forIdentifier: identifier) else { return nil }
+        let start = Calendar.current.startOfDay(for: Date())
+        return await sumQuantity(type: type, unit: unit, start: start, end: Date())
+    }
+
+    /// The activity name of today's most recent workout, e.g. "Walking".
+    ///
+    /// Restricted to today deliberately: reporting last Tuesday's run next to this morning's
+    /// vitals would misrepresent the snapshot. Nil when nothing was recorded today.
+    func todayLatestWorkoutTypeName() async -> String? {
+        let start = Calendar.current.startOfDay(for: Date())
+        let predicate = HKQuery.predicateForSamples(withStart: start, end: Date(), options: [])
+        let sort = [NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)]
+
+        let workout: HKWorkout? = await withCheckedContinuation { cont in
+            let q = HKSampleQuery(sampleType: HKObjectType.workoutType(),
+                                  predicate: predicate,
+                                  limit: 1,
+                                  sortDescriptors: sort) { _, samples, _ in
+                cont.resume(returning: samples?.first as? HKWorkout)
+            }
+            store.execute(q)
+        }
+
+        guard let workout = workout else { return nil }
+        return Self.workoutTypeName(for: workout.workoutActivityType)
+    }
+
+    /// Name for the workout kinds a Calmscient patient realistically records.
+    ///
+    /// HealthKit defines around eighty activity types and exposes no display name for any of
+    /// them, so this maps the common ones and lets the rest fall through to "Other" — a backend
+    /// row reading "Other" is more useful than one reading "type 3000".
+    static func workoutTypeName(for type: HKWorkoutActivityType) -> String {
+        switch type {
+        case .walking:                        return "Walking"
+        case .running:                        return "Running"
+        case .cycling:                        return "Cycling"
+        case .swimming:                       return "Swimming"
+        case .hiking:                         return "Hiking"
+        case .yoga:                           return "Yoga"
+        case .pilates:                        return "Pilates"
+        case .coreTraining:                   return "Core Training"
+        case .functionalStrengthTraining:     return "Strength Training"
+        case .traditionalStrengthTraining:    return "Strength Training"
+        case .highIntensityIntervalTraining:  return "HIIT"
+        case .elliptical:                     return "Elliptical"
+        case .rowing:                         return "Rowing"
+        case .stairClimbing, .stairs:         return "Stair Climbing"
+        case .dance, .cardioDance:            return "Dance"
+        case .mixedCardio:                    return "Cardio"
+        case .flexibility:                    return "Flexibility"
+        case .cooldown:                       return "Cooldown"
+        case .preparationAndRecovery:         return "Warm Up"
+        case .mindAndBody:                    return "Mind and Body"
+        case .wheelchairWalkPace,
+             .wheelchairRunPace:              return "Wheelchair"
+        default:                              return "Other"
+        }
+    }
+
+    /// A human-readable name for the hardware that produced the most recent activity data.
+    ///
+    /// Heart rate is checked first because only a Watch writes it, so a Watch user is reported as
+    /// "Apple Watch" rather than "iPhone"; step count is the fallback since an iPhone writes that
+    /// on its own. `device?.name` is the hardware, while `sourceRevision.source.name` is the app
+    /// that wrote the sample — the useful second choice for a third-party tracker that syncs
+    /// without declaring a device.
+    ///
+    /// Nil when there are no samples at all; the caller decides what to send instead.
+    func latestSampleSourceName() async -> String? {
+        let identifiers: [HKQuantityTypeIdentifier] = [.heartRate, .stepCount]
+
+        for identifier in identifiers {
+            guard let type = HKQuantityType.quantityType(forIdentifier: identifier) else { continue }
+            let sort = [NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)]
+
+            let sample: HKSample? = await withCheckedContinuation { cont in
+                let q = HKSampleQuery(sampleType: type, predicate: nil, limit: 1, sortDescriptors: sort) { _, samples, _ in
+                    cont.resume(returning: samples?.first)
+                }
+                store.execute(q)
+            }
+
+            if let name = sample?.device?.name, !name.isEmpty { return name }
+            if let name = sample?.sourceRevision.source.name, !name.isEmpty { return name }
+        }
+
+        return nil
     }
 }

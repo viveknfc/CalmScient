@@ -37,12 +37,10 @@ struct DrinkingControlView: View {
                 .padding(.bottom, 24)
             }
 
-            if viewModel.isLoading {
-                ProgressView()
-                    .progressViewStyle(.circular)
-                    .padding(24)
-                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12))
-            }
+            // Loading is shown by the app-wide toast activity indicator that the view model
+            // drives (`showToastActivity` / `hideToastActivity`). A second SwiftUI
+            // `ProgressView` overlay here would render a differently styled spinner on top
+            // of it, so it is intentionally not used.
         }
         .overlay(alignment: .topTrailing) {
             if viewModel.showsInfoPopover {

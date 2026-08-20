@@ -1246,3 +1246,35 @@ Ready?";
 "Exercise Type" = "Exercise Type";
 "No records" = "No records";
 "Clear" = "Clear";
+
+/* Health access prompt (dashboard) */
+"Share your health data?" = "Share your health data?";
+"Calmscient can read your heart rate, activity and sleep so your care team can see how you're doing between visits." = "Calmscient can read your heart rate, activity and sleep so your care team can see how you're doing between visits.";
+"On the next screen, tap Turn All Categories On." = "On the next screen, tap Turn All Categories On.";
+"Not now" = "Not now";
+"Connect" = "Connect";
+
+/* Health metric averages chart (Week / Month / Year) */
+"Week" = "Week";
+"Month" = "Month";
+"Year" = "Year";
+"Daily average" = "Daily average";
+"Monthly average" = "Monthly average";
+"Yearly average" = "Yearly average";
+"Insights" = "Insights";
+"Average" = "Average";
+"Highest" = "Highest";
+"Lowest" = "Lowest";
+"Highest systolic" = "Highest systolic";
+"Lowest systolic" = "Lowest systolic";
+"Change" = "Change";
+"Days with data" = "Days with data";
+"vs" = "vs";
+"Systolic" = "Systolic";
+"Diastolic" = "Diastolic";
+"Period" = "Period";
+"Value" = "Value";
+"Series" = "Series";
+"No data available for this period." = "No data available for this period.";
+"Highest diastolic" = "Highest diastolic";
+"Lowest diastolic" = "Lowest diastolic";

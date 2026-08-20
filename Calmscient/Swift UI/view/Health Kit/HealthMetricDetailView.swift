@@ -8,7 +8,7 @@
 import SwiftUI
 import UIKit
 
-// MARK: - Detail screen (date range + dated value list)
+// MARK: - Detail screen (Week / Month / Year averages chart + insights)
 
 @available(iOS 16.0, *)
 struct HealthMetricDetailView: View {
@@ -19,108 +19,49 @@ struct HealthMetricDetailView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: 22) {
 
-                // Date range selection (reuses the app-wide calendar bottom sheet)
-                VStack(alignment: .leading, spacing: 14) {
-                    dateField(title: "From".localized,
-                              valueText: viewModel.fromDateText) {
-                        viewModel.presentFromDatePicker()
-                    }
+                HealthMetricPeriodTabsView(
+                    periods: viewModel.periods,
+                    selectedPeriod: viewModel.selectedPeriod,
+                    onSelect: { viewModel.select($0) }
+                )
 
-                    dateField(title: "To".localized,
-                              valueText: viewModel.toDateText) {
-                        viewModel.presentToDatePicker()
-                    }
-
-                    Button {
-                        viewModel.loadRange()
-                    } label: {
-                        Text("Go".localized)
-                            .font(.system(size: 16, weight: .semibold))
-                            .foregroundStyle(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding(.vertical, 12)
-                            .background(LoginDesignSystem.ColorName.loginGradient)
-                            .clipShape(RoundedRectangle(cornerRadius: 12))
-                    }
-                    .padding(.top, 4)
-                    .padding(.horizontal, 20)
+                if !viewModel.periodRangeText.isEmpty {
+                    Text(viewModel.periodRangeText)
+                        .font(LoginDesignSystem.Typography.lexendRegular(size: 12))
+                        .foregroundStyle(.secondary)
+                        .padding(.horizontal, 16)
                 }
 
-                // Dated value list
-                if viewModel.rows.isEmpty && !viewModel.isLoading {
-                    Text("No data for the selected date.".localized)
-                        .font(.footnote)
-                        .foregroundStyle(.secondary)
-                        .frame(maxWidth: .infinity)
-                        .padding(.top, 40)
-                } else {
-                    ForEach(viewModel.rows) { row in
-                        VStack(alignment: .leading, spacing: 10) {
-                            Text(row.dateHeader)
-                                .font(.system(size: 15, weight: .semibold))
-                                .foregroundStyle(.secondary)
-                                .padding(.horizontal, 4)
+                HealthMetricChartCardView(
+                    title: viewModel.chartTitle,
+                    points: viewModel.points,
+                    orderedLabels: viewModel.orderedLabels,
+                    useBars: viewModel.useBars,
+                    showsLegend: viewModel.showsLegend,
+                    emptyMessage: emptyMessage
+                )
 
-                            valueCard(valueText: row.valueText)
-                        }
-                        .padding(.horizontal, 20)
-                    }
+                if !viewModel.insights.isEmpty {
+                    HealthMetricInsightsCardView(insights: viewModel.insights)
                 }
             }
             .padding(.vertical, 16)
         }
         .background(Color(.systemGroupedBackground))
         .overlay {
-            if viewModel.isLoading && viewModel.rows.isEmpty {
+            // First load is covered by the shared toast spinner; tab switches keep
+            // the previous chart on screen behind this one.
+            if viewModel.isLoading && viewModel.hasLoaded {
                 ProgressView()
             }
         }
-        .onAppear { if viewModel.rows.isEmpty { viewModel.loadCurrentDate() } }
+        .onAppear { viewModel.loadIfNeeded() }
     }
 
-    // A "From"/"To" label above the shared calendar field (WeeklySummaryGraphDateRangeHeaderView).
-    private func dateField(title: String,
-                           valueText: String,
-                           onTap: @escaping () -> Void) -> some View {
-        VStack(alignment: .leading, spacing: 6) {
-            Text(title)
-                .font(.custom(Fonts().lexendRegular, size: 13))
-                .foregroundStyle(.secondary)
-                .padding(.horizontal, 20)
-
-            WeeklySummaryGraphDateRangeHeaderView(
-                dateRangeText: valueText,
-                onCalendarTap: onTap
-            )
-        }
-    }
-
-    // Mirrors HealthMetricRowView's look (icon + title + value), without the star.
-    private func valueCard(valueText: String) -> some View {
-        HStack(spacing: 14) {
-            ZStack {
-                Circle()
-                    .fill(Color(.secondarySystemBackground))
-                    .frame(width: 40, height: 40)
-                Image(systemName: viewModel.metric.iconName)
-                    .font(.system(size: 18, weight: .medium))
-                    .foregroundStyle(Color.pink)
-            }
-
-            Text(viewModel.metric.titleKey.localized)
-                .font(.system(size: 16))
-                .foregroundStyle(.primary)
-
-            Spacer()
-
-            Text(valueText)
-                .font(.system(size: 16, weight: .semibold))
-                .foregroundStyle(.secondary)
-        }
-        .padding(.vertical, 12)
-        .padding(.horizontal, 16)
-        .background(Color(.systemBackground))
-        .clipShape(RoundedRectangle(cornerRadius: 14))
+    private var emptyMessage: String {
+        viewModel.hasLoaded
+            ? "No data available for this period.".localized
+            : ""
     }
 }
 

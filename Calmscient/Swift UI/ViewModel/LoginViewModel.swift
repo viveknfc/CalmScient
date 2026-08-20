@@ -199,6 +199,15 @@ final class LoginViewModel: ObservableObject {
         UserDefaults.standard.set("\(loginResponse.loginDetails.firstName)", forKey: "titleString")
         PatientLanguagePreference.persistLoginLanguage(languageId: loginResponse.loginDetails.languageId)
 
+        // Push the current health snapshot right away.
+        //
+        // For a user who declined "Remember Me" this is the only upload that will ever happen
+        // without them opening the Health Metrics screen, since no persisted session exists for a
+        // background wake-up to authenticate with. For everyone else it seeds the first slot now
+        // instead of waiting on iOS to grant a background wake, which can take hours on a fresh
+        // install.
+        HealthSyncCoordinator.shared.onLoginCompleted()
+
         let loginCount = loginResponse.loginDetails.loginCount
         if loginCount == 1 {
             finishLoginRequestUI()

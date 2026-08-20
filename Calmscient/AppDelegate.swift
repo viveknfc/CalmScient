@@ -25,6 +25,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // connection drops, and auto-dismisses when it returns.
         NoInternetOverlayPresenter.shared.start()
 
+        // Touch the reachability monitor during launch — including a background launch, where no
+        // scene ever connects — so `NWPathMonitor` has started before the first request goes out.
+        // `NetworkMonitor.isConnected` already defaults to `true`, so an unreported path cannot
+        // produce a false "no internet"; this only makes the start point explicit instead of
+        // leaving it to whichever caller happens to touch the singleton first.
+        _ = NetworkMonitor.shared.isConnected
+
+        // Health sync background triggers.
+        //
+        // `registerBackgroundTask()` has to run before `didFinishLaunching` returns — BGTaskScheduler
+        // throws if the handler is registered any later, including from the async block below.
+        // `startBackgroundTriggers()` is idempotent and does nothing when no persisted session
+        // exists yet; login calls it again once there is one.
+        HealthSyncCoordinator.shared.registerBackgroundTask()
+        HealthSyncCoordinator.shared.startBackgroundTriggers()
+
         DispatchQueue.main.async {
             self.checkNotificationPermission()
             UNUserNotificationCenter.current().delegate = self
@@ -187,6 +203,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication,
                      didFailToRegisterForRemoteNotificationsWithError error: Error) {
         print("❌ Failed to register: \(error)")
+    }
+
+    /// Silent push (`content-available: 1`) — the only sync trigger the backend controls.
+    ///
+    /// Firebase method swizzling is enabled (no `FirebaseAppDelegateProxyEnabled` override in
+    /// Info.plist), so FCM wraps this and still receives the payload; calling
+    /// `appDidReceiveMessage` here as well would double-count its analytics.
+    ///
+    /// The completion handler must be called, and honestly: reporting `.newData` when nothing was
+    /// uploaded teaches iOS the wake-up was worthwhile and it will keep granting them for a sync
+    /// that never produces anything.
+    func application(_ application: UIApplication,
+                     didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        Task {
+            let didSend = await HealthSyncCoordinator.shared.handleSilentPush()
+            completionHandler(didSend ? .newData : .noData)
+        }
     }
     
     

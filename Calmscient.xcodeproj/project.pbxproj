@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		064FD3D34228D418FA8EABAD /* HealthMetricInsightsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52EDE17CC67E39A9BD2D5BF /* HealthMetricInsightsCardView.swift */; };
 		19DB0DD9524A4A3E92DA3DE6 /* DrinkingControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C54DD31BDE445FAA15EC8B7 /* DrinkingControlView.swift */; };
+		1DECB18E453185B66BB2B2DB /* HealthMetricChartCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A41646DEF311E0431E42104 /* HealthMetricChartCardView.swift */; };
 		335389A72E8C1FC40041E61F /* Favourite Response Modal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 335389A62E8C1FBC0041E61F /* Favourite Response Modal.swift */; };
 		3379D6092E9434CF00D8C68F /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 3379D6082E9434CF00D8C68F /* FirebaseMessaging */; };
 		33C13688302B8AC9009BD63D /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33C13687302B8AC9009BD63D /* HealthKitManager.swift */; };
@@ -33,6 +35,7 @@
 		431C24872C47E77B00909C24 /* weeklySummaryImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 431C24862C47E77A00909C24 /* weeklySummaryImage.png */; };
 		433E538F2C46460A00A37E84 /* blurimage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 433E538E2C46460A00A37E84 /* blurimage.jpg */; };
 		433E53912C46467000A37E84 /* updateImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 433E53902C46467000A37E84 /* updateImage.png */; };
+		434A4BA0929DCB9A1A26E4C1 /* WearableDataAverageResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FDD0240331492299A1B8400F /* WearableDataAverageResponse.swift */; };
 		43508ACF2C48F0B5000B5645 /* pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 43508ACE2C48F0B4000B5645 /* pause.png */; };
 		43508AD92C4A70AD000B5645 /* comingsoon.png in Resources */ = {isa = PBXBuildFile; fileRef = 43508AD82C4A70AD000B5645 /* comingsoon.png */; };
 		43508AEB2C4D7F63000B5645 /* docpic.png in Resources */ = {isa = PBXBuildFile; fileRef = 43508AEA2C4D7F63000B5645 /* docpic.png */; };
@@ -134,6 +137,15 @@
 		A43776182A184A9F8789E103 /* TakingControlCalendarStripLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2AB19F9723DE4E77B807148E /* TakingControlCalendarStripLogic.swift */; };
 		A78192A3B4C5D6E7F8091A2B /* ExercisesHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C34D5E6F708192A3B4C5D6E7 /* ExercisesHostingController.swift */; };
 		AA77EFB6ED564CE7BAEB7831 /* TakingControlIndexPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8427CE50A3340EA9A6BD32C /* TakingControlIndexPresentation.swift */; };
+		AB0000000000000000000011 /* SessionKeychainStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000000000000000000010 /* SessionKeychainStore.swift */; };
+		AB0000000000000000000021 /* HealthSyncCredentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000000000000000000020 /* HealthSyncCredentials.swift */; };
+		AB0000000000000000000031 /* HealthSyncCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000000000000000000030 /* HealthSyncCoordinator.swift */; };
+		AB0000000000000000000041 /* HealthSyncConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000000000000000000040 /* HealthSyncConfiguration.swift */; };
+		AB0000000000000000000051 /* HealthSyncSlotStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000000000000000000050 /* HealthSyncSlotStore.swift */; };
+		AB0000000000000000000061 /* WearableDataUploadRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000000000000000000060 /* WearableDataUploadRequest.swift */; };
+		AB0000000000000000000071 /* HealthSyncSnapshotBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000000000000000000070 /* HealthSyncSnapshotBuilder.swift */; };
+		AB0000000000000000000081 /* HealthAccessPrompt.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000000000000000000080 /* HealthAccessPrompt.swift */; };
+		AB0000000000000000000091 /* HealthSyncDebugScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB0000000000000000000090 /* HealthSyncDebugScreen.swift */; };
 		APP2C02EFE051700000D01 /* AddNewAppointmentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = APP2C02EFE051700000C01 /* AddNewAppointmentViewModel.swift */; };
 		APP2C02EFE051700000D02 /* AddNewAppointmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = APP2C02EFE051700000C02 /* AddNewAppointmentView.swift */; };
 		APP2C02EFE051700000D03 /* AddNewAppointmentHostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = APP2C02EFE051700000C03 /* AddNewAppointmentHostingController.swift */; };
@@ -163,6 +175,7 @@
 		B2C3D4C72FAA800100000047 /* DayFeedbackMedicineCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4D72FAA800100000047 /* DayFeedbackMedicineCard.swift */; };
 		B2C3D4C82FAA800100000048 /* DayFeedbackJournalCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4D82FAA800100000048 /* DayFeedbackJournalCard.swift */; };
 		B2C3D4C92FAA800100000049 /* DayFeedbackBottomButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2C3D4D92FAA800100000049 /* DayFeedbackBottomButtons.swift */; };
+		B4D314C7F7A733F016F86DDE /* HealthMetricPeriodTabsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB6619AD2D088C6CA57605BE /* HealthMetricPeriodTabsView.swift */; };
 		B4F06ECDA2D647D4B3E3B057 /* SmokingControlViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B58FAC508D7A4712938F3774 /* SmokingControlViewModel.swift */; };
 		BKNG2C02EFE052000000D01 /* BasicKnowledgeRowPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BKNG2C02EFE052000000C01 /* BasicKnowledgeRowPresentation.swift */; };
 		BKNG2C02EFE052000000D02 /* BasicKnowledgeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BKNG2C02EFE052000000C02 /* BasicKnowledgeViewModel.swift */; };
@@ -335,6 +348,7 @@
 		CTQVM03EFE052000000D02 /* ReadyToQuitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CTQVM03EFE052000000C02 /* ReadyToQuitViewModel.swift */; };
 		CTQVM04EFE052000000D02 /* TryingToQuitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CTQVM04EFE052000000C02 /* TryingToQuitViewModel.swift */; };
 		CTQVM05EFE052000000D02 /* TobaccoFreeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CTQVM05EFE052000000C02 /* TobaccoFreeViewModel.swift */; };
+		D013D1775B4BF6053796D708 /* HealthMetricChartPresentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154179161A5F11EE35A53488 /* HealthMetricChartPresentation.swift */; };
 		D0AC6062D470BF2F3F78092B /* Pods_Calmscient.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F804732A5EA52F5DA440D3E9 /* Pods_Calmscient.framework */; };
 		D45E6F708192A3B4C5D6E7F8 /* ExercisesCardItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E26C0A1B2C3D4E5F60718293 /* ExercisesCardItem.swift */; };
 		DA8F6398D12A40A4B3B94353 /* TakingControlMenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 86DBB818082C4542B762CB28 /* TakingControlMenuButtonView.swift */; };
@@ -699,6 +713,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		154179161A5F11EE35A53488 /* HealthMetricChartPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMetricChartPresentation.swift; sourceTree = "<group>"; };
 		1C54DD31BDE445FAA15EC8B7 /* DrinkingControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkingControlView.swift; sourceTree = "<group>"; };
 		247DF8A513E1442A9121678E /* TakingControlCalendarStripView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakingControlCalendarStripView.swift; sourceTree = "<group>"; };
 		2AB19F9723DE4E77B807148E /* TakingControlCalendarStripLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakingControlCalendarStripLogic.swift; sourceTree = "<group>"; };
@@ -803,6 +818,7 @@
 		7CA8A077BA1945A8B556D6E2 /* TakingControlStatCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakingControlStatCardView.swift; sourceTree = "<group>"; };
 		86DBB818082C4542B762CB28 /* TakingControlMenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakingControlMenuButtonView.swift; sourceTree = "<group>"; };
 		86F591E35AFB4173935D889A /* TakingControlSegmentTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakingControlSegmentTabsView.swift; sourceTree = "<group>"; };
+		8A41646DEF311E0431E42104 /* HealthMetricChartCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMetricChartCardView.swift; sourceTree = "<group>"; };
 		984E3C40934A4227BFAB8823 /* TakingControlIndexView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakingControlIndexView.swift; sourceTree = "<group>"; };
 		A17B3C4D5E6F708192A3B4C5 /* ExercisesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesViewModel.swift; sourceTree = "<group>"; };
 		A1B2C3F12FAA800100000001 /* LoginDesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDesignSystem.swift; sourceTree = "<group>"; };
@@ -833,6 +849,15 @@
 		A39EF4662CC3C63C003A89A0 /* ExcercisesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExcercisesModel.swift; sourceTree = "<group>"; };
 		A3B8827A2CC7B3DF003C5133 /* SleepSummaryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SleepSummaryTableViewCell.swift; sourceTree = "<group>"; };
 		A3B8827B2CC7B3DF003C5133 /* SleepSummaryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SleepSummaryTableViewCell.xib; sourceTree = "<group>"; };
+		AB0000000000000000000010 /* SessionKeychainStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionKeychainStore.swift; sourceTree = "<group>"; };
+		AB0000000000000000000020 /* HealthSyncCredentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSyncCredentials.swift; sourceTree = "<group>"; };
+		AB0000000000000000000030 /* HealthSyncCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSyncCoordinator.swift; sourceTree = "<group>"; };
+		AB0000000000000000000040 /* HealthSyncConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSyncConfiguration.swift; sourceTree = "<group>"; };
+		AB0000000000000000000050 /* HealthSyncSlotStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSyncSlotStore.swift; sourceTree = "<group>"; };
+		AB0000000000000000000060 /* WearableDataUploadRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearableDataUploadRequest.swift; sourceTree = "<group>"; };
+		AB0000000000000000000070 /* HealthSyncSnapshotBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSyncSnapshotBuilder.swift; sourceTree = "<group>"; };
+		AB0000000000000000000080 /* HealthAccessPrompt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthAccessPrompt.swift; sourceTree = "<group>"; };
+		AB0000000000000000000090 /* HealthSyncDebugScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthSyncDebugScreen.swift; sourceTree = "<group>"; };
 		APP2C02EFE051700000C01 /* AddNewAppointmentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAppointmentViewModel.swift; sourceTree = "<group>"; };
 		APP2C02EFE051700000C02 /* AddNewAppointmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAppointmentView.swift; sourceTree = "<group>"; };
 		APP2C02EFE051700000C03 /* AddNewAppointmentHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewAppointmentHostingController.swift; sourceTree = "<group>"; };
@@ -1049,6 +1074,7 @@
 		DISC2C02EFE051800000C03 /* DiscoveryMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryMainView.swift; sourceTree = "<group>"; };
 		DISC2C02EFE051800000C04 /* DiscoveryMainHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoveryMainHostingController.swift; sourceTree = "<group>"; };
 		E26C0A1B2C3D4E5F60718293 /* ExercisesCardItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExercisesCardItem.swift; sourceTree = "<group>"; };
+		E52EDE17CC67E39A9BD2D5BF /* HealthMetricInsightsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMetricInsightsCardView.swift; sourceTree = "<group>"; };
 		E7D1A2B00EFE1000A00010011 /* MainTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarView.swift; sourceTree = "<group>"; };
 		E7D1A2B00EFE1000A00010012 /* MainTabStoryboardTabs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabStoryboardTabs.swift; sourceTree = "<group>"; };
 		E7D1A2B00EFE1000A00010013 /* MainTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModel.swift; sourceTree = "<group>"; };
@@ -1114,6 +1140,7 @@
 		E7LSP0072FAA800100000007 /* LaunchScreenHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenHostingController.swift; sourceTree = "<group>"; };
 		E7LSP0092FAA800100000009 /* LaunchScreenViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenViewModel.swift; sourceTree = "<group>"; };
 		E8F9A0B12FAA900200000001 /* DayFeedbackEveningReminderScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayFeedbackEveningReminderScheduler.swift; sourceTree = "<group>"; };
+		EB6619AD2D088C6CA57605BE /* HealthMetricPeriodTabsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthMetricPeriodTabsView.swift; sourceTree = "<group>"; };
 		EDFCAF88A1842D36A997BA44 /* Pods-Calmscient.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Calmscient.debug.xcconfig"; path = "Target Support Files/Pods-Calmscient/Pods-Calmscient.debug.xcconfig"; sourceTree = "<group>"; };
 		EXCRD02B4C5D6E7F8091A2B3 /* ExercisesCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExercisesCardView.swift; path = ExercisesHome/ExercisesCardView.swift; sourceTree = "<group>"; };
 		EXFAV2C02EFE052000000C01 /* ExerciseFavoriteToggle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExerciseFavoriteToggle.swift; sourceTree = "<group>"; };
@@ -1128,6 +1155,7 @@
 		FCS1A2B02EFE05200000003 /* FullComingSoonViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullComingSoonViewModel.swift; sourceTree = "<group>"; };
 		FCS1A2B02EFE05200000005 /* FullComingSoonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullComingSoonView.swift; sourceTree = "<group>"; };
 		FCS1A2B02EFE05200000007 /* FullComingSoonHostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullComingSoonHostingController.swift; sourceTree = "<group>"; };
+		FDD0240331492299A1B8400F /* WearableDataAverageResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WearableDataAverageResponse.swift; sourceTree = "<group>"; };
 		GLS2C02EFE051900000C01 /* GlossaryTermRowPresentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryTermRowPresentation.swift; sourceTree = "<group>"; };
 		GLS2C02EFE051900000C02 /* GlossaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryViewModel.swift; sourceTree = "<group>"; };
 		GLS2C02EFE051900000C03 /* GlossaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlossaryView.swift; sourceTree = "<group>"; };
@@ -1405,6 +1433,7 @@
 				33C13687302B8AC9009BD63D /* HealthKitManager.swift */,
 				33C13689302B8ADA009BD63D /* HealthMetric.swift */,
 				33C1368B302B8AE8009BD63D /* HealthMetricSample.swift */,
+				AB0000000000000000000001 /* Sync */,
 			);
 			path = HealthKit;
 			sourceTree = "<group>";
@@ -1417,6 +1446,9 @@
 				33C1369E302C534A009BD63D /* HealthMetricRowView.swift */,
 				33C136A0302C537F009BD63D /* HealthMetricSectionView.swift */,
 				33C13853302CAC40009BD63D /* HealthMetricDetailView.swift */,
+				E52EDE17CC67E39A9BD2D5BF /* HealthMetricInsightsCardView.swift */,
+				8A41646DEF311E0431E42104 /* HealthMetricChartCardView.swift */,
+				EB6619AD2D088C6CA57605BE /* HealthMetricPeriodTabsView.swift */,
 				CA1E7DA7E0000000000A000E /* HealthDataRangeView.swift */,
 			);
 			path = "Health Kit";
@@ -1715,6 +1747,8 @@
 				33C13851302CAA87009BD63D /* WearableMetricValueMapper.swift */,
 				CA1E7DA7E0000000000A0002 /* WearableRangeDayPresentation.swift */,
 				33C1384F302CA641009BD63D /* WearableDataRangeResponse.swift */,
+				154179161A5F11EE35A53488 /* HealthMetricChartPresentation.swift */,
+				FDD0240331492299A1B8400F /* WearableDataAverageResponse.swift */,
 				33C1384D302CA392009BD63D /* WearableDataAPICodables.swift */,
 				33C1369C302B9821009BD63D /* HealthMetricDetailPresentation.swift */,
 				33C13698302B9582009BD63D /* HealthMetricRowPresentation.swift */,
@@ -1969,6 +2003,22 @@
 				43A08DA82C3EE2C40082F47B /* Font */,
 			);
 			name = "Media & Assets";
+			sourceTree = "<group>";
+		};
+		AB0000000000000000000001 /* Sync */ = {
+			isa = PBXGroup;
+			children = (
+				AB0000000000000000000030 /* HealthSyncCoordinator.swift */,
+				AB0000000000000000000020 /* HealthSyncCredentials.swift */,
+				AB0000000000000000000010 /* SessionKeychainStore.swift */,
+				AB0000000000000000000090 /* HealthSyncDebugScreen.swift */,
+				AB0000000000000000000080 /* HealthAccessPrompt.swift */,
+				AB0000000000000000000070 /* HealthSyncSnapshotBuilder.swift */,
+				AB0000000000000000000040 /* HealthSyncConfiguration.swift */,
+				AB0000000000000000000050 /* HealthSyncSlotStore.swift */,
+				AB0000000000000000000060 /* WearableDataUploadRequest.swift */,
+			);
+			path = Sync;
 			sourceTree = "<group>";
 		};
 		APP2C02EFE051700000G01 /* Add New Appointment */ = {
@@ -3197,6 +3247,9 @@
 				C230434D2D10903B001E152B /* FontLM14.swift in Sources */,
 				A39EF4672CC3C63C003A89A0 /* ExcercisesModel.swift in Sources */,
 				33C13854302CAC40009BD63D /* HealthMetricDetailView.swift in Sources */,
+				064FD3D34228D418FA8EABAD /* HealthMetricInsightsCardView.swift in Sources */,
+				1DECB18E453185B66BB2B2DB /* HealthMetricChartCardView.swift in Sources */,
+				B4D314C7F7A733F016F86DDE /* HealthMetricPeriodTabsView.swift in Sources */,
 				CA1E7DA7E0000000000A000D /* HealthDataRangeView.swift in Sources */,
 				33C136A1302C537F009BD63D /* HealthMetricSectionView.swift in Sources */,
 				4A65C2F42BD6852C00809222 /* AppDelegate.swift in Sources */,
@@ -3219,6 +3272,15 @@
 				C267D18B2D5DE2E100564FE3 /* TokenExpiryCheck.swift in Sources */,
 				C2A7F2262DA4E7B300E41D5A /* scheduleAlarmNotification.swift in Sources */,
 				33C13688302B8AC9009BD63D /* HealthKitManager.swift in Sources */,
+				AB0000000000000000000031 /* HealthSyncCoordinator.swift in Sources */,
+				AB0000000000000000000091 /* HealthSyncDebugScreen.swift in Sources */,
+				AB0000000000000000000081 /* HealthAccessPrompt.swift in Sources */,
+				AB0000000000000000000071 /* HealthSyncSnapshotBuilder.swift in Sources */,
+				AB0000000000000000000041 /* HealthSyncConfiguration.swift in Sources */,
+				AB0000000000000000000051 /* HealthSyncSlotStore.swift in Sources */,
+				AB0000000000000000000061 /* WearableDataUploadRequest.swift in Sources */,
+				AB0000000000000000000021 /* HealthSyncCredentials.swift in Sources */,
+				AB0000000000000000000011 /* SessionKeychainStore.swift in Sources */,
 				4A0E1F9E2BEB3C44008389C4 /* NetworkAPIRequest.swift in Sources */,
 				4A87C14B2C011D3E004E04CC /* WeeklySummaryAPICodables.swift in Sources */,
 				4AD5D1022BD7A60E00E4C945 /* AppMainTabViewController.swift in Sources */,
@@ -3378,6 +3440,8 @@
 				MNDF011A3B4C5D6E7F8091A2 /* MindfulnessHostingController.swift in Sources */,
 				PRGS001A3B4C5D6E7F8091A2 /* ProgressivePresentation.swift in Sources */,
 				33C13850302CA642009BD63D /* WearableDataRangeResponse.swift in Sources */,
+				D013D1775B4BF6053796D708 /* HealthMetricChartPresentation.swift in Sources */,
+				434A4BA0929DCB9A1A26E4C1 /* WearableDataAverageResponse.swift in Sources */,
 				PRGS003A3B4C5D6E7F8091A2 /* ProgressiveViewModel.swift in Sources */,
 				PRGS005A3B4C5D6E7F8091A2 /* ProgressiveHeaderView.swift in Sources */,
 				PRGS007A3B4C5D6E7F8091A2 /* ProgressiveEqualizerView.swift in Sources */,
@@ -3935,14 +3999,14 @@
 				CODE_SIGN_ENTITLEMENTS = Calmscient/Calmscient.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 842J5G3PU2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Calmscient/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Calmscient;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Calmscient reads your health metrics (heart rate, activity, sleep and more) to show your trends and share them securely with your care team.";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "CalmScient uses Health access to save your wellness activity to the Health app.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Calmscient needs access to update your health data to help track and manage your health and wellness information.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Please allow access to save photo in your photo library";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to select photos and videos.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -3981,14 +4045,14 @@
 				CODE_SIGN_ENTITLEMENTS = Calmscient/Calmscient.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 842J5G3PU2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Calmscient/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Calmscient;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSHealthShareUsageDescription = "Calmscient reads your health metrics (heart rate, activity, sleep and more) to show your trends and share them securely with your care team.";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "CalmScient uses Health access to save your wellness activity to the Health app.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Calmscient needs access to update your health data to help track and manage your health and wellness information.";
 				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "Please allow access to save photo in your photo library";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "We need access to your photo library to select photos and videos.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
