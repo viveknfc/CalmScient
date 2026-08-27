@@ -29,6 +29,10 @@ struct HomeTabView: View {
 
     let navigationTitle: String
     let showMedicationsAsHome: Bool
+    /// Bumped by `MainTabBarViewModel` on every user tab selection. The tab used to be
+    /// rebuilt outright at that point (which is what crashed UIKit's navigation bar
+    /// layout), so popping to the root here keeps the same behaviour safely.
+    let rootResetToken: Int
 
     @State private var path: [HomeRoute] = []
 
@@ -38,6 +42,10 @@ struct HomeTabView: View {
                 .navigationDestination(for: HomeRoute.self) { route in
                     destination(for: route)
                 }
+        }
+        .onChange(of: rootResetToken) { _ in
+            guard !path.isEmpty else { return }
+            path.removeAll()
         }
     }
 
@@ -725,10 +733,13 @@ private struct HomeDashboardRoute: View {
                 // comes back byte-identical. `reloadLocalizedChrome()` publishes only if
                 // the language really changed, so this stays a no-op otherwise.
                 viewModel.reloadLocalizedChrome()
-                // A language change already has a spinner up on Settings (this tab is
-                // alive but behind it), so refresh silently there; a tab switch still
-                // shows the dashboard spinner exactly as before.
-                viewModel.fetchFavoritesFromNetwork(showsToast: !notification.isFavLanLanguageChange)
+                // Same refresh for every origin; only the spinner is conditional. A
+                // language change already has one up on Settings, and a tab switch is a
+                // background top-up over already-rendered cached favourites — the spinner
+                // there anchors to the key window and froze the whole app until
+                // `fetchMenus` returned. Leaving a lesson or a favourites video keeps it,
+                // because the user may just have changed a favourite.
+                viewModel.fetchFavoritesFromNetwork(showsToast: notification.favLanUpdateShowsFavoritesSpinner)
             }
     }
 }

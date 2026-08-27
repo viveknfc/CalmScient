@@ -65,8 +65,8 @@ final class HomeDashboardViewModel: ObservableObject {
         let rows = [
             ("My medical records".localized, "MyMedicalRecordsIcon"),
             ("Weekly summary".localized, "weeklySummay1"),
-            ("Mental wellbeing tracker".localized, "mentalWellbeing"),
-            ("Health Metrics".localized, "NotePad")
+            ("Mental wellbeing tracker".localized, "mentalWellbeing")
+//            ("Health Metrics".localized, "NotePad")
         ]
         if !Self.menuRowsMatch(menuRows, rows) {
             menuRows = rows
@@ -108,7 +108,7 @@ final class HomeDashboardViewModel: ObservableObject {
         // Patients who never open Health Metrics are precisely the ones background sync exists
         // for, and until now nothing ever asked them for HealthKit access. The prompt gates itself
         // on whether asking would achieve anything, so for everyone else this call does nothing.
-        HealthAccessPrompt.presentIfNeeded(from: hostViewController)
+//        HealthAccessPrompt.presentIfNeeded(from: hostViewController) // viv commented to remove the health kit aleert
     }
 
     private func checkTokenAndFetchFavoritesIfNeeded() {
@@ -290,10 +290,56 @@ final class HomeDashboardViewModel: ObservableObject {
         }
     }
 
+    /// The favourite's thumbnail, or `nil` when it has none the tile could ever load.
+    ///
+    /// `URL(string:)` alone is far too permissive: it happily returns a *relative* URL for
+    /// a blank-ish value, a bare filename or a stray `"null"`, all of which the server does
+    /// send for favourites that have no real thumbnail (exercise favourites in particular).
+    /// The tile then started a request that could only fail, and `AsyncImage` sat in
+    /// `.failure` — which used to render a spinner, so those tiles turned forever.
+    ///
+    /// Only absolute `http`/`https` URLs with a host survive, so an unusable value now
+    /// takes the same "no thumbnail" path as a missing key and the tile renders as the
+    /// plain placeholder. Any value that previously produced a working URL is unchanged.
     func thumbnailURL(for item: [String: Any]) -> URL? {
-        let s = (item["thumbnailUrl"] as? String) ?? (item["thumbnail"] as? String)
-        guard let s, let url = URL(string: s) else { return nil }
+        let raw = (item["thumbnailUrl"] as? String) ?? (item["thumbnail"] as? String)
+        guard let trimmed = raw?.trimmingCharacters(in: .whitespacesAndNewlines),
+              !trimmed.isEmpty,
+              let url = URL(string: trimmed),
+              let scheme = url.scheme?.lowercased(),
+              scheme == "http" || scheme == "https",
+              let host = url.host,
+              !host.isEmpty
+        else { return nil }
         return url
+    }
+
+    /// Bundled artwork for a favorite the server sent no usable `thumbnailUrl` for.
+    ///
+    /// Only exercise favorites can be resolved: `ExerciseFavoriteToggle` never sends a
+    /// thumbnail, so the backend has to derive one, and for the rows it cannot resolve the
+    /// tile had nothing at all to draw. `screenCode` is the same key `openFavorite` routes
+    /// on; when it is missing the stored title is matched instead, exactly as
+    /// `localizedFavoriteTitle(for:)` does. Video and article favorites return `nil` and
+    /// keep the plain placeholder they have always shown.
+    func fallbackThumbnailAssetName(for item: [String: Any]) -> String? {
+        guard Self.isExerciseFavorite(item) else { return nil }
+
+        if let screenCode = item["screenCode"] as? Int,
+           let exercise = ExcercisesTypeEnum(rawValue: screenCode) {
+            return exercise.favoriteThumbnailAssetName
+        }
+        if let rawTitle = item["title"] as? String,
+           let exercise = ExcercisesTypeEnum.matching(serverTitle: rawTitle) {
+            return exercise.favoriteThumbnailAssetName
+        }
+        return nil
+    }
+
+    /// The server has spelled this flag both ways; `openFavorite` and the title lookup
+    /// already accept either, so the artwork lookup has to agree with them.
+    private static func isExerciseFavorite(_ item: [String: Any]) -> Bool {
+        (item["isFromExercises"] as? Int) == 1 || (item["isFromExcercise"] as? Int) == 1
     }
 
     func localizedFavoriteTitle(for item: [String: Any]) -> String {

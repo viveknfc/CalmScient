@@ -279,19 +279,31 @@ class MedicationAlarm: Codable {
             medicineTime = "18:00:00"
         }
         plId = userInfo.patientLocationID
-        `repeat` = MedicationAlarm.getLocalizedWeekDays()
+        `repeat` = MedicationAlarm.canonicalWeekDays
     }
 
-    private static func getLocalizedWeekDays() -> [String] {
-        return [
-            "medication_weekday_sun".localized,
-            "medication_weekday_mon".localized,
-            "medication_weekday_tue".localized,
-            "medication_weekday_wed".localized,
-            "medication_weekday_thu".localized,
-            "medication_weekday_fri".localized,
-            "medication_weekday_sat".localized
-        ]
+    /// Wire-format day tokens for `repeat`. Always English, in every app language —
+    /// the backend and the local weekday maps (`weekdayMap` / `convertDaysToNumbers`)
+    /// both key off these. Localized weekday names are for display only.
+    static let canonicalWeekDays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+
+    /// Maps a day token in any supported app language back to its English wire token.
+    /// Used on encode so a value that came from the server in `es`/`ja` (or from an
+    /// older build that sent localized tokens) still goes out as English.
+    private static let weekDayWireTokens: [String: String] = [
+        // English (already canonical)
+        "Sun": "Sun", "Mon": "Mon", "Tue": "Tue", "Wed": "Wed", "Thu": "Thu", "Fri": "Fri", "Sat": "Sat",
+        // Spanish
+        "Dom": "Sun", "Lun": "Mon", "Mar": "Tue", "Mié": "Wed", "Mie": "Wed",
+        "Jue": "Thu", "Vie": "Fri", "Sáb": "Sat", "Sab": "Sat",
+        // Japanese
+        "日": "Sun", "月": "Mon", "火": "Tue", "水": "Wed", "木": "Thu", "金": "Fri", "土": "Sat",
+    ]
+
+    /// `repeat` normalized to English tokens for the request body. Unknown tokens are
+    /// passed through untouched rather than dropped, so nothing is silently lost.
+    private var repeatWireValue: [String] {
+        `repeat`.map { MedicationAlarm.weekDayWireTokens[$0] ?? $0 }
     }
     
     public func getDayTime() -> DayTimeValue {
@@ -366,15 +378,18 @@ class MedicationAlarm: Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(alarmDate, forKey: .alarmDate)
         try container.encode(alarmId, forKey: .alarmId)
-        try container.encode(alarmInterval, forKey: .alarmInterval)
+        // `alarmInterval` / `pmtId` are held as String (that is how the API returns them),
+        // but the request body expects numbers. An empty/non-numeric value means "none" -> 0.
+        try container.encode(Int(alarmInterval) ?? 0, forKey: .alarmInterval)
         try container.encode(plId, forKey: .plId)
         try container.encode(medicationId, forKey: .medicationId)
-        try container.encode(medicineTakenID, forKey: .medicineTakenID)
+        // `medicineTakenID` is read-only state from the medications GET; addMedications
+        // does not use it, so it is deliberately not part of the request body.
         try container.encode(flag, forKey: .flag)
-        try container.encode(pmtId, forKey: .pmtId)
+        try container.encode(Int(pmtId) ?? 0, forKey: .pmtId)
 //        try container.encode(alarmEnabled, forKey: .alarmEnabled)
         try container.encode(medicineTime, forKey: .medicineTime)
-        try container.encode(`repeat`, forKey: .repeat)
+        try container.encode(repeatWireValue, forKey: .repeat)
 //        try container.encode(alarmTime, forKey: .alarmTime)
 //        try container.encode(medicineTaken, forKey: .medicineTaken)
         try container.encode(isEnabled, forKey: .isEnabled)

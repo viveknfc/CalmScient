@@ -13,8 +13,17 @@ class APIService: UIViewController {
     static var ProducitonURL = "https://calmscient.in/api/"
     static var DevURL = "http://147.93.41.160/api/"
     
-    static var Url4Courses = "https://calmscient.in/courses/" //"http://147.93.41.160/courses/" //
-    static var BaseUrl = DevURL
+    static var ProductionCoursesURL = "https://calmscient.in/courses/"
+    static var DevCoursesURL = "http://147.93.41.160/courses/"
+
+    static var BaseUrl = ProducitonURL
+
+    /// Courses web app host, derived from `BaseUrl` so the lesson WebView is never loaded
+    /// from a different environment than the API that issued the session — a dev-issued
+    /// `sessionId` / access token is rejected by the prod courses site with a 401.
+    static var Url4Courses: String {
+        BaseUrl == DevURL ? DevCoursesURL : ProductionCoursesURL
+    }
     
     static var versionCheck = "identity/api/v1/settings/getAppVersion"
     
@@ -365,6 +374,19 @@ class APIService: UIViewController {
         request.setValue("\(body.count)", forHTTPHeaderField: "Content-Length")
         request.timeoutInterval = 6
 
+        // Console-only trace. The multipart body is raw image bytes, so the form fields
+        // are passed explicitly rather than dumped from `httpBody`.
+        APILogger.logRequest(
+            request,
+            params: [
+                "patientId": patientId,
+                "clientId": clientId,
+                "file": "\(fileName) (\(fileData.count) bytes)"
+            ],
+            placement: "multipart form-data",
+            label: "uploadProfileImage"
+        )
+
         Crashlytics.crashlytics().setCustomValue(urlString, forKey: "api_url")
         Crashlytics.crashlytics().setCustomValue("POST", forKey: "http_method")
 
@@ -573,6 +595,10 @@ class APIService: UIViewController {
         request.setValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
         request.httpBody = body
         request.timeoutInterval = HealthSyncConfiguration.requestTimeout
+
+        // Console-only trace. `params` is left nil so the encoded payload is read back
+        // out of `httpBody` — no second copy of the model to keep in sync.
+        APILogger.logRequest(request, placement: "body", label: "postWearableData")
 
         Crashlytics.crashlytics().setCustomValue(urlString, forKey: "api_url")
         Crashlytics.crashlytics().setCustomValue("POST", forKey: "http_method")
@@ -1214,7 +1240,12 @@ class APIService: UIViewController {
         Crashlytics.crashlytics().setCustomValue(params.description, forKey: "parameters")
         
         print("Final request: \(request)")
-        
+
+        // Console-only trace of the complete URL + params, for every endpoint routed
+        // through this function. Debug builds only, and it affects nothing below this
+        // line. See `APILogger` in NetworkLogger.swift.
+        APILogger.logRequest(request, params: params, placement: parameterPlacement)
+
         let sessionConfig = URLSessionConfiguration.default
         let session = URLSession(configuration: sessionConfig)
         

@@ -110,29 +110,63 @@ extension Notification.Name {
 
 // MARK: - `favLanUpdated` origin
 //
-// `favLanUpdated` is posted from two very different places: a tab switch (the Home
-// dashboard is about to be shown, so its own spinner is the right feedback) and a
-// Settings language change (Settings already shows a spinner for the update, and the
-// dashboard listener below refreshes a screen that is *not* in front). Untagged, the
-// language flow therefore put a second spinner on screen on top of the Settings one.
+// `favLanUpdated` is posted from three very different places, and only one of them is
+// the user asking for fresh favourites:
 //
-// Tagging the post lets the listeners keep doing the exact same refresh work while
-// skipping only the duplicate spinner.
+//  • Leaving a lesson or a favourites video (`WebViewLessonViewModel`,
+//    `FavoritesVideosWebViewModel`). The user may have toggled a favourite, so the
+//    payload really is expected to change and the dashboard spinner is the right
+//    feedback. These stay untagged.
+//  • A Settings language change (`UserProfileViewModel`). Settings already shows a
+//    spinner for the update and the dashboard it refreshes is *not* in front, so an
+//    untagged post put a second spinner on top of the Settings one.
+//  • Every tab switch (`MainTabBarViewModel`). This is a background top-up, not a
+//    user-initiated reload: the dashboard already renders the cached favourites from
+//    `FavoriteManager` immediately and re-renders when the response lands. The spinner
+//    is worse than useless here — `showToastActivity()` anchors to the key window for
+//    SwiftUI-hosted screens, so it appeared over whichever tab the user landed on and
+//    disabled interaction app-wide until `fetchMenus` returned.
+//
+// Tagging the post lets every listener keep doing the exact same refresh work while
+// skipping only the spinner that does not belong to it.
 
 enum FavLanUpdate {
     static let reasonKey = "favLanUpdateReason"
     static let languageChangeReason = "languageChange"
+    static let tabSwitchReason = "tabSwitch"
 
     /// `userInfo` for a `favLanUpdated` post triggered by a language change.
     static var languageChangeUserInfo: [String: Any] {
         [reasonKey: languageChangeReason]
+    }
+
+    /// `userInfo` for a `favLanUpdated` post triggered by a main tab-bar selection.
+    static var tabSwitchUserInfo: [String: Any] {
+        [reasonKey: tabSwitchReason]
     }
 }
 
 extension Notification {
     /// True only for a `favLanUpdated` post that a language change tagged.
     var isFavLanLanguageChange: Bool {
-        (userInfo?[FavLanUpdate.reasonKey] as? String) == FavLanUpdate.languageChangeReason
+        favLanUpdateReason == FavLanUpdate.languageChangeReason
+    }
+
+    /// True only for a `favLanUpdated` post that a main tab-bar selection tagged.
+    var isFavLanTabSwitch: Bool {
+        favLanUpdateReason == FavLanUpdate.tabSwitchReason
+    }
+
+    /// Whether the favourites refresh this post triggers should own a blocking spinner.
+    ///
+    /// Only the untagged posts — the ones that follow a screen where the user could have
+    /// changed a favourite — do. See the origin note above.
+    var favLanUpdateShowsFavoritesSpinner: Bool {
+        !isFavLanLanguageChange && !isFavLanTabSwitch
+    }
+
+    private var favLanUpdateReason: String? {
+        userInfo?[FavLanUpdate.reasonKey] as? String
     }
 }
 

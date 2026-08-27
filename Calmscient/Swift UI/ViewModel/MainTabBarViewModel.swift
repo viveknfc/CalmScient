@@ -24,7 +24,25 @@ final class MainTabBarViewModel: ObservableObject {
 
     @Published var selectedTab: MainTab = .home
     /// Bumped whenever the legacy `prepareTabs()` flow rebuilt all tab stacks.
+    ///
+    /// Read by the UIKit-backed tab only (`MainTabStoryboardHost`, i.e. Discovery), whose
+    /// `UINavigationController` still has to be rebuilt the way `prepareTabs()` did.
+    ///
+    /// It must NOT key the three native SwiftUI tabs. `MainTabBarView` used to include it
+    /// in the `.id(...)` of *every* tab page, so a tab tap tore down and re-created each
+    /// tab's `NavigationStack` in the middle of the `TabView` transition. Two
+    /// `SwiftUI.UIKitNavigationBar`s then existed for the same tab, the new one adopted
+    /// the outgoing bar's `UINavigationItem`, and the still-visible old bar crashed with
+    /// "Layout requested for visible navigation bar … when the top item belongs to a
+    /// different navigation bar (possibly from a client attempt to nest wrapped
+    /// navigation controllers)".
     @Published private(set) var contentGeneration: Int = 0
+    /// Bumped on every *user* tab selection so the native tabs pop back to their root.
+    ///
+    /// The blanket rebuild above used to do this as a side effect. The native tabs now
+    /// keep their identity and clear their `NavigationStack` path instead, which is the
+    /// same user-visible behaviour without recreating any navigation bar.
+    @Published private(set) var tabRootResetToken: Int = 0
     @Published private(set) var localizedTitles: [String] = []
 
     /// Mirrors `AppMainTabViewController.isInitalView` (typo preserved for call sites).
@@ -87,9 +105,23 @@ final class MainTabBarViewModel: ObservableObject {
         isInitalView = false
         // Legacy compared the tab root (always a `UINavigationController`) to `FavoritesVideosWebViewController`,
         // so the condition was effectively always true; keep posting on every selection.
-        NotificationCenter.default.post(name: .favLanUpdated, object: nil)
+        //
+        // Tagged so the dashboard refreshes favourites *silently*. The refresh itself is
+        // unchanged — only the blocking spinner is dropped, because a tab switch is a
+        // background top-up rather than the user asking to reload. See the origin note in
+        // `FavouritesGeneralManager`.
+        NotificationCenter.default.post(
+            name: .favLanUpdated,
+            object: nil,
+            userInfo: FavLanUpdate.tabSwitchUserInfo
+        )
         print("✅ Posted favLanUpdated when switching tabs")
         prepareTabsCycle(reason: "didSelect")
+        // Replaces the native-tab teardown that `contentGeneration` used to force: each
+        // native tab reopens at its root, but its `NavigationStack` (and therefore its
+        // navigation bar) is never destroyed. `selectedTab` only ever changes from the
+        // `TabView`, so this really is a user selection.
+        tabRootResetToken &+= 1
     }
 }
 

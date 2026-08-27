@@ -177,6 +177,15 @@ final class NeedToTalkViewModel: ObservableObject {
             return
         }
 
+        // Console-only trace. This endpoint builds its own request instead of going
+        // through `APIService`, so it needs its own log line.
+        APILogger.logRequest(
+            request,
+            params: payload,
+            placement: "body",
+            label: "getNeedToTalkWithSomeoneDetails"
+        )
+
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             if let error = error {
                 print("Error with request: \(error)")

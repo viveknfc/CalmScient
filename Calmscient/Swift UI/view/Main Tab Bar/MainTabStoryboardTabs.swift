@@ -38,39 +38,25 @@ private let mainTabUnselectedImages = [
     "MainTab_Home_Unselected", "MainTab_Discovery_Unselected", "MainTab_Exercises_Unselected", "MainTab_Rewards_UnSelected",
 ]
 
+/// The remaining UIKit-backed tab (Discovery).
+///
+/// Home, Exercises and Rewards are native SwiftUI (`HomeTabView`, `ExercisesTabView`,
+/// `RewardsTabView`); their cases used to live here behind `assertionFailure`, which was
+/// unreachable code that would have trapped in debug if it were ever hit.
 @available(iOS 16.0, *)
 struct MainTabStoryboardHost: UIViewControllerRepresentable {
 
     var generation: Int
     let tab: MainTab
-    let showMedicationsAsHome: Bool
     let navigationTitle: String
     let tabTitle: String
     let tabImageUnselectedName: String
     let tabImageSelectedName: String
 
     func makeUIViewController(context: Context) -> UINavigationController {
-        let nav: UINavigationController
-        switch tab {
-        case .home:
-            // Home is rendered natively by `HomeTabView`.
-            assertionFailure("Home tab is rendered by HomeTabView, not MainTabStoryboardHost")
-            nav = UINavigationController(rootViewController: HomeDashboardHostingController())
-        case .discovery:
-            let discoveryRoot = DiscoveryMainHostingController()
-            nav = UINavigationController(rootViewController: discoveryRoot)
-        case .exercises:
-            // Exercises is rendered natively by `ExercisesTabView`.
-            assertionFailure("Exercises tab is rendered by ExercisesTabView, not MainTabStoryboardHost")
-            nav = UINavigationController(rootViewController: ExercisesHostingController())
-        case .rewards:
-            // Rewards is rendered natively by `RewardsTabView`; `MainTabBarView` never
-            // routes this tab through the representable any more.
-            assertionFailure("Rewards tab is rendered by RewardsTabView, not MainTabStoryboardHost")
-            nav = UINavigationController(rootViewController: UIViewController())
-        }
+        let nav = UINavigationController(rootViewController: DiscoveryMainHostingController())
 
-        if tab != .home, !navigationTitle.isEmpty {
+        if !navigationTitle.isEmpty {
             nav.title = navigationTitle
             nav.viewControllers.first?.title = navigationTitle
         }
@@ -95,4 +81,8 @@ struct MainTabStoryboardHost: UIViewControllerRepresentable {
 extension MainTab {
     var defaultUnselectedImageName: String { mainTabUnselectedImages[rawValue] }
     var defaultSelectedImageName: String { mainTabSelectedImages[rawValue] }
+
+    /// `true` only for tabs still rendered by `MainTabStoryboardHost`. Those are the only
+    /// pages `MainTabBarView` may key on `contentGeneration`; see `pageIdentity(for:)`.
+    var usesStoryboardHost: Bool { self == .discovery }
 }

@@ -14,7 +14,11 @@ public typealias NetworkRequestCompletionHandler<T:Codable> = ((_ responseType:T
 public class NetworkAPIRequest {
     public class func sendRequest<T:Codable>(request:URLRequest, completionHandler:@escaping(NetworkRequestCompletionHandler<T>))  {
         NetworkLogger.log(request: request)
-        
+
+        // Console-only trace of the complete URL + params for the typed `Codable`
+        // request path. Debug builds only. See `APILogger` in NetworkLogger.swift.
+        APILogger.logRequest(request)
+
         Crashlytics.crashlytics().setCustomValue(request.url?.absoluteString ?? "nil", forKey: "api_url")
         Crashlytics.crashlytics().setCustomValue(request.httpMethod ?? "nil", forKey: "http_method")
 

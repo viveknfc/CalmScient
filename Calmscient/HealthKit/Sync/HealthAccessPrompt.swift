@@ -34,6 +34,9 @@ enum HealthAccessPrompt {
     private static var hasShownThisLaunch = false
 
     static func presentIfNeeded(from host: UIViewController?) {
+        
+        return   // TEMP: HealthKit hidden for client build — revert
+        
         guard let host = host else { return }
         guard !hasShownThisLaunch else { return }
 

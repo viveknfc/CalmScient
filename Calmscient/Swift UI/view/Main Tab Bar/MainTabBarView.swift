@@ -39,20 +39,23 @@ struct MainTabBarView: View {
                 // navigation controller for this tab.
                 RewardsTabView(navigationTitle: viewModel.title(for: tab))
             } else if tab == .exercises {
-                ExercisesTabView(navigationTitle: viewModel.title(for: tab))
+                ExercisesTabView(
+                    navigationTitle: viewModel.title(for: tab),
+                    rootResetToken: viewModel.tabRootResetToken
+                )
             } else if tab == .home {
                 // The representable deliberately passed an empty navigation title for
                 // home (`tab == .home ? "" : …`), and the dashboard controller set none.
                 HomeTabView(
                     navigationTitle: "",
-                    showMedicationsAsHome: viewModel.useMedicationsForFirstTab
+                    showMedicationsAsHome: viewModel.useMedicationsForFirstTab,
+                    rootResetToken: viewModel.tabRootResetToken
                 )
             } else {
                 MainTabStoryboardHost(
                     generation: viewModel.contentGeneration,
                     tab: tab,
-                    showMedicationsAsHome: tab == .home && viewModel.useMedicationsForFirstTab,
-                    navigationTitle: tab == .home ? "" : viewModel.title(for: tab),
+                    navigationTitle: viewModel.title(for: tab),
                     tabTitle: viewModel.title(for: tab),
                     tabImageUnselectedName: unselectedName,
                     tabImageSelectedName: selectedName
@@ -60,7 +63,7 @@ struct MainTabBarView: View {
                 .modifier(DiscoveryTabFullWidthTopModifier(isDiscoveryTab: tab == .discovery))
             }
         }
-        .id("\(tab.rawValue)-\(viewModel.contentGeneration)")
+        .id(pageIdentity(for: tab))
         .tabItem {
             if let img = UIImage(named: unselectedName) {
                 Image(uiImage: img)
@@ -68,6 +71,18 @@ struct MainTabBarView: View {
             Text(viewModel.title(for: tab))
         }
         .tag(tab)
+    }
+
+    /// The UIKit-backed tab keeps the legacy "rebuild the whole stack" identity, because a
+    /// `UINavigationController` inside a representable is what `prepareTabs()` used to
+    /// replace. The native tabs must stay identity-stable: re-creating their
+    /// `NavigationStack` during a `TabView` transition left two `UIKitNavigationBar`s
+    /// fighting over one `UINavigationItem` and crashed UIKit's layout pass. They pop back
+    /// to their root via `tabRootResetToken` instead (see `MainTabBarViewModel`).
+    private func pageIdentity(for tab: MainTab) -> String {
+        tab.usesStoryboardHost
+            ? "\(tab.rawValue)-\(viewModel.contentGeneration)"
+            : "\(tab.rawValue)"
     }
 }
 

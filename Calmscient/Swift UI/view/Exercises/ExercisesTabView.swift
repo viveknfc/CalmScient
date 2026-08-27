@@ -24,6 +24,10 @@ import SwiftUI
 struct ExercisesTabView: View {
 
     let navigationTitle: String
+    /// Bumped by `MainTabBarViewModel` on every user tab selection. The tab used to be
+    /// rebuilt outright at that point (which is what crashed UIKit's navigation bar
+    /// layout), so popping to the root here keeps the same behaviour safely.
+    let rootResetToken: Int
 
     @State private var path: [ExercisesRoute] = []
     @StateObject private var viewModel = ExercisesViewModel()
@@ -41,6 +45,10 @@ struct ExercisesTabView: View {
                 .navigationDestination(for: ExercisesRoute.self) { route in
                     destination(for: route)
                 }
+        }
+        .onChange(of: rootResetToken) { _ in
+            guard !path.isEmpty else { return }
+            path.removeAll()
         }
     }
 

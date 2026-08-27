@@ -19,9 +19,13 @@
 //     (`prefersLargeTitles` was never enabled).
 //   • The tab bar item itself is unchanged — it has always come from SwiftUI's
 //     `.tabItem` in `MainTabBarView`, not from `nav.tabBarItem`.
-//   • `MainTabBarView` keys this view on `contentGeneration`, so a language change
-//     rebuilds it — the same effect the old representable got by rebuilding its
-//     navigation controller.
+//   • `MainTabBarView` gives this view a *stable* identity. It briefly keyed every tab
+//     page on `contentGeneration`, which is bumped on every tab tap — that destroyed and
+//     re-created this `NavigationStack` mid-transition, so two `UIKitNavigationBar`s
+//     ended up sharing one `UINavigationItem` and UIKit trapped with "Layout requested
+//     for visible navigation bar … when the top item belongs to a different navigation
+//     bar". The navigation title is a plain parameter, so a language change relocalizes
+//     it through an ordinary view update instead of a rebuild.
 //
 
 import SwiftUI

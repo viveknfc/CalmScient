@@ -15,6 +15,8 @@ struct HomeDashboardFavoritesSectionView: View {
     let favorites: [[String: Any]]
     let titleForFavorite: ([String: Any]) -> String
     let thumbnailURL: ([String: Any]) -> URL?
+    /// Bundled artwork for favourites the server sends no usable thumbnail for.
+    let fallbackImageName: ([String: Any]) -> String?
     let onFavoriteTap: ([String: Any]) -> Void
 
     var body: some View {
@@ -42,11 +44,15 @@ struct HomeDashboardFavoritesSectionView: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             } else {
                 ScrollView(.horizontal, showsIndicators: false) {
-                    HStack(spacing: 15) {
+                    // Top-aligned so every thumbnail and every title starts on the same
+                    // line. The default centring made a tile with a wrapping title float
+                    // upwards relative to its neighbours.
+                    HStack(alignment: .top, spacing: 15) {
                         ForEach(Array(favorites.enumerated()), id: \.offset) { _, item in
                             HomeDashboardFavoriteTileView(
                                 title: titleForFavorite(item),
                                 thumbnailURL: thumbnailURL(item),
+                                fallbackImageName: fallbackImageName(item),
                                 onTap: { onFavoriteTap(item) }
                             )
                         }
@@ -68,6 +74,7 @@ struct HomeDashboardFavoritesSectionView: View {
         favorites: [],
         titleForFavorite: { ($0["title"] as? String) ?? "" },
         thumbnailURL: { _ in nil },
+        fallbackImageName: { _ in nil },
         onFavoriteTap: { _ in }
     )
     .background(LoginDesignSystem.ColorName.pageBackground)
@@ -78,6 +85,8 @@ struct HomeDashboardFavoritesSectionView: View {
     let sample: [[String: Any]] = [
         ["title": "Mindfulness - what is it?", "thumbnailUrl": "https://picsum.photos/320/176"],
         ["title": "4–7–8 Breathing exercise", "thumbnailUrl": "https://picsum.photos/321/176"],
+        // An exercise favourite the backend sent no thumbnail for.
+        ["title": "Progressive muscle relaxation", "isFromExercises": 1, "screenCode": 9],
     ]
 
     return HomeDashboardFavoritesSectionView(
@@ -88,6 +97,13 @@ struct HomeDashboardFavoritesSectionView: View {
         thumbnailURL: { dict in
             guard let s = dict["thumbnailUrl"] as? String else { return nil }
             return URL(string: s)
+        },
+        fallbackImageName: { dict in
+            guard (dict["isFromExercises"] as? Int) == 1,
+                  let code = dict["screenCode"] as? Int,
+                  let exercise = ExcercisesTypeEnum(rawValue: code)
+            else { return nil }
+            return exercise.favoriteThumbnailAssetName
         },
         onFavoriteTap: { _ in }
     )

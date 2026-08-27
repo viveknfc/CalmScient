@@ -11,10 +11,10 @@ import UIKit
 
 /// Turns the current HealthKit state into one `WearableDataUploadRequest`.
 ///
-/// Reads run concurrently through `async let` rather than the sequential loop `loadAll()` uses on
-/// the dashboard. That matters here and not there: a background wake-up gets roughly thirty
-/// seconds in total, and twenty HealthKit round trips one after another can eat a real share of
-/// it. On the dashboard the user is watching a spinner and the order is harmless.
+/// Reads run concurrently through `async let`, for the same reason `HealthMetricsViewModel` fans
+/// its own reads out across a task group: twenty HealthKit round trips one after another add up,
+/// and here there is a hard ceiling on the total — a background wake-up gets roughly thirty
+/// seconds.
 ///
 /// Anything HealthKit cannot answer becomes `""`. Never `"0"` — a clinician reading "weight 0 kg"
 /// sees a measurement, not a gap.

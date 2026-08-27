@@ -231,6 +231,16 @@ public enum WeeklySummaryItems:String {
         }
         
         NetworkLogger.log(request: apiRequest)
+
+        // Console-only trace. This request is built from `EndPointRequest` directly
+        // rather than through `APIService`, so it needs its own log line.
+        APILogger.logRequest(
+            apiRequest,
+            params: weekySummaryRequestForm.requestBody,
+            placement: "body",
+            label: "weeklySummary"
+        )
+
         let task = URLSession.shared.dataTask(with: apiRequest) { data, response, error in
             NetworkLogger.log(response: data)
             

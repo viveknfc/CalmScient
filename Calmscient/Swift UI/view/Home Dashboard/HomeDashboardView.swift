@@ -43,6 +43,7 @@ struct HomeDashboardView: View {
                     favorites: viewModel.favorites,
                     titleForFavorite: { viewModel.localizedFavoriteTitle(for: $0) },
                     thumbnailURL: { viewModel.thumbnailURL(for: $0) },
+                    fallbackImageName: { viewModel.fallbackThumbnailAssetName(for: $0) },
                     onFavoriteTap: { viewModel.openFavorite($0) }
                 )
                 

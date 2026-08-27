@@ -21,11 +21,9 @@ struct HealthMetricsView: View {
                         .padding(.horizontal, 20)
                 }
 
-                // Only a finished load can say "there is nothing here". Before that this
-                // label used to flash for the frame or two between the screen appearing
-                // and `loadAll()` setting `isLoading`, which read as a flick — most
-                // visibly on a first-ever open, where the HealthKit permission sheet
-                // stretches that gap out.
+                // Only a finished load can say "there is nothing here". Kept as a safety
+                // net: the view model publishes one section per category from `init()`, so
+                // in practice `sections` is never empty and this does not appear.
                 if viewModel.isInitialLoadFinished && viewModel.sections.isEmpty && !viewModel.isLoading {
                     Text("No health data yet. Add data in the Health app, then pull to refresh.".localized)
                         .font(.footnote)
@@ -40,16 +38,19 @@ struct HealthMetricsView: View {
         }
         .background(Color(.systemGroupedBackground))
         .refreshable { await viewModel.refresh() }
-        // One placeholder that holds from the first frame until rows exist, instead of
-        // empty-text → spinner → rows. `isInitialLoadFinished` covers the window before
-        // `loadAll()` even starts (permission sheet); the second clause keeps the old
-        // behaviour for any later load that finds no rows.
-        .overlay {
-            if !viewModel.isInitialLoadFinished || (viewModel.isLoading && viewModel.sections.isEmpty) {
-                ProgressView()
-                    .transition(.opacity)
-            }
-        }
+        // There is deliberately no loading placeholder here any more.
+        //
+        // A full-screen `ProgressView` was covering the page until the first read finished,
+        // and it was the visible half of the problem: the navigation transition landed on a
+        // page that had the finished nav bar and an otherwise empty body, then the whole list
+        // appeared in one crossfade half a second later. Two separate events, which reads as
+        // a flash rather than as loading.
+        //
+        // The view model now publishes the real sections from `init()` — the catalog is
+        // static, so every row exists before any value does, showing "--" until it is read —
+        // so the page arrives complete and only the numbers change. Nothing is ever covered,
+        // and there is nothing left to crossfade.
+
         // Date range calendar — a popup over this screen, so "Search" pushes the
         // results from here and back from the results returns to Health Metrics.
         .overlay {
@@ -59,8 +60,6 @@ struct HealthMetricsView: View {
             }
         }
         .animation(.easeInOut(duration: 0.2), value: viewModel.isDateRangePickerPresented)
-        // Crossfade the placeholder into the rows rather than swapping them in one frame.
-        .animation(.easeInOut(duration: 0.2), value: viewModel.isInitialLoadFinished)
     }
 }
 
