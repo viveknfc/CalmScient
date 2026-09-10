@@ -24,23 +24,33 @@ struct ProgressiveView: View {
                     onFavoriteTap: viewModel.toggleFavorite
                 )
 
-                ProgressiveEqualizerView(
-                    imageName: ProgressivePresentation.equalizerImageName,
-                    progress: viewModel.progress
-                )
-                .padding(.top, 45)
-                .padding(.horizontal, 30)
+                if viewModel.isAudioComingSoon {
+                    Text(viewModel.comingSoonTitle)
+                        .font(.system(size: 20, weight: .semibold))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.secondary)
+                        .frame(maxWidth: .infinity)
+                        .padding(.top, 60)
+                        .padding(.horizontal, 30)
+                } else {
+                    ProgressiveEqualizerView(
+                        imageName: ProgressivePresentation.equalizerImageName,
+                        progress: viewModel.progress
+                    )
+                    .padding(.top, 45)
+                    .padding(.horizontal, 30)
 
-                ProgressiveAudioControlsView(
-                    rewindImageName: ProgressivePresentation.rewindImageName,
-                    playPauseImageName: viewModel.playPauseImageName,
-                    forwardImageName: ProgressivePresentation.forwardImageName,
-                    isPlayerReady: viewModel.isPlayerReady,
-                    onRewind: viewModel.seekBackwardTenSeconds,
-                    onPlayPause: viewModel.togglePlayPause,
-                    onForward: viewModel.seekForwardTenSeconds
-                )
-                .padding(.top, 37)
+                    ProgressiveAudioControlsView(
+                        rewindImageName: ProgressivePresentation.rewindImageName,
+                        playPauseImageName: viewModel.playPauseImageName,
+                        forwardImageName: ProgressivePresentation.forwardImageName,
+                        isPlayerReady: viewModel.isPlayerReady,
+                        onRewind: viewModel.seekBackwardTenSeconds,
+                        onPlayPause: viewModel.togglePlayPause,
+                        onForward: viewModel.seekForwardTenSeconds
+                    )
+                    .padding(.top, 37)
+                }
 
                 Spacer(minLength: 220)
 

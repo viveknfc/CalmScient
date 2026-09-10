@@ -30,7 +30,7 @@ struct HomeDashboardMenuCardView: View {
                 }
 
                 Text(title)
-                    .font(LoginDesignSystem.Typography.lexendMedium(size: 18))
+                    .font(LoginDesignSystem.Typography.lexendMedium(size: 16))
                     .foregroundStyle(LoginDesignSystem.ColorName.titleGray)
                     .multilineTextAlignment(.leading)
                     .frame(maxWidth: .infinity, alignment: .leading)

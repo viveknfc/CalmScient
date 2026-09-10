@@ -1099,6 +1099,7 @@ Ready?";
 "Time to track your well-being." = "Time to track your well-being.";
 
 // Full coming soon modal (Swift UI)
+"exercise_audio_coming_soon" = "Coming soon";
 "full_coming_soon_title" = "Coming Soon!";
 "full_coming_soon_subtitle" = "Full version will be available soon!";
 "full_coming_soon_features_question" = "What features can you use\nin full version?";

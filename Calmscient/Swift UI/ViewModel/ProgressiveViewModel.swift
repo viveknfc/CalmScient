@@ -35,6 +35,9 @@ final class ProgressiveViewModel: ObservableObject {
     @Published private(set) var isPlaying = false
     @Published private(set) var progress: CGFloat = 0
 
+    @Published private(set) var isAudioComingSoon = false
+    @Published private(set) var comingSoonTitle = ""
+    
     private(set) var player: AVPlayer?
     private var statusObserver: NSKeyValueObservation?
     private var timeControlObserver: NSKeyValueObservation?
@@ -58,8 +61,12 @@ final class ProgressiveViewModel: ObservableObject {
 
     func onHostViewDidLoad() {
         reloadLocalizedStrings()
-        configureAudioSession()
         loadFavoriteState()
+
+        isAudioComingSoon = !PatientLanguagePreference.shouldPlayExerciseAudio()
+        guard !isAudioComingSoon else { return }
+
+        configureAudioSession()
         setupPlayer()
     }
 
@@ -87,6 +94,7 @@ final class ProgressiveViewModel: ObservableObject {
     // MARK: - Localization
 
     func reloadLocalizedStrings() {
+        comingSoonTitle = ProgressivePresentation.comingSoonKey.localized
         screenTitle = ProgressivePresentation.screenTitleKey.localized
         completeButtonTitle = ProgressivePresentation.completeButtonTitleKey.localized
     }
@@ -109,6 +117,9 @@ final class ProgressiveViewModel: ObservableObject {
     // MARK: - Audio controls
 
     func togglePlayPause() {
+        
+        guard !isAudioComingSoon else { return }
+        
         guard isPlayerReady, let player else { return }
 
         if isPlaying {
@@ -169,6 +180,9 @@ final class ProgressiveViewModel: ObservableObject {
     }
 
     private func setupPlayer() {
+        
+        guard !isAudioComingSoon else { return }
+        
         guard let url = URL(string: ProgressivePresentation.audioURLKey.localized) else { return }
         tearDownPlayer()
 

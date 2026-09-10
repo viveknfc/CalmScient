@@ -296,7 +296,7 @@
 "DRINKING_CONTROL_Count" = "カウント";
 "DRINKING_CONTROL_Video_Sub_Header" = "ビデオを見てみましょう";
 "BASIC_KNOWLEDGE_Tipsy_Truth" = "Tipsy Truth";
-"BASIC_KNOWLEDGE_Brain_Video_URL" = "https://media.calmscient.in/uploads/course/Tipsy_truth_with_subtitle.mp4";
+"BASIC_KNOWLEDGE_Brain_Video_URL" = "https://pub-98eacb9c868140728451ae849bec9187.r2.dev/%E8%BF%91%E6%97%A5%E5%85%AC%E9%96%8B_1sec%201.mp4"; //"https://media.calmscient.in/uploads/course/Tipsy_truth_with_subtitle.mp4";
 "Mood_by_date_range" = "期間中の気分";
 "Sleep_by_date_range" = "日付範囲別睡眠時間";
 "PHQ-9_by_date_range" = "期間中のPHQ-9スコア";
@@ -409,9 +409,9 @@
 "counts" = "カウント";
 "https://media.calmscient.in/uploads/exercises-audios/MindfulWalkingWithMusicEnglish.mp3" = "https://media.calmscient.in/uploads/exercises-audios/MindfulWalkingWithMusicEnglish.mp3";
 "https://media.calmscient.in/uploads/exercises-audios/ProgressiveMuscleRelaxationEnglishWithMusic.wav" = "https://media.calmscient.in/uploads/exercises-audios/ProgressiveMuscleRelaxationEnglishWithMusic.wav";
-"https://media.calmscient.in/uploads/exercises-videos/4-7-8Breathing.mp4" = "https://media.calmscient.in/uploads/exercises-videos/4-7-8Breathing.mp4";
-"https://media.calmscient.in/uploads/exercises-videos/Diaphragmaticbreathing.mp4" = "https://media.calmscient.in/uploads/exercises-videos/Diaphragmaticbreathing.mp4";
-"https://media.calmscient.in/uploads/exercises-videos/Mindfulbreathing.mp4" = "https://media.calmscient.in/uploads/exercises-videos/Mindfulbreathing.mp4";
+"https://media.calmscient.in/uploads/exercises-videos/4-7-8Breathing.mp4" = "https://pub-98eacb9c868140728451ae849bec9187.r2.dev/%E8%BF%91%E6%97%A5%E5%85%AC%E9%96%8B_1sec%201.mp4"; //"https://media.calmscient.in/uploads/exercises-videos/4-7-8Breathing.mp4";
+"https://media.calmscient.in/uploads/exercises-videos/Diaphragmaticbreathing.mp4" = "https://pub-98eacb9c868140728451ae849bec9187.r2.dev/%E8%BF%91%E6%97%A5%E5%85%AC%E9%96%8B_1sec%201.mp4"; //"https://media.calmscient.in/uploads/exercises-videos/Diaphragmaticbreathing.mp4";
+"https://media.calmscient.in/uploads/exercises-videos/Mindfulbreathing.mp4" = "https://pub-98eacb9c868140728451ae849bec9187.r2.dev/%E8%BF%91%E6%97%A5%E5%85%AC%E9%96%8B_1sec%201.mp4"; //"https://media.calmscient.in/uploads/exercises-videos/Mindfulbreathing.mp4";
 "pros:" = "メリット:";
 "times" = "回";
 "Edit" = "編集";
@@ -852,6 +852,7 @@ Pay careful attention to the following video." = "それでは始めましょう
 "Time to track your well-being." = "ウェルビーイングを記録する時間です。";
 
 // Full coming soon modal (Swift UI)
+"exercise_audio_coming_soon" = "近日公開";
 "full_coming_soon_title" = "近日公開！";
 "full_coming_soon_subtitle" = "フルバージョンはまもなく利用可能になります！";
 "full_coming_soon_features_question" = "フルバージョンではどのような機能が使えますか？";

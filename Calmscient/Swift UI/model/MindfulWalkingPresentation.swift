@@ -15,6 +15,7 @@ enum MindfulWalkingPresentation {
     static let screenTitleKey = "Mindful walking"
     static let questionTitleKey = "Benefits_of_mindful_walking"
     static let completeButtonTitleKey = "Complete"
+    static let comingSoonKey = "exercise_audio_coming_soon"
 
     static let heroImageName = "mindful"
     static let equalizerImageName = "emptyEqualizer"

@@ -62,6 +62,15 @@ enum PatientLanguagePreference {
     static func shouldShowNeedToTalkButton() -> Bool {
         normalizedDisplayName(currentDisplayName()) != "japanese"
     }
+    
+    /// Exercise audio has no Japanese recording yet; screens show a "coming soon" state instead.
+    static func isJapanese() -> Bool {
+        normalizedDisplayName(currentDisplayName()) == "japanese"
+    }
+
+    static func shouldPlayExerciseAudio() -> Bool {
+        !isJapanese()
+    }
 
     static func persistLoginLanguage(languageId: Int) {
         let id = languageId == 0 ? 1 : languageId

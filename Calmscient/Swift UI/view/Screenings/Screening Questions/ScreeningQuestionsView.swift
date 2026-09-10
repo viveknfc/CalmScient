@@ -51,14 +51,6 @@ struct ScreeningQuestionsView: View {
 
             ScreeningQuestionsBottomBarView(viewModel: viewModel)
         }
-        .overlay {
-            if viewModel.isLoading {
-                ProgressView()
-                    .progressViewStyle(.circular)
-                    .padding(24)
-                    .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12))
-            }
-        }
     }
 }
 

@@ -25,23 +25,33 @@ struct MindfulWalkingView: View {
                     onFavoriteTap: viewModel.toggleFavorite
                 )
 
-                ProgressiveEqualizerView(
-                    imageName: MindfulWalkingPresentation.equalizerImageName,
-                    progress: viewModel.progress
-                )
-                .padding(.top, 30)
-                .padding(.horizontal, 30)
+                if viewModel.isAudioComingSoon {
+                    Text(viewModel.comingSoonTitle)
+                        .font(.system(size: 20, weight: .semibold))
+                        .multilineTextAlignment(.center)
+                        .foregroundColor(.secondary)
+                        .frame(maxWidth: .infinity)
+                        .padding(.top, 60)
+                        .padding(.horizontal, 30)
+                } else {
+                    ProgressiveEqualizerView(
+                        imageName: MindfulWalkingPresentation.equalizerImageName,
+                        progress: viewModel.progress
+                    )
+                    .padding(.top, 30)
+                    .padding(.horizontal, 30)
 
-                ProgressiveAudioControlsView(
-                    rewindImageName: MindfulWalkingPresentation.rewindImageName,
-                    playPauseImageName: viewModel.playPauseImageName,
-                    forwardImageName: MindfulWalkingPresentation.forwardImageName,
-                    isPlayerReady: viewModel.isPlayerReady,
-                    onRewind: viewModel.seekBackwardTenSeconds,
-                    onPlayPause: viewModel.togglePlayPause,
-                    onForward: viewModel.seekForwardTenSeconds
-                )
-                .padding(.top, 30)
+                    ProgressiveAudioControlsView(
+                        rewindImageName: MindfulWalkingPresentation.rewindImageName,
+                        playPauseImageName: viewModel.playPauseImageName,
+                        forwardImageName: MindfulWalkingPresentation.forwardImageName,
+                        isPlayerReady: viewModel.isPlayerReady,
+                        onRewind: viewModel.seekBackwardTenSeconds,
+                        onPlayPause: viewModel.togglePlayPause,
+                        onForward: viewModel.seekForwardTenSeconds
+                    )
+                    .padding(.top, 30)
+                }
 
                 MindfulWalkingBenefitsListView(benefits: viewModel.benefits)
                     .padding(.horizontal, 20)

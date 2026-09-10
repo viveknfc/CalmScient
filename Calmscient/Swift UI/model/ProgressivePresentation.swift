@@ -15,6 +15,7 @@ enum ProgressivePresentation {
     static let screenTitleKey = "Progressive muscle relaxation"
     static let completeButtonTitleKey = "Complete"
     static let silentModeToastKey = "exercise_audio_silent_mode_toast"
+    static let comingSoonKey = "exercise_audio_coming_soon"
 
     static let heroImageName = "progressive"
     static let equalizerImageName = "emptyEqualizer"

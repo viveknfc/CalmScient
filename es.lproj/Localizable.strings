@@ -1114,6 +1114,7 @@ Pero, tienes el control total sobre la decisión respecto a tu hábito.
 "Time to track your well-being." = "Es hora de registrar tu bienestar.";
 
 // Full coming soon modal (Swift UI)
+"exercise_audio_coming_soon" = "Próximamente";
 "full_coming_soon_title" = "¡Próximamente!";
 "full_coming_soon_subtitle" = "¡La versión completa estará disponible pronto!";
 "full_coming_soon_features_question" = "¿Qué funciones podrás usar en la versión completa?";
