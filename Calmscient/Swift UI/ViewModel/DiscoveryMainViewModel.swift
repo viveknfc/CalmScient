@@ -26,11 +26,13 @@ final class DiscoveryMainViewModel: ObservableObject {
 
     func reloadLocalizedStrings() {
         screenTitle = "Discovery".localized
-        rows = [
+        let allRows = [
             DiscoveryMainRowPresentation(id: 0, title: "Managing anxiety".localized, imageName: "img1"),
             DiscoveryMainRowPresentation(id: 1, title: "Changing your response to stress".localized, imageName: "img2"),
             DiscoveryMainRowPresentation(id: 2, title: "Taking control".localized, imageName: "img3"),
         ]
+
+        rows = PatientLanguagePreference.isJapanese() ? Array(allRows.prefix(1)) : allRows
     }
 
     func onHostWillAppear() {
